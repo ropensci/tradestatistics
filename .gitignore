@@ -1,0 +1,9 @@
+.Rproj.user
+.Rhistory
+.Ruserdata
+.Rapp.history
+.build.timestamp
+.DS_Store
+__MACOSX
+*.tex
+*.tar.gz

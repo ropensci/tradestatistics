@@ -1,0 +1,37 @@
+Package: tradestatistics
+Type: Package
+Title: Open Trade Statistics API Wrapper and Utility Program
+Version: 0.1
+Authors@R: c(
+  person("Mauricio", "Vargas S.", role = c("aut", "cre", "cph"), email = "mvargas@dcc.uchile.cl"),
+  person("Joshua", "Kunst", role = c("ctb")),
+  person("Amanda", "Dobbyn", role = c("ctb")),
+  person("Jorge", "Cimentada", role = c("ctb")),
+  person(family = "UN Comtrade", role = c("dtc"))
+  )
+URL: https://tradestatistics.github.io/tradestatistics
+BugReports: https://github.com/tradestatistics/ts-r-package/issues
+Description: Access Open Trade Statistics API from R to download international trade data.
+License: GPL-3
+LazyData: TRUE
+Depends:
+  R (>= 3.2)
+Imports:
+  rlang,
+  magrittr,
+  dplyr,
+  stringr,
+  crul,
+  purrr,
+  jsonlite
+RoxygenNote: 6.1.1
+Suggests: 
+  knitr,
+  rmarkdown,
+  testthat,
+  covr,
+  styler,
+  pkgdown,
+  vcr
+VignetteBuilder: knitr
+Encoding: UTF-8
