@@ -32,8 +32,8 @@
 
 <meta property="og:title" content="Downloads and processes the data from the API — get_data" />
 
-<meta property="og:description" content="This function accesses atlas.media.mit.eduand perfoms different API 
-calls to return tidy data. and data transforming." />
+<meta property="og:description" content="This function accesses api.tradestatistics.io and 
+performs different API calls to return tidy data. and data transforming." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -117,8 +117,8 @@ calls to return tidy data. and data transforming." />
 
     <div class="ref-description">
     
-    <p>This function accesses <code>atlas.media.mit.edu</code>and perfoms different API 
-calls to return tidy data. and data transforming.</p>
+    <p>This function accesses <code>api.tradestatistics.io</code> and 
+performs different API calls to return tidy data. and data transforming.</p>
     
     </div>
 
@@ -130,25 +130,26 @@ calls to return tidy data. and data transforming.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>years</th>
-      <td><p>Numeric value greater or equal to 1962 and lower of equal to 2016. 
-Default set to <code>NULL</code>.</p></td>
+      <td><p>Numeric value greater or equal to 1962 and lower of equal 
+to 2016. Default set to <code>NULL</code>.</p></td>
     </tr>
     <tr>
       <th>reporter</th>
-      <td><p>ISO code for country of reporter (e.g. <code>chl</code> for Chile). 
-Default set to <code>NULL</code>.
+      <td><p>ISO code for country of reporter (e.g. <code>chl</code> for 
+Chile). Default set to <code>NULL</code>.
 Run <code>countries</code> in case of doubt.</p></td>
     </tr>
     <tr>
       <th>partner</th>
-      <td><p>ISO code for country of partner (e.g. <code>chn</code> for China). 
-Default set to <code>NULL</code>.
+      <td><p>ISO code for country of partner (e.g. <code>chn</code> for 
+China). Default set to <code>NULL</code>.
 Run <code>countries</code> in case of doubt.</p></td>
     </tr>
     <tr>
       <th>commodity_code_length</th>
       <td><p>Character string to indicate the granularity level on commodities. 
-Default set to <code>4</code> (it can also take the values <code>6</code> or <code>all</code>).</p></td>
+Default set to <code>4</code> (it can also take the values <code>6</code> or 
+<code>all</code>).</p></td>
     </tr>
     <tr>
       <th>table</th>
@@ -158,17 +159,18 @@ Run <code>tables</code> in case of doubt.</p></td>
     </tr>
     <tr>
       <th>max_attempts</th>
-      <td><p>How many times to try to download data in case the API or the internet 
-connection fails when obtaining data. Default set to <code>5</code>.</p></td>
+      <td><p>How many times to try to download data in case the 
+API or the internet connection fails when obtaining data. Default set 
+to <code>5</code>.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A tibble that describes bilateral trade metrics (imports, exports, trade balance
-and relevant metrics
-such as exports growth w/r to last year) between an <code>reporter</code> and <code>partner</code>
-country.</p>
+    <p>A tibble that describes bilateral trade metrics (imports, 
+exports, trade balance and relevant metrics
+such as exports growth w/r to last year) between an <code>reporter</code> 
+and <code>partner</code> country.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>

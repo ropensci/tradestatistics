@@ -119,7 +119,7 @@
 <a href="#product-codes" class="anchor"></a>Product codes</h2>
 <p>Open Trade Statistics (aka OTS) takes data classified using either HS92, HS96, HS02 and HS07 (Harmonized System) or SITC rev. 1 and rev. 2 (Standard International Trade Classification). A part of our project is to combine all of this under HS07 codes, and to make it available for the period 1962-2016 even for the years before 2007 when HS07 was not even created nor in use.</p>
 <p>As <a href="https://comtrade.un.org/db/mr/rfglossarylist.aspx">UN Comtrade</a> explains both HS and SITC are trade classifications that are updated by releasing new revisions, and when a classification is released then it remains unaltered. For example, HS92 was released in 1992 and its product codes remain unaltered until today, while newer classifications (e.g. HS07) were created to include newer products (e.g. it was important to provide more details about electronic products that did not exist when HS92 was created).</p>
-<p>Each of these classifications consists in numeric codes and a detailed product name associated to each code, for example HS92 (and all HS revisions) contain 4 and 6 digits long codes while SITC does only cointain 4 digits long codes in our cleaned datasets (there are 5 digits long SITC codes that we are not using):</p>
+<p>Each of these classifications consists in numeric codes and a detailed product name associated to each code, for example HS92 (and all HS revisions) contain 4 and 6 digits long codes while SITC does only contain 4 digits long codes in our cleaned datasets (there are 5 digits long SITC codes that we are not using):</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">products</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">#&gt; # A tibble: 6,275 x 4</span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt;    commodity_code product_fullname_english           group_code group_name</span></a>
@@ -158,8 +158,8 @@
 <a class="sourceLine" id="cb3-10" data-line-number="10"></a>
 <a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co"># Double match with no replacement</span></a>
 <a class="sourceLine" id="cb3-12" data-line-number="12"><span class="kw"><a href="../reference/get_countrycode.html">get_countrycode</a></span>(<span class="st">"Germany"</span>)</a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt; There is more than one match for your search. Please try again using</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt;             one of these codes:</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt; There is more than one match for your search. Please try again </span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt;        using one of these codes:</span></a>
 <a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt; # A tibble: 2 x 6</span></a>
 <a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt;   country_iso country_name_en… country_fullnam… continent_id continent</span></a>
 <a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt;   &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;                   &lt;int&gt; &lt;chr&gt;    </span></a>
@@ -243,7 +243,7 @@
 <li>
 <code>export_value_usd</code>: Exports measured in nominal United States Dollars (USD)</li>
 <li>
-<code>import_value_usd</code>: Imports mesured in nominal United States Dollars (USD)</li>
+<code>import_value_usd</code>: Imports measured in nominal United States Dollars (USD)</li>
 <li>
 <code>export_value_usd_percentage_change_1_year</code>: Nominal increase/decrease in exports measured as percentage with respect to last year</li>
 <li>
