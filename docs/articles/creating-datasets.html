@@ -76,7 +76,7 @@
       <h1>Creating the datasets available within the package</h1>
                         <h4 class="author">Mauricio Vargas S.</h4>
             
-            <h4 class="date">2019-01-05</h4>
+            <h4 class="date">2019-01-06</h4>
       
       
       <div class="hidden name"><code>creating-datasets.Rmd</code></div>
@@ -94,7 +94,7 @@
 <a class="sourceLine" id="cb1-3" data-line-number="3">tables_tidy_file &lt;-<span class="st"> "../data/tables.RData"</span></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"></a>
 <a class="sourceLine" id="cb1-5" data-line-number="5"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/files">file.exists</a></span>(tables_tidy_file)) {</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">  tables &lt;-<span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">  tables &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(</a>
 <a class="sourceLine" id="cb1-7" data-line-number="7">    <span class="dt">table =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(</a>
 <a class="sourceLine" id="cb1-8" data-line-number="8">        <span class="st">"countries"</span>,</a>
 <a class="sourceLine" id="cb1-9" data-line-number="9">        <span class="st">"products"</span>,</a>
@@ -148,9 +148,9 @@
 <a class="sourceLine" id="cb2-7" data-line-number="7"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/files">file.exists</a></span>(countries_raw_file)) { <span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/download.file">download.file</a></span>(countries_url, countries_raw_file) }</a>
 <a class="sourceLine" id="cb2-8" data-line-number="8"></a>
 <a class="sourceLine" id="cb2-9" data-line-number="9"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/files">file.exists</a></span>(countries_tidy_file)) {</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">  countries &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/jsonlite/topics/fromJSON">fromJSON</a></span>(countries_raw_file) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>()</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">  countries &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/jsonlite/topics/fromJSON">fromJSON</a></span>(countries_raw_file) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>()</a>
 <a class="sourceLine" id="cb2-11" data-line-number="11">  </a>
-<a class="sourceLine" id="cb2-12" data-line-number="12">  world &lt;-<span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">  world &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(</a>
 <a class="sourceLine" id="cb2-13" data-line-number="13">    <span class="dt">country_iso =</span> <span class="st">"all"</span>,</a>
 <a class="sourceLine" id="cb2-14" data-line-number="14">    <span class="dt">country_name_english =</span> <span class="st">"All Countries"</span>,</a>
 <a class="sourceLine" id="cb2-15" data-line-number="15">    <span class="dt">country_fullname_english =</span> <span class="st">"All Countries (this is an alias to show several reporters/partners on API calls)"</span>,</a>
@@ -159,7 +159,7 @@
 <a class="sourceLine" id="cb2-18" data-line-number="18">    <span class="dt">eu28_member =</span> <span class="ot">NA</span></a>
 <a class="sourceLine" id="cb2-19" data-line-number="19">  )</a>
 <a class="sourceLine" id="cb2-20" data-line-number="20">  </a>
-<a class="sourceLine" id="cb2-21" data-line-number="21">  countries &lt;-<span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span>(countries, world)</a>
+<a class="sourceLine" id="cb2-21" data-line-number="21">  countries &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span>(countries, world)</a>
 <a class="sourceLine" id="cb2-22" data-line-number="22">  </a>
 <a class="sourceLine" id="cb2-23" data-line-number="23">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/save">save</a></span>(countries, <span class="dt">file =</span> countries_tidy_file, <span class="dt">compress =</span> <span class="st">"xz"</span>)</a>
 <a class="sourceLine" id="cb2-24" data-line-number="24">}</a></code></pre></div>
@@ -174,7 +174,7 @@
 <a class="sourceLine" id="cb3-5" data-line-number="5"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/files">file.exists</a></span>(products_raw_file)) { <span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/download.file">download.file</a></span>(products_url, products_raw_file) }</a>
 <a class="sourceLine" id="cb3-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb3-7" data-line-number="7"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/files">file.exists</a></span>(products_tidy_file)) {</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">  products &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/jsonlite/topics/fromJSON">fromJSON</a></span>(products_raw_file) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>()</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">  products &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/jsonlite/topics/fromJSON">fromJSON</a></span>(products_raw_file) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>()</a>
 <a class="sourceLine" id="cb3-9" data-line-number="9">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/save">save</a></span>(products, <span class="dt">file =</span> products_tidy_file, <span class="dt">compress =</span> <span class="st">"xz"</span>)</a>
 <a class="sourceLine" id="cb3-10" data-line-number="10">}</a></code></pre></div>
 </div>
