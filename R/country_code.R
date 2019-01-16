@@ -1,10 +1,11 @@
-#' Obtain valid country codes in ISO-3 format
+#' Obtain a table of official country names and ISO-3 codes according to
+#' the United Nations nomenclature
 #' @description This function takes a text string and searches within the 
 #' package data for a country code in the context of valid API country codes.
 #' @param countryname A text string such as "Chile", "CHILE" or "CHL".
 #' @return A single character if there is a exact match (e.g. 
-#' \code{get_countrycode("Chile")}) or a tibble in case of multiple matches 
-#' (e.g. \code{get_countrycode("Germany")})
+#' \code{country_code("Chile")}) or a tibble in case of multiple matches 
+#' (e.g. \code{country_code("Germany")})
 #' @importFrom magrittr %>%
 #' @importFrom dplyr select filter
 #' @importFrom rlang sym
@@ -13,16 +14,16 @@
 #' @export
 #' @examples
 #' # Single match with no replacement
-#' get_countrycode("Chile")
+#' country_code("Chile")
 #' 
 #' # Single match with replacement
-#' get_countrycode("America")
+#' country_code("America")
 #' 
 #' # Double match with no replacement
-#' get_countrycode("Germany")
+#' country_code("Germany")
 #' @keywords functions
 
-get_countrycode <- function(countryname = NULL) {
+country_code <- function(countryname = NULL) {
   countryname <- str_to_lower(countryname)
 
   if (countryname == "all") {

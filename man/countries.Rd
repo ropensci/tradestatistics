@@ -1,9 +1,11 @@
 \name{countries}
 \alias{countries}
-\title{Countries}
+\title{Country metadata}
 \docType{data}
 \description{
-Provides details about countries.
+A table of official country names, ISO-3 codes and other
+relevant information according to the United Nations official
+sources
 }
 \usage{countries}
 \format{

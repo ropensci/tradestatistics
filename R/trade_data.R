@@ -39,11 +39,11 @@
 #' # Run `countries` to display the full table of countries
 #'
 #' # What does Chile export to China?
-#' get_data(reporter = "chl", partner = "chn", years = 2015)
+#' trade_data(reporter = "chl", partner = "chn", years = 2015)
 #' }
 #' @keywords functions
 
-get_data <- function(years = NULL, 
+trade_data <- function(years = NULL, 
                      reporter = NULL, 
                      partner = NULL, 
                      commodity_code_length = 4, 
@@ -88,7 +88,7 @@ get_data <- function(years = NULL,
     if (!reporter %in% countries$country_iso & 
         table %in% reporter_depending_queries
     ) {
-      reporter <- get_countrycode(reporter)
+      reporter <- country_code(reporter)
       match.arg(reporter, countries$country_iso)
     }
   }
@@ -97,7 +97,7 @@ get_data <- function(years = NULL,
     if (!partner %in% countries$country_iso & 
         table %in% partner_depending_queries
     ) {
-      partner <- get_countrycode(partner)
+      partner <- country_code(partner)
       match.arg(partner, countries$country_iso)
     }
   }

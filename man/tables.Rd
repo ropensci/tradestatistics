@@ -3,7 +3,7 @@
 \title{Available tables in the API}
 \docType{data}
 \description{
-Provides a detail of valid queries by table.
+A table describing API tables with valid query examples
 }
 \usage{tables}
 \format{

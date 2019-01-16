@@ -1,9 +1,10 @@
 \name{products}
 \alias{products}
-\title{HS07 products}
+\title{Product metadata}
 \docType{data}
 \description{
-Provides details about HS07 commodity codes.
+A table of official product names, Harmonized System (HS) codes 
+and corresponding groups according to the United Nations nomenclature
 }
 \usage{products}
 \format{

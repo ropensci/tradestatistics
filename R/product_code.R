@@ -1,4 +1,5 @@
-#' Obtain a valid product codes
+#' Obtain a table of official product names and Harmonized System (HS) codes 
+#' according to the United Nations nomenclature
 #' @description This function takes a text string and searches within the 
 #' package data for all matching product codes in the context of valid API 
 #' product codes.
@@ -13,11 +14,11 @@
 #' @importFrom utils data
 #' @export
 #' @examples
-#' get_productcode("animals")
-#' get_productcode("fruits")
+#' product_code("animals")
+#' product_code("fruits")
 #' @keywords functions
 
-get_productcode <- function(productname = NULL) {
+product_code <- function(productname = NULL) {
   # get the products dataset, create the type_product column, 
   # bind them all together and do the search
   tradestatistics::products %>%
