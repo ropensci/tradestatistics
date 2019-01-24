@@ -1,11 +1,11 @@
 #' Obtain a table of official country names and ISO-3 codes according to
 #' the United Nations nomenclature
-#' @description This function takes a text string and searches within the 
+#' @description This function takes a text string and searches within the
 #' package data for a country code in the context of valid API country codes.
 #' @param countryname A text string such as "Chile", "CHILE" or "CHL".
-#' @return A single character if there is a exact match (e.g. 
-#' \code{country_code("Chile")}) or a tibble in case of multiple matches 
-#' (e.g. \code{country_code("Germany")})
+#' @return A single character if there is a exact match (e.g.
+#' \code{ots_country_code("Chile")}) or a tibble in case of multiple matches
+#' (e.g. \code{ots_country_code("Germany")})
 #' @importFrom magrittr %>%
 #' @importFrom dplyr select filter
 #' @importFrom rlang sym
@@ -14,21 +14,17 @@
 #' @export
 #' @examples
 #' # Single match with no replacement
-#' country_code("Chile")
+#' ots_country_code("Chile")
 #' 
 #' # Single match with replacement
-#' country_code("America")
+#' ots_country_code("America")
 #' 
 #' # Double match with no replacement
-#' country_code("Germany")
+#' ots_country_code("Germany")
 #' @keywords functions
 
-country_code <- function(countryname = NULL) {
+ots_country_code <- function(countryname = NULL) {
   countryname <- str_to_lower(countryname)
-
-  if (countryname == "all") {
-    countryname <- "all countries"
-  }
 
   countryname <- switch(countryname,
     "us" = "usa",
@@ -51,7 +47,7 @@ country_code <- function(countryname = NULL) {
     countryname
   )
 
-  countrycode <- tradestatistics::countries %>%
+  countrycode <- tradestatistics::ots_attributes_countries %>%
     filter(
       str_detect(
         str_to_lower(!!sym("country_fullname_english")), countryname
@@ -73,15 +69,19 @@ country_code <- function(countryname = NULL) {
        using one of these codes:"
     )
 
-    print(
-      tradestatistics::countries %>%
-        filter(
-          str_detect(
-            str_to_lower(!!sym("country_name_english")),
-            str_to_lower(countryname)
-          )
+    f <- tradestatistics::ots_attributes_countries %>%
+      filter(
+        str_detect(
+          str_to_lower(!!sym("country_name_english")),
+          str_to_lower(countryname)
         )
-    )
+      )
+
+    if (countryname == "all") {
+      f <- filter(f, !country_iso %in% c("mhl", "wlf"))
+    }
+
+    return(f)
   } else {
     return(countrycode)
   }

@@ -5,16 +5,16 @@
 \description{
 A table describing API tables with valid query examples
 }
-\usage{tables}
+\usage{ots_available_tables}
 \format{
   A data frame with 10 observations on the following 3 variables.
   \describe{
     \item{\code{table}}{Table name}
     \item{\code{description}}{Description of table contents}
-    \item{\code{example_query}}{Examples of valid queries}
+    \item{\code{source}}{Source for the data (OTS tables are processed after UN Comtrade raw data)}
   }
 }
 \examples{
-products
+ots_available_tables
 }
 \keyword{datasets}

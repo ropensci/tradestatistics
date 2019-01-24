@@ -7,9 +7,9 @@ A table of official country names, ISO-3 codes and other
 relevant information according to the United Nations official
 sources
 }
-\usage{countries}
+\usage{ots_attributes_countries}
 \format{
-  A data frame with 244 observations on the following 6 variables.
+  A data frame with 249 observations on the following 6 variables.
   \describe{
     \item{\code{country_iso}}{ISO code of the country (e.g. "chl" means Chile)}
     \item{\code{country_name_english}}{Country name (e.g. Germany)}
@@ -20,6 +20,6 @@ sources
 \  }
 }
 \examples{
-countries
+ots_attributes_countries
 }
 \keyword{datasets}

@@ -55,4 +55,3 @@ trade_data(years = 1980, reporter = "chl", table = "yr")
 ## ----trade_data_7, eval = TRUE-------------------------------------------
 # Which products are exchanged? (1980)
 trade_data(years = 1980, table = "yc")
-
