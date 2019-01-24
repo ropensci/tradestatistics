@@ -78,7 +78,7 @@ ots_country_code <- function(countryname = NULL) {
       )
 
     if (countryname == "all") {
-      f <- filter(f, !country_iso %in% c("mhl", "wlf"))
+      f <- filter(f, !(!!sym("country_iso") %in% c("mhl", "wlf")))
     }
 
     return(f)

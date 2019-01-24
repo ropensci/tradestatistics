@@ -1,5 +1,5 @@
-\name{countries}
-\alias{countries}
+\name{ots_attributes_countries}
+\alias{ots_attributes_countries}
 \title{Country metadata}
 \docType{data}
 \description{

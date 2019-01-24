@@ -6,7 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • tradestatistics</title>
+<title>Obtain a table of official country names and ISO-3 codes according to
+the United Nations nomenclature — ots_country_code • tradestatistics</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +31,12 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Obtain a table of official country names and ISO-3 codes according to
+the United Nations nomenclature — ots_country_code" />
+
+<meta property="og:description" content="This function takes a text string and searches within the
+package data for a country code in the context of valid API country codes." />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -47,7 +53,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -104,74 +110,65 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Obtain a table of official country names and ISO-3 codes according to
+the United Nations nomenclature</h1>
+    
+    <div class="hidden name"><code>ots_country_code.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>This function takes a text string and searches within the
+package data for a country code in the context of valid API country codes.</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
-
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="ots_attributes_countries.html">ots_attributes_countries</a></code> </p>
-        </td>
-        <td><p>Country metadata</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_attributes_products.html">ots_attributes_products</a></code> </p>
-        </td>
-        <td><p>Product metadata</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_attributes_tables.html">ots_attributes_tables</a></code> </p>
-        </td>
-        <td><p>Available tables in the API</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_country_code.html">ots_country_code()</a></code> </p>
-        </td>
-        <td><p>Obtain a table of official country names and ISO-3 codes according to
-the United Nations nomenclature</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_product_code.html">ots_product_code()</a></code> </p>
-        </td>
-        <td><p>Obtain a table of official product names and Harmonized System (HS) codes
-according to the United Nations nomenclature</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_trade_data.html">ots_trade_data()</a></code> </p>
-        </td>
-        <td><p>Downloads and processes the data from the API</p></td>
-      </tr>
-    </tbody>
+    <pre class="usage"><span class='fu'>ots_country_code</span>(<span class='kw'>countryname</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>countryname</th>
+      <td><p>A text string such as "Chile", "CHILE" or "CHL".</p></td>
+    </tr>
     </table>
-  </div>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>A single character if there is a exact match (e.g.
+<code>ots_country_code("Chile")</code>) or a tibble in case of multiple matches
+(e.g. <code>ots_country_code("Germany")</code>)</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># Single match with no replacement</span>
+<span class='fu'>ots_country_code</span>(<span class='st'>"Chile"</span>)</div><div class='output co'>#&gt; country_iso 
+#&gt;       "chl" </div><div class='input'>
+<span class='co'># Single match with replacement</span>
+<span class='fu'>ots_country_code</span>(<span class='st'>"America"</span>)</div><div class='output co'>#&gt; country_iso 
+#&gt;       "usa" </div><div class='input'>
+<span class='co'># Double match with no replacement</span>
+<span class='fu'>ots_country_code</span>(<span class='st'>"Germany"</span>)</div><div class='output co'>#&gt; <span class='message'>There is more than one match for your search. Please try again </span>
+#&gt; <span class='message'>       using one of these codes:</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 x 6</span><span>
+#&gt;   country_iso country_name_en… country_fullnam… continent_id continent
+#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                   </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> ddr         Fmr Dem. Rep. o… Fmr Dem. Rep. o…            2 Europe   
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span> deu         Germany          Germany (former…            2 Europe   
+#&gt; </span><span style='color: #949494;'># … with 1 more variable: eu28_member </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span></div></span></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
     </ul>
+
   </div>
 </div>
 

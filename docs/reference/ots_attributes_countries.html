@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • tradestatistics</title>
+<title>Country metadata — ots_attributes_countries • tradestatistics</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,12 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Country metadata — ots_attributes_countries" />
+
+<meta property="og:description" content="A table of official country names, ISO-3 codes and other
+relevant information according to the United Nations official
+sources" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -47,7 +52,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -104,74 +109,60 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Country metadata</h1>
+    
+    <div class="hidden name"><code>ots_attributes_countries.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>A table of official country names, ISO-3 codes and other
+relevant information according to the United Nations official
+sources</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='no'>ots_attributes_countries</span></pre>
+        
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="ots_attributes_countries.html">ots_attributes_countries</a></code> </p>
-        </td>
-        <td><p>Country metadata</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_attributes_products.html">ots_attributes_products</a></code> </p>
-        </td>
-        <td><p>Product metadata</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_attributes_tables.html">ots_attributes_tables</a></code> </p>
-        </td>
-        <td><p>Available tables in the API</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_country_code.html">ots_country_code()</a></code> </p>
-        </td>
-        <td><p>Obtain a table of official country names and ISO-3 codes according to
-the United Nations nomenclature</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_product_code.html">ots_product_code()</a></code> </p>
-        </td>
-        <td><p>Obtain a table of official product names and Harmonized System (HS) codes
-according to the United Nations nomenclature</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_trade_data.html">ots_trade_data()</a></code> </p>
-        </td>
-        <td><p>Downloads and processes the data from the API</p></td>
-      </tr>
-    </tbody>
-    </table>
+    <p>A data frame with 249 observations on the following 6 variables.</p><dl class='dl-horizontal'>
+    <dt><code>country_iso</code></dt><dd><p>ISO code of the country (e.g. "chl" means Chile)</p></dd>
+    <dt><code>country_name_english</code></dt><dd><p>Country name (e.g. Germany)</p></dd>
+    <dt><code>country_fullname_english</code></dt><dd><p>Country name with indications (e.g. Germany (former Federal Republic of Germany until 1990))</p></dd>
+    <dt><code>continent_id</code></dt><dd><p>Numeric id of the continent where the country belongs to</p></dd>
+    <dt><code>continent</code></dt><dd><p>Continent where the country belongs to</p></dd>
+    <dt><code>eu28_member</code></dt><dd><p>Dummy variable such that 1 means "belongs to EU-28 group" and 0 otherwise</p></dd>
+\  </dl>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>ots_attributes_countries</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 249 x 6</span><span>
+#&gt;    country_iso country_name_en… country_fullnam… continent_id continent
+#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                   </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> afg         Afghanistan      Afghanistan                 1 Asia     
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> alb         Albania          Albania                     2 Europe   
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> dza         Algeria          Algeria                     3 Africa   
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> asm         American Samoa   American Samoa              4 Oceania  
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> and         Andorra          Andorra                     2 Europe   
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> ago         Angola           Angola                      3 Africa   
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> aia         Anguilla         Anguilla                    5 Americas 
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> atg         Antigua and Bar… Antigua and Bar…            5 Americas 
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> arg         Argentina        Argentina                   5 Americas 
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span> arm         Armenia          Armenia                     1 Asia     
+#&gt; </span><span style='color: #949494;'># … with 239 more rows, and 1 more variable: eu28_member </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span></div></span></pre>
   </div>
-
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      
+      <li><a href="#format">Format</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
     </ul>
+
   </div>
 </div>
 

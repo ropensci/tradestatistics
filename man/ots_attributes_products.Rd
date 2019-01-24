@@ -1,12 +1,12 @@
-\name{products}
-\alias{products}
+\name{ots_attributes_products}
+\alias{ots_attributes_products}
 \title{Product metadata}
 \docType{data}
 \description{
 A table of official product names, Harmonized System (HS) codes 
 and corresponding groups according to the United Nations nomenclature
 }
-\usage{ots_attributes_countries}
+\usage{ots_attributes_products}
 \format{
   A data frame with 6373 observations on the following 4 variables.
   \describe{
@@ -17,6 +17,6 @@ and corresponding groups according to the United Nations nomenclature
   }
 }
 \examples{
-ots_attributes_countries
+ots_attributes_products
 }
 \keyword{datasets}

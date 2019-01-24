@@ -1,11 +1,11 @@
-\name{tables}
-\alias{tables}
+\name{ots_attributes_tables}
+\alias{ots_attributes_tables}
 \title{Available tables in the API}
 \docType{data}
 \description{
 A table describing API tables with valid query examples
 }
-\usage{ots_available_tables}
+\usage{ots_attributes_tables}
 \format{
   A data frame with 10 observations on the following 3 variables.
   \describe{
@@ -15,6 +15,6 @@ A table describing API tables with valid query examples
   }
 }
 \examples{
-ots_available_tables
+ots_attributes_tables
 }
 \keyword{datasets}
