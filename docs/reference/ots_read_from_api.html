@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • tradestatistics</title>
+<title>INTERNAL FUNCTION — ots_read_from_api • tradestatistics</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,11 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="INTERNAL FUNCTION — ots_read_from_api" />
+
+<meta property="og:description" content="This function accesses api.tradestatistics.io and
+performs different API calls to return data.frames by reading JSON data" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -47,7 +51,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -104,80 +108,74 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>INTERNAL FUNCTION</h1>
+    
+    <div class="hidden name"><code>ots_read_from_api.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>This function accesses <code>api.tradestatistics.io</code> and
+performs different API calls to return <code>data.frames</code> by reading <code>JSON</code> data</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
-
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="ots_attributes_countries.html">ots_attributes_countries</a></code> </p>
-        </td>
-        <td><p>Country metadata</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_attributes_products.html">ots_attributes_products</a></code> </p>
-        </td>
-        <td><p>Product metadata</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_attributes_tables.html">ots_attributes_tables</a></code> </p>
-        </td>
-        <td><p>Available tables in the API</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_country_code.html">ots_country_code()</a></code> </p>
-        </td>
-        <td><p>Obtain a table of official country names and ISO-3 codes according to
-the United Nations nomenclature</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_create_tidy_data.html">ots_create_tidy_data()</a></code> </p>
-        </td>
-        <td><p>Downloads and processes the data from the API</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_product_code.html">ots_product_code()</a></code> </p>
-        </td>
-        <td><p>Obtain a table of official product names and Harmonized System (HS) codes
-according to the United Nations nomenclature</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_read_from_api.html">ots_read_from_api()</a></code> </p>
-        </td>
-        <td><p>INTERNAL FUNCTION</p></td>
-      </tr>
-    </tbody>
+    <pre class="usage"><span class='fu'>ots_read_from_api</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>partner</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>commodity_code_length</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrpc"</span>, <span class='kw'>max_attempts</span> <span class='kw'>=</span> <span class='fl'>5</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>years</th>
+      <td><p>Numeric value greater or equal to 1962 and lower of equal
+to 2016. Default set to <code>NULL</code>.</p></td>
+    </tr>
+    <tr>
+      <th>reporter</th>
+      <td><p>ISO code for country of reporter (e.g. <code>chl</code> for
+Chile). Default set to <code>NULL</code>.</p></td>
+    </tr>
+    <tr>
+      <th>partner</th>
+      <td><p>ISO code for country of partner (e.g. <code>chn</code> for
+China). Default set to <code>NULL</code>.</p></td>
+    </tr>
+    <tr>
+      <th>commodity_code_length</th>
+      <td><p>Character string to indicate the granularity level on commodities.
+Default set to <code>4</code>.</p></td>
+    </tr>
+    <tr>
+      <th>table</th>
+      <td><p>Character string to select the table to obtain the data. Default set to <code>yrpc</code> 
+(Year - Reporter - Partner - Commodity).</p></td>
+    </tr>
+    <tr>
+      <th>max_attempts</th>
+      <td><p>Number of attempts to retry in case of data retrieving failure.
+Default set to <code>5</code>.
+<code>ots_create_tidy_data</code>.</p></td>
+    </tr>
     </table>
-  </div>
+    
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='co'># What does Chile export to China? (2015)</span>
+<span class='fu'>ots_read_from_api</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='fl'>2015</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>partner</span> <span class='kw'>=</span> <span class='st'>"chn"</span>)
+<span class='co'># }</span></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+            
+      <li><a href="#examples">Examples</a></li>
     </ul>
+
   </div>
 </div>
 

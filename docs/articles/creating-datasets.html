@@ -76,7 +76,7 @@
       <h1>Creating the datasets available within the package</h1>
                         <h4 class="author">Mauricio Vargas S.</h4>
             
-            <h4 class="date">2019-01-24</h4>
+            <h4 class="date">2019-02-03</h4>
       
       
       <div class="hidden name"><code>creating-datasets.Rmd</code></div>
@@ -89,47 +89,47 @@
 <div id="tables" class="section level1">
 <h1 class="hasAnchor">
 <a href="#tables" class="anchor"></a>Tables</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(dplyr)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(jsonlite)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">tables_url &lt;-<span class="st"> "https://api.tradestatistics.io/tables"</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">tables_raw_file &lt;-<span class="st"> "../data-raw/ots_attributes_tables.json"</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">tables_tidy_file &lt;-<span class="st"> "../data/ots_attributes_tables.rda"</span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/files">file.exists</a></span>(tables_raw_file)) { <span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/download.file">download.file</a></span>(tables_url, tables_raw_file) }</a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/files">file.exists</a></span>(tables_tidy_file)) {</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">  ots_attributes_tables &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/jsonlite/topics/fromJSON">fromJSON</a></span>(tables_raw_file) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>()</a>
-<a class="sourceLine" id="cb1-12" data-line-number="12">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/save">save</a></span>(ots_attributes_tables, <span class="dt">file =</span> tables_tidy_file, <span class="dt">compress =</span> <span class="st">"xz"</span>)</a>
-<a class="sourceLine" id="cb1-13" data-line-number="13">}</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(dplyr)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(jsonlite)
+
+tables_url &lt;-<span class="st"> "https://api.tradestatistics.io/tables"</span>
+tables_raw_file &lt;-<span class="st"> "../data-raw/ots_attributes_tables.json"</span>
+tables_tidy_file &lt;-<span class="st"> "../data/ots_attributes_tables.rda"</span>
+
+<span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/files">file.exists</a></span>(tables_raw_file)) { <span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/download.file">download.file</a></span>(tables_url, tables_raw_file) }
+
+<span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/files">file.exists</a></span>(tables_tidy_file)) {
+  ots_attributes_tables &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/jsonlite/topics/fromJSON">fromJSON</a></span>(tables_raw_file) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>()
+  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/save">save</a></span>(ots_attributes_tables, <span class="dt">file =</span> tables_tidy_file, <span class="dt">compress =</span> <span class="st">"xz"</span>)
+}</code></pre></div>
 </div>
 <div id="country-codes" class="section level1">
 <h1 class="hasAnchor">
 <a href="#country-codes" class="anchor"></a>Country codes</h1>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">countries_url &lt;-<span class="st"> "https://api.tradestatistics.io/countries"</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">countries_raw_file &lt;-<span class="st"> "../data-raw/ots_attributes_countries.json"</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">countries_tidy_file &lt;-<span class="st"> "../data/ots_attributes_countries.rda"</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/files">file.exists</a></span>(countries_raw_file)) { <span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/download.file">download.file</a></span>(countries_url, countries_raw_file) }</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/files">file.exists</a></span>(countries_tidy_file)) {</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">  ots_attributes_countries &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/jsonlite/topics/fromJSON">fromJSON</a></span>(countries_raw_file) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>()</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/save">save</a></span>(ots_attributes_countries, <span class="dt">file =</span> countries_tidy_file, <span class="dt">compress =</span> <span class="st">"xz"</span>)</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">}</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">countries_url &lt;-<span class="st"> "https://api.tradestatistics.io/countries"</span>
+countries_raw_file &lt;-<span class="st"> "../data-raw/ots_attributes_countries.json"</span>
+countries_tidy_file &lt;-<span class="st"> "../data/ots_attributes_countries.rda"</span>
+
+<span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/files">file.exists</a></span>(countries_raw_file)) { <span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/download.file">download.file</a></span>(countries_url, countries_raw_file) }
+
+<span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/files">file.exists</a></span>(countries_tidy_file)) {
+  ots_attributes_countries &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/jsonlite/topics/fromJSON">fromJSON</a></span>(countries_raw_file) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>()
+  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/save">save</a></span>(ots_attributes_countries, <span class="dt">file =</span> countries_tidy_file, <span class="dt">compress =</span> <span class="st">"xz"</span>)
+}</code></pre></div>
 </div>
 <div id="product-codes" class="section level1">
 <h1 class="hasAnchor">
 <a href="#product-codes" class="anchor"></a>Product codes</h1>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">products_url &lt;-<span class="st"> "https://api.tradestatistics.io/products"</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">products_raw_file &lt;-<span class="st"> "../data-raw/ots_attributes_products.json"</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">products_tidy_file &lt;-<span class="st"> "../data/ots_attributes_products.rda"</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/files">file.exists</a></span>(products_raw_file)) { <span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/download.file">download.file</a></span>(products_url, products_raw_file) }</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/files">file.exists</a></span>(products_tidy_file)) {</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">  ots_attributes_products &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/jsonlite/topics/fromJSON">fromJSON</a></span>(products_raw_file) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>()</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/save">save</a></span>(ots_attributes_products, <span class="dt">file =</span> products_tidy_file, <span class="dt">compress =</span> <span class="st">"xz"</span>)</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10">}</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">products_url &lt;-<span class="st"> "https://api.tradestatistics.io/products"</span>
+products_raw_file &lt;-<span class="st"> "../data-raw/ots_attributes_products.json"</span>
+products_tidy_file &lt;-<span class="st"> "../data/ots_attributes_products.rda"</span>
+
+<span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/files">file.exists</a></span>(products_raw_file)) { <span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/download.file">download.file</a></span>(products_url, products_raw_file) }
+
+<span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/files">file.exists</a></span>(products_tidy_file)) {
+  ots_attributes_products &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/jsonlite/topics/fromJSON">fromJSON</a></span>(products_raw_file) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>()
+  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/save">save</a></span>(ots_attributes_products, <span class="dt">file =</span> products_tidy_file, <span class="dt">compress =</span> <span class="st">"xz"</span>)
+}</code></pre></div>
 </div>
   </div>
 

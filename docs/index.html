@@ -91,19 +91,19 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Install release version from CRAN (coming soon)</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"tradestatistics"</span>)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># Install development version from GitHub</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"tradestatistics/tradestatistics"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Install release version from CRAN (coming soon)</span>
+<span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"tradestatistics"</span>)
+
+<span class="co"># Install development version from GitHub</span>
+devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"tradestatistics/tradestatistics"</span>)</code></pre></div>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
 <p>This package features a full pkgdown site <a href="https://tradestatistics.github.io/tradestatistics/">here</a>. Please read it.</p>
 <p>Here’s a basic example to obtain bilateral trade between Chile and Argentina in the year 2000 under HS07 classification:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># What does Chile exchange with Argentina? (1980)</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">get_trade_data</span>(<span class="dt">years =</span> <span class="dv">1980</span>, <span class="dt">reporter =</span> <span class="st">"chl"</span>, <span class="dt">partner =</span> <span class="st">"arg"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What does Chile exchange with Argentina? (1980)</span>
+<span class="kw">get_trade_data</span>(<span class="dt">years =</span> <span class="dv">1980</span>, <span class="dt">reporter =</span> <span class="st">"chl"</span>, <span class="dt">partner =</span> <span class="st">"arg"</span>)</code></pre></div>
 </div>
 <div id="code-of-conduct" class="section level2">
 <h2 class="hasAnchor">
