@@ -2,7 +2,7 @@
 % Please edit documentation in R/ots_read_from_api.R
 \name{ots_read_from_api}
 \alias{ots_read_from_api}
-\title{INTERNAL FUNCTION}
+\title{Reads data from the API and returns a dataframe}
 \usage{
 ots_read_from_api(years = NULL, reporter = NULL, partner = NULL,
   commodity_code_length = 4, table = "yrpc", max_attempts = 5)

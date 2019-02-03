@@ -1,11 +1,12 @@
 \name{ots_attributes_countries}
 \alias{ots_attributes_countries}
-\title{Country metadata}
+\title{A table of official country names, ISO-3 codes and other metadata}
 \docType{data}
 \description{
-A table of official country names, ISO-3 codes and other
-relevant information according to the United Nations official
-sources
+Provides official codes taken from the United Nations official sources.
+This data is used by the functions provided within this package to
+add product and country text columns to the data by taking the data from
+the API that just provides official codes and numerical values.
 }
 \usage{ots_attributes_countries}
 \format{

@@ -3,7 +3,9 @@
 \title{Available tables in the API}
 \docType{data}
 \description{
-A table describing existing API tables with both description and source
+A table describing existing API tables with both description and source.
+This data is used by the functions provided within this package to validate
+user parameters.
 }
 \usage{ots_attributes_tables}
 \format{

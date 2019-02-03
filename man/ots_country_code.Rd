@@ -2,7 +2,7 @@
 % Please edit documentation in R/ots_country_code.R
 \name{ots_country_code}
 \alias{ots_country_code}
-\title{Obtain a table of official country names and ISO-3 codes according to
+\title{String matching of official country names and ISO-3 codes according to
 the United Nations nomenclature}
 \usage{
 ots_country_code(countryname = NULL)

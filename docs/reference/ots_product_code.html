@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Obtain a table of official product names and Harmonized System (HS) codes
+<title>String matching of official product names and Harmonized System (HS) codes
 according to the United Nations nomenclature — ots_product_code • tradestatistics</title>
 
 <!-- jquery -->
@@ -31,7 +31,7 @@ according to the United Nations nomenclature — ots_product_code • tradestati
 
 
 
-<meta property="og:title" content="Obtain a table of official product names and Harmonized System (HS) codes
+<meta property="og:title" content="String matching of official product names and Harmonized System (HS) codes
 according to the United Nations nomenclature — ots_product_code" />
 
 <meta property="og:description" content="This function takes a text string and searches within the
@@ -113,7 +113,7 @@ product codes." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Obtain a table of official product names and Harmonized System (HS) codes
+    <h1>String matching of official product names and Harmonized System (HS) codes
 according to the United Nations nomenclature</h1>
     
     <div class="hidden name"><code>ots_product_code.Rd</code></div>
@@ -127,7 +127,7 @@ product codes.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>ots_product_code</span>(<span class='kw'>productname</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>ots_product_code</span>(<span class='kw'>productname</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>productgroup</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -135,6 +135,10 @@ product codes.</p>
     <tr>
       <th>productname</th>
       <td><p>A text string such as "Animals", "COPPER" or "fruits".</p></td>
+    </tr>
+    <tr>
+      <th>productgroup</th>
+      <td><p>A text string such as "meat", "FISH" or "Dairy".</p></td>
     </tr>
     </table>
     
@@ -146,7 +150,7 @@ classification (e.g. HS92 or SITC)</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ots_product_code</span>(<span class='st'>"animals"</span>)</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 55 x 5</span><span>
+    <pre class="examples"><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productname</span> <span class='kw'>=</span> <span class='st'>"animals"</span>)</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 55 x 5</span><span>
 #&gt;    commodity_code commodity_fullname_english  group_code group_name type_product
 #&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                       </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>       
 #&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 010110         Horses, asses, mules and h… 01         Animals; … animals     
@@ -159,25 +163,39 @@ classification (e.g. HS92 or SITC)</p>
 #&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 010392         Swine; live, (other than p… 01         Animals; … animals     
 #&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 0106           Animals, n.e.c. in chapter… 01         Animals; … animals     
 #&gt; </span><span style='color: #BCBCBC;'>10</span><span> 010631         Animals; live, birds of pr… 01         Animals; … animals     
-#&gt; </span><span style='color: #949494;'># … with 45 more rows</span><span></div><div class='input'><span class='fu'>ots_product_code</span>(<span class='st'>"fruits"</span>)</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 16 x 5</span><span>
-#&gt;    commodity_code commodity_fullname_en… group_code group_name      type_product
-#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                  </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>       
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 070960         Vegetables; fruits of… 07         Vegetables and… fruits      
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 081040         Fruit, edible; cranbe… 08         Fruit and nuts… fruits      
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 081090         Fruit, edible; fruits… 08         Fruit and nuts… fruits      
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 0813           Fruit, dried, other t… 08         Fruit and nuts… fruits      
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 081350         Nuts, edible; mixture… 08         Fruit and nuts… fruits      
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 0904           Pepper of the genus p… 09         Coffee, tea, m… fruits      
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 090420         Spices; fruits of the… 09         Coffee, tea, m… fruits      
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 1207           Oil seeds and oleagin… 12         Oil seeds and … fruits      
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 120799         Oil seeds and oleagin… 12         Oil seeds and … fruits      
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 1208           Flours and meals of o… 12         Oil seeds and … fruits      
-#&gt; </span><span style='color: #BCBCBC;'>11</span><span> 120890         Flours and meals of o… 12         Oil seeds and … fruits      
-#&gt; </span><span style='color: #BCBCBC;'>12</span><span> 1211           Plants and parts of p… 12         Oil seeds and … fruits      
-#&gt; </span><span style='color: #BCBCBC;'>13</span><span> 121190         Plants and parts (inc… 12         Oil seeds and … fruits      
-#&gt; </span><span style='color: #BCBCBC;'>14</span><span> 330119         Oils, essential; of c… 33         Essential oils… fruits      
-#&gt; </span><span style='color: #BCBCBC;'>15</span><span> 843860         Machinery; industrial… 84         Nuclear reacto… fruits      
-#&gt; </span><span style='color: #BCBCBC;'>16</span><span> 12             Alias for all codes i… </span><span style='color: #BB0000;'>NA</span><span>         </span><span style='color: #BB0000;'>NA</span><span>              fruits      </div></span></pre>
+#&gt; </span><span style='color: #949494;'># … with 45 more rows</span><span></div><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productgroup</span> <span class='kw'>=</span> <span class='st'>"fish"</span>)</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 144 x 5</span><span>
+#&gt;    commodity_code commodity_fullname_engl… group_code group_name      type_group
+#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>     
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 0301           Fish; live               03         Fish and crust… fish      
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 030110         Fish; live, ornamental   03         Fish and crust… fish      
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 030191         Fish; live, trout (salm… 03         Fish and crust… fish      
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 030192         Fish; live, eels (angui… 03         Fish and crust… fish      
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 030193         Fish; live, carp         03         Fish and crust… fish      
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 030194         Fish; live, bluefin tun… 03         Fish and crust… fish      
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 030195         Fish; live, southern bl… 03         Fish and crust… fish      
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 030199         Fish; live, n.e.c. in h… 03         Fish and crust… fish      
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 0302           Fish; fresh or chilled … 03         Fish and crust… fish      
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 030211         Fish; trout (salmo trut… 03         Fish and crust… fish      
+#&gt; </span><span style='color: #949494;'># … with 134 more rows</span><span></div><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productname</span> <span class='kw'>=</span> <span class='st'>"milk"</span>, <span class='kw'>productgroup</span> <span class='kw'>=</span> <span class='st'>"dairy"</span>)</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 17 x 6</span><span>
+#&gt;    commodity_code commodity_fullnam… group_code group_name  type_name type_group
+#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>              </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>     
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 040120         Dairy produce; mi… 04         Dairy prod… milk      dairy     
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 0401           Milk and cream; n… 04         Dairy prod… milk      dairy     
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 040110         Dairy produce; mi… 04         Dairy prod… milk      dairy     
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 040130         Dairy produce; mi… 04         Dairy prod… milk      dairy     
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 0402           Milk and cream; c… 04         Dairy prod… milk      dairy     
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 040210         Dairy produce; mi… 04         Dairy prod… milk      dairy     
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 040221         Dairy produce; mi… 04         Dairy prod… milk      dairy     
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 040229         Dairy produce; mi… 04         Dairy prod… milk      dairy     
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 040291         Dairy produce; mi… 04         Dairy prod… milk      dairy     
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 040299         Dairy produce; mi… 04         Dairy prod… milk      dairy     
+#&gt; </span><span style='color: #BCBCBC;'>11</span><span> 0403           Buttermilk, curdl… 04         Dairy prod… milk      dairy     
+#&gt; </span><span style='color: #BCBCBC;'>12</span><span> 040390         Dairy produce; bu… 04         Dairy prod… milk      dairy     
+#&gt; </span><span style='color: #BCBCBC;'>13</span><span> 0404           Whey and products… 04         Dairy prod… milk      dairy     
+#&gt; </span><span style='color: #BCBCBC;'>14</span><span> 040490         Dairy produce; na… 04         Dairy prod… milk      dairy     
+#&gt; </span><span style='color: #BCBCBC;'>15</span><span> 0405           Butter and other … 04         Dairy prod… milk      dairy     
+#&gt; </span><span style='color: #BCBCBC;'>16</span><span> 040510         Dairy produce; de… 04         Dairy prod… milk      dairy     
+#&gt; </span><span style='color: #BCBCBC;'>17</span><span> 040590         Dairy produce; fa… 04         Dairy prod… milk      dairy     </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

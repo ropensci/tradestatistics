@@ -2,7 +2,7 @@
 % Please edit documentation in R/ots_create_tidy_data.R
 \name{ots_create_tidy_data}
 \alias{ots_create_tidy_data}
-\title{Downloads and processes the data from the API}
+\title{Downloads and processes the data from the API to return a human-readable tibble}
 \usage{
 ots_create_tidy_data(years = NULL, reporter = NULL, partner = NULL,
   commodity_code_length = 4, table = "yrpc", max_attempts = 5)

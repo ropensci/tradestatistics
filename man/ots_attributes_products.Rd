@@ -1,10 +1,13 @@
 \name{ots_attributes_products}
 \alias{ots_attributes_products}
-\title{Product metadata}
+\title{A table of official product names, Harmonized System (HS) codes 
+and corresponding groups}
 \docType{data}
 \description{
-A table of official product names, Harmonized System (HS) codes 
-and corresponding groups according to the United Nations nomenclature
+Provides official codes taken from the United Nations official sources.
+This data is used by the functions provided within this package to
+add product and country text columns to the data by taking the data from
+the API that just provides official codes and numerical values.
 }
 \usage{ots_attributes_products}
 \format{

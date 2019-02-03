@@ -2,13 +2,15 @@
 % Please edit documentation in R/ots_product_code.R
 \name{ots_product_code}
 \alias{ots_product_code}
-\title{Obtain a table of official product names and Harmonized System (HS) codes
+\title{String matching of official product names and Harmonized System (HS) codes
 according to the United Nations nomenclature}
 \usage{
-ots_product_code(productname = NULL)
+ots_product_code(productname = NULL, productgroup = NULL)
 }
 \arguments{
 \item{productname}{A text string such as "Animals", "COPPER" or "fruits".}
+
+\item{productgroup}{A text string such as "meat", "FISH" or "Dairy".}
 }
 \value{
 A tibble with all possible matches (no uppercase distinction)
@@ -21,7 +23,8 @@ package data for all matching product codes in the context of valid API
 product codes.
 }
 \examples{
-ots_product_code("animals")
-ots_product_code("fruits")
+ots_product_code(productname = "animals")
+ots_product_code(productgroup = "fish")
+ots_product_code(productname = "milk", productgroup = "dairy")
 }
 \keyword{functions}

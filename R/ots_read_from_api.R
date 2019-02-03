@@ -1,4 +1,4 @@
-#' INTERNAL FUNCTION
+#' Reads data from the API and returns a dataframe
 #' @description This function accesses \code{api.tradestatistics.io} and
 #' performs different API calls to return \code{data.frames} by reading \code{JSON} data
 #' @param years Numeric value greater or equal to 1962 and lower of equal

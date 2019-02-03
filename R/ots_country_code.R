@@ -1,4 +1,4 @@
-#' Obtain a table of official country names and ISO-3 codes according to
+#' String matching of official country names and ISO-3 codes according to
 #' the United Nations nomenclature
 #' @description This function takes a text string and searches within the
 #' package data for a country code in the context of valid API country codes.
