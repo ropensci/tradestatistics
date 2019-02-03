@@ -3,7 +3,7 @@
 \title{Available tables in the API}
 \docType{data}
 \description{
-A table describing API tables with valid query examples
+A table describing existing API tables with both description and source
 }
 \usage{ots_attributes_tables}
 \format{

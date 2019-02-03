@@ -233,6 +233,7 @@ ots_attributes_tables
 <p>If we want Chile-Argentina bilateral trade at commodity level in 1980:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What does Chile exchange with Argentina? (1980)</span>
 <span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="dv">1980</span>, <span class="dt">reporter =</span> <span class="st">"chl"</span>, <span class="dt">partner =</span> <span class="st">"arg"</span>)
+<span class="co">#&gt; The data for the year 1980 was downloaded without problems.</span>
 <span class="co">#&gt; # A tibble: 580 x 20</span>
 <span class="co">#&gt;     year reporter_iso partner_iso reporter_fullna… partner_fullnam…</span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;           </span>
@@ -259,6 +260,7 @@ ots_attributes_tables
 <span class="co">#&gt; #   export_value_usd_percentage_change_5_years &lt;dbl&gt;</span></code></pre></div>
 <p>Which is the same as:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="dv">1980</span>, <span class="dt">reporter =</span> <span class="st">"chl"</span>, <span class="dt">partner =</span> <span class="st">"arg"</span>, <span class="dt">table =</span> <span class="st">"yrpc"</span>)
+<span class="co">#&gt; The data for the year 1980 was downloaded without problems.</span>
 <span class="co">#&gt; # A tibble: 580 x 20</span>
 <span class="co">#&gt;     year reporter_iso partner_iso reporter_fullna… partner_fullnam…</span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;           </span>
@@ -286,6 +288,12 @@ ots_attributes_tables
 <p>If we want Chile-Argentina bilateral trade at commodity level in 1980-1985:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What does Chile exchange with Argentina? (1980-1985)</span>
 <span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="dv">1980</span><span class="op">:</span><span class="dv">1985</span>, <span class="dt">reporter =</span> <span class="st">"chl"</span>, <span class="dt">partner =</span> <span class="st">"arg"</span>)
+<span class="co">#&gt; The data for the year 1980 was downloaded without problems.</span>
+<span class="co">#&gt; The data for the year 1981 was downloaded without problems.</span>
+<span class="co">#&gt; The data for the year 1982 was downloaded without problems.</span>
+<span class="co">#&gt; The data for the year 1983 was downloaded without problems.</span>
+<span class="co">#&gt; The data for the year 1984 was downloaded without problems.</span>
+<span class="co">#&gt; The data for the year 1985 was downloaded without problems.</span>
 <span class="co">#&gt; # A tibble: 3,470 x 20</span>
 <span class="co">#&gt;     year reporter_iso partner_iso reporter_fullna… partner_fullnam…</span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;           </span>
@@ -313,6 +321,9 @@ ots_attributes_tables
 <p>If we want Chile-Argentina bilateral trade at commodity level in 1980, 1995 and 2007:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What does Chile exchange with Argentina? (1980-1985)</span>
 <span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1980</span>,<span class="dv">1995</span>,<span class="dv">2007</span>), <span class="dt">reporter =</span> <span class="st">"chl"</span>, <span class="dt">partner =</span> <span class="st">"arg"</span>)
+<span class="co">#&gt; The data for the year 1980 was downloaded without problems.</span>
+<span class="co">#&gt; The data for the year 1995 was downloaded without problems.</span>
+<span class="co">#&gt; The data for the year 2007 was downloaded without problems.</span>
 <span class="co">#&gt; # A tibble: 2,617 x 20</span>
 <span class="co">#&gt;     year reporter_iso partner_iso reporter_fullna… partner_fullnam…</span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;           </span>
@@ -368,6 +379,7 @@ ots_attributes_tables
 <p>If we want Chile-Argentina bilateral trade at aggregated level in 1980:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What does Chile exchange with Argentina? (1980)</span>
 <span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="dv">1980</span>, <span class="dt">reporter =</span> <span class="st">"chl"</span>, <span class="dt">partner =</span> <span class="st">"arg"</span>, <span class="dt">table =</span> <span class="st">"yrp"</span>)
+<span class="co">#&gt; The data for the year 1980 was downloaded without problems.</span>
 <span class="co">#&gt; # A tibble: 1 x 15</span>
 <span class="co">#&gt;    year reporter_iso partner_iso reporter_fullna… partner_fullnam…</span>
 <span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;           </span>
@@ -388,6 +400,7 @@ ots_attributes_tables
 <p>If we want Chilean trade at commodity level in 1980:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What does Chile exchange? (1980)</span>
 <span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="dv">1980</span>, <span class="dt">reporter =</span> <span class="st">"chl"</span>, <span class="dt">table =</span> <span class="st">"yrc"</span>)
+<span class="co">#&gt; The data for the year 1980 was downloaded without problems.</span>
 <span class="co">#&gt; # A tibble: 1,072 x 20</span>
 <span class="co">#&gt;     year reporter_iso reporter_fullna… commodity_code commodity_code_…</span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;                     &lt;int&gt;</span>
@@ -422,6 +435,7 @@ ots_attributes_tables
 <p>If we want Chilean trade at aggregated level in 1980:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What does Chile exchange? (1980)</span>
 <span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="dv">1980</span>, <span class="dt">reporter =</span> <span class="st">"chl"</span>, <span class="dt">table =</span> <span class="st">"yr"</span>)
+<span class="co">#&gt; The data for the year 1980 was downloaded without problems.</span>
 <span class="co">#&gt; # A tibble: 1 x 21</span>
 <span class="co">#&gt;    year reporter_iso reporter_fullna… export_value_usd import_value_usd</span>
 <span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;                       &lt;dbl&gt;            &lt;dbl&gt;</span>
@@ -456,6 +470,7 @@ ots_attributes_tables
 <p>If we want all products trade in 1980:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Which products are exchanged? (1980)</span>
 <span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="dv">1980</span>, <span class="dt">table =</span> <span class="st">"yc"</span>)
+<span class="co">#&gt; The data for the year 1980 was downloaded without problems.</span>
 <span class="co">#&gt; # A tibble: 1,106 x 24</span>
 <span class="co">#&gt;     year commodity_code commodity_code_… commodity_fulln… group_code</span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;                     &lt;int&gt; &lt;chr&gt;            &lt;chr&gt;     </span>

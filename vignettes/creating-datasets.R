@@ -7,13 +7,13 @@ knitr::opts_chunk$set(
 ## ----tables, message = FALSE, eval = FALSE-------------------------------
 #  library(dplyr)
 #  library(jsonlite)
-#  
+#
 #  tables_url <- "https://api.tradestatistics.io/tables"
 #  tables_raw_file <- "../data-raw/ots_attributes_tables.json"
 #  tables_tidy_file <- "../data/ots_attributes_tables.rda"
-#  
+#
 #  if (!file.exists(tables_raw_file)) { download.file(tables_url, tables_raw_file) }
-#  
+#
 #  if (!file.exists(tables_tidy_file)) {
 #    ots_attributes_tables <- fromJSON(tables_raw_file) %>% as_tibble()
 #    save(ots_attributes_tables, file = tables_tidy_file, compress = "xz")
@@ -23,9 +23,9 @@ knitr::opts_chunk$set(
 #  countries_url <- "https://api.tradestatistics.io/countries"
 #  countries_raw_file <- "../data-raw/ots_attributes_countries.json"
 #  countries_tidy_file <- "../data/ots_attributes_countries.rda"
-#  
+#
 #  if (!file.exists(countries_raw_file)) { download.file(countries_url, countries_raw_file) }
-#  
+#
 #  if (!file.exists(countries_tidy_file)) {
 #    ots_attributes_countries <- fromJSON(countries_raw_file) %>% as_tibble()
 #    save(ots_attributes_countries, file = countries_tidy_file, compress = "xz")
@@ -35,11 +35,10 @@ knitr::opts_chunk$set(
 #  products_url <- "https://api.tradestatistics.io/products"
 #  products_raw_file <- "../data-raw/ots_attributes_products.json"
 #  products_tidy_file <- "../data/ots_attributes_products.rda"
-#  
+#
 #  if (!file.exists(products_raw_file)) { download.file(products_url, products_raw_file) }
-#  
+#
 #  if (!file.exists(products_tidy_file)) {
 #    ots_attributes_products <- fromJSON(products_raw_file) %>% as_tibble()
 #    save(ots_attributes_products, file = products_tidy_file, compress = "xz")
 #  }
-

@@ -20,7 +20,7 @@ China). Default set to \code{NULL}.}
 \item{commodity_code_length}{Character string to indicate the granularity level on commodities.
 Default set to \code{4}.}
 
-\item{table}{Character string to select the table to obtain the data. Default set to \code{yrpc} 
+\item{table}{Character string to select the table to obtain the data. Default set to \code{yrpc}
 (Year - Reporter - Partner - Commodity).}
 
 \item{max_attempts}{Number of attempts to retry in case of data retrieving failure.

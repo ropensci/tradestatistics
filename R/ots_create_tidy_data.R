@@ -42,23 +42,25 @@
 #' @keywords functions
 
 ots_create_tidy_data <- function(years = NULL,
-                           reporter = NULL,
-                           partner = NULL,
-                           commodity_code_length = 4,
-                           table = "yrpc",
-                           max_attempts = 5) {
-  
+                                 reporter = NULL,
+                                 partner = NULL,
+                                 commodity_code_length = 4,
+                                 table = "yrpc",
+                                 max_attempts = 5) {
+
   # Package data (part 1) ---------------------------------------------------
   tables <- tradestatistics::ots_attributes_tables
-  
+
   # Check tables ------------------------------------------------------------
   if (!table %in% tables$table) {
     stop(
-      "The requested table does not exist. Please check the spelling or 
-       explore the 'tables' table provided within this package."
+      "
+      The requested table does not exist. Please check the spelling or 
+      explore the 'tables' table provided within this package.
+      "
     )
   }
-  
+
   # Check years -------------------------------------------------------------
   year_depending_queries <- grep("^reporters|rankings$|^y", tables$table, value = T)
 
@@ -66,13 +68,13 @@ ots_create_tidy_data <- function(years = NULL,
     table %in% year_depending_queries) {
     stop(
       "
-        Provided that the table you requested contains a 'year' field,
-        please verify that you are requesting data contained within 
-        the years 1962-2016.
+      Provided that the table you requested contains a 'year' field,
+      please verify that you are requesting data contained within 
+      the years 1962-2016.
       "
     )
   }
-  
+
   # Package data (part 2) ---------------------------------------------------
   products <- tradestatistics::ots_attributes_products
   countries <- tradestatistics::ots_attributes_countries
@@ -98,21 +100,22 @@ ots_create_tidy_data <- function(years = NULL,
       match.arg(partner, countries$country_iso)
     }
   }
-  
+
   # Read from API -----------------------------------------------------------
   data <- as_tibble(
-    map_df(.x = seq_along(years),
-           ~ots_read_from_api(
-             table = table,
-             max_attempts = max_attempts,
-             years = years[.x],
-             reporter = reporter,
-             partner = partner,
-             commodity_code_length = commodity_code_length
-           )
+    map_df(
+      .x = seq_along(years),
+      ~ ots_read_from_api(
+        table = table,
+        max_attempts = max_attempts,
+        years = years[.x],
+        reporter = reporter,
+        partner = partner,
+        commodity_code_length = commodity_code_length
+      )
     )
   )
-  
+
   # no data in API message
   if (nrow(data) == 0) {
     stop("No data available. Try changing years or trade classification.")

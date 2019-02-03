@@ -10,7 +10,7 @@
 #' @importFrom dplyr select filter
 #' @importFrom rlang sym
 #' @importFrom purrr as_vector
-#' @importFrom stringr str_detect str_to_lower
+#' @importFrom stringr str_replace_all str_detect str_to_lower
 #' @export
 #' @examples
 #' # Single match with no replacement
@@ -24,6 +24,11 @@
 #' @keywords functions
 
 ots_country_code <- function(countryname = NULL) {
+  stopifnot(is.character(countryname))
+  stopifnot(nchar(countryname) > 0)
+  
+  countryname <- iconv(countryname, to = "ASCII//TRANSLIT", sub = "")
+  countryname <- str_replace_all(countryname, "[^[:alpha:]|[:space:]]", "")
   countryname <- str_to_lower(countryname)
 
   countryname <- switch(countryname,

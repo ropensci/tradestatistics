@@ -10,7 +10,7 @@
 #' @importFrom magrittr %>%
 #' @importFrom dplyr mutate filter
 #' @importFrom rlang sym
-#' @importFrom stringr str_detect str_to_lower
+#' @importFrom stringr str_replace_all str_detect str_to_lower
 #' @importFrom utils data
 #' @export
 #' @examples
@@ -19,6 +19,12 @@
 #' @keywords functions
 
 ots_product_code <- function(productname = NULL) {
+  stopifnot(is.character(productname))
+  stopifnot(nchar(productname) > 0)
+  
+  productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = "")
+  productname <- str_replace_all(productname, "[^[:alpha:]|[:space:]]", "")
+  
   # get the products dataset, create the type_product column,
   # bind them all together and do the search
   tradestatistics::ots_attributes_products %>%
