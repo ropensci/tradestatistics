@@ -26,8 +26,6 @@
 #' @importFrom dplyr as_tibble select filter mutate everything
 #' everything left_join bind_rows rename matches
 #' @importFrom stringr str_sub str_length
-#' @importFrom jsonlite fromJSON
-#' @importFrom crul HttpClient
 #' @importFrom rlang sym syms
 #' @importFrom purrr map_df
 #' @export
@@ -38,53 +36,50 @@
 #' 
 #' # Run `countries` to display the full table of countries
 #' 
-#' # What does Chile export to China?
-#' ots_trade_data(reporter = "chl", partner = "chn", years = 2015)
+#' # What does Chile export to China? (2015)
+#' ots_create_tidy_data(years = 2015, reporter = "chl", partner = "chn")
 #' }
 #' @keywords functions
 
-ots_trade_data <- function(years = NULL,
+ots_create_tidy_data <- function(years = NULL,
                            reporter = NULL,
                            partner = NULL,
                            commodity_code_length = 4,
                            table = "yrpc",
                            max_attempts = 5) {
-  # Check years -------------------------------------------------------------
-  year_depending_queries <- c(
-    "reporters",
-    "country_rankings",
-    "product_rankings",
-    "yrpc",
-    "yrp",
-    "yrc",
-    "yr",
-    "yc"
-  )
-
-  if (all(years %in% 1962:2016) != TRUE &
-    table %in% year_depending_queries) {
-    stop(
-      "Please verify that you are requesting data
-       contained within the years 1962-2016."
-    )
-  }
-
-  # Package data ------------------------------------------------------------
-  products <- tradestatistics::ots_attributes_products
-  countries <- tradestatistics::ots_attributes_countries
+  
+  # Package data (part 1) ---------------------------------------------------
   tables <- tradestatistics::ots_attributes_tables
-
+  
   # Check tables ------------------------------------------------------------
   if (!table %in% tables$table) {
     stop(
       "The requested table does not exist. Please check the spelling or 
-       explore the tables table provided within this package."
+       explore the 'tables' table provided within this package."
     )
   }
+  
+  # Check years -------------------------------------------------------------
+  year_depending_queries <- grep("^reporters|rankings$|^y", tables$table, value = T)
+
+  if (all(years %in% 1962:2016) != TRUE &
+    table %in% year_depending_queries) {
+    stop(
+      "
+        Provided that the table you requested contains a 'year' field,
+        please verify that you are requesting data contained within 
+        the years 1962-2016.
+      "
+    )
+  }
+  
+  # Package data (part 2) ---------------------------------------------------
+  products <- tradestatistics::ots_attributes_products
+  countries <- tradestatistics::ots_attributes_countries
 
   # Check reporter and partner ----------------------------------------------
-  reporter_depending_queries <- c("yrpc", "yrp", "yrc", "yr")
-  partner_depending_queries <- c("yrpc", "yrp")
+  reporter_depending_queries <- grep("^yr", tables$table, value = T)
+  partner_depending_queries <- grep("^yrp", tables$table, value = T)
 
   if (!is.null(reporter)) {
     if (!reporter %in% countries$country_iso &
@@ -103,67 +98,21 @@ ots_trade_data <- function(years = NULL,
       match.arg(partner, countries$country_iso)
     }
   }
-
+  
   # Read from API -----------------------------------------------------------
-  read_from_api <- function(t, attempts_left = max_attempts) {
-    stopifnot(attempts_left > 0)
-
-    url <- switch(
-      table,
-      "countries" = "countries",
-      "products" = "products",
-      "reporters" = sprintf("reporters?y=%s", years[t]),
-      "country_rankings" = sprintf("country_rankings?y=%s", years[t]),
-      "product_rankings" = sprintf("product_rankings?y=%s", years[t]),
-      "yrpc" = sprintf(
-        "yrpc?y=%s&r=%s&p=%s&l=%s",
-        years[t], reporter, partner, commodity_code_length
-      ),
-      "yrp" = sprintf("yrp?y=%s&r=%s&p=%s", years[t], reporter, partner),
-      "yrc" = sprintf(
-        "yrc?y=%s&r=%s&l=%s",
-        years[t], reporter, commodity_code_length
-      ),
-      "yr" = sprintf("yr?y=%s&r=%s", years[t], reporter),
-      "yc" = sprintf("yc?y=%s&l=%s", years[t], commodity_code_length)
+  data <- as_tibble(
+    map_df(.x = seq_along(years),
+           ~ots_read_from_api(
+             table = table,
+             max_attempts = max_attempts,
+             years = years[.x],
+             reporter = reporter,
+             partner = partner,
+             commodity_code_length = commodity_code_length
+           )
     )
-
-    resp <- crul::HttpClient$new(url = "https://api.tradestatistics.io/")
-    resp <- resp$get(url)
-
-    # on a successful GET, return the response
-    if (resp$status_code == 200) {
-      sprintf("Trying to download data for the year %s...", years[t])
-
-      data <- try(
-        fromJSON(resp$parse(encoding = "UTF-8"))
-      )
-
-      if (!is.data.frame(data)) {
-        stop("It wasn't possible to obtain data.
-             Provided this function tests your internet connection there was 
-             a server problem.
-             Please try again later.")
-      }
-
-      sprintf("Data for the year was downloaded without problems.")
-
-      return(data)
-    } else if (attempts_left == 0) {
-      # when attempts run out, stop with an error
-      stop(
-        "Cannot connect to the API. Either the server is down or there is a 
-         connection problem."
-      )
-    } else {
-      # otherwise, sleep a second and try again
-      Sys.sleep(1)
-      read_from_api(t, attempts_left = attempts_left - 1)
-    }
-  }
-
-  data <- as_tibble(map_df(seq_along(years), read_from_api))
-
+  )
+  
   # no data in API message
   if (nrow(data) == 0) {
     stop("No data available. Try changing years or trade classification.")
