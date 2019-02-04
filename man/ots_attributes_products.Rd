@@ -5,9 +5,9 @@ and corresponding groups}
 \docType{data}
 \description{
 Provides official codes taken from the United Nations official sources.
-This data is used by the functions provided within this package to
-add product and country text columns to the data by taking the data from
-the API that just provides official codes and numerical values.
+This data is provided as a reference as it's not used by the functions
+provided within this package, but it can be useful to subset the data
+obtained from the API.
 }
 \usage{ots_attributes_products}
 \format{

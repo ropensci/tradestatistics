@@ -26,17 +26,17 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     stopifnot(nchar(productname) > 0)
     
     productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = "")
-    productname <- str_replace_all(productname, "[^[:alpha:]|[:space:]]", "")
+    productname <- stringr::str_replace_all(productname, "[^[:alpha:]|[:space:]]", "")
     
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
     d <- tradestatistics::ots_attributes_products %>%
-      mutate(
+      dplyr::mutate(
         type_product = productname
       ) %>%
-      filter(
-        str_detect(
-          str_to_lower(!!sym("commodity_fullname_english")), productname
+      dplyr::filter(
+        stringr::str_detect(
+          stringr::str_to_lower(!!sym("commodity_fullname_english")), productname
         )
       )
   }
@@ -46,17 +46,17 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     stopifnot(nchar(productgroup) > 0)
     
     productgroup <- iconv(productgroup, to = "ASCII//TRANSLIT", sub = "")
-    productgroup <- str_replace_all(productgroup, "[^[:alpha:]|[:space:]]", "")
+    productgroup <- stringr::str_replace_all(productgroup, "[^[:alpha:]|[:space:]]", "")
     
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
     d <- tradestatistics::ots_attributes_products %>%
-      mutate(
+      dplyr::mutate(
         type_group = productgroup
       ) %>%
-      filter(
-        str_detect(
-          str_to_lower(!!sym("group_name")), productgroup
+      dplyr::filter(
+        stringr::str_detect(
+          stringr::str_to_lower(!!sym("group_name")), productgroup
         )
       )
   }
@@ -69,24 +69,24 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     stopifnot(nchar(productgroup) > 0)
     
     productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = "")
-    productname <- str_replace_all(productname, "[^[:alpha:]|[:space:]]", "")
+    productname <- stringr::str_replace_all(productname, "[^[:alpha:]|[:space:]]", "")
     
     productgroup <- iconv(productgroup, to = "ASCII//TRANSLIT", sub = "")
-    productgroup <- str_replace_all(productgroup, "[^[:alpha:]|[:space:]]", "")
+    productgroup <- stringr::str_replace_all(productgroup, "[^[:alpha:]|[:space:]]", "")
     
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
     d <- tradestatistics::ots_attributes_products %>%
-      mutate(
+      dplyr::mutate(
         type_name = productname,
         type_group = productgroup
       ) %>%
-      filter(
-        str_detect(
-          str_to_lower(!!sym("commodity_fullname_english")), productname
+      dplyr::filter(
+        stringr::str_detect(
+          stringr::str_to_lower(!!sym("commodity_fullname_english")), productname
         ),
-        str_detect(
-          str_to_lower(!!sym("group_name")), productgroup
+        stringr::str_detect(
+          stringr::str_to_lower(!!sym("group_name")), productgroup
         )
       )
   }

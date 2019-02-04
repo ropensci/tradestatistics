@@ -28,8 +28,8 @@ ots_country_code <- function(countryname = NULL) {
   stopifnot(nchar(countryname) > 0)
   
   countryname <- iconv(countryname, to = "ASCII//TRANSLIT", sub = "")
-  countryname <- str_replace_all(countryname, "[^[:alpha:]|[:space:]]", "")
-  countryname <- str_to_lower(countryname)
+  countryname <- stringr::str_replace_all(countryname, "[^[:alpha:]|[:space:]]", "")
+  countryname <- stringr::str_to_lower(countryname)
 
   countryname <- switch(countryname,
     "us" = "usa",
@@ -54,12 +54,12 @@ ots_country_code <- function(countryname = NULL) {
 
   countrycode <- tradestatistics::ots_attributes_countries %>%
     filter(
-      str_detect(
-        str_to_lower(!!sym("country_fullname_english")), countryname
+      stringr::str_detect(
+        stringr::str_to_lower(!!sym("country_fullname_english")), countryname
       )
     ) %>%
-    select(!!sym("country_iso")) %>%
-    as_vector()
+    dplyr::select(!!sym("country_iso")) %>%
+    purrr::as_vector()
 
   if (length(countrycode) == 0) {
     message(
@@ -76,14 +76,14 @@ ots_country_code <- function(countryname = NULL) {
 
     f <- tradestatistics::ots_attributes_countries %>%
       filter(
-        str_detect(
-          str_to_lower(!!sym("country_name_english")),
-          str_to_lower(countryname)
+        stringr::str_detect(
+          stringr::str_to_lower(!!sym("country_name_english")),
+          stringr::str_to_lower(countryname)
         )
       )
 
     if (countryname == "all") {
-      f <- filter(f, !(!!sym("country_iso") %in% c("mhl", "wlf")))
+      f <- dplyr::filter(f, !(!!sym("country_iso") %in% c("mhl", "wlf")))
     }
 
     return(f)

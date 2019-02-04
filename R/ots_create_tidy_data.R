@@ -102,8 +102,8 @@ ots_create_tidy_data <- function(years = NULL,
   }
 
   # Read from API -----------------------------------------------------------
-  data <- as_tibble(
-    map_df(
+  data <- dplyr::as_tibble(
+    purrr::map_df(
       .x = seq_along(years),
       ~ ots_read_from_api(
         table = table,
@@ -129,46 +129,46 @@ ots_create_tidy_data <- function(years = NULL,
   if (table %in% tables_with_reporter) {
     if (table %in% tables_with_reporter[1:2]) {
       data <- data %>%
-        left_join(select(
+        dplyr::left_join(dplyr::select(
           countries,
-          !!!syms(
+          !!!rlang::syms(
             c("country_iso", "country_fullname_english")
           )
         ),
         by = c("reporter_iso" = "country_iso")
         ) %>%
-        rename(
-          reporter_fullname_english = !!sym("country_fullname_english")
+        dplyr::rename(
+          reporter_fullname_english = !!rlang::sym("country_fullname_english")
         ) %>%
-        select(
-          !!!syms(c(
+        dplyr::select(
+          !!!rlang::syms(c(
             "year",
             "reporter_iso",
             "partner_iso",
             "reporter_fullname_english"
           )),
-          everything()
+          dplyr::everything()
         )
     } else {
       data <- data %>%
-        left_join(select(
+        dplyr::left_join(dplyr::select(
           countries,
-          !!!syms(
+          !!!rlang::syms(
             c("country_iso", "country_fullname_english")
           )
         ),
         by = c("reporter_iso" = "country_iso")
         ) %>%
-        rename(
-          reporter_fullname_english = !!sym("country_fullname_english")
+        dplyr::rename(
+          reporter_fullname_english = !!rlang::sym("country_fullname_english")
         ) %>%
-        select(
-          !!!syms(c(
+        dplyr::select(
+          !!!rlang::syms(c(
             "year",
             "reporter_iso",
             "reporter_fullname_english"
           )),
-          everything()
+          dplyr::everything()
         )
     }
   }
@@ -177,26 +177,26 @@ ots_create_tidy_data <- function(years = NULL,
 
   if (table %in% tables_with_partner) {
     data <- data %>%
-      left_join(select(
+      dplyr::left_join(dplyr::select(
         countries,
-        !!!syms(
+        !!!rlang::syms(
           c("country_iso", "country_fullname_english")
         )
       ),
       by = c("partner_iso" = "country_iso")
       ) %>%
-      rename(
-        partner_fullname_english = !!sym("country_fullname_english")
+      dplyr::rename(
+        partner_fullname_english = !!rlang::sym("country_fullname_english")
       ) %>%
-      select(
-        !!!syms(c(
+      dplyr::select(
+        !!!rlang::syms(c(
           "year",
           "reporter_iso",
           "partner_iso",
           "reporter_fullname_english",
           "partner_fullname_english"
         )),
-        everything()
+        dplyr::everything()
       )
   }
 
@@ -205,12 +205,12 @@ ots_create_tidy_data <- function(years = NULL,
 
   if (table %in% tables_with_commodity_code) {
     data <- data %>%
-      left_join(products, by = "commodity_code")
+      dplyr::left_join(products, by = "commodity_code")
 
     if (table == "yrpc") {
       data <- data %>%
-        select(
-          !!!syms(c(
+        dplyr::select(
+          !!!rlang::syms(c(
             "year",
             "reporter_iso",
             "partner_iso",
@@ -222,14 +222,14 @@ ots_create_tidy_data <- function(years = NULL,
             "group_code",
             "group_name"
           )),
-          everything()
+          dplyr::everything()
         )
     }
 
     if (table == "yrc") {
       data <- data %>%
-        select(
-          !!!syms(c(
+        dplyr::select(
+          !!!rlang::syms(c(
             "year",
             "reporter_iso",
             "reporter_fullname_english",
@@ -239,14 +239,14 @@ ots_create_tidy_data <- function(years = NULL,
             "group_code",
             "group_name"
           )),
-          everything()
+          dplyr::everything()
         )
     }
 
     if (table == "yc") {
       data <- data %>%
-        select(
-          !!!syms(c(
+        dplyr::select(
+          !!!rlang::syms(c(
             "year",
             "commodity_code",
             "commodity_code_length",
@@ -254,7 +254,7 @@ ots_create_tidy_data <- function(years = NULL,
             "group_code",
             "group_name"
           )),
-          everything()
+          dplyr::everything()
         )
     }
   }

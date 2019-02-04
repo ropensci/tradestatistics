@@ -13,7 +13,7 @@
 #' (Year - Reporter - Partner - Commodity).
 #' @param max_attempts Number of attempts to retry in case of data retrieving failure.
 #' Default set to \code{5}.
-#' \code{ots_create_tidy_data}.
+#' \code{ots_create_tidy_data}
 #' @importFrom jsonlite fromJSON
 #' @importFrom crul HttpClient
 #' @export
@@ -90,7 +90,7 @@ ots_read_from_api <- function(years = NULL,
   } else {
     # otherwise, sleep a second and try again
     Sys.sleep(1)
-    ots_read_from_api(
+    tradestatistics::ots_read_from_api(
       years, reporter, partner, commodity_code_length, table,
       max_attempts = max_attempts - 1
     )

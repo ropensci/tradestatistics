@@ -25,7 +25,7 @@ Default set to \code{4}.}
 
 \item{max_attempts}{Number of attempts to retry in case of data retrieving failure.
 Default set to \code{5}.
-\code{ots_create_tidy_data}.}
+\code{ots_create_tidy_data}}
 }
 \description{
 This function accesses \code{api.tradestatistics.io} and
