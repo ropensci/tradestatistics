@@ -24,10 +24,10 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
   if (!is.null(productname) & is.null(productgroup)) {
     stopifnot(is.character(productname))
     stopifnot(nchar(productname) > 0)
-    
+
     productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = "")
     productname <- stringr::str_replace_all(productname, "[^[:alpha:]|[:space:]]", "")
-    
+
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
     d <- tradestatistics::ots_attributes_products %>%
@@ -40,14 +40,14 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
         )
       )
   }
-  
+
   if (is.null(productname) & !is.null(productgroup)) {
     stopifnot(is.character(productgroup))
     stopifnot(nchar(productgroup) > 0)
-    
+
     productgroup <- iconv(productgroup, to = "ASCII//TRANSLIT", sub = "")
     productgroup <- stringr::str_replace_all(productgroup, "[^[:alpha:]|[:space:]]", "")
-    
+
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
     d <- tradestatistics::ots_attributes_products %>%
@@ -60,20 +60,20 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
         )
       )
   }
-  
+
   if (!is.null(productname) & !is.null(productgroup)) {
     stopifnot(is.character(productname))
     stopifnot(nchar(productname) > 0)
-    
+
     stopifnot(is.character(productgroup))
     stopifnot(nchar(productgroup) > 0)
-    
+
     productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = "")
     productname <- stringr::str_replace_all(productname, "[^[:alpha:]|[:space:]]", "")
-    
+
     productgroup <- iconv(productgroup, to = "ASCII//TRANSLIT", sub = "")
     productgroup <- stringr::str_replace_all(productgroup, "[^[:alpha:]|[:space:]]", "")
-    
+
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
     d <- tradestatistics::ots_attributes_products %>%
@@ -90,6 +90,6 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
         )
       )
   }
-  
+
   return(d)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/ots_read_from_api.R
 \name{ots_read_from_api}
 \alias{ots_read_from_api}
-\title{Reads data from the API and returns a dataframe}
+\title{Reads data from the API (internal function)}
 \usage{
 ots_read_from_api(years = NULL, reporter = NULL, partner = NULL,
   commodity_code_length = 4, table = "yrpc", max_attempts = 5)
@@ -20,12 +20,12 @@ China). Default set to \code{NULL}.}
 \item{commodity_code_length}{Character string to indicate the granularity level on commodities.
 Default set to \code{4}.}
 
-\item{table}{Character string to select the table to obtain the data. Default set to \code{yrpc}
+\item{table}{Character string to select the table to obtain the data. Default set to \code{yrpc} 
 (Year - Reporter - Partner - Commodity).}
 
 \item{max_attempts}{Number of attempts to retry in case of data retrieving failure.
 Default set to \code{5}.
-\code{ots_create_tidy_data}}
+\code{ots_create_tidy_data}.}
 }
 \description{
 This function accesses \code{api.tradestatistics.io} and
@@ -37,4 +37,4 @@ performs different API calls to return \code{data.frames} by reading \code{JSON}
 ots_read_from_api(years = 2015, reporter = "chl", partner = "chn")
 }
 }
-\keyword{functions}
+\keyword{internal}

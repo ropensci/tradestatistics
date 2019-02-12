@@ -3,7 +3,6 @@
 export(ots_country_code)
 export(ots_create_tidy_data)
 export(ots_product_code)
-export(ots_read_from_api)
 importFrom(crul,HttpClient)
 importFrom(dplyr,as_tibble)
 importFrom(dplyr,bind_rows)

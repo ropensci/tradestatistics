@@ -26,7 +26,7 @@
 ots_country_code <- function(countryname = NULL) {
   stopifnot(is.character(countryname))
   stopifnot(nchar(countryname) > 0)
-  
+
   countryname <- iconv(countryname, to = "ASCII//TRANSLIT", sub = "")
   countryname <- stringr::str_replace_all(countryname, "[^[:alpha:]|[:space:]]", "")
   countryname <- stringr::str_to_lower(countryname)

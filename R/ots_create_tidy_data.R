@@ -28,6 +28,8 @@
 #' @importFrom stringr str_sub str_length
 #' @importFrom rlang sym syms
 #' @importFrom purrr map_df
+#' @importFrom jsonlite fromJSON
+#' @importFrom crul HttpClient
 #' @export
 #' @examples
 #' \dontrun{
@@ -103,16 +105,15 @@ ots_create_tidy_data <- function(years = NULL,
 
   # Read from API -----------------------------------------------------------
   data <- dplyr::as_tibble(
-    purrr::map_df(
-      .x = seq_along(years),
-      ~ ots_read_from_api(
-        table = table,
-        max_attempts = max_attempts,
-        years = years[.x],
-        reporter = reporter,
-        partner = partner,
-        commodity_code_length = commodity_code_length
-      )
+    purrr::map_df(.x = seq_along(years),
+                   ~ots_read_from_api(
+                     table = table,
+                     max_attempts = max_attempts,
+                     years = years[.x],
+                     reporter = reporter,
+                     partner = partner,
+                     commodity_code_length = commodity_code_length
+                   )
     )
   )
 
