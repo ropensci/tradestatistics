@@ -25,7 +25,7 @@ This is what the package does:
 
 ![Data diagram](https://tradestatistics.github.io/tradestatistics/data-diagram.svg)
 
-Using tradestatistics R package is all about efficiency, without this package you could obtain the same data from the API at the expense of using additional time and effort for the same results. As an API wrapper and utility program this package makes data obtaining faster and easier for you.
+Using `tradestatistics` package is all about efficiency, without this package you could obtain the same data from the API at the expense of using additional time and effort for the same results. As an API wrapper and utility program this package makes data obtaining faster and easier for you.
 
 ## Installation
 
@@ -35,16 +35,6 @@ install.packages("tradestatistics")
 
 # Install development version from GitHub
 devtools::install_github("tradestatistics/tradestatistics")
-```
-
-## Usage
-
-This package features a full pkgdown site [here](https://tradestatistics.github.io/tradestatistics/). Please read it.
-
-Here's a basic example to obtain bilateral trade between Chile and Argentina in the year 2000 under HS07 classification:
-```{r basic-example, eval=FALSE}
-# What does Chile exchange with Argentina? (1980)
-get_trade_data(years = 1980, reporter = "chl", partner = "arg")
 ```
 
 ## Code of conduct

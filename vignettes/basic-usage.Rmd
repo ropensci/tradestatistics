@@ -16,19 +16,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-The [Observatory of Economic Complexity](https://atlas.media.mit.edu/en/) is the world's leading visualization engine for international trade data. `oec` provides an easy way to obtain data from the OEC by accessing its API.
-
-Using the oec R package is all about efficiency, without this package you could obtain the same data from the API at the expense of using additional time and effort for the same results. As an API wrapper and utility program this package makes data obtaining faster and easier for you.
-
-This is what the package does:
-
-![](http://pacha.hk/oec/data-diagram.svg)
-
 # Package data
 
 ## Available tables
 
-Provides this package takes data from an API, it is useful to know which tables can be accessed:
+Provided this package takes data from an API, it is useful to know which tables can be accessed:
 
 ```{r tables, eval = T}
 library(tradestatistics)

@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-This vignette shows the exact steps I performed to obtain and transform both the country and product codes this package provides.
+This vignette contains something end users should ever need to do, it shows the exact steps I performed to obtain and transform both the country and product codes this package provides.
 
 # Tables
 
