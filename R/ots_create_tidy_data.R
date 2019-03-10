@@ -9,11 +9,13 @@
 #' @param partner ISO code for country of partner (e.g. \code{chn} for
 #' China). Default set to \code{NULL}.
 #' Run \code{countries} in case of doubt.
-#' @param commodity_code_length Character string to indicate the granularity level on commodities.
+#' @param product_code Character string (e.g. \code{0101} or \code{01}) to filter products.
+#' Default set to \code{"all"}.
+#' @param product_code_length Character string to indicate the granularity level on products
 #' Default set to \code{4} (it can also take the values \code{6} or
 #' \code{all}).
 #' @param table Character string to select the table to obtain the data.
-#' Default set to \code{yrpc} (Year - Reporter - Partner - Commodity).
+#' Default set to \code{yrpc} (Year - Reporter - Partner - Product Code).
 #' Run \code{tables} in case of doubt.
 #' @param max_attempts How many times to try to download data in case the
 #' API or the internet connection fails when obtaining data. Default set
@@ -40,13 +42,20 @@
 #' 
 #' # What does Chile export to China? (2015)
 #' ots_create_tidy_data(years = 2015, reporter = "chl", partner = "chn")
+#' 
+#' # What can we say about Horses exported by Chile? (1980)
+#' ots_create_tidy_data(years = 1980, product_code = "0101", table = "yc")
+#' ots_create_tidy_data(years = 1980, reporter = "chl", product_code = "0101", table = "yrc")
+#' ots_create_tidy_data(years = 1980, reporter = "chl", partner = "arg", product_code = "0101", 
+#' table = "yrpc")
 #' }
 #' @keywords functions
 
 ots_create_tidy_data <- function(years = NULL,
                                  reporter = NULL,
                                  partner = NULL,
-                                 commodity_code_length = 4,
+                                 product_code = "all",
+                                 product_code_length = 4,
                                  table = "yrpc",
                                  max_attempts = 5) {
 
@@ -112,7 +121,8 @@ ots_create_tidy_data <- function(years = NULL,
                      years = years[.x],
                      reporter = reporter,
                      partner = partner,
-                     commodity_code_length = commodity_code_length
+                     product_code = product_code,
+                     product_code_length = product_code_length
                    )
     )
   )
@@ -202,11 +212,11 @@ ots_create_tidy_data <- function(years = NULL,
   }
 
   # include products data
-  tables_with_commodity_code <- c("yrpc", "yrc", "yc")
+  tables_with_product_code <- c("yrpc", "yrc", "yc")
 
-  if (table %in% tables_with_commodity_code) {
+  if (table %in% tables_with_product_code) {
     data <- data %>%
-      dplyr::left_join(products, by = "commodity_code")
+      dplyr::left_join(products, by = "product_code")
 
     if (table == "yrpc") {
       data <- data %>%
@@ -217,9 +227,9 @@ ots_create_tidy_data <- function(years = NULL,
             "partner_iso",
             "reporter_fullname_english",
             "partner_fullname_english",
-            "commodity_code",
-            "commodity_code_length",
-            "commodity_fullname_english",
+            "product_code",
+            "product_code_length",
+            "product_fullname_english",
             "group_code",
             "group_name"
           )),
@@ -234,9 +244,9 @@ ots_create_tidy_data <- function(years = NULL,
             "year",
             "reporter_iso",
             "reporter_fullname_english",
-            "commodity_code",
-            "commodity_code_length",
-            "commodity_fullname_english",
+            "product_code",
+            "product_code_length",
+            "product_fullname_english",
             "group_code",
             "group_name"
           )),
@@ -249,9 +259,9 @@ ots_create_tidy_data <- function(years = NULL,
         dplyr::select(
           !!!rlang::syms(c(
             "year",
-            "commodity_code",
-            "commodity_code_length",
-            "commodity_fullname_english",
+            "product_code",
+            "product_code_length",
+            "product_fullname_english",
             "group_code",
             "group_name"
           )),

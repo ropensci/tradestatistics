@@ -5,7 +5,8 @@
 \title{Reads data from the API (internal function)}
 \usage{
 ots_read_from_api(years = NULL, reporter = NULL, partner = NULL,
-  commodity_code_length = 4, table = "yrpc", max_attempts = 5)
+  product_code = "all", product_code_length = 4, table = "yrpc",
+  max_attempts = 5)
 }
 \arguments{
 \item{years}{Numeric value greater or equal to 1962 and lower of equal
@@ -17,11 +18,14 @@ Chile). Default set to \code{NULL}.}
 \item{partner}{ISO code for country of partner (e.g. \code{chn} for
 China). Default set to \code{NULL}.}
 
-\item{commodity_code_length}{Character string to indicate the granularity level on commodities.
+\item{product_code}{Character string (e.g. \code{0101} or \code{01}) to filter products.
+Default set to \code{"all"}.}
+
+\item{product_code_length}{Character string to indicate the granularity level on products.
 Default set to \code{4}.}
 
 \item{table}{Character string to select the table to obtain the data. Default set to \code{yrpc} 
-(Year - Reporter - Partner - Commodity).}
+(Year - Reporter - Partner - product).}
 
 \item{max_attempts}{Number of attempts to retry in case of data retrieving failure.
 Default set to \code{5}.

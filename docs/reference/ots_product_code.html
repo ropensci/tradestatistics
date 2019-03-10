@@ -150,52 +150,37 @@ classification (e.g. HS92 or SITC)</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productname</span> <span class='kw'>=</span> <span class='st'>"animals"</span>)</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 55 x 5</span><span>
-#&gt;    commodity_code commodity_fullname_english  group_code group_name type_product
-#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                       </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>       
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 010110         Horses, asses, mules and h… 01         Animals; … animals     
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 010190         Horses, asses, mules and h… 01         Animals; … animals     
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 0102           Bovine animals; live        01         Animals; … animals     
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 010210         Bovine animals; live, pure… 01         Animals; … animals     
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 010290         Bovine animals; live, othe… 01         Animals; … animals     
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 010310         Swine; live, pure-bred bre… 01         Animals; … animals     
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 010391         Swine; live, (other than p… 01         Animals; … animals     
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 010392         Swine; live, (other than p… 01         Animals; … animals     
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 0106           Animals, n.e.c. in chapter… 01         Animals; … animals     
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 010631         Animals; live, birds of pr… 01         Animals; … animals     
-#&gt; </span><span style='color: #949494;'># … with 45 more rows</span><span></div><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productgroup</span> <span class='kw'>=</span> <span class='st'>"fish"</span>)</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 144 x 5</span><span>
-#&gt;    commodity_code commodity_fullname_engl… group_code group_name      type_group
-#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>     
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 0301           Fish; live               03         Fish and crust… fish      
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 030110         Fish; live, ornamental   03         Fish and crust… fish      
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 030191         Fish; live, trout (salm… 03         Fish and crust… fish      
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 030192         Fish; live, eels (angui… 03         Fish and crust… fish      
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 030193         Fish; live, carp         03         Fish and crust… fish      
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 030194         Fish; live, bluefin tun… 03         Fish and crust… fish      
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 030195         Fish; live, southern bl… 03         Fish and crust… fish      
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 030199         Fish; live, n.e.c. in h… 03         Fish and crust… fish      
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 0302           Fish; fresh or chilled … 03         Fish and crust… fish      
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 030211         Fish; trout (salmo trut… 03         Fish and crust… fish      
-#&gt; </span><span style='color: #949494;'># … with 134 more rows</span><span></div><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productname</span> <span class='kw'>=</span> <span class='st'>"milk"</span>, <span class='kw'>productgroup</span> <span class='kw'>=</span> <span class='st'>"dairy"</span>)</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 17 x 6</span><span>
-#&gt;    commodity_code commodity_fullnam… group_code group_name  type_name type_group
-#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>              </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>     
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 040120         Dairy produce; mi… 04         Dairy prod… milk      dairy     
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 0401           Milk and cream; n… 04         Dairy prod… milk      dairy     
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 040110         Dairy produce; mi… 04         Dairy prod… milk      dairy     
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 040130         Dairy produce; mi… 04         Dairy prod… milk      dairy     
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 0402           Milk and cream; c… 04         Dairy prod… milk      dairy     
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 040210         Dairy produce; mi… 04         Dairy prod… milk      dairy     
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 040221         Dairy produce; mi… 04         Dairy prod… milk      dairy     
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 040229         Dairy produce; mi… 04         Dairy prod… milk      dairy     
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 040291         Dairy produce; mi… 04         Dairy prod… milk      dairy     
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 040299         Dairy produce; mi… 04         Dairy prod… milk      dairy     
-#&gt; </span><span style='color: #BCBCBC;'>11</span><span> 0403           Buttermilk, curdl… 04         Dairy prod… milk      dairy     
-#&gt; </span><span style='color: #BCBCBC;'>12</span><span> 040390         Dairy produce; bu… 04         Dairy prod… milk      dairy     
-#&gt; </span><span style='color: #BCBCBC;'>13</span><span> 0404           Whey and products… 04         Dairy prod… milk      dairy     
-#&gt; </span><span style='color: #BCBCBC;'>14</span><span> 040490         Dairy produce; na… 04         Dairy prod… milk      dairy     
-#&gt; </span><span style='color: #BCBCBC;'>15</span><span> 0405           Butter and other … 04         Dairy prod… milk      dairy     
-#&gt; </span><span style='color: #BCBCBC;'>16</span><span> 040510         Dairy produce; de… 04         Dairy prod… milk      dairy     
-#&gt; </span><span style='color: #BCBCBC;'>17</span><span> 040590         Dairy produce; fa… 04         Dairy prod… milk      dairy     </div></span></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productname</span> <span class='kw'>=</span> <span class='st'>"ANIMALS "</span>)</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 0 x 5</span><span>
+#&gt; </span><span style='color: #949494;'># … with 5 variables: product_code </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, product_fullname_english </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>,
+#&gt; #   group_code </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, group_name </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, type_product </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span></div><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productgroup</span> <span class='kw'>=</span> <span class='st'>"  fish"</span>)</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 144 x 5</span><span>
+#&gt;    product_code product_fullname_english  group_code group_name       type_group
+#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                     </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>     
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 0301         Fish; live                03         Fish and crusta… fish      
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 030110       Fish; live, ornamental    03         Fish and crusta… fish      
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 030191       Fish; live, trout (salmo… 03         Fish and crusta… fish      
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 030192       Fish; live, eels (anguil… 03         Fish and crusta… fish      
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 030193       Fish; live, carp          03         Fish and crusta… fish      
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 030194       Fish; live, bluefin tuna… 03         Fish and crusta… fish      
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 030195       Fish; live, southern blu… 03         Fish and crusta… fish      
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 030199       Fish; live, n.e.c. in he… 03         Fish and crusta… fish      
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 0302         Fish; fresh or chilled (… 03         Fish and crusta… fish      
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 030211       Fish; trout (salmo trutt… 03         Fish and crusta… fish      
+#&gt; </span><span style='color: #949494;'># … with 134 more rows</span><span></div><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productname</span> <span class='kw'>=</span> <span class='st'>"Milk"</span>, <span class='kw'>productgroup</span> <span class='kw'>=</span> <span class='st'>"Dairy"</span>)</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 0 x 6</span><span>
+#&gt; </span><span style='color: #949494;'># … with 6 variables: product_code </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, product_fullname_english </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>,
+#&gt; #   group_code </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, group_name </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, type_name </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, type_group </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span></div><div class='input'><span class='fu'>ots_product_code</span>()</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 6,373 x 4</span><span>
+#&gt;    product_code product_fullname_english                  group_code group_name 
+#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                                     </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 0101         Horses, asses, mules and hinnies; live    01         Animals; l…
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 010110       Horses, asses, mules and hinnies; live, … 01         Animals; l…
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 010190       Horses, asses, mules and hinnies; live, … 01         Animals; l…
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 0102         Bovine animals; live                      01         Animals; l…
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 010210       Bovine animals; live, pure-bred breeding… 01         Animals; l…
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 010290       Bovine animals; live, other than pure-br… 01         Animals; l…
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 0103         Swine; live                               01         Animals; l…
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 010310       Swine; live, pure-bred breeding animals   01         Animals; l…
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 010391       Swine; live, (other than pure-bred breed… 01         Animals; l…
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 010392       Swine; live, (other than pure-bred breed… 01         Animals; l…
+#&gt; </span><span style='color: #949494;'># … with 6,363 more rows</span><span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

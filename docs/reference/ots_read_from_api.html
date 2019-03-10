@@ -123,7 +123,8 @@ performs different API calls to return <code>data.frames</code> by reading <code
     </div>
 
     <pre class="usage"><span class='fu'>ots_read_from_api</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>partner</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>commodity_code_length</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrpc"</span>, <span class='kw'>max_attempts</span> <span class='kw'>=</span> <span class='fl'>5</span>)</pre>
+  <span class='kw'>product_code</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>product_code_length</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrpc"</span>,
+  <span class='kw'>max_attempts</span> <span class='kw'>=</span> <span class='fl'>5</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -144,14 +145,19 @@ Chile). Default set to <code>NULL</code>.</p></td>
 China). Default set to <code>NULL</code>.</p></td>
     </tr>
     <tr>
-      <th>commodity_code_length</th>
-      <td><p>Character string to indicate the granularity level on commodities.
+      <th>product_code</th>
+      <td><p>Character string (e.g. <code>0101</code> or <code>01</code>) to filter products.
+Default set to <code>"all"</code>.</p></td>
+    </tr>
+    <tr>
+      <th>product_code_length</th>
+      <td><p>Character string to indicate the granularity level on products.
 Default set to <code>4</code>.</p></td>
     </tr>
     <tr>
       <th>table</th>
       <td><p>Character string to select the table to obtain the data. Default set to <code>yrpc</code> 
-(Year - Reporter - Partner - Commodity).</p></td>
+(Year - Reporter - Partner - product).</p></td>
     </tr>
     <tr>
       <th>max_attempts</th>

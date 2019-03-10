@@ -11,13 +11,14 @@
 #' @importFrom magrittr %>%
 #' @importFrom dplyr mutate filter
 #' @importFrom rlang sym
-#' @importFrom stringr str_replace_all str_detect str_to_lower
+#' @importFrom stringr str_detect str_to_lower str_trim str_squish
 #' @importFrom utils data
 #' @export
 #' @examples
-#' ots_product_code(productname = "animals")
-#' ots_product_code(productgroup = "fish")
-#' ots_product_code(productname = "milk", productgroup = "dairy")
+#' ots_product_code(productname = "ANIMALS ")
+#' ots_product_code(productgroup = "  fish")
+#' ots_product_code(productname = "Milk", productgroup = "Dairy")
+#' ots_product_code()
 #' @keywords functions
 
 ots_product_code <- function(productname = NULL, productgroup = NULL) {
@@ -29,9 +30,11 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     stopifnot(is.character(productname))
     stopifnot(nchar(productname) > 0)
 
-    productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = "")
-    productname <- stringr::str_replace_all(productname, "[^[:alpha:]|[:space:]]", "")
-
+    productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = " ")
+    productname <- stringr::str_replace_all(productname, "[^[:alpha:]]", " ")
+    productname <- stringr::str_squish(productname)
+    productname <- stringr::str_trim(productname)
+    
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
     d <- tradestatistics::ots_attributes_products %>%
@@ -40,7 +43,7 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
       ) %>%
       dplyr::filter(
         stringr::str_detect(
-          stringr::str_to_lower(!!sym("commodity_fullname_english")), productname
+          stringr::str_to_lower(!!sym("product_fullname_english")), productname
         )
       )
   }
@@ -49,8 +52,10 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     stopifnot(is.character(productgroup))
     stopifnot(nchar(productgroup) > 0)
 
-    productgroup <- iconv(productgroup, to = "ASCII//TRANSLIT", sub = "")
-    productgroup <- stringr::str_replace_all(productgroup, "[^[:alpha:]|[:space:]]", "")
+    productgroup <- iconv(productgroup, to = "ASCII//TRANSLIT", sub = " ")
+    productgroup <- stringr::str_replace_all(productgroup, "[^[:alpha:]]", " ")
+    productgroup <- stringr::str_squish(productgroup)
+    productgroup <- stringr::str_trim(productgroup)
 
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
@@ -72,11 +77,15 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     stopifnot(is.character(productgroup))
     stopifnot(nchar(productgroup) > 0)
 
-    productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = "")
-    productname <- stringr::str_replace_all(productname, "[^[:alpha:]|[:space:]]", "")
+    productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = " ")
+    productname <- stringr::str_replace_all(productname, "[^[:alpha:]]", " ")
+    productname <- stringr::str_squish(productname)
+    productname <- stringr::str_trim(productname)
 
-    productgroup <- iconv(productgroup, to = "ASCII//TRANSLIT", sub = "")
-    productgroup <- stringr::str_replace_all(productgroup, "[^[:alpha:]|[:space:]]", "")
+    productgroup <- iconv(productgroup, to = "ASCII//TRANSLIT", sub = " ")
+    productgroup <- stringr::str_replace_all(productgroup, "[^[:alpha:]]", " ")
+    productgroup <- stringr::str_squish(productgroup)
+    productgroup <- stringr::str_trim(productgroup)
 
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
@@ -87,7 +96,7 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
       ) %>%
       dplyr::filter(
         stringr::str_detect(
-          stringr::str_to_lower(!!sym("commodity_fullname_english")), productname
+          stringr::str_to_lower(!!sym("product_fullname_english")), productname
         ),
         stringr::str_detect(
           stringr::str_to_lower(!!sym("group_name")), productgroup

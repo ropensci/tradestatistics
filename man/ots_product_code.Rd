@@ -23,8 +23,9 @@ package data for all matching product codes in the context of valid API
 product codes.
 }
 \examples{
-ots_product_code(productname = "animals")
-ots_product_code(productgroup = "fish")
-ots_product_code(productname = "milk", productgroup = "dairy")
+ots_product_code(productname = "ANIMALS ")
+ots_product_code(productgroup = "  fish")
+ots_product_code(productname = "Milk", productgroup = "Dairy")
+ots_product_code()
 }
 \keyword{functions}

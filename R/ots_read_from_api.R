@@ -7,10 +7,12 @@
 #' Chile). Default set to \code{NULL}.
 #' @param partner ISO code for country of partner (e.g. \code{chn} for
 #' China). Default set to \code{NULL}.
-#' @param commodity_code_length Character string to indicate the granularity level on commodities.
+#' @param product_code Character string (e.g. \code{0101} or \code{01}) to filter products.
+#' Default set to \code{"all"}.
+#' @param product_code_length Character string to indicate the granularity level on products.
 #' Default set to \code{4}.
 #' @param table Character string to select the table to obtain the data. Default set to \code{yrpc} 
-#' (Year - Reporter - Partner - Commodity).
+#' (Year - Reporter - Partner - product).
 #' @param max_attempts Number of attempts to retry in case of data retrieving failure.
 #' Default set to \code{5}.
 #' \code{ots_create_tidy_data}.
@@ -26,7 +28,8 @@
 ots_read_from_api <- function(years = NULL,
                               reporter = NULL,
                               partner = NULL,
-                              commodity_code_length = 4,
+                              product_code = "all",
+                              product_code_length = 4,
                               table = "yrpc", 
                               max_attempts = 5) {
   stopifnot(max_attempts > 0)
@@ -39,16 +42,16 @@ ots_read_from_api <- function(years = NULL,
     "country_rankings" = sprintf("country_rankings?y=%s", years),
     "product_rankings" = sprintf("product_rankings?y=%s", years),
     "yrpc" = sprintf(
-      "yrpc?y=%s&r=%s&p=%s&l=%s",
-      years, reporter, partner, commodity_code_length
+      "yrpc?y=%s&r=%s&p=%s&c=%s&l=%s",
+      years, reporter, partner, product_code, product_code_length
     ),
     "yrp" = sprintf("yrp?y=%s&r=%s&p=%s", years, reporter, partner),
     "yrc" = sprintf(
-      "yrc?y=%s&r=%s&l=%s",
-      years, reporter, commodity_code_length
+      "yrc?y=%s&r=%s&c=%s&l=%s",
+      years, reporter, product_code, product_code_length
     ),
     "yr" = sprintf("yr?y=%s&r=%s", years, reporter),
-    "yc" = sprintf("yc?y=%s&l=%s", years, commodity_code_length)
+    "yc" = sprintf("yc?y=%s&c=%s&l=%s", years, product_code, product_code_length)
   )
   
   resp <- crul::HttpClient$new(url = "https://api.tradestatistics.io/")
@@ -89,7 +92,7 @@ ots_read_from_api <- function(years = NULL,
       # otherwise, sleep a second and try again
       Sys.sleep(1)
       ots_read_from_api(
-        years, reporter, partner, commodity_code_length, table, max_attempts = max_attempts - 1
+        years, reporter, partner, product_code_length, table, max_attempts = max_attempts - 1
       )
     }
   }

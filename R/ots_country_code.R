@@ -10,17 +10,13 @@
 #' @importFrom dplyr select filter
 #' @importFrom rlang sym
 #' @importFrom purrr as_vector
-#' @importFrom stringr str_replace_all str_detect str_to_lower
+#' @importFrom stringr str_detect str_to_lower str_trim str_squish
 #' @export
 #' @examples
-#' # Single match with no replacement
-#' ots_country_code("Chile")
-#' 
-#' # Single match with replacement
-#' ots_country_code("America")
-#' 
-#' # Double match with no replacement
-#' ots_country_code("Germany")
+#' ots_country_code("Chile ")
+#' ots_country_code("america")
+#' ots_country_code("UNITED  STATES")
+#' ots_country_code(" united_")
 #' @keywords functions
 
 ots_country_code <- function(countryname = NULL) {
@@ -32,8 +28,10 @@ ots_country_code <- function(countryname = NULL) {
       "
     )
   } else {
-    countryname <- str_replace_all(countryname, "\\s+", " ")
-    countryname <- str_replace_all(countryname, "[^[:alpha:] ]", "")
+    countryname <- iconv(countryname, to = "ASCII//TRANSLIT", sub = " ")
+    countryname <- stringr::str_replace_all(countryname, "[^[:alpha:]]", " ")
+    countryname <- stringr::str_squish(countryname)
+    countryname <- stringr::str_trim(countryname)
   }
   
   if(nchar(countryname) < 1) {
@@ -44,11 +42,9 @@ ots_country_code <- function(countryname = NULL) {
       try with a quoted text string (e.g. ots_country_code(\"chi\"))
       "
     )
+  } else {
+    countryname <- stringr::str_to_lower(countryname)
   }
-
-  countryname <- iconv(countryname, to = "ASCII//TRANSLIT", sub = "")
-  countryname <- stringr::str_replace_all(countryname, "[^[:alpha:]|[:space:]]", "")
-  countryname <- stringr::str_to_lower(countryname)
 
   countryname <- switch(countryname,
     "us" = "usa",

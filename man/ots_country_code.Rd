@@ -20,13 +20,9 @@ This function takes a text string and searches within the
 package data for a country code in the context of valid API country codes.
 }
 \examples{
-# Single match with no replacement
-ots_country_code("Chile")
-
-# Single match with replacement
-ots_country_code("America")
-
-# Double match with no replacement
-ots_country_code("Germany")
+ots_country_code("Chile ")
+ots_country_code("america")
+ots_country_code("UNITED  STATES")
+ots_country_code(" united_")
 }
 \keyword{functions}

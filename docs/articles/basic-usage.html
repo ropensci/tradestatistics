@@ -76,7 +76,7 @@
       <h1>How to use this package</h1>
                         <h4 class="author">Mauricio Vargas S.</h4>
             
-            <h4 class="date">2019-03-03</h4>
+            <h4 class="date">2019-03-10</h4>
       
       
       <div class="hidden name"><code>basic-usage.Rmd</code></div>
@@ -96,7 +96,7 @@
 <span class="co">#&gt; </span>
 <span class="co">#&gt;     Welcome to tradestatistics package. If you are going to use this</span>
 <span class="co">#&gt;     package, it means that you are ok with the usage conditions explained</span>
-<span class="co">#&gt;     on tradestatistics.io/site/data2/index.html</span>
+<span class="co">#&gt;     on https://tradestatistics.io/datasets.html</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;     Commercial purposes are strictly out of the boundaries of what you </span>
 <span class="co">#&gt;     can do with this data according to UN Comtrade dissemination clauses.</span>
@@ -203,18 +203,18 @@ ots_attributes_tables
 <p>The end user can use this function to find a commodity code by providing a product name. This works by implementing partial search.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/ots_product_code.html">ots_product_code</a></span>(<span class="st">"wine"</span>)
 <span class="co">#&gt; # A tibble: 58 x 5</span>
-<span class="co">#&gt;    commodity_code commodity_fullname_e… group_code group_name  type_product</span>
-<span class="co">#&gt;    &lt;chr&gt;          &lt;chr&gt;                 &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;       </span>
-<span class="co">#&gt;  1 0103           Swine; live           01         Animals; l… wine        </span>
-<span class="co">#&gt;  2 010310         Swine; live, pure-br… 01         Animals; l… wine        </span>
-<span class="co">#&gt;  3 010391         Swine; live, (other … 01         Animals; l… wine        </span>
-<span class="co">#&gt;  4 010392         Swine; live, (other … 01         Animals; l… wine        </span>
-<span class="co">#&gt;  5 0203           Meat of swine; fresh… 02         Meat and e… wine        </span>
-<span class="co">#&gt;  6 020311         Meat; of swine, carc… 02         Meat and e… wine        </span>
-<span class="co">#&gt;  7 020312         Meat; of swine, hams… 02         Meat and e… wine        </span>
-<span class="co">#&gt;  8 020319         Meat; of swine, n.e.… 02         Meat and e… wine        </span>
-<span class="co">#&gt;  9 020321         Meat; of swine, carc… 02         Meat and e… wine        </span>
-<span class="co">#&gt; 10 020322         Meat; of swine, hams… 02         Meat and e… wine        </span>
+<span class="co">#&gt;    product_code product_fullname_engli… group_code group_name  type_product</span>
+<span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;                   &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;       </span>
+<span class="co">#&gt;  1 0103         Swine; live             01         Animals; l… wine        </span>
+<span class="co">#&gt;  2 010310       Swine; live, pure-bred… 01         Animals; l… wine        </span>
+<span class="co">#&gt;  3 010391       Swine; live, (other th… 01         Animals; l… wine        </span>
+<span class="co">#&gt;  4 010392       Swine; live, (other th… 01         Animals; l… wine        </span>
+<span class="co">#&gt;  5 0203         Meat of swine; fresh, … 02         Meat and e… wine        </span>
+<span class="co">#&gt;  6 020311       Meat; of swine, carcas… 02         Meat and e… wine        </span>
+<span class="co">#&gt;  7 020312       Meat; of swine, hams, … 02         Meat and e… wine        </span>
+<span class="co">#&gt;  8 020319       Meat; of swine, n.e.c.… 02         Meat and e… wine        </span>
+<span class="co">#&gt;  9 020321       Meat; of swine, carcas… 02         Meat and e… wine        </span>
+<span class="co">#&gt; 10 020322       Meat; of swine, hams, … 02         Meat and e… wine        </span>
 <span class="co">#&gt; # … with 48 more rows</span></code></pre></div>
 </div>
 <div id="trade-data" class="section level2">
@@ -240,8 +240,8 @@ ots_attributes_tables
 <span class="co">#&gt;  8  1980 chl          arg         Chile            Argentina       </span>
 <span class="co">#&gt;  9  1980 chl          arg         Chile            Argentina       </span>
 <span class="co">#&gt; 10  1980 chl          arg         Chile            Argentina       </span>
-<span class="co">#&gt; # … with 570 more rows, and 15 more variables: commodity_code &lt;chr&gt;,</span>
-<span class="co">#&gt; #   commodity_code_length &lt;int&gt;, commodity_fullname_english &lt;chr&gt;,</span>
+<span class="co">#&gt; # … with 570 more rows, and 15 more variables: product_code &lt;chr&gt;,</span>
+<span class="co">#&gt; #   product_code_length &lt;int&gt;, product_fullname_english &lt;chr&gt;,</span>
 <span class="co">#&gt; #   group_code &lt;chr&gt;, group_name &lt;chr&gt;, import_value_usd &lt;int&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_change_1_year &lt;int&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_change_5_years &lt;int&gt;,</span>
@@ -266,8 +266,8 @@ ots_attributes_tables
 <span class="co">#&gt;  8  1980 chl          arg         Chile            Argentina       </span>
 <span class="co">#&gt;  9  1980 chl          arg         Chile            Argentina       </span>
 <span class="co">#&gt; 10  1980 chl          arg         Chile            Argentina       </span>
-<span class="co">#&gt; # … with 570 more rows, and 15 more variables: commodity_code &lt;chr&gt;,</span>
-<span class="co">#&gt; #   commodity_code_length &lt;int&gt;, commodity_fullname_english &lt;chr&gt;,</span>
+<span class="co">#&gt; # … with 570 more rows, and 15 more variables: product_code &lt;chr&gt;,</span>
+<span class="co">#&gt; #   product_code_length &lt;int&gt;, product_fullname_english &lt;chr&gt;,</span>
 <span class="co">#&gt; #   group_code &lt;chr&gt;, group_name &lt;chr&gt;, import_value_usd &lt;int&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_change_1_year &lt;int&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_change_5_years &lt;int&gt;,</span>
@@ -293,8 +293,8 @@ ots_attributes_tables
 <span class="co">#&gt;  8  1980 chl          arg         Chile            Argentina       </span>
 <span class="co">#&gt;  9  1980 chl          arg         Chile            Argentina       </span>
 <span class="co">#&gt; 10  1980 chl          arg         Chile            Argentina       </span>
-<span class="co">#&gt; # … with 3,460 more rows, and 15 more variables: commodity_code &lt;chr&gt;,</span>
-<span class="co">#&gt; #   commodity_code_length &lt;int&gt;, commodity_fullname_english &lt;chr&gt;,</span>
+<span class="co">#&gt; # … with 3,460 more rows, and 15 more variables: product_code &lt;chr&gt;,</span>
+<span class="co">#&gt; #   product_code_length &lt;int&gt;, product_fullname_english &lt;chr&gt;,</span>
 <span class="co">#&gt; #   group_code &lt;chr&gt;, group_name &lt;chr&gt;, import_value_usd &lt;int&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_change_1_year &lt;int&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_change_5_years &lt;int&gt;,</span>
@@ -320,8 +320,8 @@ ots_attributes_tables
 <span class="co">#&gt;  8  1980 chl          arg         Chile            Argentina       </span>
 <span class="co">#&gt;  9  1980 chl          arg         Chile            Argentina       </span>
 <span class="co">#&gt; 10  1980 chl          arg         Chile            Argentina       </span>
-<span class="co">#&gt; # … with 2,607 more rows, and 15 more variables: commodity_code &lt;chr&gt;,</span>
-<span class="co">#&gt; #   commodity_code_length &lt;int&gt;, commodity_fullname_english &lt;chr&gt;,</span>
+<span class="co">#&gt; # … with 2,607 more rows, and 15 more variables: product_code &lt;chr&gt;,</span>
+<span class="co">#&gt; #   product_code_length &lt;int&gt;, product_fullname_english &lt;chr&gt;,</span>
 <span class="co">#&gt; #   group_code &lt;chr&gt;, group_name &lt;chr&gt;, import_value_usd &lt;int&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_change_1_year &lt;int&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_change_5_years &lt;int&gt;,</span>
@@ -383,23 +383,23 @@ ots_attributes_tables
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What does Chile exchange? (1980)</span>
 <span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="dv">1980</span>, <span class="dt">reporter =</span> <span class="st">"chl"</span>, <span class="dt">table =</span> <span class="st">"yrc"</span>)
 <span class="co">#&gt; # A tibble: 1,072 x 20</span>
-<span class="co">#&gt;     year reporter_iso reporter_fullna… commodity_code commodity_code_…</span>
-<span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;                     &lt;int&gt;</span>
-<span class="co">#&gt;  1  1980 chl          Chile            0101                          4</span>
-<span class="co">#&gt;  2  1980 chl          Chile            0102                          4</span>
-<span class="co">#&gt;  3  1980 chl          Chile            0103                          4</span>
-<span class="co">#&gt;  4  1980 chl          Chile            0104                          4</span>
-<span class="co">#&gt;  5  1980 chl          Chile            0105                          4</span>
-<span class="co">#&gt;  6  1980 chl          Chile            0106                          4</span>
-<span class="co">#&gt;  7  1980 chl          Chile            0201                          4</span>
-<span class="co">#&gt;  8  1980 chl          Chile            0203                          4</span>
-<span class="co">#&gt;  9  1980 chl          Chile            0204                          4</span>
-<span class="co">#&gt; 10  1980 chl          Chile            0205                          4</span>
+<span class="co">#&gt;     year reporter_iso reporter_fullna… product_code product_code_le…</span>
+<span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;                   &lt;int&gt;</span>
+<span class="co">#&gt;  1  1980 chl          Chile            0101                        4</span>
+<span class="co">#&gt;  2  1980 chl          Chile            0102                        4</span>
+<span class="co">#&gt;  3  1980 chl          Chile            0103                        4</span>
+<span class="co">#&gt;  4  1980 chl          Chile            0104                        4</span>
+<span class="co">#&gt;  5  1980 chl          Chile            0105                        4</span>
+<span class="co">#&gt;  6  1980 chl          Chile            0106                        4</span>
+<span class="co">#&gt;  7  1980 chl          Chile            0201                        4</span>
+<span class="co">#&gt;  8  1980 chl          Chile            0203                        4</span>
+<span class="co">#&gt;  9  1980 chl          Chile            0204                        4</span>
+<span class="co">#&gt; 10  1980 chl          Chile            0205                        4</span>
 <span class="co">#&gt; # … with 1,062 more rows, and 15 more variables:</span>
-<span class="co">#&gt; #   commodity_fullname_english &lt;chr&gt;, group_code &lt;chr&gt;, group_name &lt;chr&gt;,</span>
+<span class="co">#&gt; #   product_fullname_english &lt;chr&gt;, group_code &lt;chr&gt;, group_name &lt;chr&gt;,</span>
 <span class="co">#&gt; #   export_value_usd &lt;int&gt;, import_value_usd &lt;int&gt;,</span>
-<span class="co">#&gt; #   export_rca_4_digits_commodity_code &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   import_rca_4_digits_commodity_code &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   export_rca_4_digits_product_code &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   import_rca_4_digits_product_code &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   export_value_usd_change_1_year &lt;int&gt;,</span>
 <span class="co">#&gt; #   export_value_usd_change_5_years &lt;int&gt;,</span>
 <span class="co">#&gt; #   export_value_usd_percentage_change_1_year &lt;dbl&gt;,</span>
@@ -451,24 +451,23 @@ ots_attributes_tables
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Which products are exchanged? (1980)</span>
 <span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="dv">1980</span>, <span class="dt">table =</span> <span class="st">"yc"</span>)
 <span class="co">#&gt; # A tibble: 1,106 x 24</span>
-<span class="co">#&gt;     year commodity_code commodity_code_… commodity_fulln… group_code</span>
-<span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;                     &lt;int&gt; &lt;chr&gt;            &lt;chr&gt;     </span>
-<span class="co">#&gt;  1  1980 0101                          4 Horses, asses, … 01        </span>
-<span class="co">#&gt;  2  1980 0102                          4 Bovine animals;… 01        </span>
-<span class="co">#&gt;  3  1980 0103                          4 Swine; live      01        </span>
-<span class="co">#&gt;  4  1980 0104                          4 Sheep and goats… 01        </span>
-<span class="co">#&gt;  5  1980 0105                          4 Poultry; live, … 01        </span>
-<span class="co">#&gt;  6  1980 0106                          4 Animals, n.e.c.… 01        </span>
-<span class="co">#&gt;  7  1980 0201                          4 Meat of bovine … 02        </span>
-<span class="co">#&gt;  8  1980 0203                          4 Meat of swine; … 02        </span>
-<span class="co">#&gt;  9  1980 0204                          4 Meat of sheep o… 02        </span>
-<span class="co">#&gt; 10  1980 0205                          4 Meat of horses,… 02        </span>
+<span class="co">#&gt;     year product_code product_code_le… product_fullnam… group_code</span>
+<span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;                   &lt;int&gt; &lt;chr&gt;            &lt;chr&gt;     </span>
+<span class="co">#&gt;  1  1980 0101                        4 Horses, asses, … 01        </span>
+<span class="co">#&gt;  2  1980 0102                        4 Bovine animals;… 01        </span>
+<span class="co">#&gt;  3  1980 0103                        4 Swine; live      01        </span>
+<span class="co">#&gt;  4  1980 0104                        4 Sheep and goats… 01        </span>
+<span class="co">#&gt;  5  1980 0105                        4 Poultry; live, … 01        </span>
+<span class="co">#&gt;  6  1980 0106                        4 Animals, n.e.c.… 01        </span>
+<span class="co">#&gt;  7  1980 0201                        4 Meat of bovine … 02        </span>
+<span class="co">#&gt;  8  1980 0203                        4 Meat of swine; … 02        </span>
+<span class="co">#&gt;  9  1980 0204                        4 Meat of sheep o… 02        </span>
+<span class="co">#&gt; 10  1980 0205                        4 Meat of horses,… 02        </span>
 <span class="co">#&gt; # … with 1,096 more rows, and 19 more variables: group_name &lt;chr&gt;,</span>
 <span class="co">#&gt; #   export_value_usd &lt;dbl&gt;, import_value_usd &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   pci_4_digits_commodity_code &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   pci_rank_4_digits_commodity_code &lt;int&gt;,</span>
-<span class="co">#&gt; #   pci_rank_4_digits_commodity_code_delta_1_year &lt;int&gt;,</span>
-<span class="co">#&gt; #   pci_rank_4_digits_commodity_code_delta_5_years &lt;int&gt;,</span>
+<span class="co">#&gt; #   pci_4_digits_product_code &lt;dbl&gt;, pci_rank_4_digits_product_code &lt;int&gt;,</span>
+<span class="co">#&gt; #   pci_rank_4_digits_product_code_delta_1_year &lt;int&gt;,</span>
+<span class="co">#&gt; #   pci_rank_4_digits_product_code_delta_5_years &lt;int&gt;,</span>
 <span class="co">#&gt; #   top_exporter_iso &lt;chr&gt;, top_exporter_trade_value_usd &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   top_importer_iso &lt;chr&gt;, top_importer_trade_value_usd &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   export_value_usd_change_1_year &lt;dbl&gt;,</span>
