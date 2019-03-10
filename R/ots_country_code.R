@@ -24,8 +24,27 @@
 #' @keywords functions
 
 ots_country_code <- function(countryname = NULL) {
-  stopifnot(is.character(countryname))
-  stopifnot(nchar(countryname) > 0)
+  if(is.null(countryname)) {
+    stop(
+      "
+      countryname can't be NULL
+      try with a quoted text string (e.g. ots_country_code(\"chi\"))
+      "
+    )
+  } else {
+    countryname <- str_replace_all(countryname, "\\s+", " ")
+    countryname <- str_replace_all(countryname, "[^[:alpha:] ]", "")
+  }
+  
+  if(nchar(countryname) < 1) {
+    stop(
+      "
+      countryname can't have zero characters after removing numbers,
+      special symbols and multiple spaces
+      try with a quoted text string (e.g. ots_country_code(\"chi\"))
+      "
+    )
+  }
 
   countryname <- iconv(countryname, to = "ASCII//TRANSLIT", sub = "")
   countryname <- stringr::str_replace_all(countryname, "[^[:alpha:]|[:space:]]", "")
@@ -34,12 +53,12 @@ ots_country_code <- function(countryname = NULL) {
   countryname <- switch(countryname,
     "us" = "usa",
     "america" = "usa",
+    "united states" = "usa",
     "united states of america" = "usa",
     "uk" = "united kingdom",
     "england" = "united kingdom",
     "scotland" = "united kingdom",
     "holland" = "netherlands",
-    "ussr" = "russia",
     "myanmar" = "burma",
     "persia" = "iran",
     "siam" = "thailand",
@@ -53,7 +72,7 @@ ots_country_code <- function(countryname = NULL) {
   )
 
   countrycode <- tradestatistics::ots_attributes_countries %>%
-    filter(
+    dplyr::filter(
       stringr::str_detect(
         stringr::str_to_lower(!!sym("country_fullname_english")), countryname
       )

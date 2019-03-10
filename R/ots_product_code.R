@@ -21,6 +21,10 @@
 #' @keywords functions
 
 ots_product_code <- function(productname = NULL, productgroup = NULL) {
+  if (is.null(productname) & is.null(productgroup)) {
+    d <- tradestatistics::ots_attributes_products
+  }
+  
   if (!is.null(productname) & is.null(productgroup)) {
     stopifnot(is.character(productname))
     stopifnot(nchar(productname) > 0)
