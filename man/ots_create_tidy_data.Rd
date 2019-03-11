@@ -4,12 +4,12 @@
 \alias{ots_create_tidy_data}
 \title{Downloads and processes the data from the API to return a human-readable tibble}
 \usage{
-ots_create_tidy_data(years = NULL, reporter = NULL, partner = NULL,
-  product_code = "all", product_code_length = 4, table = "yrpc",
+ots_create_tidy_data(year = NULL, reporter = NULL, partner = NULL,
+  product = "all", product_code_length = 4, table = "yrpc",
   max_attempts = 5)
 }
 \arguments{
-\item{years}{Numeric value greater or equal to 1962 and lower of equal
+\item{year}{Numeric value greater or equal to 1962 and lower of equal
 to 2016. Default set to \code{NULL}.}
 
 \item{reporter}{ISO code for country of reporter (e.g. \code{chl} for
@@ -20,7 +20,7 @@ Run \code{countries} in case of doubt.}
 China). Default set to \code{NULL}.
 Run \code{countries} in case of doubt.}
 
-\item{product_code}{Character string (e.g. \code{0101} or \code{01}) to filter products.
+\item{product}{Character string (e.g. \code{0101}, \code{01} or \code{"apple"}) to filter products.
 Default set to \code{"all"}.}
 
 \item{product_code_length}{Character string to indicate the granularity level on products
@@ -50,16 +50,18 @@ performs different API calls to return tidy data. and data transforming.
 # The next example can take more than 5 seconds to compute,
 # so these are just shown without evaluation according to CRAN rules
 
-# Run `countries` to display the full table of countries
+# Run `ots_attributes_countries` to display the full table of countries
+# Run `ots_attributes_products` to display the full table of products
 
-# What does Chile export to China? (2015)
-ots_create_tidy_data(years = 2015, reporter = "chl", partner = "chn")
+# What does Chile export to China? (1980)
+ots_create_tidy_data(year = 1980, reporter = "chl", partner = "chn")
 
-# What can we say about Horses exported by Chile? (1980)
-ots_create_tidy_data(years = 1980, product_code = "0101", table = "yc")
-ots_create_tidy_data(years = 1980, reporter = "chl", product_code = "0101", table = "yrc")
-ots_create_tidy_data(years = 1980, reporter = "chl", partner = "arg", product_code = "0101", 
-table = "yrpc")
+# What can we say about Horses export in Chile and the World? (1980)
+ots_create_tidy_data(year = 1980, product = "0101", table = "yc")
+ots_create_tidy_data(year = 1980, reporter = "chl", product = "0101", table = "yrc")
+
+# What can we say about the different types of apples exported by Chile? (1980)
+ots_create_tidy_data(year = 1980, reporter = "chl", product = "apple", table = "yrc")
 }
 }
 \keyword{functions}

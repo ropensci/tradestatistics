@@ -1,7 +1,7 @@
 #' Reads data from the API (internal function)
 #' @description This function accesses \code{api.tradestatistics.io} and
 #' performs different API calls to return \code{data.frames} by reading \code{JSON} data
-#' @param years Numeric value greater or equal to 1962 and lower of equal
+#' @param year Numeric value greater or equal to 1962 and lower of equal
 #' to 2016. Default set to \code{NULL}.
 #' @param reporter ISO code for country of reporter (e.g. \code{chl} for
 #' Chile). Default set to \code{NULL}.
@@ -20,12 +20,23 @@
 #' @importFrom crul HttpClient
 #' @examples
 #' \dontrun{
-#' # What does Chile export to China? (2015)
-#' ots_read_from_api(years = 2015, reporter = "chl", partner = "chn")
+#' # The next example can take more than 5 seconds to compute,
+#' # so these are just shown without evaluation according to CRAN rules
+#' 
+#' # Run `countries` to display the full table of countries
+#' 
+#' # What does Chile export to China? (1980)
+#' ots_read_from_api(year = 1980, reporter = "chl", partner = "chn")
+#' 
+#' # What can we say about chilean Horses export? (1980)
+#' ots_read_from_api(year = 1980, product_code = "0101", table = "yc")
+#' ots_read_from_api(year = 1980, reporter = "chl", product_code = "0101", table = "yrc")
+#' ots_read_from_api(year = 1980, reporter = "chl", partner = "arg", product_code = "0101", 
+#' table = "yrpc")
 #' }
 #' @keywords internal
 
-ots_read_from_api <- function(years = NULL,
+ots_read_from_api <- function(year = NULL,
                               reporter = NULL,
                               partner = NULL,
                               product_code = "all",
@@ -38,20 +49,20 @@ ots_read_from_api <- function(years = NULL,
     table,
     "countries" = "countries",
     "products" = "products",
-    "reporters" = sprintf("reporters?y=%s", years),
-    "country_rankings" = sprintf("country_rankings?y=%s", years),
-    "product_rankings" = sprintf("product_rankings?y=%s", years),
+    "reporters" = sprintf("reporters?y=%s", year),
+    "country_rankings" = sprintf("country_rankings?y=%s", year),
+    "product_rankings" = sprintf("product_rankings?y=%s", year),
     "yrpc" = sprintf(
       "yrpc?y=%s&r=%s&p=%s&c=%s&l=%s",
-      years, reporter, partner, product_code, product_code_length
+      year, reporter, partner, product_code, product_code_length
     ),
-    "yrp" = sprintf("yrp?y=%s&r=%s&p=%s", years, reporter, partner),
+    "yrp" = sprintf("yrp?y=%s&r=%s&p=%s", year, reporter, partner),
     "yrc" = sprintf(
       "yrc?y=%s&r=%s&c=%s&l=%s",
-      years, reporter, product_code, product_code_length
+      year, reporter, product_code, product_code_length
     ),
-    "yr" = sprintf("yr?y=%s&r=%s", years, reporter),
-    "yc" = sprintf("yc?y=%s&c=%s&l=%s", years, product_code, product_code_length)
+    "yr" = sprintf("yr?y=%s&r=%s", year, reporter),
+    "yc" = sprintf("yc?y=%s&c=%s&l=%s", year, product_code, product_code_length)
   )
   
   resp <- crul::HttpClient$new(url = "https://api.tradestatistics.io/")
@@ -59,7 +70,7 @@ ots_read_from_api <- function(years = NULL,
   
   # on a successful GET, return the response
   if (resp$status_code == 200) {
-    sprintf("Trying to download data for the year %s...", years)
+    sprintf("Trying to download data for the year %s...", year)
     
     data <- try(
       jsonlite::fromJSON(resp$parse(encoding = "UTF-8"))
@@ -92,7 +103,7 @@ ots_read_from_api <- function(years = NULL,
       # otherwise, sleep a second and try again
       Sys.sleep(1)
       ots_read_from_api(
-        years, reporter, partner, product_code_length, table, max_attempts = max_attempts - 1
+        year, reporter, partner, product_code_length, table, max_attempts = max_attempts - 1
       )
     }
   }

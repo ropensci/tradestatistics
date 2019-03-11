@@ -28,34 +28,48 @@ ots_country_code("Germany")
 ## ----product_code--------------------------------------------------------
 ots_product_code("wine")
 
-## ----trade_data_1, eval = T----------------------------------------------
-# What does Chile exchange with Argentina? (1980)
-ots_create_tidy_data(years = 1980, reporter = "chl", partner = "arg")
+## ----yrpc1, eval = T-----------------------------------------------------
+ots_create_tidy_data(year = 1980, reporter = "chl", partner = "arg")
 
-## ----trade_data_1_var, eval = T------------------------------------------
-ots_create_tidy_data(years = 1980, reporter = "chl", partner = "arg", table = "yrpc")
+## ----yrpc2, eval = T-----------------------------------------------------
+ots_create_tidy_data(year = 1980, reporter = "chl", partner = "arg", table = "yrpc")
 
-## ----trade_data_2, eval = T----------------------------------------------
-# What does Chile exchange with Argentina? (1980-1985)
-ots_create_tidy_data(years = 1980:1985, reporter = "chl", partner = "arg")
+## ----yrpc3, eval = T-----------------------------------------------------
+ots_create_tidy_data(year = 1980:1982, reporter = "chl", partner = "arg")
 
-## ----trade_data_3, eval = T----------------------------------------------
-# What does Chile exchange with Argentina? (1980-1985)
-ots_create_tidy_data(years = c(1980,1995,2007), reporter = "chl", partner = "arg")
+## ----yrpc4, eval = T-----------------------------------------------------
+ots_create_tidy_data(year = c(1980,1981,1984), reporter = "chl", partner = "arg")
 
-## ----trade_data_4, eval = T----------------------------------------------
-# What does Chile exchange with Argentina? (1980)
-ots_create_tidy_data(years = 1980, reporter = "chl", partner = "arg", table = "yrp")
+## ----yrpc5, eval = T-----------------------------------------------------
+ots_create_tidy_data(year = 1980:1981, reporter = "chl", partner = "arg", product = "0101")
 
-## ----trade_data_5, eval = T----------------------------------------------
-# What does Chile exchange? (1980)
-ots_create_tidy_data(years = 1980, reporter = "chl", table = "yrc")
+## ----yrpc6, eval = T-----------------------------------------------------
+ots_create_tidy_data(year = 1980, reporter = "chl", partner = "arg", product = "horse")
 
-## ----trade_data_6, eval = T----------------------------------------------
-# What does Chile exchange? (1980)
-ots_create_tidy_data(years = 1980, reporter = "chl", table = "yr")
+## ----yrp1, eval = T------------------------------------------------------
+ots_create_tidy_data(year = 1980, reporter = "chl", partner = "arg", table = "yrp")
 
-## ----trade_data_7, eval = T----------------------------------------------
-# Which products are exchanged? (1980)
-ots_create_tidy_data(years = 1980, table = "yc")
+## ----yrp2, eval = T------------------------------------------------------
+ots_create_tidy_data(year = c(1980,1985), reporter = "chl", partner = "arg", table = "yrp")
+
+## ----yrc1, eval = T------------------------------------------------------
+ots_create_tidy_data(year = 1980, reporter = "chl", table = "yrc")
+
+## ----yrc2, eval = T------------------------------------------------------
+ots_create_tidy_data(year = 1980, reporter = "chl", product = "0101", table = "yrc")
+
+## ----yrc3, eval = T------------------------------------------------------
+ots_create_tidy_data(year = 1980, reporter = "chl", product = "horse", table = "yrc")
+
+## ----yr, eval = T--------------------------------------------------------
+ots_create_tidy_data(year = 1980, reporter = "chl", table = "yr")
+
+## ----yc1, eval = T-------------------------------------------------------
+ots_create_tidy_data(year = 1980, table = "yc")
+
+## ----yc2, eval = T-------------------------------------------------------
+ots_create_tidy_data(year = 1980, product = "0101", table = "yc")
+
+## ----yc3, eval = T-------------------------------------------------------
+ots_create_tidy_data(year = 1980, product = "horse", table = "yc")
 

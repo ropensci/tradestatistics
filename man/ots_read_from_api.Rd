@@ -4,12 +4,12 @@
 \alias{ots_read_from_api}
 \title{Reads data from the API (internal function)}
 \usage{
-ots_read_from_api(years = NULL, reporter = NULL, partner = NULL,
+ots_read_from_api(year = NULL, reporter = NULL, partner = NULL,
   product_code = "all", product_code_length = 4, table = "yrpc",
   max_attempts = 5)
 }
 \arguments{
-\item{years}{Numeric value greater or equal to 1962 and lower of equal
+\item{year}{Numeric value greater or equal to 1962 and lower of equal
 to 2016. Default set to \code{NULL}.}
 
 \item{reporter}{ISO code for country of reporter (e.g. \code{chl} for
@@ -37,8 +37,19 @@ performs different API calls to return \code{data.frames} by reading \code{JSON}
 }
 \examples{
 \dontrun{
-# What does Chile export to China? (2015)
-ots_read_from_api(years = 2015, reporter = "chl", partner = "chn")
+# The next example can take more than 5 seconds to compute,
+# so these are just shown without evaluation according to CRAN rules
+
+# Run `countries` to display the full table of countries
+
+# What does Chile export to China? (1980)
+ots_read_from_api(year = 1980, reporter = "chl", partner = "chn")
+
+# What can we say about chilean Horses export? (1980)
+ots_read_from_api(year = 1980, product_code = "0101", table = "yc")
+ots_read_from_api(year = 1980, reporter = "chl", product_code = "0101", table = "yrc")
+ots_read_from_api(year = 1980, reporter = "chl", partner = "arg", product_code = "0101", 
+table = "yrpc")
 }
 }
 \keyword{internal}

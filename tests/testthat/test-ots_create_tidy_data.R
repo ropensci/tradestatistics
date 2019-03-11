@@ -10,32 +10,32 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
 
     # Bilateral trade Chile-Argentina at commodity level (1980)
     test_data <- ots_create_tidy_data(
-      years = 1980, reporter = "chl", partner = "arg", table = "yrpc"
+      year = 1980, reporter = "chl", partner = "arg", table = "yrpc"
     )
     expect_is(test_data, "data.frame")
     expect_output(str(test_data), "20 variables")
 
     # Bilateral trade Chile-Argentina at aggregated level (1980)
     test_data <- ots_create_tidy_data(
-      years = 1980, reporter = "chl", partner = "arg", table = "yrp"
+      year = 1980, reporter = "chl", partner = "arg", table = "yrp"
     )
     expect_is(test_data, "data.frame")
     expect_output(str(test_data), "15 variables")
 
     # Chilean trade at commodity level (1980)
     test_data <- ots_create_tidy_data(
-      years = 1980, reporter = "chl", table = "yrc"
+      year = 1980, reporter = "chl", table = "yrc"
     )
     expect_is(test_data, "data.frame")
     expect_output(str(test_data), "20 variables")
 
     # Chilean trade at aggregated level (1980)
-    test_data <- ots_create_tidy_data(years = 1980, reporter = "chl", table = "yr")
+    test_data <- ots_create_tidy_data(year = 1980, reporter = "chl", table = "yr")
     expect_is(test_data, "data.frame")
     expect_output(str(test_data), "21 variables")
 
     # Commodity trade at aggregated level (1980)
-    test_data <- ots_create_tidy_data(years = 1980, table = "yc")
+    test_data <- ots_create_tidy_data(year = 1980, table = "yc")
     expect_is(test_data, "data.frame")
     expect_output(str(test_data), "24 variables")
   })
@@ -45,19 +45,19 @@ test_that("ots_create_tidy_data connects to the API and returns an error after i
            input", {
   # Bilateral trade ABC-CDE fake ISO codes (1980) - Error message
   expect_error(
-    ots_create_tidy_data(years = 1980, reporter = "abc", partner = "cde"),
+    ots_create_tidy_data(year = 1980, reporter = "abc", partner = "cde"),
     "'arg' should be one of"
   )
 
-  # Bilateral trade ABC-CDE fake ISO codes (1980) - Error message
+  # Bilateral trade USA (1776) - Error message
   expect_error(
-    ots_create_tidy_data(years = 1776, reporter = "usa", partner = "all"),
+    ots_create_tidy_data(year = 1776, reporter = "usa", partner = "all"),
     "years 1962-2016."
   )
 
   # Bilateral trade Chile-Argentina with fake table (1980) - Error message
   expect_error(
-    ots_create_tidy_data(years = 1980, reporter = "chl", partner = "arg", table = "abc"),
+    ots_create_tidy_data(year = 1980, reporter = "chl", partner = "arg", table = "abc"),
     "requested table does not exist"
   )
 })

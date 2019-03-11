@@ -70,7 +70,7 @@ ots_country_code("Germany")
 
 ## Product code
 
-The end user can use this function to find a commodity code by providing a product name. This works by implementing partial search.
+The end user can use this function to find a product code by providing a product name. This works by implementing partial search.
 
 ```{r product_code}
 ots_product_code("wine")
@@ -80,34 +80,42 @@ ots_product_code("wine")
 
 This function downloads data for a single year and needs (at least) some filter parameters according to the query type.
  
-### Bilateral trade at commodity level (Year - Reporter - Partner - Commodity)
+### Bilateral trade at product level (Year - Reporter - Partner - Product Code)
 
-If we want Chile-Argentina bilateral trade at commodity level in 1980:
-```{r trade_data_1, eval = T}
-# What does Chile exchange with Argentina? (1980)
-ots_create_tidy_data(years = 1980, reporter = "chl", partner = "arg")
+If we want Chile-Argentina bilateral trade at product level in 1980:
+```{r yrpc1, eval = T}
+ots_create_tidy_data(year = 1980, reporter = "chl", partner = "arg")
 ```
+
 Which is the same as:
-```{r trade_data_1_var, eval = T}
-ots_create_tidy_data(years = 1980, reporter = "chl", partner = "arg", table = "yrpc")
+```{r yrpc2, eval = T}
+ots_create_tidy_data(year = 1980, reporter = "chl", partner = "arg", table = "yrpc")
 ```
 
-If we want Chile-Argentina bilateral trade at commodity level in 1980-1985:
-```{r trade_data_2, eval = T}
-# What does Chile exchange with Argentina? (1980-1985)
-ots_create_tidy_data(years = 1980:1985, reporter = "chl", partner = "arg")
+If we want Chile-Argentina bilateral trade at product level in 1980-1982:
+```{r yrpc3, eval = T}
+ots_create_tidy_data(year = 1980:1982, reporter = "chl", partner = "arg")
 ```
 
-If we want Chile-Argentina bilateral trade at commodity level in 1980, 1995 and 2007:
-```{r trade_data_3, eval = T}
-# What does Chile exchange with Argentina? (1980-1985)
-ots_create_tidy_data(years = c(1980,1995,2007), reporter = "chl", partner = "arg")
+If we want Chile-Argentina bilateral trade at product level in 1980, 1981 and 1984:
+```{r yrpc4, eval = T}
+ots_create_tidy_data(year = c(1980,1981,1984), reporter = "chl", partner = "arg")
+```
+
+If we want Chile-Argentina bilateral trade at product level in 1980 and 1981 with respect to product "0101" (Horses, asses, mules and hinnies; live):
+```{r yrpc5, eval = T}
+ots_create_tidy_data(year = 1980:1981, reporter = "chl", partner = "arg", product = "0101")
+```
+
+But if we want Chile-Argentina bilateral trade at product level in 1980 with respect to all the codes that match the string "horse" at product or group name:
+```{r yrpc6, eval = T}
+ots_create_tidy_data(year = 1980, reporter = "chl", partner = "arg", product = "horse")
 ```
 
 Here some fields deserve an explanation:
 
-* `commodity_code`: HS07 product codes (e.g. according to the \code{products} table within this package, 0101 stands for "Horses, etc.")
-* `commodity_code_length`: How many digits does `commodity_code` contain, this can be useful to filter by depth when using HS codes (HS 6 digits is a more detailed version of HS 4 digits, and therefore you don't have to sum both or you'll be counting exports/imports twice)
+* `product_code`: HS07 product codes (e.g. according to the \code{products} table within this package, 0101 stands for "Horses, etc.")
+* `product_code_length`: How many digits does `product_code` contain, this can be useful to filter by depth when using HS codes (HS 6 digits is a more detailed version of HS 4 digits, and therefore you don't have to sum both or you'll be counting exports/imports twice)
 * `group_code`: International categorization of group products defined after product ID
 * `group_name`: English name corresponding to `group_id`
 * `export_value_usd`: Exports measured in nominal United States Dollars (USD)
@@ -120,17 +128,30 @@ Here some fields deserve an explanation:
 ### Bilateral trade at aggregated level (Year - Reporter - Partner)
 
 If we want Chile-Argentina bilateral trade at aggregated level in 1980:
-```{r trade_data_4, eval = T}
-# What does Chile exchange with Argentina? (1980)
-ots_create_tidy_data(years = 1980, reporter = "chl", partner = "arg", table = "yrp")
+```{r yrp1, eval = T}
+ots_create_tidy_data(year = 1980, reporter = "chl", partner = "arg", table = "yrp")
 ```
 
-### Reporter trade at commodity level (Year - Reporter - Commodity) 
+If we want Chile-Argentina bilateral trade at aggregated level in 1980 and 1985:
+```{r yrp2, eval = T}
+ots_create_tidy_data(year = c(1980,1985), reporter = "chl", partner = "arg", table = "yrp")
+```
 
-If we want Chilean trade at commodity level in 1980:
-```{r trade_data_5, eval = T}
-# What does Chile exchange? (1980)
-ots_create_tidy_data(years = 1980, reporter = "chl", table = "yrc")
+### Reporter trade at product level (Year - Reporter - Product Code) 
+
+If we want Chilean trade at product level in 1980:
+```{r yrc1, eval = T}
+ots_create_tidy_data(year = 1980, reporter = "chl", table = "yrc")
+```
+
+If we want Chilean trade at product level in 1980 with respect to product "0101" (Horses, asses, mules and hinnies; live):
+```{r yrc2, eval = T}
+ots_create_tidy_data(year = 1980, reporter = "chl", product = "0101", table = "yrc")
+```
+
+But if we want just products exported by Chile in 1980 that also match the string "horse" at product or group name:
+```{r yrc3, eval = T}
+ots_create_tidy_data(year = 1980, reporter = "chl", product = "horse", table = "yrc")
 ```
 
 Here the `export_rca*` and `import_rca*` fields contain the Revealed Comparative Advantage (RCA) of an exported product with respect to all the products with the same number of digits. The definition of RCA is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/).
@@ -138,28 +159,36 @@ Here the `export_rca*` and `import_rca*` fields contain the Revealed Comparative
 ### Reporter trade at aggregated level (Year - Reporter)
 
 If we want Chilean trade at aggregated level in 1980:
-```{r trade_data_6, eval = T}
-# What does Chile exchange? (1980)
-ots_create_tidy_data(years = 1980, reporter = "chl", table = "yr")
+```{r yr, eval = T}
+ots_create_tidy_data(year = 1980, reporter = "chl", table = "yr")
 ```
 
 Here some fields deserve an explanation:
 
-* `eci_4_digits_commodity_code`: Economic Complexity Index (ECI) which is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/). This index is built by using just four digits commodity codes.
-* `eci_rank_4_digits_commodity_code`: The rank of a country given its ECI (e.g. the highest ECI obtains the #1)
-* `eci_rank_4_digits_commodity_code_delta_1_year`: How many places a country increased or decreased with respect to last year
+* `eci_4_digits_product_code`: Economic Complexity Index (ECI) which is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/). This index is built by using just four digits product codes.
+* `eci_rank_4_digits_product_code`: The rank of a country given its ECI (e.g. the highest ECI obtains the #1)
+* `eci_rank_4_digits_product_code_delta_1_year`: How many places a country increased or decreased with respect to last year
 
-### Commodity trade at aggregated level (Year - Commodity)
+### Product trade at aggregated level (Year - Product Code)
 
 If we want all products trade in 1980:
-```{r trade_data_7, eval = T}
-# Which products are exchanged? (1980)
-ots_create_tidy_data(years = 1980, table = "yc")
+```{r yc1, eval = T}
+ots_create_tidy_data(year = 1980, table = "yc")
+```
+
+If we want traded values of product "0101" (Horses, asses, mules and hinnies; live) in 1980:
+```{r yc2, eval = T}
+ots_create_tidy_data(year = 1980, product = "0101", table = "yc")
+```
+
+If we want traded values of all products that match the string "horse" at product or group name:
+```{r yc3, eval = T}
+ots_create_tidy_data(year = 1980, product = "horse", table = "yc")
 ```
 
 Here some fields deserve an explanation:
 
-* `pci_4_digits_commodity_code`: Product Complexity Index (PCI) which is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/). This index is built by using just four digits commodity codes.
-* `pci_6_digits_commodity_code`: Similar to the previous field but built by using just six digits commodity codes.
-* `pci_rank_4_digits_commodity_code`: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)
-* `pci_rank_4_digits_commodity_code_delta_1_year`: How many places a country increased or decreased with respect to last year
+* `pci_4_digits_product_code`: Product Complexity Index (PCI) which is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/). This index is built by using just four digits product codes.
+* `pci_6_digits_product_code`: Similar to the previous field but built by using just six digits product codes.
+* `pci_rank_4_digits_product_code`: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)
+* `pci_rank_4_digits_product_code_delta_1_year`: How many places a country increased or decreased with respect to last year

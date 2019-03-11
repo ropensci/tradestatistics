@@ -12,7 +12,7 @@
 
 <meta name="author" content="Mauricio Vargas S." />
 
-<meta name="date" content="2019-03-05" />
+<meta name="date" content="2019-03-11" />
 
 <title>How to use this package</title>
 
@@ -92,7 +92,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">How to use this package</h1>
 <h4 class="author"><em>Mauricio Vargas S.</em></h4>
-<h4 class="date"><em>2019-03-05</em></h4>
+<h4 class="date"><em>2019-03-11</em></h4>
 
 
 
@@ -193,31 +193,30 @@ ots_attributes_tables
 </div>
 <div id="product-code" class="section level2">
 <h2>Product code</h2>
-<p>The end user can use this function to find a commodity code by providing a product name. This works by implementing partial search.</p>
+<p>The end user can use this function to find a product code by providing a product name. This works by implementing partial search.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ots_product_code</span>(<span class="st">&quot;wine&quot;</span>)
 <span class="co">#&gt; # A tibble: 58 x 5</span>
-<span class="co">#&gt;    commodity_code commodity_fullname_e… group_code group_name  type_product</span>
-<span class="co">#&gt;    &lt;chr&gt;          &lt;chr&gt;                 &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;       </span>
-<span class="co">#&gt;  1 0103           Swine; live           01         Animals; l… wine        </span>
-<span class="co">#&gt;  2 010310         Swine; live, pure-br… 01         Animals; l… wine        </span>
-<span class="co">#&gt;  3 010391         Swine; live, (other … 01         Animals; l… wine        </span>
-<span class="co">#&gt;  4 010392         Swine; live, (other … 01         Animals; l… wine        </span>
-<span class="co">#&gt;  5 0203           Meat of swine; fresh… 02         Meat and e… wine        </span>
-<span class="co">#&gt;  6 020311         Meat; of swine, carc… 02         Meat and e… wine        </span>
-<span class="co">#&gt;  7 020312         Meat; of swine, hams… 02         Meat and e… wine        </span>
-<span class="co">#&gt;  8 020319         Meat; of swine, n.e.… 02         Meat and e… wine        </span>
-<span class="co">#&gt;  9 020321         Meat; of swine, carc… 02         Meat and e… wine        </span>
-<span class="co">#&gt; 10 020322         Meat; of swine, hams… 02         Meat and e… wine        </span>
+<span class="co">#&gt;    product_code product_fullname_engli… group_code group_name  type_product</span>
+<span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;                   &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;       </span>
+<span class="co">#&gt;  1 0103         Swine; live             01         Animals; l… wine        </span>
+<span class="co">#&gt;  2 010310       Swine; live, pure-bred… 01         Animals; l… wine        </span>
+<span class="co">#&gt;  3 010391       Swine; live, (other th… 01         Animals; l… wine        </span>
+<span class="co">#&gt;  4 010392       Swine; live, (other th… 01         Animals; l… wine        </span>
+<span class="co">#&gt;  5 0203         Meat of swine; fresh, … 02         Meat and e… wine        </span>
+<span class="co">#&gt;  6 020311       Meat; of swine, carcas… 02         Meat and e… wine        </span>
+<span class="co">#&gt;  7 020312       Meat; of swine, hams, … 02         Meat and e… wine        </span>
+<span class="co">#&gt;  8 020319       Meat; of swine, n.e.c.… 02         Meat and e… wine        </span>
+<span class="co">#&gt;  9 020321       Meat; of swine, carcas… 02         Meat and e… wine        </span>
+<span class="co">#&gt; 10 020322       Meat; of swine, hams, … 02         Meat and e… wine        </span>
 <span class="co">#&gt; # … with 48 more rows</span></code></pre></div>
 </div>
 <div id="trade-data" class="section level2">
 <h2>Trade data</h2>
 <p>This function downloads data for a single year and needs (at least) some filter parameters according to the query type.</p>
-<div id="bilateral-trade-at-commodity-level-year---reporter---partner---commodity" class="section level3">
-<h3>Bilateral trade at commodity level (Year - Reporter - Partner - Commodity)</h3>
-<p>If we want Chile-Argentina bilateral trade at commodity level in 1980:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What does Chile exchange with Argentina? (1980)</span>
-<span class="kw">ots_create_tidy_data</span>(<span class="dt">years =</span> <span class="dv">1980</span>, <span class="dt">reporter =</span> <span class="st">&quot;chl&quot;</span>, <span class="dt">partner =</span> <span class="st">&quot;arg&quot;</span>)
+<div id="bilateral-trade-at-product-level-year---reporter---partner---product-code" class="section level3">
+<h3>Bilateral trade at product level (Year - Reporter - Partner - Product Code)</h3>
+<p>If we want Chile-Argentina bilateral trade at product level in 1980:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ots_create_tidy_data</span>(<span class="dt">year =</span> <span class="dv">1980</span>, <span class="dt">reporter =</span> <span class="st">&quot;chl&quot;</span>, <span class="dt">partner =</span> <span class="st">&quot;arg&quot;</span>)
 <span class="co">#&gt; # A tibble: 580 x 20</span>
 <span class="co">#&gt;     year reporter_iso partner_iso reporter_fullna… partner_fullnam…</span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;           </span>
@@ -231,8 +230,8 @@ ots_attributes_tables
 <span class="co">#&gt;  8  1980 chl          arg         Chile            Argentina       </span>
 <span class="co">#&gt;  9  1980 chl          arg         Chile            Argentina       </span>
 <span class="co">#&gt; 10  1980 chl          arg         Chile            Argentina       </span>
-<span class="co">#&gt; # … with 570 more rows, and 15 more variables: commodity_code &lt;chr&gt;,</span>
-<span class="co">#&gt; #   commodity_code_length &lt;int&gt;, commodity_fullname_english &lt;chr&gt;,</span>
+<span class="co">#&gt; # … with 570 more rows, and 15 more variables: product_code &lt;chr&gt;,</span>
+<span class="co">#&gt; #   product_code_length &lt;int&gt;, product_fullname_english &lt;chr&gt;,</span>
 <span class="co">#&gt; #   group_code &lt;chr&gt;, group_name &lt;chr&gt;, import_value_usd &lt;int&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_change_1_year &lt;int&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_change_5_years &lt;int&gt;,</span>
@@ -243,7 +242,7 @@ ots_attributes_tables
 <span class="co">#&gt; #   export_value_usd_change_5_years &lt;int&gt;,</span>
 <span class="co">#&gt; #   export_value_usd_percentage_change_5_years &lt;dbl&gt;</span></code></pre></div>
 <p>Which is the same as:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ots_create_tidy_data</span>(<span class="dt">years =</span> <span class="dv">1980</span>, <span class="dt">reporter =</span> <span class="st">&quot;chl&quot;</span>, <span class="dt">partner =</span> <span class="st">&quot;arg&quot;</span>, <span class="dt">table =</span> <span class="st">&quot;yrpc&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ots_create_tidy_data</span>(<span class="dt">year =</span> <span class="dv">1980</span>, <span class="dt">reporter =</span> <span class="st">&quot;chl&quot;</span>, <span class="dt">partner =</span> <span class="st">&quot;arg&quot;</span>, <span class="dt">table =</span> <span class="st">&quot;yrpc&quot;</span>)
 <span class="co">#&gt; # A tibble: 580 x 20</span>
 <span class="co">#&gt;     year reporter_iso partner_iso reporter_fullna… partner_fullnam…</span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;           </span>
@@ -257,8 +256,8 @@ ots_attributes_tables
 <span class="co">#&gt;  8  1980 chl          arg         Chile            Argentina       </span>
 <span class="co">#&gt;  9  1980 chl          arg         Chile            Argentina       </span>
 <span class="co">#&gt; 10  1980 chl          arg         Chile            Argentina       </span>
-<span class="co">#&gt; # … with 570 more rows, and 15 more variables: commodity_code &lt;chr&gt;,</span>
-<span class="co">#&gt; #   commodity_code_length &lt;int&gt;, commodity_fullname_english &lt;chr&gt;,</span>
+<span class="co">#&gt; # … with 570 more rows, and 15 more variables: product_code &lt;chr&gt;,</span>
+<span class="co">#&gt; #   product_code_length &lt;int&gt;, product_fullname_english &lt;chr&gt;,</span>
 <span class="co">#&gt; #   group_code &lt;chr&gt;, group_name &lt;chr&gt;, import_value_usd &lt;int&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_change_1_year &lt;int&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_change_5_years &lt;int&gt;,</span>
@@ -268,10 +267,9 @@ ots_attributes_tables
 <span class="co">#&gt; #   export_value_usd_percentage_change_1_year &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   export_value_usd_change_5_years &lt;int&gt;,</span>
 <span class="co">#&gt; #   export_value_usd_percentage_change_5_years &lt;dbl&gt;</span></code></pre></div>
-<p>If we want Chile-Argentina bilateral trade at commodity level in 1980-1985:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What does Chile exchange with Argentina? (1980-1985)</span>
-<span class="kw">ots_create_tidy_data</span>(<span class="dt">years =</span> <span class="dv">1980</span><span class="op">:</span><span class="dv">1985</span>, <span class="dt">reporter =</span> <span class="st">&quot;chl&quot;</span>, <span class="dt">partner =</span> <span class="st">&quot;arg&quot;</span>)
-<span class="co">#&gt; # A tibble: 3,470 x 20</span>
+<p>If we want Chile-Argentina bilateral trade at product level in 1980-1982:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ots_create_tidy_data</span>(<span class="dt">year =</span> <span class="dv">1980</span><span class="op">:</span><span class="dv">1982</span>, <span class="dt">reporter =</span> <span class="st">&quot;chl&quot;</span>, <span class="dt">partner =</span> <span class="st">&quot;arg&quot;</span>)
+<span class="co">#&gt; # A tibble: 1,630 x 20</span>
 <span class="co">#&gt;     year reporter_iso partner_iso reporter_fullna… partner_fullnam…</span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;           </span>
 <span class="co">#&gt;  1  1980 chl          arg         Chile            Argentina       </span>
@@ -284,8 +282,8 @@ ots_attributes_tables
 <span class="co">#&gt;  8  1980 chl          arg         Chile            Argentina       </span>
 <span class="co">#&gt;  9  1980 chl          arg         Chile            Argentina       </span>
 <span class="co">#&gt; 10  1980 chl          arg         Chile            Argentina       </span>
-<span class="co">#&gt; # … with 3,460 more rows, and 15 more variables: commodity_code &lt;chr&gt;,</span>
-<span class="co">#&gt; #   commodity_code_length &lt;int&gt;, commodity_fullname_english &lt;chr&gt;,</span>
+<span class="co">#&gt; # … with 1,620 more rows, and 15 more variables: product_code &lt;chr&gt;,</span>
+<span class="co">#&gt; #   product_code_length &lt;int&gt;, product_fullname_english &lt;chr&gt;,</span>
 <span class="co">#&gt; #   group_code &lt;chr&gt;, group_name &lt;chr&gt;, import_value_usd &lt;int&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_change_1_year &lt;int&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_change_5_years &lt;int&gt;,</span>
@@ -295,10 +293,9 @@ ots_attributes_tables
 <span class="co">#&gt; #   export_value_usd_percentage_change_1_year &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   export_value_usd_change_5_years &lt;int&gt;,</span>
 <span class="co">#&gt; #   export_value_usd_percentage_change_5_years &lt;dbl&gt;</span></code></pre></div>
-<p>If we want Chile-Argentina bilateral trade at commodity level in 1980, 1995 and 2007:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What does Chile exchange with Argentina? (1980-1985)</span>
-<span class="kw">ots_create_tidy_data</span>(<span class="dt">years =</span> <span class="kw">c</span>(<span class="dv">1980</span>,<span class="dv">1995</span>,<span class="dv">2007</span>), <span class="dt">reporter =</span> <span class="st">&quot;chl&quot;</span>, <span class="dt">partner =</span> <span class="st">&quot;arg&quot;</span>)
-<span class="co">#&gt; # A tibble: 2,617 x 20</span>
+<p>If we want Chile-Argentina bilateral trade at product level in 1980, 1981 and 1984:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ots_create_tidy_data</span>(<span class="dt">year =</span> <span class="kw">c</span>(<span class="dv">1980</span>,<span class="dv">1981</span>,<span class="dv">1984</span>), <span class="dt">reporter =</span> <span class="st">&quot;chl&quot;</span>, <span class="dt">partner =</span> <span class="st">&quot;arg&quot;</span>)
+<span class="co">#&gt; # A tibble: 1,715 x 20</span>
 <span class="co">#&gt;     year reporter_iso partner_iso reporter_fullna… partner_fullnam…</span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;           </span>
 <span class="co">#&gt;  1  1980 chl          arg         Chile            Argentina       </span>
@@ -311,8 +308,8 @@ ots_attributes_tables
 <span class="co">#&gt;  8  1980 chl          arg         Chile            Argentina       </span>
 <span class="co">#&gt;  9  1980 chl          arg         Chile            Argentina       </span>
 <span class="co">#&gt; 10  1980 chl          arg         Chile            Argentina       </span>
-<span class="co">#&gt; # … with 2,607 more rows, and 15 more variables: commodity_code &lt;chr&gt;,</span>
-<span class="co">#&gt; #   commodity_code_length &lt;int&gt;, commodity_fullname_english &lt;chr&gt;,</span>
+<span class="co">#&gt; # … with 1,705 more rows, and 15 more variables: product_code &lt;chr&gt;,</span>
+<span class="co">#&gt; #   product_code_length &lt;int&gt;, product_fullname_english &lt;chr&gt;,</span>
 <span class="co">#&gt; #   group_code &lt;chr&gt;, group_name &lt;chr&gt;, import_value_usd &lt;int&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_change_1_year &lt;int&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_change_5_years &lt;int&gt;,</span>
@@ -322,10 +319,46 @@ ots_attributes_tables
 <span class="co">#&gt; #   export_value_usd_percentage_change_1_year &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   export_value_usd_change_5_years &lt;int&gt;,</span>
 <span class="co">#&gt; #   export_value_usd_percentage_change_5_years &lt;dbl&gt;</span></code></pre></div>
+<p>If we want Chile-Argentina bilateral trade at product level in 1980 and 1981 with respect to product “0101” (Horses, asses, mules and hinnies; live):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ots_create_tidy_data</span>(<span class="dt">year =</span> <span class="dv">1980</span><span class="op">:</span><span class="dv">1981</span>, <span class="dt">reporter =</span> <span class="st">&quot;chl&quot;</span>, <span class="dt">partner =</span> <span class="st">&quot;arg&quot;</span>, <span class="dt">product =</span> <span class="st">&quot;0101&quot;</span>)
+<span class="co">#&gt; # A tibble: 2 x 15</span>
+<span class="co">#&gt;    year reporter_iso partner_iso reporter_fullna… partner_fullnam…</span>
+<span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;           </span>
+<span class="co">#&gt; 1  1980 chl          arg         Chile            Argentina       </span>
+<span class="co">#&gt; 2  1981 chl          arg         Chile            Argentina       </span>
+<span class="co">#&gt; # … with 10 more variables: product_code &lt;chr&gt;, product_code_length &lt;int&gt;,</span>
+<span class="co">#&gt; #   product_fullname_english &lt;chr&gt;, group_code &lt;chr&gt;, group_name &lt;chr&gt;,</span>
+<span class="co">#&gt; #   import_value_usd &lt;int&gt;, import_value_usd_change_1_year &lt;int&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_change_5_years &lt;int&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_percentage_change_1_year &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_percentage_change_5_years &lt;dbl&gt;</span></code></pre></div>
+<p>But if we want Chile-Argentina bilateral trade at product level in 1980 with respect to all the codes that match the string “horse” at product or group name:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ots_create_tidy_data</span>(<span class="dt">year =</span> <span class="dv">1980</span>, <span class="dt">reporter =</span> <span class="st">&quot;chl&quot;</span>, <span class="dt">partner =</span> <span class="st">&quot;arg&quot;</span>, <span class="dt">product =</span> <span class="st">&quot;horse&quot;</span>)
+<span class="co">#&gt; # A tibble: 21 x 17</span>
+<span class="co">#&gt;     year reporter_iso partner_iso reporter_fullna… partner_fullnam…</span>
+<span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;           </span>
+<span class="co">#&gt;  1  1980 chl          arg         Chile            Argentina       </span>
+<span class="co">#&gt;  2  1980 chl          arg         Chile            Argentina       </span>
+<span class="co">#&gt;  3  1980 chl          arg         Chile            Argentina       </span>
+<span class="co">#&gt;  4  1980 chl          arg         Chile            Argentina       </span>
+<span class="co">#&gt;  5  1980 chl          arg         Chile            Argentina       </span>
+<span class="co">#&gt;  6  1980 chl          arg         Chile            Argentina       </span>
+<span class="co">#&gt;  7  1980 chl          arg         Chile            Argentina       </span>
+<span class="co">#&gt;  8  1980 chl          arg         Chile            Argentina       </span>
+<span class="co">#&gt;  9  1980 chl          arg         Chile            Argentina       </span>
+<span class="co">#&gt; 10  1980 chl          arg         Chile            Argentina       </span>
+<span class="co">#&gt; # … with 11 more rows, and 12 more variables: product_code &lt;chr&gt;,</span>
+<span class="co">#&gt; #   product_code_length &lt;int&gt;, product_fullname_english &lt;chr&gt;,</span>
+<span class="co">#&gt; #   group_code &lt;chr&gt;, group_name &lt;chr&gt;, import_value_usd &lt;int&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_change_1_year &lt;int&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_change_5_years &lt;int&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_percentage_change_1_year &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_percentage_change_5_years &lt;dbl&gt;, observation &lt;chr&gt;,</span>
+<span class="co">#&gt; #   export_value_usd &lt;int&gt;</span></code></pre></div>
 <p>Here some fields deserve an explanation:</p>
 <ul>
-<li><code>commodity_code</code>: HS07 product codes (e.g. according to the  table within this package, 0101 stands for “Horses, etc.”)</li>
-<li><code>commodity_code_length</code>: How many digits does <code>commodity_code</code> contain, this can be useful to filter by depth when using HS codes (HS 6 digits is a more detailed version of HS 4 digits, and therefore you don’t have to sum both or you’ll be counting exports/imports twice)</li>
+<li><code>product_code</code>: HS07 product codes (e.g. according to the  table within this package, 0101 stands for “Horses, etc.”)</li>
+<li><code>product_code_length</code>: How many digits does <code>product_code</code> contain, this can be useful to filter by depth when using HS codes (HS 6 digits is a more detailed version of HS 4 digits, and therefore you don’t have to sum both or you’ll be counting exports/imports twice)</li>
 <li><code>group_code</code>: International categorization of group products defined after product ID</li>
 <li><code>group_name</code>: English name corresponding to <code>group_id</code></li>
 <li><code>export_value_usd</code>: Exports measured in nominal United States Dollars (USD)</li>
@@ -339,8 +372,7 @@ ots_attributes_tables
 <div id="bilateral-trade-at-aggregated-level-year---reporter---partner" class="section level3">
 <h3>Bilateral trade at aggregated level (Year - Reporter - Partner)</h3>
 <p>If we want Chile-Argentina bilateral trade at aggregated level in 1980:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What does Chile exchange with Argentina? (1980)</span>
-<span class="kw">ots_create_tidy_data</span>(<span class="dt">years =</span> <span class="dv">1980</span>, <span class="dt">reporter =</span> <span class="st">&quot;chl&quot;</span>, <span class="dt">partner =</span> <span class="st">&quot;arg&quot;</span>, <span class="dt">table =</span> <span class="st">&quot;yrp&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ots_create_tidy_data</span>(<span class="dt">year =</span> <span class="dv">1980</span>, <span class="dt">reporter =</span> <span class="st">&quot;chl&quot;</span>, <span class="dt">partner =</span> <span class="st">&quot;arg&quot;</span>, <span class="dt">table =</span> <span class="st">&quot;yrp&quot;</span>)
 <span class="co">#&gt; # A tibble: 1 x 15</span>
 <span class="co">#&gt;    year reporter_iso partner_iso reporter_fullna… partner_fullnam…</span>
 <span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;           </span>
@@ -354,30 +386,45 @@ ots_attributes_tables
 <span class="co">#&gt; #   import_value_usd_change_5_years &lt;int&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_percentage_change_1_year &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_percentage_change_5_years &lt;dbl&gt;</span></code></pre></div>
+<p>If we want Chile-Argentina bilateral trade at aggregated level in 1980 and 1985:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ots_create_tidy_data</span>(<span class="dt">year =</span> <span class="kw">c</span>(<span class="dv">1980</span>,<span class="dv">1985</span>), <span class="dt">reporter =</span> <span class="st">&quot;chl&quot;</span>, <span class="dt">partner =</span> <span class="st">&quot;arg&quot;</span>, <span class="dt">table =</span> <span class="st">&quot;yrp&quot;</span>)
+<span class="co">#&gt; # A tibble: 2 x 15</span>
+<span class="co">#&gt;    year reporter_iso partner_iso reporter_fullna… partner_fullnam…</span>
+<span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;           </span>
+<span class="co">#&gt; 1  1980 chl          arg         Chile            Argentina       </span>
+<span class="co">#&gt; 2  1985 chl          arg         Chile            Argentina       </span>
+<span class="co">#&gt; # … with 10 more variables: export_value_usd &lt;int&gt;,</span>
+<span class="co">#&gt; #   import_value_usd &lt;int&gt;, export_value_usd_change_1_year &lt;int&gt;,</span>
+<span class="co">#&gt; #   export_value_usd_change_5_years &lt;int&gt;,</span>
+<span class="co">#&gt; #   export_value_usd_percentage_change_1_year &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   export_value_usd_percentage_change_5_years &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_change_1_year &lt;int&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_change_5_years &lt;int&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_percentage_change_1_year &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_percentage_change_5_years &lt;dbl&gt;</span></code></pre></div>
 </div>
-<div id="reporter-trade-at-commodity-level-year---reporter---commodity" class="section level3">
-<h3>Reporter trade at commodity level (Year - Reporter - Commodity)</h3>
-<p>If we want Chilean trade at commodity level in 1980:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What does Chile exchange? (1980)</span>
-<span class="kw">ots_create_tidy_data</span>(<span class="dt">years =</span> <span class="dv">1980</span>, <span class="dt">reporter =</span> <span class="st">&quot;chl&quot;</span>, <span class="dt">table =</span> <span class="st">&quot;yrc&quot;</span>)
+<div id="reporter-trade-at-product-level-year---reporter---product-code" class="section level3">
+<h3>Reporter trade at product level (Year - Reporter - Product Code)</h3>
+<p>If we want Chilean trade at product level in 1980:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ots_create_tidy_data</span>(<span class="dt">year =</span> <span class="dv">1980</span>, <span class="dt">reporter =</span> <span class="st">&quot;chl&quot;</span>, <span class="dt">table =</span> <span class="st">&quot;yrc&quot;</span>)
 <span class="co">#&gt; # A tibble: 1,072 x 20</span>
-<span class="co">#&gt;     year reporter_iso reporter_fullna… commodity_code commodity_code_…</span>
-<span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;                     &lt;int&gt;</span>
-<span class="co">#&gt;  1  1980 chl          Chile            0101                          4</span>
-<span class="co">#&gt;  2  1980 chl          Chile            0102                          4</span>
-<span class="co">#&gt;  3  1980 chl          Chile            0103                          4</span>
-<span class="co">#&gt;  4  1980 chl          Chile            0104                          4</span>
-<span class="co">#&gt;  5  1980 chl          Chile            0105                          4</span>
-<span class="co">#&gt;  6  1980 chl          Chile            0106                          4</span>
-<span class="co">#&gt;  7  1980 chl          Chile            0201                          4</span>
-<span class="co">#&gt;  8  1980 chl          Chile            0203                          4</span>
-<span class="co">#&gt;  9  1980 chl          Chile            0204                          4</span>
-<span class="co">#&gt; 10  1980 chl          Chile            0205                          4</span>
+<span class="co">#&gt;     year reporter_iso reporter_fullna… product_code product_code_le…</span>
+<span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;                   &lt;int&gt;</span>
+<span class="co">#&gt;  1  1980 chl          Chile            0101                        4</span>
+<span class="co">#&gt;  2  1980 chl          Chile            0102                        4</span>
+<span class="co">#&gt;  3  1980 chl          Chile            0103                        4</span>
+<span class="co">#&gt;  4  1980 chl          Chile            0104                        4</span>
+<span class="co">#&gt;  5  1980 chl          Chile            0105                        4</span>
+<span class="co">#&gt;  6  1980 chl          Chile            0106                        4</span>
+<span class="co">#&gt;  7  1980 chl          Chile            0201                        4</span>
+<span class="co">#&gt;  8  1980 chl          Chile            0203                        4</span>
+<span class="co">#&gt;  9  1980 chl          Chile            0204                        4</span>
+<span class="co">#&gt; 10  1980 chl          Chile            0205                        4</span>
 <span class="co">#&gt; # … with 1,062 more rows, and 15 more variables:</span>
-<span class="co">#&gt; #   commodity_fullname_english &lt;chr&gt;, group_code &lt;chr&gt;, group_name &lt;chr&gt;,</span>
+<span class="co">#&gt; #   product_fullname_english &lt;chr&gt;, group_code &lt;chr&gt;, group_name &lt;chr&gt;,</span>
 <span class="co">#&gt; #   export_value_usd &lt;int&gt;, import_value_usd &lt;int&gt;,</span>
-<span class="co">#&gt; #   export_rca_4_digits_commodity_code &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   import_rca_4_digits_commodity_code &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   export_rca_4_digits_product_code &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   import_rca_4_digits_product_code &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   export_value_usd_change_1_year &lt;int&gt;,</span>
 <span class="co">#&gt; #   export_value_usd_change_5_years &lt;int&gt;,</span>
 <span class="co">#&gt; #   export_value_usd_percentage_change_1_year &lt;dbl&gt;,</span>
@@ -386,13 +433,60 @@ ots_attributes_tables
 <span class="co">#&gt; #   import_value_usd_change_5_years &lt;int&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_percentage_change_1_year &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_percentage_change_5_years &lt;dbl&gt;</span></code></pre></div>
+<p>If we want Chilean trade at product level in 1980 with respect to product “0101” (Horses, asses, mules and hinnies; live):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ots_create_tidy_data</span>(<span class="dt">year =</span> <span class="dv">1980</span>, <span class="dt">reporter =</span> <span class="st">&quot;chl&quot;</span>, <span class="dt">product =</span> <span class="st">&quot;0101&quot;</span>, <span class="dt">table =</span> <span class="st">&quot;yrc&quot;</span>)
+<span class="co">#&gt; # A tibble: 1 x 20</span>
+<span class="co">#&gt;    year reporter_iso reporter_fullna… product_code product_code_le…</span>
+<span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;                   &lt;int&gt;</span>
+<span class="co">#&gt; 1  1980 chl          Chile            0101                        4</span>
+<span class="co">#&gt; # … with 15 more variables: product_fullname_english &lt;chr&gt;,</span>
+<span class="co">#&gt; #   group_code &lt;chr&gt;, group_name &lt;chr&gt;, export_value_usd &lt;int&gt;,</span>
+<span class="co">#&gt; #   import_value_usd &lt;int&gt;, export_rca_4_digits_product_code &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   import_rca_4_digits_product_code &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   export_value_usd_change_1_year &lt;int&gt;,</span>
+<span class="co">#&gt; #   export_value_usd_change_5_years &lt;int&gt;,</span>
+<span class="co">#&gt; #   export_value_usd_percentage_change_1_year &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   export_value_usd_percentage_change_5_years &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_change_1_year &lt;int&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_change_5_years &lt;int&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_percentage_change_1_year &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_percentage_change_5_years &lt;dbl&gt;</span></code></pre></div>
+<p>But if we want just products exported by Chile in 1980 that also match the string “horse” at product or group name:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ots_create_tidy_data</span>(<span class="dt">year =</span> <span class="dv">1980</span>, <span class="dt">reporter =</span> <span class="st">&quot;chl&quot;</span>, <span class="dt">product =</span> <span class="st">&quot;horse&quot;</span>, <span class="dt">table =</span> <span class="st">&quot;yrc&quot;</span>)
+<span class="co">#&gt; # A tibble: 45 x 23</span>
+<span class="co">#&gt;     year reporter_iso reporter_fullna… product_code product_code_le…</span>
+<span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;                   &lt;int&gt;</span>
+<span class="co">#&gt;  1  1980 chl          Chile            0101                        4</span>
+<span class="co">#&gt;  2  1980 chl          Chile            0205                        4</span>
+<span class="co">#&gt;  3  1980 chl          Chile            0206                        4</span>
+<span class="co">#&gt;  4  1980 chl          Chile            5113                        4</span>
+<span class="co">#&gt;  5  1980 chl          Chile            5606                        4</span>
+<span class="co">#&gt;  6  1980 chl          Chile            5101                        4</span>
+<span class="co">#&gt;  7  1980 chl          Chile            510111                      6</span>
+<span class="co">#&gt;  8  1980 chl          Chile            510121                      6</span>
+<span class="co">#&gt;  9  1980 chl          Chile            5102                        4</span>
+<span class="co">#&gt; 10  1980 chl          Chile            510211                      6</span>
+<span class="co">#&gt; # … with 35 more rows, and 18 more variables:</span>
+<span class="co">#&gt; #   product_fullname_english &lt;chr&gt;, group_code &lt;chr&gt;, group_name &lt;chr&gt;,</span>
+<span class="co">#&gt; #   export_value_usd &lt;int&gt;, import_value_usd &lt;int&gt;,</span>
+<span class="co">#&gt; #   export_rca_4_digits_product_code &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   import_rca_4_digits_product_code &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   export_value_usd_change_1_year &lt;int&gt;,</span>
+<span class="co">#&gt; #   export_value_usd_change_5_years &lt;int&gt;,</span>
+<span class="co">#&gt; #   export_value_usd_percentage_change_1_year &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   export_value_usd_percentage_change_5_years &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_change_1_year &lt;int&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_change_5_years &lt;int&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_percentage_change_1_year &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_percentage_change_5_years &lt;dbl&gt;, observation &lt;chr&gt;,</span>
+<span class="co">#&gt; #   export_rca_6_digits_product_code &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   import_rca_6_digits_product_code &lt;dbl&gt;</span></code></pre></div>
 <p>Here the <code>export_rca*</code> and <code>import_rca*</code> fields contain the Revealed Comparative Advantage (RCA) of an exported product with respect to all the products with the same number of digits. The definition of RCA is detailed on <a href="https://tradestatistics.github.io/documentation/">Open Trade Statistics Documentation</a>.</p>
 </div>
 <div id="reporter-trade-at-aggregated-level-year---reporter" class="section level3">
 <h3>Reporter trade at aggregated level (Year - Reporter)</h3>
 <p>If we want Chilean trade at aggregated level in 1980:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What does Chile exchange? (1980)</span>
-<span class="kw">ots_create_tidy_data</span>(<span class="dt">years =</span> <span class="dv">1980</span>, <span class="dt">reporter =</span> <span class="st">&quot;chl&quot;</span>, <span class="dt">table =</span> <span class="st">&quot;yr&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ots_create_tidy_data</span>(<span class="dt">year =</span> <span class="dv">1980</span>, <span class="dt">reporter =</span> <span class="st">&quot;chl&quot;</span>, <span class="dt">table =</span> <span class="st">&quot;yr&quot;</span>)
 <span class="co">#&gt; # A tibble: 1 x 21</span>
 <span class="co">#&gt;    year reporter_iso reporter_fullna… export_value_usd import_value_usd</span>
 <span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;                       &lt;dbl&gt;            &lt;dbl&gt;</span>
@@ -413,35 +507,33 @@ ots_attributes_tables
 <span class="co">#&gt; #   import_value_usd_percentage_change_5_years &lt;dbl&gt;</span></code></pre></div>
 <p>Here some fields deserve an explanation:</p>
 <ul>
-<li><code>eci_4_digits_commodity_code</code>: Economic Complexity Index (ECI) which is detailed on <a href="https://tradestatistics.github.io/documentation/">Open Trade Statistics Documentation</a>. This index is built by using just four digits commodity codes.</li>
-<li><code>eci_rank_4_digits_commodity_code</code>: The rank of a country given its ECI (e.g. the highest ECI obtains the #1)</li>
-<li><code>eci_rank_4_digits_commodity_code_delta_1_year</code>: How many places a country increased or decreased with respect to last year</li>
+<li><code>eci_4_digits_product_code</code>: Economic Complexity Index (ECI) which is detailed on <a href="https://tradestatistics.github.io/documentation/">Open Trade Statistics Documentation</a>. This index is built by using just four digits product codes.</li>
+<li><code>eci_rank_4_digits_product_code</code>: The rank of a country given its ECI (e.g. the highest ECI obtains the #1)</li>
+<li><code>eci_rank_4_digits_product_code_delta_1_year</code>: How many places a country increased or decreased with respect to last year</li>
 </ul>
 </div>
-<div id="commodity-trade-at-aggregated-level-year---commodity" class="section level3">
-<h3>Commodity trade at aggregated level (Year - Commodity)</h3>
+<div id="product-trade-at-aggregated-level-year---product-code" class="section level3">
+<h3>Product trade at aggregated level (Year - Product Code)</h3>
 <p>If we want all products trade in 1980:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Which products are exchanged? (1980)</span>
-<span class="kw">ots_create_tidy_data</span>(<span class="dt">years =</span> <span class="dv">1980</span>, <span class="dt">table =</span> <span class="st">&quot;yc&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ots_create_tidy_data</span>(<span class="dt">year =</span> <span class="dv">1980</span>, <span class="dt">table =</span> <span class="st">&quot;yc&quot;</span>)
 <span class="co">#&gt; # A tibble: 1,106 x 24</span>
-<span class="co">#&gt;     year commodity_code commodity_code_… commodity_fulln… group_code</span>
-<span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;                     &lt;int&gt; &lt;chr&gt;            &lt;chr&gt;     </span>
-<span class="co">#&gt;  1  1980 0101                          4 Horses, asses, … 01        </span>
-<span class="co">#&gt;  2  1980 0102                          4 Bovine animals;… 01        </span>
-<span class="co">#&gt;  3  1980 0103                          4 Swine; live      01        </span>
-<span class="co">#&gt;  4  1980 0104                          4 Sheep and goats… 01        </span>
-<span class="co">#&gt;  5  1980 0105                          4 Poultry; live, … 01        </span>
-<span class="co">#&gt;  6  1980 0106                          4 Animals, n.e.c.… 01        </span>
-<span class="co">#&gt;  7  1980 0201                          4 Meat of bovine … 02        </span>
-<span class="co">#&gt;  8  1980 0203                          4 Meat of swine; … 02        </span>
-<span class="co">#&gt;  9  1980 0204                          4 Meat of sheep o… 02        </span>
-<span class="co">#&gt; 10  1980 0205                          4 Meat of horses,… 02        </span>
+<span class="co">#&gt;     year product_code product_code_le… product_fullnam… group_code</span>
+<span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;                   &lt;int&gt; &lt;chr&gt;            &lt;chr&gt;     </span>
+<span class="co">#&gt;  1  1980 0101                        4 Horses, asses, … 01        </span>
+<span class="co">#&gt;  2  1980 0102                        4 Bovine animals;… 01        </span>
+<span class="co">#&gt;  3  1980 0103                        4 Swine; live      01        </span>
+<span class="co">#&gt;  4  1980 0104                        4 Sheep and goats… 01        </span>
+<span class="co">#&gt;  5  1980 0105                        4 Poultry; live, … 01        </span>
+<span class="co">#&gt;  6  1980 0106                        4 Animals, n.e.c.… 01        </span>
+<span class="co">#&gt;  7  1980 0201                        4 Meat of bovine … 02        </span>
+<span class="co">#&gt;  8  1980 0203                        4 Meat of swine; … 02        </span>
+<span class="co">#&gt;  9  1980 0204                        4 Meat of sheep o… 02        </span>
+<span class="co">#&gt; 10  1980 0205                        4 Meat of horses,… 02        </span>
 <span class="co">#&gt; # … with 1,096 more rows, and 19 more variables: group_name &lt;chr&gt;,</span>
 <span class="co">#&gt; #   export_value_usd &lt;dbl&gt;, import_value_usd &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   pci_4_digits_commodity_code &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   pci_rank_4_digits_commodity_code &lt;int&gt;,</span>
-<span class="co">#&gt; #   pci_rank_4_digits_commodity_code_delta_1_year &lt;int&gt;,</span>
-<span class="co">#&gt; #   pci_rank_4_digits_commodity_code_delta_5_years &lt;int&gt;,</span>
+<span class="co">#&gt; #   pci_4_digits_product_code &lt;dbl&gt;, pci_rank_4_digits_product_code &lt;int&gt;,</span>
+<span class="co">#&gt; #   pci_rank_4_digits_product_code_delta_1_year &lt;int&gt;,</span>
+<span class="co">#&gt; #   pci_rank_4_digits_product_code_delta_5_years &lt;int&gt;,</span>
 <span class="co">#&gt; #   top_exporter_iso &lt;chr&gt;, top_exporter_trade_value_usd &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   top_importer_iso &lt;chr&gt;, top_importer_trade_value_usd &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   export_value_usd_change_1_year &lt;dbl&gt;,</span>
@@ -452,12 +544,66 @@ ots_attributes_tables
 <span class="co">#&gt; #   import_value_usd_change_5_years &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_percentage_change_1_year &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   import_value_usd_percentage_change_5_years &lt;dbl&gt;</span></code></pre></div>
+<p>If we want traded values of product “0101” (Horses, asses, mules and hinnies; live) in 1980:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ots_create_tidy_data</span>(<span class="dt">year =</span> <span class="dv">1980</span>, <span class="dt">product =</span> <span class="st">&quot;0101&quot;</span>, <span class="dt">table =</span> <span class="st">&quot;yc&quot;</span>)
+<span class="co">#&gt; # A tibble: 1 x 24</span>
+<span class="co">#&gt;    year product_code product_code_le… product_fullnam… group_code</span>
+<span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;                   &lt;int&gt; &lt;chr&gt;            &lt;chr&gt;     </span>
+<span class="co">#&gt; 1  1980 0101                        4 Horses, asses, … 01        </span>
+<span class="co">#&gt; # … with 19 more variables: group_name &lt;chr&gt;, export_value_usd &lt;int&gt;,</span>
+<span class="co">#&gt; #   import_value_usd &lt;int&gt;, pci_4_digits_product_code &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   pci_rank_4_digits_product_code &lt;int&gt;,</span>
+<span class="co">#&gt; #   pci_rank_4_digits_product_code_delta_1_year &lt;int&gt;,</span>
+<span class="co">#&gt; #   pci_rank_4_digits_product_code_delta_5_years &lt;int&gt;,</span>
+<span class="co">#&gt; #   top_exporter_iso &lt;chr&gt;, top_exporter_trade_value_usd &lt;int&gt;,</span>
+<span class="co">#&gt; #   top_importer_iso &lt;chr&gt;, top_importer_trade_value_usd &lt;int&gt;,</span>
+<span class="co">#&gt; #   export_value_usd_change_1_year &lt;int&gt;,</span>
+<span class="co">#&gt; #   export_value_usd_change_5_years &lt;int&gt;,</span>
+<span class="co">#&gt; #   export_value_usd_percentage_change_1_year &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   export_value_usd_percentage_change_5_years &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_change_1_year &lt;int&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_change_5_years &lt;int&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_percentage_change_1_year &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_percentage_change_5_years &lt;dbl&gt;</span></code></pre></div>
+<p>If we want traded values of all products that match the string “horse” at product or group name:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ots_create_tidy_data</span>(<span class="dt">year =</span> <span class="dv">1980</span>, <span class="dt">product =</span> <span class="st">&quot;horse&quot;</span>, <span class="dt">table =</span> <span class="st">&quot;yc&quot;</span>)
+<span class="co">#&gt; # A tibble: 52 x 29</span>
+<span class="co">#&gt;     year product_code product_code_le… product_fullnam… group_code</span>
+<span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;                   &lt;int&gt; &lt;chr&gt;            &lt;chr&gt;     </span>
+<span class="co">#&gt;  1  1980 0101                        4 Horses, asses, … 01        </span>
+<span class="co">#&gt;  2  1980 0205                        4 Meat of horses,… 02        </span>
+<span class="co">#&gt;  3  1980 0206                        4 Edible offal of… 02        </span>
+<span class="co">#&gt;  4  1980 5110                        4 Yarn of coarse … 51        </span>
+<span class="co">#&gt;  5  1980 5113                        4 Woven fabrics o… 51        </span>
+<span class="co">#&gt;  6  1980 5606                        4 Yarn and strip … 56        </span>
+<span class="co">#&gt;  7  1980 5101                        4 Wool, not carde… 51        </span>
+<span class="co">#&gt;  8  1980 510111                      6 Wool; (not card… 51        </span>
+<span class="co">#&gt;  9  1980 510121                      6 Wool; (not card… 51        </span>
+<span class="co">#&gt; 10  1980 5102                        4 Fine or coarse … 51        </span>
+<span class="co">#&gt; # … with 42 more rows, and 24 more variables: group_name &lt;chr&gt;,</span>
+<span class="co">#&gt; #   export_value_usd &lt;dbl&gt;, import_value_usd &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   pci_4_digits_product_code &lt;dbl&gt;, pci_rank_4_digits_product_code &lt;int&gt;,</span>
+<span class="co">#&gt; #   pci_rank_4_digits_product_code_delta_1_year &lt;int&gt;,</span>
+<span class="co">#&gt; #   pci_rank_4_digits_product_code_delta_5_years &lt;int&gt;,</span>
+<span class="co">#&gt; #   top_exporter_iso &lt;chr&gt;, top_exporter_trade_value_usd &lt;int&gt;,</span>
+<span class="co">#&gt; #   top_importer_iso &lt;chr&gt;, top_importer_trade_value_usd &lt;int&gt;,</span>
+<span class="co">#&gt; #   export_value_usd_change_1_year &lt;int&gt;,</span>
+<span class="co">#&gt; #   export_value_usd_change_5_years &lt;int&gt;,</span>
+<span class="co">#&gt; #   export_value_usd_percentage_change_1_year &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   export_value_usd_percentage_change_5_years &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_change_1_year &lt;int&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_change_5_years &lt;int&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_percentage_change_1_year &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   import_value_usd_percentage_change_5_years &lt;dbl&gt;, observation &lt;chr&gt;,</span>
+<span class="co">#&gt; #   pci_6_digits_product_code &lt;dbl&gt;, pci_rank_6_digits_product_code &lt;int&gt;,</span>
+<span class="co">#&gt; #   pci_rank_6_digits_product_code_delta_1_year &lt;int&gt;,</span>
+<span class="co">#&gt; #   pci_rank_6_digits_product_code_delta_5_years &lt;int&gt;</span></code></pre></div>
 <p>Here some fields deserve an explanation:</p>
 <ul>
-<li><code>pci_4_digits_commodity_code</code>: Product Complexity Index (PCI) which is detailed on <a href="https://tradestatistics.github.io/documentation/">Open Trade Statistics Documentation</a>. This index is built by using just four digits commodity codes.</li>
-<li><code>pci_6_digits_commodity_code</code>: Similar to the previous field but built by using just six digits commodity codes.</li>
-<li><code>pci_rank_4_digits_commodity_code</code>: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)</li>
-<li><code>pci_rank_4_digits_commodity_code_delta_1_year</code>: How many places a country increased or decreased with respect to last year</li>
+<li><code>pci_4_digits_product_code</code>: Product Complexity Index (PCI) which is detailed on <a href="https://tradestatistics.github.io/documentation/">Open Trade Statistics Documentation</a>. This index is built by using just four digits product codes.</li>
+<li><code>pci_6_digits_product_code</code>: Similar to the previous field but built by using just six digits product codes.</li>
+<li><code>pci_rank_4_digits_product_code</code>: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)</li>
+<li><code>pci_rank_4_digits_product_code_delta_1_year</code>: How many places a country increased or decreased with respect to last year</li>
 </ul>
 </div>
 </div>

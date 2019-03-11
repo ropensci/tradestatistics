@@ -1,7 +1,7 @@
 #' Downloads and processes the data from the API to return a human-readable tibble
 #' @description This function accesses \code{api.tradestatistics.io} and
 #' performs different API calls to return tidy data. and data transforming.
-#' @param years Numeric value greater or equal to 1962 and lower of equal
+#' @param year Numeric value greater or equal to 1962 and lower of equal
 #' to 2016. Default set to \code{NULL}.
 #' @param reporter ISO code for country of reporter (e.g. \code{chl} for
 #' Chile). Default set to \code{NULL}.
@@ -9,7 +9,7 @@
 #' @param partner ISO code for country of partner (e.g. \code{chn} for
 #' China). Default set to \code{NULL}.
 #' Run \code{countries} in case of doubt.
-#' @param product_code Character string (e.g. \code{0101} or \code{01}) to filter products.
+#' @param product Character string (e.g. \code{0101}, \code{01} or \code{"apple"}) to filter products.
 #' Default set to \code{"all"}.
 #' @param product_code_length Character string to indicate the granularity level on products
 #' Default set to \code{4} (it can also take the values \code{6} or
@@ -26,10 +26,10 @@
 #' and \code{partner} country.
 #' @importFrom magrittr %>%
 #' @importFrom dplyr as_tibble select filter mutate everything
-#' everything left_join bind_rows rename matches
+#' everything left_join bind_rows rename matches distinct
 #' @importFrom stringr str_sub str_length
 #' @importFrom rlang sym syms
-#' @importFrom purrr map_df
+#' @importFrom purrr map2_df as_vector
 #' @importFrom jsonlite fromJSON
 #' @importFrom crul HttpClient
 #' @export
@@ -38,23 +38,25 @@
 #' # The next example can take more than 5 seconds to compute,
 #' # so these are just shown without evaluation according to CRAN rules
 #' 
-#' # Run `countries` to display the full table of countries
+#' # Run `ots_attributes_countries` to display the full table of countries
+#' # Run `ots_attributes_products` to display the full table of products
 #' 
-#' # What does Chile export to China? (2015)
-#' ots_create_tidy_data(years = 2015, reporter = "chl", partner = "chn")
+#' # What does Chile export to China? (1980)
+#' ots_create_tidy_data(year = 1980, reporter = "chl", partner = "chn")
 #' 
-#' # What can we say about Horses exported by Chile? (1980)
-#' ots_create_tidy_data(years = 1980, product_code = "0101", table = "yc")
-#' ots_create_tidy_data(years = 1980, reporter = "chl", product_code = "0101", table = "yrc")
-#' ots_create_tidy_data(years = 1980, reporter = "chl", partner = "arg", product_code = "0101", 
-#' table = "yrpc")
+#' # What can we say about Horses export in Chile and the World? (1980)
+#' ots_create_tidy_data(year = 1980, product = "0101", table = "yc")
+#' ots_create_tidy_data(year = 1980, reporter = "chl", product = "0101", table = "yrc")
+#' 
+#' # What can we say about the different types of apples exported by Chile? (1980)
+#' ots_create_tidy_data(year = 1980, reporter = "chl", product = "apple", table = "yrc")
 #' }
 #' @keywords functions
 
-ots_create_tidy_data <- function(years = NULL,
+ots_create_tidy_data <- function(year = NULL,
                                  reporter = NULL,
                                  partner = NULL,
-                                 product_code = "all",
+                                 product = "all",
                                  product_code_length = 4,
                                  table = "yrpc",
                                  max_attempts = 5) {
@@ -67,15 +69,15 @@ ots_create_tidy_data <- function(years = NULL,
     stop(
       "
       The requested table does not exist. Please check the spelling or 
-      explore the 'tables' table provided within this package.
+      explore the 'ots_attributes_table' table provided within this package.
       "
     )
   }
 
-  # Check years -------------------------------------------------------------
+  # Check year --------------------------------------------------------------
   year_depending_queries <- grep("^reporters|rankings$|^y", tables$table, value = T)
 
-  if (all(years %in% 1962:2016) != TRUE &
+  if (all(year %in% 1962:2016) != TRUE &
     table %in% year_depending_queries) {
     stop(
       "
@@ -96,43 +98,79 @@ ots_create_tidy_data <- function(years = NULL,
 
   if (!is.null(reporter)) {
     if (!reporter %in% countries$country_iso &
-      table %in% reporter_depending_queries
-    ) {
-      reporter <- ots_country_code(reporter)
-      match.arg(reporter, countries$country_iso)
+        table %in% reporter_depending_queries) {
+        reporter <- tradestatistics::ots_country_code(reporter)
+        match.arg(reporter, countries$country_iso)
     }
   }
-
+  
   if (!is.null(partner)) {
     if (!partner %in% countries$country_iso &
-      table %in% partner_depending_queries
-    ) {
-      partner <- ots_country_code(partner)
-      match.arg(partner, countries$country_iso)
+        table %in% partner_depending_queries) {
+        partner <- tradestatistics::ots_country_code(partner)
+        match.arg(partner, countries$country_iso)
     }
+  }
+  
+  # Check product code ------------------------------------------------------
+  product_depending_queries <- grep("c$", tables$table, value = T)
+  
+  if(!as.character(product) %in% products$product_code &
+     table %in% product_depending_queries) {
+      # product name match (pmm)
+      pnm <- tradestatistics::ots_product_code(productname = product)
+      
+      # group name match (gnm)
+      gnm <- tradestatistics::ots_product_code(productgroup = product)
+      
+      product <- bind_rows(pnm, gnm) %>% 
+        distinct(!!sym("product_code")) %>% 
+        as_vector()
+  }
+
+  if(!all(as.character(product) %in% products$product_code == TRUE) &
+     table %in% product_depending_queries) {
+      stop(
+        "
+        The requested product does not exist. Please check the spelling or 
+        explore the 'ots_attributes_table' table provided within this package.
+        "
+      )
   }
 
   # Read from API -----------------------------------------------------------
+  if (!table %in% product_depending_queries & any(product != "all") == TRUE) {
+    product <- "all"
+    message(
+      "
+      The product code argument will be ignored provided that you requested a table
+      without product code field.
+      "
+    )
+  }
+  
   data <- dplyr::as_tibble(
-    purrr::map_df(.x = seq_along(years),
+    purrr::map2_df(.x = seq_along(year),
+                   .y = seq_along(product),
                    ~ots_read_from_api(
                      table = table,
                      max_attempts = max_attempts,
-                     years = years[.x],
+                     year = year[.x],
                      reporter = reporter,
                      partner = partner,
-                     product_code = product_code,
+                     product_code = product[.y],
                      product_code_length = product_code_length
                    )
-    )
+    ) %>% 
+    dplyr::filter(!is.na(product_code_length))
   )
 
   # no data in API message
   if (nrow(data) == 0) {
-    stop("No data available. Try changing years or trade classification.")
+    stop("No data available. Try changing year, reporter, partner or product")
   }
 
-  # Add attributes based on codes, etc (and join years, if applicable) ------
+  # Add attributes based on codes, etc (and join year, if applicable) -------
 
   # include countries data
   tables_with_reporter <- c("yrpc", "yrp", "yrc", "yr")
