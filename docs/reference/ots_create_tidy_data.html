@@ -122,15 +122,15 @@ performs different API calls to return tidy data. and data transforming.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>ots_create_tidy_data</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>partner</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>product_code</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>product_code_length</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrpc"</span>,
+    <pre class="usage"><span class='fu'>ots_create_tidy_data</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>partner</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>product</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>product_code_length</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrpc"</span>,
   <span class='kw'>max_attempts</span> <span class='kw'>=</span> <span class='fl'>5</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>years</th>
+      <th>year</th>
       <td><p>Numeric value greater or equal to 1962 and lower of equal
 to 2016. Default set to <code>NULL</code>.</p></td>
     </tr>
@@ -147,8 +147,8 @@ China). Default set to <code>NULL</code>.
 Run <code>countries</code> in case of doubt.</p></td>
     </tr>
     <tr>
-      <th>product_code</th>
-      <td><p>Character string (e.g. <code>0101</code> or <code>01</code>) to filter products.
+      <th>product</th>
+      <td><p>Character string (e.g. <code>0101</code>, <code>01</code> or <code>"apple"</code>) to filter products.
 Default set to <code>"all"</code>.</p></td>
     </tr>
     <tr>
@@ -184,16 +184,18 @@ and <code>partner</code> country.</p>
 <span class='co'># The next example can take more than 5 seconds to compute,</span>
 <span class='co'># so these are just shown without evaluation according to CRAN rules</span>
 
-<span class='co'># Run `countries` to display the full table of countries</span>
+<span class='co'># Run `ots_attributes_countries` to display the full table of countries</span>
+<span class='co'># Run `ots_attributes_products` to display the full table of products</span>
 
-<span class='co'># What does Chile export to China? (2015)</span>
-<span class='fu'>ots_create_tidy_data</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='fl'>2015</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>partner</span> <span class='kw'>=</span> <span class='st'>"chn"</span>)
+<span class='co'># What does Chile export to China? (1980)</span>
+<span class='fu'>ots_create_tidy_data</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>partner</span> <span class='kw'>=</span> <span class='st'>"chn"</span>)
 
-<span class='co'># What can we say about Horses exported by Chile? (1980)</span>
-<span class='fu'>ots_create_tidy_data</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>product_code</span> <span class='kw'>=</span> <span class='st'>"0101"</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yc"</span>)
-<span class='fu'>ots_create_tidy_data</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>product_code</span> <span class='kw'>=</span> <span class='st'>"0101"</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrc"</span>)
-<span class='fu'>ots_create_tidy_data</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>partner</span> <span class='kw'>=</span> <span class='st'>"arg"</span>, <span class='kw'>product_code</span> <span class='kw'>=</span> <span class='st'>"0101"</span>,
-<span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrpc"</span>)
+<span class='co'># What can we say about Horses export in Chile and the World? (1980)</span>
+<span class='fu'>ots_create_tidy_data</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>product</span> <span class='kw'>=</span> <span class='st'>"0101"</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yc"</span>)
+<span class='fu'>ots_create_tidy_data</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>product</span> <span class='kw'>=</span> <span class='st'>"0101"</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrc"</span>)
+
+<span class='co'># What can we say about the different types of apples exported by Chile? (1980)</span>
+<span class='fu'>ots_create_tidy_data</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>product</span> <span class='kw'>=</span> <span class='st'>"apple"</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrc"</span>)
 <span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

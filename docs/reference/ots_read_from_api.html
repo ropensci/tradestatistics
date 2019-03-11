@@ -122,7 +122,7 @@ performs different API calls to return <code>data.frames</code> by reading <code
     
     </div>
 
-    <pre class="usage"><span class='fu'>ots_read_from_api</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>partner</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+    <pre class="usage"><span class='fu'>ots_read_from_api</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>partner</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>product_code</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>product_code_length</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrpc"</span>,
   <span class='kw'>max_attempts</span> <span class='kw'>=</span> <span class='fl'>5</span>)</pre>
     
@@ -130,7 +130,7 @@ performs different API calls to return <code>data.frames</code> by reading <code
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>years</th>
+      <th>year</th>
       <td><p>Numeric value greater or equal to 1962 and lower of equal
 to 2016. Default set to <code>NULL</code>.</p></td>
     </tr>
@@ -170,8 +170,19 @@ Default set to <code>5</code>.
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='co'># What does Chile export to China? (2015)</span>
-<span class='fu'>ots_read_from_api</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='fl'>2015</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>partner</span> <span class='kw'>=</span> <span class='st'>"chn"</span>)
+<span class='co'># The next example can take more than 5 seconds to compute,</span>
+<span class='co'># so these are just shown without evaluation according to CRAN rules</span>
+
+<span class='co'># Run `countries` to display the full table of countries</span>
+
+<span class='co'># What does Chile export to China? (1980)</span>
+<span class='fu'>ots_read_from_api</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>partner</span> <span class='kw'>=</span> <span class='st'>"chn"</span>)
+
+<span class='co'># What can we say about chilean Horses export? (1980)</span>
+<span class='fu'>ots_read_from_api</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>product_code</span> <span class='kw'>=</span> <span class='st'>"0101"</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yc"</span>)
+<span class='fu'>ots_read_from_api</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>product_code</span> <span class='kw'>=</span> <span class='st'>"0101"</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrc"</span>)
+<span class='fu'>ots_read_from_api</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>partner</span> <span class='kw'>=</span> <span class='st'>"arg"</span>, <span class='kw'>product_code</span> <span class='kw'>=</span> <span class='st'>"0101"</span>,
+<span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrpc"</span>)
 <span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
