@@ -24,7 +24,7 @@
 #' exports, trade balance and relevant metrics
 #' such as exports growth w/r to last year) between an \code{reporter}
 #' and \code{partner} country.
-#' @importFrom magrittr %>%
+#' @importFrom magrittr %>% %<>%
 #' @importFrom dplyr as_tibble select filter mutate everything
 #' everything left_join bind_rows rename matches distinct
 #' @importFrom stringr str_sub str_length
@@ -177,7 +177,7 @@ ots_create_tidy_data <- function(year = NULL,
 
   if (table %in% tables_with_reporter) {
     if (table %in% tables_with_reporter[1:2]) {
-      data <- data %>%
+      data %<>%
         dplyr::left_join(dplyr::select(
           countries,
           !!!rlang::syms(
@@ -199,7 +199,7 @@ ots_create_tidy_data <- function(year = NULL,
           dplyr::everything()
         )
     } else {
-      data <- data %>%
+      data %<>%
         dplyr::left_join(dplyr::select(
           countries,
           !!!rlang::syms(
@@ -225,7 +225,7 @@ ots_create_tidy_data <- function(year = NULL,
   tables_with_partner <- c("yrpc", "yrp")
 
   if (table %in% tables_with_partner) {
-    data <- data %>%
+    data %<>%
       dplyr::left_join(dplyr::select(
         countries,
         !!!rlang::syms(
@@ -253,11 +253,11 @@ ots_create_tidy_data <- function(year = NULL,
   tables_with_product_code <- c("yrpc", "yrc", "yc")
 
   if (table %in% tables_with_product_code) {
-    data <- data %>%
+    data %<>%
       dplyr::left_join(products, by = "product_code")
 
     if (table == "yrpc") {
-      data <- data %>%
+      data %<>%
         dplyr::select(
           !!!rlang::syms(c(
             "year",
@@ -276,7 +276,7 @@ ots_create_tidy_data <- function(year = NULL,
     }
 
     if (table == "yrc") {
-      data <- data %>%
+      data %<>%
         dplyr::select(
           !!!rlang::syms(c(
             "year",
@@ -293,7 +293,7 @@ ots_create_tidy_data <- function(year = NULL,
     }
 
     if (table == "yc") {
-      data <- data %>%
+      data %<>%
         dplyr::select(
           !!!rlang::syms(c(
             "year",
