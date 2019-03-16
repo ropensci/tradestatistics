@@ -4,24 +4,23 @@
 \alias{ots_create_tidy_data}
 \title{Downloads and processes the data from the API to return a human-readable tibble}
 \usage{
-ots_create_tidy_data(year = NULL, reporter = NULL, partner = NULL,
-  product = "all", product_code_length = 4, table = "yrpc",
+ots_create_tidy_data(years = NULL, reporters = NULL, partners = NULL,
+  products = "all", product_code_length = 4, table = "yrpc",
   max_attempts = 5)
 }
 \arguments{
-\item{year}{Numeric value greater or equal to 1962 and lower of equal
-to 2016. Default set to \code{NULL}.}
+\item{years}{Year contained within the years specified in
+api.tradestatistics.io/year_range (e.g. \code{c(1980,1985)}, \code{c(1980:1981)} or \code{1980}).
+Default set to \code{NULL}.}
 
-\item{reporter}{ISO code for country of reporter (e.g. \code{chl} for
-Chile). Default set to \code{NULL}.
-Run \code{countries} in case of doubt.}
+\item{reporters}{ISO code for reporter country (e.g. \code{"chl"}, \code{Chile} or
+\code{c("chl", "Peru")}). Default set to \code{NULL}.}
 
-\item{partner}{ISO code for country of partner (e.g. \code{chn} for
-China). Default set to \code{NULL}.
-Run \code{countries} in case of doubt.}
+\item{partners}{ISO code for partner country (e.g. \code{"chl"}, \code{Chile} or
+\code{c("chl", "Peru")}). Default set to \code{NULL}.}
 
-\item{product}{Character string (e.g. \code{0101}, \code{01} or \code{"apple"}) to filter products.
-Default set to \code{"all"}.}
+\item{products}{HS codes (e.g. \code{"0101"}, \code{"01"} or search matches for \code{"apple"}) 
+to filter products. Default set to \code{"all"}.}
 
 \item{product_code_length}{Character string to indicate the granularity level on products
 Default set to \code{4} (it can also take the values \code{6} or
@@ -38,7 +37,7 @@ to \code{5}.}
 \value{
 A tibble that describes bilateral trade metrics (imports,
 exports, trade balance and relevant metrics
-such as exports growth w/r to last year) between an \code{reporter}
+such as exports growth w/r to last year) between a \code{reporter}
 and \code{partner} country.
 }
 \description{
@@ -54,14 +53,14 @@ performs different API calls to return tidy data. and data transforming.
 # Run `ots_attributes_products` to display the full table of products
 
 # What does Chile export to China? (1980)
-ots_create_tidy_data(year = 1980, reporter = "chl", partner = "chn")
+ots_create_tidy_data(years = 1980, reporters = "chl", partners = "chn")
 
 # What can we say about Horses export in Chile and the World? (1980)
-ots_create_tidy_data(year = 1980, product = "0101", table = "yc")
-ots_create_tidy_data(year = 1980, reporter = "chl", product = "0101", table = "yrc")
+ots_create_tidy_data(years = 1980, products = "0101", table = "yc")
+ots_create_tidy_data(years = 1980, reporters = "chl", products = "0101", table = "yrc")
 
 # What can we say about the different types of apples exported by Chile? (1980)
-ots_create_tidy_data(year = 1980, reporter = "chl", product = "apple", table = "yrc")
+ots_create_tidy_data(years = 1980, reporters = "chl", products = "apple", table = "yrc")
 }
 }
 \keyword{functions}

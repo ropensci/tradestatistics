@@ -122,34 +122,33 @@ performs different API calls to return tidy data. and data transforming.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>ots_create_tidy_data</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>partner</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>product</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>product_code_length</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrpc"</span>,
+    <pre class="usage"><span class='fu'>ots_create_tidy_data</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>reporters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>partners</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>products</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>product_code_length</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrpc"</span>,
   <span class='kw'>max_attempts</span> <span class='kw'>=</span> <span class='fl'>5</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>year</th>
-      <td><p>Numeric value greater or equal to 1962 and lower of equal
-to 2016. Default set to <code>NULL</code>.</p></td>
+      <th>years</th>
+      <td><p>Year contained within the years specified in
+api.tradestatistics.io/year_range (e.g. <code><a href='https://www.rdocumentation.org/packages/base/topics/c'>c(1980,1985)</a></code>, <code><a href='https://www.rdocumentation.org/packages/base/topics/c'>c(1980:1981)</a></code> or <code>1980</code>).
+Default set to <code>NULL</code>.</p></td>
     </tr>
     <tr>
-      <th>reporter</th>
-      <td><p>ISO code for country of reporter (e.g. <code>chl</code> for
-Chile). Default set to <code>NULL</code>.
-Run <code>countries</code> in case of doubt.</p></td>
+      <th>reporters</th>
+      <td><p>ISO code for reporter country (e.g. <code>"chl"</code>, <code>Chile</code> or
+<code><a href='https://www.rdocumentation.org/packages/base/topics/c'>c("chl", "Peru")</a></code>). Default set to <code>NULL</code>.</p></td>
     </tr>
     <tr>
-      <th>partner</th>
-      <td><p>ISO code for country of partner (e.g. <code>chn</code> for
-China). Default set to <code>NULL</code>.
-Run <code>countries</code> in case of doubt.</p></td>
+      <th>partners</th>
+      <td><p>ISO code for partner country (e.g. <code>"chl"</code>, <code>Chile</code> or
+<code><a href='https://www.rdocumentation.org/packages/base/topics/c'>c("chl", "Peru")</a></code>). Default set to <code>NULL</code>.</p></td>
     </tr>
     <tr>
-      <th>product</th>
-      <td><p>Character string (e.g. <code>0101</code>, <code>01</code> or <code>"apple"</code>) to filter products.
-Default set to <code>"all"</code>.</p></td>
+      <th>products</th>
+      <td><p>HS codes (e.g. <code>"0101"</code>, <code>"01"</code> or search matches for <code>"apple"</code>) 
+to filter products. Default set to <code>"all"</code>.</p></td>
     </tr>
     <tr>
       <th>product_code_length</th>
@@ -175,7 +174,7 @@ to <code>5</code>.</p></td>
 
     <p>A tibble that describes bilateral trade metrics (imports,
 exports, trade balance and relevant metrics
-such as exports growth w/r to last year) between an <code>reporter</code>
+such as exports growth w/r to last year) between a <code>reporter</code>
 and <code>partner</code> country.</p>
     
 
@@ -188,14 +187,14 @@ and <code>partner</code> country.</p>
 <span class='co'># Run `ots_attributes_products` to display the full table of products</span>
 
 <span class='co'># What does Chile export to China? (1980)</span>
-<span class='fu'>ots_create_tidy_data</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>partner</span> <span class='kw'>=</span> <span class='st'>"chn"</span>)
+<span class='fu'>ots_create_tidy_data</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>reporters</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>partners</span> <span class='kw'>=</span> <span class='st'>"chn"</span>)
 
 <span class='co'># What can we say about Horses export in Chile and the World? (1980)</span>
-<span class='fu'>ots_create_tidy_data</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>product</span> <span class='kw'>=</span> <span class='st'>"0101"</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yc"</span>)
-<span class='fu'>ots_create_tidy_data</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>product</span> <span class='kw'>=</span> <span class='st'>"0101"</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrc"</span>)
+<span class='fu'>ots_create_tidy_data</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>products</span> <span class='kw'>=</span> <span class='st'>"0101"</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yc"</span>)
+<span class='fu'>ots_create_tidy_data</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>reporters</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>products</span> <span class='kw'>=</span> <span class='st'>"0101"</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrc"</span>)
 
 <span class='co'># What can we say about the different types of apples exported by Chile? (1980)</span>
-<span class='fu'>ots_create_tidy_data</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>product</span> <span class='kw'>=</span> <span class='st'>"apple"</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrc"</span>)
+<span class='fu'>ots_create_tidy_data</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>reporters</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>products</span> <span class='kw'>=</span> <span class='st'>"apple"</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrc"</span>)
 <span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

@@ -9,19 +9,18 @@ ots_read_from_api(year = NULL, reporter = NULL, partner = NULL,
   max_attempts = 5)
 }
 \arguments{
-\item{year}{Numeric value greater or equal to 1962 and lower of equal
-to 2016. Default set to \code{NULL}.}
+\item{year}{Year contained within the years specified in
+api.tradestatistics.io/year_range (e.g. \code{1980}).
+Default set to \code{NULL}.}
 
-\item{reporter}{ISO code for country of reporter (e.g. \code{chl} for
-Chile). Default set to \code{NULL}.}
+\item{reporter}{ISO code for reporter country (e.g. \code{"chl"}). Default set to \code{NULL}.}
 
-\item{partner}{ISO code for country of partner (e.g. \code{chn} for
-China). Default set to \code{NULL}.}
+\item{partner}{ISO code for partner country (e.g. \code{"chl"}). Default set to \code{NULL}.}
 
-\item{product_code}{Character string (e.g. \code{0101} or \code{01}) to filter products.
+\item{product_code}{HS code (e.g. \code{0101} or \code{01}) to filter products.
 Default set to \code{"all"}.}
 
-\item{product_code_length}{Character string to indicate the granularity level on products.
+\item{product_code_length}{Integer to indicate the granularity level on products.
 Default set to \code{4}.}
 
 \item{table}{Character string to select the table to obtain the data. Default set to \code{yrpc} 

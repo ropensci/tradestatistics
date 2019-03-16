@@ -131,27 +131,26 @@ performs different API calls to return <code>data.frames</code> by reading <code
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>year</th>
-      <td><p>Numeric value greater or equal to 1962 and lower of equal
-to 2016. Default set to <code>NULL</code>.</p></td>
+      <td><p>Year contained within the years specified in
+api.tradestatistics.io/year_range (e.g. <code>1980</code>).
+Default set to <code>NULL</code>.</p></td>
     </tr>
     <tr>
       <th>reporter</th>
-      <td><p>ISO code for country of reporter (e.g. <code>chl</code> for
-Chile). Default set to <code>NULL</code>.</p></td>
+      <td><p>ISO code for reporter country (e.g. <code>"chl"</code>). Default set to <code>NULL</code>.</p></td>
     </tr>
     <tr>
       <th>partner</th>
-      <td><p>ISO code for country of partner (e.g. <code>chn</code> for
-China). Default set to <code>NULL</code>.</p></td>
+      <td><p>ISO code for partner country (e.g. <code>"chl"</code>). Default set to <code>NULL</code>.</p></td>
     </tr>
     <tr>
       <th>product_code</th>
-      <td><p>Character string (e.g. <code>0101</code> or <code>01</code>) to filter products.
+      <td><p>HS code (e.g. <code>0101</code> or <code>01</code>) to filter products.
 Default set to <code>"all"</code>.</p></td>
     </tr>
     <tr>
       <th>product_code_length</th>
-      <td><p>Character string to indicate the granularity level on products.
+      <td><p>Integer to indicate the granularity level on products.
 Default set to <code>4</code>.</p></td>
     </tr>
     <tr>

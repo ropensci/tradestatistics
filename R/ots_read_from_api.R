@@ -1,15 +1,14 @@
 #' Reads data from the API (internal function)
 #' @description This function accesses \code{api.tradestatistics.io} and
 #' performs different API calls to return \code{data.frames} by reading \code{JSON} data
-#' @param year Numeric value greater or equal to 1962 and lower of equal
-#' to 2016. Default set to \code{NULL}.
-#' @param reporter ISO code for country of reporter (e.g. \code{chl} for
-#' Chile). Default set to \code{NULL}.
-#' @param partner ISO code for country of partner (e.g. \code{chn} for
-#' China). Default set to \code{NULL}.
-#' @param product_code Character string (e.g. \code{0101} or \code{01}) to filter products.
+#' @param year Year contained within the years specified in
+#' api.tradestatistics.io/year_range (e.g. \code{1980}).
+#' Default set to \code{NULL}.
+#' @param reporter ISO code for reporter country (e.g. \code{"chl"}). Default set to \code{NULL}.
+#' @param partner ISO code for partner country (e.g. \code{"chl"}). Default set to \code{NULL}.
+#' @param product_code HS code (e.g. \code{0101} or \code{01}) to filter products.
 #' Default set to \code{"all"}.
-#' @param product_code_length Character string to indicate the granularity level on products.
+#' @param product_code_length Integer to indicate the granularity level on products.
 #' Default set to \code{4}.
 #' @param table Character string to select the table to obtain the data. Default set to \code{yrpc} 
 #' (Year - Reporter - Partner - product).
