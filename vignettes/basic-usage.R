@@ -12,6 +12,11 @@ ots_attributes_tables
 ## ----countries, eval = T-------------------------------------------------
 ots_attributes_countries
 
+## ----range, message=FALSE, warning=FALSE, include=FALSE------------------
+year_range <- purrr::as_vector(jsonlite::fromJSON("https://api.tradestatistics.io/year_range"))
+min_year <- min(year_range)
+max_year <- max(year_range)
+
 ## ----products, eval = T--------------------------------------------------
 ots_attributes_countries
 
