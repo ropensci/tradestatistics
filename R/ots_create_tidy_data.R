@@ -24,11 +24,10 @@
 #' such as exports growth w/r to last year) between a \code{reporter}
 #' and \code{partner} country.
 #' @importFrom magrittr %>% %<>%
-#' @importFrom dplyr as_tibble select filter mutate everything
-#' everything left_join bind_rows rename matches distinct
-#' @importFrom stringr str_sub str_length
+#' @importFrom dplyr as_tibble select filter everything
+#' left_join bind_rows rename distinct
 #' @importFrom rlang sym syms
-#' @importFrom purrr map2_df as_vector
+#' @importFrom purrr map_df as_vector
 #' @importFrom jsonlite fromJSON
 #' @importFrom crul HttpClient
 #' @export
@@ -101,16 +100,18 @@ ots_create_tidy_data <- function(years = NULL,
   if (!is.null(reporters)) {
     if (!all(reporters %in% tradestatistics::ots_attributes_countries$country_iso ) == TRUE &
         table %in% reporter_depending_queries) {
-        reporters <- tradestatistics::ots_country_code(reporters)
-        match.arg(reporters, tradestatistics::ots_attributes_countries$country_iso)
+        reporters <- tradestatistics::ots_country_code(reporters) %>%
+          dplyr::select(!!sym("country_iso")) %>%
+          purrr::as_vector()
     }
   }
   
   if (!is.null(partners)) {
     if (!all(partners %in% tradestatistics::ots_attributes_countries$country_iso) == TRUE &
         table %in% partner_depending_queries) {
-        partners <- tradestatistics::ots_country_code(partners)
-        match.arg(partners, tradestatistics::ots_attributes_countries$country_iso)
+        partners <- tradestatistics::ots_country_code(partners) %>%
+          dplyr::select(!!sym("country_iso")) %>%
+          purrr::as_vector()
     }
   }
   

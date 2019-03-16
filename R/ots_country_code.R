@@ -72,9 +72,7 @@ ots_country_code <- function(countryname = NULL) {
       stringr::str_detect(
         stringr::str_to_lower(!!sym("country_fullname_english")), countryname
       )
-    ) %>%
-    dplyr::select(!!sym("country_iso")) %>%
-    purrr::as_vector()
+    )
 
   if (length(countrycode) == 0) {
     message(
@@ -83,26 +81,5 @@ ots_country_code <- function(countryname = NULL) {
     )
   }
 
-  if (length(countrycode) > 1) {
-    message(
-      "There is more than one match for your search. Please try again 
-       using one of these codes:"
-    )
-
-    f <- tradestatistics::ots_attributes_countries %>%
-      filter(
-        stringr::str_detect(
-          stringr::str_to_lower(!!sym("country_name_english")),
-          stringr::str_to_lower(countryname)
-        )
-      )
-
-    if (countryname == "all") {
-      f <- dplyr::filter(f, !(!!sym("country_iso") %in% c("mhl", "wlf")))
-    }
-
-    return(f)
-  } else {
-    return(countrycode)
-  }
+  return(countrycode)
 }
