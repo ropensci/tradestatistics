@@ -124,7 +124,8 @@ performs different API calls to return tidy data. and data transforming.</p>
 
     <pre class="usage"><span class='fu'>ots_create_tidy_data</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>reporters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>partners</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>products</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>product_code_length</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrpc"</span>,
-  <span class='kw'>max_attempts</span> <span class='kw'>=</span> <span class='fl'>5</span>)</pre>
+  <span class='kw'>max_attempts</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>include_shortnames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>include_communities</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -167,6 +168,16 @@ Run <code>tables</code> in case of doubt.</p></td>
       <td><p>How many times to try to download data in case the
 API or the internet connection fails when obtaining data. Default set
 to <code>5</code>.</p></td>
+    </tr>
+    <tr>
+      <th>include_shortnames</th>
+      <td><p>Whether to include or not to include unofficial shortened product names.
+Default set to <code>FALSE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>include_communities</th>
+      <td><p>Whether to include or not to include product communities.
+Default set to <code>FALSE</code>.</p></td>
     </tr>
     </table>
     

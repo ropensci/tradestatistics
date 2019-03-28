@@ -65,3 +65,33 @@ if (!file.exists(products_tidy_file)) {
   save(ots_attributes_products, file = products_tidy_file, compress = "xz")
 }
 ```
+
+# Community codes
+
+```{r communities, message = FALSE, eval = FALSE}
+communities_url <- "https://api.tradestatistics.io/communities"
+communities_raw_file <- "../data-raw/ots_attributes_communities.json"
+communities_tidy_file <- "../data/ots_attributes_communities.rda"
+
+if (!file.exists(communities_raw_file)) { download.file(communities_url, communities_raw_file) }
+
+if (!file.exists(communities_tidy_file)) {
+  ots_attributes_communities <- fromJSON(communities_raw_file) %>% as_tibble()
+  save(ots_attributes_communities, file = communities_tidy_file, compress = "xz")
+}
+```
+
+# Product short names
+
+```{r product_shortnames, message = FALSE, eval = FALSE}
+product_shortnames_url <- "https://api.tradestatistics.io/product_shortnames"
+product_shortnames_raw_file <- "../data-raw/ots_attributes_product_shortnames.json"
+product_shortnames_tidy_file <- "../data/ots_attributes_product_shortnames.rda"
+
+if (!file.exists(product_shortnames_raw_file)) { download.file(product_shortnames_url, product_shortnames_raw_file) }
+
+if (!file.exists(product_shortnames_tidy_file)) {
+  ots_attributes_product_shortnames <- fromJSON(product_shortnames_raw_file) %>% as_tibble()
+  save(ots_attributes_product_shortnames, file = product_shortnames_tidy_file, compress = "xz")
+}
+```

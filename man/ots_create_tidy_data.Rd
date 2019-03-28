@@ -6,7 +6,8 @@
 \usage{
 ots_create_tidy_data(years = NULL, reporters = NULL, partners = NULL,
   products = "all", product_code_length = 4, table = "yrpc",
-  max_attempts = 5)
+  max_attempts = 5, include_shortnames = FALSE,
+  include_communities = FALSE)
 }
 \arguments{
 \item{years}{Year contained within the years specified in
@@ -33,6 +34,12 @@ Run \code{tables} in case of doubt.}
 \item{max_attempts}{How many times to try to download data in case the
 API or the internet connection fails when obtaining data. Default set
 to \code{5}.}
+
+\item{include_shortnames}{Whether to include or not to include unofficial shortened product names.
+Default set to \code{FALSE}.}
+
+\item{include_communities}{Whether to include or not to include product communities.
+Default set to \code{FALSE}.}
 }
 \value{
 A tibble that describes bilateral trade metrics (imports,

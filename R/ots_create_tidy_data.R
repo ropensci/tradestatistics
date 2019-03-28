@@ -19,13 +19,17 @@
 #' @param max_attempts How many times to try to download data in case the
 #' API or the internet connection fails when obtaining data. Default set
 #' to \code{5}.
+#' @param include_shortnames Whether to include or not to include unofficial shortened product names.
+#' Default set to \code{FALSE}.
+#' @param include_communities Whether to include or not to include product communities.
+#' Default set to \code{FALSE}.
 #' @return A tibble that describes bilateral trade metrics (imports,
 #' exports, trade balance and relevant metrics
 #' such as exports growth w/r to last year) between a \code{reporter}
 #' and \code{partner} country.
 #' @importFrom magrittr %>% %<>%
 #' @importFrom dplyr as_tibble select filter everything
-#' left_join bind_rows rename distinct
+#' left_join bind_rows rename distinct starts_with
 #' @importFrom rlang sym syms
 #' @importFrom purrr map_df as_vector
 #' @importFrom jsonlite fromJSON
@@ -57,7 +61,9 @@ ots_create_tidy_data <- function(years = NULL,
                                  products = "all",
                                  product_code_length = 4,
                                  table = "yrpc",
-                                 max_attempts = 5) {
+                                 max_attempts = 5,
+                                 include_shortnames = FALSE,
+                                 include_communities = FALSE) {
 
   # Check tables ------------------------------------------------------------
   if (!table %in% tradestatistics::ots_attributes_tables$table) {
@@ -338,6 +344,29 @@ ots_create_tidy_data <- function(years = NULL,
           dplyr::everything()
         )
     }
+  }
+  
+  if (table %in% product_depending_queries & include_shortnames == TRUE) {
+    data %<>% 
+      dplyr::left_join(tradestatistics::ots_attributes_product_shortnames) %>%
+      dplyr::select(
+        !!!rlang::sym(("year")),
+        dplyr::starts_with("product_"),
+        dplyr::starts_with("group_"),
+        dplyr::everything()
+      )
+  }
+  
+  if (table %in% product_depending_queries & include_communities == TRUE) {
+    data %<>% 
+      dplyr::left_join(tradestatistics::ots_attributes_communities) %>%
+      dplyr::select(
+        !!!rlang::sym(("year")),
+        dplyr::starts_with("product_"),
+        dplyr::starts_with("group_"),
+        dplyr::starts_with("community_"),
+        dplyr::everything()
+      )
   }
 
   return(data)
