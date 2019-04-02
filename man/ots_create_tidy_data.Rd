@@ -29,7 +29,7 @@ Default set to \code{4} (it can also take the values \code{6} or
 
 \item{table}{Character string to select the table to obtain the data.
 Default set to \code{yrpc} (Year - Reporter - Partner - Product Code).
-Run \code{tables} in case of doubt.}
+Run \code{ots_attributes_tables} in case of doubt.}
 
 \item{max_attempts}{How many times to try to download data in case the
 API or the internet connection fails when obtaining data. Default set
