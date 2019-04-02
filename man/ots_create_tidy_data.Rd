@@ -49,7 +49,7 @@ and \code{partner} country.
 }
 \description{
 This function accesses \code{api.tradestatistics.io} and
-performs different API calls to return tidy data. and data transforming.
+performs different API calls to transform and return tidy data.
 }
 \examples{
 \dontrun{
