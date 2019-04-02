@@ -1,6 +1,6 @@
 #' Downloads and processes the data from the API to return a human-readable tibble
 #' @description This function accesses \code{api.tradestatistics.io} and
-#' performs different API calls to return tidy data. and data transforming.
+#' performs different API calls to transform and return tidy data.
 #' @param years Year contained within the years specified in
 #' api.tradestatistics.io/year_range (e.g. \code{c(1980,1985)}, \code{c(1980:1981)} or \code{1980}).
 #' Default set to \code{NULL}.
