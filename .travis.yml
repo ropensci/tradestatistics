@@ -13,7 +13,7 @@ r_packages:
   - devtools
 
 r_github_packages:
-  - tradestatistics/tradestatistics
+  - ropensci/tradestatistics
 
 after_success:
   - Rscript -e 'library(covr);codecov()'

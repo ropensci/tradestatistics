@@ -9,8 +9,8 @@ Authors@R: c(
   person("Jorge", "Cimentada", role = c("ctb")),
   person(family = "UN Comtrade", role = c("dtc"))
   )
-URL: https://tradestatistics.github.io/tradestatistics
-BugReports: https://github.com/tradestatistics/tradestatistics/issues
+URL: https://ropensci.github.io/tradestatistics
+BugReports: https://github.com/ropensci/tradestatistics/issues
 Description: Access Open Trade Statistics API from R to download international trade data.
 License: GPL-3
 LazyData: TRUE
