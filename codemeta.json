@@ -1,5 +1,8 @@
 {
-  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
+  "@context": [
+    "https://doi.org/10.5063/schema/codemeta-2.0",
+    "http://schema.org"
+  ],
   "@type": "SoftwareSourceCode",
   "identifier": "tradestatistics",
   "description": "Access Open Trade Statistics API from R to download international trade data.",
@@ -31,6 +34,16 @@
     },
     {
       "@type": "Person",
+      "givenName": "Emily",
+      "familyName": "Riederer"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Mark",
+      "familyName": "Padgham"
+    },
+    {
+      "@type": "Person",
       "givenName": "Amanda",
       "familyName": "Dobbyn"
     },
@@ -42,6 +55,14 @@
     {
       "@type": "Organization",
       "name": "UN Comtrade"
+    },
+    {
+      "@type": "Organization",
+      "name": "Center for International Development at Harvard University"
+    },
+    {
+      "@type": "Organization",
+      "name": "The Observatory of Economic Complexity"
     }
   ],
   "copyrightHolder": [
@@ -228,8 +249,11 @@
     }
   ],
   "readme": "https://github.com/tradestatistics/tradestatistics/blob/master/README.md",
-  "fileSize": "247.68KB",
-  "contIntegration": ["https://travis-ci.org/ropensci/tradestatistics", "https://codecov.io/github/ropensci/tradestatistics?branch=master"],
+  "fileSize": "247.882KB",
+  "contIntegration": [
+    "https://travis-ci.org/ropensci/tradestatistics",
+    "https://codecov.io/github/ropensci/tradestatistics?branch=master"
+  ],
   "review": {
     "@type": "Review",
     "url": "https://github.com/ropensci/onboarding/issues/274",

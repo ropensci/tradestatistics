@@ -22,9 +22,13 @@ Useful links:
 Other contributors:
 \itemize{
   \item Joshua Kunst [contributor]
+  \item Emily Riederer [contributor]
+  \item Mark Padgham [contributor]
   \item Amanda Dobbyn [contributor]
   \item Jorge Cimentada [contributor]
   \item  UN Comtrade [data contributor]
+  \item  Center for International Development at Harvard University [data contributor]
+  \item  The Observatory of Economic Complexity [data contributor]
 }
 
 }

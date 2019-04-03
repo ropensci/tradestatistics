@@ -5,9 +5,13 @@ Version: 0.1
 Authors@R: c(
   person("Mauricio", "Vargas S.", role = c("aut", "cre", "cph"), email = "mvargas@dcc.uchile.cl"),
   person("Joshua", "Kunst", role = c("ctb")),
+  person("Emily", "Riederer", role = c("ctb")),
+  person("Mark", "Padgham", role = c("ctb")),
   person("Amanda", "Dobbyn", role = c("ctb")),
   person("Jorge", "Cimentada", role = c("ctb")),
-  person(family = "UN Comtrade", role = c("dtc"))
+  person(family = "UN Comtrade", role = c("dtc")),
+  person(family = "Center for International Development at Harvard University", role = c("dtc")),
+  person(family = "The Observatory of Economic Complexity", role = c("dtc"))
   )
 URL: https://ropensci.github.io/tradestatistics
 BugReports: https://github.com/ropensci/tradestatistics/issues
