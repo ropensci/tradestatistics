@@ -17,13 +17,13 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Mauricio Vargas S. \email{mvargas@dcc.uchile.cl} [copyright holder]
+\strong{Maintainer}: Mauricio Vargas \email{mvargas@dcc.uchile.cl} (0000-0003-1017-7574) [copyright holder]
 
 Other contributors:
 \itemize{
   \item Joshua Kunst [contributor]
   \item Emily Riederer [contributor]
-  \item Mark Padgham [contributor]
+  \item Mark Padgham (0000-0003-2172-5265) [contributor]
   \item Amanda Dobbyn [contributor]
   \item Jorge Cimentada [contributor]
   \item  UN Comtrade [data contributor]

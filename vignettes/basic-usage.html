@@ -12,7 +12,7 @@
 
 <meta name="author" content="Mauricio Vargas S." />
 
-<meta name="date" content="2019-03-28" />
+<meta name="date" content="2019-04-03" />
 
 <title>How to use this package</title>
 
@@ -303,7 +303,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 <h1 class="title toc-ignore">How to use this package</h1>
 <h4 class="author">Mauricio Vargas S.</h4>
-<h4 class="date">2019-03-28</h4>
+<h4 class="date">2019-04-03</h4>
 
 
 
@@ -315,23 +315,24 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(tradestatistics)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3">ots_attributes_tables</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">#&gt; # A tibble: 14 x 3</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">#&gt;    table      description                           source                 </span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;                                 &lt;chr&gt;                  </span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">#&gt;  1 countries  Countries metadata                    UN Comtrade            </span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">#&gt;  2 products   Product metadata                      UN Comtrade            </span></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">#&gt;  3 communiti… Product communities                   Harvard's Center for I…</span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">#&gt;  4 reporters  Reporting countries                   UN Comtrade            </span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">#&gt;  5 country_r… Ranking of countries                  Open Trade Statistics  </span></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">#&gt;  6 product_r… Ranking of products                   Open Trade Statistics  </span></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">#&gt;  7 yrpc       Bilateral trade at commodity level (… Open Trade Statistics  </span></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co">#&gt;  8 yrp        Bilateral trade at aggregated level … Open Trade Statistics  </span></a>
-<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co">#&gt;  9 yrc        Bilateral trade at aggregated level … Open Trade Statistics  </span></a>
-<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co">#&gt; 10 yrc_expor… Bilateral trade at aggregated level … Open Trade Statistics  </span></a>
-<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co">#&gt; 11 yrc_impor… Reporter trade at commodity level (Y… Open Trade Statistics  </span></a>
-<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">#&gt; 12 yr         Reporter trade at aggregated level (… Open Trade Statistics  </span></a>
-<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co">#&gt; 13 yr_short   Reporter trade at aggregated level (… Open Trade Statistics  </span></a>
-<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co">#&gt; 14 yc         Commodity trade at aggregated level … Open Trade Statistics</span></a></code></pre></div>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">#&gt; # A tibble: 15 x 3</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">#&gt;    table      description                        source                    </span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;                              &lt;chr&gt;                     </span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">#&gt;  1 countries  Countries metadata                 UN Comtrade               </span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">#&gt;  2 products   Product metadata                   UN Comtrade               </span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">#&gt;  3 reporters  Reporting countries                UN Comtrade               </span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">#&gt;  4 communiti… Product communities                Center for International …</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">#&gt;  5 product_s… Product short names                The Observatory of Econom…</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">#&gt;  6 country_r… Ranking of countries               UN Comtrade               </span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">#&gt;  7 product_r… Ranking of products                Open Trade Statistics     </span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co">#&gt;  8 yrpc       Bilateral trade at product level … Open Trade Statistics     </span></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co">#&gt;  9 yrp        Bilateral trade at aggregated lev… Open Trade Statistics     </span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co">#&gt; 10 yrc        Bilateral trade at aggregated lev… Open Trade Statistics     </span></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co">#&gt; 11 yrc_expor… Bilateral trade at aggregated lev… Open Trade Statistics     </span></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">#&gt; 12 yrc_impor… Reporter trade at product level (… Open Trade Statistics     </span></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co">#&gt; 13 yr         Reporter trade at aggregated leve… Open Trade Statistics     </span></a>
+<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co">#&gt; 14 yr_short   Reporter trade at aggregated leve… Open Trade Statistics     </span></a>
+<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="co">#&gt; 15 yc         Product trade at aggregated level… Open Trade Statistics</span></a></code></pre></div>
 </div>
 <div id="country-codes" class="section level2">
 <h2>Country codes</h2>
@@ -735,7 +736,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <a class="sourceLine" id="cb20-18" data-line-number="18"><span class="co">#&gt; #   export_value_usd_percentage_change_5_years &lt;dbl&gt;,</span></a>
 <a class="sourceLine" id="cb20-19" data-line-number="19"><span class="co">#&gt; #   import_value_usd_change_5_years &lt;int&gt;,</span></a>
 <a class="sourceLine" id="cb20-20" data-line-number="20"><span class="co">#&gt; #   import_value_usd_percentage_change_5_years &lt;dbl&gt;, observation &lt;chr&gt;</span></a></code></pre></div>
-<p>Here the <code>export_rca*</code> and <code>import_rca*</code> fields contain the Revealed Comparative Advantage (RCA) of an exported product with respect to all the products with the same number of digits. The definition of RCA is detailed on <a href="https://tradestatistics.github.io/documentation/">Open Trade Statistics Documentation</a>.</p>
+<p>Here the <code>export_rca*</code> and <code>import_rca*</code> fields contain the Revealed Comparative Advantage (RCA) of an exported product with respect to all the products with the same number of digits. The definition of RCA is detailed on <a href="https://docs.tradestatistics.io/">Open Trade Statistics Documentation</a>.</p>
 </div>
 <div id="reporter-trade-at-aggregated-level-year---reporter" class="section level3">
 <h3>Reporter trade at aggregated level (Year - Reporter)</h3>
@@ -777,7 +778,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <a class="sourceLine" id="cb22-20" data-line-number="20"><span class="co">#&gt; #   import_value_usd_percentage_change_5_years &lt;dbl&gt;</span></a></code></pre></div>
 <p>Here some fields deserve an explanation:</p>
 <ul>
-<li><code>eci_4_digits_product_code</code>: Economic Complexity Index (ECI) which is detailed on <a href="https://tradestatistics.github.io/documentation/">Open Trade Statistics Documentation</a>. This index is built by using just four digits product codes.</li>
+<li><code>eci_4_digits_product_code</code>: Economic Complexity Index (ECI) which is detailed on <a href="https://docs.tradestatistics.io/">Open Trade Statistics Documentation</a>. This index is built by using just four digits product codes.</li>
 <li><code>eci_rank_4_digits_product_code</code>: The rank of a country given its ECI (e.g. the highest ECI obtains the #1)</li>
 <li><code>eci_rank_4_digits_product_code_delta_1_year</code>: How many places a country increased or decreased with respect to last year</li>
 </ul>
@@ -854,7 +855,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <a class="sourceLine" id="cb25-26" data-line-number="26"><span class="co">#&gt; #   pci_rank_6_digits_product_code_delta_1_year &lt;int&gt;</span></a></code></pre></div>
 <p>Here some fields deserve an explanation:</p>
 <ul>
-<li><code>pci_4_digits_product_code</code>: Product Complexity Index (PCI) which is detailed on <a href="https://tradestatistics.github.io/documentation/">Open Trade Statistics Documentation</a>. This index is built by using just four digits product codes.</li>
+<li><code>pci_4_digits_product_code</code>: Product Complexity Index (PCI) which is detailed on <a href="https://docs.tradestatistics.io/">Open Trade Statistics Documentation</a>. This index is built by using just four digits product codes.</li>
 <li><code>pci_6_digits_product_code</code>: Similar to the previous field but built by using just six digits product codes.</li>
 <li><code>pci_rank_4_digits_product_code</code>: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)</li>
 <li><code>pci_rank_4_digits_product_code_delta_1_year</code>: How many places a country increased or decreased with respect to last year</li>

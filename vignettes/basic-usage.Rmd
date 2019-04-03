@@ -180,7 +180,7 @@ Another option is to pass more than one year, reporter and/or product:
 ots_create_tidy_data(years = c(1965,1967), reporters = c("chl", "per"), products = "apple", table = "yrc")
 ```
 
-Here the `export_rca*` and `import_rca*` fields contain the Revealed Comparative Advantage (RCA) of an exported product with respect to all the products with the same number of digits. The definition of RCA is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/).
+Here the `export_rca*` and `import_rca*` fields contain the Revealed Comparative Advantage (RCA) of an exported product with respect to all the products with the same number of digits. The definition of RCA is detailed on [Open Trade Statistics Documentation](https://docs.tradestatistics.io/).
 
 ### Reporter trade at aggregated level (Year - Reporter)
 
@@ -196,7 +196,7 @@ ots_create_tidy_data(years = c(1965,1967), reporters = c("chl", "arg", "per"), t
 
 Here some fields deserve an explanation:
 
-* `eci_4_digits_product_code`: Economic Complexity Index (ECI) which is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/). This index is built by using just four digits product codes.
+* `eci_4_digits_product_code`: Economic Complexity Index (ECI) which is detailed on [Open Trade Statistics Documentation](https://docs.tradestatistics.io/). This index is built by using just four digits product codes.
 * `eci_rank_4_digits_product_code`: The rank of a country given its ECI (e.g. the highest ECI obtains the #1)
 * `eci_rank_4_digits_product_code_delta_1_year`: How many places a country increased or decreased with respect to last year
 
@@ -219,7 +219,7 @@ ots_create_tidy_data(years = 1965, products = "horse", table = "yc")
 
 Here some fields deserve an explanation:
 
-* `pci_4_digits_product_code`: Product Complexity Index (PCI) which is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/). This index is built by using just four digits product codes.
+* `pci_4_digits_product_code`: Product Complexity Index (PCI) which is detailed on [Open Trade Statistics Documentation](https://docs.tradestatistics.io/). This index is built by using just four digits product codes.
 * `pci_6_digits_product_code`: Similar to the previous field but built by using just six digits product codes.
 * `pci_rank_4_digits_product_code`: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)
 * `pci_rank_4_digits_product_code_delta_1_year`: How many places a country increased or decreased with respect to last year

@@ -2,17 +2,34 @@ Package: tradestatistics
 Type: Package
 Title: Open Trade Statistics API Wrapper and Utility Program
 Version: 0.1
-Authors@R: c(
-  person("Mauricio", "Vargas S.", role = c("aut", "cre", "cph"), email = "mvargas@dcc.uchile.cl"),
-  person("Joshua", "Kunst", role = c("ctb")),
-  person("Emily", "Riederer", role = c("ctb")),
-  person("Mark", "Padgham", role = c("ctb")),
-  person("Amanda", "Dobbyn", role = c("ctb")),
-  person("Jorge", "Cimentada", role = c("ctb")),
-  person(family = "UN Comtrade", role = c("dtc")),
-  person(family = "Center for International Development at Harvard University", role = c("dtc")),
-  person(family = "The Observatory of Economic Complexity", role = c("dtc"))
-  )
+Authors@R: 
+    c(person(given = "Mauricio",
+             family = "Vargas",
+             role = c("aut", "cre", "cph"),
+             email = "mvargas@dcc.uchile.cl",
+             comment = c(ORCID = "0000-0003-1017-7574")),
+      person(given = "Joshua",
+             family = "Kunst",
+             role = "ctb"),
+      person(given = "Emily",
+             family = "Riederer",
+             role = "ctb"),
+      person(given = "Mark",
+             family = "Padgham",
+             role = "ctb",
+             comment = c(ORCID = "0000-0003-2172-5265")),
+      person(given = "Amanda",
+             family = "Dobbyn",
+             role = "ctb"),
+      person(given = "Jorge",
+             family = "Cimentada",
+             role = "ctb"),
+      person(family = "UN Comtrade",
+             role = "dtc"),
+      person(family = "Center for International Development at Harvard University",
+             role = "dtc"),
+      person(family = "The Observatory of Economic Complexity",
+             role = "dtc"))
 URL: https://ropensci.github.io/tradestatistics
 BugReports: https://github.com/ropensci/tradestatistics/issues
 Description: Access Open Trade Statistics API from R to download international trade data.

@@ -22,8 +22,9 @@
     {
       "@type": "Person",
       "givenName": "Mauricio",
-      "familyName": "Vargas S.",
-      "email": "mvargas@dcc.uchile.cl"
+      "familyName": "Vargas",
+      "email": "mvargas@dcc.uchile.cl",
+      "@id": "https://orcid.org/0000-0003-1017-7574"
     }
   ],
   "contributor": [
@@ -40,7 +41,8 @@
     {
       "@type": "Person",
       "givenName": "Mark",
-      "familyName": "Padgham"
+      "familyName": "Padgham",
+      "@id": "https://orcid.org/0000-0003-2172-5265"
     },
     {
       "@type": "Person",
@@ -69,8 +71,9 @@
     {
       "@type": "Person",
       "givenName": "Mauricio",
-      "familyName": "Vargas S.",
-      "email": "mvargas@dcc.uchile.cl"
+      "familyName": "Vargas",
+      "email": "mvargas@dcc.uchile.cl",
+      "@id": "https://orcid.org/0000-0003-1017-7574"
     }
   ],
   "funder": {},
@@ -78,8 +81,9 @@
     {
       "@type": "Person",
       "givenName": "Mauricio",
-      "familyName": "Vargas S.",
-      "email": "mvargas@dcc.uchile.cl"
+      "familyName": "Vargas",
+      "email": "mvargas@dcc.uchile.cl",
+      "@id": "https://orcid.org/0000-0003-1017-7574"
     }
   ],
   "softwareSuggestions": [
@@ -248,8 +252,8 @@
       "sameAs": "https://CRAN.R-project.org/package=jsonlite"
     }
   ],
-  "readme": "https://github.com/tradestatistics/tradestatistics/blob/master/README.md",
-  "fileSize": "247.882KB",
+  "readme": "https://github.com/ropensci/tradestatistics/blob/master/README.md",
+  "fileSize": "248.131KB",
   "contIntegration": [
     "https://travis-ci.org/ropensci/tradestatistics",
     "https://codecov.io/github/ropensci/tradestatistics?branch=master"
