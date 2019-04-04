@@ -34,27 +34,6 @@
       "familyName": "Kunst"
     },
     {
-      "@type": "Person",
-      "givenName": "Emily",
-      "familyName": "Riederer"
-    },
-    {
-      "@type": "Person",
-      "givenName": "Mark",
-      "familyName": "Padgham",
-      "@id": "https://orcid.org/0000-0003-2172-5265"
-    },
-    {
-      "@type": "Person",
-      "givenName": "Amanda",
-      "familyName": "Dobbyn"
-    },
-    {
-      "@type": "Person",
-      "givenName": "Jorge",
-      "familyName": "Cimentada"
-    },
-    {
       "@type": "Organization",
       "name": "UN Comtrade"
     },
@@ -253,7 +232,7 @@
     }
   ],
   "readme": "https://github.com/ropensci/tradestatistics/blob/master/README.md",
-  "fileSize": "248.131KB",
+  "fileSize": "248.226KB",
   "contIntegration": [
     "https://travis-ci.org/ropensci/tradestatistics",
     "https://codecov.io/github/ropensci/tradestatistics?branch=master"

@@ -21,11 +21,11 @@ Useful links:
 
 Other contributors:
 \itemize{
-  \item Joshua Kunst [contributor]
-  \item Emily Riederer [contributor]
-  \item Mark Padgham (0000-0003-2172-5265) [contributor]
-  \item Amanda Dobbyn [contributor]
-  \item Jorge Cimentada [contributor]
+  \item Joshua Kunst (contributed to different parts of the pre-release code) [contributor]
+  \item Emily Riederer (reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/274) [reviewer]
+  \item Mark Padgham (reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/274) [reviewer]
+  \item Amanda Dobbyn (reviewed the legacy package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217) [reviewer]
+  \item Jorge Cimentada (reviewed the legacy package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217) [reviewer]
   \item  UN Comtrade [data contributor]
   \item  Center for International Development at Harvard University [data contributor]
   \item  The Observatory of Economic Complexity [data contributor]

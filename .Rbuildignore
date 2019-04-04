@@ -1,6 +1,7 @@
 ^codemeta\.json$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+_pkgdown.yml
 .travis.yml
 appveyor.yml
 README.md
