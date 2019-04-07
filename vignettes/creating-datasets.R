@@ -15,7 +15,9 @@ knitr::opts_chunk$set(
 #  if (!file.exists(tables_raw_file)) { download.file(tables_url, tables_raw_file) }
 #  
 #  if (!file.exists(tables_tidy_file)) {
-#    ots_attributes_tables <- fromJSON(tables_raw_file) %>% as_tibble()
+#    ots_attributes_tables <- fromJSON(tables_raw_file) %>%
+#      as_tibble() %>%
+#      mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
 #    save(ots_attributes_tables, file = tables_tidy_file, compress = "xz")
 #  }
 
@@ -27,7 +29,9 @@ knitr::opts_chunk$set(
 #  if (!file.exists(countries_raw_file)) { download.file(countries_url, countries_raw_file) }
 #  
 #  if (!file.exists(countries_tidy_file)) {
-#    ots_attributes_countries <- fromJSON(countries_raw_file) %>% as_tibble()
+#    ots_attributes_countries <- fromJSON(countries_raw_file) %>%
+#      as_tibble() %>%
+#      mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
 #    save(ots_attributes_countries, file = countries_tidy_file, compress = "xz")
 #  }
 
@@ -39,7 +43,9 @@ knitr::opts_chunk$set(
 #  if (!file.exists(products_raw_file)) { download.file(products_url, products_raw_file) }
 #  
 #  if (!file.exists(products_tidy_file)) {
-#    ots_attributes_products <- fromJSON(products_raw_file) %>% as_tibble()
+#    ots_attributes_products <- fromJSON(products_raw_file) %>%
+#      as_tibble() %>%
+#      mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
 #    save(ots_attributes_products, file = products_tidy_file, compress = "xz")
 #  }
 
@@ -51,7 +57,9 @@ knitr::opts_chunk$set(
 #  if (!file.exists(communities_raw_file)) { download.file(communities_url, communities_raw_file) }
 #  
 #  if (!file.exists(communities_tidy_file)) {
-#    ots_attributes_communities <- fromJSON(communities_raw_file) %>% as_tibble()
+#    ots_attributes_communities <- fromJSON(communities_raw_file) %>%
+#      as_tibble() %>%
+#      mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
 #    save(ots_attributes_communities, file = communities_tidy_file, compress = "xz")
 #  }
 
@@ -63,7 +71,9 @@ knitr::opts_chunk$set(
 #  if (!file.exists(product_shortnames_raw_file)) { download.file(product_shortnames_url, product_shortnames_raw_file) }
 #  
 #  if (!file.exists(product_shortnames_tidy_file)) {
-#    ots_attributes_product_shortnames <- fromJSON(product_shortnames_raw_file) %>% as_tibble()
+#    ots_attributes_product_shortnames <- fromJSON(product_shortnames_raw_file) %>%
+#      as_tibble() %>%
+#      mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
 #    save(ots_attributes_product_shortnames, file = product_shortnames_tidy_file, compress = "xz")
 #  }
 

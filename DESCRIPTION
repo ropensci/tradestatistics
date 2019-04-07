@@ -2,8 +2,8 @@ Package: tradestatistics
 Type: Package
 Title: Open Trade Statistics API Wrapper and Utility Program
 Version: 0.1
-Authors@R: 
-    c(person(given = "Mauricio",
+Authors@R: c(
+      person(given = "Mauricio",
              family = "Vargas",
              role = c("aut", "cre", "cph"),
              email = "mvargas@dcc.uchile.cl",
@@ -23,20 +23,21 @@ Authors@R:
       person(given = "Amanda",
              family = "Dobbyn",
              role = "rev",
-             comment = "reviewed the legacy package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217"),
+             comment = "reviewed an archived package that evolved into the current package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217"),
       person(given = "Jorge",
              family = "Cimentada",
              role = "rev",
-             comment = "reviewed the legacy package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217"),
+             comment = "reviewed an archived package that evolved into the current package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217"),
       person(family = "UN Comtrade",
              role = "dtc"),
       person(family = "Center for International Development at Harvard University",
              role = "dtc"),
       person(family = "The Observatory of Economic Complexity",
-             role = "dtc"))
+             role = "dtc")
+    )
 URL: https://ropensci.github.io/tradestatistics
 BugReports: https://github.com/ropensci/tradestatistics/issues
-Description: Access Open Trade Statistics API from R to download international trade data.
+Description: Access 'Open Trade Statistics' API from R to download international trade data.
 License: GPL-3
 LazyData: TRUE
 Depends:

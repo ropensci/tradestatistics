@@ -12,7 +12,7 @@
 
 <meta name="author" content="Mauricio Vargas S." />
 
-<meta name="date" content="2019-03-28" />
+<meta name="date" content="2019-04-07" />
 
 <title>Creating the datasets available within the package</title>
 
@@ -303,7 +303,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 <h1 class="title toc-ignore">Creating the datasets available within the package</h1>
 <h4 class="author">Mauricio Vargas S.</h4>
-<h4 class="date">2019-03-28</h4>
+<h4 class="date">2019-04-07</h4>
 
 
 
@@ -320,9 +320,11 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <a class="sourceLine" id="cb1-8" data-line-number="8"><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(tables_raw_file)) { <span class="kw">download.file</span>(tables_url, tables_raw_file) }</a>
 <a class="sourceLine" id="cb1-9" data-line-number="9"></a>
 <a class="sourceLine" id="cb1-10" data-line-number="10"><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(tables_tidy_file)) {</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">  ots_attributes_tables &lt;-<span class="st"> </span><span class="kw">fromJSON</span>(tables_raw_file) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>()</a>
-<a class="sourceLine" id="cb1-12" data-line-number="12">  <span class="kw">save</span>(ots_attributes_tables, <span class="dt">file =</span> tables_tidy_file, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)</a>
-<a class="sourceLine" id="cb1-13" data-line-number="13">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-11" data-line-number="11">  ots_attributes_tables &lt;-<span class="st"> </span><span class="kw">fromJSON</span>(tables_raw_file) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="st">    </span><span class="kw">mutate_if</span>(is.character, <span class="cf">function</span>(x) { <span class="kw">iconv</span>(x, <span class="dt">to =</span> <span class="st">&quot;ASCII//TRANSLIT&quot;</span>)})</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">  <span class="kw">save</span>(ots_attributes_tables, <span class="dt">file =</span> tables_tidy_file, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">}</a></code></pre></div>
 </div>
 <div id="country-codes" class="section level1">
 <h1>Country codes</h1>
@@ -333,9 +335,11 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <a class="sourceLine" id="cb2-5" data-line-number="5"><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(countries_raw_file)) { <span class="kw">download.file</span>(countries_url, countries_raw_file) }</a>
 <a class="sourceLine" id="cb2-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb2-7" data-line-number="7"><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(countries_tidy_file)) {</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">  ots_attributes_countries &lt;-<span class="st"> </span><span class="kw">fromJSON</span>(countries_raw_file) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>()</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">  <span class="kw">save</span>(ots_attributes_countries, <span class="dt">file =</span> countries_tidy_file, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">}</a></code></pre></div>
+<a class="sourceLine" id="cb2-8" data-line-number="8">  ots_attributes_countries &lt;-<span class="st"> </span><span class="kw">fromJSON</span>(countries_raw_file) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="st">    </span><span class="kw">mutate_if</span>(is.character, <span class="cf">function</span>(x) { <span class="kw">iconv</span>(x, <span class="dt">to =</span> <span class="st">&quot;ASCII//TRANSLIT&quot;</span>)})</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">  <span class="kw">save</span>(ots_attributes_countries, <span class="dt">file =</span> countries_tidy_file, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">}</a></code></pre></div>
 </div>
 <div id="product-codes" class="section level1">
 <h1>Product codes</h1>
@@ -346,9 +350,11 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <a class="sourceLine" id="cb3-5" data-line-number="5"><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(products_raw_file)) { <span class="kw">download.file</span>(products_url, products_raw_file) }</a>
 <a class="sourceLine" id="cb3-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb3-7" data-line-number="7"><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(products_tidy_file)) {</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">  ots_attributes_products &lt;-<span class="st"> </span><span class="kw">fromJSON</span>(products_raw_file) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>()</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">  <span class="kw">save</span>(ots_attributes_products, <span class="dt">file =</span> products_tidy_file, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10">}</a></code></pre></div>
+<a class="sourceLine" id="cb3-8" data-line-number="8">  ots_attributes_products &lt;-<span class="st"> </span><span class="kw">fromJSON</span>(products_raw_file) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="st">    </span><span class="kw">mutate_if</span>(is.character, <span class="cf">function</span>(x) { <span class="kw">iconv</span>(x, <span class="dt">to =</span> <span class="st">&quot;ASCII//TRANSLIT&quot;</span>)})</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">  <span class="kw">save</span>(ots_attributes_products, <span class="dt">file =</span> products_tidy_file, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">}</a></code></pre></div>
 </div>
 <div id="community-codes" class="section level1">
 <h1>Community codes</h1>
@@ -359,9 +365,11 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <a class="sourceLine" id="cb4-5" data-line-number="5"><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(communities_raw_file)) { <span class="kw">download.file</span>(communities_url, communities_raw_file) }</a>
 <a class="sourceLine" id="cb4-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb4-7" data-line-number="7"><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(communities_tidy_file)) {</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">  ots_attributes_communities &lt;-<span class="st"> </span><span class="kw">fromJSON</span>(communities_raw_file) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>()</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">  <span class="kw">save</span>(ots_attributes_communities, <span class="dt">file =</span> communities_tidy_file, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)</a>
-<a class="sourceLine" id="cb4-10" data-line-number="10">}</a></code></pre></div>
+<a class="sourceLine" id="cb4-8" data-line-number="8">  ots_attributes_communities &lt;-<span class="st"> </span><span class="kw">fromJSON</span>(communities_raw_file) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="st">    </span><span class="kw">mutate_if</span>(is.character, <span class="cf">function</span>(x) { <span class="kw">iconv</span>(x, <span class="dt">to =</span> <span class="st">&quot;ASCII//TRANSLIT&quot;</span>)})</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">  <span class="kw">save</span>(ots_attributes_communities, <span class="dt">file =</span> communities_tidy_file, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)</a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">}</a></code></pre></div>
 </div>
 <div id="product-short-names" class="section level1">
 <h1>Product short names</h1>
@@ -372,9 +380,11 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <a class="sourceLine" id="cb5-5" data-line-number="5"><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(product_shortnames_raw_file)) { <span class="kw">download.file</span>(product_shortnames_url, product_shortnames_raw_file) }</a>
 <a class="sourceLine" id="cb5-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb5-7" data-line-number="7"><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(product_shortnames_tidy_file)) {</a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">  ots_attributes_product_shortnames &lt;-<span class="st"> </span><span class="kw">fromJSON</span>(product_shortnames_raw_file) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>()</a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">  <span class="kw">save</span>(ots_attributes_product_shortnames, <span class="dt">file =</span> product_shortnames_tidy_file, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)</a>
-<a class="sourceLine" id="cb5-10" data-line-number="10">}</a></code></pre></div>
+<a class="sourceLine" id="cb5-8" data-line-number="8">  ots_attributes_product_shortnames &lt;-<span class="st"> </span><span class="kw">fromJSON</span>(product_shortnames_raw_file) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="st">    </span><span class="kw">mutate_if</span>(is.character, <span class="cf">function</span>(x) { <span class="kw">iconv</span>(x, <span class="dt">to =</span> <span class="st">&quot;ASCII//TRANSLIT&quot;</span>)})</a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">  <span class="kw">save</span>(ots_attributes_product_shortnames, <span class="dt">file =</span> product_shortnames_tidy_file, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)</a>
+<a class="sourceLine" id="cb5-12" data-line-number="12">}</a></code></pre></div>
 </div>
 
 
