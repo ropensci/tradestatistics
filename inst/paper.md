@@ -18,10 +18,14 @@ affiliations:
 
 # Summary
 
-The **tradestatistics** is a part of ROpenSci peer-reviewed packages. It provides an API Wrapper and Utility Program that eases data extraction from [Open Trade Statistics](https://tradestatistics.io) which is an independent project focused on reproducible research as defined in @Peng2011.
+@open_trade_statistics_api_2019 is an independent project focused on reproducible research as defined in @Peng2011. It provides a curated version of datasets from @un_comtrade_2019 by using some of the results from both @GaulierZignago2010 and @AndersonVanWincoop2004.
 
-Provided that the package connects to a public API created by the author of the package, the added value of the package is to generate rectangular data from minified JSON inputs. By doing this, the package is aligned with the Tidy Data principles exposed in @Wickham2014 to ease reproducible research for both researchers and students.
+The **tradestatistics** package is a part of ROpenSci peer-reviewed software. It provides an API Wrapper and Utility Program that eases data extraction from @open_trade_statistics_api_2019.
 
-The current version of this package relies heavily on the ``rlang`` package [@rlang] which provides tools to work with the core language features of base R and the ``tidyverse`` package [@tidyverse]. This design decision results in a package that shares the underlying design philosophy, grammar, and data structures from common R packages.
+Without this package you could obtain the same data from @open_trade_statistics_api_2019 at the expense of additional time and effort for the same results. As an API wrapper and utility program this package makes data obtaining faster and easier for you.
+
+The added value of the package is to generate rectangular data from minified JSON inputs. By doing this, the package is aligned with the Tidy Data principles exposed in @Wickham2014 to ease reproducible research for both researchers and students.
+
+This package relies heavily on the ``rlang`` package [@rlang] which provides tools to work with the core language features of base R and the ``tidyverse`` meta-package [@tidyverse]. Hence, it uses already existing functions with a shared underlying design philosophy from the R ecosystem.
 
 # References
