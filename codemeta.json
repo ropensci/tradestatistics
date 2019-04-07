@@ -5,7 +5,7 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "tradestatistics",
-  "description": "Access Open Trade Statistics API from R to download international trade data.",
+  "description": "Access 'Open Trade Statistics' API from R to download international trade data.",
   "name": "tradestatistics: Open Trade Statistics API Wrapper and Utility Program",
   "codeRepository": "https://ropensci.github.io/tradestatistics",
   "issueTracker": "https://github.com/ropensci/tradestatistics/issues",
@@ -231,8 +231,8 @@
       "sameAs": "https://CRAN.R-project.org/package=jsonlite"
     }
   ],
-  "readme": "https://github.com/ropensci/tradestatistics/blob/master/README.md",
-  "fileSize": "254.853KB",
+  "readme": "https://github.com/tradestatistics/tradestatistics/blob/master/README.md",
+  "fileSize": "256.243KB",
   "contIntegration": [
     "https://travis-ci.org/ropensci/tradestatistics",
     "https://codecov.io/github/ropensci/tradestatistics?branch=master"
@@ -241,5 +241,11 @@
     "@type": "Review",
     "url": "https://github.com/ropensci/onboarding/issues/274",
     "provider": "http://ropensci.org"
+  },
+  "provider": {
+    "@id": "https://cran.r-project.org",
+    "@type": "Organization",
+    "name": "Comprehensive R Archive Network (CRAN)",
+    "url": "https://cran.r-project.org"
   }
 }

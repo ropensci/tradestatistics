@@ -23,3 +23,10 @@ test_that("ots_country_code works properly for multiple matching", {
   expect_output(str(test_country_2), "6 variables")
   expect_output(str(test_country_3), "6 variables")
 })
+
+test_that("ots_country_code returns an error when no countryname is specified", {
+  expect_error(
+    ots_country_code(countryname = ""),
+    "countryname can't have zero characters after removing numbers"
+  )
+})
