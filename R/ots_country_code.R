@@ -7,9 +7,9 @@
 #' \code{ots_country_code("Chile")}) or a tibble in case of multiple matches
 #' (e.g. \code{ots_country_code("Germany")})
 #' @importFrom magrittr %>%
-#' @importFrom dplyr select filter
+#' @importFrom dplyr filter
 #' @importFrom rlang sym
-#' @importFrom purrr as_vector
+#' @importFrom purrr map_chr
 #' @importFrom stringr str_detect str_to_lower str_trim str_squish
 #' @export
 #' @examples
@@ -24,7 +24,7 @@ ots_country_code <- function(countryname = NULL) {
     stop(
       "
       countryname can't be NULL
-      try with a quoted text string (e.g. ots_country_code(\"chi\"))
+      Try with a quoted text string (e.g. ots_country_code(\"chi\")).
       "
     )
   } else {
@@ -34,19 +34,20 @@ ots_country_code <- function(countryname = NULL) {
     countryname <- stringr::str_trim(countryname)
   }
   
-  if(nchar(countryname) < 1) {
+  if(any(nchar(countryname) < 1)) {
     stop(
       "
       countryname can't have zero characters after removing numbers,
-      special symbols and multiple spaces
-      try with a quoted text string (e.g. ots_country_code(\"chi\"))
+      special symbols and multiple spaces.
+      Try with a quoted text string (e.g. ots_country_code(\"chi\")).
       "
     )
   } else {
     countryname <- stringr::str_to_lower(countryname)
   }
 
-  countryname <- switch(countryname,
+  countryname <- switch(
+    countryname,
     "us" = "usa",
     "america" = "usa",
     "united states" = "usa",

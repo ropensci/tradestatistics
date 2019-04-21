@@ -11,7 +11,7 @@ vignette: >
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
-  cache = TRUE,
+  cache = FALSE,
   collapse = TRUE,
   comment = "#>"
 )
@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 
 ## Available tables
 
-Provided this package takes data from an API, it is useful to know which tables can be accessed:
+Provided that this package obtains data from an API, it is useful to know which tables can be accessed:
 
 ```{r tables, eval = T}
 library(tradestatistics)
@@ -31,7 +31,9 @@ ots_attributes_tables
 
 ## Country codes
 
-If you don't know a certain country code you can explore this data before using the functions.
+The Package Functions section explains that you don't need to memorize all ISO codes. The functions within this package are designed to match strings (i.e. "United States" or "America") to valid ISO codes (i.e. "USA").
+
+Just as a reference, the table with all valid ISO codes can be accessed by running this:
 
 ```{r countries, eval = T}
 ots_attributes_countries
@@ -39,23 +41,11 @@ ots_attributes_countries
 
 ## Product codes
 
-```{r range, message=FALSE, warning=FALSE, include=FALSE}
-year_range <- purrr::as_vector(jsonlite::fromJSON("https://api.tradestatistics.io/year_range"))
-min_year <- min(year_range)
-max_year <- max(year_range)
-```
-
-Open Trade Statistics (aka OTS) uses data classified under either HS92, HS96, HS02 and HS07 (Harmonized System) and SITC rev. 1 and rev. 2 (Standard International Trade Classification). A part of our project is to combine all of this under HS07 codes, and to make it available for the period `r min_year`-`r max_year` even for the years before 2007 when HS07 was not in use.
-
-As [UN Comtrade](https://comtrade.un.org/db/mr/rfglossarylist.aspx) explains both HS and SITC are trade classifications that are updated by releasing new revisions, and when a classification is released then it remains unaltered. For example, HS92 was released in 1992 and its product codes remain unaltered until today, while newer classifications (e.g. HS07) were created to include newer products (e.g. it was important to provide more details about electronic products that did not exist when HS92 was created).
-
-Each of these classifications consists in numeric codes and a detailed product name associated to each code, for example HS92 (and all HS revisions) contain 4 and 6 digits long codes while SITC does only contain 4 digits long codes in our cleaned datasets (there are 5 digits long SITC codes that we are not using):
+The Package Functions section explains that you don't need to memorize all HS codes. The functions within this package are designed to match strings (i.e. "apple") to valid HS codes (i.e. "0808").
 
 ```{r products, eval = T}
 ots_attributes_countries
 ```
-
-Each product belongs to a group with a given name and number according to HS classification.
 
 # Package functions
 
@@ -75,9 +65,11 @@ ots_country_code("America")
 ots_country_code("Germany")
 ```
 
+The function `ots_country_code()` is used by `ots_create_tidy_data()` in a way that you can pass parameters like `ots_create_tidy_data(... reporters = "Chile" ...)` and it will automatically replace your input for a valid ISO in case there is a match. This will be covered in detail in the Trade Data section.
+
 ## Product code
 
-The end user can use this function to find a product code by providing a product name. This works by implementing partial search.
+The end user can use this function to find a product code by providing a product name. This works by implementing partial string matching:
 
 ```{r product_code}
 ots_product_code("wine")
@@ -92,44 +84,28 @@ This function downloads data for a single year and needs (at least) some filter 
 If we want Chile-Argentina bilateral trade at product level in 1965:
 ```{r yrpc1, eval = T}
 ots_create_tidy_data(years = 1965, reporters = "chl", partners = "arg")
+
+# the same can be obtained specifying yrpc which is the default table
+# ots_create_tidy_data(years = 1965, reporters = "chl", partners = "arg", table = "yrpc")
 ```
 
-Which is the same as:
+We can pass more than one year and or reporter/partner:
 ```{r yrpc2, eval = T}
-ots_create_tidy_data(years = 1965, reporters = "chl", partners = "arg", table = "yrpc")
+# Note that here I'm passing Peru and not per which is the ISO code for Peru
+# The same applies to Brazil
+ots_create_tidy_data(years = c(1962,1965), reporters = c("chl", "Peru", "bol"), partners = c("arg", "Brazil"))
 ```
 
-If we want Chile-Argentina bilateral trade at product level in 1965-1967:
+If we want filtering by product, there are different options:
 ```{r yrpc3, eval = T}
-ots_create_tidy_data(years = 1965:1967, reporters = "chl", partners = "arg")
+# Pass a specific HS code
+ots_create_tidy_data(years = c(1962,1965), reporters = c("chl", "Peru", "bol"), partners = c("arg", "bra"), products = "0101")
+
+# Pass a string that will return all matching descriptions and multiple HS codes
+ots_create_tidy_data(years = c(1962,1965), reporters = c("chl", "Peru", "bol"), partners = c("arg", "bra"), products = c("0101", "apple"))
 ```
 
-If we want Chile-Argentina bilateral trade at product level in 1965, 1966 and 1968:
-```{r yrpc4, eval = T}
-ots_create_tidy_data(years = c(1965,1966,1968), reporters = "chl", partners = "arg")
-```
-
-If we want Chile-Argentina bilateral trade at product level in 1965 and 1966 with respect to product "0101" (Horses, asses, mules and hinnies; live):
-```{r yrpc5, eval = T}
-ots_create_tidy_data(years = 1965:1966, reporters = "chl", partners = "arg", products = "0101")
-```
-
-But if we want Chile-Argentina bilateral trade at product level in 1965 with respect to all the codes that match the string "horse" at product or group name:
-```{r yrpc6, eval = T}
-ots_create_tidy_data(years = 1965, reporters = "chl", partners = "arg", products = "horse")
-```
-
-Another option is to pass more than one year, reporter, partner and/or product (here "0101" means to perform an exact search while "apple" will do string matching):
-```{r yrpc7, eval = T}
-ots_create_tidy_data(years = 1965, reporters = c("chl", "per"), partners = c("arg", "bra"), products = c("0101", "apple"))
-```
-
-This latter option works with a different number of reporters and partners:
-```{r yrpc8, eval = T}
-ots_create_tidy_data(years = 1965, reporters = "chl", partners = c("arg", "bra", "per"), products = c("0101", "apple"))
-```
-
-Here some fields deserve an explanation:
+`yrpc` table returns some fields that deserve an explanation:
 
 * `product_code`: HS07 product codes (e.g. according to the \code{products} table within this package, 0101 stands for "Horses, etc.")
 * `product_code_length`: How many digits does `product_code` contain, this can be useful to filter by depth when using HS codes (HS 6 digits is a more detailed version of HS 4 digits, and therefore you don't have to sum both or you'll be counting exports/imports twice)
@@ -149,15 +125,12 @@ If we want Chile-Argentina bilateral trade at aggregated level in 1965:
 ots_create_tidy_data(years = 1965, reporters = "chl", partners = "arg", table = "yrp")
 ```
 
-If we want Chile-Argentina bilateral trade at aggregated level in 1965 and 1967:
-```{r yrp2, eval = T}
-ots_create_tidy_data(years = c(1965,1967), reporters = "chl", partners = "arg", table = "yrp")
-```
-
 Another option is to pass more than one year, reporter and/or partner:
 ```{r yrp3, eval = T}
-ots_create_tidy_data(years = 1965:1966, reporters = c("chl", "per"), partners = "arg", table = "yrp")
+ots_create_tidy_data(years = 1962:1965, reporters = c("chl", "per"), partners = "arg", table = "yrp")
 ```
+
+This table accepts different years, reporters and partners just like `yrpc`.
 
 ### Reporter trade at product level (Year - Reporter - Product Code) 
 
@@ -171,15 +144,7 @@ If we want Chilean trade at product level in 1965 with respect to product "0101"
 ots_create_tidy_data(years = 1965, reporters = "chl", products = "0101", table = "yrc")
 ```
 
-But if we want just products exported by Chile in 1965 that also match the string "horse" at product or group name:
-```{r yrc3, eval = T}
-ots_create_tidy_data(years = 1965, reporters = "chl", products = "horse", table = "yrc")
-```
-
-Another option is to pass more than one year, reporter and/or product:
-```{r yrc4, eval = T}
-ots_create_tidy_data(years = c(1965,1967), reporters = c("chl", "per"), products = "apple", table = "yrc")
-```
+This table accepts different years, reporters and product codes just like `yrpc`.
 
 Here the `export_rca*` and `import_rca*` fields contain the Revealed Comparative Advantage (RCA) of an exported product with respect to all the products with the same number of digits. The definition of RCA is detailed on [Open Trade Statistics Documentation](https://docs.tradestatistics.io/).
 
@@ -192,8 +157,10 @@ ots_create_tidy_data(years = 1965, reporters = "chl", table = "yr")
 
 Another option is to pass more than one year and/or reporter:
 ```{r yr2, eval = T}
-ots_create_tidy_data(years = c(1965,1967), reporters = c("chl", "arg", "per"), table = "yr")
+ots_create_tidy_data(years = 1962:1965, reporters = c("chl", "arg", "per"), table = "yr")
 ```
+
+This table accepts different years and reporters just like `yrpc`.
 
 Here some fields deserve an explanation:
 
@@ -203,7 +170,7 @@ Here some fields deserve an explanation:
 
 ### Product trade at aggregated level (Year - Product Code)
 
-If we want all products trade in 1965:
+If we want all products traded in 1965:
 ```{r yc1, eval = T}
 ots_create_tidy_data(years = 1965, table = "yc")
 ```
@@ -213,10 +180,7 @@ If we want traded values of product "0101" (Horses, asses, mules and hinnies; li
 ots_create_tidy_data(years = 1965, products = "0101", table = "yc")
 ```
 
-If we want traded values of all products that match the string "horse" at product or group name:
-```{r yc3, eval = T}
-ots_create_tidy_data(years = 1965, products = "horse", table = "yc")
-```
+This table accepts different product codes just like `yrpc`.
 
 Here some fields deserve an explanation:
 
