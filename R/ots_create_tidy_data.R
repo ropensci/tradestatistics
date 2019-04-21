@@ -31,7 +31,7 @@
 #' @importFrom dplyr as_tibble select filter everything
 #' left_join bind_rows rename distinct starts_with
 #' @importFrom rlang sym syms
-#' @importFrom purrr map_df as_vector
+#' @importFrom purrr map_df map_chr as_vector
 #' @importFrom jsonlite fromJSON
 #' @importFrom crul HttpClient
 #' @export
@@ -104,20 +104,54 @@ ots_create_tidy_data <- function(years = NULL,
                                     tradestatistics::ots_attributes_tables$table, value = T)
 
   if (!is.null(reporters)) {
-    if (!all(reporters %in% tradestatistics::ots_attributes_countries$country_iso ) == TRUE &
+    if (!all(reporters %in% tradestatistics::ots_attributes_countries$country_iso) == TRUE &
         table %in% reporter_depending_queries) {
-        reporters <- tradestatistics::ots_country_code(reporters) %>%
-          dplyr::select(!!sym("country_iso")) %>%
-          purrr::as_vector()
+        reporters_iso <- reporters[reporters %in% tradestatistics::ots_attributes_countries$country_iso]
+        reporters_no_iso <- reporters[!reporters %in% tradestatistics::ots_attributes_countries$country_iso]
+        
+        reporters_no_iso <- purrr::map_chr(
+          seq_along(reporters_no_iso),
+          function(x) {
+            y <- tradestatistics::ots_country_code(reporters_no_iso[x]) %>%
+              dplyr::select(!!sym("country_iso"))
+            
+            if (nrow(y) == 0) {
+              stop("The specified reporter returned no valid ISO code")
+            } else {
+              y <- purrr::as_vector(y)
+            }
+            
+            return(y)
+          }
+        )
+        
+        reporters <- c(reporters_iso, reporters_no_iso)
     }
   }
   
   if (!is.null(partners)) {
     if (!all(partners %in% tradestatistics::ots_attributes_countries$country_iso) == TRUE &
         table %in% partner_depending_queries) {
-        partners <- tradestatistics::ots_country_code(partners) %>%
-          dplyr::select(!!sym("country_iso")) %>%
-          purrr::as_vector()
+        partners_iso <- partners[partners %in% tradestatistics::ots_attributes_countries$country_iso]
+        partners_no_iso <- partners[!partners %in% tradestatistics::ots_attributes_countries$country_iso]
+        
+        partners_no_iso <- purrr::map_chr(
+          seq_along(partners_no_iso),
+          function(x) {
+            y <- tradestatistics::ots_country_code(partners_no_iso[x]) %>%
+              dplyr::select(!!sym("country_iso"))
+            
+            if (nrow(y) == 0) {
+              stop("The specified partner returned no valid ISO code")
+            } else {
+              y <- purrr::as_vector(y)
+            }
+            
+            return(y)
+          }
+        )
+        
+        partners <- c(partners_iso, partners_no_iso)
     }
   }
   
@@ -175,21 +209,28 @@ ots_create_tidy_data <- function(years = NULL,
     )
   }
   
+  if (is.null(reporters)) {
+    reporters <- ""
+  }
+  
+  if (is.null(partners)) {
+    partners <- ""
+  }
+  
   yrpc_grid <- expand.grid(
     year = years,
-    reporter = ifelse(is.null(reporters), "", reporters),
-    partner = ifelse(is.null(partners), "", partners),
+    reporter = reporters,
+    partner = partners,
     product = products,
     stringsAsFactors = FALSE
   )
   
-  years <- as_vector(yrpc_grid$year)
-  reporters <- as_vector(yrpc_grid$reporter)
-  partners <- as_vector(yrpc_grid$partner)
-  products <- as_vector(yrpc_grid$product)
+  years <- purrr::as_vector(yrpc_grid$year)
+  reporters <- purrr::as_vector(yrpc_grid$reporter)
+  partners <- purrr::as_vector(yrpc_grid$partner)
+  products <- purrr::as_vector(yrpc_grid$product)
   
-  data <- dplyr::as_tibble(
-    purrr::map_df(.x = seq_along(years),
+  data <- purrr::map_df(.x = seq_along(years),
                    ~ots_read_from_api(
                      table = table,
                      max_attempts = max_attempts,
@@ -200,8 +241,8 @@ ots_create_tidy_data <- function(years = NULL,
                      product_code_length = product_code_length
                    )
     ) %>% 
-    dplyr::filter(!is.na(product_code_length))
-  )
+    dplyr::filter(!is.na(product_code_length)) %>% 
+    dplyr::as_tibble()
 
   # no data in API message
   if (nrow(data) == 0) {

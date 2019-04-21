@@ -46,7 +46,7 @@ test_that("ots_create_tidy_data connects to the API and returns an error after i
   # Bilateral trade ABC-CDE fake ISO codes (1965) - Error message
   expect_error(
     ots_create_tidy_data(years = 1965, reporters = "abc", partners = "cde"),
-    "It wasn't possible to obtain data"
+    "no valid ISO code"
   )
 
   # Bilateral trade USA (1776) - Error message
