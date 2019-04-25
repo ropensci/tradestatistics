@@ -1,6 +1,14 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+<p>
+
+<a href="https://www.digitalocean.com/">
+<img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" width="201px">
+</a>
+
+</p>
+
 # Open Trade Statistics package <img src="https://ropensci.github.io/tradestatistics/hexicon.svg" width=150 align="right" alt="sticker"/>
 
 [![mitlicense](https://img.shields.io/badge/License-GNU-green.svg)](https://opensource.org/licenses/GPL-3.0)
@@ -28,11 +36,11 @@ for you.
 ## Installation
 
 ``` r
-# Install stable version from GitHub
-devtools::install_github("ropensci/tradestatistics")
-
 # Install stable version from CRAN
 install.packages("tradestatistics")
+
+# Install stable version from GitHub
+devtools::install_github("ropensci/tradestatistics")
 ```
 
 ## Code of conduct
