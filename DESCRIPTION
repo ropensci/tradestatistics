@@ -35,7 +35,7 @@ Authors@R: c(
       person(family = "The Observatory of Economic Complexity",
              role = "dtc")
     )
-URL: https://ropensci.github.io/tradestatistics
+URL: https://docs.ropensci.org/tradestatistics/
 BugReports: https://github.com/ropensci/tradestatistics/issues
 Description: Access 'Open Trade Statistics' API from R to download international trade data.
 License: GPL-3

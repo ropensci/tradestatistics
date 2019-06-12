@@ -11,7 +11,7 @@ Access 'Open Trade Statistics' API from R to download international trade data.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://ropensci.github.io/tradestatistics}
+  \item \url{https://docs.ropensci.org/tradestatistics/}
   \item Report bugs at \url{https://github.com/ropensci/tradestatistics/issues}
 }
 
