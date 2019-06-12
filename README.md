@@ -11,9 +11,15 @@
 
 # Open Trade Statistics package <img src="https://ropensci.github.io/tradestatistics/hexicon.svg" width=150 align="right" alt="sticker"/>
 
-[![mitlicense](https://img.shields.io/badge/License-GNU-green.svg)](https://opensource.org/licenses/GPL-3.0)
-[![Build
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+[![Travis-CI Build
 Status](https://travis-ci.org/ropensci/tradestatistics.svg?branch=master)](https://travis-ci.org/ropensci/tradestatistics)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/tradestatistics)](https://cran.r-project.org/package=tradestatistics)
 [![Coverage
 status](https://codecov.io/gh/ropensci/tradestatistics/branch/master/graph/badge.svg)](https://codecov.io/github/ropensci/tradestatistics?branch=master)
 [![](https://badges.ropensci.org/274_status.svg)](https://github.com/ropensci/onboarding/issues/274)
@@ -47,7 +53,6 @@ devtools::install_github("ropensci/tradestatistics")
 
 Please note that this project is released with a [Contributor Code of
 Conduct](https://ropensci.github.io/tradestatistics/CODE_OF_CONDUCT.html).
-By participating in this project you agree to abide by its
-terms.
+By participating in this project you agree to abide by its terms.
 
 [![ropensci\_footer](https://ropensci.org/public_images/ropensci_footer.png)](https://ropensci.org)
