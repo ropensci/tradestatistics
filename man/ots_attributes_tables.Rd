@@ -9,7 +9,7 @@ user parameters.
 }
 \usage{ots_attributes_tables}
 \format{
-  A data frame with 10 observations on the following 3 variables.
+  A data frame with 16 observations on the following 3 variables.
   \describe{
     \item{\code{table}}{Table name}
     \item{\code{description}}{Description of table contents}
