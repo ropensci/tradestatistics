@@ -13,7 +13,7 @@ can be useful for grouping into broader categories than those the official HS gr
     \item{\code{product_code}}{Code of every product (e.g. 0101)}
     \item{\code{community_code}}{Community code (e.g. 01)}
     \item{\code{community_name}}{Community name (e.g. Animal Products)}
-    \item{\code{community_colour}}{Colour hex code (e.g. #74c0e2)}
+    \item{\code{community_color}}{Colour hex code (e.g. #74c0e2)}
   }
 }
 \examples{
