@@ -8,7 +8,7 @@
 #' \code{c("chl", "Peru")}). Default set to \code{NULL}.
 #' @param partners ISO code for partner country (e.g. \code{"chl"}, \code{Chile} or
 #' \code{c("chl", "Peru")}). Default set to \code{NULL}.
-#' @param products HS codes (e.g. \code{"0101"}, \code{"01"} or search matches for \code{"apple"}) 
+#' @param products HS codes (e.g. \code{"0101"}, \code{"01"} or search matches for \code{"apple"})
 #' to filter products. Default set to \code{"all"}.
 #' @param product_code_length Character string to indicate the granularity level on products
 #' Default set to \code{4} (it can also take the values \code{6} or
@@ -39,17 +39,17 @@
 #' \dontrun{
 #' # The next example can take more than 5 seconds to compute,
 #' # so these are just shown without evaluation according to CRAN rules
-#' 
+#'
 #' # Run `ots_attributes_countries` to display the full table of countries
 #' # Run `ots_attributes_products` to display the full table of products
-#' 
+#'
 #' # What does Chile export to China? (1980)
 #' ots_create_tidy_data(years = 1980, reporters = "chl", partners = "chn")
-#' 
+#'
 #' # What can we say about Horses export in Chile and the World? (1980)
 #' ots_create_tidy_data(years = 1980, products = "0101", table = "yc")
 #' ots_create_tidy_data(years = 1980, reporters = "chl", products = "0101", table = "yrc")
-#' 
+#'
 #' # What can we say about the different types of apples exported by Chile? (1980)
 #' ots_create_tidy_data(years = 1980, reporters = "chl", products = "apple", table = "yrc")
 #' }
@@ -77,13 +77,15 @@ ots_create_tidy_data <- function(years = NULL,
 
   # Check years -------------------------------------------------------------
   year_depending_queries <- grep("^reporters|rankings$|^y",
-                                 tradestatistics::ots_attributes_tables$table, value = T)
-  
+    tradestatistics::ots_attributes_tables$table,
+    value = T
+  )
+
   url <- "year_range"
-  
+
   resp <- crul::HttpClient$new(url = "https://api.tradestatistics.io/")
   resp <- resp$get(url)
-  
+
   year_range <- purrr::as_vector(jsonlite::fromJSON(resp$parse(encoding = "UTF-8")))
 
   if (all(years %in% min(year_range):max(year_range)) != TRUE &
@@ -98,104 +100,110 @@ ots_create_tidy_data <- function(years = NULL,
   }
 
   # Check reporters and partners --------------------------------------------
-  reporter_depending_queries <- grep("^yr", 
-                                     tradestatistics::ots_attributes_tables$table, value = T)
+  reporter_depending_queries <- grep("^yr",
+    tradestatistics::ots_attributes_tables$table,
+    value = T
+  )
   partner_depending_queries <- grep("^yrp",
-                                    tradestatistics::ots_attributes_tables$table, value = T)
+    tradestatistics::ots_attributes_tables$table,
+    value = T
+  )
 
   if (!is.null(reporters)) {
     if (!all(reporters %in% tradestatistics::ots_attributes_countries$country_iso) == TRUE &
-        table %in% reporter_depending_queries) {
-        reporters_iso <- reporters[reporters %in% tradestatistics::ots_attributes_countries$country_iso]
-        reporters_no_iso <- reporters[!reporters %in% tradestatistics::ots_attributes_countries$country_iso]
-        
-        reporters_no_iso <- purrr::map_chr(
-          seq_along(reporters_no_iso),
-          function(x) {
-            y <- tradestatistics::ots_country_code(reporters_no_iso[x]) %>%
-              dplyr::select(!!sym("country_iso"))
-            
-            if (nrow(y) == 0) {
-              stop("The specified reporter returned no valid ISO code")
-            } else {
-              y <- purrr::as_vector(y)
-            }
-            
-            return(y)
+      table %in% reporter_depending_queries) {
+      reporters_iso <- reporters[reporters %in% tradestatistics::ots_attributes_countries$country_iso]
+      reporters_no_iso <- reporters[!reporters %in% tradestatistics::ots_attributes_countries$country_iso]
+
+      reporters_no_iso <- purrr::map_chr(
+        seq_along(reporters_no_iso),
+        function(x) {
+          y <- tradestatistics::ots_country_code(reporters_no_iso[x]) %>%
+            dplyr::select(!!sym("country_iso"))
+
+          if (nrow(y) == 0) {
+            stop("The specified reporter returned no valid ISO code")
+          } else {
+            y <- purrr::as_vector(y)
           }
-        )
-        
-        reporters <- c(reporters_iso, reporters_no_iso)
-    }
-  }
-  
-  if (!is.null(partners)) {
-    if (!all(partners %in% tradestatistics::ots_attributes_countries$country_iso) == TRUE &
-        table %in% partner_depending_queries) {
-        partners_iso <- partners[partners %in% tradestatistics::ots_attributes_countries$country_iso]
-        partners_no_iso <- partners[!partners %in% tradestatistics::ots_attributes_countries$country_iso]
-        
-        partners_no_iso <- purrr::map_chr(
-          seq_along(partners_no_iso),
-          function(x) {
-            y <- tradestatistics::ots_country_code(partners_no_iso[x]) %>%
-              dplyr::select(!!sym("country_iso"))
-            
-            if (nrow(y) == 0) {
-              stop("The specified partner returned no valid ISO code")
-            } else {
-              y <- purrr::as_vector(y)
-            }
-            
-            return(y)
-          }
-        )
-        
-        partners <- c(partners_iso, partners_no_iso)
-    }
-  }
-  
-  # Check product codes -----------------------------------------------------
-  product_depending_queries <- grep("c$",
-                                    tradestatistics::ots_attributes_tables$table, value = T)
-  
-  if(!all(as.character(products) %in% 
-          tradestatistics::ots_attributes_products$product_code) == TRUE &
-     table %in% product_depending_queries) {
-      
-      # products without match (wm)
-      products_wm <- products[!products %in% 
-                                tradestatistics::ots_attributes_products$product_code]
-      
-      # product name match (pmm)
-      pnm <- purrr::map_df(
-        .x = seq_along(products_wm), 
-        ~tradestatistics::ots_product_code(productname = products_wm[.x])
+
+          return(y)
+        }
       )
-      
-      # group name match (gnm)
-      gnm <- purrr::map_df(
-        .x = seq_along(products_wm), 
-        ~tradestatistics::ots_product_code(productgroup = products_wm[.x])
-      )
-      
-      products_wm <- bind_rows(pnm, gnm) %>% 
-        distinct(!!sym("product_code")) %>% 
-        as_vector()
-      
-      products <- c(products[products %in% 
-                               tradestatistics::ots_attributes_products$product_code], products_wm)
+
+      reporters <- c(reporters_iso, reporters_no_iso)
+    }
   }
 
-  if(!all(as.character(products) %in% 
-          tradestatistics::ots_attributes_products$product_code == TRUE) &
-     table %in% product_depending_queries) {
-      stop(
-        "
+  if (!is.null(partners)) {
+    if (!all(partners %in% tradestatistics::ots_attributes_countries$country_iso) == TRUE &
+      table %in% partner_depending_queries) {
+      partners_iso <- partners[partners %in% tradestatistics::ots_attributes_countries$country_iso]
+      partners_no_iso <- partners[!partners %in% tradestatistics::ots_attributes_countries$country_iso]
+
+      partners_no_iso <- purrr::map_chr(
+        seq_along(partners_no_iso),
+        function(x) {
+          y <- tradestatistics::ots_country_code(partners_no_iso[x]) %>%
+            dplyr::select(!!sym("country_iso"))
+
+          if (nrow(y) == 0) {
+            stop("The specified partner returned no valid ISO code")
+          } else {
+            y <- purrr::as_vector(y)
+          }
+
+          return(y)
+        }
+      )
+
+      partners <- c(partners_iso, partners_no_iso)
+    }
+  }
+
+  # Check product codes -----------------------------------------------------
+  product_depending_queries <- grep("c$",
+    tradestatistics::ots_attributes_tables$table,
+    value = T
+  )
+
+  if (!all(as.character(products) %in%
+    tradestatistics::ots_attributes_products$product_code) == TRUE &
+    table %in% product_depending_queries) {
+
+    # products without match (wm)
+    products_wm <- products[!products %in%
+      tradestatistics::ots_attributes_products$product_code]
+
+    # product name match (pmm)
+    pnm <- purrr::map_df(
+      .x = seq_along(products_wm),
+      ~ tradestatistics::ots_product_code(productname = products_wm[.x])
+    )
+
+    # group name match (gnm)
+    gnm <- purrr::map_df(
+      .x = seq_along(products_wm),
+      ~ tradestatistics::ots_product_code(productgroup = products_wm[.x])
+    )
+
+    products_wm <- bind_rows(pnm, gnm) %>%
+      distinct(!!sym("product_code")) %>%
+      as_vector()
+
+    products <- c(products[products %in%
+      tradestatistics::ots_attributes_products$product_code], products_wm)
+  }
+
+  if (!all(as.character(products) %in%
+    tradestatistics::ots_attributes_products$product_code == TRUE) &
+    table %in% product_depending_queries) {
+    stop(
+      "
         The requested products do not exist. Please check the spelling or 
         explore the 'ots_attributes_products' table provided within this package.
         "
-      )
+    )
   }
 
   # Read from API -----------------------------------------------------------
@@ -208,15 +216,15 @@ ots_create_tidy_data <- function(years = NULL,
       "
     )
   }
-  
+
   if (is.null(reporters)) {
     reporters <- ""
   }
-  
+
   if (is.null(partners)) {
     partners <- ""
   }
-  
+
   yrpc_grid <- expand.grid(
     year = years,
     reporter = reporters,
@@ -224,24 +232,25 @@ ots_create_tidy_data <- function(years = NULL,
     product = products,
     stringsAsFactors = FALSE
   )
-  
+
   years <- purrr::as_vector(yrpc_grid$year)
   reporters <- purrr::as_vector(yrpc_grid$reporter)
   partners <- purrr::as_vector(yrpc_grid$partner)
   products <- purrr::as_vector(yrpc_grid$product)
-  
-  data <- purrr::map_df(.x = seq_along(years),
-                   ~ots_read_from_api(
-                     table = table,
-                     max_attempts = max_attempts,
-                     year = years[.x],
-                     reporter = reporters[.x],
-                     partner = partners[.x],
-                     product_code = products[.x],
-                     product_code_length = product_code_length
-                   )
-    ) %>% 
-    dplyr::filter(!is.na(product_code_length)) %>% 
+
+  data <- purrr::map_df(
+    .x = seq_along(years),
+    ~ ots_read_from_api(
+      table = table,
+      max_attempts = max_attempts,
+      year = years[.x],
+      reporter = reporters[.x],
+      partner = partners[.x],
+      product_code = products[.x],
+      product_code_length = product_code_length
+    )
+  ) %>%
+    dplyr::filter(!is.na(product_code_length)) %>%
     dplyr::as_tibble()
 
   # no data in API message
@@ -386,9 +395,9 @@ ots_create_tidy_data <- function(years = NULL,
         )
     }
   }
-  
+
   if (table %in% product_depending_queries & include_shortnames == TRUE) {
-    data %<>% 
+    data %<>%
       dplyr::left_join(tradestatistics::ots_attributes_product_shortnames) %>%
       dplyr::select(
         !!!rlang::sym(("year")),
@@ -397,9 +406,9 @@ ots_create_tidy_data <- function(years = NULL,
         dplyr::everything()
       )
   }
-  
+
   if (table %in% product_depending_queries & include_communities == TRUE) {
-    data %<>% 
+    data %<>%
       dplyr::left_join(tradestatistics::ots_attributes_communities) %>%
       dplyr::select(
         !!!rlang::sym(("year")),

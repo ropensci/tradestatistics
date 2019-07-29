@@ -20,7 +20,7 @@ Default set to \code{NULL}.}
 \item{partners}{ISO code for partner country (e.g. \code{"chl"}, \code{Chile} or
 \code{c("chl", "Peru")}). Default set to \code{NULL}.}
 
-\item{products}{HS codes (e.g. \code{"0101"}, \code{"01"} or search matches for \code{"apple"}) 
+\item{products}{HS codes (e.g. \code{"0101"}, \code{"01"} or search matches for \code{"apple"})
 to filter products. Default set to \code{"all"}.}
 
 \item{product_code_length}{Character string to indicate the granularity level on products
