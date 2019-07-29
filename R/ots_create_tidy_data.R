@@ -23,6 +23,8 @@
 #' Default set to \code{FALSE}.
 #' @param include_communities Whether to include or not to include product communities.
 #' Default set to \code{FALSE}.
+#' @param use_localhost Logical to determine if the base URL shall be localhost instead
+#' of api.tradestatistics.io. Default set to \code{FALSE}.
 #' @return A tibble that describes bilateral trade metrics (imports,
 #' exports, trade balance and relevant metrics
 #' such as exports growth w/r to last year) between a \code{reporter}
@@ -63,7 +65,8 @@ ots_create_tidy_data <- function(years = NULL,
                                  table = "yrpc",
                                  max_attempts = 5,
                                  include_shortnames = FALSE,
-                                 include_communities = FALSE) {
+                                 include_communities = FALSE,
+                                 use_localhost = FALSE) {
 
   # Check tables ------------------------------------------------------------
   if (!table %in% tradestatistics::ots_attributes_tables$table) {
@@ -247,7 +250,8 @@ ots_create_tidy_data <- function(years = NULL,
       reporter = reporters[.x],
       partner = partners[.x],
       product_code = products[.x],
-      product_code_length = product_code_length
+      product_code_length = product_code_length,
+      use_localhost = use_localhost
     )
   ) %>%
     dplyr::filter(!is.na(product_code_length)) %>%

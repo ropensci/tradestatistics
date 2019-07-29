@@ -126,7 +126,7 @@ performs different API calls to transform and return tidy data.</p>
     <pre class="usage"><span class='fu'>ots_create_tidy_data</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>reporters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>partners</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>products</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>product_code_length</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrpc"</span>,
   <span class='kw'>max_attempts</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>include_shortnames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>include_communities</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+  <span class='kw'>include_communities</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>use_localhost</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -179,6 +179,11 @@ Default set to <code>FALSE</code>.</p></td>
       <th>include_communities</th>
       <td><p>Whether to include or not to include product communities.
 Default set to <code>FALSE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>use_localhost</th>
+      <td><p>Logical to determine if the base URL shall be localhost instead
+of api.tradestatistics.io. Default set to <code>FALSE</code>.</p></td>
     </tr>
     </table>
     
