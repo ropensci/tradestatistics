@@ -60,11 +60,13 @@ ots_read_from_api <- function(year = NULL,
       year, reporter, partner, product_code, product_code_length
     ),
     "yrp" = sprintf("yrp?y=%s&r=%s&p=%s", year, reporter, partner),
+    "yrp_short" = sprintf("yrp_short?y=%s&r=%s&p=%s", year, reporter, partner),
     "yrc" = sprintf(
       "yrc?y=%s&r=%s&c=%s&l=%s",
       year, reporter, product_code, product_code_length
     ),
     "yr" = sprintf("yr?y=%s&r=%s", year, reporter),
+    "yr_short" = sprintf("yr_short?y=%s&r=%s", year, reporter),
     "yc" = sprintf("yc?y=%s&c=%s&l=%s", year, product_code, product_code_length)
   )
 
