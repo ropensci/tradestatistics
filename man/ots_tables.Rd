@@ -1,5 +1,5 @@
-\name{ots_attributes_tables}
-\alias{ots_attributes_tables}
+\name{ots_tables}
+\alias{ots_tables}
 \title{Available tables in the API}
 \docType{data}
 \description{
@@ -7,7 +7,7 @@ A table describing existing API tables with both description and source.
 This data is used by the functions provided within this package to validate
 user parameters.
 }
-\usage{ots_attributes_tables}
+\usage{ots_tables}
 \format{
   A data frame with 16 observations on the following 3 variables.
   \describe{
@@ -17,6 +17,6 @@ user parameters.
   }
 }
 \examples{
-ots_attributes_tables
+ots_tables
 }
 \keyword{datasets}

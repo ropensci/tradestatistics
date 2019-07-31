@@ -8,13 +8,18 @@ knitr::opts_chunk$set(
 ## ----tables, eval = T----------------------------------------------------
 library(tradestatistics)
 
-ots_attributes_tables
+ots_tables
 
 ## ----countries, eval = T-------------------------------------------------
-ots_attributes_countries
+ots_countries
 
 ## ----products, eval = T--------------------------------------------------
-ots_attributes_countries
+ots_products
+ots_product_shortnames
+ots_communities
+
+## ----inflation, eval = T-------------------------------------------------
+ots_inflation
 
 ## ----country_code--------------------------------------------------------
 # Single match with no replacement
@@ -70,4 +75,9 @@ ots_create_tidy_data(years = 1965, table = "yc")
 
 ## ----yc2, eval = T-------------------------------------------------------
 ots_create_tidy_data(years = 1965, products = "0101", table = "yc")
+
+## ------------------------------------------------------------------------
+library(magrittr)
+ots_create_tidy_data(years = 1965, reporters = "chl", table = "yr") %>% 
+  ots_inflation_adjustment(reference_year = 1970)
 

@@ -1,12 +1,12 @@
-\name{ots_attributes_communities}
-\alias{ots_attributes_communities}
+\name{ots_communities}
+\alias{ots_communities}
 \title{A table of communities codes, names and colours associated to products}
 \docType{data}
 \description{
 Provides communities from The Atlas of Economic Complexity (Harvard), and those
 can be useful for grouping into broader categories than those the official HS groups.
 }
-\usage{ots_attributes_communities}
+\usage{ots_communities}
 \format{
   A data frame with 6275 observations on the following 4 variables.
   \describe{
@@ -17,6 +17,6 @@ can be useful for grouping into broader categories than those the official HS gr
   }
 }
 \examples{
-ots_attributes_communities
+ots_communities
 }
 \keyword{datasets}

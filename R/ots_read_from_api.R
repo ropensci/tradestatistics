@@ -20,8 +20,8 @@
 #' @importFrom crul HttpClient
 #' @examples
 #' \dontrun{
-#' # The next example can take more than 5 seconds to compute,
-#' # so these are just shown without evaluation according to CRAN rules
+#' # The next examples can take more than 5 seconds to compute,
+#' # so these are shown without evaluation according to CRAN rules
 #'
 #' # Run `countries` to display the full table of countries
 #'

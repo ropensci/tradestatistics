@@ -1,6 +1,6 @@
-\name{ots_attributes_products}
-\alias{ots_attributes_products}
-\title{A table of official product names, Harmonized System (HS) codes 
+\name{ots_products}
+\alias{ots_products}
+\title{A table of official product names, Harmonized System (HS) codes
 and corresponding groups}
 \docType{data}
 \description{
@@ -9,7 +9,7 @@ This data is provided as a reference as it's not used by the functions
 provided within this package, but it can be useful to subset the data
 obtained from the API.
 }
-\usage{ots_attributes_products}
+\usage{ots_products}
 \format{
   A data frame with 6373 observations on the following 4 variables.
   \describe{
@@ -20,6 +20,6 @@ obtained from the API.
   }
 }
 \examples{
-ots_attributes_products
+ots_products
 }
 \keyword{datasets}

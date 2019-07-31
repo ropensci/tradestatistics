@@ -29,7 +29,7 @@ Default set to \code{4} (it can also take the values \code{6} or
 
 \item{table}{Character string to select the table to obtain the data.
 Default set to \code{yrpc} (Year - Reporter - Partner - Product Code).
-Run \code{ots_attributes_tables} in case of doubt.}
+Run \code{ots_tables} in case of doubt.}
 
 \item{max_attempts}{How many times to try to download data in case the
 API or the internet connection fails when obtaining data. Default set
@@ -59,8 +59,8 @@ performs different API calls to transform and return tidy data.
 # The next example can take more than 5 seconds to compute,
 # so these are just shown without evaluation according to CRAN rules
 
-# Run `ots_attributes_countries` to display the full table of countries
-# Run `ots_attributes_products` to display the full table of products
+# Run `ots_countries` to display the full table of countries
+# Run `ots_products` to display the full table of products
 
 # What does Chile export to China? (1980)
 ots_create_tidy_data(years = 1980, reporters = "chl", partners = "chn")

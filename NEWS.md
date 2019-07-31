@@ -1,3 +1,11 @@
+# Version 0.2.2
+
+Adds
+
+* Inflation data
+* Inflation adjustment function
+* Minor changes in vignettes
+
 # Version 0.2.1
 
 Fixes

@@ -68,7 +68,7 @@ ots_country_code <- function(countryname = NULL) {
     countryname
   )
 
-  countrycode <- tradestatistics::ots_attributes_countries %>%
+  countrycode <- tradestatistics::ots_countries %>%
     dplyr::filter(
       stringr::str_detect(
         stringr::str_to_lower(!!sym("country_fullname_english")), countryname

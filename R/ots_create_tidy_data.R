@@ -15,7 +15,7 @@
 #' \code{all}).
 #' @param table Character string to select the table to obtain the data.
 #' Default set to \code{yrpc} (Year - Reporter - Partner - Product Code).
-#' Run \code{ots_attributes_tables} in case of doubt.
+#' Run \code{ots_tables} in case of doubt.
 #' @param max_attempts How many times to try to download data in case the
 #' API or the internet connection fails when obtaining data. Default set
 #' to \code{5}.
@@ -42,8 +42,8 @@
 #' # The next example can take more than 5 seconds to compute,
 #' # so these are just shown without evaluation according to CRAN rules
 #'
-#' # Run `ots_attributes_countries` to display the full table of countries
-#' # Run `ots_attributes_products` to display the full table of products
+#' # Run `ots_countries` to display the full table of countries
+#' # Run `ots_products` to display the full table of products
 #'
 #' # What does Chile export to China? (1980)
 #' ots_create_tidy_data(years = 1980, reporters = "chl", partners = "chn")
@@ -69,18 +69,18 @@ ots_create_tidy_data <- function(years = NULL,
                                  use_localhost = FALSE) {
 
   # Check tables ------------------------------------------------------------
-  if (!table %in% tradestatistics::ots_attributes_tables$table) {
+  if (!table %in% tradestatistics::ots_tables$table) {
     stop(
       "
-      The requested table does not exist. Please check the spelling or 
-      explore the 'ots_attributes_table' table provided within this package.
+      The requested table does not exist. Please check the spelling or
+      explore the 'ots_table' table provided within this package.
       "
     )
   }
 
   # Check years -------------------------------------------------------------
   year_depending_queries <- grep("^reporters|rankings$|^y",
-    tradestatistics::ots_attributes_tables$table,
+    tradestatistics::ots_tables$table,
     value = T
   )
 
@@ -96,7 +96,7 @@ ots_create_tidy_data <- function(years = NULL,
     stop(
       "
       Provided that the table you requested contains a 'year' field,
-      please verify that you are requesting data contained within 
+      please verify that you are requesting data contained within
       the years exposed in api.tradestatistics.io/year_range.
       "
     )
@@ -104,19 +104,19 @@ ots_create_tidy_data <- function(years = NULL,
 
   # Check reporters and partners --------------------------------------------
   reporter_depending_queries <- grep("^yr",
-    tradestatistics::ots_attributes_tables$table,
+    tradestatistics::ots_tables$table,
     value = T
   )
   partner_depending_queries <- grep("^yrp",
-    tradestatistics::ots_attributes_tables$table,
+    tradestatistics::ots_tables$table,
     value = T
   )
 
   if (!is.null(reporters)) {
-    if (!all(reporters %in% tradestatistics::ots_attributes_countries$country_iso) == TRUE &
+    if (!all(reporters %in% tradestatistics::ots_countries$country_iso) == TRUE &
       table %in% reporter_depending_queries) {
-      reporters_iso <- reporters[reporters %in% tradestatistics::ots_attributes_countries$country_iso]
-      reporters_no_iso <- reporters[!reporters %in% tradestatistics::ots_attributes_countries$country_iso]
+      reporters_iso <- reporters[reporters %in% tradestatistics::ots_countries$country_iso]
+      reporters_no_iso <- reporters[!reporters %in% tradestatistics::ots_countries$country_iso]
 
       reporters_no_iso <- purrr::map_chr(
         seq_along(reporters_no_iso),
@@ -139,10 +139,10 @@ ots_create_tidy_data <- function(years = NULL,
   }
 
   if (!is.null(partners)) {
-    if (!all(partners %in% tradestatistics::ots_attributes_countries$country_iso) == TRUE &
+    if (!all(partners %in% tradestatistics::ots_countries$country_iso) == TRUE &
       table %in% partner_depending_queries) {
-      partners_iso <- partners[partners %in% tradestatistics::ots_attributes_countries$country_iso]
-      partners_no_iso <- partners[!partners %in% tradestatistics::ots_attributes_countries$country_iso]
+      partners_iso <- partners[partners %in% tradestatistics::ots_countries$country_iso]
+      partners_no_iso <- partners[!partners %in% tradestatistics::ots_countries$country_iso]
 
       partners_no_iso <- purrr::map_chr(
         seq_along(partners_no_iso),
@@ -166,17 +166,17 @@ ots_create_tidy_data <- function(years = NULL,
 
   # Check product codes -----------------------------------------------------
   product_depending_queries <- grep("c$",
-    tradestatistics::ots_attributes_tables$table,
+    tradestatistics::ots_tables$table,
     value = T
   )
 
   if (!all(as.character(products) %in%
-    tradestatistics::ots_attributes_products$product_code) == TRUE &
+    tradestatistics::ots_products$product_code) == TRUE &
     table %in% product_depending_queries) {
 
     # products without match (wm)
     products_wm <- products[!products %in%
-      tradestatistics::ots_attributes_products$product_code]
+      tradestatistics::ots_products$product_code]
 
     # product name match (pmm)
     pnm <- purrr::map_df(
@@ -195,16 +195,16 @@ ots_create_tidy_data <- function(years = NULL,
       as_vector()
 
     products <- c(products[products %in%
-      tradestatistics::ots_attributes_products$product_code], products_wm)
+      tradestatistics::ots_products$product_code], products_wm)
   }
 
   if (!all(as.character(products) %in%
-    tradestatistics::ots_attributes_products$product_code == TRUE) &
+    tradestatistics::ots_products$product_code == TRUE) &
     table %in% product_depending_queries) {
     stop(
       "
-        The requested products do not exist. Please check the spelling or 
-        explore the 'ots_attributes_products' table provided within this package.
+        The requested products do not exist. Please check the spelling or
+        explore the 'ots_products' table provided within this package.
         "
     )
   }
@@ -271,7 +271,7 @@ ots_create_tidy_data <- function(years = NULL,
     if (table %in% tables_with_reporter[1:2]) {
       data %<>%
         dplyr::left_join(dplyr::select(
-          tradestatistics::ots_attributes_countries,
+          tradestatistics::ots_countries,
           !!!rlang::syms(
             c("country_iso", "country_fullname_english")
           )
@@ -293,7 +293,7 @@ ots_create_tidy_data <- function(years = NULL,
     } else {
       data %<>%
         dplyr::left_join(dplyr::select(
-          tradestatistics::ots_attributes_countries,
+          tradestatistics::ots_countries,
           !!!rlang::syms(
             c("country_iso", "country_fullname_english")
           )
@@ -319,7 +319,7 @@ ots_create_tidy_data <- function(years = NULL,
   if (table %in% tables_with_partner) {
     data %<>%
       dplyr::left_join(dplyr::select(
-        tradestatistics::ots_attributes_countries,
+        tradestatistics::ots_countries,
         !!!rlang::syms(
           c("country_iso", "country_fullname_english")
         )
@@ -346,7 +346,7 @@ ots_create_tidy_data <- function(years = NULL,
 
   if (table %in% tables_with_product_code) {
     data %<>%
-      dplyr::left_join(tradestatistics::ots_attributes_products, by = "product_code")
+      dplyr::left_join(tradestatistics::ots_products, by = "product_code")
 
     if (table == "yrpc") {
       data %<>%
@@ -402,7 +402,7 @@ ots_create_tidy_data <- function(years = NULL,
 
   if (table %in% product_depending_queries & include_shortnames == TRUE) {
     data %<>%
-      dplyr::left_join(tradestatistics::ots_attributes_product_shortnames) %>%
+      dplyr::left_join(tradestatistics::ots_product_shortnames) %>%
       dplyr::select(
         !!!rlang::sym(("year")),
         dplyr::starts_with("product_"),
@@ -413,7 +413,7 @@ ots_create_tidy_data <- function(years = NULL,
 
   if (table %in% product_depending_queries & include_communities == TRUE) {
     data %<>%
-      dplyr::left_join(tradestatistics::ots_attributes_communities) %>%
+      dplyr::left_join(tradestatistics::ots_communities) %>%
       dplyr::select(
         !!!rlang::sym(("year")),
         dplyr::starts_with("product_"),

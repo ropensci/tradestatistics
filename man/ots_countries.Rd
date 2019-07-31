@@ -1,15 +1,15 @@
-\name{ots_attributes_countries}
-\alias{ots_attributes_countries}
+\name{ots_countries}
+\alias{ots_countries}
 \title{A table of official country names, ISO-3 codes and other metadata}
 \docType{data}
 \description{
 Provides official codes taken from the United Nations official sources.
 This data is used by the functions provided within this package to validate
-user parameters and add both product and country text columns to the data, 
-therefore reducing the number of API calls and the time to generate the 
+user parameters and add both product and country text columns to the data,
+therefore reducing the number of API calls and the time to generate the
 requested data.
 }
-\usage{ots_attributes_countries}
+\usage{ots_countries}
 \format{
   A data frame with 249 observations on the following 6 variables.
   \describe{
@@ -22,6 +22,6 @@ requested data.
 \  }
 }
 \examples{
-ots_attributes_countries
+ots_countries
 }
 \keyword{datasets}

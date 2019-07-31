@@ -1,12 +1,12 @@
-\name{ots_attributes_product_shortnames}
-\alias{ots_attributes_product_shortnames}
+\name{ots_product_shortnames}
+\alias{ots_product_shortnames}
 \title{A table of unofficial shortened product names}
 \docType{data}
 \description{
 Provides shortened product names obtained from The Observatory of Economic Complexity.
 This data corresponds to a modified version of unofficial short names created for 4 digits HS codes.
 }
-\usage{ots_attributes_products}
+\usage{ots_products}
 \format{
   A data frame with 1222 observations on the following 4 variables.
   \describe{
@@ -15,6 +15,6 @@ This data corresponds to a modified version of unofficial short names created fo
   }
 }
 \examples{
-ots_attributes_products
+ots_products
 }
 \keyword{datasets}

@@ -66,7 +66,7 @@ performs different API calls to transform and return tidy data." />
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="../hexlogo.png" id="hexlogo" alt="rOpenSci" /></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.1</small></i></a>
+        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.2</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -162,7 +162,7 @@ Default set to <code>4</code> (it can also take the values <code>6</code> or
       <th>table</th>
       <td><p>Character string to select the table to obtain the data.
 Default set to <code>yrpc</code> (Year - Reporter - Partner - Product Code).
-Run <code>ots_attributes_tables</code> in case of doubt.</p></td>
+Run <code>ots_tables</code> in case of doubt.</p></td>
     </tr>
     <tr>
       <th>max_attempts</th>
@@ -200,8 +200,8 @@ and <code>partner</code> country.</p>
 <span class='co'># The next example can take more than 5 seconds to compute,</span>
 <span class='co'># so these are just shown without evaluation according to CRAN rules</span>
 
-<span class='co'># Run `ots_attributes_countries` to display the full table of countries</span>
-<span class='co'># Run `ots_attributes_products` to display the full table of products</span>
+<span class='co'># Run `ots_countries` to display the full table of countries</span>
+<span class='co'># Run `ots_products` to display the full table of products</span>
 
 <span class='co'># What does Chile export to China? (1980)</span>
 <span class='fu'>ots_create_tidy_data</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>reporters</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>partners</span> <span class='kw'>=</span> <span class='st'>"chn"</span>)

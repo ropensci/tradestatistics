@@ -23,7 +23,7 @@
 
 ots_product_code <- function(productname = NULL, productgroup = NULL) {
   if (is.null(productname) & is.null(productgroup)) {
-    d <- tradestatistics::ots_attributes_products
+    d <- tradestatistics::ots_products
   }
 
   if (!is.null(productname) & is.null(productgroup)) {
@@ -37,7 +37,7 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
 
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
-    d <- tradestatistics::ots_attributes_products %>%
+    d <- tradestatistics::ots_products %>%
       dplyr::mutate(
         type_product = productname
       ) %>%
@@ -59,7 +59,7 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
 
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
-    d <- tradestatistics::ots_attributes_products %>%
+    d <- tradestatistics::ots_products %>%
       dplyr::mutate(
         type_group = productgroup
       ) %>%
@@ -89,7 +89,7 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
 
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
-    d <- tradestatistics::ots_attributes_products %>%
+    d <- tradestatistics::ots_products %>%
       dplyr::mutate(
         type_name = productname,
         type_group = productgroup

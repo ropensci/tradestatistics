@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • tradestatistics</title>
+<title>A table of communities codes, names and colours associated to products — ots_communities • tradestatistics</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,7 +32,11 @@
 <!-- ropensci -->
 <link href="../ropensci.css" rel="stylesheet">
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="A table of communities codes, names and colours associated to products — ots_communities" />
+
+<meta property="og:description" content="Provides communities from The Atlas of Economic Complexity (Harvard), and those
+can be useful for grouping into broader categories than those the official HS groups." />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -48,7 +52,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -105,99 +109,57 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>A table of communities codes, names and colours associated to products</h1>
+    
+    <div class="hidden name"><code>ots_communities.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>Provides communities from The Atlas of Economic Complexity (Harvard), and those
+can be useful for grouping into broader categories than those the official HS groups.</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='no'>ots_communities</span></pre>
+        
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="ots_communities.html">ots_communities</a></code> </p>
-        </td>
-        <td><p>A table of communities codes, names and colours associated to products</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_countries.html">ots_countries</a></code> </p>
-        </td>
-        <td><p>A table of official country names, ISO-3 codes and other metadata</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_country_code.html">ots_country_code()</a></code> </p>
-        </td>
-        <td><p>String matching of official country names and ISO-3 codes according to
-the United Nations nomenclature</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_create_tidy_data.html">ots_create_tidy_data()</a></code> </p>
-        </td>
-        <td><p>Downloads and processes the data from the API to return a human-readable tibble</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_inflation.html">ots_inflation</a></code> </p>
-        </td>
-        <td><p>A table with world weigthed mean inflation since 1962</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_inflation_adjustment.html">ots_inflation_adjustment()</a></code> </p>
-        </td>
-        <td><p>Expresses tidy data from the API in dollars of a reference year</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_product_code.html">ots_product_code()</a></code> </p>
-        </td>
-        <td><p>String matching of official product names and Harmonized System (HS) codes
-according to the United Nations nomenclature</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_product_shortnames.html">ots_products</a></code> </p>
-        </td>
-        <td><p>A table of unofficial shortened product names</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_products.html">ots_products</a></code> </p>
-        </td>
-        <td><p>A table of official product names, Harmonized System (HS) codes
-and corresponding groups</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ots_tables.html">ots_tables</a></code> </p>
-        </td>
-        <td><p>Available tables in the API</p></td>
-      </tr>
-    </tbody>
-    </table>
+    <p>A data frame with 6275 observations on the following 4 variables.</p><dl class='dl-horizontal'>
+    <dt><code>product_code</code></dt><dd><p>Code of every product (e.g. 0101)</p></dd>
+    <dt><code>community_code</code></dt><dd><p>Community code (e.g. 01)</p></dd>
+    <dt><code>community_name</code></dt><dd><p>Community name (e.g. Animal Products)</p></dd>
+    <dt><code>community_color</code></dt><dd><p>Colour hex code (e.g. #74c0e2)</p></dd>
+  </dl>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>ots_communities</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6,275 x 4</span><span>
+#&gt;    product_code community_code community_name  community_color
+#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>          
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 0101         01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 010110       01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 010190       01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 0102         01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 010210       01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 010290       01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 0103         01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 010310       01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 010391       01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 010392       01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #949494;'># … with 6,265 more rows</span><span></div></span></pre>
   </div>
-
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      
+      <li><a href="#format">Format</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
     </ul>
+
   </div>
 </div>
 
