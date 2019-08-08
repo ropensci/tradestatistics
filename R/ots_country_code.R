@@ -20,7 +20,7 @@
 #' @keywords functions
 
 ots_country_code <- function(countryname = NULL) {
-  if(is.null(countryname)) {
+  if (is.null(countryname)) {
     stop(
       "
       countryname can't be NULL
@@ -33,8 +33,8 @@ ots_country_code <- function(countryname = NULL) {
     countryname <- stringr::str_squish(countryname)
     countryname <- stringr::str_trim(countryname)
   }
-  
-  if(any(nchar(countryname) < 1)) {
+
+  if (any(nchar(countryname) < 1)) {
     stop(
       "
       countryname can't have zero characters after removing numbers,
@@ -68,7 +68,7 @@ ots_country_code <- function(countryname = NULL) {
     countryname
   )
 
-  countrycode <- tradestatistics::ots_attributes_countries %>%
+  countrycode <- tradestatistics::ots_countries %>%
     dplyr::filter(
       stringr::str_detect(
         stringr::str_to_lower(!!sym("country_fullname_english")), countryname

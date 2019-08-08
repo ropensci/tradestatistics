@@ -66,7 +66,7 @@ performs different API calls to return data.frames by reading JSON data" />
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="../hexlogo.png" id="hexlogo" alt="rOpenSci" /></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2</small></i></a>
+        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.2</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -95,6 +95,9 @@ performs different API calls to return data.frames by reading JSON data" />
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
         
       </ul>
       
@@ -122,7 +125,7 @@ performs different API calls to return <code>data.frames</code> by reading <code
 
     <pre class="usage"><span class='fu'>ots_read_from_api</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>partner</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>product_code</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>product_code_length</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrpc"</span>,
-  <span class='kw'>max_attempts</span> <span class='kw'>=</span> <span class='fl'>5</span>)</pre>
+  <span class='kw'>max_attempts</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>use_localhost</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -153,22 +156,26 @@ Default set to <code>4</code>.</p></td>
     </tr>
     <tr>
       <th>table</th>
-      <td><p>Character string to select the table to obtain the data. Default set to <code>yrpc</code> 
+      <td><p>Character string to select the table to obtain the data. Default set to <code>yrpc</code>
 (Year - Reporter - Partner - product).</p></td>
     </tr>
     <tr>
       <th>max_attempts</th>
       <td><p>Number of attempts to retry in case of data retrieving failure.
-Default set to <code>5</code>.
-<code>ots_create_tidy_data</code>.</p></td>
+Default set to <code>5</code>.</p></td>
+    </tr>
+    <tr>
+      <th>use_localhost</th>
+      <td><p>Logical to determine if the base URL shall be localhost instead
+of api.tradestatistics.io. Default set to <code>FALSE</code>.</p></td>
     </tr>
     </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='co'># The next example can take more than 5 seconds to compute,</span>
-<span class='co'># so these are just shown without evaluation according to CRAN rules</span>
+<span class='co'># The next examples can take more than 5 seconds to compute,</span>
+<span class='co'># so these are shown without evaluation according to CRAN rules</span>
 
 <span class='co'># Run `countries` to display the full table of countries</span>
 
@@ -178,8 +185,10 @@ Default set to <code>5</code>.
 <span class='co'># What can we say about chilean Horses export? (1980)</span>
 <span class='fu'>ots_read_from_api</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>product_code</span> <span class='kw'>=</span> <span class='st'>"0101"</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yc"</span>)
 <span class='fu'>ots_read_from_api</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>product_code</span> <span class='kw'>=</span> <span class='st'>"0101"</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrc"</span>)
-<span class='fu'>ots_read_from_api</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>partner</span> <span class='kw'>=</span> <span class='st'>"arg"</span>, <span class='kw'>product_code</span> <span class='kw'>=</span> <span class='st'>"0101"</span>,
-<span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrpc"</span>)
+<span class='fu'>ots_read_from_api</span>(
+  <span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>reporter</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>partner</span> <span class='kw'>=</span> <span class='st'>"arg"</span>, <span class='kw'>product_code</span> <span class='kw'>=</span> <span class='st'>"0101"</span>,
+  <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrpc"</span>
+)
 <span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

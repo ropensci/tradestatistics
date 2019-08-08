@@ -6,8 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>String matching of official product names and Harmonized System (HS) codes
-according to the United Nations nomenclature — ots_product_code • tradestatistics</title>
+<title>A table of official product names, Harmonized System (HS) codes
+and corresponding groups — ots_products • tradestatistics</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -33,12 +33,13 @@ according to the United Nations nomenclature — ots_product_code • tradestati
 <!-- ropensci -->
 <link href="../ropensci.css" rel="stylesheet">
 
-<meta property="og:title" content="String matching of official product names and Harmonized System (HS) codes
-according to the United Nations nomenclature — ots_product_code" />
+<meta property="og:title" content="A table of official product names, Harmonized System (HS) codes
+and corresponding groups — ots_products" />
 
-<meta property="og:description" content="This function takes a text string and searches within the
-package data for all matching product codes in the context of valid API
-product codes." />
+<meta property="og:description" content="Provides official codes taken from the United Nations official sources.
+This data is provided as a reference as it's not used by the functions
+provided within this package, but it can be useful to subset the data
+obtained from the API." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -114,61 +115,35 @@ product codes." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>String matching of official product names and Harmonized System (HS) codes
-according to the United Nations nomenclature</h1>
+    <h1>A table of official product names, Harmonized System (HS) codes
+and corresponding groups</h1>
     
-    <div class="hidden name"><code>ots_product_code.Rd</code></div>
+    <div class="hidden name"><code>ots_products.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>This function takes a text string and searches within the
-package data for all matching product codes in the context of valid API
-product codes.</p>
+    <p>Provides official codes taken from the United Nations official sources.
+This data is provided as a reference as it's not used by the functions
+provided within this package, but it can be useful to subset the data
+obtained from the API.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>ots_product_code</span>(<span class='kw'>productname</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>productgroup</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>productname</th>
-      <td><p>A text string such as "Animals", "COPPER" or "fruits".</p></td>
-    </tr>
-    <tr>
-      <th>productgroup</th>
-      <td><p>A text string such as "meat", "FISH" or "Dairy".</p></td>
-    </tr>
-    </table>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <pre class="usage"><span class='no'>ots_products</span></pre>
+        
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A tibble with all possible matches (no uppercase distinction)
-showing the product name, product code and corresponding trade
-classification (e.g. HS92 or SITC)</p>
+    <p>A data frame with 6373 observations on the following 4 variables.</p><dl class='dl-horizontal'>
+    <dt><code>product_code</code></dt><dd><p>Code of every product (e.g. 0101)</p></dd>
+    <dt><code>product_fullname_english</code></dt><dd><p>HS product names (e.g. 'Horses, asses, mules and hinnies; live')</p></dd>
+    <dt><code>group_code</code></dt><dd><p>HS group code (e.g. 01)</p></dd>
+    <dt><code>group_name</code></dt><dd><p>HS group name (e.g. 'Animals; live')</p></dd>
+  </dl>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productname</span> <span class='kw'>=</span> <span class='st'>"ANIMALS "</span>)</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 0 x 5</span><span>
-#&gt; </span><span style='color: #949494;'># … with 5 variables: product_code </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, product_fullname_english </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>,
-#&gt; #   group_code </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, group_name </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, type_product </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span></div><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productgroup</span> <span class='kw'>=</span> <span class='st'>"  fish"</span>)</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 144 x 5</span><span>
-#&gt;    product_code product_fullname_english  group_code group_name       type_group
-#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                     </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>     
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 0301         Fish; live                03         Fish and crusta… fish      
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 030110       Fish; live, ornamental    03         Fish and crusta… fish      
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 030191       Fish; live, trout (salmo… 03         Fish and crusta… fish      
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 030192       Fish; live, eels (anguil… 03         Fish and crusta… fish      
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 030193       Fish; live, carp          03         Fish and crusta… fish      
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 030194       Fish; live, bluefin tuna… 03         Fish and crusta… fish      
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 030195       Fish; live, southern blu… 03         Fish and crusta… fish      
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 030199       Fish; live, n.e.c. in he… 03         Fish and crusta… fish      
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 0302         Fish; fresh or chilled (… 03         Fish and crusta… fish      
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 030211       Fish; trout (salmo trutt… 03         Fish and crusta… fish      
-#&gt; </span><span style='color: #949494;'># … with 134 more rows</span><span></div><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productname</span> <span class='kw'>=</span> <span class='st'>"Milk"</span>, <span class='kw'>productgroup</span> <span class='kw'>=</span> <span class='st'>"Dairy"</span>)</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 0 x 6</span><span>
-#&gt; </span><span style='color: #949494;'># … with 6 variables: product_code </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, product_fullname_english </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>,
-#&gt; #   group_code </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, group_name </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, type_name </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span style='color: #949494;'>, type_group </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span></div><div class='input'><span class='fu'>ots_product_code</span>()</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 6,373 x 4</span><span>
+    <pre class="examples"><div class='input'><span class='no'>ots_products</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6,373 x 4</span><span>
 #&gt;    product_code product_fullname_english                  group_code group_name 
 #&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                                     </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      
 #&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 0101         Horses, asses, mules and hinnies; live    01         Animals; l…
@@ -186,9 +161,8 @@ classification (e.g. HS92 or SITC)</p>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#value">Value</a></li>
+      <li><a href="#format">Format</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

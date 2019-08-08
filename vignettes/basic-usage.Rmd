@@ -26,7 +26,7 @@ Provided that this package obtains data from an API, it is useful to know which 
 ```{r tables, eval = T}
 library(tradestatistics)
 
-ots_attributes_tables
+ots_tables
 ```
 
 ## Country codes
@@ -36,15 +36,25 @@ The Package Functions section explains that you don't need to memorize all ISO c
 Just as a reference, the table with all valid ISO codes can be accessed by running this:
 
 ```{r countries, eval = T}
-ots_attributes_countries
+ots_countries
 ```
 
-## Product codes
+## Product codes and communities
 
 The Package Functions section explains that you don't need to memorize all HS codes. The functions within this package are designed to match strings (i.e. "apple") to valid HS codes (i.e. "0808").
 
 ```{r products, eval = T}
-ots_attributes_countries
+ots_products
+ots_product_shortnames
+ots_communities
+```
+
+## Inflation data
+
+This table is provided to be used with `ots_inflation_adjustment()`.
+
+```{r inflation, eval = T}
+ots_inflation
 ```
 
 # Package functions
@@ -188,3 +198,13 @@ Here some fields deserve an explanation:
 * `pci_6_digits_product_code`: Similar to the previous field but built by using just six digits product codes.
 * `pci_rank_4_digits_product_code`: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)
 * `pci_rank_4_digits_product_code_delta_1_year`: How many places a country increased or decreased with respect to last year
+
+## Inflation adjustment
+
+Taking Year - Reporter table as an example, we can use `ots_inflation_adjustment()` to convert dollars from 1965 to dollars of 1970:
+
+```{r}
+library(magrittr)
+ots_create_tidy_data(years = 1965, reporters = "chl", table = "yr") %>% 
+  ots_inflation_adjustment(reference_year = 1970)
+```

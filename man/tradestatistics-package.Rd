@@ -27,6 +27,7 @@ Other contributors:
   \item Amanda Dobbyn (reviewed an archived package that evolved into the current package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217) [reviewer]
   \item Jorge Cimentada (reviewed an archived package that evolved into the current package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217) [reviewer]
   \item  UN Comtrade [data contributor]
+  \item  The World Bank [data contributor]
   \item  Center for International Development at Harvard University [data contributor]
   \item  The Observatory of Economic Complexity [data contributor]
 }

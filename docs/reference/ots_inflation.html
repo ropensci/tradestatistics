@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A table of unofficial shortened product names — ots_attributes_product_shortnames • tradestatistics</title>
+<title>A table with world weigthed mean inflation since 1962 — ots_inflation • tradestatistics</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,10 +32,12 @@
 <!-- ropensci -->
 <link href="../ropensci.css" rel="stylesheet">
 
-<meta property="og:title" content="A table of unofficial shortened product names — ots_attributes_product_shortnames" />
+<meta property="og:title" content="A table with world weigthed mean inflation since 1962 — ots_inflation" />
 
-<meta property="og:description" content="Provides shortened product names obtained from The Observatory of Economic Complexity.
-This data corresponds to a modified version of unofficial short names created for 4 digits HS codes." />
+<meta property="og:description" content="Provides year to year inflations value to be applied as a conversion rate
+to express dollars of year Y1 as dollars of year Y2. This dataset is provided
+to be used with ots_inflation_adjustment that converts units forwards and
+backwards in time." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -66,7 +68,7 @@ This data corresponds to a modified version of unofficial short names created fo
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="../hexlogo.png" id="hexlogo" alt="rOpenSci" /></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.1</small></i></a>
+        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.2</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -111,43 +113,89 @@ This data corresponds to a modified version of unofficial short names created fo
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A table of unofficial shortened product names</h1>
+    <h1>A table with world weigthed mean inflation since 1962</h1>
     
-    <div class="hidden name"><code>ots_attributes_product_shortnames.Rd</code></div>
+    <div class="hidden name"><code>ots_inflation.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Provides shortened product names obtained from The Observatory of Economic Complexity.
-This data corresponds to a modified version of unofficial short names created for 4 digits HS codes.</p>
+    <p>Provides year to year inflations value to be applied as a conversion rate
+to express dollars of year Y1 as dollars of year Y2. This dataset is provided
+to be used with <code>ots_inflation_adjustment</code> that converts units forwards and
+backwards in time.</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>ots_attributes_products</span></pre>
+    <pre class="usage"><span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='st'>"ots_inflation"</span>)</pre>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 1222 observations on the following 4 variables.</p><dl class='dl-horizontal'>
-    <dt><code>product_code</code></dt><dd><p>Code of every product (e.g. 0101)</p></dd>
-    <dt><code>product_shortname_english</code></dt><dd><p>Unofficial product names (e.g. Horses)</p></dd>
+    <p>A data frame with 56 observations on the following 3 variables.</p><dl class='dl-horizontal'>
+    <dt><code>from</code></dt><dd><p>Integer values in the range 1962-2017</p></dd>
+    <dt><code>to</code></dt><dd><p>Integer values in the range 1963-2018</p></dd>
+    <dt><code>conversion_factor</code></dt><dd><p>Numeric value expressed as one plus 1-year inflation</p></dd>
   </dl>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>ots_attributes_products</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6,373 x 4</span><span>
-#&gt;    product_code product_fullname_english                  group_code group_name 
-#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                                     </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 0101         Horses, asses, mules and hinnies; live    01         Animals; l…
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 010110       Horses, asses, mules and hinnies; live, … 01         Animals; l…
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 010190       Horses, asses, mules and hinnies; live, … 01         Animals; l…
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 0102         Bovine animals; live                      01         Animals; l…
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 010210       Bovine animals; live, pure-bred breeding… 01         Animals; l…
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 010290       Bovine animals; live, other than pure-br… 01         Animals; l…
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 0103         Swine; live                               01         Animals; l…
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 010310       Swine; live, pure-bred breeding animals   01         Animals; l…
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 010391       Swine; live, (other than pure-bred breed… 01         Animals; l…
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 010392       Swine; live, (other than pure-bred breed… 01         Animals; l…
-#&gt; </span><span style='color: #949494;'># … with 6,363 more rows</span><span></div></span></pre>
+    <pre class="examples"><div class='input'><span class='no'>ots_inflation</span></div><div class='output co'>#&gt;    from   to conversion_factor
+#&gt; 1  1962 1963            1.0308
+#&gt; 2  1963 1964            1.0338
+#&gt; 3  1964 1965            1.0412
+#&gt; 4  1965 1966            1.0532
+#&gt; 5  1966 1967            1.0354
+#&gt; 6  1967 1968            1.0398
+#&gt; 7  1968 1969            1.0364
+#&gt; 8  1969 1970            1.0502
+#&gt; 9  1970 1971            1.0546
+#&gt; 10 1971 1972            1.0588
+#&gt; 11 1972 1973            1.0917
+#&gt; 12 1973 1974            1.1540
+#&gt; 13 1974 1975            1.1247
+#&gt; 14 1975 1976            1.0969
+#&gt; 15 1976 1977            1.1035
+#&gt; 16 1977 1978            1.0862
+#&gt; 17 1978 1979            1.1010
+#&gt; 18 1979 1980            1.1374
+#&gt; 19 1980 1981            1.1284
+#&gt; 20 1981 1982            1.1038
+#&gt; 21 1982 1983            1.0937
+#&gt; 22 1983 1984            1.0904
+#&gt; 23 1984 1985            1.0868
+#&gt; 24 1985 1986            1.0650
+#&gt; 25 1986 1987            1.0698
+#&gt; 26 1987 1988            1.0997
+#&gt; 27 1988 1989            1.1464
+#&gt; 28 1989 1990            1.2329
+#&gt; 29 1990 1991            1.1104
+#&gt; 30 1991 1992            1.1096
+#&gt; 31 1992 1993            1.2079
+#&gt; 32 1993 1994            1.2389
+#&gt; 33 1994 1995            1.0915
+#&gt; 34 1995 1996            1.0651
+#&gt; 35 1996 1997            1.0472
+#&gt; 36 1997 1998            1.0439
+#&gt; 37 1998 1999            1.0342
+#&gt; 38 1999 2000            1.0368
+#&gt; 39 2000 2001            1.0379
+#&gt; 40 2001 2002            1.0295
+#&gt; 41 2002 2003            1.0310
+#&gt; 42 2003 2004            1.0317
+#&gt; 43 2004 2005            1.0363
+#&gt; 44 2005 2006            1.0378
+#&gt; 45 2006 2007            1.0407
+#&gt; 46 2007 2008            1.0695
+#&gt; 47 2008 2009            1.0233
+#&gt; 48 2009 2010            1.0299
+#&gt; 49 2010 2011            1.0450
+#&gt; 50 2011 2012            1.0348
+#&gt; 51 2012 2013            1.0274
+#&gt; 52 2013 2014            1.0228
+#&gt; 53 2014 2015            1.0151
+#&gt; 54 2015 2016            1.0157
+#&gt; 55 2016 2017            1.0241
+#&gt; 56 2017 2018            1.0258</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

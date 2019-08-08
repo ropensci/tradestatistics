@@ -1,7 +1,7 @@
 Package: tradestatistics
 Type: Package
 Title: Open Trade Statistics API Wrapper and Utility Program
-Version: 0.2.1
+Version: 0.2.2
 Authors@R: c(
       person(given = "Mauricio",
              family = "Vargas",
@@ -29,6 +29,8 @@ Authors@R: c(
              role = "rev",
              comment = "reviewed an archived package that evolved into the current package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217"),
       person(family = "UN Comtrade",
+             role = "dtc"),
+      person(family = "The World Bank",
              role = "dtc"),
       person(family = "Center for International Development at Harvard University",
              role = "dtc"),

@@ -10,7 +10,7 @@
   "codeRepository": "https://docs.ropensci.org/tradestatistics/",
   "issueTracker": "https://github.com/ropensci/tradestatistics/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -36,6 +36,10 @@
     {
       "@type": "Organization",
       "name": "UN Comtrade"
+    },
+    {
+      "@type": "Organization",
+      "name": "The World Bank"
     },
     {
       "@type": "Organization",
@@ -232,7 +236,7 @@
     }
   ],
   "readme": "https://github.com/tradestatistics/tradestatistics/blob/master/README.md",
-  "fileSize": "252.953KB",
+  "fileSize": "258.377KB",
   "contIntegration": [
     "https://travis-ci.org/ropensci/tradestatistics",
     "https://codecov.io/github/ropensci/tradestatistics?branch=master"

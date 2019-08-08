@@ -6,7 +6,7 @@
 \usage{
 ots_read_from_api(year = NULL, reporter = NULL, partner = NULL,
   product_code = "all", product_code_length = 4, table = "yrpc",
-  max_attempts = 5)
+  max_attempts = 5, use_localhost = FALSE)
 }
 \arguments{
 \item{year}{Year contained within the years specified in
@@ -23,12 +23,14 @@ Default set to \code{"all"}.}
 \item{product_code_length}{Integer to indicate the granularity level on products.
 Default set to \code{4}.}
 
-\item{table}{Character string to select the table to obtain the data. Default set to \code{yrpc} 
+\item{table}{Character string to select the table to obtain the data. Default set to \code{yrpc}
 (Year - Reporter - Partner - product).}
 
 \item{max_attempts}{Number of attempts to retry in case of data retrieving failure.
-Default set to \code{5}.
-\code{ots_create_tidy_data}.}
+Default set to \code{5}.}
+
+\item{use_localhost}{Logical to determine if the base URL shall be localhost instead
+of api.tradestatistics.io. Default set to \code{FALSE}.}
 }
 \description{
 This function accesses \code{api.tradestatistics.io} and
@@ -36,8 +38,8 @@ performs different API calls to return \code{data.frames} by reading \code{JSON}
 }
 \examples{
 \dontrun{
-# The next example can take more than 5 seconds to compute,
-# so these are just shown without evaluation according to CRAN rules
+# The next examples can take more than 5 seconds to compute,
+# so these are shown without evaluation according to CRAN rules
 
 # Run `countries` to display the full table of countries
 
@@ -47,8 +49,10 @@ ots_read_from_api(year = 1980, reporter = "chl", partner = "chn")
 # What can we say about chilean Horses export? (1980)
 ots_read_from_api(year = 1980, product_code = "0101", table = "yc")
 ots_read_from_api(year = 1980, reporter = "chl", product_code = "0101", table = "yrc")
-ots_read_from_api(year = 1980, reporter = "chl", partner = "arg", product_code = "0101", 
-table = "yrpc")
+ots_read_from_api(
+  year = 1980, reporter = "chl", partner = "arg", product_code = "0101",
+  table = "yrpc"
+)
 }
 }
 \keyword{internal}

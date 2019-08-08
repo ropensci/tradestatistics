@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A table of unofficial shortened product names — ots_attributes_product_shortnames • tradestatistics</title>
+<title>A table of communities codes, names and colours associated to products — ots_communities • tradestatistics</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,10 +32,10 @@
 <!-- ropensci -->
 <link href="../ropensci.css" rel="stylesheet">
 
-<meta property="og:title" content="A table of unofficial shortened product names — ots_attributes_product_shortnames" />
+<meta property="og:title" content="A table of communities codes, names and colours associated to products — ots_communities" />
 
-<meta property="og:description" content="Provides shortened product names obtained from The Observatory of Economic Complexity.
-This data corresponds to a modified version of unofficial short names created for 4 digits HS codes." />
+<meta property="og:description" content="Provides communities from The Atlas of Economic Complexity (Harvard), and those
+can be useful for grouping into broader categories than those the official HS groups." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -66,7 +66,7 @@ This data corresponds to a modified version of unofficial short names created fo
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="../hexlogo.png" id="hexlogo" alt="rOpenSci" /></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.1</small></i></a>
+        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.2</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -111,43 +111,45 @@ This data corresponds to a modified version of unofficial short names created fo
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A table of unofficial shortened product names</h1>
+    <h1>A table of communities codes, names and colours associated to products</h1>
     
-    <div class="hidden name"><code>ots_attributes_product_shortnames.Rd</code></div>
+    <div class="hidden name"><code>ots_communities.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Provides shortened product names obtained from The Observatory of Economic Complexity.
-This data corresponds to a modified version of unofficial short names created for 4 digits HS codes.</p>
+    <p>Provides communities from The Atlas of Economic Complexity (Harvard), and those
+can be useful for grouping into broader categories than those the official HS groups.</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>ots_attributes_products</span></pre>
+    <pre class="usage"><span class='no'>ots_communities</span></pre>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 1222 observations on the following 4 variables.</p><dl class='dl-horizontal'>
+    <p>A data frame with 6275 observations on the following 4 variables.</p><dl class='dl-horizontal'>
     <dt><code>product_code</code></dt><dd><p>Code of every product (e.g. 0101)</p></dd>
-    <dt><code>product_shortname_english</code></dt><dd><p>Unofficial product names (e.g. Horses)</p></dd>
+    <dt><code>community_code</code></dt><dd><p>Community code (e.g. 01)</p></dd>
+    <dt><code>community_name</code></dt><dd><p>Community name (e.g. Animal Products)</p></dd>
+    <dt><code>community_color</code></dt><dd><p>Colour hex code (e.g. #74c0e2)</p></dd>
   </dl>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>ots_attributes_products</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6,373 x 4</span><span>
-#&gt;    product_code product_fullname_english                  group_code group_name 
-#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                                     </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 0101         Horses, asses, mules and hinnies; live    01         Animals; l…
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 010110       Horses, asses, mules and hinnies; live, … 01         Animals; l…
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 010190       Horses, asses, mules and hinnies; live, … 01         Animals; l…
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 0102         Bovine animals; live                      01         Animals; l…
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 010210       Bovine animals; live, pure-bred breeding… 01         Animals; l…
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 010290       Bovine animals; live, other than pure-br… 01         Animals; l…
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 0103         Swine; live                               01         Animals; l…
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 010310       Swine; live, pure-bred breeding animals   01         Animals; l…
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 010391       Swine; live, (other than pure-bred breed… 01         Animals; l…
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 010392       Swine; live, (other than pure-bred breed… 01         Animals; l…
-#&gt; </span><span style='color: #949494;'># … with 6,363 more rows</span><span></div></span></pre>
+    <pre class="examples"><div class='input'><span class='no'>ots_communities</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6,275 x 4</span><span>
+#&gt;    product_code community_code community_name  community_color
+#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>          
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 0101         01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 010110       01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 010190       01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 0102         01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 010210       01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 010290       01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 0103         01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 010310       01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 010391       01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 010392       01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #949494;'># … with 6,265 more rows</span><span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
