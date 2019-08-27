@@ -32,12 +32,12 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
     # Chilean trade at aggregated level (1965)
     test_data <- ots_create_tidy_data(years = 1965, reporters = "chl", table = "yr")
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "16 variables")
+    expect_output(str(test_data), "22 variables")
 
     # Commodity trade at aggregated level (1965)
     test_data <- ots_create_tidy_data(years = 1965, table = "yc")
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "19 variables")
+    expect_output(str(test_data), "25 variables")
   })
 })
 

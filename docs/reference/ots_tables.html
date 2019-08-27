@@ -25,6 +25,10 @@
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script>
@@ -67,7 +71,7 @@ user parameters." />
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="../hexlogo.png" id="hexlogo" alt="rOpenSci" /></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.2</small></i></a>
+        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.3</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -137,25 +141,25 @@ user parameters.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>ots_tables</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 16 x 3</span><span>
+    <pre class="examples"><div class='input'><span class='no'>ots_tables</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 16 x 3</span><span>
 #&gt;    table       description                           source                     
-#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                                 </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                      
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> countries   Countries metadata                    UN Comtrade                
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> products    Product metadata                      UN Comtrade                
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> reporters   Reporting countries                   UN Comtrade                
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> communities Product communities                   Center for International D…
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> product_sh… Product short names                   The Observatory of Economi…
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> country_ra… Ranking of countries                  UN Comtrade                
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> product_ra… Ranking of products                   Open Trade Statistics      
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> yrpc        Bilateral trade at product level (Ye… Open Trade Statistics      
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> yrp         Reporter trade at aggregated level (… Open Trade Statistics      
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span> yrp_short   Reporter trade at aggregated level (… Open Trade Statistics      
-#&gt; </span><span style='color: #BCBCBC;'>11</span><span> yrc         Reporter trade at aggregated level (… Open Trade Statistics      
-#&gt; </span><span style='color: #BCBCBC;'>12</span><span> yrc_exports Reporter trade at aggregated level (… Open Trade Statistics      
-#&gt; </span><span style='color: #BCBCBC;'>13</span><span> yrc_imports Reporter trade at aggregated level (… Open Trade Statistics      
-#&gt; </span><span style='color: #BCBCBC;'>14</span><span> yr          Reporter trade at aggregated level (… Open Trade Statistics      
-#&gt; </span><span style='color: #BCBCBC;'>15</span><span> yr_short    Reporter trade at aggregated level (… Open Trade Statistics      
-#&gt; </span><span style='color: #BCBCBC;'>16</span><span> yc          Product trade at aggregated level (Y… Open Trade Statistics      </div></span></pre>
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                                 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                      
+#&gt; </span><span style='color: #555555;'> 1</span><span> countries   Countries metadata                    UN Comtrade                
+#&gt; </span><span style='color: #555555;'> 2</span><span> products    Product metadata                      UN Comtrade                
+#&gt; </span><span style='color: #555555;'> 3</span><span> reporters   Reporting countries                   UN Comtrade                
+#&gt; </span><span style='color: #555555;'> 4</span><span> communities Product communities                   Center for International D…
+#&gt; </span><span style='color: #555555;'> 5</span><span> product_sh… Product short names                   The Observatory of Economi…
+#&gt; </span><span style='color: #555555;'> 6</span><span> country_ra… Ranking of countries                  UN Comtrade                
+#&gt; </span><span style='color: #555555;'> 7</span><span> product_ra… Ranking of products                   Open Trade Statistics      
+#&gt; </span><span style='color: #555555;'> 8</span><span> yrpc        Bilateral trade at product level (Ye… Open Trade Statistics      
+#&gt; </span><span style='color: #555555;'> 9</span><span> yrp         Reporter trade at aggregated level (… Open Trade Statistics      
+#&gt; </span><span style='color: #555555;'>10</span><span> yrp_short   Reporter trade at aggregated level (… Open Trade Statistics      
+#&gt; </span><span style='color: #555555;'>11</span><span> yrc         Reporter trade at aggregated level (… Open Trade Statistics      
+#&gt; </span><span style='color: #555555;'>12</span><span> yrc_exports Reporter trade at aggregated level (… Open Trade Statistics      
+#&gt; </span><span style='color: #555555;'>13</span><span> yrc_imports Reporter trade at aggregated level (… Open Trade Statistics      
+#&gt; </span><span style='color: #555555;'>14</span><span> yr          Reporter trade at aggregated level (… Open Trade Statistics      
+#&gt; </span><span style='color: #555555;'>15</span><span> yr_short    Reporter trade at aggregated level (… Open Trade Statistics      
+#&gt; </span><span style='color: #555555;'>16</span><span> yc          Product trade at aggregated level (Y… Open Trade Statistics      </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
