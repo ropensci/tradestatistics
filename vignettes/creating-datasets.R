@@ -77,19 +77,19 @@ knitr::opts_chunk$set(
 #    save(ots_product_shortnames, file = product_shortnames_tidy_file, compress = "xz")
 #  }
 
-## ----conversion_rates----------------------------------------------------
-# Source
-# https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG
-# https://data.worldbank.org/indicator/NY.GDP.MKTP.KD
-
-inflation_url <- "https://raw.githubusercontent.com/tradestatistics/inflation-data/master/inflation-data.json"
-inflation_raw_file <- "../data-raw/ots_inflation.json"
-inflation_tidy_file <- "../data/ots_inflation.rda"
-
-if (!file.exists(inflation_raw_file)) { download.file(inflation_url, inflation_raw_file) }
-
-if (!file.exists(inflation_tidy_file)) {
-  ots_inflation <- fromJSON(inflation_url)
-  save(ots_inflation, file = inflation_tidy_file, compress = "xz")
-}
+## ----conversion_rates, message = FALSE, eval = FALSE---------------------
+#  # Source
+#  # https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG
+#  # https://data.worldbank.org/indicator/NY.GDP.MKTP.KD
+#  
+#  inflation_url <- "https://raw.githubusercontent.com/tradestatistics/inflation-data/master/inflation-data.json"
+#  inflation_raw_file <- "../data-raw/ots_inflation.json"
+#  inflation_tidy_file <- "../data/ots_inflation.rda"
+#  
+#  if (!file.exists(inflation_raw_file)) { download.file(inflation_url, inflation_raw_file) }
+#  
+#  if (!file.exists(inflation_tidy_file)) {
+#    ots_inflation <- fromJSON(inflation_url)
+#    save(ots_inflation, file = inflation_tidy_file, compress = "xz")
+#  }
 

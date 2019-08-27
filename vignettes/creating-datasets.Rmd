@@ -108,7 +108,7 @@ if (!file.exists(product_shortnames_tidy_file)) {
 
 # Conversion rates
 
-```{r conversion_rates}
+```{r conversion_rates, message = FALSE, eval = FALSE}
 # Source
 # https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG
 # https://data.worldbank.org/indicator/NY.GDP.MKTP.KD

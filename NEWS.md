@@ -1,3 +1,13 @@
+# Version 0.2.3
+
+Updates
+
+* Fixtures for testthat evaluation
+
+Fixes
+
+* Specific Windows error during check
+
 # Version 0.2.2
 
 Adds

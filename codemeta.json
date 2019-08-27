@@ -10,14 +10,14 @@
   "codeRepository": "https://docs.ropensci.org/tradestatistics/",
   "issueTracker": "https://github.com/ropensci/tradestatistics/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.5.3",
+    "version": "3.6.1",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.5.3 (2019-03-11)",
+  "runtimePlatform": "R version 3.6.1 (2019-07-05)",
   "author": [
     {
       "@type": "Person",
@@ -236,7 +236,7 @@
     }
   ],
   "readme": "https://github.com/tradestatistics/tradestatistics/blob/master/README.md",
-  "fileSize": "258.377KB",
+  "fileSize": "281.717KB",
   "contIntegration": [
     "https://travis-ci.org/ropensci/tradestatistics",
     "https://codecov.io/github/ropensci/tradestatistics?branch=master"
