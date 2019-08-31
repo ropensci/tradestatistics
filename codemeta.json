@@ -236,7 +236,7 @@
     }
   ],
   "readme": "https://github.com/tradestatistics/tradestatistics/blob/master/README.md",
-  "fileSize": "281.717KB",
+  "fileSize": "285.265KB",
   "contIntegration": [
     "https://travis-ci.org/ropensci/tradestatistics",
     "https://codecov.io/github/ropensci/tradestatistics?branch=master"
