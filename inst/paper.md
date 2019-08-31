@@ -20,7 +20,7 @@ bibliography: references.bib
 Access to code and data is one of the conditions for full independent
 replication [@Peng2011], and unfortunately many Latin American Universities have
 limited or no access to @un_comtrade_2019. Is it under UN
-authorization that I started @open_trade_statistics_api_2019 with the intention
+authorization that I started @open_trade_statistics_2019 with the intention
 to lower the barrier to working with international economic trade data and
 promote a reproducibility culture.
 
@@ -54,8 +54,8 @@ R [@shiny;@shinydashboard].
 
 The author really appreciates the time spent by Amada Dobbyn, Emily Riederer,
 Jorge Cimentada, Maelle Salmon and Mark Padgham during the rOpenSci Peer Review
-process that involved changes to the DB schema, API and R package. Also Joshua 
-Kunst help was greatly appreciated during early stages of the functions that 
+process that involved changes to the DB schema, API and R package. Also Joshua
+Kunst help was greatly appreciated during early stages of the functions that
 evolved into the current `tradestatistics` package.
 
 # References
