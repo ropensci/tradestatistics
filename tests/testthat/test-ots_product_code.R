@@ -4,7 +4,7 @@ test_that("ots_country_code works properly for a partial product string matching
   test_product <- ots_product_code(productname = "fruit")
 
   expect_is(test_product, "tbl")
-  expect_output(str(test_product), "23 obs")
+  expect_output(str(test_product), "26 obs")
   expect_output(str(test_product), "5 variables")
 })
 
