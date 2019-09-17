@@ -37,10 +37,10 @@
 <link href="../ropensci.css" rel="stylesheet">
 
 <meta property="og:title" content="A table of communities codes, names and colours associated to products — ots_communities" />
-
 <meta property="og:description" content="Provides communities from The Atlas of Economic Complexity (Harvard), and those
 can be useful for grouping into broader categories than those the official HS groups." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -53,6 +53,7 @@ can be useful for grouping into broader categories than those the official HS gr
 
   gtag('config', 'UA-462421-8');
 </script>
+
   </head>
 
   <body>
@@ -70,14 +71,14 @@ can be useful for grouping into broader categories than those the official HS gr
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="../hexlogo.png" id="hexlogo" alt="rOpenSci" /></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.3</small></i></a>
+        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.4</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -110,6 +111,7 @@ can be useful for grouping into broader categories than those the official HS gr
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -121,51 +123,50 @@ can be useful for grouping into broader categories than those the official HS gr
     </div>
 
     <div class="ref-description">
-    
     <p>Provides communities from The Atlas of Economic Complexity (Harvard), and those
 can be useful for grouping into broader categories than those the official HS groups.</p>
-    
     </div>
 
     <pre class="usage"><span class='no'>ots_communities</span></pre>
-        
+
+
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 6275 observations on the following 4 variables.</p><dl class='dl-horizontal'>
+    <p>A data frame with 1222 observations on the following 4 variables.</p><dl class='dl-horizontal'>
     <dt><code>product_code</code></dt><dd><p>Code of every product (e.g. 0101)</p></dd>
     <dt><code>community_code</code></dt><dd><p>Community code (e.g. 01)</p></dd>
     <dt><code>community_name</code></dt><dd><p>Community name (e.g. Animal Products)</p></dd>
     <dt><code>community_color</code></dt><dd><p>Colour hex code (e.g. #74c0e2)</p></dd>
-  </dl>
-    
+  
+</dl>
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>ots_communities</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6,275 x 4</span><span>
+    <pre class="examples"><div class='input'><span class='no'>ots_communities</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1,222 x 4</span><span>
 #&gt;    product_code community_code community_name  community_color
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          
 #&gt; </span><span style='color: #555555;'> 1</span><span> 0101         01             Animal Products #74c0e2        
-#&gt; </span><span style='color: #555555;'> 2</span><span> 010110       01             Animal Products #74c0e2        
-#&gt; </span><span style='color: #555555;'> 3</span><span> 010190       01             Animal Products #74c0e2        
-#&gt; </span><span style='color: #555555;'> 4</span><span> 0102         01             Animal Products #74c0e2        
-#&gt; </span><span style='color: #555555;'> 5</span><span> 010210       01             Animal Products #74c0e2        
-#&gt; </span><span style='color: #555555;'> 6</span><span> 010290       01             Animal Products #74c0e2        
-#&gt; </span><span style='color: #555555;'> 7</span><span> 0103         01             Animal Products #74c0e2        
-#&gt; </span><span style='color: #555555;'> 8</span><span> 010310       01             Animal Products #74c0e2        
-#&gt; </span><span style='color: #555555;'> 9</span><span> 010391       01             Animal Products #74c0e2        
-#&gt; </span><span style='color: #555555;'>10</span><span> 010392       01             Animal Products #74c0e2        
-#&gt; </span><span style='color: #555555;'># … with 6,265 more rows</span><span></div></span></pre>
+#&gt; </span><span style='color: #555555;'> 2</span><span> 0102         01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #555555;'> 3</span><span> 0103         01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #555555;'> 4</span><span> 0104         01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #555555;'> 5</span><span> 0105         01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #555555;'> 6</span><span> 0106         01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #555555;'> 7</span><span> 0201         01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #555555;'> 8</span><span> 0202         01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #555555;'> 9</span><span> 0203         01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #555555;'>10</span><span> 0204         01             Animal Products #74c0e2        
+#&gt; </span><span style='color: #555555;'># ... with 1,212 more rows</span><span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      
       <li><a href="#format">Format</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div style="margin-top:-9px">
@@ -178,11 +179,14 @@ can be useful for grouping into broader categories than those the official HS gr
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a> & <a href="https://docs.ropensci.org/rotemplate/">rotemplate</a>.
   </p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

@@ -224,28 +224,23 @@ ots_create_tidy_data <- function(years = NULL,
     partners <- ""
   }
 
-  yrpc_grid <- expand.grid(
+  condensed_parameters <- expand.grid(
     year = years,
     reporter = reporters,
     partner = partners,
     product = products,
     stringsAsFactors = FALSE
   )
-
-  years <- purrr::as_vector(yrpc_grid$year)
-  reporters <- purrr::as_vector(yrpc_grid$reporter)
-  partners <- purrr::as_vector(yrpc_grid$partner)
-  products <- purrr::as_vector(yrpc_grid$product)
-
+  
   data <- purrr::map_df(
     .x = seq_along(years),
     ~ ots_read_from_api(
       table = table,
       max_attempts = max_attempts,
-      year = years[.x],
-      reporter = reporters[.x],
-      partner = partners[.x],
-      product_code = products[.x],
+      year = condensed_parameters$year[.x],
+      reporter = condensed_parameters$reporter[.x],
+      partner = condensed_parameters$partner[.x],
+      product_code = condensed_parameters$product[.x],
       use_localhost = use_localhost
     )
   ) %>%

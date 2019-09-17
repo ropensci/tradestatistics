@@ -193,10 +193,8 @@ This table accepts different product codes just like `yrpc`.
 
 Here some fields deserve an explanation:
 
-* `pci_4_digits_product_code`: Product Complexity Index (PCI) which is detailed on [Open Trade Statistics Documentation](https://docs.tradestatistics.io/). This index is built by using just four digits product codes.
-* `pci_6_digits_product_code`: Similar to the previous field but built by using just six digits product codes.
-* `pci_rank_4_digits_product_code`: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)
-* `pci_rank_4_digits_product_code_delta_1_year`: How many places a country increased or decreased with respect to last year
+* `pci_*_method`: Product Complexity Index (PCI) which is detailed on [Open Trade Statistics Documentation](https://docs.tradestatistics.io/).
+* `pci_rank_4_*_method`: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)
 
 ## Inflation adjustment
 

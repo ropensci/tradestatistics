@@ -13,7 +13,7 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
       years = 1962, reporters = "chl", partners = "arg", table = "yrpc"
     )
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "12 variables")
+    expect_output(str(test_data), "10 variables")
 
     # Bilateral trade Chile-Argentina at aggregated level (1962)
     test_data <- ots_create_tidy_data(
@@ -27,17 +27,17 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
       years = 1962, reporters = "chl", table = "yrc"
     )
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "16 variables")
+    expect_output(str(test_data), "10 variables")
 
     # Chilean trade at aggregated level (1962)
     test_data <- ots_create_tidy_data(years = 1962, reporters = "chl", table = "yr")
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "22 variables")
+    expect_output(str(test_data), "15 variables")
 
     # Commodity trade at aggregated level (1962)
     test_data <- ots_create_tidy_data(years = 1962, table = "yc")
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "25 variables")
+    expect_output(str(test_data), "17 variables")
   })
 })
 
