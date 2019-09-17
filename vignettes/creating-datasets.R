@@ -45,7 +45,8 @@ knitr::opts_chunk$set(
 #  if (!file.exists(products_tidy_file)) {
 #    ots_products <- fromJSON(products_raw_file) %>%
 #      as_tibble() %>%
-#      mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
+#      mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")}) %>%
+#      filter(nchar(product_code) %in% c(2,3,4))
 #    save(ots_products, file = products_tidy_file, compress = "xz")
 #  }
 
@@ -59,7 +60,8 @@ knitr::opts_chunk$set(
 #  if (!file.exists(communities_tidy_file)) {
 #    ots_communities <- fromJSON(communities_raw_file) %>%
 #      as_tibble() %>%
-#      mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
+#      mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")}) %>%
+#      filter(nchar(product_code) == 4)
 #    save(ots_communities, file = communities_tidy_file, compress = "xz")
 #  }
 

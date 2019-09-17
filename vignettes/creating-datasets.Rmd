@@ -68,7 +68,7 @@ if (!file.exists(products_tidy_file)) {
   ots_products <- fromJSON(products_raw_file) %>% 
     as_tibble() %>% 
     mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")}) %>% 
-    filter(nchar(product_code) == 4)
+    filter(nchar(product_code) %in% c(2,3,4))
   save(ots_products, file = products_tidy_file, compress = "xz")
 }
 ```
