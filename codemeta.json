@@ -10,7 +10,7 @@
   "codeRepository": "https://docs.ropensci.org/tradestatistics/",
   "issueTracker": "https://github.com/ropensci/tradestatistics/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
