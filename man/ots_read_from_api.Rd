@@ -5,8 +5,8 @@
 \title{Reads data from the API (internal function)}
 \usage{
 ots_read_from_api(year = NULL, reporter = NULL, partner = NULL,
-  product_code = "all", product_code_length = 4, table = "yrpc",
-  max_attempts = 5, use_localhost = FALSE)
+  product_code = "all", table = "yrpc", max_attempts = 5,
+  use_localhost = FALSE)
 }
 \arguments{
 \item{year}{Year contained within the years specified in
@@ -19,9 +19,6 @@ Default set to \code{NULL}.}
 
 \item{product_code}{HS code (e.g. \code{0101} or \code{01}) to filter products.
 Default set to \code{"all"}.}
-
-\item{product_code_length}{Integer to indicate the granularity level on products.
-Default set to \code{4}.}
 
 \item{table}{Character string to select the table to obtain the data. Default set to \code{yrpc}
 (Year - Reporter - Partner - product).}

@@ -11,7 +11,7 @@ obtained from the API.
 }
 \usage{ots_products}
 \format{
-  A data frame with 6373 observations on the following 4 variables.
+  A data frame with 1222 observations on the following 4 variables.
   \describe{
     \item{\code{product_code}}{Code of every product (e.g. 0101)}
     \item{\code{product_fullname_english}}{HS product names (e.g. 'Horses, asses, mules and hinnies; live')}

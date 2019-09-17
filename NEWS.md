@@ -1,3 +1,11 @@
+# Version 0.2.4
+
+Updates
+
+* Removes `product_code_length`
+* The API was updated with simplified
+parameters and 2018 data
+
 # Version 0.2.3
 
 Updates
