@@ -37,13 +37,13 @@
 <link href="../ropensci.css" rel="stylesheet">
 
 <meta property="og:title" content="A table of official country names, ISO-3 codes and other metadata — ots_countries" />
-
 <meta property="og:description" content="Provides official codes taken from the United Nations official sources.
 This data is used by the functions provided within this package to validate
 user parameters and add both product and country text columns to the data,
 therefore reducing the number of API calls and the time to generate the
 requested data." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -56,6 +56,7 @@ requested data." />
 
   gtag('config', 'UA-462421-8');
 </script>
+
   </head>
 
   <body>
@@ -73,14 +74,14 @@ requested data." />
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="../hexlogo.png" id="hexlogo" alt="rOpenSci" /></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.3</small></i></a>
+        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.4</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -113,6 +114,7 @@ requested data." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -124,17 +126,16 @@ requested data." />
     </div>
 
     <div class="ref-description">
-    
     <p>Provides official codes taken from the United Nations official sources.
 This data is used by the functions provided within this package to validate
 user parameters and add both product and country text columns to the data,
 therefore reducing the number of API calls and the time to generate the
 requested data.</p>
-    
     </div>
 
     <pre class="usage"><span class='no'>ots_countries</span></pre>
-        
+
+
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
     <p>A data frame with 249 observations on the following 6 variables.</p><dl class='dl-horizontal'>
@@ -144,12 +145,13 @@ requested data.</p>
     <dt><code>continent_id</code></dt><dd><p>Numeric id of the continent where the country belongs to</p></dd>
     <dt><code>continent</code></dt><dd><p>Continent where the country belongs to</p></dd>
     <dt><code>eu28_member</code></dt><dd><p>Dummy variable such that 1 means "belongs to EU-28 group" and 0 otherwise</p></dd>
-\  </dl>
-    
+\  
+</dl>
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>ots_countries</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 249 x 6</span><span>
-#&gt;    country_iso country_name_en… country_fullnam… continent_id continent
+#&gt;    country_iso country_name_en~ country_fullnam~ continent_id continent
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                   </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    
 #&gt; </span><span style='color: #555555;'> 1</span><span> afg         Afghanistan      Afghanistan                 1 Asia     
 #&gt; </span><span style='color: #555555;'> 2</span><span> alb         Albania          Albania                     2 Europe   
@@ -158,22 +160,21 @@ requested data.</p>
 #&gt; </span><span style='color: #555555;'> 5</span><span> and         Andorra          Andorra                     2 Europe   
 #&gt; </span><span style='color: #555555;'> 6</span><span> ago         Angola           Angola                      3 Africa   
 #&gt; </span><span style='color: #555555;'> 7</span><span> aia         Anguilla         Anguilla                    5 Americas 
-#&gt; </span><span style='color: #555555;'> 8</span><span> atg         Antigua and Bar… Antigua and Bar…            5 Americas 
+#&gt; </span><span style='color: #555555;'> 8</span><span> atg         Antigua and Bar~ Antigua and Bar~            5 Americas 
 #&gt; </span><span style='color: #555555;'> 9</span><span> arg         Argentina        Argentina                   5 Americas 
 #&gt; </span><span style='color: #555555;'>10</span><span> arm         Armenia          Armenia                     1 Asia     
-#&gt; </span><span style='color: #555555;'># … with 239 more rows, and 1 more variable: eu28_member </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span></div></span></pre>
+#&gt; </span><span style='color: #555555;'># ... with 239 more rows, and 1 more variable: eu28_member </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      
       <li><a href="#format">Format</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div style="margin-top:-9px">
@@ -186,11 +187,14 @@ requested data.</p>
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a> & <a href="https://docs.ropensci.org/rotemplate/">rotemplate</a>.
   </p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

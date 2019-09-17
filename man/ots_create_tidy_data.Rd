@@ -5,9 +5,9 @@
 \title{Downloads and processes the data from the API to return a human-readable tibble}
 \usage{
 ots_create_tidy_data(years = NULL, reporters = NULL, partners = NULL,
-  products = "all", product_code_length = 4, table = "yrpc",
-  max_attempts = 5, include_shortnames = FALSE,
-  include_communities = FALSE, use_localhost = FALSE)
+  products = "all", table = "yrpc", max_attempts = 5,
+  include_shortnames = FALSE, include_communities = FALSE,
+  use_localhost = FALSE)
 }
 \arguments{
 \item{years}{Year contained within the years specified in
@@ -22,10 +22,6 @@ Default set to \code{NULL}.}
 
 \item{products}{HS codes (e.g. \code{"0101"}, \code{"01"} or search matches for \code{"apple"})
 to filter products. Default set to \code{"all"}.}
-
-\item{product_code_length}{Character string to indicate the granularity level on products
-Default set to \code{4} (it can also take the values \code{6} or
-\code{all}).}
 
 \item{table}{Character string to select the table to obtain the data.
 Default set to \code{yrpc} (Year - Reporter - Partner - Product Code).

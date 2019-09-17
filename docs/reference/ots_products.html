@@ -39,12 +39,12 @@ and corresponding groups — ots_products • tradestatistics</title>
 
 <meta property="og:title" content="A table of official product names, Harmonized System (HS) codes
 and corresponding groups — ots_products" />
-
 <meta property="og:description" content="Provides official codes taken from the United Nations official sources.
 This data is provided as a reference as it's not used by the functions
 provided within this package, but it can be useful to subset the data
 obtained from the API." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -57,6 +57,7 @@ obtained from the API." />
 
   gtag('config', 'UA-462421-8');
 </script>
+
   </head>
 
   <body>
@@ -74,14 +75,14 @@ obtained from the API." />
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="../hexlogo.png" id="hexlogo" alt="rOpenSci" /></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.3</small></i></a>
+        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.4</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -114,6 +115,7 @@ obtained from the API." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -126,53 +128,52 @@ and corresponding groups</h1>
     </div>
 
     <div class="ref-description">
-    
     <p>Provides official codes taken from the United Nations official sources.
 This data is provided as a reference as it's not used by the functions
 provided within this package, but it can be useful to subset the data
 obtained from the API.</p>
-    
     </div>
 
     <pre class="usage"><span class='no'>ots_products</span></pre>
-        
+
+
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 6373 observations on the following 4 variables.</p><dl class='dl-horizontal'>
+    <p>A data frame with 1222 observations on the following 4 variables.</p><dl class='dl-horizontal'>
     <dt><code>product_code</code></dt><dd><p>Code of every product (e.g. 0101)</p></dd>
     <dt><code>product_fullname_english</code></dt><dd><p>HS product names (e.g. 'Horses, asses, mules and hinnies; live')</p></dd>
     <dt><code>group_code</code></dt><dd><p>HS group code (e.g. 01)</p></dd>
     <dt><code>group_name</code></dt><dd><p>HS group name (e.g. 'Animals; live')</p></dd>
-  </dl>
-    
+  
+</dl>
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>ots_products</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6,373 x 4</span><span>
-#&gt;    product_code product_fullname_english                  group_code group_name 
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                                     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      
-#&gt; </span><span style='color: #555555;'> 1</span><span> 0101         Horses, asses, mules and hinnies; live    01         Animals; l…
-#&gt; </span><span style='color: #555555;'> 2</span><span> 010110       Horses, asses, mules and hinnies; live, … 01         Animals; l…
-#&gt; </span><span style='color: #555555;'> 3</span><span> 010190       Horses, asses, mules and hinnies; live, … 01         Animals; l…
-#&gt; </span><span style='color: #555555;'> 4</span><span> 0102         Bovine animals; live                      01         Animals; l…
-#&gt; </span><span style='color: #555555;'> 5</span><span> 010210       Bovine animals; live, pure-bred breeding… 01         Animals; l…
-#&gt; </span><span style='color: #555555;'> 6</span><span> 010290       Bovine animals; live, other than pure-br… 01         Animals; l…
-#&gt; </span><span style='color: #555555;'> 7</span><span> 0103         Swine; live                               01         Animals; l…
-#&gt; </span><span style='color: #555555;'> 8</span><span> 010310       Swine; live, pure-bred breeding animals   01         Animals; l…
-#&gt; </span><span style='color: #555555;'> 9</span><span> 010391       Swine; live, (other than pure-bred breed… 01         Animals; l…
-#&gt; </span><span style='color: #555555;'>10</span><span> 010392       Swine; live, (other than pure-bred breed… 01         Animals; l…
-#&gt; </span><span style='color: #555555;'># … with 6,363 more rows</span><span></div></span></pre>
+    <pre class="examples"><div class='input'><span class='no'>ots_products</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1,222 x 4</span><span>
+#&gt;    product_code product_fullname_english              group_code group_name     
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                                 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          
+#&gt; </span><span style='color: #555555;'> 1</span><span> 0101         Horses, asses, mules and hinnies; li~ 01         Animals; live  
+#&gt; </span><span style='color: #555555;'> 2</span><span> 0102         Bovine animals; live                  01         Animals; live  
+#&gt; </span><span style='color: #555555;'> 3</span><span> 0103         Swine; live                           01         Animals; live  
+#&gt; </span><span style='color: #555555;'> 4</span><span> 0104         Sheep and goats; live                 01         Animals; live  
+#&gt; </span><span style='color: #555555;'> 5</span><span> 0105         Poultry; live, fowls of the species ~ 01         Animals; live  
+#&gt; </span><span style='color: #555555;'> 6</span><span> 0106         Animals, n.e.c. in chapter 01; live   01         Animals; live  
+#&gt; </span><span style='color: #555555;'> 7</span><span> 0201         Meat of bovine animals; fresh or chi~ 02         Meat and edibl~
+#&gt; </span><span style='color: #555555;'> 8</span><span> 0202         Meat of bovine animals; frozen        02         Meat and edibl~
+#&gt; </span><span style='color: #555555;'> 9</span><span> 0203         Meat of swine; fresh, chilled or fro~ 02         Meat and edibl~
+#&gt; </span><span style='color: #555555;'>10</span><span> 0204         Meat of sheep or goats; fresh, chill~ 02         Meat and edibl~
+#&gt; </span><span style='color: #555555;'># ... with 1,212 more rows</span><span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      
       <li><a href="#format">Format</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div style="margin-top:-9px">
@@ -185,11 +186,14 @@ obtained from the API.</p>
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a> & <a href="https://docs.ropensci.org/rotemplate/">rotemplate</a>.
   </p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

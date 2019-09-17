@@ -10,9 +10,6 @@
 #' \code{c("chl", "Peru")}). Default set to \code{NULL}.
 #' @param products HS codes (e.g. \code{"0101"}, \code{"01"} or search matches for \code{"apple"})
 #' to filter products. Default set to \code{"all"}.
-#' @param product_code_length Character string to indicate the granularity level on products
-#' Default set to \code{4} (it can also take the values \code{6} or
-#' \code{all}).
 #' @param table Character string to select the table to obtain the data.
 #' Default set to \code{yrpc} (Year - Reporter - Partner - Product Code).
 #' Run \code{ots_tables} in case of doubt.
@@ -61,7 +58,6 @@ ots_create_tidy_data <- function(years = NULL,
                                  reporters = NULL,
                                  partners = NULL,
                                  products = "all",
-                                 product_code_length = 4,
                                  table = "yrpc",
                                  max_attempts = 5,
                                  include_shortnames = FALSE,
@@ -228,33 +224,26 @@ ots_create_tidy_data <- function(years = NULL,
     partners <- ""
   }
 
-  yrpc_grid <- expand.grid(
+  condensed_parameters <- expand.grid(
     year = years,
     reporter = reporters,
     partner = partners,
     product = products,
     stringsAsFactors = FALSE
   )
-
-  years <- purrr::as_vector(yrpc_grid$year)
-  reporters <- purrr::as_vector(yrpc_grid$reporter)
-  partners <- purrr::as_vector(yrpc_grid$partner)
-  products <- purrr::as_vector(yrpc_grid$product)
-
+  
   data <- purrr::map_df(
     .x = seq_along(years),
     ~ ots_read_from_api(
       table = table,
       max_attempts = max_attempts,
-      year = years[.x],
-      reporter = reporters[.x],
-      partner = partners[.x],
-      product_code = products[.x],
-      product_code_length = product_code_length,
+      year = condensed_parameters$year[.x],
+      reporter = condensed_parameters$reporter[.x],
+      partner = condensed_parameters$partner[.x],
+      product_code = condensed_parameters$product[.x],
       use_localhost = use_localhost
     )
   ) %>%
-    dplyr::filter(!is.na(product_code_length)) %>%
     dplyr::as_tibble()
 
   # no data in API message
@@ -358,7 +347,6 @@ ots_create_tidy_data <- function(years = NULL,
             "reporter_fullname_english",
             "partner_fullname_english",
             "product_code",
-            "product_code_length",
             "product_fullname_english",
             "group_code",
             "group_name"
@@ -375,7 +363,6 @@ ots_create_tidy_data <- function(years = NULL,
             "reporter_iso",
             "reporter_fullname_english",
             "product_code",
-            "product_code_length",
             "product_fullname_english",
             "group_code",
             "group_name"
@@ -390,7 +377,6 @@ ots_create_tidy_data <- function(years = NULL,
           !!!rlang::syms(c(
             "year",
             "product_code",
-            "product_code_length",
             "product_fullname_english",
             "group_code",
             "group_name"

@@ -8,7 +8,7 @@ can be useful for grouping into broader categories than those the official HS gr
 }
 \usage{ots_communities}
 \format{
-  A data frame with 6275 observations on the following 4 variables.
+  A data frame with 1222 observations on the following 4 variables.
   \describe{
     \item{\code{product_code}}{Code of every product (e.g. 0101)}
     \item{\code{community_code}}{Community code (e.g. 01)}

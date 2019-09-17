@@ -8,8 +8,6 @@
 #' @param partner ISO code for partner country (e.g. \code{"chl"}). Default set to \code{NULL}.
 #' @param product_code HS code (e.g. \code{0101} or \code{01}) to filter products.
 #' Default set to \code{"all"}.
-#' @param product_code_length Integer to indicate the granularity level on products.
-#' Default set to \code{4}.
 #' @param table Character string to select the table to obtain the data. Default set to \code{yrpc}
 #' (Year - Reporter - Partner - product).
 #' @param max_attempts Number of attempts to retry in case of data retrieving failure.
@@ -42,7 +40,6 @@ ots_read_from_api <- function(year = NULL,
                               reporter = NULL,
                               partner = NULL,
                               product_code = "all",
-                              product_code_length = 4,
                               table = "yrpc",
                               max_attempts = 5,
                               use_localhost = FALSE) {
@@ -56,18 +53,18 @@ ots_read_from_api <- function(year = NULL,
     "country_rankings" = sprintf("country_rankings?y=%s", year),
     "product_rankings" = sprintf("product_rankings?y=%s", year),
     "yrpc" = sprintf(
-      "yrpc?y=%s&r=%s&p=%s&c=%s&l=%s",
-      year, reporter, partner, product_code, product_code_length
+      "yrpc?y=%s&r=%s&p=%s&c=%s",
+      year, reporter, partner, product_code
     ),
     "yrp" = sprintf("yrp?y=%s&r=%s&p=%s", year, reporter, partner),
     "yrp_short" = sprintf("yrp_short?y=%s&r=%s&p=%s", year, reporter, partner),
     "yrc" = sprintf(
-      "yrc?y=%s&r=%s&c=%s&l=%s",
-      year, reporter, product_code, product_code_length
+      "yrc?y=%s&r=%s&c=%s",
+      year, reporter, product_code
     ),
     "yr" = sprintf("yr?y=%s&r=%s", year, reporter),
     "yr_short" = sprintf("yr_short?y=%s&r=%s", year, reporter),
-    "yc" = sprintf("yc?y=%s&c=%s&l=%s", year, product_code, product_code_length)
+    "yc" = sprintf("yc?y=%s&c=%s", year, product_code)
   )
 
   if (use_localhost == TRUE) {
@@ -114,7 +111,7 @@ ots_read_from_api <- function(year = NULL,
     # otherwise, sleep a second and try again
     Sys.sleep(1)
     ots_read_from_api(
-      year, reporter, partner, product_code_length, table,
+      year, reporter, partner, table,
       max_attempts = max_attempts - 1
     )
   }

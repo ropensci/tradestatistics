@@ -1,0 +1,406 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/countries/
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.0 crul/0.8.4
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '404'
+      message: Not Found
+      explanation: Nothing matches the given URI
+    headers:
+      status: HTTP/1.1 404 Not Found
+      server: nginx/1.14.0 (Ubuntu)
+      date: Tue, 17 Sep 2019 13:15:57 GMT
+      content-type: application/json
+      content-length: '38'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"error":["404 - Resource Not Found"]}'
+  recorded_at: 2019-09-17 13:15:33 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/year_range
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.0 crul/0.8.4
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Tue, 17 Sep 2019 13:15:58 GMT
+      content-type: application/json
+      content-length: '29'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '[{"year":1962},{"year":2018}]'
+  recorded_at: 2019-09-17 13:15:33 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1962&r=chl&p=arg&c=0105
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.0 crul/0.8.4
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Tue, 17 Sep 2019 13:15:59 GMT
+      content-type: application/json
+      content-length: '102'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '[{"year":1962,"reporter_iso":"chl","partner_iso":"arg","product_code":"0105","import_value_usd":2399}]'
+  recorded_at: 2019-09-17 13:15:33 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/year_range
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.0 crul/0.8.4
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Tue, 17 Sep 2019 13:15:59 GMT
+      content-type: application/json
+      content-length: '29'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '[{"year":1962},{"year":2018}]'
+  recorded_at: 2019-09-17 13:15:33 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/year_range
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.0 crul/0.8.4
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Tue, 17 Sep 2019 13:15:59 GMT
+      content-type: application/json
+      content-length: '29'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '[{"year":1962},{"year":2018}]'
+  recorded_at: 2019-09-17 13:15:33 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrp?y=1962&r=chl&p=arg
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.0 crul/0.8.4
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Tue, 17 Sep 2019 13:16:00 GMT
+      content-type: application/json
+      content-length: '112'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '[{"year":1962,"reporter_iso":"chl","partner_iso":"arg","export_value_usd":19623383,"import_value_usd":43465841}]'
+  recorded_at: 2019-09-17 13:15:33 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/year_range
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.0 crul/0.8.4
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Tue, 17 Sep 2019 13:16:00 GMT
+      content-type: application/json
+      content-length: '29'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '[{"year":1962},{"year":2018}]'
+  recorded_at: 2019-09-17 13:15:33 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/year_range
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.0 crul/0.8.4
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Tue, 17 Sep 2019 13:16:00 GMT
+      content-type: application/json
+      content-length: '29'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '[{"year":1962},{"year":2018}]'
+  recorded_at: 2019-09-17 13:15:33 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrc?y=1962&r=chl&c=0105
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.0 crul/0.8.4
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Tue, 17 Sep 2019 13:16:01 GMT
+      content-type: application/json
+      content-length: '125'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '[{"year":1962,"reporter_iso":"chl","product_code":"0105","export_value_usd":0,"import_value_usd":132064,"import_rca":1.1648}]'
+  recorded_at: 2019-09-17 13:15:34 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/year_range
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.0 crul/0.8.4
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Tue, 17 Sep 2019 13:16:01 GMT
+      content-type: application/json
+      content-length: '29'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '[{"year":1962},{"year":2018}]'
+  recorded_at: 2019-09-17 13:15:34 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/year_range
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.0 crul/0.8.4
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Tue, 17 Sep 2019 13:16:01 GMT
+      content-type: application/json
+      content-length: '29'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '[{"year":1962},{"year":2018}]'
+  recorded_at: 2019-09-17 13:15:34 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yr?y=1962&r=chl
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.0 crul/0.8.4
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Tue, 17 Sep 2019 13:16:02 GMT
+      content-type: application/json
+      content-length: '424'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '[{"year":1962,"reporter_iso":"chl","export_value_usd":633574770,"import_value_usd":695158161,"eci_fitness_method":0.0322,"eci_rank_fitness_method":35,"eci_reflections_method":0.3006,"eci_rank_reflections_method":32,"eci_eigenvalues_method":0.3009,"eci_rank_eigenvalues_method":32,"top_export_product_code":"7402","top_export_trade_value_usd":389147061,"top_import_product_code":"9999","top_import_trade_value_usd":37329741}]'
+  recorded_at: 2019-09-17 13:15:34 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/year_range
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.0 crul/0.8.4
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Tue, 17 Sep 2019 13:16:02 GMT
+      content-type: application/json
+      content-length: '29'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '[{"year":1962},{"year":2018}]'
+  recorded_at: 2019-09-17 13:15:34 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/year_range
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.0 crul/0.8.4
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Tue, 17 Sep 2019 13:16:03 GMT
+      content-type: application/json
+      content-length: '29'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '[{"year":1962},{"year":2018}]'
+  recorded_at: 2019-09-17 13:15:34 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yc?y=1962&c=0105
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.0 crul/0.8.4
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Tue, 17 Sep 2019 13:16:03 GMT
+      content-type: application/json
+      content-length: '413'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      string: '[{"year":1962,"product_code":"0105","export_value_usd":21850941,"import_value_usd":21850941,"pci_fitness_method":0.0022,"pci_rank_fitness_method":401,"pci_reflections_method":-0.6174,"pci_rank_reflections_method":392,"pci_eigenvalues_method":-0.6175,"pci_rank_eigenvalues_method":392,"top_exporter_iso":"usa","top_exporter_trade_value_usd":7312941,"top_importer_iso":"hkg","top_importer_trade_value_usd":4196782}]'
+  recorded_at: 2019-09-17 13:15:34 GMT
+  recorded_with: vcr/0.3.0, webmockr/0.4.0
