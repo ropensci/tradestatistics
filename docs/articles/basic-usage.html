@@ -161,7 +161,7 @@
 <a href="#product-codes-and-communities" class="anchor"></a>Product codes and communities</h2>
 <p>The Package Functions section explains that you don’t need to memorize all HS codes. The functions within this package are designed to match strings (i.e. “apple”) to valid HS codes (i.e. “0808”).</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">ots_products</a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="co">#&gt; # A tibble: 1,222 x 4</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="co">#&gt; # A tibble: 1,320 x 4</span></a>
 <a class="sourceLine" id="cb3-3" title="3"><span class="co">#&gt;    product_code product_fullname_english          group_code group_name    </span></a>
 <a class="sourceLine" id="cb3-4" title="4"><span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;                             &lt;chr&gt;      &lt;chr&gt;         </span></a>
 <a class="sourceLine" id="cb3-5" title="5"><span class="co">#&gt;  1 0101         Horses, asses, mules and hinnies~ 01         Animals; live </span></a>
@@ -174,7 +174,7 @@
 <a class="sourceLine" id="cb3-12" title="12"><span class="co">#&gt;  8 0202         Meat of bovine animals; frozen    02         Meat and edib~</span></a>
 <a class="sourceLine" id="cb3-13" title="13"><span class="co">#&gt;  9 0203         Meat of swine; fresh, chilled or~ 02         Meat and edib~</span></a>
 <a class="sourceLine" id="cb3-14" title="14"><span class="co">#&gt; 10 0204         Meat of sheep or goats; fresh, c~ 02         Meat and edib~</span></a>
-<a class="sourceLine" id="cb3-15" title="15"><span class="co">#&gt; # ... with 1,212 more rows</span></a>
+<a class="sourceLine" id="cb3-15" title="15"><span class="co">#&gt; # ... with 1,310 more rows</span></a>
 <a class="sourceLine" id="cb3-16" title="16">ots_product_shortnames</a>
 <a class="sourceLine" id="cb3-17" title="17"><span class="co">#&gt; # A tibble: 1,222 x 2</span></a>
 <a class="sourceLine" id="cb3-18" title="18"><span class="co">#&gt;    product_code product_shortname_english</span></a>
@@ -309,7 +309,7 @@
 <a href="#product-code" class="anchor"></a>Product code</h2>
 <p>The end user can use this function to find a product code by providing a product name. This works by implementing partial string matching:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw"><a href="../reference/ots_product_code.html">ots_product_code</a></span>(<span class="st">"wine"</span>)</a>
-<a class="sourceLine" id="cb6-2" title="2"><span class="co">#&gt; # A tibble: 11 x 5</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="co">#&gt; # A tibble: 12 x 5</span></a>
 <a class="sourceLine" id="cb6-3" title="3"><span class="co">#&gt;    product_code product_fullname_en~ group_code group_name     type_product</span></a>
 <a class="sourceLine" id="cb6-4" title="4"><span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;                &lt;chr&gt;      &lt;chr&gt;          &lt;chr&gt;       </span></a>
 <a class="sourceLine" id="cb6-5" title="5"><span class="co">#&gt;  1 0103         Swine; live          01         Animals; live  wine        </span></a>
@@ -322,7 +322,8 @@
 <a class="sourceLine" id="cb6-12" title="12"><span class="co">#&gt;  8 5608         Twine, cordage or r~ 56         Wadding, felt~ wine        </span></a>
 <a class="sourceLine" id="cb6-13" title="13"><span class="co">#&gt;  9 5609         Articles of yarn, s~ 56         Wadding, felt~ wine        </span></a>
 <a class="sourceLine" id="cb6-14" title="14"><span class="co">#&gt; 10 6310         Rags; used or new, ~ 63         Textiles, mad~ wine        </span></a>
-<a class="sourceLine" id="cb6-15" title="15"><span class="co">#&gt; 11 8435         Presses, crushers a~ 84         Nuclear react~ wine</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-15" title="15"><span class="co">#&gt; 11 8435         Presses, crushers a~ 84         Nuclear react~ wine        </span></a>
+<a class="sourceLine" id="cb6-16" title="16"><span class="co">#&gt; 12 56           Alias for all codes~ &lt;NA&gt;       &lt;NA&gt;           wine</span></a></code></pre></div>
 </div>
 <div id="trade-data" class="section level2">
 <h2 class="hasAnchor">
@@ -333,28 +334,45 @@
 <a href="#bilateral-trade-at-product-level-year---reporter---partner---product-code" class="anchor"></a>Bilateral trade at product level (Year - Reporter - Partner - Product Code)</h3>
 <p>If we want Chile-Argentina bilateral trade at product level in 1962:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="dv">1962</span>, <span class="dt">reporters =</span> <span class="st">"chl"</span>, <span class="dt">partners =</span> <span class="st">"arg"</span>)</a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="co">#&gt; # A tibble: 1 x 10</span></a>
-<a class="sourceLine" id="cb7-3" title="3"><span class="co">#&gt;    year reporter_iso partner_iso reporter_fullna~ partner_fullnam~</span></a>
-<a class="sourceLine" id="cb7-4" title="4"><span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;           </span></a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="co">#&gt; 1  1962 chl          arg         Chile            Argentina       </span></a>
-<a class="sourceLine" id="cb7-6" title="6"><span class="co">#&gt; # ... with 5 more variables: product_code &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb7-7" title="7"><span class="co">#&gt; #   product_fullname_english &lt;chr&gt;, group_code &lt;chr&gt;, group_name &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb7-8" title="8"><span class="co">#&gt; #   import_value_usd &lt;int&gt;</span></a>
-<a class="sourceLine" id="cb7-9" title="9"></a>
-<a class="sourceLine" id="cb7-10" title="10"><span class="co"># the same can be obtained specifying yrpc which is the default table</span></a>
-<a class="sourceLine" id="cb7-11" title="11"><span class="co"># ots_create_tidy_data(years = 1962, reporters = "chl", partners = "arg", table = "yrpc")</span></a></code></pre></div>
+<a class="sourceLine" id="cb7-2" title="2"><span class="co">#&gt; # A tibble: 194 x 11</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="co">#&gt;     year reporter_iso partner_iso reporter_fullna~ partner_fullnam~</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;           </span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="co">#&gt;  1  1962 chl          arg         Chile            Argentina       </span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="co">#&gt;  2  1962 chl          arg         Chile            Argentina       </span></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="co">#&gt;  3  1962 chl          arg         Chile            Argentina       </span></a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="co">#&gt;  4  1962 chl          arg         Chile            Argentina       </span></a>
+<a class="sourceLine" id="cb7-9" title="9"><span class="co">#&gt;  5  1962 chl          arg         Chile            Argentina       </span></a>
+<a class="sourceLine" id="cb7-10" title="10"><span class="co">#&gt;  6  1962 chl          arg         Chile            Argentina       </span></a>
+<a class="sourceLine" id="cb7-11" title="11"><span class="co">#&gt;  7  1962 chl          arg         Chile            Argentina       </span></a>
+<a class="sourceLine" id="cb7-12" title="12"><span class="co">#&gt;  8  1962 chl          arg         Chile            Argentina       </span></a>
+<a class="sourceLine" id="cb7-13" title="13"><span class="co">#&gt;  9  1962 chl          arg         Chile            Argentina       </span></a>
+<a class="sourceLine" id="cb7-14" title="14"><span class="co">#&gt; 10  1962 chl          arg         Chile            Argentina       </span></a>
+<a class="sourceLine" id="cb7-15" title="15"><span class="co">#&gt; # ... with 184 more rows, and 6 more variables: product_code &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb7-16" title="16"><span class="co">#&gt; #   product_fullname_english &lt;chr&gt;, group_code &lt;chr&gt;, group_name &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb7-17" title="17"><span class="co">#&gt; #   import_value_usd &lt;int&gt;, export_value_usd &lt;int&gt;</span></a>
+<a class="sourceLine" id="cb7-18" title="18"></a>
+<a class="sourceLine" id="cb7-19" title="19"><span class="co"># the same can be obtained specifying yrpc which is the default table</span></a>
+<a class="sourceLine" id="cb7-20" title="20"><span class="co"># ots_create_tidy_data(years = 1962, reporters = "chl", partners = "arg", table = "yrpc")</span></a></code></pre></div>
 <p>We can pass more than one year and or reporter/partner:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co"># Note that here I'm passing Peru and not per which is the ISO code for Peru</span></a>
 <a class="sourceLine" id="cb8-2" title="2"><span class="co"># The same applies to Brazil</span></a>
 <a class="sourceLine" id="cb8-3" title="3"><span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1962</span>,<span class="dv">1963</span>), <span class="dt">reporters =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"chl"</span>, <span class="st">"Peru"</span>, <span class="st">"bol"</span>), <span class="dt">partners =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"arg"</span>, <span class="st">"Brazil"</span>))</a>
-<a class="sourceLine" id="cb8-4" title="4"><span class="co">#&gt; # A tibble: 2 x 10</span></a>
-<a class="sourceLine" id="cb8-5" title="5"><span class="co">#&gt;    year reporter_iso partner_iso reporter_fullna~ partner_fullnam~</span></a>
-<a class="sourceLine" id="cb8-6" title="6"><span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;           </span></a>
-<a class="sourceLine" id="cb8-7" title="7"><span class="co">#&gt; 1  1962 chl          arg         Chile            Argentina       </span></a>
-<a class="sourceLine" id="cb8-8" title="8"><span class="co">#&gt; 2  1963 chl          arg         Chile            Argentina       </span></a>
-<a class="sourceLine" id="cb8-9" title="9"><span class="co">#&gt; # ... with 5 more variables: product_code &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb8-10" title="10"><span class="co">#&gt; #   product_fullname_english &lt;chr&gt;, group_code &lt;chr&gt;, group_name &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb8-11" title="11"><span class="co">#&gt; #   import_value_usd &lt;int&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb8-4" title="4"><span class="co">#&gt; # A tibble: 423 x 11</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="co">#&gt;     year reporter_iso partner_iso reporter_fullna~ partner_fullnam~</span></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;           </span></a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="co">#&gt;  1  1962 chl          arg         Chile            Argentina       </span></a>
+<a class="sourceLine" id="cb8-8" title="8"><span class="co">#&gt;  2  1962 chl          arg         Chile            Argentina       </span></a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="co">#&gt;  3  1962 chl          arg         Chile            Argentina       </span></a>
+<a class="sourceLine" id="cb8-10" title="10"><span class="co">#&gt;  4  1962 chl          arg         Chile            Argentina       </span></a>
+<a class="sourceLine" id="cb8-11" title="11"><span class="co">#&gt;  5  1962 chl          arg         Chile            Argentina       </span></a>
+<a class="sourceLine" id="cb8-12" title="12"><span class="co">#&gt;  6  1962 chl          arg         Chile            Argentina       </span></a>
+<a class="sourceLine" id="cb8-13" title="13"><span class="co">#&gt;  7  1962 chl          arg         Chile            Argentina       </span></a>
+<a class="sourceLine" id="cb8-14" title="14"><span class="co">#&gt;  8  1962 chl          arg         Chile            Argentina       </span></a>
+<a class="sourceLine" id="cb8-15" title="15"><span class="co">#&gt;  9  1962 chl          arg         Chile            Argentina       </span></a>
+<a class="sourceLine" id="cb8-16" title="16"><span class="co">#&gt; 10  1962 chl          arg         Chile            Argentina       </span></a>
+<a class="sourceLine" id="cb8-17" title="17"><span class="co">#&gt; # ... with 413 more rows, and 6 more variables: product_code &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb8-18" title="18"><span class="co">#&gt; #   product_fullname_english &lt;chr&gt;, group_code &lt;chr&gt;, group_name &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb8-19" title="19"><span class="co">#&gt; #   import_value_usd &lt;int&gt;, export_value_usd &lt;int&gt;</span></a></code></pre></div>
 <p>If we want filtering by product, there are different options:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="co"># Pass a specific HS code</span></a>
 <a class="sourceLine" id="cb9-2" title="2"><span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1962</span>,<span class="dv">1963</span>), <span class="dt">reporters =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"chl"</span>, <span class="st">"Peru"</span>, <span class="st">"bol"</span>), <span class="dt">partners =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"arg"</span>, <span class="st">"bra"</span>), <span class="dt">products =</span> <span class="st">"0101"</span>)</a>
@@ -427,12 +445,22 @@
 <a href="#reporter-trade-at-product-level-year---reporter---product-code" class="anchor"></a>Reporter trade at product level (Year - Reporter - Product Code)</h3>
 <p>If we want Chilean trade at product level in 1962:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="dv">1962</span>, <span class="dt">reporters =</span> <span class="st">"chl"</span>, <span class="dt">table =</span> <span class="st">"yrc"</span>)</a>
-<a class="sourceLine" id="cb12-2" title="2"><span class="co">#&gt; # A tibble: 1 x 10</span></a>
-<a class="sourceLine" id="cb12-3" title="3"><span class="co">#&gt;    year reporter_iso reporter_fullna~ product_code product_fullnam~</span></a>
-<a class="sourceLine" id="cb12-4" title="4"><span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;        &lt;chr&gt;           </span></a>
-<a class="sourceLine" id="cb12-5" title="5"><span class="co">#&gt; 1  1962 chl          Chile            0105         Poultry; live, ~</span></a>
-<a class="sourceLine" id="cb12-6" title="6"><span class="co">#&gt; # ... with 5 more variables: group_code &lt;chr&gt;, group_name &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb12-7" title="7"><span class="co">#&gt; #   export_value_usd &lt;int&gt;, import_value_usd &lt;int&gt;, import_rca &lt;dbl&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb12-2" title="2"><span class="co">#&gt; # A tibble: 512 x 11</span></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="co">#&gt;     year reporter_iso reporter_fullna~ product_code product_fullnam~</span></a>
+<a class="sourceLine" id="cb12-4" title="4"><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;        &lt;chr&gt;           </span></a>
+<a class="sourceLine" id="cb12-5" title="5"><span class="co">#&gt;  1  1962 chl          Chile            9999         Commodities not~</span></a>
+<a class="sourceLine" id="cb12-6" title="6"><span class="co">#&gt;  2  1962 chl          Chile            9701         Paintings, draw~</span></a>
+<a class="sourceLine" id="cb12-7" title="7"><span class="co">#&gt;  3  1962 chl          Chile            9616         Scent sprays an~</span></a>
+<a class="sourceLine" id="cb12-8" title="8"><span class="co">#&gt;  4  1962 chl          Chile            9608         Pens; ball-poin~</span></a>
+<a class="sourceLine" id="cb12-9" title="9"><span class="co">#&gt;  5  1962 chl          Chile            9601         Ivory, bone, to~</span></a>
+<a class="sourceLine" id="cb12-10" title="10"><span class="co">#&gt;  6  1962 chl          Chile            9508         Roundabouts, sw~</span></a>
+<a class="sourceLine" id="cb12-11" title="11"><span class="co">#&gt;  7  1962 chl          Chile            9507         Fishing rods, f~</span></a>
+<a class="sourceLine" id="cb12-12" title="12"><span class="co">#&gt;  8  1962 chl          Chile            9503         Tricycles, scoo~</span></a>
+<a class="sourceLine" id="cb12-13" title="13"><span class="co">#&gt;  9  1962 chl          Chile            9401         Seats (not thos~</span></a>
+<a class="sourceLine" id="cb12-14" title="14"><span class="co">#&gt; 10  1962 chl          Chile            9306         Bombs, grenades~</span></a>
+<a class="sourceLine" id="cb12-15" title="15"><span class="co">#&gt; # ... with 502 more rows, and 6 more variables: group_code &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb12-16" title="16"><span class="co">#&gt; #   group_name &lt;chr&gt;, export_value_usd &lt;int&gt;, import_value_usd &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb12-17" title="17"><span class="co">#&gt; #   export_rca &lt;dbl&gt;, import_rca &lt;dbl&gt;</span></a></code></pre></div>
 <p>If we want Chilean trade at product level in 1962 with respect to product “0101” (Horses, asses, mules and hinnies; live):</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="dv">1962</span>, <span class="dt">reporters =</span> <span class="st">"chl"</span>, <span class="dt">products =</span> <span class="st">"0101"</span>, <span class="dt">table =</span> <span class="st">"yrc"</span>)</a>
 <a class="sourceLine" id="cb13-2" title="2"><span class="co">#&gt; # A tibble: 1 x 11</span></a>
@@ -489,17 +517,26 @@
 <a href="#product-trade-at-aggregated-level-year---product-code" class="anchor"></a>Product trade at aggregated level (Year - Product Code)</h3>
 <p>If we want all products traded in 1962:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="dv">1962</span>, <span class="dt">table =</span> <span class="st">"yc"</span>)</a>
-<a class="sourceLine" id="cb16-2" title="2"><span class="co">#&gt; # A tibble: 1 x 17</span></a>
-<a class="sourceLine" id="cb16-3" title="3"><span class="co">#&gt;    year product_code product_fullnam~ group_code group_name</span></a>
-<a class="sourceLine" id="cb16-4" title="4"><span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;     </span></a>
-<a class="sourceLine" id="cb16-5" title="5"><span class="co">#&gt; 1  1962 0105         Poultry; live, ~ 01         Animals; ~</span></a>
-<a class="sourceLine" id="cb16-6" title="6"><span class="co">#&gt; # ... with 12 more variables: export_value_usd &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb16-7" title="7"><span class="co">#&gt; #   import_value_usd &lt;int&gt;, pci_fitness_method &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb16-8" title="8"><span class="co">#&gt; #   pci_rank_fitness_method &lt;int&gt;, pci_reflections_method &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb16-9" title="9"><span class="co">#&gt; #   pci_rank_reflections_method &lt;int&gt;, pci_eigenvalues_method &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb16-10" title="10"><span class="co">#&gt; #   pci_rank_eigenvalues_method &lt;int&gt;, top_exporter_iso &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb16-11" title="11"><span class="co">#&gt; #   top_exporter_trade_value_usd &lt;int&gt;, top_importer_iso &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb16-12" title="12"><span class="co">#&gt; #   top_importer_trade_value_usd &lt;int&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb16-2" title="2"><span class="co">#&gt; # A tibble: 539 x 17</span></a>
+<a class="sourceLine" id="cb16-3" title="3"><span class="co">#&gt;     year product_code product_fullnam~ group_code group_name</span></a>
+<a class="sourceLine" id="cb16-4" title="4"><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;     </span></a>
+<a class="sourceLine" id="cb16-5" title="5"><span class="co">#&gt;  1  1962 9999         Commodities not~ 99         Commoditi~</span></a>
+<a class="sourceLine" id="cb16-6" title="6"><span class="co">#&gt;  2  1962 9701         Paintings, draw~ 97         Works of ~</span></a>
+<a class="sourceLine" id="cb16-7" title="7"><span class="co">#&gt;  3  1962 9616         Scent sprays an~ 96         Miscellan~</span></a>
+<a class="sourceLine" id="cb16-8" title="8"><span class="co">#&gt;  4  1962 9608         Pens; ball-poin~ 96         Miscellan~</span></a>
+<a class="sourceLine" id="cb16-9" title="9"><span class="co">#&gt;  5  1962 9601         Ivory, bone, to~ 96         Miscellan~</span></a>
+<a class="sourceLine" id="cb16-10" title="10"><span class="co">#&gt;  6  1962 9508         Roundabouts, sw~ 95         Toys, gam~</span></a>
+<a class="sourceLine" id="cb16-11" title="11"><span class="co">#&gt;  7  1962 9507         Fishing rods, f~ 95         Toys, gam~</span></a>
+<a class="sourceLine" id="cb16-12" title="12"><span class="co">#&gt;  8  1962 9503         Tricycles, scoo~ 95         Toys, gam~</span></a>
+<a class="sourceLine" id="cb16-13" title="13"><span class="co">#&gt;  9  1962 9401         Seats (not thos~ 94         Furniture~</span></a>
+<a class="sourceLine" id="cb16-14" title="14"><span class="co">#&gt; 10  1962 9306         Bombs, grenades~ 93         Arms and ~</span></a>
+<a class="sourceLine" id="cb16-15" title="15"><span class="co">#&gt; # ... with 529 more rows, and 12 more variables: export_value_usd &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb16-16" title="16"><span class="co">#&gt; #   import_value_usd &lt;dbl&gt;, pci_fitness_method &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb16-17" title="17"><span class="co">#&gt; #   pci_rank_fitness_method &lt;int&gt;, pci_reflections_method &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb16-18" title="18"><span class="co">#&gt; #   pci_rank_reflections_method &lt;int&gt;, pci_eigenvalues_method &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb16-19" title="19"><span class="co">#&gt; #   pci_rank_eigenvalues_method &lt;int&gt;, top_exporter_iso &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb16-20" title="20"><span class="co">#&gt; #   top_exporter_trade_value_usd &lt;int&gt;, top_importer_iso &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb16-21" title="21"><span class="co">#&gt; #   top_importer_trade_value_usd &lt;int&gt;</span></a></code></pre></div>
 <p>If we want traded values of product “0101” (Horses, asses, mules and hinnies; live) in 1962:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="dv">1962</span>, <span class="dt">products =</span> <span class="st">"0101"</span>, <span class="dt">table =</span> <span class="st">"yc"</span>)</a>
 <a class="sourceLine" id="cb17-2" title="2"><span class="co">#&gt; # A tibble: 1 x 17</span></a>
