@@ -10,7 +10,7 @@
   "codeRepository": "https://docs.ropensci.org/tradestatistics/",
   "issueTracker": "https://github.com/ropensci/tradestatistics/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -148,7 +148,7 @@
       "@type": "SoftwareApplication",
       "identifier": "R",
       "name": "R",
-      "version": ">= 3.2"
+      "version": ">= 3.5.0"
     },
     {
       "@type": "SoftwareApplication",
@@ -236,7 +236,7 @@
     }
   ],
   "readme": "https://github.com/tradestatistics/tradestatistics/blob/master/README.md",
-  "fileSize": "131.069KB",
+  "fileSize": "159.242KB",
   "contIntegration": [
     "https://travis-ci.org/ropensci/tradestatistics",
     "https://codecov.io/github/ropensci/tradestatistics?branch=master"
