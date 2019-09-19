@@ -92,6 +92,7 @@ knitr::opts_chunk$set(
 #  
 #  if (!file.exists(inflation_tidy_file)) {
 #    ots_inflation <- fromJSON(inflation_url)
+#    ots_inflation <- as_tibble(ots_inflation)
 #    save(ots_inflation, file = inflation_tidy_file, compress = "xz")
 #  }
 

@@ -15,7 +15,9 @@ ots_countries
 
 ## ----products, eval = T--------------------------------------------------
 ots_products
+
 ots_product_shortnames
+
 ots_communities
 
 ## ----inflation, eval = T-------------------------------------------------

@@ -40,7 +40,6 @@
 
 
 
-
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-462421-8"></script>
 <script>
@@ -50,7 +49,6 @@
 
   gtag('config', 'UA-462421-8');
 </script>
-
   </head>
 
   <body>
@@ -68,14 +66,14 @@
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="../hexlogo.png" id="hexlogo" alt="rOpenSci" /></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.4</small></i></a>
+        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.5</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -108,7 +106,6 @@
 </div><!--/.navbar -->
 
       
-
       </header>
 
 <div class="row">
@@ -118,9 +115,19 @@
       
     </div>
 
-    <div id="version-024" class="section level1">
+    <div id="version-0-2-5" class="section level1">
 <h1 class="page-header">
-<a href="#version-024" class="anchor"></a>Version 0.2.4<small> Unreleased </small>
+<a href="#version-0-2-5" class="anchor"></a>Version 0.2.5<small> Unreleased </small>
+</h1>
+<p>Updates</p>
+<ul>
+<li>Added dependency on R &gt;= 3.5.0 because serialized objects in serialize/load version 3 cannot be read in older versions of R</li>
+<li>Minimal changes in <code><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data()</a></code> to allow multiple countries as arguments, in line with API changes from September 2019</li>
+</ul>
+</div>
+    <div id="version-0-2-4" class="section level1">
+<h1 class="page-header">
+<a href="#version-0-2-4" class="anchor"></a>Version 0.2.4<small> 2019-09-17 </small>
 </h1>
 <p>Updates</p>
 <ul>
@@ -129,9 +136,9 @@
 <li>The API was updated with simplified parameters and 2018 data</li>
 </ul>
 </div>
-    <div id="version-023" class="section level1">
+    <div id="version-0-2-3" class="section level1">
 <h1 class="page-header">
-<a href="#version-023" class="anchor"></a>Version 0.2.3<small> 2019-08-28 </small>
+<a href="#version-0-2-3" class="anchor"></a>Version 0.2.3<small> 2019-08-28 </small>
 </h1>
 <p>Updates</p>
 <ul>
@@ -142,9 +149,9 @@
 <li>Specific Windows error during check</li>
 </ul>
 </div>
-    <div id="version-022" class="section level1">
+    <div id="version-0-2-2" class="section level1">
 <h1 class="page-header">
-<a href="#version-022" class="anchor"></a>Version 0.2.2<small> Unreleased </small>
+<a href="#version-0-2-2" class="anchor"></a>Version 0.2.2<small> Unreleased </small>
 </h1>
 <p>Adds</p>
 <ul>
@@ -153,9 +160,9 @@
 <li>Minor changes in vignettes</li>
 </ul>
 </div>
-    <div id="version-021" class="section level1">
+    <div id="version-0-2-1" class="section level1">
 <h1 class="page-header">
-<a href="#version-021" class="anchor"></a>Version 0.2.1<small> Unreleased </small>
+<a href="#version-0-2-1" class="anchor"></a>Version 0.2.1<small> Unreleased </small>
 </h1>
 <p>Fixes</p>
 <ul>
@@ -171,16 +178,16 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="#version-024">0.2.4</a></li>
-        <li><a href="#version-023">0.2.3</a></li>
-        <li><a href="#version-022">0.2.2</a></li>
-        <li><a href="#version-021">0.2.1</a></li>
+        <li><a href="#version-0-2-5">0.2.5</a></li>
+        <li><a href="#version-0-2-4">0.2.4</a></li>
+        <li><a href="#version-0-2-3">0.2.3</a></li>
+        <li><a href="#version-0-2-2">0.2.2</a></li>
+        <li><a href="#version-0-2-1">0.2.1</a></li>
       </ul>
     </div>
   </div>
 
 </div>
-
 
       <footer>
       <div style="margin-top:-9px">
@@ -193,14 +200,11 @@
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a> & <a href="https://docs.ropensci.org/rotemplate/">rotemplate</a>.
   </p>
 </div>
-
       </footer>
    </div>
 
   
 
-
   </body>
 </html>
-
 

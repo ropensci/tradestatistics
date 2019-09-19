@@ -14,6 +14,13 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
     )
     expect_is(test_data, "data.frame")
     expect_output(str(test_data), "11 variables")
+    
+    test_data <- ots_create_tidy_data(
+      years = 1962, reporters = "chl", partners = "arg", table = "yrpc",
+      include_shortnames = T, include_communities = T
+    )
+    expect_is(test_data, "data.frame")
+    expect_output(str(test_data), "15 variables")
 
     # Bilateral trade Chile-Argentina at aggregated level (1962)
     test_data <- ots_create_tidy_data(

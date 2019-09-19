@@ -37,10 +37,10 @@
 <link href="../ropensci.css" rel="stylesheet">
 
 <meta property="og:title" content="A table of unofficial shortened product names — ots_product_shortnames" />
+
 <meta property="og:description" content="Provides shortened product names obtained from The Observatory of Economic Complexity.
 This data corresponds to a modified version of unofficial short names created for 4 digits HS codes." />
 <meta name="twitter:card" content="summary" />
-
 
 
 
@@ -53,7 +53,6 @@ This data corresponds to a modified version of unofficial short names created fo
 
   gtag('config', 'UA-462421-8');
 </script>
-
   </head>
 
   <body>
@@ -71,14 +70,14 @@ This data corresponds to a modified version of unofficial short names created fo
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="../hexlogo.png" id="hexlogo" alt="rOpenSci" /></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.4</small></i></a>
+        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.5</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -111,7 +110,6 @@ This data corresponds to a modified version of unofficial short names created fo
 </div><!--/.navbar -->
 
       
-
       </header>
 
 <div class="row">
@@ -123,48 +121,49 @@ This data corresponds to a modified version of unofficial short names created fo
     </div>
 
     <div class="ref-description">
+    
     <p>Provides shortened product names obtained from The Observatory of Economic Complexity.
 This data corresponds to a modified version of unofficial short names created for 4 digits HS codes.</p>
+    
     </div>
 
     <pre class="usage"><span class='no'>ots_products</span></pre>
-
-
+        
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
     <p>A data frame with 1222 observations on the following 4 variables.</p><dl class='dl-horizontal'>
     <dt><code>product_code</code></dt><dd><p>Code of every product (e.g. 0101)</p></dd>
     <dt><code>product_shortname_english</code></dt><dd><p>Unofficial product names (e.g. Horses)</p></dd>
-  
-</dl>
-
+  </dl>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>ots_products</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1,320 x 4</span><span>
 #&gt;    product_code product_fullname_english              group_code group_name     
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                                 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          
-#&gt; </span><span style='color: #555555;'> 1</span><span> 0101         Horses, asses, mules and hinnies; li~ 01         Animals; live  
+#&gt; </span><span style='color: #555555;'> 1</span><span> 0101         Horses, asses, mules and hinnies; li… 01         Animals; live  
 #&gt; </span><span style='color: #555555;'> 2</span><span> 0102         Bovine animals; live                  01         Animals; live  
 #&gt; </span><span style='color: #555555;'> 3</span><span> 0103         Swine; live                           01         Animals; live  
 #&gt; </span><span style='color: #555555;'> 4</span><span> 0104         Sheep and goats; live                 01         Animals; live  
-#&gt; </span><span style='color: #555555;'> 5</span><span> 0105         Poultry; live, fowls of the species ~ 01         Animals; live  
+#&gt; </span><span style='color: #555555;'> 5</span><span> 0105         Poultry; live, fowls of the species … 01         Animals; live  
 #&gt; </span><span style='color: #555555;'> 6</span><span> 0106         Animals, n.e.c. in chapter 01; live   01         Animals; live  
-#&gt; </span><span style='color: #555555;'> 7</span><span> 0201         Meat of bovine animals; fresh or chi~ 02         Meat and edibl~
-#&gt; </span><span style='color: #555555;'> 8</span><span> 0202         Meat of bovine animals; frozen        02         Meat and edibl~
-#&gt; </span><span style='color: #555555;'> 9</span><span> 0203         Meat of swine; fresh, chilled or fro~ 02         Meat and edibl~
-#&gt; </span><span style='color: #555555;'>10</span><span> 0204         Meat of sheep or goats; fresh, chill~ 02         Meat and edibl~
-#&gt; </span><span style='color: #555555;'># ... with 1,310 more rows</span><span></div></span></pre>
+#&gt; </span><span style='color: #555555;'> 7</span><span> 0201         Meat of bovine animals; fresh or chi… 02         Meat and edibl…
+#&gt; </span><span style='color: #555555;'> 8</span><span> 0202         Meat of bovine animals; frozen        02         Meat and edibl…
+#&gt; </span><span style='color: #555555;'> 9</span><span> 0203         Meat of swine; fresh, chilled or fro… 02         Meat and edibl…
+#&gt; </span><span style='color: #555555;'>10</span><span> 0204         Meat of sheep or goats; fresh, chill… 02         Meat and edibl…
+#&gt; </span><span style='color: #555555;'># … with 1,310 more rows</span><span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      
       <li><a href="#format">Format</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
-
 
       <footer>
       <div style="margin-top:-9px">
@@ -177,14 +176,11 @@ This data corresponds to a modified version of unofficial short names created fo
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a> & <a href="https://docs.ropensci.org/rotemplate/">rotemplate</a>.
   </p>
 </div>
-
       </footer>
    </div>
 
   
 
-
   </body>
 </html>
-
 

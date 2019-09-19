@@ -1,7 +1,7 @@
 Package: tradestatistics
 Type: Package
 Title: Open Trade Statistics API Wrapper and Utility Program
-Version: 0.2.4
+Version: 0.2.5
 Authors@R: c(
       person(given = "Mauricio",
              family = "Vargas",
@@ -43,7 +43,7 @@ Description: Access 'Open Trade Statistics' API from R to download international
 License: GPL-3
 LazyData: TRUE
 Depends:
-  R (>= 3.2)
+  R (>= 3.5.0)
 Imports:
   rlang,
   magrittr,
