@@ -45,7 +45,9 @@ The Package Functions section explains that you don't need to memorize all HS co
 
 ```{r products, eval = T}
 ots_products
+
 ots_product_shortnames
+
 ots_communities
 ```
 
@@ -122,10 +124,6 @@ ots_create_tidy_data(years = c(1962,1963), reporters = c("chl", "Peru", "bol"), 
 * `group_name`: English name corresponding to `group_id`
 * `export_value_usd`: Exports measured in nominal United States Dollars (USD)
 * `import_value_usd`: Imports measured in nominal United States Dollars (USD)
-* `export_value_usd_percentage_change_1_year`: Nominal increase/decrease in exports measured as percentage with respect to last year
-* `export_value_usd_percentage_change_5_years`: Nominal increase/decrease in exports measured as percentage with respect to five years ago
-* `export_value_usd_change_1_year`: Nominal increase/decrease in exports measured in USD with respect to last year
-* `export_value_usd_change_5_years`: Nominal increase/decrease in exports measured in USD with respect to five years ago
 
 ### Bilateral trade at aggregated level (Year - Reporter - Partner)
 
@@ -155,7 +153,7 @@ ots_create_tidy_data(years = 1962, reporters = "chl", products = "0101", table =
 
 This table accepts different years, reporters and product codes just like `yrpc`.
 
-Here the `export_rca*` and `import_rca*` fields contain the Revealed Comparative Advantage (RCA) of an exported product with respect to all the products with the same number of digits. The definition of RCA is detailed on [Open Trade Statistics Documentation](https://docs.tradestatistics.io/).
+Here the `export_rca` and `import_rca` fields contain the Revealed Comparative Advantage (RCA) of an exported product with respect to all the products with the same number of digits. The definition of RCA is detailed on [Open Trade Statistics Documentation](https://docs.tradestatistics.io/).
 
 ### Reporter trade at aggregated level (Year - Reporter)
 
@@ -173,9 +171,8 @@ This table accepts different years and reporters just like `yrpc`.
 
 Here some fields deserve an explanation:
 
-* `eci_4_digits_product_code`: Economic Complexity Index (ECI) which is detailed on [Open Trade Statistics Documentation](https://docs.tradestatistics.io/). This index is built by using just four digits product codes.
-* `eci_rank_4_digits_product_code`: The rank of a country given its ECI (e.g. the highest ECI obtains the #1)
-* `eci_rank_4_digits_product_code_delta_1_year`: How many places a country increased or decreased with respect to last year
+* `eci_*_method`: Economic Complexity Index (ECI) which is detailed on [Open Trade Statistics Documentation](https://docs.tradestatistics.io/). This index is built by using just four digits product codes.
+* `eci_rank_*_method`: The rank of a country given its ECI (e.g. the highest ECI obtains the #1).
 
 ### Product trade at aggregated level (Year - Product Code)
 
@@ -194,7 +191,7 @@ This table accepts different product codes just like `yrpc`.
 Here some fields deserve an explanation:
 
 * `pci_*_method`: Product Complexity Index (PCI) which is detailed on [Open Trade Statistics Documentation](https://docs.tradestatistics.io/).
-* `pci_rank_4_*_method`: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)
+* `pci_rank_*_method`: The rank of a product given its PCI (e.g. the highest PCI obtains the #1).
 
 ## Inflation adjustment
 

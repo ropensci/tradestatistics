@@ -233,7 +233,7 @@ ots_create_tidy_data <- function(years = NULL,
   )
   
   data <- purrr::map_df(
-    .x = seq_along(years),
+    .x = seq_len(nrow(condensed_parameters)),
     ~ ots_read_from_api(
       table = table,
       max_attempts = max_attempts,
