@@ -29,4 +29,16 @@ test_that("ots_country_code returns an error when no countryname is specified", 
     ots_country_code(countryname = ""),
     "countryname can't have zero characters after removing numbers"
   )
+  
+  expect_error(
+    ots_country_code(countryname = NULL),
+    "countryname can't be NULL"
+  )
+})
+
+test_that("ots_country_code returns an error when no match exists", {
+  expect_error(
+    ots_country_code(countryname = "Abc"),
+    "no match for your search"
+  )
 })

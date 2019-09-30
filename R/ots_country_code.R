@@ -37,8 +37,7 @@ ots_country_code <- function(countryname = NULL) {
   if (any(nchar(countryname) < 1)) {
     stop(
       "
-      countryname can't have zero characters after removing numbers,
-      special symbols and multiple spaces.
+      countryname can't have zero characters after removing numbers, special symbols and multiple spaces.
       Try with a quoted text string (e.g. ots_country_code(\"chi\")).
       "
     )
@@ -75,10 +74,12 @@ ots_country_code <- function(countryname = NULL) {
       )
     )
 
-  if (length(countrycode) == 0) {
-    message(
-      "There is no match for your search. Please check the spelling or
-       explore the countries table provided within this package."
+  if (nrow(countrycode) == 0) {
+    stop(
+      "
+      There is no match for your search.
+      Please check the spelling or explore the countries table provided within this package.
+      "
     )
   }
 

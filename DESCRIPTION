@@ -1,7 +1,7 @@
 Package: tradestatistics
 Type: Package
 Title: Open Trade Statistics API Wrapper and Utility Program
-Version: 0.2.5
+Version: 0.2.6
 Authors@R: c(
       person(given = "Mauricio",
              family = "Vargas",
@@ -54,11 +54,12 @@ Imports:
   jsonlite
 RoxygenNote: 6.1.1
 Suggests: 
-  knitr,
-  rmarkdown,
-  testthat,
-  styler,
-  pkgdown,
-  vcr
+    knitr,
+    rmarkdown,
+    testthat,
+    styler,
+    pkgdown,
+    vcr,
+    covr
 VignetteBuilder: knitr
 Encoding: UTF-8
