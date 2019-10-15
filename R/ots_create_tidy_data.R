@@ -117,13 +117,23 @@ ots_create_tidy_data <- function(years = NULL,
       reporters_no_iso <- purrr::map_chr(
         seq_along(reporters_no_iso),
         function(x) {
-          y <- tradestatistics::ots_country_code(reporters_no_iso[x]) %>%
-            dplyr::select(!!sym("country_iso"))
+          y <- try(
+            tradestatistics::ots_country_code(reporters_no_iso[x]) %>%
+              dplyr::select(!!sym("country_iso")) %>% 
+              purrr::as_vector()
+          )
 
-          if (nrow(y) == 0) {
-            stop("The specified reporter returned no valid ISO code")
-          } else {
-            y <- purrr::as_vector(y)
+          if (class(y) == "try-error") {
+            order <- switch(
+              x,
+              "1" = "st",
+              "2" = "nd",
+              "3" = "rd"
+            )
+            
+            order <- ifelse(is.null(order), "th", order)
+            
+            stop(sprintf("%s%s specified reporter returned no valid ISO code.", x, order))
           }
 
           return(y)
@@ -143,15 +153,25 @@ ots_create_tidy_data <- function(years = NULL,
       partners_no_iso <- purrr::map_chr(
         seq_along(partners_no_iso),
         function(x) {
-          y <- tradestatistics::ots_country_code(partners_no_iso[x]) %>%
-            dplyr::select(!!sym("country_iso"))
+          y <- try(
+            tradestatistics::ots_country_code(partners_no_iso[x]) %>%
+              dplyr::select(!!sym("country_iso")) %>% 
+              purrr::as_vector()
+          )
 
-          if (nrow(y) == 0) {
-            stop("The specified partner returned no valid ISO code")
-          } else {
-            y <- purrr::as_vector(y)
+          if (class(y) == "try-error") {
+            order <- switch(
+              x,
+              "1" = "st",
+              "2" = "nd",
+              "3" = "rd"
+            )
+            
+            order <- ifelse(is.null(order), "th", order)
+            
+            stop(sprintf("%s%s specified partner returned no valid ISO code.", x, order))
           }
-
+          
           return(y)
         }
       )

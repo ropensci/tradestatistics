@@ -32,6 +32,14 @@ ots_inflation_adjustment <- function(trade_data = NULL, reference_year = NULL) {
     )
   }
   
+  if (is.null(reference_year)) {
+    stop(
+      "
+      The reference year cannot be null.
+      "
+    )
+  }
+  
   ots_inflation_min_year <- min(tradestatistics::ots_inflation$from)
   ots_inflation_max_year <- max(tradestatistics::ots_inflation$from)
   

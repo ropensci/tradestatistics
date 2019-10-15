@@ -1,7 +1,6 @@
 context("testthat.R")
 
-test_that("ots_create_tidy_data connects to the API and returns valid tables with a 
-           valid input", {
+test_that("ots_create_tidy_data connects to the API and returns valid tables with a valid input", {
   vcr::use_cassette(name = "chl_arg_1962", {
     # Mock countries test inside ots_create_tidy_data
     cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
@@ -48,12 +47,17 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
   })
 })
 
-test_that("ots_create_tidy_data connects to the API and returns an error after invalid 
-           input", {
+test_that("ots_create_tidy_data connects to the API and returns an error after invalid input", {
   # Bilateral trade ABC-CDE fake ISO codes (1962) - Error message
   expect_error(
     ots_create_tidy_data(years = 1962, reporters = "abc", partners = "cde"),
-    "no valid ISO code"
+    "specified reporter returned no valid ISO code"
+  )
+  
+  # Bilateral trade CHL-ABC fake ISO code (1962) - Error message
+  expect_error(
+    ots_create_tidy_data(years = 1962, reporters = "chl", partners = "abc"),
+    "specified partner returned no valid ISO code"
   )
 
   # Bilateral trade USA (1776) - Error message
