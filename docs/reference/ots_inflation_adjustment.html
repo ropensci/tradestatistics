@@ -19,8 +19,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
@@ -37,10 +37,12 @@
 <link href="../ropensci.css" rel="stylesheet">
 
 <meta property="og:title" content="Expresses tidy data from the API in dollars of a reference year — ots_inflation_adjustment" />
-
 <meta property="og:description" content="This function uses inflation records from The World Bank to
 convert trade records and express them in dollars of the same year." />
 <meta name="twitter:card" content="summary" />
+
+
+
 
 
 
@@ -53,6 +55,7 @@ convert trade records and express them in dollars of the same year." />
 
   gtag('config', 'UA-462421-8');
 </script>
+
   </head>
 
   <body>
@@ -70,14 +73,14 @@ convert trade records and express them in dollars of the same year." />
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="../hexlogo.png" id="hexlogo" alt="rOpenSci" /></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.6</small></i></a>
+        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.7</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -110,6 +113,7 @@ convert trade records and express them in dollars of the same year." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -121,14 +125,12 @@ convert trade records and express them in dollars of the same year." />
     </div>
 
     <div class="ref-description">
-    
     <p>This function uses inflation records from The World Bank to
 convert trade records and express them in dollars of the same year.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>ots_inflation_adjustment</span>(<span class='kw'>trade_data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>reference_year</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -144,28 +146,28 @@ api.tradestatistics.io/year_range (e.g. <code>2010</code>).
 Default set to <code>NULL</code>.</p></td>
     </tr>
     </table>
-    
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='co'># The next example can take more than 5 seconds to compute,</span>
 <span class='co'># so this is shown without evaluation according to CRAN rules</span>
 
 <span class='co'># Convert dollars of 1980 to dollars of 2010</span>
 <span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ots_create_tidy_data.html'>ots_create_tidy_data</a></span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>reporters</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>partners</span> <span class='kw'>=</span> <span class='st'>"chn"</span>)
 <span class='fu'>ots_inflation_adjustment</span>(<span class='kw'>trade_data</span> <span class='kw'>=</span> <span class='no'>d</span>, <span class='kw'>reference_year</span> <span class='kw'>=</span> <span class='fl'>2010</span>)
-<span class='co'># }</span></pre>
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div style="margin-top:-9px">
@@ -178,11 +180,14 @@ Default set to <code>NULL</code>.</p></td>
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a> & <a href="https://docs.ropensci.org/rotemplate/">rotemplate</a>.
   </p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

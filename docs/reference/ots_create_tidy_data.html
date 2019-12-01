@@ -19,8 +19,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
@@ -37,10 +37,12 @@
 <link href="../ropensci.css" rel="stylesheet">
 
 <meta property="og:title" content="Downloads and processes the data from the API to return a human-readable tibble — ots_create_tidy_data" />
-
 <meta property="og:description" content="This function accesses api.tradestatistics.io and
 performs different API calls to transform and return tidy data." />
 <meta name="twitter:card" content="summary" />
+
+
+
 
 
 
@@ -53,6 +55,7 @@ performs different API calls to transform and return tidy data." />
 
   gtag('config', 'UA-462421-8');
 </script>
+
   </head>
 
   <body>
@@ -70,14 +73,14 @@ performs different API calls to transform and return tidy data." />
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="../hexlogo.png" id="hexlogo" alt="rOpenSci" /></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.6</small></i></a>
+        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.7</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -110,6 +113,7 @@ performs different API calls to transform and return tidy data." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -121,35 +125,33 @@ performs different API calls to transform and return tidy data." />
     </div>
 
     <div class="ref-description">
-    
     <p>This function accesses <code>api.tradestatistics.io</code> and
 performs different API calls to transform and return tidy data.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>ots_create_tidy_data</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>reporters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>partners</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>products</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrpc"</span>, <span class='kw'>max_attempts</span> <span class='kw'>=</span> <span class='fl'>5</span>,
-  <span class='kw'>include_shortnames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>include_communities</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>use_localhost</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>ots_create_tidy_data</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='fl'>1962</span>, <span class='kw'>reporters</span> <span class='kw'>=</span> <span class='st'>"all"</span>,
+  <span class='kw'>partners</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>products</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrpc"</span>,
+  <span class='kw'>max_attempts</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>include_shortnames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>include_communities</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>use_localhost</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>years</th>
       <td><p>Year contained within the years specified in
-api.tradestatistics.io/year_range (e.g. <code><a href='https://www.rdocumentation.org/packages/base/topics/c'>c(1980,1985)</a></code>, <code><a href='https://www.rdocumentation.org/packages/base/topics/c'>c(1980:1981)</a></code> or <code>1980</code>).
-Default set to <code>NULL</code>.</p></td>
+api.tradestatistics.io/year_range (e.g. <code><a href='https://rdrr.io/r/base/c.html'>c(1980,1985)</a></code>, <code><a href='https://rdrr.io/r/base/c.html'>c(1980:1981)</a></code> or <code>1980</code>).
+Default set to <code>1962</code>.</p></td>
     </tr>
     <tr>
       <th>reporters</th>
-      <td><p>ISO code for reporter country (e.g. <code>"chl"</code>, <code>Chile</code> or
-<code><a href='https://www.rdocumentation.org/packages/base/topics/c'>c("chl", "Peru")</a></code>). Default set to <code>NULL</code>.</p></td>
+      <td><p>ISO code for reporter country (e.g. <code>"chl"</code>, <code>"Chile"</code> or
+<code><a href='https://rdrr.io/r/base/c.html'>c("chl", "Peru")</a></code>). Default set to <code>"all"</code>.</p></td>
     </tr>
     <tr>
       <th>partners</th>
-      <td><p>ISO code for partner country (e.g. <code>"chl"</code>, <code>Chile</code> or
-<code><a href='https://www.rdocumentation.org/packages/base/topics/c'>c("chl", "Peru")</a></code>). Default set to <code>NULL</code>.</p></td>
+      <td><p>ISO code for partner country (e.g. <code>"chl"</code>, <code>"Chile"</code> or
+<code><a href='https://rdrr.io/r/base/c.html'>c("chl", "Peru")</a></code>). Default set to <code>"all"</code>.</p></td>
     </tr>
     <tr>
       <th>products</th>
@@ -184,17 +186,16 @@ Default set to <code>FALSE</code>.</p></td>
 of api.tradestatistics.io. Default set to <code>FALSE</code>.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A tibble that describes bilateral trade metrics (imports,
 exports, trade balance and relevant metrics
 such as exports growth w/r to last year) between a <code>reporter</code>
 and <code>partner</code> country.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='co'># The next example can take more than 5 seconds to compute,</span>
 <span class='co'># so these are just shown without evaluation according to CRAN rules</span>
 
@@ -210,20 +211,19 @@ and <code>partner</code> country.</p>
 
 <span class='co'># What can we say about the different types of apples exported by Chile? (1980)</span>
 <span class='fu'>ots_create_tidy_data</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='fl'>1980</span>, <span class='kw'>reporters</span> <span class='kw'>=</span> <span class='st'>"chl"</span>, <span class='kw'>products</span> <span class='kw'>=</span> <span class='st'>"apple"</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrc"</span>)
-<span class='co'># }</span></pre>
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div style="margin-top:-9px">
@@ -236,11 +236,14 @@ and <code>partner</code> country.</p>
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a> & <a href="https://docs.ropensci.org/rotemplate/">rotemplate</a>.
   </p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

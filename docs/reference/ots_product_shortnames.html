@@ -19,8 +19,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
@@ -37,10 +37,12 @@
 <link href="../ropensci.css" rel="stylesheet">
 
 <meta property="og:title" content="A table of unofficial shortened product names — ots_product_shortnames" />
-
 <meta property="og:description" content="Provides shortened product names obtained from The Observatory of Economic Complexity.
 This data corresponds to a modified version of unofficial short names created for 4 digits HS codes." />
 <meta name="twitter:card" content="summary" />
+
+
+
 
 
 
@@ -53,6 +55,7 @@ This data corresponds to a modified version of unofficial short names created fo
 
   gtag('config', 'UA-462421-8');
 </script>
+
   </head>
 
   <body>
@@ -70,14 +73,14 @@ This data corresponds to a modified version of unofficial short names created fo
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="../hexlogo.png" id="hexlogo" alt="rOpenSci" /></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.6</small></i></a>
+        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.7</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -110,6 +113,7 @@ This data corresponds to a modified version of unofficial short names created fo
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -121,21 +125,21 @@ This data corresponds to a modified version of unofficial short names created fo
     </div>
 
     <div class="ref-description">
-    
     <p>Provides shortened product names obtained from The Observatory of Economic Complexity.
 This data corresponds to a modified version of unofficial short names created for 4 digits HS codes.</p>
-    
     </div>
 
     <pre class="usage"><span class='no'>ots_products</span></pre>
-        
+
+
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
     <p>A data frame with 1222 observations on the following 4 variables.</p><dl class='dl-horizontal'>
     <dt><code>product_code</code></dt><dd><p>Code of every product (e.g. 0101)</p></dd>
     <dt><code>product_shortname_english</code></dt><dd><p>Unofficial product names (e.g. Horses)</p></dd>
-  </dl>
-    
+  
+</dl>
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>ots_products</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1,320 x 4</span><span>
@@ -156,14 +160,13 @@ This data corresponds to a modified version of unofficial short names created fo
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      
       <li><a href="#format">Format</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div style="margin-top:-9px">
@@ -176,11 +179,14 @@ This data corresponds to a modified version of unofficial short names created fo
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a> & <a href="https://docs.ropensci.org/rotemplate/">rotemplate</a>.
   </p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

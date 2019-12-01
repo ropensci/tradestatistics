@@ -1,3 +1,10 @@
+# Version 0.2.7
+
+Updates
+
+* Adds feedback provided by Daniela de los Santos
+* Now ots_create_tidy_data() has both reporter and partner set to "all" by default
+
 # Version 0.2.5
 
 Updates
