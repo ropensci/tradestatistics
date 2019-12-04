@@ -3,11 +3,11 @@
 #' performs different API calls to transform and return tidy data.
 #' @param years Year contained within the years specified in
 #' api.tradestatistics.io/year_range (e.g. \code{c(1980,1985)}, \code{c(1980:1981)} or \code{1980}).
-#' Default set to \code{NULL}.
-#' @param reporters ISO code for reporter country (e.g. \code{"chl"}, \code{Chile} or
-#' \code{c("chl", "Peru")}). Default set to \code{NULL}.
-#' @param partners ISO code for partner country (e.g. \code{"chl"}, \code{Chile} or
-#' \code{c("chl", "Peru")}). Default set to \code{NULL}.
+#' Default set to \code{1962}.
+#' @param reporters ISO code for reporter country (e.g. \code{"chl"}, \code{"Chile"} or
+#' \code{c("chl", "Peru")}). Default set to \code{"all"}.
+#' @param partners ISO code for partner country (e.g. \code{"chl"}, \code{"Chile"} or
+#' \code{c("chl", "Peru")}). Default set to \code{"all"}.
 #' @param products HS codes (e.g. \code{"0101"}, \code{"01"} or search matches for \code{"apple"})
 #' to filter products. Default set to \code{"all"}.
 #' @param table Character string to select the table to obtain the data.
@@ -54,9 +54,9 @@
 #' }
 #' @keywords functions
 
-ots_create_tidy_data <- function(years = NULL,
-                                 reporters = NULL,
-                                 partners = NULL,
+ots_create_tidy_data <- function(years = 1962,
+                                 reporters = "all",
+                                 partners = "all",
                                  products = "all",
                                  table = "yrpc",
                                  max_attempts = 5,

@@ -19,8 +19,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
@@ -37,11 +37,13 @@
 <link href="../ropensci.css" rel="stylesheet">
 
 <meta property="og:title" content="Available tables in the API — ots_tables" />
-
 <meta property="og:description" content="A table describing existing API tables with both description and source.
 This data is used by the functions provided within this package to validate
 user parameters." />
 <meta name="twitter:card" content="summary" />
+
+
+
 
 
 
@@ -54,6 +56,7 @@ user parameters." />
 
   gtag('config', 'UA-462421-8');
 </script>
+
   </head>
 
   <body>
@@ -71,14 +74,14 @@ user parameters." />
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="../hexlogo.png" id="hexlogo" alt="rOpenSci" /></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.6</small></i></a>
+        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.7</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -111,6 +114,7 @@ user parameters." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -122,23 +126,23 @@ user parameters." />
     </div>
 
     <div class="ref-description">
-    
     <p>A table describing existing API tables with both description and source.
 This data is used by the functions provided within this package to validate
 user parameters.</p>
-    
     </div>
 
     <pre class="usage"><span class='no'>ots_tables</span></pre>
-        
+
+
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
     <p>A data frame with 16 observations on the following 3 variables.</p><dl class='dl-horizontal'>
     <dt><code>table</code></dt><dd><p>Table name</p></dd>
     <dt><code>description</code></dt><dd><p>Description of table contents</p></dd>
     <dt><code>source</code></dt><dd><p>Source for the data (OTS tables are processed after UN Comtrade raw data)</p></dd>
-  </dl>
-    
+  
+</dl>
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>ots_tables</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 16 x 3</span><span>
@@ -164,14 +168,13 @@ user parameters.</p>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      
       <li><a href="#format">Format</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div style="margin-top:-9px">
@@ -184,11 +187,14 @@ user parameters.</p>
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a> & <a href="https://docs.ropensci.org/rotemplate/">rotemplate</a>.
   </p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

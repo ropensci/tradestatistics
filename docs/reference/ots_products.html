@@ -20,8 +20,8 @@ and corresponding groups — ots_products • tradestatistics</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
@@ -39,12 +39,14 @@ and corresponding groups — ots_products • tradestatistics</title>
 
 <meta property="og:title" content="A table of official product names, Harmonized System (HS) codes
 and corresponding groups — ots_products" />
-
 <meta property="og:description" content="Provides official codes taken from the United Nations official sources.
 This data is provided as a reference as it's not used by the functions
 provided within this package, but it can be useful to subset the data
 obtained from the API." />
 <meta name="twitter:card" content="summary" />
+
+
+
 
 
 
@@ -57,6 +59,7 @@ obtained from the API." />
 
   gtag('config', 'UA-462421-8');
 </script>
+
   </head>
 
   <body>
@@ -74,14 +77,14 @@ obtained from the API." />
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="../hexlogo.png" id="hexlogo" alt="rOpenSci" /></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.6</small></i></a>
+        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.7</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -114,6 +117,7 @@ obtained from the API." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -126,16 +130,15 @@ and corresponding groups</h1>
     </div>
 
     <div class="ref-description">
-    
     <p>Provides official codes taken from the United Nations official sources.
 This data is provided as a reference as it's not used by the functions
 provided within this package, but it can be useful to subset the data
 obtained from the API.</p>
-    
     </div>
 
     <pre class="usage"><span class='no'>ots_products</span></pre>
-        
+
+
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
     <p>A data frame with 1320 observations on the following 4 variables.</p><dl class='dl-horizontal'>
@@ -143,8 +146,9 @@ obtained from the API.</p>
     <dt><code>product_fullname_english</code></dt><dd><p>HS product names (e.g. 'Horses, asses, mules and hinnies; live')</p></dd>
     <dt><code>group_code</code></dt><dd><p>HS group code (e.g. 01)</p></dd>
     <dt><code>group_name</code></dt><dd><p>HS group name (e.g. 'Animals; live')</p></dd>
-  </dl>
-    
+  
+</dl>
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>ots_products</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1,320 x 4</span><span>
@@ -165,14 +169,13 @@ obtained from the API.</p>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      
       <li><a href="#format">Format</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div style="margin-top:-9px">
@@ -185,11 +188,14 @@ obtained from the API.</p>
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a> & <a href="https://docs.ropensci.org/rotemplate/">rotemplate</a>.
   </p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

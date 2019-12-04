@@ -4,21 +4,21 @@
 \alias{ots_create_tidy_data}
 \title{Downloads and processes the data from the API to return a human-readable tibble}
 \usage{
-ots_create_tidy_data(years = NULL, reporters = NULL, partners = NULL,
-  products = "all", table = "yrpc", max_attempts = 5,
-  include_shortnames = FALSE, include_communities = FALSE,
-  use_localhost = FALSE)
+ots_create_tidy_data(years = 1962, reporters = "all",
+  partners = "all", products = "all", table = "yrpc",
+  max_attempts = 5, include_shortnames = FALSE,
+  include_communities = FALSE, use_localhost = FALSE)
 }
 \arguments{
 \item{years}{Year contained within the years specified in
 api.tradestatistics.io/year_range (e.g. \code{c(1980,1985)}, \code{c(1980:1981)} or \code{1980}).
-Default set to \code{NULL}.}
+Default set to \code{1962}.}
 
-\item{reporters}{ISO code for reporter country (e.g. \code{"chl"}, \code{Chile} or
-\code{c("chl", "Peru")}). Default set to \code{NULL}.}
+\item{reporters}{ISO code for reporter country (e.g. \code{"chl"}, \code{"Chile"} or
+\code{c("chl", "Peru")}). Default set to \code{"all"}.}
 
-\item{partners}{ISO code for partner country (e.g. \code{"chl"}, \code{Chile} or
-\code{c("chl", "Peru")}). Default set to \code{NULL}.}
+\item{partners}{ISO code for partner country (e.g. \code{"chl"}, \code{"Chile"} or
+\code{c("chl", "Peru")}). Default set to \code{"all"}.}
 
 \item{products}{HS codes (e.g. \code{"0101"}, \code{"01"} or search matches for \code{"apple"})
 to filter products. Default set to \code{"all"}.}
