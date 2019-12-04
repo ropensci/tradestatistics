@@ -16,8 +16,8 @@ state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
-[![Travis-CI Build
-Status](https://travis-ci.org/ropensci/tradestatistics.svg?branch=master)](https://travis-ci.org/ropensci/tradestatistics)
+[![R build
+status](https://github.com/tradestatistics/tradestatistics/workflows/R-CMD-check/badge.svg)](https://github.com/tradestatistics/tradestatistics/actions?workflow=R-CMD-check)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/tradestatistics)](https://cran.r-project.org/package=tradestatistics)
 [![Coverage

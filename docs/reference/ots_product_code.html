@@ -20,8 +20,8 @@ according to the United Nations nomenclature — ots_product_code • tradestati
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
@@ -43,8 +43,6 @@ according to the United Nations nomenclature — ots_product_code" />
 package data for all matching product codes in the context of valid API
 product codes." />
 <meta name="twitter:card" content="summary" />
-
-
 
 
 
@@ -157,37 +155,37 @@ classification (e.g. HS92 or SITC)</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productname</span> <span class='kw'>=</span> <span class='st'>"ANIMALS "</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 0 x 5</span><span>
-#&gt; </span><span style='color: #555555;'># … with 5 variables: product_code </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, product_fullname_english </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,
+#&gt; </span><span style='color: #555555;'># ... with 5 variables: product_code </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, product_fullname_english </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,
 #&gt; #   group_code </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, group_name </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, type_product </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span></div><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productgroup</span> <span class='kw'>=</span> <span class='st'>"  fish"</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 12 x 5</span><span>
 #&gt;    product_code product_fullname_english group_code group_name        type_group
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>             </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     
-#&gt; </span><span style='color: #555555;'> 1</span><span> 0301         Fish; live               03         Fish and crustac… fish      
-#&gt; </span><span style='color: #555555;'> 2</span><span> 0302         Fish; fresh or chilled … 03         Fish and crustac… fish      
-#&gt; </span><span style='color: #555555;'> 3</span><span> 0303         Fish; frozen (excluding… 03         Fish and crustac… fish      
-#&gt; </span><span style='color: #555555;'> 4</span><span> 0304         Fish fillets and other … 03         Fish and crustac… fish      
-#&gt; </span><span style='color: #555555;'> 5</span><span> 0305         Fish; dried, salted or … 03         Fish and crustac… fish      
-#&gt; </span><span style='color: #555555;'> 6</span><span> 0306         Crustaceans, in shell o… 03         Fish and crustac… fish      
-#&gt; </span><span style='color: #555555;'> 7</span><span> 0307         Molluscs, whether in sh… 03         Fish and crustac… fish      
-#&gt; </span><span style='color: #555555;'> 8</span><span> 1601         Sausages and similar pr… 16         Meat, fish or cr… fish      
-#&gt; </span><span style='color: #555555;'> 9</span><span> 1602         Prepared or preserved m… 16         Meat, fish or cr… fish      
-#&gt; </span><span style='color: #555555;'>10</span><span> 1603         Extracts and juices of … 16         Meat, fish or cr… fish      
-#&gt; </span><span style='color: #555555;'>11</span><span> 1604         Prepared or preserved f… 16         Meat, fish or cr… fish      
-#&gt; </span><span style='color: #555555;'>12</span><span> 1605         Crustaceans, molluscs a… 16         Meat, fish or cr… fish      </div><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productname</span> <span class='kw'>=</span> <span class='st'>"Milk"</span>, <span class='kw'>productgroup</span> <span class='kw'>=</span> <span class='st'>"Dairy"</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 0 x 6</span><span>
-#&gt; </span><span style='color: #555555;'># … with 6 variables: product_code </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, product_fullname_english </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,
+#&gt; </span><span style='color: #555555;'> 1</span><span> 0301         Fish; live               03         Fish and crustac~ fish      
+#&gt; </span><span style='color: #555555;'> 2</span><span> 0302         Fish; fresh or chilled ~ 03         Fish and crustac~ fish      
+#&gt; </span><span style='color: #555555;'> 3</span><span> 0303         Fish; frozen (excluding~ 03         Fish and crustac~ fish      
+#&gt; </span><span style='color: #555555;'> 4</span><span> 0304         Fish fillets and other ~ 03         Fish and crustac~ fish      
+#&gt; </span><span style='color: #555555;'> 5</span><span> 0305         Fish; dried, salted or ~ 03         Fish and crustac~ fish      
+#&gt; </span><span style='color: #555555;'> 6</span><span> 0306         Crustaceans, in shell o~ 03         Fish and crustac~ fish      
+#&gt; </span><span style='color: #555555;'> 7</span><span> 0307         Molluscs, whether in sh~ 03         Fish and crustac~ fish      
+#&gt; </span><span style='color: #555555;'> 8</span><span> 1601         Sausages and similar pr~ 16         Meat, fish or cr~ fish      
+#&gt; </span><span style='color: #555555;'> 9</span><span> 1602         Prepared or preserved m~ 16         Meat, fish or cr~ fish      
+#&gt; </span><span style='color: #555555;'>10</span><span> 1603         Extracts and juices of ~ 16         Meat, fish or cr~ fish      
+#&gt; </span><span style='color: #555555;'>11</span><span> 1604         Prepared or preserved f~ 16         Meat, fish or cr~ fish      
+#&gt; </span><span style='color: #555555;'>12</span><span> 1605         Crustaceans, molluscs a~ 16         Meat, fish or cr~ fish      </div><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productname</span> <span class='kw'>=</span> <span class='st'>"Milk"</span>, <span class='kw'>productgroup</span> <span class='kw'>=</span> <span class='st'>"Dairy"</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 0 x 6</span><span>
+#&gt; </span><span style='color: #555555;'># ... with 6 variables: product_code </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, product_fullname_english </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,
 #&gt; #   group_code </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, group_name </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, type_name </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, type_group </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span></div><div class='input'><span class='fu'>ots_product_code</span>()</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 1,320 x 4</span><span>
 #&gt;    product_code product_fullname_english              group_code group_name     
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                                 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          
-#&gt; </span><span style='color: #555555;'> 1</span><span> 0101         Horses, asses, mules and hinnies; li… 01         Animals; live  
+#&gt; </span><span style='color: #555555;'> 1</span><span> 0101         Horses, asses, mules and hinnies; li~ 01         Animals; live  
 #&gt; </span><span style='color: #555555;'> 2</span><span> 0102         Bovine animals; live                  01         Animals; live  
 #&gt; </span><span style='color: #555555;'> 3</span><span> 0103         Swine; live                           01         Animals; live  
 #&gt; </span><span style='color: #555555;'> 4</span><span> 0104         Sheep and goats; live                 01         Animals; live  
-#&gt; </span><span style='color: #555555;'> 5</span><span> 0105         Poultry; live, fowls of the species … 01         Animals; live  
+#&gt; </span><span style='color: #555555;'> 5</span><span> 0105         Poultry; live, fowls of the species ~ 01         Animals; live  
 #&gt; </span><span style='color: #555555;'> 6</span><span> 0106         Animals, n.e.c. in chapter 01; live   01         Animals; live  
-#&gt; </span><span style='color: #555555;'> 7</span><span> 0201         Meat of bovine animals; fresh or chi… 02         Meat and edibl…
-#&gt; </span><span style='color: #555555;'> 8</span><span> 0202         Meat of bovine animals; frozen        02         Meat and edibl…
-#&gt; </span><span style='color: #555555;'> 9</span><span> 0203         Meat of swine; fresh, chilled or fro… 02         Meat and edibl…
-#&gt; </span><span style='color: #555555;'>10</span><span> 0204         Meat of sheep or goats; fresh, chill… 02         Meat and edibl…
-#&gt; </span><span style='color: #555555;'># … with 1,310 more rows</span><span></div></span></pre>
+#&gt; </span><span style='color: #555555;'> 7</span><span> 0201         Meat of bovine animals; fresh or chi~ 02         Meat and edibl~
+#&gt; </span><span style='color: #555555;'> 8</span><span> 0202         Meat of bovine animals; frozen        02         Meat and edibl~
+#&gt; </span><span style='color: #555555;'> 9</span><span> 0203         Meat of swine; fresh, chilled or fro~ 02         Meat and edibl~
+#&gt; </span><span style='color: #555555;'>10</span><span> 0204         Meat of sheep or goats; fresh, chill~ 02         Meat and edibl~
+#&gt; </span><span style='color: #555555;'># ... with 1,310 more rows</span><span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
