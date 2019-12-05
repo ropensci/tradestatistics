@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
   </a>
 </p>
 
-# Open Trade Statistics package <img src="https://ropensci.github.io/tradestatistics/hexicon.svg" width=150 align="right" alt="sticker"/>
+# Open Trade Statistics package <img src="https://docs.ropensci.org/tradestatistics/reference/figures/hexicon.svg" width=150 align="right" alt="sticker"/>
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
@@ -31,7 +31,7 @@ knitr::opts_chunk$set(
 
 This is what the package does:
 
-![Data diagram](https://ropensci.github.io/tradestatistics/data-diagram.svg)
+![Data diagram](https://docs.ropensci.org/tradestatistics/data-diagram.svg)
 
 Using `tradestatistics` package is all about efficiency, without this package you could obtain the same data from the API at the expense of using additional time and effort for the same results. As an API wrapper and utility program this package makes data obtaining faster and easier for you.
 
@@ -47,7 +47,7 @@ devtools::install_github("ropensci/tradestatistics")
 
 ## Code of conduct
 
-Please note that this project is released with a [Contributor Code of Conduct](https://ropensci.github.io/tradestatistics/CODE_OF_CONDUCT.html).
+Please note that this project is released with a [Contributor Code of Conduct](https://docs.ropensci.org/tradestatistics/CODE_OF_CONDUCT.html).
 By participating in this project you agree to abide by its terms.
 
 [![ropensci_footer](https://ropensci.org/public_images/ropensci_footer.png)](https://ropensci.org)
