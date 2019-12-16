@@ -4,10 +4,19 @@
 \alias{ots_create_tidy_data}
 \title{Downloads and processes the data from the API to return a human-readable tibble}
 \usage{
-ots_create_tidy_data(years = 1962, reporters = "all",
-  partners = "all", products = "all", table = "yrpc",
-  max_attempts = 5, include_shortnames = FALSE,
-  include_communities = FALSE, use_localhost = FALSE)
+ots_create_tidy_data(
+  years = 1962,
+  reporters = "all",
+  partners = "all",
+  products = "all",
+  table = "yrpc",
+  max_attempts = 5,
+  include_shortnames = FALSE,
+  include_communities = FALSE,
+  use_localhost = FALSE,
+  use_cache = FALSE,
+  file = NULL
+)
 }
 \arguments{
 \item{years}{Year contained within the years specified in
@@ -39,6 +48,12 @@ Default set to \code{FALSE}.}
 
 \item{use_localhost}{Logical to determine if the base URL shall be localhost instead
 of api.tradestatistics.io. Default set to \code{FALSE}.}
+
+\item{use_cache}{logical option to save and load from cache. If `TRUE`, results will be cached in memory
+if `file` is `NULL` or on disk if `file` is not `NULL`.}
+
+\item{file}{optional character with the full path of a file to save the data. If `cache` is `FALSE` but
+`file` is not `NULL`, the results will be downloaded from the internet and saved on disk.}
 }
 \value{
 A tibble that describes bilateral trade metrics (imports,
