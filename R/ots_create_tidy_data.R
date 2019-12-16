@@ -53,8 +53,36 @@
 #' ots_create_tidy_data(years = 1980, reporters = "chl", products = "apple", table = "yrc")
 #' }
 #' @keywords functions
-
 ots_create_tidy_data <- function(years = 1962,
+                                 reporters = "all",
+                                 partners = "all",
+                                 products = "all",
+                                 table = "yrpc",
+                                 max_attempts = 5,
+                                 include_shortnames = FALSE,
+                                 include_communities = FALSE,
+                                 use_localhost = FALSE, 
+                                 use_cache = FALSE,
+                                 file = NULL) {
+  with_cache(use_cache = use_cache, file = file, 
+             memoised = ots_create_tidy_data_memoised, 
+             unmemoised = ots_create_tidy_data_unmemoised, 
+             read_function = read_ots_data,
+             write_function = write_ots_data,
+             years = years,
+             reporters = reporters,
+             partners = partners,
+             products = products,
+             table = table,
+             max_attempts = max_attempts,
+             include_shortnames = include_shortnames,
+             include_communities = include_communities,
+             use_localhost = use_localhost
+             )
+}
+
+
+ots_create_tidy_data_unmemoised <- function(years = 1962,
                                  reporters = "all",
                                  partners = "all",
                                  products = "all",
@@ -431,3 +459,6 @@ ots_create_tidy_data <- function(years = 1962,
 
   return(data)
 }
+
+
+ots_create_tidy_data_memoised <- memoise::memoise(ots_create_tidy_data_unmemoised)

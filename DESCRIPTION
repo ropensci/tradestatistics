@@ -45,13 +45,15 @@ LazyData: TRUE
 Depends:
   R (>= 3.5.0)
 Imports:
-  rlang,
-  magrittr,
-  dplyr,
-  stringr,
-  crul,
-  purrr,
-  jsonlite
+    rlang,
+    magrittr,
+    dplyr,
+    stringr,
+    crul,
+    purrr,
+    jsonlite,
+    memoise,
+    data.table
 RoxygenNote: 6.1.1
 Suggests: 
     knitr,
