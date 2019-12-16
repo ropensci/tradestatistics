@@ -39,6 +39,7 @@ jobs:
           source <(curl -s http://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh)
           tlmgr install pdftexcmds
           tlmgr install kvoptions
+          tlmgr install letltxmacro
         
       - name: Cache R packages
         uses: actions/cache@v1
