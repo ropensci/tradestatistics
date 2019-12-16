@@ -53,7 +53,8 @@ Imports:
     purrr,
     jsonlite,
     memoise,
-    data.table
+    data.table,
+    digest
 RoxygenNote: 7.0.0
 Suggests: 
     knitr,

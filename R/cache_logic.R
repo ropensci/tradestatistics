@@ -20,11 +20,11 @@ with_cache <- function(use_cache, file, memoised, unmemoised,
       return(data)
     }
   }
-  
-  if(!curl::has_internet()){
-    message("A working internet connection is required to download data from tradestatistics")
-    return(NULL)
-  }
+  # 
+  # if(!curl::has_internet()){
+  #   message("A working internet connection is required to download data from tradestatistics")
+  #   return(NULL)
+  # }
   data <- unmemoised(...)
   
   if (!is.null(file)) {
