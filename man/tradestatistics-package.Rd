@@ -22,6 +22,8 @@ Useful links:
 Other contributors:
 \itemize{
   \item Joshua Kunst (contributed to different parts of the pre-release code) [contributor]
+  \item Natalia de los Santos (proposed improvements to default parameters) [contributor]
+  \item Elio Campitelli (wrote client-side caching function) [contributor]
   \item Emily Riederer (reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/274) [reviewer]
   \item Mark Padgham (reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/274) [reviewer]
   \item Amanda Dobbyn (reviewed an archived package that evolved into the current package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217) [reviewer]

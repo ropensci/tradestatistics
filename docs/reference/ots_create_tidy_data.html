@@ -71,7 +71,7 @@ performs different API calls to transform and return tidy data." />
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="../hexlogo.png" id="hexlogo" alt="rOpenSci" /></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.7</small></i></a>
+        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.2.8</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -127,10 +127,19 @@ performs different API calls to transform and return tidy data." />
 performs different API calls to transform and return tidy data.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ots_create_tidy_data</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='fl'>1962</span>, <span class='kw'>reporters</span> <span class='kw'>=</span> <span class='st'>"all"</span>,
-  <span class='kw'>partners</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>products</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrpc"</span>,
-  <span class='kw'>max_attempts</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>include_shortnames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>include_communities</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>use_localhost</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>ots_create_tidy_data</span>(
+  <span class='kw'>years</span> <span class='kw'>=</span> <span class='fl'>1962</span>,
+  <span class='kw'>reporters</span> <span class='kw'>=</span> <span class='st'>"all"</span>,
+  <span class='kw'>partners</span> <span class='kw'>=</span> <span class='st'>"all"</span>,
+  <span class='kw'>products</span> <span class='kw'>=</span> <span class='st'>"all"</span>,
+  <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrpc"</span>,
+  <span class='kw'>max_attempts</span> <span class='kw'>=</span> <span class='fl'>5</span>,
+  <span class='kw'>include_shortnames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>include_communities</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>use_localhost</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>use_cache</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>file</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -182,6 +191,16 @@ Default set to <code>FALSE</code>.</p></td>
       <th>use_localhost</th>
       <td><p>Logical to determine if the base URL shall be localhost instead
 of api.tradestatistics.io. Default set to <code>FALSE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>use_cache</th>
+      <td><p>logical option to save and load from cache. If `TRUE`, results will be cached in memory
+if `file` is `NULL` or on disk if `file` is not `NULL`.</p></td>
+    </tr>
+    <tr>
+      <th>file</th>
+      <td><p>optional character with the full path of a file to save the data. If `cache` is `FALSE` but
+`file` is not `NULL`, the results will be downloaded from the internet and saved on disk.</p></td>
     </tr>
     </table>
 

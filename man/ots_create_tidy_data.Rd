@@ -49,11 +49,10 @@ Default set to \code{FALSE}.}
 \item{use_localhost}{Logical to determine if the base URL shall be localhost instead
 of api.tradestatistics.io. Default set to \code{FALSE}.}
 
-\item{use_cache}{logical option to save and load from cache. If `TRUE`, results will be cached in memory
-if `file` is `NULL` or on disk if `file` is not `NULL`.}
+\item{use_cache}{Logical to save and load from cache. If \code{TRUE}, the results will be cached in memory
+if \code{file} is \code{NULL} or on disk if `file` is not \code{NULL}. Default set to \code{FALSE}.}
 
-\item{file}{optional character with the full path of a file to save the data. If `cache` is `FALSE` but
-`file` is not `NULL`, the results will be downloaded from the internet and saved on disk.}
+\item{file}{Optional character with the full file path to save the data. Default set to \code{NULL}.}
 }
 \value{
 A tibble that describes bilateral trade metrics (imports,
@@ -67,7 +66,7 @@ performs different API calls to transform and return tidy data.
 }
 \examples{
 \dontrun{
-# The next example can take more than 5 seconds to compute,
+# The next examples can take more than 5 seconds to compute,
 # so these are just shown without evaluation according to CRAN rules
 
 # Run `ots_countries` to display the full table of countries

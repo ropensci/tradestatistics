@@ -9,13 +9,11 @@
 #' @param ... additional parameters inherited from \code{ots_create_tidy_data()}.
 #' @importFrom data.table fread fwrite
 #' @importFrom digest digest
-#' @importFrom memoise forget
 #' @keywords internal
 
 ots_with_cache <- function(use_cache, file, memoised, unmemoised, ...) {
-  # cache in memory ----
-  
-  if (use_cache == TRUE && is.null(file)) {
+  # cache in memory
+  if (use_cache && is.null(file)) {
     return(memoised(...))
   }
 
@@ -23,9 +21,8 @@ ots_with_cache <- function(use_cache, file, memoised, unmemoised, ...) {
     hash <- digest::digest(list(body(unmemoised), ...))
   }
 
-  # cache in file ----
-  
-  if (use_cache == TRUE && file.exists(file)) {
+  # cache in file
+  if (use_cache && file.exists(file)) {
     data <- data.table::fread(file, yaml = TRUE)
 
     if (data$.hash[1] == hash) {
@@ -43,7 +40,7 @@ ots_with_cache <- function(use_cache, file, memoised, unmemoised, ...) {
     data$.hash <- NULL
   }
 
-  if (use_cache == FALSE) {
+  if (!use_cache) {
     memoise::forget(memoised)
   }
 

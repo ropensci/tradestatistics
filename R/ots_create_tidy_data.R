@@ -22,11 +22,10 @@
 #' Default set to \code{FALSE}.
 #' @param use_localhost Logical to determine if the base URL shall be localhost instead
 #' of api.tradestatistics.io. Default set to \code{FALSE}.
-#' @param use_cache logical option to save and load from cache. If `TRUE`, results will be cached in memory
-#' if `file` is `NULL` or on disk if `file` is not `NULL`.
-#' @param file optional character with the full path of a file to save the data. If `cache` is `FALSE` but
-#' `file` is not `NULL`, the results will be downloaded from the internet and saved on disk. 
-#' 
+#' @param use_cache Logical to save and load from cache. If \code{TRUE}, the results will be cached in memory
+#' if \code{file} is \code{NULL} or on disk if `file` is not \code{NULL}. Default set to \code{FALSE}.
+#' @param file Optional character with the full file path to save the data. Default set to \code{NULL}.
+#'
 #' @return A tibble that describes bilateral trade metrics (imports,
 #' exports, trade balance and relevant metrics
 #' such as exports growth w/r to last year) between a \code{reporter}
@@ -41,7 +40,7 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' # The next example can take more than 5 seconds to compute,
+#' # The next examples can take more than 5 seconds to compute,
 #' # so these are just shown without evaluation according to CRAN rules
 #'
 #' # Run `ots_countries` to display the full table of countries
@@ -66,34 +65,35 @@ ots_create_tidy_data <- function(years = 1962,
                                  max_attempts = 5,
                                  include_shortnames = FALSE,
                                  include_communities = FALSE,
-                                 use_localhost = FALSE, 
+                                 use_localhost = FALSE,
                                  use_cache = FALSE,
                                  file = NULL) {
-  with_cache(use_cache = use_cache, file = file, 
-             memoised = ots_create_tidy_data_memoised, 
-             unmemoised = ots_create_tidy_data_unmemoised, 
-             years = years,
-             reporters = reporters,
-             partners = partners,
-             products = products,
-             table = table,
-             max_attempts = max_attempts,
-             include_shortnames = include_shortnames,
-             include_communities = include_communities,
-             use_localhost = use_localhost
-             )
+  ots_with_cache(
+    use_cache = use_cache, file = file,
+    memoised = ots_create_tidy_data_memoised,
+    unmemoised = ots_create_tidy_data_unmemoised,
+    years = years,
+    reporters = reporters,
+    partners = partners,
+    products = products,
+    table = table,
+    max_attempts = max_attempts,
+    include_shortnames = include_shortnames,
+    include_communities = include_communities,
+    use_localhost = use_localhost
+  )
 }
 
 
 ots_create_tidy_data_unmemoised <- function(years = 1962,
-                                 reporters = "all",
-                                 partners = "all",
-                                 products = "all",
-                                 table = "yrpc",
-                                 max_attempts = 5,
-                                 include_shortnames = FALSE,
-                                 include_communities = FALSE,
-                                 use_localhost = FALSE) {
+                                            reporters = "all",
+                                            partners = "all",
+                                            products = "all",
+                                            table = "yrpc",
+                                            max_attempts = 5,
+                                            include_shortnames = FALSE,
+                                            include_communities = FALSE,
+                                            use_localhost = FALSE) {
 
   # Check tables ------------------------------------------------------------
   if (!table %in% tradestatistics::ots_tables$table) {
@@ -150,7 +150,7 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
         function(x) {
           y <- try(
             tradestatistics::ots_country_code(reporters_no_iso[x]) %>%
-              dplyr::select(!!sym("country_iso")) %>% 
+              dplyr::select(!!sym("country_iso")) %>%
               purrr::as_vector()
           )
 
@@ -161,9 +161,9 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
               "2" = "nd",
               "3" = "rd"
             )
-            
+
             order <- ifelse(is.null(order), "th", order)
-            
+
             stop(sprintf("%s%s specified reporter returned no valid ISO code.", x, order))
           }
 
@@ -186,7 +186,7 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
         function(x) {
           y <- try(
             tradestatistics::ots_country_code(partners_no_iso[x]) %>%
-              dplyr::select(!!sym("country_iso")) %>% 
+              dplyr::select(!!sym("country_iso")) %>%
               purrr::as_vector()
           )
 
@@ -197,12 +197,12 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
               "2" = "nd",
               "3" = "rd"
             )
-            
+
             order <- ifelse(is.null(order), "th", order)
-            
+
             stop(sprintf("%s%s specified partner returned no valid ISO code.", x, order))
           }
-          
+
           return(y)
         }
       )
@@ -282,7 +282,7 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
     product = products,
     stringsAsFactors = FALSE
   )
-  
+
   data <- purrr::map_df(
     .x = seq_len(nrow(condensed_parameters)),
     ~ ots_read_from_api(

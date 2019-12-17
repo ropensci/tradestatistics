@@ -1,7 +1,7 @@
 Package: tradestatistics
 Type: Package
 Title: Open Trade Statistics API Wrapper and Utility Program
-Version: 0.2.7
+Version: 0.2.8
 Authors@R: c(
       person(given = "Mauricio",
              family = "Vargas",
@@ -12,6 +12,14 @@ Authors@R: c(
              family = "Kunst",
              role = "ctb",
              comment = "contributed to different parts of the pre-release code"),
+      person(given = "Natalia",
+             family = "de los Santos",
+             role = "ctb",
+             comment = "proposed improvements to default parameters"),
+      person(given = "Elio",
+             family = "Campitelli",
+             role = "ctb",
+             comment = "wrote client-side caching function"),
       person(given = "Emily",
              family = "Riederer",
              role = "rev",
@@ -55,7 +63,7 @@ Imports:
     memoise,
     data.table,
     digest
-RoxygenNote: 7.0.0
+RoxygenNote: 7.0.2
 Suggests: 
     knitr,
     rmarkdown,
