@@ -14,8 +14,7 @@
 
 ots_with_cache <- function(use_cache, file, memoised, unmemoised, ...) {
   # cache in memory ----
-  
-  if (use_cache == TRUE && is.null(file)) {
+  if (use_cache == TRUE & is.null(file)) {
     return(memoised(...))
   }
 
@@ -24,8 +23,7 @@ ots_with_cache <- function(use_cache, file, memoised, unmemoised, ...) {
   }
 
   # cache in file ----
-  
-  if (use_cache == TRUE && file.exists(file)) {
+  if (use_cache == TRUE & file.exists(file)) {
     data <- data.table::fread(file, yaml = TRUE)
 
     if (data$.hash[1] == hash) {

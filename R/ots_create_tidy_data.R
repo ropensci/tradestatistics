@@ -34,7 +34,7 @@
 #' @importFrom dplyr as_tibble select filter everything
 #' left_join bind_rows rename distinct starts_with
 #' @importFrom rlang sym syms
-#' @importFrom purrr map_df map_chr as_vector
+#' @importFrom purrr map_df as_vector
 #' @importFrom jsonlite fromJSON
 #' @importFrom crul HttpClient
 #' @export
@@ -68,6 +68,14 @@ ots_create_tidy_data <- function(years = 1962,
                                  use_localhost = FALSE,
                                  use_cache = FALSE,
                                  file = NULL) {
+  if (!is.logical(use_cache)) {
+    stop("use_cache must be logical.")
+  }
+  
+  if (!any(c(is.null(file), is.character(file)))) {
+    stop("file must be NULL or character.")
+  }
+  
   ots_with_cache(
     use_cache = use_cache, file = file,
     memoised = ots_create_tidy_data_memoised,
@@ -84,7 +92,6 @@ ots_create_tidy_data <- function(years = 1962,
   )
 }
 
-
 ots_create_tidy_data_unmemoised <- function(years = 1962,
                                             reporters = "all",
                                             partners = "all",
@@ -94,18 +101,12 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
                                             include_shortnames = FALSE,
                                             include_communities = FALSE,
                                             use_localhost = FALSE) {
-
-  # Check tables ------------------------------------------------------------
+  # Check tables ----
   if (!table %in% tradestatistics::ots_tables$table) {
-    stop(
-      "
-      The requested table does not exist. Please check the spelling or
-      explore the 'ots_table' table provided within this package.
-      "
-    )
+    stop("The requested table does not exist. Please check the spelling or\nexplore the 'ots_table' table provided within this package.")
   }
 
-  # Check years -------------------------------------------------------------
+  # Check years ----
   year_depending_queries <- grep("^reporters|rankings$|^y",
     tradestatistics::ots_tables$table,
     value = T
@@ -120,16 +121,10 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
 
   if (all(years %in% min(year_range):max(year_range)) != TRUE &
     table %in% year_depending_queries) {
-    stop(
-      "
-      Provided that the table you requested contains a 'year' field,
-      please verify that you are requesting data contained within
-      the years exposed in api.tradestatistics.io/year_range.
-      "
-    )
+    stop("Provided that the table you requested contains a 'year' field, please\nverify that you are requesting data contained within the years exposed\nin api.tradestatistics.io/year_range.")
   }
 
-  # Check reporters and partners --------------------------------------------
+  # Check reporters and partners ----
   reporter_depending_queries <- grep("^yr",
     tradestatistics::ots_tables$table,
     value = T
@@ -140,78 +135,48 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
   )
 
   if (!is.null(reporters)) {
-    if (!all(reporters %in% tradestatistics::ots_countries$country_iso) == TRUE &
-      table %in% reporter_depending_queries) {
+    if (!all(reporters %in% tradestatistics::ots_countries$country_iso) == TRUE & table %in% reporter_depending_queries) {
       reporters_iso <- reporters[reporters %in% tradestatistics::ots_countries$country_iso]
       reporters_no_iso <- reporters[!reporters %in% tradestatistics::ots_countries$country_iso]
-
-      reporters_no_iso <- purrr::map_chr(
-        seq_along(reporters_no_iso),
-        function(x) {
-          y <- try(
-            tradestatistics::ots_country_code(reporters_no_iso[x]) %>%
-              dplyr::select(!!sym("country_iso")) %>%
-              purrr::as_vector()
+      
+      if (length(reporters_no_iso) > 0) {
+        warning(
+          sub(",([^,]*)$"," &\\1",
+              sprintf("You wrote reporter strings that could not be matched to ISO codes.\nThese strings shall be ignored. Please check the spelling for:\n%s", paste0(sprintf("'%s'", reporters_no_iso), collapse = ", "))
           )
-
-          if (class(y) == "try-error") {
-            order <- switch(
-              x,
-              "1" = "st",
-              "2" = "nd",
-              "3" = "rd"
-            )
-
-            order <- ifelse(is.null(order), "th", order)
-
-            stop(sprintf("%s%s specified reporter returned no valid ISO code.", x, order))
-          }
-
-          return(y)
-        }
-      )
-
-      reporters <- c(reporters_iso, reporters_no_iso)
+        )
+      }
+      
+      reporters <- reporters_iso
+      
+      if (length(reporters) == 0) {
+        stop("After ignoring the unmatched reporter strings, there were zero obtained\nISO codes and no data will be downloaded.")
+      }
     }
   }
 
   if (!is.null(partners)) {
-    if (!all(partners %in% tradestatistics::ots_countries$country_iso) == TRUE &
-      table %in% partner_depending_queries) {
+    if (!all(partners %in% tradestatistics::ots_countries$country_iso) == TRUE & table %in% partner_depending_queries) {
       partners_iso <- partners[partners %in% tradestatistics::ots_countries$country_iso]
       partners_no_iso <- partners[!partners %in% tradestatistics::ots_countries$country_iso]
 
-      partners_no_iso <- purrr::map_chr(
-        seq_along(partners_no_iso),
-        function(x) {
-          y <- try(
-            tradestatistics::ots_country_code(partners_no_iso[x]) %>%
-              dplyr::select(!!sym("country_iso")) %>%
-              purrr::as_vector()
+      if (length(partners_no_iso) > 0) {
+        warning(
+          sub(",([^,]*)$"," &\\1",
+              sprintf("You wrote partner strings that could not be matched to ISO codes.\nThese strings shall be ignored. Please check the spelling for:\n%s", paste0(sprintf("'%s'", partners_no_iso), collapse = ", "))
           )
+        )
+      }
 
-          if (class(y) == "try-error") {
-            order <- switch(
-              x,
-              "1" = "st",
-              "2" = "nd",
-              "3" = "rd"
-            )
-
-            order <- ifelse(is.null(order), "th", order)
-
-            stop(sprintf("%s%s specified partner returned no valid ISO code.", x, order))
-          }
-
-          return(y)
-        }
-      )
-
-      partners <- c(partners_iso, partners_no_iso)
+      partners <- partners_iso
+      
+      if (length(partners) == 0) {
+        stop("After ignoring the unmatched partner strings, there were zero obtained\nISO codes and no data will be downloaded.")
+      }
     }
   }
 
-  # Check product codes -----------------------------------------------------
+  # Check product codes ----
   product_depending_queries <- grep("c$",
     tradestatistics::ots_tables$table,
     value = T
@@ -248,23 +213,30 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
   if (!all(as.character(products) %in%
     tradestatistics::ots_products$product_code == TRUE) &
     table %in% product_depending_queries) {
-    stop(
-      "
-        The requested products do not exist. Please check the spelling or
-        explore the 'ots_products' table provided within this package.
-        "
-    )
+    stop("The requested products do not exist. Please check the spelling or\nexplore the 'ots_products' table provided within this package.")
   }
 
-  # Read from API -----------------------------------------------------------
+  # Check optional parameters ----
+  if (!is.numeric(max_attempts) | max_attempts <= 0) {
+    stop("max_attempts must be a positive integer.")
+  }
+
+  if (!is.logical(include_shortnames)) {
+    stop("include_shortnames must be logical.")
+  }
+
+  if (!is.logical(include_communities)) {
+    stop("include_communities must be logical.")
+  }
+
+  if (!is.logical(use_localhost)) {
+    stop("use_localhost must be logical.")
+  }
+
+  # Read from API ----
   if (!table %in% product_depending_queries & any(products != "all") == TRUE) {
     products <- "all"
-    message(
-      "
-      The products argument will be ignored provided that you requested a table
-      without product_code field.
-      "
-    )
+    warning("The products argument will be ignored provided that you requested a\ntable without product_code field.")
   }
 
   if (is.null(reporters)) {
@@ -299,7 +271,7 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
 
   # no data in API message
   if (nrow(data) == 0) {
-    stop("No data available. Try changing years, reporters, partners or products")
+    stop("No data available. Try changing years, reporters, partners or products.")
   }
 
   # Add attributes based on codes, etc (and join years, if applicable) ------
@@ -462,6 +434,5 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
 
   return(data)
 }
-
 
 ots_create_tidy_data_memoised <- memoise::memoise(ots_create_tidy_data_unmemoised)

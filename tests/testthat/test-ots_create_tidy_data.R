@@ -51,19 +51,19 @@ test_that("ots_create_tidy_data connects to the API and returns an error after i
   # Bilateral trade ABC-CDE fake ISO codes (1962) - Error message
   expect_error(
     ots_create_tidy_data(years = 1962, reporters = "abc", partners = "cde"),
-    "specified reporter returned no valid ISO code"
+    "After ignoring the unmatched reporter strings"
   )
   
   # Bilateral trade CHL-ABC fake ISO code (1962) - Error message
   expect_error(
     ots_create_tidy_data(years = 1962, reporters = "chl", partners = "abc"),
-    "specified partner returned no valid ISO code"
+    "After ignoring the unmatched partner strings"
   )
 
   # Bilateral trade USA (1776) - Error message
   expect_error(
     ots_create_tidy_data(years = 1776, reporters = "usa", partners = "all"),
-    "years exposed in api.tradestatistics.io/year_range."
+    "Provided that the table you requested contains a 'year' field"
   )
 
   # Bilateral trade Chile-Argentina with fake table (1962) - Error message
