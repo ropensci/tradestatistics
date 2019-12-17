@@ -22,6 +22,11 @@
 #' Default set to \code{FALSE}.
 #' @param use_localhost Logical to determine if the base URL shall be localhost instead
 #' of api.tradestatistics.io. Default set to \code{FALSE}.
+#' @param use_cache logical option to save and load from cache. If `TRUE`, results will be cached in memory
+#' if `file` is `NULL` or on disk if `file` is not `NULL`.
+#' @param file optional character with the full path of a file to save the data. If `cache` is `FALSE` but
+#' `file` is not `NULL`, the results will be downloaded from the internet and saved on disk. 
+#' 
 #' @return A tibble that describes bilateral trade metrics (imports,
 #' exports, trade balance and relevant metrics
 #' such as exports growth w/r to last year) between a \code{reporter}
@@ -53,8 +58,34 @@
 #' ots_create_tidy_data(years = 1980, reporters = "chl", products = "apple", table = "yrc")
 #' }
 #' @keywords functions
-
 ots_create_tidy_data <- function(years = 1962,
+                                 reporters = "all",
+                                 partners = "all",
+                                 products = "all",
+                                 table = "yrpc",
+                                 max_attempts = 5,
+                                 include_shortnames = FALSE,
+                                 include_communities = FALSE,
+                                 use_localhost = FALSE, 
+                                 use_cache = FALSE,
+                                 file = NULL) {
+  with_cache(use_cache = use_cache, file = file, 
+             memoised = ots_create_tidy_data_memoised, 
+             unmemoised = ots_create_tidy_data_unmemoised, 
+             years = years,
+             reporters = reporters,
+             partners = partners,
+             products = products,
+             table = table,
+             max_attempts = max_attempts,
+             include_shortnames = include_shortnames,
+             include_communities = include_communities,
+             use_localhost = use_localhost
+             )
+}
+
+
+ots_create_tidy_data_unmemoised <- function(years = 1962,
                                  reporters = "all",
                                  partners = "all",
                                  products = "all",
@@ -431,3 +462,6 @@ ots_create_tidy_data <- function(years = 1962,
 
   return(data)
 }
+
+
+ots_create_tidy_data_memoised <- memoise::memoise(ots_create_tidy_data_unmemoised)
