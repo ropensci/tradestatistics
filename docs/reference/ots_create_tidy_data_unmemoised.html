@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Caching wrapper to reduce API calls (internal function) — ots_with_cache • tradestatistics</title>
+<title>Downloads and processes the data from the API to return a human-readable tibble (unmemoised, internal) — ots_create_tidy_data_unmemoised • tradestatistics</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -36,9 +36,8 @@
 <!-- ropensci -->
 <link href="../ropensci.css" rel="stylesheet">
 
-<meta property="og:title" content="Caching wrapper to reduce API calls (internal function) — ots_with_cache" />
-<meta property="og:description" content="Eases saving the data downloaded from api.tradestatistics.io
-and prevents ots_read_from_api() from downloading the same twice." />
+<meta property="og:title" content="Downloads and processes the data from the API to return a human-readable tibble (unmemoised, internal) — ots_create_tidy_data_unmemoised" />
+<meta property="og:description" content="A separation of the downloading part in ots_create_tidy_data() for making caching optional." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -117,50 +116,33 @@ and prevents ots_read_from_api() from downloading the same twice." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Caching wrapper to reduce API calls (internal function)</h1>
+    <h1>Downloads and processes the data from the API to return a human-readable tibble (unmemoised, internal)</h1>
     
-    <div class="hidden name"><code>ots_with_cache.Rd</code></div>
+    <div class="hidden name"><code>ots_create_tidy_data_unmemoised.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Eases saving the data downloaded from <code>api.tradestatistics.io</code>
-and prevents <code><a href='ots_read_from_api.html'>ots_read_from_api()</a></code> from downloading the same twice.</p>
+    <p>A separation of the downloading part in <code><a href='ots_create_tidy_data.html'>ots_create_tidy_data()</a></code> for making caching optional.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ots_with_cache</span>(<span class='no'>use_cache</span>, <span class='no'>file</span>, <span class='no'>memoised</span>, <span class='no'>unmemoised</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>ots_create_tidy_data_unmemoised</span>(
+  <span class='no'>years</span>,
+  <span class='no'>reporters</span>,
+  <span class='no'>partners</span>,
+  <span class='no'>products</span>,
+  <span class='no'>table</span>,
+  <span class='no'>max_attempts</span>,
+  <span class='no'>include_shortnames</span>,
+  <span class='no'>include_communities</span>,
+  <span class='no'>use_localhost</span>
+)</pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>use_cache</th>
-      <td><p>Logical to save and load from cache. If <code>TRUE</code>, the results will be cached in memory
-if <code>file</code> is <code>NULL</code> or on disk if `file` is not <code>NULL</code>.</p></td>
-    </tr>
-    <tr>
-      <th>file</th>
-      <td><p>Character with the full file path to save the data.</p></td>
-    </tr>
-    <tr>
-      <th>memoised</th>
-      <td><p>A memorised function (e.g. <code><a href='ots_create_tidy_data_memoised.html'>ots_create_tidy_data_memoised()</a></code>).</p></td>
-    </tr>
-    <tr>
-      <th>unmemoised</th>
-      <td><p>An unmemorised function (e.g. <code><a href='ots_create_tidy_data_unmemoised.html'>ots_create_tidy_data_unmemoised()</a></code>).</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Additional parameters inherited from <code><a href='ots_create_tidy_data.html'>ots_create_tidy_data()</a></code>.</p></td>
-    </tr>
-    </table>
 
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
     </ul>
 
   </div>

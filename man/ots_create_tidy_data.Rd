@@ -61,7 +61,7 @@ such as exports growth w/r to last year) between a \code{reporter}
 and \code{partner} country.
 }
 \description{
-This function accesses \code{api.tradestatistics.io} and
+Accesses \code{api.tradestatistics.io} and
 performs different API calls to transform and return tidy data.
 }
 \examples{

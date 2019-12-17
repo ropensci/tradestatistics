@@ -316,62 +316,70 @@
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Note that here I'm passing Peru and not per which is the ISO code for Peru</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="co"># The same applies to Brazil</span></span>
 <span id="cb8-3"><a href="#cb8-3"></a><span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1962</span>,<span class="dv">1963</span>), <span class="dt">reporters =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"chl"</span>, <span class="st">"Peru"</span>, <span class="st">"bol"</span>), <span class="dt">partners =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"arg"</span>, <span class="st">"Brazil"</span>))</span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="co">#&gt; # A tibble: 2,275 x 11</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="co">#&gt;     year reporter_iso partner_iso reporter_fullna… partner_fullnam… product_code</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;       </span></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="co">#&gt;  1  1962 chl          arg         Chile            Argentina        9701        </span></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="co">#&gt;  2  1962 chl          arg         Chile            Argentina        9609        </span></span>
-<span id="cb8-9"><a href="#cb8-9"></a><span class="co">#&gt;  3  1962 chl          arg         Chile            Argentina        9608        </span></span>
-<span id="cb8-10"><a href="#cb8-10"></a><span class="co">#&gt;  4  1962 chl          arg         Chile            Argentina        9508        </span></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="co">#&gt;  5  1962 chl          arg         Chile            Argentina        9507        </span></span>
-<span id="cb8-12"><a href="#cb8-12"></a><span class="co">#&gt;  6  1962 chl          arg         Chile            Argentina        9506        </span></span>
-<span id="cb8-13"><a href="#cb8-13"></a><span class="co">#&gt;  7  1962 chl          arg         Chile            Argentina        9404        </span></span>
-<span id="cb8-14"><a href="#cb8-14"></a><span class="co">#&gt;  8  1962 chl          arg         Chile            Argentina        9403        </span></span>
-<span id="cb8-15"><a href="#cb8-15"></a><span class="co">#&gt;  9  1962 chl          arg         Chile            Argentina        9401        </span></span>
-<span id="cb8-16"><a href="#cb8-16"></a><span class="co">#&gt; 10  1962 chl          arg         Chile            Argentina        9307        </span></span>
-<span id="cb8-17"><a href="#cb8-17"></a><span class="co">#&gt; # … with 2,265 more rows, and 5 more variables: product_fullname_english &lt;chr&gt;,</span></span>
-<span id="cb8-18"><a href="#cb8-18"></a><span class="co">#&gt; #   group_code &lt;chr&gt;, group_name &lt;chr&gt;, import_value_usd &lt;int&gt;,</span></span>
-<span id="cb8-19"><a href="#cb8-19"></a><span class="co">#&gt; #   export_value_usd &lt;int&gt;</span></span></code></pre></div>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">#&gt; Warning in unmemoised(...): You wrote reporter strings that could not be matched to ISO codes.</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co">#&gt; These strings shall be ignored. Please check the spelling for:</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">#&gt; 'Peru'</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co">#&gt; Warning in unmemoised(...): You wrote partner strings that could not be matched to ISO codes.</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co">#&gt; These strings shall be ignored. Please check the spelling for:</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="co">#&gt; 'Brazil'</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="co">#&gt; # A tibble: 1,050 x 11</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="co">#&gt;     year reporter_iso partner_iso reporter_fullna… partner_fullnam… product_code</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;       </span></span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="co">#&gt;  1  1962 chl          arg         Chile            Argentina        9701        </span></span>
+<span id="cb8-14"><a href="#cb8-14"></a><span class="co">#&gt;  2  1962 chl          arg         Chile            Argentina        9609        </span></span>
+<span id="cb8-15"><a href="#cb8-15"></a><span class="co">#&gt;  3  1962 chl          arg         Chile            Argentina        9608        </span></span>
+<span id="cb8-16"><a href="#cb8-16"></a><span class="co">#&gt;  4  1962 chl          arg         Chile            Argentina        9508        </span></span>
+<span id="cb8-17"><a href="#cb8-17"></a><span class="co">#&gt;  5  1962 chl          arg         Chile            Argentina        9507        </span></span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="co">#&gt;  6  1962 chl          arg         Chile            Argentina        9506        </span></span>
+<span id="cb8-19"><a href="#cb8-19"></a><span class="co">#&gt;  7  1962 chl          arg         Chile            Argentina        9404        </span></span>
+<span id="cb8-20"><a href="#cb8-20"></a><span class="co">#&gt;  8  1962 chl          arg         Chile            Argentina        9403        </span></span>
+<span id="cb8-21"><a href="#cb8-21"></a><span class="co">#&gt;  9  1962 chl          arg         Chile            Argentina        9401        </span></span>
+<span id="cb8-22"><a href="#cb8-22"></a><span class="co">#&gt; 10  1962 chl          arg         Chile            Argentina        9307        </span></span>
+<span id="cb8-23"><a href="#cb8-23"></a><span class="co">#&gt; # … with 1,040 more rows, and 5 more variables: product_fullname_english &lt;chr&gt;,</span></span>
+<span id="cb8-24"><a href="#cb8-24"></a><span class="co">#&gt; #   group_code &lt;chr&gt;, group_name &lt;chr&gt;, import_value_usd &lt;int&gt;,</span></span>
+<span id="cb8-25"><a href="#cb8-25"></a><span class="co">#&gt; #   export_value_usd &lt;int&gt;</span></span></code></pre></div>
 <p>If we want filtering by product, there are different options:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Pass a specific HS code</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1962</span>,<span class="dv">1963</span>), <span class="dt">reporters =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"chl"</span>, <span class="st">"Peru"</span>, <span class="st">"bol"</span>), <span class="dt">partners =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"arg"</span>, <span class="st">"bra"</span>), <span class="dt">products =</span> <span class="st">"0101"</span>)</span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="co">#&gt; # A tibble: 12 x 12</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="co">#&gt;     year reporter_iso partner_iso reporter_fullna… partner_fullnam… product_code</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;       </span></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="co">#&gt;  1  1962 chl          arg         Chile            Argentina        0101        </span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="co">#&gt;  2  1963 chl          arg         Chile            Argentina        0101        </span></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="co">#&gt;  3  1962 bol          arg         Bolivia          Argentina        0101        </span></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="co">#&gt;  4  1963 bol          arg         Bolivia          Argentina        0101        </span></span>
-<span id="cb9-10"><a href="#cb9-10"></a><span class="co">#&gt;  5  1962 per          arg         Peru             Argentina        0101        </span></span>
-<span id="cb9-11"><a href="#cb9-11"></a><span class="co">#&gt;  6  1963 per          arg         Peru             Argentina        0101        </span></span>
-<span id="cb9-12"><a href="#cb9-12"></a><span class="co">#&gt;  7  1962 chl          bra         Chile            Brazil           0101        </span></span>
-<span id="cb9-13"><a href="#cb9-13"></a><span class="co">#&gt;  8  1963 chl          bra         Chile            Brazil           0101        </span></span>
-<span id="cb9-14"><a href="#cb9-14"></a><span class="co">#&gt;  9  1962 bol          bra         Bolivia          Brazil           0101        </span></span>
-<span id="cb9-15"><a href="#cb9-15"></a><span class="co">#&gt; 10  1963 bol          bra         Bolivia          Brazil           0101        </span></span>
-<span id="cb9-16"><a href="#cb9-16"></a><span class="co">#&gt; 11  1962 per          bra         Peru             Brazil           0101        </span></span>
-<span id="cb9-17"><a href="#cb9-17"></a><span class="co">#&gt; 12  1963 per          bra         Peru             Brazil           0101        </span></span>
-<span id="cb9-18"><a href="#cb9-18"></a><span class="co">#&gt; # … with 6 more variables: product_fullname_english &lt;chr&gt;, group_code &lt;chr&gt;,</span></span>
-<span id="cb9-19"><a href="#cb9-19"></a><span class="co">#&gt; #   group_name &lt;chr&gt;, export_value_usd &lt;int&gt;, import_value_usd &lt;int&gt;,</span></span>
-<span id="cb9-20"><a href="#cb9-20"></a><span class="co">#&gt; #   observation &lt;chr&gt;</span></span>
-<span id="cb9-21"><a href="#cb9-21"></a></span>
-<span id="cb9-22"><a href="#cb9-22"></a><span class="co"># Pass a string that will return all matching descriptions and multiple HS codes</span></span>
-<span id="cb9-23"><a href="#cb9-23"></a><span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1962</span>,<span class="dv">1963</span>), <span class="dt">reporters =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"chl"</span>, <span class="st">"Peru"</span>, <span class="st">"bol"</span>), <span class="dt">partners =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"arg"</span>, <span class="st">"bra"</span>), <span class="dt">products =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"0101"</span>, <span class="st">"apple"</span>))</span>
-<span id="cb9-24"><a href="#cb9-24"></a><span class="co">#&gt; # A tibble: 36 x 12</span></span>
-<span id="cb9-25"><a href="#cb9-25"></a><span class="co">#&gt;     year reporter_iso partner_iso reporter_fullna… partner_fullnam… product_code</span></span>
-<span id="cb9-26"><a href="#cb9-26"></a><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;       </span></span>
-<span id="cb9-27"><a href="#cb9-27"></a><span class="co">#&gt;  1  1962 chl          arg         Chile            Argentina        0101        </span></span>
-<span id="cb9-28"><a href="#cb9-28"></a><span class="co">#&gt;  2  1963 chl          arg         Chile            Argentina        0101        </span></span>
-<span id="cb9-29"><a href="#cb9-29"></a><span class="co">#&gt;  3  1962 bol          arg         Bolivia          Argentina        0101        </span></span>
-<span id="cb9-30"><a href="#cb9-30"></a><span class="co">#&gt;  4  1963 bol          arg         Bolivia          Argentina        0101        </span></span>
-<span id="cb9-31"><a href="#cb9-31"></a><span class="co">#&gt;  5  1962 per          arg         Peru             Argentina        0101        </span></span>
-<span id="cb9-32"><a href="#cb9-32"></a><span class="co">#&gt;  6  1963 per          arg         Peru             Argentina        0101        </span></span>
-<span id="cb9-33"><a href="#cb9-33"></a><span class="co">#&gt;  7  1962 chl          bra         Chile            Brazil           0101        </span></span>
-<span id="cb9-34"><a href="#cb9-34"></a><span class="co">#&gt;  8  1963 chl          bra         Chile            Brazil           0101        </span></span>
-<span id="cb9-35"><a href="#cb9-35"></a><span class="co">#&gt;  9  1962 bol          bra         Bolivia          Brazil           0101        </span></span>
-<span id="cb9-36"><a href="#cb9-36"></a><span class="co">#&gt; 10  1963 bol          bra         Bolivia          Brazil           0101        </span></span>
-<span id="cb9-37"><a href="#cb9-37"></a><span class="co">#&gt; # … with 26 more rows, and 6 more variables: product_fullname_english &lt;chr&gt;,</span></span>
-<span id="cb9-38"><a href="#cb9-38"></a><span class="co">#&gt; #   group_code &lt;chr&gt;, group_name &lt;chr&gt;, export_value_usd &lt;int&gt;,</span></span>
-<span id="cb9-39"><a href="#cb9-39"></a><span class="co">#&gt; #   import_value_usd &lt;int&gt;, observation &lt;chr&gt;</span></span></code></pre></div>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co">#&gt; Warning in unmemoised(...): You wrote reporter strings that could not be matched to ISO codes.</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">#&gt; These strings shall be ignored. Please check the spelling for:</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="co">#&gt; 'Peru'</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="co">#&gt; # A tibble: 8 x 12</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co">#&gt;    year reporter_iso partner_iso reporter_fullna… partner_fullnam… product_code</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;       </span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="co">#&gt; 1  1962 chl          arg         Chile            Argentina        0101        </span></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="co">#&gt; 2  1963 chl          arg         Chile            Argentina        0101        </span></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="co">#&gt; 3  1962 bol          arg         Bolivia          Argentina        0101        </span></span>
+<span id="cb9-12"><a href="#cb9-12"></a><span class="co">#&gt; 4  1963 bol          arg         Bolivia          Argentina        0101        </span></span>
+<span id="cb9-13"><a href="#cb9-13"></a><span class="co">#&gt; 5  1962 chl          bra         Chile            Brazil           0101        </span></span>
+<span id="cb9-14"><a href="#cb9-14"></a><span class="co">#&gt; 6  1963 chl          bra         Chile            Brazil           0101        </span></span>
+<span id="cb9-15"><a href="#cb9-15"></a><span class="co">#&gt; 7  1962 bol          bra         Bolivia          Brazil           0101        </span></span>
+<span id="cb9-16"><a href="#cb9-16"></a><span class="co">#&gt; 8  1963 bol          bra         Bolivia          Brazil           0101        </span></span>
+<span id="cb9-17"><a href="#cb9-17"></a><span class="co">#&gt; # … with 6 more variables: product_fullname_english &lt;chr&gt;, group_code &lt;chr&gt;,</span></span>
+<span id="cb9-18"><a href="#cb9-18"></a><span class="co">#&gt; #   group_name &lt;chr&gt;, export_value_usd &lt;int&gt;, import_value_usd &lt;int&gt;,</span></span>
+<span id="cb9-19"><a href="#cb9-19"></a><span class="co">#&gt; #   observation &lt;chr&gt;</span></span>
+<span id="cb9-20"><a href="#cb9-20"></a></span>
+<span id="cb9-21"><a href="#cb9-21"></a><span class="co"># Pass a string that will return all matching descriptions and multiple HS codes</span></span>
+<span id="cb9-22"><a href="#cb9-22"></a><span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1962</span>,<span class="dv">1963</span>), <span class="dt">reporters =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"chl"</span>, <span class="st">"Peru"</span>, <span class="st">"bol"</span>), <span class="dt">partners =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"arg"</span>, <span class="st">"bra"</span>), <span class="dt">products =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"0101"</span>, <span class="st">"apple"</span>))</span>
+<span id="cb9-23"><a href="#cb9-23"></a><span class="co">#&gt; Warning in unmemoised(...): You wrote reporter strings that could not be matched to ISO codes.</span></span>
+<span id="cb9-24"><a href="#cb9-24"></a><span class="co">#&gt; These strings shall be ignored. Please check the spelling for:</span></span>
+<span id="cb9-25"><a href="#cb9-25"></a><span class="co">#&gt; 'Peru'</span></span>
+<span id="cb9-26"><a href="#cb9-26"></a><span class="co">#&gt; # A tibble: 24 x 12</span></span>
+<span id="cb9-27"><a href="#cb9-27"></a><span class="co">#&gt;     year reporter_iso partner_iso reporter_fullna… partner_fullnam… product_code</span></span>
+<span id="cb9-28"><a href="#cb9-28"></a><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;       </span></span>
+<span id="cb9-29"><a href="#cb9-29"></a><span class="co">#&gt;  1  1962 chl          arg         Chile            Argentina        0101        </span></span>
+<span id="cb9-30"><a href="#cb9-30"></a><span class="co">#&gt;  2  1963 chl          arg         Chile            Argentina        0101        </span></span>
+<span id="cb9-31"><a href="#cb9-31"></a><span class="co">#&gt;  3  1962 bol          arg         Bolivia          Argentina        0101        </span></span>
+<span id="cb9-32"><a href="#cb9-32"></a><span class="co">#&gt;  4  1963 bol          arg         Bolivia          Argentina        0101        </span></span>
+<span id="cb9-33"><a href="#cb9-33"></a><span class="co">#&gt;  5  1962 chl          bra         Chile            Brazil           0101        </span></span>
+<span id="cb9-34"><a href="#cb9-34"></a><span class="co">#&gt;  6  1963 chl          bra         Chile            Brazil           0101        </span></span>
+<span id="cb9-35"><a href="#cb9-35"></a><span class="co">#&gt;  7  1962 bol          bra         Bolivia          Brazil           0101        </span></span>
+<span id="cb9-36"><a href="#cb9-36"></a><span class="co">#&gt;  8  1963 bol          bra         Bolivia          Brazil           0101        </span></span>
+<span id="cb9-37"><a href="#cb9-37"></a><span class="co">#&gt;  9  1962 chl          arg         Chile            Argentina        0804        </span></span>
+<span id="cb9-38"><a href="#cb9-38"></a><span class="co">#&gt; 10  1963 chl          arg         Chile            Argentina        0804        </span></span>
+<span id="cb9-39"><a href="#cb9-39"></a><span class="co">#&gt; # … with 14 more rows, and 6 more variables: product_fullname_english &lt;chr&gt;,</span></span>
+<span id="cb9-40"><a href="#cb9-40"></a><span class="co">#&gt; #   group_code &lt;chr&gt;, group_name &lt;chr&gt;, export_value_usd &lt;int&gt;,</span></span>
+<span id="cb9-41"><a href="#cb9-41"></a><span class="co">#&gt; #   import_value_usd &lt;int&gt;, observation &lt;chr&gt;</span></span></code></pre></div>
 <p><code>yrpc</code> table returns some fields that deserve an explanation:</p>
 <ul>
 <li>

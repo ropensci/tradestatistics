@@ -1,5 +1,5 @@
 #' Expresses tidy data from the API in dollars of a reference year
-#' @description This function uses inflation records from The World Bank to
+#' @description Uses inflation records from The World Bank to
 #' convert trade records and express them in dollars of the same year.
 #' @param trade_data A tibble obtained by using ots_create_tidy_data.
 #' Default set to \code{NULL}.
@@ -21,7 +21,6 @@
 #' ots_inflation_adjustment(trade_data = d, reference_year = 2010)
 #' }
 #' @keywords functions
-
 ots_inflation_adjustment <- function(trade_data = NULL, reference_year = NULL) {
   # Check input -------------------------------------------------------------
   if (is.null(trade_data)) {

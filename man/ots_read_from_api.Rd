@@ -36,7 +36,7 @@ Default set to \code{5}.}
 of api.tradestatistics.io. Default set to \code{FALSE}.}
 }
 \description{
-This function accesses \code{api.tradestatistics.io} and
+Accesses \code{api.tradestatistics.io} and
 performs different API calls to return \code{data.frames} by reading \code{JSON} data
 }
 \examples{

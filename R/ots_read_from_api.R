@@ -1,5 +1,5 @@
 #' Reads data from the API (internal function)
-#' @description This function accesses \code{api.tradestatistics.io} and
+#' @description Accesses \code{api.tradestatistics.io} and
 #' performs different API calls to return \code{data.frames} by reading \code{JSON} data
 #' @param year Year contained within the years specified in
 #' api.tradestatistics.io/year_range (e.g. \code{1980}).
@@ -35,7 +35,6 @@
 #' )
 #' }
 #' @keywords internal
-
 ots_read_from_api <- function(year = NULL,
                               reporter = NULL,
                               partner = NULL,

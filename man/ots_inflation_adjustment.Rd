@@ -15,7 +15,7 @@ api.tradestatistics.io/year_range (e.g. \code{2010}).
 Default set to \code{NULL}.}
 }
 \description{
-This function uses inflation records from The World Bank to
+Uses inflation records from The World Bank to
 convert trade records and express them in dollars of the same year.
 }
 \examples{

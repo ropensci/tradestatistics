@@ -1,5 +1,5 @@
 #' Downloads and processes the data from the API to return a human-readable tibble
-#' @description This function accesses \code{api.tradestatistics.io} and
+#' @description Accesses \code{api.tradestatistics.io} and
 #' performs different API calls to transform and return tidy data.
 #' @param years Year contained within the years specified in
 #' api.tradestatistics.io/year_range (e.g. \code{c(1980,1985)}, \code{c(1980:1981)} or \code{1980}).
@@ -25,7 +25,6 @@
 #' @param use_cache Logical to save and load from cache. If \code{TRUE}, the results will be cached in memory
 #' if \code{file} is \code{NULL} or on disk if `file` is not \code{NULL}. Default set to \code{FALSE}.
 #' @param file Optional character with the full file path to save the data. Default set to \code{NULL}.
-#'
 #' @return A tibble that describes bilateral trade metrics (imports,
 #' exports, trade balance and relevant metrics
 #' such as exports growth w/r to last year) between a \code{reporter}
@@ -92,15 +91,19 @@ ots_create_tidy_data <- function(years = 1962,
   )
 }
 
-ots_create_tidy_data_unmemoised <- function(years = 1962,
-                                            reporters = "all",
-                                            partners = "all",
-                                            products = "all",
-                                            table = "yrpc",
-                                            max_attempts = 5,
-                                            include_shortnames = FALSE,
-                                            include_communities = FALSE,
-                                            use_localhost = FALSE) {
+#' Downloads and processes the data from the API to return a human-readable tibble (unmemoised, internal)
+#' @description A separation of the downloading part in \code{ots_create_tidy_data()} for making caching optional.
+#' @export
+#' @keywords internal
+ots_create_tidy_data_unmemoised <- function(years,
+                                            reporters,
+                                            partners,
+                                            products,
+                                            table,
+                                            max_attempts,
+                                            include_shortnames,
+                                            include_communities,
+                                            use_localhost) {
   # Check tables ----
   if (!table %in% tradestatistics::ots_tables$table) {
     stop("The requested table does not exist. Please check the spelling or\nexplore the 'ots_table' table provided within this package.")
@@ -435,4 +438,8 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
   return(data)
 }
 
+#' Downloads and processes the data from the API to return a human-readable tibble (memoised, internal)
+#' @description A composition of \code{ots_create_tidy_data_unmemoised()} and \code{memoise()} for caching the output
+#' @export
+#' @keywords internal
 ots_create_tidy_data_memoised <- memoise::memoise(ots_create_tidy_data_unmemoised)
