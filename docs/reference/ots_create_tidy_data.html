@@ -194,13 +194,12 @@ of api.tradestatistics.io. Default set to <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>use_cache</th>
-      <td><p>logical option to save and load from cache. If `TRUE`, results will be cached in memory
-if `file` is `NULL` or on disk if `file` is not `NULL`.</p></td>
+      <td><p>Logical to save and load from cache. If <code>TRUE</code>, the results will be cached in memory
+if <code>file</code> is <code>NULL</code> or on disk if `file` is not <code>NULL</code>. Default set to <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>file</th>
-      <td><p>optional character with the full path of a file to save the data. If `cache` is `FALSE` but
-`file` is not `NULL`, the results will be downloaded from the internet and saved on disk.</p></td>
+      <td><p>Optional character with the full file path to save the data. Default set to <code>NULL</code>.</p></td>
     </tr>
     </table>
 
@@ -213,7 +212,7 @@ and <code>partner</code> country.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='co'># The next example can take more than 5 seconds to compute,</span>
+<span class='co'># The next examples can take more than 5 seconds to compute,</span>
 <span class='co'># so these are just shown without evaluation according to CRAN rules</span>
 
 <span class='co'># Run `ots_countries` to display the full table of countries</span>

@@ -10,7 +10,7 @@
   "codeRepository": "https://docs.ropensci.org/tradestatistics/",
   "issueTracker": "https://github.com/ropensci/tradestatistics/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -38,6 +38,16 @@
       "@type": "Person",
       "givenName": "Joshua",
       "familyName": "Kunst"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Natalia",
+      "familyName": "de los Santos"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Elio",
+      "familyName": "Campitelli"
     },
     {
       "@type": "Organization",
@@ -251,11 +261,47 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=jsonlite"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "memoise",
+      "name": "memoise",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=memoise"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "data.table",
+      "name": "data.table",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=data.table"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "digest",
+      "name": "digest",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=digest"
     }
   ],
-  "releaseNotes": "https://github.com/tradestatistics/tradestatistics/blob/master/NEWS.md",
-  "readme": "https://github.com/tradestatistics/tradestatistics/blob/master/README.md",
-  "fileSize": "161.233KB",
+  "releaseNotes": "https://github.com/ropensci/tradestatistics/blob/master/NEWS.md",
+  "readme": "https://github.com/ropensci/tradestatistics/blob/master/README.md",
+  "fileSize": "226.133KB",
   "contIntegration": [
     "https://travis-ci.org/ropensci/tradestatistics",
     "https://codecov.io/github/ropensci/tradestatistics?branch=master"
