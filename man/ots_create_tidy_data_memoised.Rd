@@ -5,15 +5,15 @@
 \title{Downloads and processes the data from the API to return a human-readable tibble (memoised, internal)}
 \usage{
 ots_create_tidy_data_memoised(
-  years,
-  reporters,
-  partners,
-  products,
-  table,
-  max_attempts,
-  include_shortnames,
-  include_communities,
-  use_localhost
+  years = 1962,
+  reporters = "all",
+  partners = "all",
+  products = "all",
+  table = "yrpc",
+  max_attempts = 5,
+  include_shortnames = FALSE,
+  include_communities = FALSE,
+  use_localhost = FALSE
 )
 }
 \description{

@@ -5,18 +5,18 @@
 \title{Downloads and processes the data from the API to return a human-readable tibble (unmemoised, internal)}
 \usage{
 ots_create_tidy_data_unmemoised(
-  years,
-  reporters,
-  partners,
-  products,
-  table,
-  max_attempts,
-  include_shortnames,
-  include_communities,
-  use_localhost
+  years = 1962,
+  reporters = "all",
+  partners = "all",
+  products = "all",
+  table = "yrpc",
+  max_attempts = 5,
+  include_shortnames = FALSE,
+  include_communities = FALSE,
+  use_localhost = FALSE
 )
 }
 \description{
-A separation of the downloading part in \code{ots_create_tidy_data()} for making caching optional.
+A separation of \code{ots_create_tidy_data()} for making caching optional.
 }
 \keyword{internal}

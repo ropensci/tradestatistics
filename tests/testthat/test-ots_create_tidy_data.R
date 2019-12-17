@@ -48,9 +48,9 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
 })
 
 test_that("ots_create_tidy_data connects to the API and returns an error after invalid input", {
-  # Bilateral trade ABC-CDE fake ISO codes (1962) - Error message
+  # Bilateral trade ABC-ARG fake ISO codes (1962) - Error message
   expect_error(
-    ots_create_tidy_data(years = 1962, reporters = "abc", partners = "cde"),
+    ots_create_tidy_data(years = 1962, reporters = "abc", partners = "arg"),
     "After ignoring the unmatched reporter strings"
   )
   

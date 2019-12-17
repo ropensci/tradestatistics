@@ -316,10 +316,10 @@
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Note that here I'm passing Peru and not per which is the ISO code for Peru</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="co"># The same applies to Brazil</span></span>
 <span id="cb8-3"><a href="#cb8-3"></a><span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1962</span>,<span class="dv">1963</span>), <span class="dt">reporters =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"chl"</span>, <span class="st">"Peru"</span>, <span class="st">"bol"</span>), <span class="dt">partners =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"arg"</span>, <span class="st">"Brazil"</span>))</span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="co">#&gt; Warning in unmemoised(...): You wrote reporter strings that could not be matched to ISO codes.</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">#&gt; Warning in ots_create_tidy_data_unmemoised(...): You wrote reporter strings that could not be matched to ISO codes.</span></span>
 <span id="cb8-5"><a href="#cb8-5"></a><span class="co">#&gt; These strings shall be ignored. Please check the spelling for:</span></span>
 <span id="cb8-6"><a href="#cb8-6"></a><span class="co">#&gt; 'Peru'</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="co">#&gt; Warning in unmemoised(...): You wrote partner strings that could not be matched to ISO codes.</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co">#&gt; Warning in ots_create_tidy_data_unmemoised(...): You wrote partner strings that could not be matched to ISO codes.</span></span>
 <span id="cb8-8"><a href="#cb8-8"></a><span class="co">#&gt; These strings shall be ignored. Please check the spelling for:</span></span>
 <span id="cb8-9"><a href="#cb8-9"></a><span class="co">#&gt; 'Brazil'</span></span>
 <span id="cb8-10"><a href="#cb8-10"></a><span class="co">#&gt; # A tibble: 1,050 x 11</span></span>
@@ -341,7 +341,7 @@
 <p>If we want filtering by product, there are different options:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Pass a specific HS code</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1962</span>,<span class="dv">1963</span>), <span class="dt">reporters =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"chl"</span>, <span class="st">"Peru"</span>, <span class="st">"bol"</span>), <span class="dt">partners =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"arg"</span>, <span class="st">"bra"</span>), <span class="dt">products =</span> <span class="st">"0101"</span>)</span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="co">#&gt; Warning in unmemoised(...): You wrote reporter strings that could not be matched to ISO codes.</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co">#&gt; Warning in ots_create_tidy_data_unmemoised(...): You wrote reporter strings that could not be matched to ISO codes.</span></span>
 <span id="cb9-4"><a href="#cb9-4"></a><span class="co">#&gt; These strings shall be ignored. Please check the spelling for:</span></span>
 <span id="cb9-5"><a href="#cb9-5"></a><span class="co">#&gt; 'Peru'</span></span>
 <span id="cb9-6"><a href="#cb9-6"></a><span class="co">#&gt; # A tibble: 8 x 12</span></span>
@@ -361,7 +361,7 @@
 <span id="cb9-20"><a href="#cb9-20"></a></span>
 <span id="cb9-21"><a href="#cb9-21"></a><span class="co"># Pass a string that will return all matching descriptions and multiple HS codes</span></span>
 <span id="cb9-22"><a href="#cb9-22"></a><span class="kw"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(<span class="dt">years =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1962</span>,<span class="dv">1963</span>), <span class="dt">reporters =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"chl"</span>, <span class="st">"Peru"</span>, <span class="st">"bol"</span>), <span class="dt">partners =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"arg"</span>, <span class="st">"bra"</span>), <span class="dt">products =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"0101"</span>, <span class="st">"apple"</span>))</span>
-<span id="cb9-23"><a href="#cb9-23"></a><span class="co">#&gt; Warning in unmemoised(...): You wrote reporter strings that could not be matched to ISO codes.</span></span>
+<span id="cb9-23"><a href="#cb9-23"></a><span class="co">#&gt; Warning in ots_create_tidy_data_unmemoised(...): You wrote reporter strings that could not be matched to ISO codes.</span></span>
 <span id="cb9-24"><a href="#cb9-24"></a><span class="co">#&gt; These strings shall be ignored. Please check the spelling for:</span></span>
 <span id="cb9-25"><a href="#cb9-25"></a><span class="co">#&gt; 'Peru'</span></span>
 <span id="cb9-26"><a href="#cb9-26"></a><span class="co">#&gt; # A tibble: 24 x 12</span></span>

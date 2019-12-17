@@ -75,10 +75,8 @@ ots_create_tidy_data <- function(years = 1962,
     stop("file must be NULL or character.")
   }
   
-  ots_with_cache(
+  ots_cache(
     use_cache = use_cache, file = file,
-    memoised = ots_create_tidy_data_memoised,
-    unmemoised = ots_create_tidy_data_unmemoised,
     years = years,
     reporters = reporters,
     partners = partners,
@@ -92,18 +90,18 @@ ots_create_tidy_data <- function(years = 1962,
 }
 
 #' Downloads and processes the data from the API to return a human-readable tibble (unmemoised, internal)
-#' @description A separation of the downloading part in \code{ots_create_tidy_data()} for making caching optional.
+#' @description A separation of \code{ots_create_tidy_data()} for making caching optional.
 #' @export
 #' @keywords internal
-ots_create_tidy_data_unmemoised <- function(years,
-                                            reporters,
-                                            partners,
-                                            products,
-                                            table,
-                                            max_attempts,
-                                            include_shortnames,
-                                            include_communities,
-                                            use_localhost) {
+ots_create_tidy_data_unmemoised <- function(years = 1962,
+                                            reporters = "all",
+                                            partners = "all",
+                                            products = "all",
+                                            table = "yrpc",
+                                            max_attempts = 5,
+                                            include_shortnames = FALSE,
+                                            include_communities = FALSE,
+                                            use_localhost = FALSE) {
   # Check tables ----
   if (!table %in% tradestatistics::ots_tables$table) {
     stop("The requested table does not exist. Please check the spelling or\nexplore the 'ots_table' table provided within this package.")
@@ -440,6 +438,7 @@ ots_create_tidy_data_unmemoised <- function(years,
 
 #' Downloads and processes the data from the API to return a human-readable tibble (memoised, internal)
 #' @description A composition of \code{ots_create_tidy_data_unmemoised()} and \code{memoise()} for caching the output
+#' @importFrom memoise memoise
 #' @export
 #' @keywords internal
 ots_create_tidy_data_memoised <- memoise::memoise(ots_create_tidy_data_unmemoised)

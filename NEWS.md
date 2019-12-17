@@ -1,3 +1,10 @@
+# Version 0.2.8
+
+Updates
+
+* Adds caching (in memory or on disk) option
+* Lists Daniela de los Santos and Elio Campitelli as new contributors
+
 # Version 0.2.7
 
 Updates
