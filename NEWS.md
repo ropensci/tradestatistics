@@ -4,6 +4,8 @@ Updates
 
 * Adds caching (in memory or on disk) option
 * Lists Daniela de los Santos and Elio Campitelli as new contributors
+* Includes forwards and backwards testing for inflation adjustment
+* Testing for in memory caching
 
 # Version 0.2.7
 
