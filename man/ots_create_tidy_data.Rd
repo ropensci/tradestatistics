@@ -4,19 +4,11 @@
 \alias{ots_create_tidy_data}
 \title{Downloads and processes the data from the API to return a human-readable tibble}
 \usage{
-ots_create_tidy_data(
-  years = 1962,
-  reporters = "all",
-  partners = "all",
-  products = "all",
-  table = "yrpc",
-  max_attempts = 5,
-  include_shortnames = FALSE,
-  include_communities = FALSE,
-  use_localhost = FALSE,
-  use_cache = FALSE,
-  file = NULL
-)
+ots_create_tidy_data(years = 1962, reporters = "all",
+  partners = "all", products = "all", table = "yrpc",
+  max_attempts = 5, include_shortnames = FALSE,
+  include_communities = FALSE, use_localhost = FALSE,
+  use_cache = FALSE, file = NULL)
 }
 \arguments{
 \item{years}{Year contained within the years specified in

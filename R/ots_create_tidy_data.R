@@ -91,7 +91,6 @@ ots_create_tidy_data <- function(years = 1962,
 
 #' Downloads and processes the data from the API to return a human-readable tibble (unmemoised, internal)
 #' @description A separation of \code{ots_create_tidy_data()} for making caching optional.
-#' @export
 #' @keywords internal
 ots_create_tidy_data_unmemoised <- function(years = 1962,
                                             reporters = "all",
@@ -439,6 +438,5 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
 #' Downloads and processes the data from the API to return a human-readable tibble (memoised, internal)
 #' @description A composition of \code{ots_create_tidy_data_unmemoised()} and \code{memoise()} for caching the output
 #' @importFrom memoise memoise
-#' @export
 #' @keywords internal
 ots_create_tidy_data_memoised <- memoise::memoise(ots_create_tidy_data_unmemoised)

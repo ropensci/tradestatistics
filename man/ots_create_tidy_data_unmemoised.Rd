@@ -4,17 +4,10 @@
 \alias{ots_create_tidy_data_unmemoised}
 \title{Downloads and processes the data from the API to return a human-readable tibble (unmemoised, internal)}
 \usage{
-ots_create_tidy_data_unmemoised(
-  years = 1962,
-  reporters = "all",
-  partners = "all",
-  products = "all",
-  table = "yrpc",
-  max_attempts = 5,
-  include_shortnames = FALSE,
-  include_communities = FALSE,
-  use_localhost = FALSE
-)
+ots_create_tidy_data_unmemoised(years = 1962, reporters = "all",
+  partners = "all", products = "all", table = "yrpc",
+  max_attempts = 5, include_shortnames = FALSE,
+  include_communities = FALSE, use_localhost = FALSE)
 }
 \description{
 A separation of \code{ots_create_tidy_data()} for making caching optional.

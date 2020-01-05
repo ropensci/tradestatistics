@@ -19,8 +19,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
@@ -40,6 +40,8 @@
 <meta property="og:description" content="Accesses api.tradestatistics.io and
 performs different API calls to transform and return tidy data." />
 <meta name="twitter:card" content="summary" />
+
+
 
 
 
@@ -127,19 +129,11 @@ performs different API calls to transform and return tidy data." />
 performs different API calls to transform and return tidy data.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ots_create_tidy_data</span>(
-  <span class='kw'>years</span> <span class='kw'>=</span> <span class='fl'>1962</span>,
-  <span class='kw'>reporters</span> <span class='kw'>=</span> <span class='st'>"all"</span>,
-  <span class='kw'>partners</span> <span class='kw'>=</span> <span class='st'>"all"</span>,
-  <span class='kw'>products</span> <span class='kw'>=</span> <span class='st'>"all"</span>,
-  <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrpc"</span>,
-  <span class='kw'>max_attempts</span> <span class='kw'>=</span> <span class='fl'>5</span>,
-  <span class='kw'>include_shortnames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>include_communities</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>use_localhost</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>use_cache</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>file</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
-)</pre>
+    <pre class="usage"><span class='fu'>ots_create_tidy_data</span>(<span class='kw'>years</span> <span class='kw'>=</span> <span class='fl'>1962</span>, <span class='kw'>reporters</span> <span class='kw'>=</span> <span class='st'>"all"</span>,
+  <span class='kw'>partners</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>products</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yrpc"</span>,
+  <span class='kw'>max_attempts</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>include_shortnames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>include_communities</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>use_localhost</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>use_cache</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

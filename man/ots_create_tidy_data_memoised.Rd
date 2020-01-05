@@ -4,17 +4,10 @@
 \alias{ots_create_tidy_data_memoised}
 \title{Downloads and processes the data from the API to return a human-readable tibble (memoised, internal)}
 \usage{
-ots_create_tidy_data_memoised(
-  years = 1962,
-  reporters = "all",
-  partners = "all",
-  products = "all",
-  table = "yrpc",
-  max_attempts = 5,
-  include_shortnames = FALSE,
-  include_communities = FALSE,
-  use_localhost = FALSE
-)
+ots_create_tidy_data_memoised(years = 1962, reporters = "all",
+  partners = "all", products = "all", table = "yrpc",
+  max_attempts = 5, include_shortnames = FALSE,
+  include_communities = FALSE, use_localhost = FALSE)
 }
 \description{
 A composition of \code{ots_create_tidy_data_unmemoised()} and \code{memoise()} for caching the output

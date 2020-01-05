@@ -4,15 +4,9 @@
 \alias{ots_read_from_api}
 \title{Reads data from the API (internal function)}
 \usage{
-ots_read_from_api(
-  year = NULL,
-  reporter = NULL,
-  partner = NULL,
-  product_code = "all",
-  table = "yrpc",
-  max_attempts = 5,
-  use_localhost = FALSE
-)
+ots_read_from_api(year = NULL, reporter = NULL, partner = NULL,
+  product_code = "all", table = "yrpc", max_attempts = 5,
+  use_localhost = FALSE)
 }
 \arguments{
 \item{year}{Year contained within the years specified in
