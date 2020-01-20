@@ -14,10 +14,10 @@
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.6.2",
+    "version": "3.6.1",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.2 (2019-12-12)",
+  "runtimePlatform": "R version 3.6.1 (2019-07-05)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -301,7 +301,7 @@
   ],
   "releaseNotes": "https://github.com/ropensci/tradestatistics/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/tradestatistics/blob/master/README.md",
-  "fileSize": "174.935KB",
+  "fileSize": "175.234KB",
   "contIntegration": [
     "https://travis-ci.org/ropensci/tradestatistics",
     "https://codecov.io/github/ropensci/tradestatistics?branch=master"

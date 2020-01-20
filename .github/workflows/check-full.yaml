@@ -40,6 +40,7 @@ jobs:
           tlmgr install pdftexcmds
           tlmgr install kvoptions
           tlmgr install letltxmacro
+          tlmgr install cm-super
         
       - name: Cache R packages
         uses: actions/cache@v1

@@ -31,7 +31,7 @@ obtain data from OTS by accessing its API.
 This is what the package does:
 
 ![Data
-diagram](https://docs.ropensci.org/tradestatistics/data-diagram.svg)
+diagram](https://ropensci.github.io/tradestatistics/data-diagram.svg)
 
 Using `tradestatistics` package is all about efficiency, without this
 package you could obtain the same data from the API at the expense of
