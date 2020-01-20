@@ -72,7 +72,7 @@ ots_read_from_api <- function(year = NULL,
     base_url <- "https://api.tradestatistics.io/"
   }
 
-  resp <- crul::HttpClient$new(url = base_url)
+  resp <- HttpClient$new(url = base_url)
   resp <- resp$get(url)
 
   # on a successful GET, return the response
@@ -80,7 +80,7 @@ ots_read_from_api <- function(year = NULL,
     sprintf("Trying to download data for the year %s...", year)
 
     data <- try(
-      jsonlite::fromJSON(resp$parse(encoding = "UTF-8"))
+      fromJSON(resp$parse(encoding = "UTF-8"))
     )
 
     if (!is.data.frame(data)) {

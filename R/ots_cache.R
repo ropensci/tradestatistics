@@ -18,11 +18,11 @@ ots_cache <- function(use_cache, file, ...) {
   
   # cache in file ----
   if (!is.null(file)) {
-    hash <- digest::digest(list(body(ots_create_tidy_data_unmemoised), ...))
+    hash <- digest(list(body(ots_create_tidy_data_unmemoised), ...))
   }
   
   if (use_cache == TRUE && file.exists(file)) {
-    d <- data.table::fread(file, yaml = TRUE)
+    d <- fread(file, yaml = TRUE)
     
     if (d$.hash[1] == hash) {
       class(d) <- c("tbl_df", "tbl", "data.frame")
@@ -35,12 +35,12 @@ ots_cache <- function(use_cache, file, ...) {
   
   if (!is.null(file)) {
     d$.hash <- hash
-    data.table::fwrite(d, file, yaml = TRUE)
+    fwrite(d, file, yaml = TRUE)
     d$.hash <- NULL
   }
   
   if (use_cache == FALSE) {
-    memoise::forget(ots_create_tidy_data_memoised)
+    forget(ots_create_tidy_data_memoised)
   }
   
   return(d)

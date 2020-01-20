@@ -9,8 +9,7 @@
 #' @importFrom magrittr %>%
 #' @importFrom dplyr filter
 #' @importFrom rlang sym
-#' @importFrom purrr map_chr
-#' @importFrom stringr str_detect str_to_lower str_trim str_squish
+#' @importFrom stringr str_detect str_to_lower str_trim str_squish str_replace_all
 #' @export
 #' @examples
 #' ots_country_code("Chile ")
@@ -28,9 +27,9 @@ ots_country_code <- function(countryname = NULL) {
     )
   } else {
     countryname <- iconv(countryname, to = "ASCII//TRANSLIT", sub = " ")
-    countryname <- stringr::str_replace_all(countryname, "[^[:alpha:]]", " ")
-    countryname <- stringr::str_squish(countryname)
-    countryname <- stringr::str_trim(countryname)
+    countryname <- str_replace_all(countryname, "[^[:alpha:]]", " ")
+    countryname <- str_squish(countryname)
+    countryname <- str_trim(countryname)
   }
 
   if (any(nchar(countryname) < 1)) {
@@ -41,7 +40,7 @@ ots_country_code <- function(countryname = NULL) {
       "
     )
   } else {
-    countryname <- stringr::str_to_lower(countryname)
+    countryname <- str_to_lower(countryname)
   }
 
   countryname <- switch(
@@ -67,9 +66,9 @@ ots_country_code <- function(countryname = NULL) {
   )
 
   countrycode <- tradestatistics::ots_countries %>%
-    dplyr::filter(
-      stringr::str_detect(
-        stringr::str_to_lower(!!sym("country_fullname_english")), countryname
+    filter(
+      str_detect(
+        str_to_lower(!!sym("country_fullname_english")), countryname
       )
     )
 
@@ -117,22 +116,23 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     stopifnot(nchar(productname) > 0)
     
     productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = " ")
-    productname <- stringr::str_replace_all(productname, "[^[:alpha:]]", " ")
-    productname <- stringr::str_squish(productname)
-    productname <- stringr::str_trim(productname)
+    productname <- str_replace_all(productname, "[^[:alpha:]]", " ")
+    productname <- str_squish(productname)
+    productname <- str_trim(productname)
     
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
     if (productname == "") {
-      d <- NULL
+      d <- tradestatistics::ots_products %>% 
+        filter(!!sym("product_code") > "9999" & !!sym("product_code") != "all")
     } else {
       d <- tradestatistics::ots_products %>%
-        dplyr::mutate(
+        mutate(
           type_product = productname
         ) %>%
-        dplyr::filter(
-          stringr::str_detect(
-            stringr::str_to_lower(!!sym("product_fullname_english")), productname
+        filter(
+          str_detect(
+            str_to_lower(!!sym("product_fullname_english")), productname
           )
         )
     }
@@ -143,22 +143,23 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     stopifnot(nchar(productgroup) > 0)
     
     productgroup <- iconv(productgroup, to = "ASCII//TRANSLIT", sub = " ")
-    productgroup <- stringr::str_replace_all(productgroup, "[^[:alpha:]]", " ")
-    productgroup <- stringr::str_squish(productgroup)
-    productgroup <- stringr::str_trim(productgroup)
+    productgroup <- str_replace_all(productgroup, "[^[:alpha:]]", " ")
+    productgroup <- str_squish(productgroup)
+    productgroup <- str_trim(productgroup)
     
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
     if (productgroup == "") {
-      d <- NULL
+      d <- tradestatistics::ots_products %>% 
+        filter(!!sym("product_code") > "9999" & !!sym("product_code") != "all")
     } else {
       d <- tradestatistics::ots_products %>%
-        dplyr::mutate(
+        mutate(
           type_group = productgroup
         ) %>%
-        dplyr::filter(
-          stringr::str_detect(
-            stringr::str_to_lower(!!sym("group_name")), productgroup
+        filter(
+          str_detect(
+            str_to_lower(!!sym("group_name")), productgroup
           )
         )
     }
@@ -172,31 +173,32 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     stopifnot(nchar(productgroup) > 0)
     
     productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = " ")
-    productname <- stringr::str_replace_all(productname, "[^[:alpha:]]", " ")
-    productname <- stringr::str_squish(productname)
-    productname <- stringr::str_trim(productname)
+    productname <- str_replace_all(productname, "[^[:alpha:]]", " ")
+    productname <- str_squish(productname)
+    productname <- str_trim(productname)
     
     productgroup <- iconv(productgroup, to = "ASCII//TRANSLIT", sub = " ")
-    productgroup <- stringr::str_replace_all(productgroup, "[^[:alpha:]]", " ")
-    productgroup <- stringr::str_squish(productgroup)
-    productgroup <- stringr::str_trim(productgroup)
+    productgroup <- str_replace_all(productgroup, "[^[:alpha:]]", " ")
+    productgroup <- str_squish(productgroup)
+    productgroup <- str_trim(productgroup)
     
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
     if (productname == "" | productgroup == "") {
-      d <- NULL
+      d <- tradestatistics::ots_products %>% 
+        filter(!!sym("product_code") > "9999" & !!sym("product_code") != "all")
     } else {
       d <- tradestatistics::ots_products %>%
-        dplyr::mutate(
+        mutate(
           type_name = productname,
           type_group = productgroup
         ) %>%
-        dplyr::filter(
-          stringr::str_detect(
-            stringr::str_to_lower(!!sym("product_fullname_english")), productname
+        filter(
+          str_detect(
+            str_to_lower(!!sym("product_fullname_english")), productname
           ),
-          stringr::str_detect(
-            stringr::str_to_lower(!!sym("group_name")), productgroup
+          str_detect(
+            str_to_lower(!!sym("group_name")), productgroup
           )
         )
     }

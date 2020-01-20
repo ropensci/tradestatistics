@@ -114,10 +114,10 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
 
   url <- "year_range"
 
-  resp <- crul::HttpClient$new(url = "https://api.tradestatistics.io/")
+  resp <- HttpClient$new(url = "https://api.tradestatistics.io/")
   resp <- resp$get(url)
 
-  year_range <- purrr::as_vector(jsonlite::fromJSON(resp$parse(encoding = "UTF-8")))
+  year_range <- as_vector(fromJSON(resp$parse(encoding = "UTF-8")))
 
   if (all(years %in% min(year_range):max(year_range)) != TRUE &
     table %in% year_depending_queries) {
@@ -191,13 +191,13 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
       tradestatistics::ots_products$product_code]
 
     # product name match (pmm)
-    pnm <- purrr::map_df(
+    pnm <- map_df(
       .x = seq_along(products_wm),
       ~ tradestatistics::ots_product_code(productname = products_wm[.x])
     )
 
     # group name match (gnm)
-    gnm <- purrr::map_df(
+    gnm <- map_df(
       .x = seq_along(products_wm),
       ~ tradestatistics::ots_product_code(productgroup = products_wm[.x])
     )
@@ -244,11 +244,13 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
   }
 
   if (is.null(reporters)) {
-    reporters <- ""
+    reporters <- "all"
+    warning("No reporter was specified, therefore all available reporters will be returned.")
   }
 
   if (is.null(partners)) {
-    partners <- ""
+    partners <- "all"
+    warning("No partner was specified, therefore all available partners will be returned.")
   }
 
   condensed_parameters <- expand.grid(
@@ -259,7 +261,7 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
     stringsAsFactors = FALSE
   )
 
-  data <- purrr::map_df(
+  data <- map_df(
     .x = seq_len(nrow(condensed_parameters)),
     ~ ots_read_from_api(
       table = table,
@@ -271,11 +273,11 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
       use_localhost = use_localhost
     )
   ) %>%
-    dplyr::as_tibble()
+    as_tibble()
 
   # no data in API message
-  if (nrow(data) == 0) {
-    stop("No data available. Try changing years, reporters, partners or products.")
+  if (any("observation" %in% names(data))) {
+    warning("The output contains rows with no data. See the non-NA entries in the 'observation' row.")
   }
 
   # Add attributes based on codes, etc (and join years, if applicable) ------
@@ -286,46 +288,46 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
   if (table %in% tables_with_reporter) {
     if (table %in% tables_with_reporter[1:2]) {
       data %<>%
-        dplyr::left_join(dplyr::select(
+        left_join(select(
           tradestatistics::ots_countries,
-          !!!rlang::syms(
+          !!!syms(
             c("country_iso", "country_fullname_english")
           )
         ),
         by = c("reporter_iso" = "country_iso")
         ) %>%
-        dplyr::rename(
-          reporter_fullname_english = !!rlang::sym("country_fullname_english")
+        rename(
+          reporter_fullname_english = !!sym("country_fullname_english")
         ) %>%
-        dplyr::select(
-          !!!rlang::syms(c(
+        select(
+          !!!syms(c(
             "year",
             "reporter_iso",
             "partner_iso",
             "reporter_fullname_english"
           )),
-          dplyr::everything()
+          everything()
         )
     } else {
       data %<>%
-        dplyr::left_join(dplyr::select(
+        left_join(select(
           tradestatistics::ots_countries,
-          !!!rlang::syms(
+          !!!syms(
             c("country_iso", "country_fullname_english")
           )
         ),
         by = c("reporter_iso" = "country_iso")
         ) %>%
-        dplyr::rename(
-          reporter_fullname_english = !!rlang::sym("country_fullname_english")
+        rename(
+          reporter_fullname_english = !!sym("country_fullname_english")
         ) %>%
-        dplyr::select(
-          !!!rlang::syms(c(
+        select(
+          !!!syms(c(
             "year",
             "reporter_iso",
             "reporter_fullname_english"
           )),
-          dplyr::everything()
+          everything()
         )
     }
   }
@@ -334,26 +336,26 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
 
   if (table %in% tables_with_partner) {
     data %<>%
-      dplyr::left_join(dplyr::select(
+      left_join(select(
         tradestatistics::ots_countries,
-        !!!rlang::syms(
+        !!!syms(
           c("country_iso", "country_fullname_english")
         )
       ),
       by = c("partner_iso" = "country_iso")
       ) %>%
-      dplyr::rename(
-        partner_fullname_english = !!rlang::sym("country_fullname_english")
+      rename(
+        partner_fullname_english = !!sym("country_fullname_english")
       ) %>%
-      dplyr::select(
-        !!!rlang::syms(c(
+      select(
+        !!!syms(c(
           "year",
           "reporter_iso",
           "partner_iso",
           "reporter_fullname_english",
           "partner_fullname_english"
         )),
-        dplyr::everything()
+        everything()
       )
   }
 
@@ -362,12 +364,12 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
 
   if (table %in% tables_with_product_code) {
     data %<>%
-      dplyr::left_join(tradestatistics::ots_products, by = "product_code")
+      left_join(tradestatistics::ots_products, by = "product_code")
 
     if (table == "yrpc") {
       data %<>%
-        dplyr::select(
-          !!!rlang::syms(c(
+        select(
+          !!!syms(c(
             "year",
             "reporter_iso",
             "partner_iso",
@@ -378,14 +380,14 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
             "group_code",
             "group_name"
           )),
-          dplyr::everything()
+          everything()
         )
     }
 
     if (table == "yrc") {
       data %<>%
-        dplyr::select(
-          !!!rlang::syms(c(
+        select(
+          !!!syms(c(
             "year",
             "reporter_iso",
             "reporter_fullname_english",
@@ -394,45 +396,45 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
             "group_code",
             "group_name"
           )),
-          dplyr::everything()
+          everything()
         )
     }
 
     if (table == "yc") {
       data %<>%
-        dplyr::select(
-          !!!rlang::syms(c(
+        select(
+          !!!syms(c(
             "year",
             "product_code",
             "product_fullname_english",
             "group_code",
             "group_name"
           )),
-          dplyr::everything()
+          everything()
         )
     }
   }
 
   if (table %in% product_depending_queries & include_shortnames == TRUE) {
     data %<>%
-      dplyr::left_join(tradestatistics::ots_product_shortnames) %>%
-      dplyr::select(
-        !!!rlang::sym(("year")),
-        dplyr::starts_with("product_"),
-        dplyr::starts_with("group_"),
-        dplyr::everything()
+      left_join(tradestatistics::ots_product_shortnames) %>%
+      select(
+        !!!sym(("year")),
+        starts_with("product_"),
+        starts_with("group_"),
+        everything()
       )
   }
 
   if (table %in% product_depending_queries & include_communities == TRUE) {
     data %<>%
-      dplyr::left_join(tradestatistics::ots_communities) %>%
-      dplyr::select(
-        !!!rlang::sym(("year")),
-        dplyr::starts_with("product_"),
-        dplyr::starts_with("group_"),
-        dplyr::starts_with("community_"),
-        dplyr::everything()
+      left_join(tradestatistics::ots_communities) %>%
+      select(
+        !!!sym(("year")),
+        starts_with("product_"),
+        starts_with("group_"),
+        starts_with("community_"),
+        everything()
       )
   }
 

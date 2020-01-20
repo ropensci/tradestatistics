@@ -47,6 +47,12 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
     test_data <- ots_create_tidy_data(years = 1964, reporters = "chl", table = "yr")
     expect_is(test_data, "data.frame")
     expect_output(str(test_data), "15 variables")
+    
+    expect_error(
+      expect_warning(
+        ots_create_tidy_data(years = 1964, table = "yr", products = "apple")
+      )
+    )
 
     # Commodity trade at aggregated level (1964)
     test_data <- ots_create_tidy_data(years = 1964, table = "yc")
@@ -69,6 +75,42 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
     
     expect_is(test_data, "data.frame")
     expect_output(str(test_data), "11 variables")
+  })
+})
+
+test_that("ots_create_tidy_data connects to the API and returns all reporters/partners when those are NULL", {
+  vcr::use_cassette(name = "chl_all_1964", {
+    # Mock countries test inside ots_create_tidy_data
+    cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
+    res <- cli$get("countries/")
+    expect_is(res, "HttpResponse")
+    
+    expect_warning(
+      ots_create_tidy_data(
+        years = 1964, reporters = "chl", partners = NULL, table = "yrp"
+      )
+    )
+    
+    expect_warning(
+      ots_create_tidy_data(
+        years = 1964, reporters = NULL, partners = 'chl', table = "yrp"
+      )
+    )
+  })
+})
+
+test_that("ots_create_tidy_data connects to the API and returns an observation when no data is found", {
+  vcr::use_cassette(name = "chl_prk_1964", {
+    # Mock countries test inside ots_create_tidy_data
+    cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
+    res <- cli$get("countries/")
+    expect_is(res, "HttpResponse")
+    
+    expect_warning(
+      ots_create_tidy_data(
+        years = 1964, reporters = 'chl', partners = 'prk', table = "yrp"
+      )
+    )
   })
 })
 
@@ -148,6 +190,37 @@ test_that("ots_create_tidy_data returns an error after invalid input", {
         file = 200100
       ),
       "After ignoring the unmatched reporter strings"
+    )
+  )
+})
+
+test_that("ots_create_tidy_data breaks with wrong optional parameters", {
+  # Incorrect parameters
+  expect_error(
+    ots_create_tidy_data(
+      years = 1964, reporters = "arg", partners = "chl",
+      max_attempts = 0
+    )
+  )
+  
+  expect_error(
+    ots_create_tidy_data(
+      years = 1964, reporters = "arg", partners = "chl",
+      include_shortnames = 0
+    )
+  )
+  
+  expect_error(
+    ots_create_tidy_data(
+      years = 1964, reporters = "arg", partners = "chl",
+      include_communities = 0
+    )
+  )
+  
+  expect_error(
+    ots_create_tidy_data(
+      years = 1964, reporters = "arg", partners = "chl",
+      use_localhost = 0
     )
   )
 })

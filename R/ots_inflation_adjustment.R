@@ -58,48 +58,48 @@ ots_inflation_adjustment <- function(trade_data = NULL, reference_year = NULL) {
   }
 
   # Filter year conversion rates and join data ------------------------------
-  d1 <- purrr::map_df(
+  d1 <- map_df(
     unique(trade_data$year),
     function(year) {
       if (year <= reference_year) {
         tradestatistics::ots_inflation %>%
-          dplyr::filter(
+          filter(
             !!sym("to") <= reference_year,
             !!sym("to") > year
           ) %>%
-          dplyr::summarise(
-            conversion_factor = dplyr::last(cumprod(!!sym("conversion_factor")))
+          summarise(
+            conversion_factor = last(cumprod(!!sym("conversion_factor")))
           ) %>%
-          dplyr::mutate(
+          mutate(
             year = year,
             conversion_year = reference_year
           ) %>%
-          dplyr::select(!!!rlang::syms(c("year", "conversion_year", "conversion_factor")))
+          select(!!!syms(c("year", "conversion_year", "conversion_factor")))
       } else {
         tradestatistics::ots_inflation %>%
-          dplyr::filter(
+          filter(
             !!sym("from") >= reference_year,
             !!sym("from") < year
           ) %>%
-          dplyr::summarise(
-            conversion_factor = 1 / dplyr::last(cumprod(!!sym("conversion_factor")))
+          summarise(
+            conversion_factor = 1 / last(cumprod(!!sym("conversion_factor")))
           ) %>%
-          dplyr::mutate(
+          mutate(
             year = year,
             conversion_year = reference_year
           ) %>%
-          dplyr::select(!!!rlang::syms(c("year", "conversion_year", "conversion_factor")))
+          select(!!!syms(c("year", "conversion_year", "conversion_factor")))
       }
     }
   )
 
   d2 <- trade_data %>%
-    dplyr::left_join(d1, by = "year") %>%
-    dplyr::mutate(
+    left_join(d1, by = "year") %>%
+    mutate(
       export_value_usd = !!sym("export_value_usd") * !!sym("conversion_factor"),
       import_value_usd = !!sym("import_value_usd") * !!sym("conversion_factor")
     ) %>%
-    dplyr::select(-dplyr::matches("change"))
+    select(-matches("change"))
 
   return(d2)
 }

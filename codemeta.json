@@ -301,7 +301,7 @@
   ],
   "releaseNotes": "https://github.com/ropensci/tradestatistics/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/tradestatistics/blob/master/README.md",
-  "fileSize": "175.234KB",
+  "fileSize": "172.042KB",
   "contIntegration": [
     "https://travis-ci.org/ropensci/tradestatistics",
     "https://codecov.io/github/ropensci/tradestatistics?branch=master"

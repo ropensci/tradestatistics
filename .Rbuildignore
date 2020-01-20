@@ -6,11 +6,11 @@ _pkgdown.yml
 appveyor.yml
 README.md
 README.Rmd
-docs/
+docs
 ^codecov\.yml$
 ^CODE_OF_CONDUCT\.md$
-data-raw/
+data-raw
 LICENSE
-svg/
+svg
 vignettes/basic-usage_cache/
 ^\.github$
