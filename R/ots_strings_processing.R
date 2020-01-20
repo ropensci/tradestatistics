@@ -123,15 +123,19 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
-    d <- tradestatistics::ots_products %>%
-      dplyr::mutate(
-        type_product = productname
-      ) %>%
-      dplyr::filter(
-        stringr::str_detect(
-          stringr::str_to_lower(!!sym("product_fullname_english")), productname
+    if (productname == "") {
+      d <- NULL
+    } else {
+      d <- tradestatistics::ots_products %>%
+        dplyr::mutate(
+          type_product = productname
+        ) %>%
+        dplyr::filter(
+          stringr::str_detect(
+            stringr::str_to_lower(!!sym("product_fullname_english")), productname
+          )
         )
-      )
+    }
   }
   
   if (is.null(productname) & !is.null(productgroup)) {
@@ -145,15 +149,19 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
-    d <- tradestatistics::ots_products %>%
-      dplyr::mutate(
-        type_group = productgroup
-      ) %>%
-      dplyr::filter(
-        stringr::str_detect(
-          stringr::str_to_lower(!!sym("group_name")), productgroup
+    if (productgroup == "") {
+      d <- NULL
+    } else {
+      d <- tradestatistics::ots_products %>%
+        dplyr::mutate(
+          type_group = productgroup
+        ) %>%
+        dplyr::filter(
+          stringr::str_detect(
+            stringr::str_to_lower(!!sym("group_name")), productgroup
+          )
         )
-      )
+    }
   }
   
   if (!is.null(productname) & !is.null(productgroup)) {
@@ -175,19 +183,23 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
-    d <- tradestatistics::ots_products %>%
-      dplyr::mutate(
-        type_name = productname,
-        type_group = productgroup
-      ) %>%
-      dplyr::filter(
-        stringr::str_detect(
-          stringr::str_to_lower(!!sym("product_fullname_english")), productname
-        ),
-        stringr::str_detect(
-          stringr::str_to_lower(!!sym("group_name")), productgroup
+    if (productname == "" | productgroup == "") {
+      d <- NULL
+    } else {
+      d <- tradestatistics::ots_products %>%
+        dplyr::mutate(
+          type_name = productname,
+          type_group = productgroup
+        ) %>%
+        dplyr::filter(
+          stringr::str_detect(
+            stringr::str_to_lower(!!sym("product_fullname_english")), productname
+          ),
+          stringr::str_detect(
+            stringr::str_to_lower(!!sym("group_name")), productgroup
+          )
         )
-      )
+    }
   }
   
   return(d)

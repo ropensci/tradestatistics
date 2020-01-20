@@ -208,6 +208,10 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
 
     products <- c(products[products %in%
       tradestatistics::ots_products$product_code], products_wm)
+    
+    if(length(products) == 0) {
+      products <- NA
+    }
   }
 
   if (!all(as.character(products) %in%
