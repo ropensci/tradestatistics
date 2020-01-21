@@ -1,3 +1,9 @@
+# Version 0.2.9
+
+Updates
+
+* Much improved coverage to detect almost any possible error
+
 # Version 0.2.8
 
 Updates

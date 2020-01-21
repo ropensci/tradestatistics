@@ -13,14 +13,6 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
     )
     expect_is(test_data, "data.frame")
     expect_output(str(test_data), "11 variables")
-    
-    # test in memory cache
-    test_data <- ots_create_tidy_data(
-      years = 1964, reporters = "chl", partners = "arg", table = "yrpc",
-      use_cache = TRUE
-    )
-    expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "11 variables")
 
     test_data <- ots_create_tidy_data(
       years = 1964, reporters = "chl", partners = "arg", table = "yrpc",
@@ -58,6 +50,23 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
     test_data <- ots_create_tidy_data(years = 1964, table = "yc")
     expect_is(test_data, "data.frame")
     expect_output(str(test_data), "17 variables")
+  })
+})
+
+test_that("ots_create_tidy_data connects to the API and returns valid tables with a valid input", {
+  vcr::use_cassette(name = "chl_arg_1964", {
+    # test in memory cache
+    test_data <- ots_create_tidy_data(
+      years = 1964, reporters = "chl", partners = "arg", table = "yrpc",
+      use_cache = TRUE
+    )
+    # test file cache
+    test_data <- ots_create_tidy_data(
+      years = 1964, reporters = "chl", partners = "arg", table = "yrpc",
+      use_cache = TRUE, file = tempfile("data")
+    )
+    expect_is(test_data, "data.frame")
+    expect_output(str(test_data), "11 variables")
   })
 })
 

@@ -54,9 +54,24 @@ test_that("ots_country_code works ok for both specified product and group", {
   expect_output(str(test_both), "6 variables")
 })
 
+test_that("ots_country_code returns all codes with NULL product/group", {
+  test_both <- ots_product_code(productname = NULL, productgroup = NULL)
+  
+  expect_is(test_both, "tbl")
+  expect_output(str(test_both), "1320 obs")
+  expect_output(str(test_both), "4 variables")
+})
+
 test_that("ots_country_code returns an error when both arguments are empty", {
   expect_error(
-    ots_product_code(productgroup = "", productgroup = ""),
-    "formal argument \"productgroup\" matched by multiple actual arguments"
+    ots_product_code(productname = "", productgroup = "")
   )
+})
+
+test_that("ots_country_code returns no results for strange inputs", {
+  test_both <- ots_product_code(productname = "1234", productgroup = "1234")
+  test_both_2 <- ots_product_code(productname = "kriptonite", productgroup = "adamantium")
+  
+  expect_output(str(test_both), "0 obs")
+  expect_output(str(test_both_2), "0 obs")
 })

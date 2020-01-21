@@ -77,41 +77,26 @@ ots_read_from_api <- function(year = NULL,
 
   # on a successful GET, return the response
   if (resp$status_code == 200) {
-    sprintf("Trying to download data for the year %s...", year)
+    message(sprintf("Trying to download data for the year %s...", year))
 
     data <- try(
       fromJSON(resp$parse(encoding = "UTF-8"))
     )
 
     if (!is.data.frame(data)) {
-      stop(
-        "
-        It wasn't possible to obtain data.
-        Provided this function tests your internet connection 
-        you misspelled a reporter, partner or table, or there was 
-        a server problem.
-        Please check and try again.
-        "
-      )
+      stop("It wasn't possible to obtain data. Provided this function tests your internet connection\nyou misspelled a reporter, partner or table, or there was a server problem. Please check and try again.")
     }
 
-    sprintf("Data for the year was downloaded without problems.")
+    message(sprintf("Data for the year %s was downloaded without problems.", year))
 
     return(data)
   } else if (max_attempts == 0) {
     # when attempts run out, stop with an error
-    stop(
-      "
-        Cannot connect to the API. Either the server is down or there is a 
-        connection problem.
-      "
-    )
+    stop("Cannot connect to the API. Either the server is down or there is a connection problem.")
   } else {
     # otherwise, sleep a second and try again
     Sys.sleep(1)
-    ots_read_from_api(
-      year, reporter, partner, table,
-      max_attempts = max_attempts - 1
+    ots_read_from_api(year, reporter, partner, table, max_attempts = max_attempts - 1
     )
   }
 }

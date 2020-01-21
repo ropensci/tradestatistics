@@ -7,7 +7,7 @@
 #' \code{ots_country_code("Chile")}) or a tibble in case of multiple matches
 #' (e.g. \code{ots_country_code("Germany")})
 #' @importFrom magrittr %>%
-#' @importFrom dplyr filter
+#' @importFrom dplyr filter mutate
 #' @importFrom rlang sym
 #' @importFrom stringr str_detect str_to_lower str_trim str_squish str_replace_all
 #' @export
