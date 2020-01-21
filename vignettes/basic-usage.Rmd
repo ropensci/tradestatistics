@@ -13,6 +13,7 @@ vignette: >
 knitr::opts_chunk$set(
   cache = FALSE,
   collapse = TRUE,
+  message = FALSE,
   comment = "#>"
 )
 ```
@@ -95,7 +96,11 @@ This function downloads data for a single year and needs (at least) some filter 
 
 If we want Chile-Argentina bilateral trade at product level in 1962:
 ```{r yrpc1, eval = T}
-ots_create_tidy_data(years = 1962, reporters = "chl", partners = "arg")
+ots_create_tidy_data(
+  years = 1962,
+  reporters = "chl",
+  partners = "arg"
+)
 
 # the same can be obtained specifying yrpc which is the default table
 # ots_create_tidy_data(years = 1962, reporters = "chl", partners = "arg", table = "yrpc")
@@ -105,16 +110,30 @@ We can pass more than one year and or reporter/partner:
 ```{r yrpc2, eval = T}
 # Note that here I'm passing Peru and not per which is the ISO code for Peru
 # The same applies to Brazil
-ots_create_tidy_data(years = c(1962,1963), reporters = c("chl", "Peru", "bol"), partners = c("arg", "Brazil"))
+ots_create_tidy_data(
+  years = c(1962,1963),
+  reporters = c("chl", "Peru", "bol"),
+  partners = c("arg", "Brazil")
+)
 ```
 
 If we want filtering by product, there are different options:
 ```{r yrpc3, eval = T}
 # Pass a specific HS code
-ots_create_tidy_data(years = c(1962,1963), reporters = c("chl", "Peru", "bol"), partners = c("arg", "bra"), products = "0101")
+ots_create_tidy_data(
+  years = c(1962,1963),
+  reporters = c("chl", "Peru", "bol"),
+  partners = c("arg", "bra"), 
+  products = "0101"
+)
 
 # Pass a string that will return all matching descriptions and multiple HS codes
-ots_create_tidy_data(years = c(1962,1963), reporters = c("chl", "Peru", "bol"), partners = c("arg", "bra"), products = c("0101", "apple"))
+ots_create_tidy_data(
+  years = c(1962,1963),
+  reporters = c("chl", "Peru", "bol"),
+  partners = c("arg", "bra"),
+  products = c("0101", "apple")
+)
 ```
 
 `yrpc` table returns some fields that deserve an explanation:
@@ -129,12 +148,22 @@ ots_create_tidy_data(years = c(1962,1963), reporters = c("chl", "Peru", "bol"), 
 
 If we want Chile-Argentina bilateral trade at aggregated level in 1962:
 ```{r yrp1, eval = T}
-ots_create_tidy_data(years = 1962, reporters = "chl", partners = "arg", table = "yrp")
+ots_create_tidy_data(
+  years = 1962,
+  reporters = "chl",
+  partners = "arg",
+  table = "yrp"
+)
 ```
 
 Another option is to pass more than one year, reporter and/or partner:
 ```{r yrp3, eval = T}
-ots_create_tidy_data(years = 1962:1963, reporters = c("chl", "per"), partners = "arg", table = "yrp")
+ots_create_tidy_data(
+  years = 1962:1963,
+  reporters = c("chl", "per"),
+  partners = "arg",
+  table = "yrp"
+)
 ```
 
 This table accepts different years, reporters and partners just like `yrpc`.
@@ -143,12 +172,21 @@ This table accepts different years, reporters and partners just like `yrpc`.
 
 If we want Chilean trade at product level in 1962:
 ```{r yrc1, eval = T}
-ots_create_tidy_data(years = 1962, reporters = "chl", table = "yrc")
+ots_create_tidy_data(
+  years = 1962,
+  reporters = "chl",
+  table = "yrc"
+)
 ```
 
 If we want Chilean trade at product level in 1962 with respect to product "0101" (Horses, asses, mules and hinnies; live):
 ```{r yrc2, eval = T}
-ots_create_tidy_data(years = 1962, reporters = "chl", products = "0101", table = "yrc")
+ots_create_tidy_data(
+  years = 1962,
+  reporters = "chl",
+  products = "0101",
+  table = "yrc"
+)
 ```
 
 This table accepts different years, reporters and product codes just like `yrpc`.
@@ -159,12 +197,20 @@ Here the `export_rca` and `import_rca` fields contain the Revealed Comparative A
 
 If we want Chilean trade at aggregated level in 1962:
 ```{r yr, eval = T}
-ots_create_tidy_data(years = 1962, reporters = "chl", table = "yr")
+ots_create_tidy_data(
+  years = 1962,
+  reporters = "chl",
+  table = "yr"
+)
 ```
 
 Another option is to pass more than one year and/or reporter:
 ```{r yr2, eval = T}
-ots_create_tidy_data(years = 1962:1963, reporters = c("chl", "arg", "per"), table = "yr")
+ots_create_tidy_data(
+  years = 1962:1963,
+  reporters = c("chl", "arg", "per"),
+  table = "yr"
+)
 ```
 
 This table accepts different years and reporters just like `yrpc`.
@@ -178,12 +224,19 @@ Here some fields deserve an explanation:
 
 If we want all products traded in 1962:
 ```{r yc1, eval = T}
-ots_create_tidy_data(years = 1962, table = "yc")
+ots_create_tidy_data(
+  years = 1962,
+  table = "yc"
+)
 ```
 
 If we want traded values of product "0101" (Horses, asses, mules and hinnies; live) in 1962:
 ```{r yc2, eval = T}
-ots_create_tidy_data(years = 1962, products = "0101", table = "yc")
+ots_create_tidy_data(
+  years = 1962,
+  products = "0101",
+  table = "yc"
+)
 ```
 
 This table accepts different product codes just like `yrpc`.
@@ -198,7 +251,11 @@ Here some fields deserve an explanation:
 Taking Year - Reporter table as an example, we can use `ots_inflation_adjustment()` to convert dollars from 1962 to dollars of 1970:
 
 ```{r}
-library(magrittr)
-ots_create_tidy_data(years = 1962, reporters = "chl", table = "yr") %>% 
-  ots_inflation_adjustment(reference_year = 1970)
+d <- ots_create_tidy_data(
+  years = 1962,
+  reporters = "chl",
+  table = "yr"
+) 
+
+ots_inflation_adjustment(d, reference_year = 1970)
 ```
