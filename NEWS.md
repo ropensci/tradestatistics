@@ -1,8 +1,9 @@
-# Version 0.2.9
+# Version 0.3
 
 Updates
 
 * Much improved coverage to detect almost any possible error
+* Fixes case in inflation adjustment when year = reference year
 
 # Version 0.2.8
 

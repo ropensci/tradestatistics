@@ -61,7 +61,7 @@ ots_inflation_adjustment <- function(trade_data = NULL, reference_year = NULL) {
   years <- unique(trade_data$year)
   
   d1 <- map_df(
-    unique(trade_data$year),
+    years,
     function(year) {
       if (year <= reference_year) {
         tradestatistics::ots_inflation %>%
@@ -97,7 +97,7 @@ ots_inflation_adjustment <- function(trade_data = NULL, reference_year = NULL) {
   
   d1 <- d1 %>% 
     mutate(
-      conversion_factor = ifelse(!!sym("year") == !!sym("conversion_year"), 1, !!sym("conversion_year"))
+      conversion_factor = ifelse(!!sym("year") == !!sym("conversion_year"), 1, !!sym("conversion_factor"))
     )
 
   d2 <- trade_data %>%
