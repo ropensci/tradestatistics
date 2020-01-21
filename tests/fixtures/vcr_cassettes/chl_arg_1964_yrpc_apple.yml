@@ -17,14 +17,14 @@ http_interactions:
     headers:
       status: HTTP/1.1 404 Not Found
       server: nginx/1.14.0 (Ubuntu)
-      date: Mon, 20 Jan 2020 19:25:26 GMT
+      date: Tue, 21 Jan 2020 16:46:24 GMT
       content-type: application/json
       content-length: '38'
       connection: keep-alive
     body:
       encoding: UTF-8
       string: '{"error":["404 - Resource Not Found"]}'
-  recorded_at: 2020-01-20 19:26:14 GMT
+  recorded_at: 2020-01-21 16:47:12 GMT
   recorded_with: vcr/0.3.0, webmockr/0.4.0
 - request:
     method: get
@@ -44,14 +44,14 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Mon, 20 Jan 2020 19:25:27 GMT
+      date: Tue, 21 Jan 2020 16:46:25 GMT
       content-type: application/json
       content-length: '29'
       connection: keep-alive
     body:
       encoding: UTF-8
       string: '[{"year":1962},{"year":2018}]'
-  recorded_at: 2020-01-20 19:26:14 GMT
+  recorded_at: 2020-01-21 16:47:12 GMT
   recorded_with: vcr/0.3.0, webmockr/0.4.0
 - request:
     method: get
@@ -71,14 +71,14 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Mon, 20 Jan 2020 19:25:28 GMT
+      date: Tue, 21 Jan 2020 16:46:26 GMT
       content-type: application/json
       content-length: '102'
       connection: keep-alive
     body:
       encoding: UTF-8
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0804","export_value_usd":4351}]'
-  recorded_at: 2020-01-20 19:26:14 GMT
+  recorded_at: 2020-01-21 16:47:12 GMT
   recorded_with: vcr/0.3.0, webmockr/0.4.0
 - request:
     method: get
@@ -98,12 +98,12 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Mon, 20 Jan 2020 19:25:28 GMT
+      date: Tue, 21 Jan 2020 16:46:27 GMT
       content-type: application/json
       content-length: '126'
       connection: keep-alive
     body:
       encoding: UTF-8
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0808","export_value_usd":4999,"import_value_usd":6199}]'
-  recorded_at: 2020-01-20 19:26:14 GMT
+  recorded_at: 2020-01-21 16:47:12 GMT
   recorded_with: vcr/0.3.0, webmockr/0.4.0

@@ -25,20 +25,12 @@ test_that("ots_country_code works properly for multiple matching", {
 })
 
 test_that("ots_country_code returns an error when no countryname is specified", {
-  expect_error(
-    ots_country_code(countryname = ""),
-    "countryname can't have zero characters after removing numbers"
-  )
+  expect_error(ots_country_code(countryname = ""))
   
-  expect_error(
-    ots_country_code(countryname = NULL),
-    "countryname can't be NULL"
-  )
+  expect_error(ots_country_code(countryname = NULL))
 })
 
-test_that("ots_country_code returns an error when no match exists", {
-  expect_error(
-    ots_country_code(countryname = "Abc"),
-    "no match for your search"
-  )
+test_that("ots_country_code returns 0 rows when no match exists", {
+  d <- ots_country_code(countryname = "Abc")
+  expect_output(str(d), "0 obs")
 })

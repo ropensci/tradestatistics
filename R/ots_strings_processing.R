@@ -19,27 +19,14 @@
 #' @keywords functions
 ots_country_code <- function(countryname = NULL) {
   if (is.null(countryname)) {
-    stop(
-      "
-      countryname can't be NULL
-      Try with a quoted text string (e.g. ots_country_code(\"chi\")).
-      "
-    )
+    stop("'countryname' is NULL.")
   } else {
+    stopifnot(is.character(countryname))
+    
     countryname <- iconv(countryname, to = "ASCII//TRANSLIT", sub = " ")
     countryname <- str_replace_all(countryname, "[^[:alpha:]]", " ")
     countryname <- str_squish(countryname)
     countryname <- str_trim(countryname)
-  }
-
-  if (any(nchar(countryname) < 1)) {
-    stop(
-      "
-      countryname can't have zero characters after removing numbers, special symbols and multiple spaces.
-      Try with a quoted text string (e.g. ots_country_code(\"chi\")).
-      "
-    )
-  } else {
     countryname <- str_to_lower(countryname)
   }
 
@@ -65,22 +52,17 @@ ots_country_code <- function(countryname = NULL) {
     countryname
   )
 
-  countrycode <- tradestatistics::ots_countries %>%
-    filter(
-      str_detect(
-        str_to_lower(!!sym("country_fullname_english")), countryname
+  if (countryname == "") {
+    stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the countries table provided within this package.")
+  } else {
+    countrycode <- tradestatistics::ots_countries %>%
+      filter(
+        str_detect(
+          str_to_lower(!!sym("country_fullname_english")), countryname
+        )
       )
-    )
-
-  if (nrow(countrycode) == 0) {
-    stop(
-      "
-      There is no match for your search.
-      Please check the spelling or explore the countries table provided within this package.
-      "
-    )
   }
-
+  
   return(countrycode)
 }
 
@@ -104,16 +86,15 @@ ots_country_code <- function(countryname = NULL) {
 #' ots_product_code(productname = "ANIMALS ")
 #' ots_product_code(productgroup = "  fish")
 #' ots_product_code(productname = "Milk", productgroup = "Dairy")
-#' ots_product_code()
 #' @keywords functions
 ots_product_code <- function(productname = NULL, productgroup = NULL) {
   if (is.null(productname) & is.null(productgroup)) {
-    d <- tradestatistics::ots_products
+    stop("'productname' and 'productgroup' are NULL.")
   }
   
   if (!is.null(productname) & is.null(productgroup)) {
     stopifnot(is.character(productname))
-    stopifnot(nchar(productname) > 0)
+    # stopifnot(nchar(productname) > 0)
     
     productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = " ")
     productname <- str_replace_all(productname, "[^[:alpha:]]", " ")
@@ -123,8 +104,7 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
     if (productname == "") {
-      d <- tradestatistics::ots_products %>% 
-        filter(!!sym("product_code") > "9999" & !!sym("product_code") != "all")
+      stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the products table provided within this package.")
     } else {
       d <- tradestatistics::ots_products %>%
         mutate(
@@ -140,7 +120,7 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
   
   if (is.null(productname) & !is.null(productgroup)) {
     stopifnot(is.character(productgroup))
-    stopifnot(nchar(productgroup) > 0)
+    # stopifnot(nchar(productgroup) > 0)
     
     productgroup <- iconv(productgroup, to = "ASCII//TRANSLIT", sub = " ")
     productgroup <- str_replace_all(productgroup, "[^[:alpha:]]", " ")
@@ -150,8 +130,7 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
     if (productgroup == "") {
-      d <- tradestatistics::ots_products %>% 
-        filter(!!sym("product_code") > "9999" & !!sym("product_code") != "all")
+      stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the products table provided within this package.")
     } else {
       d <- tradestatistics::ots_products %>%
         mutate(
@@ -167,10 +146,10 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
   
   if (!is.null(productname) & !is.null(productgroup)) {
     stopifnot(is.character(productname))
-    stopifnot(nchar(productname) > 0)
+    # stopifnot(nchar(productname) > 0)
     
     stopifnot(is.character(productgroup))
-    stopifnot(nchar(productgroup) > 0)
+    # stopifnot(nchar(productgroup) > 0)
     
     productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = " ")
     productname <- str_replace_all(productname, "[^[:alpha:]]", " ")
@@ -185,8 +164,7 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
     if (productname == "" | productgroup == "") {
-      d <- tradestatistics::ots_products %>% 
-        filter(!!sym("product_code") > "9999" & !!sym("product_code") != "all")
+      stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the products table provided within this package.")
     } else {
       d <- tradestatistics::ots_products %>%
         mutate(
@@ -206,4 +184,3 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
   
   return(d)
 }
-

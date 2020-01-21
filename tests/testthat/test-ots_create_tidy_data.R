@@ -39,12 +39,6 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
     test_data <- ots_create_tidy_data(years = 1964, reporters = "chl", table = "yr")
     expect_is(test_data, "data.frame")
     expect_output(str(test_data), "15 variables")
-    
-    expect_error(
-      expect_warning(
-        ots_create_tidy_data(years = 1964, table = "yr", products = "apple")
-      )
-    )
 
     # Commodity trade at aggregated level (1964)
     test_data <- ots_create_tidy_data(years = 1964, table = "yc")
@@ -71,19 +65,35 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
 })
 
 test_that("ots_create_tidy_data connects to the API and returns valid tables with a valid input and a product filter", {
-  vcr::use_cassette(name = "chl_arg_1964_apple", {
+  vcr::use_cassette(name = "chl_arg_1964_yrpc_apple", {
     # Mock countries test inside ots_create_tidy_data
     cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
     res <- cli$get("countries/")
     expect_is(res, "HttpResponse")
     
     test_data <- ots_create_tidy_data(
-      years = 1964, reporters = "chl", partners = "arg", table = "yrpc",
-      products = "apple"
-    )
+        years = 1964, reporters = "chl", partners = "arg", table = "yrpc",
+        products = "apple"
+      )
     
     expect_is(test_data, "data.frame")
     expect_output(str(test_data), "11 variables")
+  })
+})
+
+test_that("ots_create_tidy_data connects to the API and returns valid tables with a valid input and a non-used product filter", {
+  vcr::use_cassette(name = "chl_arg_1964_yr_apple", {
+    # Mock countries test inside ots_create_tidy_data
+    cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
+    res <- cli$get("countries/")
+    expect_is(res, "HttpResponse")
+    
+    test_data <- expect_warning(
+      ots_create_tidy_data(years = 1964, table = "yr", products = "apple")
+    )
+    
+    expect_is(test_data, "data.frame")
+    expect_output(str(test_data), "15 variables")
   })
 })
 
@@ -140,9 +150,11 @@ test_that("ots_create_tidy_data fails with a non-existing product", {
     expect_is(res, "HttpResponse")
     
     expect_error(
-      ots_create_tidy_data(
-        years = 1964, reporters = "chl", partners = "arg", table = "yrpc",
-        products = "kriptonite"
+      expect_warning(
+        ots_create_tidy_data(
+          years = 1964, reporters = "chl", partners = "arg", table = "yrpc",
+          products = "kriptonite"
+        )
       )
     )
   })

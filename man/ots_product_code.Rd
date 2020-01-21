@@ -26,6 +26,5 @@ product codes.
 ots_product_code(productname = "ANIMALS ")
 ots_product_code(productgroup = "  fish")
 ots_product_code(productname = "Milk", productgroup = "Dairy")
-ots_product_code()
 }
 \keyword{functions}

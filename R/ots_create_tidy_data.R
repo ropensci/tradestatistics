@@ -103,7 +103,7 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
                                             use_localhost = FALSE) {
   # Check tables ----
   if (!table %in% tradestatistics::ots_tables$table) {
-    stop("The requested table does not exist. Please check the spelling or\nexplore the 'ots_table' table provided within this package.")
+    stop("The requested table does not exist. Please check the spelling or explore the 'ots_table' table provided within this package.")
   }
 
   # Check years ----
@@ -121,7 +121,7 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
 
   if (all(years %in% min(year_range):max(year_range)) != TRUE &
     table %in% year_depending_queries) {
-    stop("Provided that the table you requested contains a 'year' field, please\nverify that you are requesting data contained within the years exposed\nin api.tradestatistics.io/year_range.")
+    stop("Provided that the table you requested contains a 'year' field, please verify that you are requesting data contained within the years from api.tradestatistics.io/year_range.")
   }
 
   # Check reporters and partners ----
@@ -142,7 +142,7 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
       if (length(reporters_no_iso) > 0) {
         warning(
           sub(",([^,]*)$"," &\\1",
-              sprintf("You wrote reporter strings that could not be matched to ISO codes.\nThese strings shall be ignored. Please check the spelling for:\n%s", paste0(sprintf("'%s'", reporters_no_iso), collapse = ", "))
+              sprintf("You wrote reporter strings that could not be matched to ISO codes. These strings shall be ignored. Please check the spelling for: %s", paste0(sprintf("'%s'", reporters_no_iso), collapse = ", "))
           )
         )
       }
@@ -150,7 +150,7 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
       reporters <- reporters_iso
       
       if (length(reporters) == 0) {
-        stop("After ignoring the unmatched reporter strings, there were zero obtained\nISO codes and no data will be downloaded.")
+        stop("After ignoring the unmatched reporter strings, there were zero obtained ISO codes and no data will be downloaded.")
       }
     }
   }
@@ -163,7 +163,7 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
       if (length(partners_no_iso) > 0) {
         warning(
           sub(",([^,]*)$"," &\\1",
-              sprintf("You wrote partner strings that could not be matched to ISO codes.\nThese strings shall be ignored. Please check the spelling for:\n%s", paste0(sprintf("'%s'", partners_no_iso), collapse = ", "))
+              sprintf("You wrote partner strings that could not be matched to ISO codes. These strings shall be ignored. Please check the spelling for: %s", paste0(sprintf("'%s'", partners_no_iso), collapse = ", "))
           )
         )
       }
@@ -171,7 +171,7 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
       partners <- partners_iso
       
       if (length(partners) == 0) {
-        stop("After ignoring the unmatched partner strings, there were zero obtained\nISO codes and no data will be downloaded.")
+        stop("After ignoring the unmatched partner strings, there were zero obtained ISO codes and no data will be downloaded.")
       }
     }
   }
@@ -217,7 +217,7 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
   if (!all(as.character(products) %in%
     tradestatistics::ots_products$product_code == TRUE) &
     table %in% product_depending_queries) {
-    stop("The requested products do not exist. Please check the spelling or\nexplore the 'ots_products' table provided within this package.")
+    stop("The requested products do not exist. Please check the spelling or explore the 'ots_products' table provided within this package.")
   }
 
   # Check optional parameters ----
@@ -240,7 +240,7 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
   # Read from API ----
   if (!table %in% product_depending_queries & any(products != "all") == TRUE) {
     products <- "all"
-    warning("The products argument will be ignored provided that you requested a\ntable without product_code field.")
+    warning("The products argument will be ignored provided that you requested a table without product_code field.")
   }
 
   if (is.null(reporters)) {

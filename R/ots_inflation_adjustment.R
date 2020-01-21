@@ -58,6 +58,8 @@ ots_inflation_adjustment <- function(trade_data = NULL, reference_year = NULL) {
   }
 
   # Filter year conversion rates and join data ------------------------------
+  years <- unique(trade_data$year)
+  
   d1 <- map_df(
     unique(trade_data$year),
     function(year) {
@@ -92,6 +94,11 @@ ots_inflation_adjustment <- function(trade_data = NULL, reference_year = NULL) {
       }
     }
   )
+  
+  d1 <- d1 %>% 
+    mutate(
+      conversion_factor = ifelse(!!sym("year") == !!sym("conversion_year"), 1, !!sym("conversion_year"))
+    )
 
   d2 <- trade_data %>%
     left_join(d1, by = "year") %>%

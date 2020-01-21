@@ -87,7 +87,7 @@ ots_read_from_api <- function(year = NULL,
       stop("It wasn't possible to obtain data. Provided this function tests your internet connection\nyou misspelled a reporter, partner or table, or there was a server problem. Please check and try again.")
     }
 
-    message(sprintf("Data for the year %s was downloaded without problems.", year))
+    message(sprintf("The data for the year %s was downloaded without problems.", year))
 
     return(data)
   } else if (max_attempts == 0) {
