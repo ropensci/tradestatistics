@@ -56,7 +56,6 @@ ots_read_from_api <- function(year = NULL,
       year, reporter, partner, product_code
     ),
     "yrp" = sprintf("yrp?y=%s&r=%s&p=%s", year, reporter, partner),
-    "yrp_short" = sprintf("yrp_short?y=%s&r=%s&p=%s", year, reporter, partner),
     "yrc" = sprintf(
       "yrc?y=%s&r=%s&c=%s",
       year, reporter, product_code

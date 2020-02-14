@@ -1,3 +1,9 @@
+# Version 0.3.1
+
+Updates
+
+* Removes `yrp_short` option reflecting last DB changes
+
 # Version 0.3
 
 Updates
