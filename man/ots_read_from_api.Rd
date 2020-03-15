@@ -9,7 +9,9 @@ ots_read_from_api(
   reporter = NULL,
   partner = NULL,
   product_code = "all",
-  table = "yrpc",
+  group_code = "all",
+  community_code = "all",
+  table = "yrpg",
   max_attempts = 5,
   use_localhost = FALSE
 )

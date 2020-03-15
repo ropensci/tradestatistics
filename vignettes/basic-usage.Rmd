@@ -88,6 +88,19 @@ The end user can use this function to find a product code by providing a product
 ots_product_code("wine")
 ```
 
+This function searches both products and groups:
+```{r product_code2}
+ots_product_code(productname = "Milk", productgroup = "Dairy")
+```
+
+## Community code
+
+The end user can use this function to find a community code by providing a community name. This works by implementing partial string matching:
+
+```{r community_code}
+ots_product_community("fabric")
+```
+
 ## Trade data
 
 This function downloads data for a single year and needs (at least) some filter parameters according to the query type.
@@ -99,11 +112,9 @@ If we want Chile-Argentina bilateral trade at product level in 1962:
 ots_create_tidy_data(
   years = 1962,
   reporters = "chl",
-  partners = "arg"
+  partners = "arg",
+  table = "yrpc"
 )
-
-# the same can be obtained specifying yrpc which is the default table
-# ots_create_tidy_data(years = 1962, reporters = "chl", partners = "arg", table = "yrpc")
 ```
 
 We can pass more than one year and or reporter/partner:
@@ -113,7 +124,8 @@ We can pass more than one year and or reporter/partner:
 ots_create_tidy_data(
   years = c(1962,1963),
   reporters = c("chl", "Peru", "bol"),
-  partners = c("arg", "Brazil")
+  partners = c("arg", "Brazil"),
+  table = "yrpc"
 )
 ```
 
@@ -124,7 +136,8 @@ ots_create_tidy_data(
   years = c(1962,1963),
   reporters = c("chl", "Peru", "bol"),
   partners = c("arg", "bra"), 
-  products = "0101"
+  products = "0101",
+  table = "yrpc"
 )
 
 # Pass a string that will return all matching descriptions and multiple HS codes
@@ -132,15 +145,68 @@ ots_create_tidy_data(
   years = c(1962,1963),
   reporters = c("chl", "Peru", "bol"),
   partners = c("arg", "bra"),
-  products = c("0101", "apple")
+  products = c("0101", "apple"),
+  table = "yrpc"
 )
 ```
 
 `yrpc` table returns some fields that deserve an explanation:
 
 * `product_code`: HS07 product codes (e.g. according to the \code{products} table within this package, 0101 stands for "Horses, etc.")
-* `group_code`: International categorization of group products defined after product ID
-* `group_name`: English name corresponding to `group_id`
+* `group_code`: International categorization of product grops defined after product ID
+* `group_name`: English name corresponding to `group_code`
+* `export_value_usd`: Exports measured in nominal United States Dollars (USD)
+* `import_value_usd`: Imports measured in nominal United States Dollars (USD)
+
+### Bilateral trade at group level (Year - Reporter - Partner - Group Code)
+
+If we want Chile-Argentina bilateral trade at group level in 1962:
+```{r yrpg1, eval = T}
+ots_create_tidy_data(
+  years = 1962,
+  reporters = "chl",
+  partners = "arg",
+  table = "yrpg"
+)
+```
+
+We can pass more than one year and or reporter/partner:
+```{r yrpg2, eval = T}
+# Note that here I'm passing Peru and not per which is the ISO code for Peru
+# The same applies to Brazil
+ots_create_tidy_data(
+  years = c(1962,1963),
+  reporters = c("chl", "Peru", "bol"),
+  partners = c("arg", "Brazil"),
+  table = "yrpg"
+)
+```
+
+If we want filtering by group, there are different options:
+```{r yrpg3, eval = T}
+# Pass a specific group code
+ots_create_tidy_data(
+  years = c(1962,1963),
+  reporters = c("chl", "Peru", "bol"),
+  partners = c("arg", "bra"), 
+  groups = "01",
+  table = "yrpg"
+)
+
+# Pass a string that will return all matching descriptions and multiple groups
+ots_create_tidy_data(
+  years = c(1962,1963),
+  reporters = c("chl", "Peru", "bol"),
+  partners = c("arg", "bra"),
+  groups = c("01", "food"),
+  table = "yrpg"
+)
+```
+
+`yrpg` table returns some fields that deserve an explanation:
+
+* `group_code`: HS07 group codes (e.g. according to the \code{products} table within this package, 01 stands for "Animals; live")
+* `group_name`: English name corresponding to `group_code`
 * `export_value_usd`: Exports measured in nominal United States Dollars (USD)
 * `import_value_usd`: Imports measured in nominal United States Dollars (USD)
 

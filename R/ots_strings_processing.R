@@ -74,8 +74,7 @@ ots_country_code <- function(countryname = NULL) {
 #' @param productname A text string such as "Animals", "COPPER" or "fruits".
 #' @param productgroup A text string such as "meat", "FISH" or "Dairy".
 #' @return A tibble with all possible matches (no uppercase distinction)
-#' showing the product name, product code and corresponding trade
-#' classification (e.g. HS92 or SITC)
+#' showing the product name and product code
 #' @importFrom magrittr %>%
 #' @importFrom dplyr mutate filter
 #' @importFrom rlang sym
@@ -180,6 +179,55 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
           )
         )
     }
+  }
+  
+  return(d)
+}
+
+#' String matching of unofficial product community names and product community
+#' codes
+#' @description Takes a text string and searches within the
+#' package data for all matching product communities in the context of valid API
+#' product communities
+#' @param productcommunity A text string such as "animals", or "FOODSTUFFS".
+#' @return A tibble with all possible matches (no uppercase distinction)
+#' showing the community name and community code
+#' @importFrom magrittr %>%
+#' @importFrom dplyr mutate filter
+#' @importFrom rlang sym
+#' @importFrom stringr str_detect str_to_lower str_trim str_squish
+#' @importFrom utils data
+#' @export
+#' @examples
+#' ots_product_community(productcommunity = "  Animals")
+#' ots_product_community(productcommunity = "FABRIC ")
+#' @keywords functions
+ots_product_community <- function(productcommunity = NULL) {
+  if (is.null(productcommunity)) {
+    stop("'productcommunity' is NULL.")
+  }
+  
+  stopifnot(is.character(productcommunity))
+  
+  productcommunity <- iconv(productcommunity, to = "ASCII//TRANSLIT", sub = " ")
+  productcommunity <- str_replace_all(productcommunity, "[^[:alpha:]]", " ")
+  productcommunity <- str_squish(productcommunity)
+  productcommunity <- str_trim(productcommunity)
+  
+  # get the products dataset, create the type_product column,
+  # bind them all together and do the search
+  if (productcommunity == "") {
+    stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the products table provided within this package.")
+  } else {
+    d <- tradestatistics::ots_communities %>%
+      mutate(
+        type_community = productcommunity
+      ) %>%
+      filter(
+        str_detect(
+          str_to_lower(!!sym("community_name")), productcommunity
+        )
+      )
   }
   
   return(d)

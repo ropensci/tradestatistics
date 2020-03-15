@@ -39,7 +39,9 @@ ots_read_from_api <- function(year = NULL,
                               reporter = NULL,
                               partner = NULL,
                               product_code = "all",
-                              table = "yrpc",
+                              group_code = "all",
+                              community_code = "all",
+                              table = "yrpg",
                               max_attempts = 5,
                               use_localhost = FALSE) {
   stopifnot(max_attempts > 0)
@@ -54,6 +56,14 @@ ots_read_from_api <- function(year = NULL,
     "yrpc" = sprintf(
       "yrpc?y=%s&r=%s&p=%s&c=%s",
       year, reporter, partner, product_code
+    ),
+    "yrpg" = sprintf(
+      "yrpg?y=%s&r=%s&p=%s&g=%s",
+      year, reporter, partner, group_code
+    ),
+    "yrpo" = sprintf(
+      "yrpo?y=%s&r=%s&p=%s&o=%s",
+      year, reporter, partner, community_code
     ),
     "yrp" = sprintf("yrp?y=%s&r=%s&p=%s", year, reporter, partner),
     "yrc" = sprintf(
@@ -95,7 +105,9 @@ ots_read_from_api <- function(year = NULL,
   } else {
     # otherwise, sleep a second and try again
     Sys.sleep(1)
-    ots_read_from_api(year, reporter, partner, table, max_attempts = max_attempts - 1
+    ots_read_from_api(year, reporter, partner, product_code, group_code,
+                      community_code, table, max_attempts = max_attempts - 1,
+                      use_localhost
     )
   }
 }

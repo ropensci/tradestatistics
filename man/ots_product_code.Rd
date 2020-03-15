@@ -14,8 +14,7 @@ ots_product_code(productname = NULL, productgroup = NULL)
 }
 \value{
 A tibble with all possible matches (no uppercase distinction)
-showing the product name, product code and corresponding trade
-classification (e.g. HS92 or SITC)
+showing the product name and product code
 }
 \description{
 Takes a text string and searches within the
