@@ -8,8 +8,14 @@
 #' \code{c("chl", "Peru")}). Default set to \code{"all"}.
 #' @param partners ISO code for partner country (e.g. \code{"chl"}, \code{"Chile"} or
 #' \code{c("chl", "Peru")}). Default set to \code{"all"}.
-#' @param products HS codes (e.g. \code{"0101"}, \code{"01"} or search matches for \code{"apple"})
+#' @param products HS product codes (e.g. \code{"0101"}, \code{"01"} or search
+#' matches for \code{"apple"})
 #' to filter products. Default set to \code{"all"}.
+#' @param groups HS product groups (e.g. \code{"01"} or search matches for 
+#' \code{"animals"}) to filter groups. Default set to \code{"all"}.
+#' @param communities unofficial product communities (e.g. \code{"01"} or search
+#' matches for \code{"animals"}) to filter communities Default set to
+#' \code{"all"}.
 #' @param table Character string to select the table to obtain the data.
 #' Default set to \code{yrpc} (Year - Reporter - Partner - Product Code).
 #' Run \code{ots_tables} in case of doubt.
