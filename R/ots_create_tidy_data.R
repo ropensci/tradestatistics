@@ -24,20 +24,21 @@
 #' to \code{5}.
 #' @param include_shortnames Whether to include or not to include unofficial shortened product names.
 #' Default set to \code{FALSE}.
-#' @param include_communities Whether to include or not to include product communities.
-#' Default set to \code{FALSE}.
-#' @param use_localhost Logical to determine if the base URL shall be localhost instead
-#' of api.tradestatistics.io. Default set to \code{FALSE}.
+#' @param include_communities Whether to include or not to include product 
+#' community names when the requested table contains the \code{product_code}
+#' field. Default set to \code{FALSE}.
 #' @param use_cache Logical to save and load from cache. If \code{TRUE}, the results will be cached in memory
 #' if \code{file} is \code{NULL} or on disk if `file` is not \code{NULL}. Default set to \code{FALSE}.
 #' @param file Optional character with the full file path to save the data. Default set to \code{NULL}.
+#' @param use_localhost Logical to determine if the base URL shall be localhost instead
+#' of api.tradestatistics.io. Default set to \code{FALSE}.
 #' @return A tibble that describes bilateral trade metrics (imports,
 #' exports, trade balance and relevant metrics
 #' such as exports growth w/r to last year) between a \code{reporter}
 #' and \code{partner} country.
 #' @importFrom magrittr %>% %<>%
 #' @importFrom dplyr as_tibble select filter everything
-#' left_join bind_rows rename distinct starts_with
+#' left_join bind_rows rename distinct starts_with matches
 #' @importFrom rlang sym syms
 #' @importFrom purrr map_chr map_df as_vector
 #' @importFrom jsonlite fromJSON
@@ -72,9 +73,9 @@ ots_create_tidy_data <- function(years = 2018,
                                  max_attempts = 5,
                                  include_shortnames = FALSE,
                                  include_communities = FALSE,
-                                 use_localhost = FALSE,
                                  use_cache = FALSE,
-                                 file = NULL) {
+                                 file = NULL,
+                                 use_localhost = FALSE) {
   if (!is.logical(use_cache)) {
     stop("use_cache must be logical.")
   }
@@ -477,54 +478,6 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   if (table %in% product_depending_queries) {
     data %<>%
       left_join(tradestatistics::ots_products, by = "product_code")
-
-    if (table == "yrpc") {
-      data %<>%
-        select(
-          !!!syms(c(
-            "year",
-            "reporter_iso",
-            "partner_iso",
-            "reporter_fullname_english",
-            "partner_fullname_english",
-            "product_code",
-            "product_fullname_english",
-            "group_code",
-            "group_name"
-          )),
-          everything()
-        )
-    }
-
-    if (table == "yrc") {
-      data %<>%
-        select(
-          !!!syms(c(
-            "year",
-            "reporter_iso",
-            "reporter_fullname_english",
-            "product_code",
-            "product_fullname_english",
-            "group_code",
-            "group_name"
-          )),
-          everything()
-        )
-    }
-
-    if (table == "yc") {
-      data %<>%
-        select(
-          !!!syms(c(
-            "year",
-            "product_code",
-            "product_fullname_english",
-            "group_code",
-            "group_name"
-          )),
-          everything()
-        )
-    }
   }
 
   if (table %in% product_depending_queries & include_shortnames == TRUE) {
@@ -545,22 +498,6 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
           select(!!!syms(c("group_code", "group_name"))) %>% 
           distinct(), by = "group_code"
       )
-    
-    if (table == "yrpg") {
-      data %<>%
-        select(
-          !!!syms(c(
-            "year",
-            "reporter_iso",
-            "partner_iso",
-            "reporter_fullname_english",
-            "partner_fullname_english",
-            "group_code",
-            "group_name"
-          )),
-          everything()
-        )
-    }
   }
   
   # include communities data
@@ -572,23 +509,6 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
                            "community_color"))) %>% 
           distinct(), by = "community_code"
       )
-    
-    if (table == "yrpo") {
-      data %<>%
-        select(
-          !!!syms(c(
-            "year",
-            "reporter_iso",
-            "partner_iso",
-            "reporter_fullname_english",
-            "partner_fullname_english",
-            "community_code",
-            "community_name",
-            "community_color"
-          )),
-          everything()
-        )
-    }
   }
   
   # order columns for consistent order

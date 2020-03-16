@@ -1,7 +1,7 @@
 Package: tradestatistics
 Type: Package
 Title: Open Trade Statistics API Wrapper and Utility Program
-Version: 0.3.2
+Version: 0.4.0
 Authors@R: c(
       person(given = "Mauricio",
              family = "Vargas",
