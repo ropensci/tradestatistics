@@ -43,69 +43,32 @@ ots_product_code(productname = "Milk", productgroup = "Dairy")
 ## ----community_code-----------------------------------------------------------
 ots_product_community("fabric")
 
-## ----yrpc1, eval = T----------------------------------------------------------
+## ----yrpc-ga1, eval = T-------------------------------------------------------
 ots_create_tidy_data(
   years = 1962,
   reporters = "chl",
   partners = "arg",
-  table = "yrpc"
+  table = "yrpc-ca"
 )
 
-## ----yrpc2, eval = T----------------------------------------------------------
+## ----yrpc-ga2, eval = T-------------------------------------------------------
 # Note that here I'm passing Peru and not per which is the ISO code for Peru
 # The same applies to Brazil
 ots_create_tidy_data(
   years = c(1962,1963),
   reporters = c("chl", "Peru", "bol"),
   partners = c("arg", "Brazil"),
-  table = "yrpc"
+  table = "yrpc-ca"
 )
 
-## ----yrpc3, eval = T----------------------------------------------------------
-# Pass a specific HS code
-ots_create_tidy_data(
-  years = c(1962,1963),
-  reporters = c("chl", "Peru", "bol"),
-  partners = c("arg", "bra"), 
-  products = "0101",
-  table = "yrpc"
-)
-
-# Pass a string that will return all matching descriptions and multiple HS codes
-ots_create_tidy_data(
-  years = c(1962,1963),
-  reporters = c("chl", "Peru", "bol"),
-  partners = c("arg", "bra"),
-  products = c("0101", "apple"),
-  table = "yrpc"
-)
-
-## ----yrpg1, eval = T----------------------------------------------------------
-ots_create_tidy_data(
-  years = 1962,
-  reporters = "chl",
-  partners = "arg",
-  table = "yrpg"
-)
-
-## ----yrpg2, eval = T----------------------------------------------------------
-# Note that here I'm passing Peru and not per which is the ISO code for Peru
-# The same applies to Brazil
-ots_create_tidy_data(
-  years = c(1962,1963),
-  reporters = c("chl", "Peru", "bol"),
-  partners = c("arg", "Brazil"),
-  table = "yrpg"
-)
-
-## ----yrpg3, eval = T----------------------------------------------------------
+## ----yrpc-ga3, eval = T-------------------------------------------------------
 # Pass a specific group code
 ots_create_tidy_data(
   years = c(1962,1963),
   reporters = c("chl", "Peru", "bol"),
   partners = c("arg", "bra"), 
-  groups = "01",
-  table = "yrpg"
+  communities = "01",
+  table = "yrpc-ca"
 )
 
 # Pass a string that will return all matching descriptions and multiple groups
@@ -113,8 +76,8 @@ ots_create_tidy_data(
   years = c(1962,1963),
   reporters = c("chl", "Peru", "bol"),
   partners = c("arg", "bra"),
-  groups = c("01", "food"),
-  table = "yrpg"
+  communities = c("01", "food"),
+  table = "yrpc-ca"
 )
 
 ## ----yrp1, eval = T-----------------------------------------------------------

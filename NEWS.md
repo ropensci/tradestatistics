@@ -1,3 +1,11 @@
+# Version 0.4.0
+
+Updates
+
+* Includes `yrpg`, `yrpo`, `yrg` and `yro` tables reflecting API updates
+* Simplifies end-user functions a bit (i.e. removes `include_groups` option)
+* Optimizes the code a bit, specially at the joins with tables in the package
+
 # Version 0.3.1
 
 Updates

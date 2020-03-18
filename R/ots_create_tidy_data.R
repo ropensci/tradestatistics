@@ -69,7 +69,7 @@ ots_create_tidy_data <- function(years = 2018,
                                  products = "all",
                                  groups = "all",
                                  communities = "all",
-                                 table = "yrpg",
+                                 table = "yrpc-ca",
                                  max_attempts = 5,
                                  include_shortnames = FALSE,
                                  include_communities = FALSE,
@@ -248,7 +248,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   }
 
   # Check groups ----
-  group_depending_queries <- grep("g$",
+  group_depending_queries <- grep("-ga$",
                                     tradestatistics::ots_tables$table,
                                     value = T
   )
@@ -285,7 +285,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   }
   
   # Check communities ----
-  community_depending_queries <- grep("o$",
+  community_depending_queries <- grep("-ca$",
                                       tradestatistics::ots_tables$table,
                                       value = T
   )
@@ -294,7 +294,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   unique_communities <- c(unique_communities, "all")
   
   if (!all(as.character(communities) %in% unique_communities) == TRUE &
-      table %in% group_depending_queries) {
+      table %in% community_depending_queries) {
     
     # communities without match (wm)
     communities_wm <- communities[!communities %in% unique_communities]
@@ -380,8 +380,8 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
       table = table,
       max_attempts = max_attempts,
       year = condensed_parameters$year[.x],
-      reporter = condensed_parameters$reporter[.x],
-      partner = condensed_parameters$partner[.x],
+      reporter_iso = condensed_parameters$reporter[.x],
+      partner_iso = condensed_parameters$partner[.x],
       product_code = condensed_parameters$product[.x],
       group_code = condensed_parameters$group[.x],
       community_code = condensed_parameters$community[.x],

@@ -104,93 +104,44 @@ ots_product_community("fabric")
 ## Trade data
 
 This function downloads data for a single year and needs (at least) some filter parameters according to the query type.
- 
-### Bilateral trade at product level (Year - Reporter - Partner - Product Code)
 
-If we want Chile-Argentina bilateral trade at product level in 1962:
-```{r yrpc1, eval = T}
-ots_create_tidy_data(
-  years = 1962,
-  reporters = "chl",
-  partners = "arg",
-  table = "yrpc"
-)
-```
+Here we cover aggregated tables to describe the usage. For example, `yrpc-ca` is
+an aggregation of `yrpc`, being the difference that the first can be aggregated 
+to obtain the latter, therefore combining products into broader categories.
 
-We can pass more than one year and or reporter/partner:
-```{r yrpc2, eval = T}
-# Note that here I'm passing Peru and not per which is the ISO code for Peru
-# The same applies to Brazil
-ots_create_tidy_data(
-  years = c(1962,1963),
-  reporters = c("chl", "Peru", "bol"),
-  partners = c("arg", "Brazil"),
-  table = "yrpc"
-)
-```
-
-If we want filtering by product, there are different options:
-```{r yrpc3, eval = T}
-# Pass a specific HS code
-ots_create_tidy_data(
-  years = c(1962,1963),
-  reporters = c("chl", "Peru", "bol"),
-  partners = c("arg", "bra"), 
-  products = "0101",
-  table = "yrpc"
-)
-
-# Pass a string that will return all matching descriptions and multiple HS codes
-ots_create_tidy_data(
-  years = c(1962,1963),
-  reporters = c("chl", "Peru", "bol"),
-  partners = c("arg", "bra"),
-  products = c("0101", "apple"),
-  table = "yrpc"
-)
-```
-
-`yrpc` table returns some fields that deserve an explanation:
-
-* `product_code`: HS07 product codes (e.g. according to the \code{products} table within this package, 0101 stands for "Horses, etc.")
-* `group_code`: International categorization of product grops defined after product ID
-* `group_name`: English name corresponding to `group_code`
-* `export_value_usd`: Exports measured in nominal United States Dollars (USD)
-* `import_value_usd`: Imports measured in nominal United States Dollars (USD)
-
-### Bilateral trade at group level (Year - Reporter - Partner - Group Code)
+### Bilateral trade at group level (Year - Reporter - Partner - Community Code)
 
 If we want Chile-Argentina bilateral trade at group level in 1962:
-```{r yrpg1, eval = T}
+```{r yrpc-ga1, eval = T}
 ots_create_tidy_data(
   years = 1962,
   reporters = "chl",
   partners = "arg",
-  table = "yrpg"
+  table = "yrpc-ca"
 )
 ```
 
 We can pass more than one year and or reporter/partner:
-```{r yrpg2, eval = T}
+```{r yrpc-ga2, eval = T}
 # Note that here I'm passing Peru and not per which is the ISO code for Peru
 # The same applies to Brazil
 ots_create_tidy_data(
   years = c(1962,1963),
   reporters = c("chl", "Peru", "bol"),
   partners = c("arg", "Brazil"),
-  table = "yrpg"
+  table = "yrpc-ca"
 )
 ```
 
-If we want filtering by group, there are different options:
-```{r yrpg3, eval = T}
+If we want filtering by community, there are different options:
+```{r yrpc-ga3, eval = T}
 # Pass a specific group code
 ots_create_tidy_data(
   years = c(1962,1963),
   reporters = c("chl", "Peru", "bol"),
   partners = c("arg", "bra"), 
-  groups = "01",
-  table = "yrpg"
+  communities = "01",
+  table = "yrpc-ca"
 )
 
 # Pass a string that will return all matching descriptions and multiple groups
@@ -198,17 +149,27 @@ ots_create_tidy_data(
   years = c(1962,1963),
   reporters = c("chl", "Peru", "bol"),
   partners = c("arg", "bra"),
-  groups = c("01", "food"),
-  table = "yrpg"
+  communities = c("01", "food"),
+  table = "yrpc-ca"
 )
 ```
 
-`yrpg` table returns some fields that deserve an explanation:
+`yrpc-ca` table returns some fields that deserve an explanation:
 
 * `group_code`: HS07 group codes (e.g. according to the \code{products} table within this package, 01 stands for "Animals; live")
-* `group_name`: English name corresponding to `group_code`
+* `community_name`: English name corresponding to `group_code`
 * `export_value_usd`: Exports measured in nominal United States Dollars (USD)
 * `import_value_usd`: Imports measured in nominal United States Dollars (USD)
+
+If we used `table = "yrpc"` instead, the table would have been much larger and
+including:
+
+* `product_code`: HS07 product codes (e.g. according to the \code{products} table within this package, 0101 stands for "Horses")
+* `product_fullname_english`: HS07 product names (these names are quite long and are
+official customs names in use)
+
+In replacement of `community_code` and `community_name`. The aggregation
+summarises 1222 products into 22 communities.
 
 ### Bilateral trade at aggregated level (Year - Reporter - Partner)
 
@@ -309,8 +270,8 @@ This table accepts different product codes just like `yrpc`.
 
 Here some fields deserve an explanation:
 
-* `pci_*_method`: Product Complexity Index (PCI) which is detailed on [Open Trade Statistics Documentation](https://docs.tradestatistics.io/).
-* `pci_rank_*_method`: The rank of a product given its PCI (e.g. the highest PCI obtains the #1).
+* `cci_*_method`: Country Complexity Index (CCI) which is detailed on [Open Trade Statistics Documentation](https://docs.tradestatistics.io/).
+* `cci_rank_*_method`: The rank of a product given its CCI (e.g. the highest CCI obtains the #1).
 
 ## Inflation adjustment
 
