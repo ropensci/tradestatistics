@@ -80,6 +80,8 @@ ots_read_from_api <- function(year = NULL,
     ),
     "yr" = sprintf("yr?y=%s&r=%s", year, reporter_iso),
     "yr-short" = sprintf("yr-short?y=%s&r=%s", year, reporter_iso),
+    "yr-ga" = sprintf("yr-ga?y=%s&r=%s", year, reporter_iso),
+    "yr-ca" = sprintf("yr-ca?y=%s&r=%s", year, reporter_iso),
     "yc" = sprintf("yc?y=%s&c=%s", year, product_code)
   )
 
