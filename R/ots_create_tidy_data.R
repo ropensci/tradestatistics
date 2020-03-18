@@ -501,7 +501,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   }
   
   # include communities data
-  if (table %in% community_depending_queries) {
+  if (table %in% community_depending_queries[community_depending_queries != "yr-ca"]) {
     data %<>%
       left_join(
         tradestatistics::ots_communities %>% 
