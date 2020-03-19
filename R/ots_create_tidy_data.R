@@ -248,7 +248,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   }
 
   # Check groups ----
-  group_depending_queries <- grep("-ga$",
+  group_depending_queries <- grep("-ga$|-gca$",
                                     tradestatistics::ots_tables$table,
                                     value = T
   )
@@ -285,7 +285,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   }
   
   # Check communities ----
-  community_depending_queries <- grep("-ca$",
+  community_depending_queries <- grep("-ca$|-gca$",
                                       tradestatistics::ots_tables$table,
                                       value = T
   )
