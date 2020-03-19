@@ -75,12 +75,16 @@ ots_read_from_api <- function(year = NULL,
       year, reporter_iso, product_code
     ),
     "yrc-ga" = sprintf(
-      "yrc-ga?y=%s&r=%s&c=%s",
-      year, reporter_iso, community_code
+      "yrc-ga?y=%s&r=%s&c=%s&g=%s",
+      year, reporter_iso, product_code, group_code
     ),
     "yrc-ca" = sprintf(
-      "yrc-ca?y=%s&r=%s&c=%s",
-      year, reporter_iso, community_code
+      "yrc-ca?y=%s&r=%s&c=%s&o=%s",
+      year, reporter_iso, product_code, community_code
+    ),
+    "yrc-gca" = sprintf(
+      "yrc-gca?y=%s&r=%s&c=%s&g=%s&o=%s",
+      year, reporter_iso, product_code, group_code, community_code
     ),
     "yr" = sprintf("yr?y=%s&r=%s", year, reporter_iso),
     "yr-short" = sprintf("yr-short?y=%s&r=%s", year, reporter_iso),
