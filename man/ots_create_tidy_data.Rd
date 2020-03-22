@@ -11,7 +11,7 @@ ots_create_tidy_data(
   products = "all",
   groups = "all",
   communities = "all",
-  table = "yrpc-ca",
+  table = "yr",
   max_attempts = 5,
   include_shortnames = FALSE,
   include_communities = FALSE,
@@ -43,7 +43,7 @@ matches for \code{"animals"}) to filter communities Default set to
 \code{"all"}.}
 
 \item{table}{Character string to select the table to obtain the data.
-Default set to \code{yrpc} (Year - Reporter - Partner - Product Code).
+Default set to \code{yr} (Year - Reporter).
 Run \code{ots_tables} in case of doubt.}
 
 \item{max_attempts}{How many times to try to download data in case the

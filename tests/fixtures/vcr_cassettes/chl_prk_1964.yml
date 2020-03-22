@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -17,15 +17,16 @@ http_interactions:
     headers:
       status: HTTP/1.1 404 Not Found
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 21 Jan 2020 16:46:38 GMT
+      date: Sat, 21 Mar 2020 21:30:10 GMT
       content-type: application/json
       content-length: '38'
       connection: keep-alive
     body:
       encoding: UTF-8
+      file: no
       string: '{"error":["404 - Resource Not Found"]}'
-  recorded_at: 2020-01-21 16:47:24 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+  recorded_at: 2020-03-21 21:30:11 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://api.tradestatistics.io/year_range
@@ -33,7 +34,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -44,15 +45,16 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 21 Jan 2020 16:46:38 GMT
+      date: Sat, 21 Mar 2020 21:30:11 GMT
       content-type: application/json
       content-length: '29'
       connection: keep-alive
     body:
       encoding: UTF-8
+      file: no
       string: '[{"year":1962},{"year":2018}]'
-  recorded_at: 2020-01-21 16:47:24 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+  recorded_at: 2020-03-21 21:30:11 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://api.tradestatistics.io/yrp?y=1964&r=chl&p=prk
@@ -60,7 +62,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -71,13 +73,14 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 21 Jan 2020 16:46:39 GMT
+      date: Sat, 21 Mar 2020 21:30:11 GMT
       content-type: application/json
       content-length: '121'
       connection: keep-alive
     body:
       encoding: UTF-8
+      file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"prk","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-01-21 16:47:24 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+  recorded_at: 2020-03-21 21:30:11 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0

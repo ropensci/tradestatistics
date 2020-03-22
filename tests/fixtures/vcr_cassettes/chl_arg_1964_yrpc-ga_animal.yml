@@ -1,0 +1,254 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/countries/
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '404'
+      message: Not Found
+      explanation: Nothing matches the given URI
+    headers:
+      status: HTTP/1.1 404 Not Found
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:30:00 GMT
+      content-type: application/json
+      content-length: '38'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"error":["404 - Resource Not Found"]}'
+  recorded_at: 2020-03-21 21:30:05 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/year_range
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:30:00 GMT
+      content-type: application/json
+      content-length: '29'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1962},{"year":2018}]'
+  recorded_at: 2020-03-21 21:30:05 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc-ga?y=1964&r=chl&p=arg&g=01
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:30:00 GMT
+      content-type: application/json
+      content-length: '127'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"01","export_value_usd":19026,"import_value_usd":25173742}]'
+  recorded_at: 2020-03-21 21:30:05 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc-ga?y=1964&r=chl&p=arg&g=04
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:30:01 GMT
+      content-type: application/json
+      content-length: '124'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"04","export_value_usd":4399,"import_value_usd":743504}]'
+  recorded_at: 2020-03-21 21:30:05 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc-ga?y=1964&r=chl&p=arg&g=05
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:30:02 GMT
+      content-type: application/json
+      content-length: '125'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"05","export_value_usd":16798,"import_value_usd":481898}]'
+  recorded_at: 2020-03-21 21:30:05 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc-ga?y=1964&r=chl&p=arg&g=15
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:30:03 GMT
+      content-type: application/json
+      content-length: '101'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"15","import_value_usd":1854497}]'
+  recorded_at: 2020-03-21 21:30:05 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc-ga?y=1964&r=chl&p=arg&g=23
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:30:03 GMT
+      content-type: application/json
+      content-length: '125'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"23","export_value_usd":108797,"import_value_usd":15926}]'
+  recorded_at: 2020-03-21 21:30:05 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc-ga?y=1964&r=chl&p=arg&g=42
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:30:04 GMT
+      content-type: application/json
+      content-length: '139'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"42","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:30:05 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc-ga?y=1964&r=chl&p=arg&g=51
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:30:04 GMT
+      content-type: application/json
+      content-length: '101'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"51","import_value_usd":5848330}]'
+  recorded_at: 2020-03-21 21:30:05 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0

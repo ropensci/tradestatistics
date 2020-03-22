@@ -1,0 +1,2694 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/countries/
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '404'
+      message: Not Found
+      explanation: Nothing matches the given URI
+    headers:
+      status: HTTP/1.1 404 Not Found
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:28:54 GMT
+      content-type: application/json
+      content-length: '38'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"error":["404 - Resource Not Found"]}'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/year_range
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:28:54 GMT
+      content-type: application/json
+      content-length: '29'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1962},{"year":2018}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0102
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:28:55 GMT
+      content-type: application/json
+      content-length: '106'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0102","import_value_usd":24993241}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0106
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:28:55 GMT
+      content-type: application/json
+      content-length: '102'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0106","import_value_usd":1296}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0201
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:28:56 GMT
+      content-type: application/json
+      content-length: '105'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0201","import_value_usd":7288704}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0202
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:28:57 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0202","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0206
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:28:57 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0206","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0410
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:28:58 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0410","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0504
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:28:59 GMT
+      content-type: application/json
+      content-length: '128'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0504","export_value_usd":8399,"import_value_usd":174699}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0510
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:28:59 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0510","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0511
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:00 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0511","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1502
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:00 GMT
+      content-type: application/json
+      content-length: '104'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1502","import_value_usd":581388}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1506
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:01 GMT
+      content-type: application/json
+      content-length: '102'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1506","import_value_usd":2222}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1516
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:02 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1516","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1517
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:02 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1517","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1518
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:03 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1518","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1522
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:04 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1522","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=2308
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:04 GMT
+      content-type: application/json
+      content-length: '102'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"2308","import_value_usd":1389}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=2309
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:05 GMT
+      content-type: application/json
+      content-length: '102'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"2309","import_value_usd":1759}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=3001
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:06 GMT
+      content-type: application/json
+      content-length: '103'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"3001","import_value_usd":10899}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=3002
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:06 GMT
+      content-type: application/json
+      content-length: '102'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"3002","import_value_usd":4500}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=3101
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:07 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"3101","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=3203
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:08 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"3203","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=3503
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:08 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"3503","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=3802
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:09 GMT
+      content-type: application/json
+      content-length: '102'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"3802","import_value_usd":3699}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=3821
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:09 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"3821","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=4101
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:10 GMT
+      content-type: application/json
+      content-length: '105'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"4101","import_value_usd":2360926}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=4104
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:11 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"4104","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=4106
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:11 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"4106","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=4107
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:12 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"4107","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=4113
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:13 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"4113","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=4201
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:13 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"4201","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=5102
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:14 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5102","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=5103
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:15 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5103","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=5104
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:16 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5104","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=5105
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:16 GMT
+      content-type: application/json
+      content-length: '105'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5105","import_value_usd":4293422}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=5108
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:17 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5108","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=5109
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:18 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5109","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=5110
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:18 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5110","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=5111
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:19 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5111","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=5112
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:20 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5112","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=5113
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:20 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5113","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=6703
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:21 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"6703","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=6704
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:22 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"6704","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=8438
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:22 GMT
+      content-type: application/json
+      content-length: '102'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"8438","import_value_usd":2500}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=9601
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:23 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"9601","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0101
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:24 GMT
+      content-type: application/json
+      content-length: '126'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0101","export_value_usd":926,"import_value_usd":44699}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0103
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:24 GMT
+      content-type: application/json
+      content-length: '102'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0103","import_value_usd":4000}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0104
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:25 GMT
+      content-type: application/json
+      content-length: '129'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0104","export_value_usd":18100,"import_value_usd":108099}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0105
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:26 GMT
+      content-type: application/json
+      content-length: '103'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0105","import_value_usd":22407}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0401
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:26 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0401","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0402
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:27 GMT
+      content-type: application/json
+      content-length: '101'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0402","import_value_usd":555}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0403
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:28 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0403","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0404
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:28 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0404","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0405
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:29 GMT
+      content-type: application/json
+      content-length: '104'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0405","import_value_usd":720649}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0406
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:30 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0406","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0407
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:30 GMT
+      content-type: application/json
+      content-length: '127'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0407","export_value_usd":4399,"import_value_usd":22300}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0408
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:31 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0408","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0409
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:32 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0409","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0501
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:33 GMT
+      content-type: application/json
+      content-length: '128'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0501","export_value_usd":8399,"import_value_usd":174699}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0502
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:33 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0502","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0505
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:34 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0505","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0506
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:35 GMT
+      content-type: application/json
+      content-length: '104'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0506","import_value_usd":132500}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0507
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:36 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0507","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=0508
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:36 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0508","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1501
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:37 GMT
+      content-type: application/json
+      content-length: '105'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1501","import_value_usd":1251667}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1503
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:38 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1503","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1504
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:39 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1504","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1505
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:39 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1505","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1507
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:40 GMT
+      content-type: application/json
+      content-length: '102'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1507","import_value_usd":3888}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1508
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:41 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1508","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1509
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:42 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1509","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1510
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:42 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1510","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1511
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:43 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1511","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1512
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:44 GMT
+      content-type: application/json
+      content-length: '101'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1512","import_value_usd":833}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1513
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:45 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1513","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1514
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:45 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1514","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1515
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:46 GMT
+      content-type: application/json
+      content-length: '102'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1515","import_value_usd":7800}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1520
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:47 GMT
+      content-type: application/json
+      content-length: '102'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1520","import_value_usd":6699}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1521
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:48 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1521","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=2301
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:48 GMT
+      content-type: application/json
+      content-length: '104'
+      connection: close
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"2301","export_value_usd":108797}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=2302
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:50 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"2302","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=2303
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:50 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"2303","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=2304
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:51 GMT
+      content-type: application/json
+      content-length: '103'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"2304","import_value_usd":12778}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=2305
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:52 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"2305","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=2306
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:53 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"2306","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=2307
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:54 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"2307","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=4202
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:54 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"4202","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=4203
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:55 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"4203","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=4205
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:56 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"4205","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=4206
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:57 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"4206","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=5101
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:57 GMT
+      content-type: application/json
+      content-length: '105'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5101","import_value_usd":1554908}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=5106
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:58 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5106","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=5107
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 21 Mar 2020 21:29:59 GMT
+      content-type: application/json
+      content-length: '143'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5107","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0

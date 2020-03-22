@@ -17,7 +17,7 @@
 #' matches for \code{"animals"}) to filter communities Default set to
 #' \code{"all"}.
 #' @param table Character string to select the table to obtain the data.
-#' Default set to \code{yrpc} (Year - Reporter - Partner - Product Code).
+#' Default set to \code{yr} (Year - Reporter).
 #' Run \code{ots_tables} in case of doubt.
 #' @param max_attempts How many times to try to download data in case the
 #' API or the internet connection fails when obtaining data. Default set
@@ -69,7 +69,7 @@ ots_create_tidy_data <- function(years = 2018,
                                  products = "all",
                                  groups = "all",
                                  communities = "all",
-                                 table = "yrpc-ca",
+                                 table = "yr",
                                  max_attempts = 5,
                                  include_shortnames = FALSE,
                                  include_communities = FALSE,
@@ -110,7 +110,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
                                             products = "all",
                                             groups = "all",
                                             communities = "all",
-                                            table = "yrpg",
+                                            table = "yr",
                                             max_attempts = 5,
                                             include_shortnames = FALSE,
                                             include_communities = FALSE,
@@ -156,10 +156,16 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
       
       reporters_no_iso <- map_chr(seq_along(reporters_no_iso),
               function(x) {
-                y <- tradestatistics::ots_country_code(reporters_no_iso[x]) %>% 
-                  select(!!sym("country_iso")) %>% 
-                  as_vector()
+                y <- tradestatistics::ots_country_code(reporters_no_iso[x])
                 
+                if (nrow(y) == 0) {
+                  stop("It was not possible to find ISO codes for any of the reporters you requested. Please check ots_countries.")
+                } else {
+                  y <- y %>% 
+                    select(!!sym("country_iso")) %>% 
+                    as_vector()
+                }
+  
                 if (length(y) > 1) {
                   stop("There are multiple matches for the reporters you requested. Please check ots_countries.")
                 } else {
@@ -169,10 +175,6 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
       )
       
       reporters <- unique(c(reporters_iso, reporters_no_iso))
-      
-      if (length(reporters) == 0) {
-        stop("It was not possible to find ISO codes for any of the reporters you requested. Please check ots_countries.")
-      }
     }
   }
 
@@ -183,12 +185,18 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
 
       partners_no_iso <- map_chr(seq_along(partners_no_iso),
                                   function(x) {
-                                    y <- tradestatistics::ots_country_code(partners_no_iso[x]) %>% 
-                                      select(!!sym("country_iso")) %>% 
-                                      as_vector()
+                                    y <- tradestatistics::ots_country_code(partners_no_iso[x])
+                                    
+                                    if (nrow(y) == 0) {
+                                      stop("There are multiple matches for the partners you requested. Please check ots_countries.")
+                                    } else {
+                                      y <- y %>% 
+                                        select(!!sym("country_iso")) %>% 
+                                        as_vector()
+                                    }
                                     
                                     if (length(y) > 1) {
-                                      stop("There are multiple matches for the reporters you requested. Please check ots_countries.")
+                                      stop("There are multiple matches for the partners you requested. Please check ots_countries.")
                                     } else {
                                       return(y)
                                     }
@@ -196,10 +204,6 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
       )
       
       partners <- unique(c(partners_iso, partners_no_iso))
-      
-      if (length(partners) == 0) {
-        stop("It was not possible to find ISO codes for any of the partners you requested. Please check ots_countries.")
-      }
     }
   }
 
@@ -230,6 +234,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     )
 
     products_wm <- bind_rows(pnm, gnm) %>%
+      filter(nchar(!!sym("product_code")) == 4) %>% 
       distinct(!!sym("product_code")) %>%
       as_vector()
 

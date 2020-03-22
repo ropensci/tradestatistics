@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.58.0 r-curl/4.3 crul/0.8.4
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -17,15 +17,16 @@ http_interactions:
     headers:
       status: HTTP/1.1 404 Not Found
       server: nginx/1.14.0 (Ubuntu)
-      date: Sun, 15 Mar 2020 20:20:57 GMT
+      date: Sat, 21 Mar 2020 21:30:08 GMT
       content-type: application/json
       content-length: '38'
       connection: keep-alive
     body:
       encoding: UTF-8
+      file: no
       string: '{"error":["404 - Resource Not Found"]}'
-  recorded_at: 2020-03-15 20:20:59 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+  recorded_at: 2020-03-21 21:30:08 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://api.tradestatistics.io/year_range
@@ -33,7 +34,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.58.0 r-curl/4.3 crul/0.8.4
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -44,15 +45,16 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sun, 15 Mar 2020 20:20:58 GMT
+      date: Sat, 21 Mar 2020 21:30:08 GMT
       content-type: application/json
       content-length: '29'
       connection: keep-alive
     body:
       encoding: UTF-8
+      file: no
       string: '[{"year":1962},{"year":2018}]'
-  recorded_at: 2020-03-15 20:20:59 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+  recorded_at: 2020-03-21 21:30:08 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://api.tradestatistics.io/yr?y=1964&r=usa
@@ -60,7 +62,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.58.0 r-curl/4.3 crul/0.8.4
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -71,12 +73,13 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sun, 15 Mar 2020 20:20:59 GMT
+      date: Sat, 21 Mar 2020 21:30:08 GMT
       content-type: application/json
       content-length: '427'
       connection: keep-alive
     body:
       encoding: UTF-8
-      string: '[{"year":1964,"reporter_iso":"usa","export_value_usd":29588434389,"import_value_usd":18880976091,"eci_fitness_method":11.43,"eci_rank_fitness_method":3,"eci_reflections_method":1.9187,"eci_rank_reflections_method":6,"eci_eigenvalues_method":1.9185,"eci_rank_eigenvalues_method":6,"top_export_product_code":"1001","top_export_trade_value_usd":1420602594,"top_import_product_code":"0901","top_import_trade_value_usd":1140703059}]'
-  recorded_at: 2020-03-15 20:20:59 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+      file: no
+      string: '[{"year":1964,"reporter_iso":"usa","export_value_usd":29588434389,"import_value_usd":18880976091,"cci_fitness_method":11.43,"cci_rank_fitness_method":3,"cci_reflections_method":1.9187,"cci_rank_reflections_method":6,"cci_eigenvalues_method":1.9185,"cci_rank_eigenvalues_method":6,"top_export_product_code":"1001","top_export_trade_value_usd":1420602594,"top_import_product_code":"0901","top_import_trade_value_usd":1140703059}]'
+  recorded_at: 2020-03-21 21:30:08 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0

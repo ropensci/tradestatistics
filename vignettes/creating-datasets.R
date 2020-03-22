@@ -1,10 +1,10 @@
-## ----setup, include = FALSE----------------------------------------------
+## ----setup, include = FALSE---------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 
-## ----tables, message = FALSE, eval = FALSE-------------------------------
+## ----tables, message = FALSE, eval = FALSE------------------------------------
 #  library(dplyr)
 #  library(jsonlite)
 #  
@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 #    save(ots_tables, file = tables_tidy_file, compress = "xz")
 #  }
 
-## ----countries, message = FALSE, eval = FALSE----------------------------
+## ----countries, message = FALSE, eval = FALSE---------------------------------
 #  countries_url <- "https://api.tradestatistics.io/countries"
 #  countries_raw_file <- "../data-raw/ots_countries.json"
 #  countries_tidy_file <- "../data/ots_countries.rda"
@@ -35,7 +35,7 @@ knitr::opts_chunk$set(
 #    save(ots_countries, file = countries_tidy_file, compress = "xz")
 #  }
 
-## ----products, message = FALSE, eval = FALSE-----------------------------
+## ----products, message = FALSE, eval = FALSE----------------------------------
 #  products_url <- "https://api.tradestatistics.io/products"
 #  products_raw_file <- "../data-raw/ots_products.json"
 #  products_tidy_file <- "../data/ots_products.rda"
@@ -50,7 +50,7 @@ knitr::opts_chunk$set(
 #    save(ots_products, file = products_tidy_file, compress = "xz")
 #  }
 
-## ----communities, message = FALSE, eval = FALSE--------------------------
+## ----communities, message = FALSE, eval = FALSE-------------------------------
 #  communities_url <- "https://api.tradestatistics.io/communities"
 #  communities_raw_file <- "../data-raw/ots_communities.json"
 #  communities_tidy_file <- "../data/ots_communities.rda"
@@ -65,7 +65,7 @@ knitr::opts_chunk$set(
 #    save(ots_communities, file = communities_tidy_file, compress = "xz")
 #  }
 
-## ----product_shortnames, message = FALSE, eval = FALSE-------------------
+## ----product_shortnames, message = FALSE, eval = FALSE------------------------
 #  product_shortnames_url <- "https://api.tradestatistics.io/product_shortnames"
 #  product_shortnames_raw_file <- "../data-raw/ots_product_shortnames.json"
 #  product_shortnames_tidy_file <- "../data/ots_product_shortnames.rda"
@@ -79,7 +79,7 @@ knitr::opts_chunk$set(
 #    save(ots_product_shortnames, file = product_shortnames_tidy_file, compress = "xz")
 #  }
 
-## ----conversion_rates, message = FALSE, eval = FALSE---------------------
+## ----conversion_rates, message = FALSE, eval = FALSE--------------------------
 #  # Source
 #  # https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG
 #  # https://data.worldbank.org/indicator/NY.GDP.MKTP.KD

@@ -63,11 +63,11 @@ Imports:
     memoise,
     data.table,
     digest
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
 Suggests: 
     knitr,
     rmarkdown,
-    testthat,
+    testthat (>= 2.1.0),
     styler,
     pkgdown,
     vcr,

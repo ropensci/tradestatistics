@@ -58,34 +58,8 @@ ots_create_tidy_data(
   years = c(1962,1963),
   reporters = c("chl", "Peru", "bol"),
   partners = c("arg", "Brazil"),
-  table = "yrpc-ca"
-)
-
-## ----yrpc-ga3, eval = T-------------------------------------------------------
-# Pass a specific group code
-ots_create_tidy_data(
-  years = c(1962,1963),
-  reporters = c("chl", "Peru", "bol"),
-  partners = c("arg", "bra"), 
-  communities = "01",
-  table = "yrpc-ca"
-)
-
-# Pass a string that will return all matching descriptions and multiple groups
-ots_create_tidy_data(
-  years = c(1962,1963),
-  reporters = c("chl", "Peru", "bol"),
-  partners = c("arg", "bra"),
   communities = c("01", "food"),
   table = "yrpc-ca"
-)
-
-## ----yrp1, eval = T-----------------------------------------------------------
-ots_create_tidy_data(
-  years = 1962,
-  reporters = "chl",
-  partners = "arg",
-  table = "yrp"
 )
 
 ## ----yrp3, eval = T-----------------------------------------------------------
@@ -96,13 +70,6 @@ ots_create_tidy_data(
   table = "yrp"
 )
 
-## ----yrc1, eval = T-----------------------------------------------------------
-ots_create_tidy_data(
-  years = 1962,
-  reporters = "chl",
-  table = "yrc"
-)
-
 ## ----yrc2, eval = T-----------------------------------------------------------
 ots_create_tidy_data(
   years = 1962,
@@ -111,19 +78,14 @@ ots_create_tidy_data(
   table = "yrc"
 )
 
-## ----yr, eval = T-------------------------------------------------------------
-ots_create_tidy_data(
-  years = 1962,
-  reporters = "chl",
-  table = "yr"
-)
-
 ## ----yr2, eval = T------------------------------------------------------------
-ots_create_tidy_data(
+yr <- ots_create_tidy_data(
   years = 1962:1963,
   reporters = c("chl", "arg", "per"),
   table = "yr"
 )
+
+yr
 
 ## ----yc1, eval = T------------------------------------------------------------
 ots_create_tidy_data(
@@ -139,11 +101,5 @@ ots_create_tidy_data(
 )
 
 ## -----------------------------------------------------------------------------
-d <- ots_create_tidy_data(
-  years = 1962,
-  reporters = "chl",
-  table = "yr"
-) 
-
-ots_inflation_adjustment(d, reference_year = 1970)
+ots_inflation_adjustment(yr, reference_year = 1970)
 

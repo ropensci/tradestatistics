@@ -2,9 +2,10 @@
 
 Updates
 
-* Includes `yrpg`, `yrpo`, `yrg` and `yro` tables reflecting API updates
+* Includes `yrpc-ga`, `yrpc-ca`, `yrc-ga` and `yr-ca` tables reflecting API updates
 * Simplifies end-user functions a bit (i.e. removes `include_groups` option)
 * Optimizes the code a bit, specially at the joins with tables in the package
+* Fixes codes duplication when both product and group/community match for a search
 
 # Version 0.3.1
 

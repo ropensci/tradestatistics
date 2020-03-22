@@ -11,7 +11,7 @@ ots_create_tidy_data_unmemoised(
   products = "all",
   groups = "all",
   communities = "all",
-  table = "yrpg",
+  table = "yr",
   max_attempts = 5,
   include_shortnames = FALSE,
   include_communities = FALSE,

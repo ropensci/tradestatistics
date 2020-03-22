@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -17,15 +17,16 @@ http_interactions:
     headers:
       status: HTTP/1.1 404 Not Found
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 21 Jan 2020 16:46:34 GMT
+      date: Sat, 21 Mar 2020 21:30:09 GMT
       content-type: application/json
       content-length: '38'
       connection: keep-alive
     body:
       encoding: UTF-8
+      file: no
       string: '{"error":["404 - Resource Not Found"]}'
-  recorded_at: 2020-01-21 16:47:22 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+  recorded_at: 2020-03-21 21:30:10 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://api.tradestatistics.io/year_range
@@ -33,7 +34,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -44,15 +45,16 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 21 Jan 2020 16:46:35 GMT
+      date: Sat, 21 Mar 2020 21:30:09 GMT
       content-type: application/json
       content-length: '29'
       connection: keep-alive
     body:
       encoding: UTF-8
+      file: no
       string: '[{"year":1962},{"year":2018}]'
-  recorded_at: 2020-01-21 16:47:22 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+  recorded_at: 2020-03-21 21:30:10 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://api.tradestatistics.io/yrp?y=1964&r=chl&p=all
@@ -60,7 +62,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -71,15 +73,16 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 21 Jan 2020 16:46:36 GMT
+      date: Sat, 21 Mar 2020 21:30:09 GMT
       content-type: application/json
       content-length: '8767'
       connection: keep-alive
     body:
       encoding: UTF-8
+      file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"zaf","export_value_usd":18199,"import_value_usd":1668624},{"year":1964,"reporter_iso":"chl","partner_iso":"yug","export_value_usd":2426241,"import_value_usd":1595475},{"year":1964,"reporter_iso":"chl","partner_iso":"vnm","export_value_usd":139156,"import_value_usd":0},{"year":1964,"reporter_iso":"chl","partner_iso":"ven","export_value_usd":1910746,"import_value_usd":5370156},{"year":1964,"reporter_iso":"chl","partner_iso":"usa","export_value_usd":235907659,"import_value_usd":266855435},{"year":1964,"reporter_iso":"chl","partner_iso":"ury","export_value_usd":2174387,"import_value_usd":2302500},{"year":1964,"reporter_iso":"chl","partner_iso":"tto","export_value_usd":33199,"import_value_usd":1393429},{"year":1964,"reporter_iso":"chl","partner_iso":"tha","export_value_usd":0,"import_value_usd":709},{"year":1964,"reporter_iso":"chl","partner_iso":"swe","export_value_usd":33207449,"import_value_usd":8910233},{"year":1964,"reporter_iso":"chl","partner_iso":"sun","export_value_usd":0,"import_value_usd":20185},{"year":1964,"reporter_iso":"chl","partner_iso":"slv","export_value_usd":46763,"import_value_usd":14839},{"year":1964,"reporter_iso":"chl","partner_iso":"sgp","export_value_usd":0,"import_value_usd":575748},{"year":1964,"reporter_iso":"chl","partner_iso":"sdn","export_value_usd":0,"import_value_usd":3797},{"year":1964,"reporter_iso":"chl","partner_iso":"pyf","export_value_usd":26500,"import_value_usd":1204},{"year":1964,"reporter_iso":"chl","partner_iso":"pry","export_value_usd":29971,"import_value_usd":670271},{"year":1964,"reporter_iso":"chl","partner_iso":"prt","export_value_usd":158548,"import_value_usd":267554},{"year":1964,"reporter_iso":"chl","partner_iso":"pol","export_value_usd":1401199,"import_value_usd":377503},{"year":1964,"reporter_iso":"chl","partner_iso":"phl","export_value_usd":1100,"import_value_usd":72130},{"year":1964,"reporter_iso":"chl","partner_iso":"per","export_value_usd":6130308,"import_value_usd":29303751},{"year":1964,"reporter_iso":"chl","partner_iso":"pan","export_value_usd":477348,"import_value_usd":3283610},{"year":1964,"reporter_iso":"chl","partner_iso":"pak","export_value_usd":12699,"import_value_usd":999169},{"year":1964,"reporter_iso":"chl","partner_iso":"nzl","export_value_usd":295871,"import_value_usd":103950},{"year":1964,"reporter_iso":"chl","partner_iso":"nor","export_value_usd":359387,"import_value_usd":7511179},{"year":1964,"reporter_iso":"chl","partner_iso":"nld","export_value_usd":49151428,"import_value_usd":7227605},{"year":1964,"reporter_iso":"chl","partner_iso":"nic","export_value_usd":29099,"import_value_usd":0},{"year":1964,"reporter_iso":"chl","partner_iso":"nga","export_value_usd":7500,"import_value_usd":0},{"year":1964,"reporter_iso":"chl","partner_iso":"mys","export_value_usd":0,"import_value_usd":4207363},{"year":1964,"reporter_iso":"chl","partner_iso":"moz","export_value_usd":1398,"import_value_usd":0},{"year":1964,"reporter_iso":"chl","partner_iso":"mlt","export_value_usd":0,"import_value_usd":3701},{"year":1964,"reporter_iso":"chl","partner_iso":"mex","export_value_usd":2751631,"import_value_usd":18785786},{"year":1964,"reporter_iso":"chl","partner_iso":"mdg","export_value_usd":6699,"import_value_usd":0},{"year":1964,"reporter_iso":"chl","partner_iso":"mar","export_value_usd":1296,"import_value_usd":142272},{"year":1964,"reporter_iso":"chl","partner_iso":"lka","export_value_usd":4924,"import_value_usd":1729736},{"year":1964,"reporter_iso":"chl","partner_iso":"lbr","export_value_usd":776000,"import_value_usd":0},{"year":1964,"reporter_iso":"chl","partner_iso":"lbn","export_value_usd":176700,"import_value_usd":3055},{"year":1964,"reporter_iso":"chl","partner_iso":"jpn","export_value_usd":97958378,"import_value_usd":13334214},{"year":1964,"reporter_iso":"chl","partner_iso":"jor","export_value_usd":25664,"import_value_usd":1111},{"year":1964,"reporter_iso":"chl","partner_iso":"jam","export_value_usd":129999,"import_value_usd":3611},{"year":1964,"reporter_iso":"chl","partner_iso":"ita","export_value_usd":18662733,"import_value_usd":19498673},{"year":1964,"reporter_iso":"chl","partner_iso":"isr","export_value_usd":24082,"import_value_usd":95953},{"year":1964,"reporter_iso":"chl","partner_iso":"isl","export_value_usd":8872,"import_value_usd":2038},{"year":1964,"reporter_iso":"chl","partner_iso":"irq","export_value_usd":0,"import_value_usd":1296},{"year":1964,"reporter_iso":"chl","partner_iso":"irn","export_value_usd":20102,"import_value_usd":0},{"year":1964,"reporter_iso":"chl","partner_iso":"irl","export_value_usd":522975,"import_value_usd":45074},{"year":1964,"reporter_iso":"chl","partner_iso":"ind","export_value_usd":363598,"import_value_usd":2490493},{"year":1964,"reporter_iso":"chl","partner_iso":"idn","export_value_usd":3199,"import_value_usd":610000},{"year":1964,"reporter_iso":"chl","partner_iso":"hun","export_value_usd":599,"import_value_usd":70331},{"year":1964,"reporter_iso":"chl","partner_iso":"hti","export_value_usd":24399,"import_value_usd":0},{"year":1964,"reporter_iso":"chl","partner_iso":"hnd","export_value_usd":12399,"import_value_usd":0},{"year":1964,"reporter_iso":"chl","partner_iso":"hkg","export_value_usd":5399,"import_value_usd":407075},{"year":1964,"reporter_iso":"chl","partner_iso":"guf","export_value_usd":2000,"import_value_usd":0},{"year":1964,"reporter_iso":"chl","partner_iso":"gtm","export_value_usd":20797,"import_value_usd":1110},{"year":1964,"reporter_iso":"chl","partner_iso":"grc","export_value_usd":144269,"import_value_usd":103312},{"year":1964,"reporter_iso":"chl","partner_iso":"gbr","export_value_usd":86205882,"import_value_usd":52856865},{"year":1964,"reporter_iso":"chl","partner_iso":"fra","export_value_usd":34437233,"import_value_usd":38202250},{"year":1964,"reporter_iso":"chl","partner_iso":"fin","export_value_usd":2509881,"import_value_usd":2043517},{"year":1964,"reporter_iso":"chl","partner_iso":"esp","export_value_usd":12622922,"import_value_usd":7652041},{"year":1964,"reporter_iso":"chl","partner_iso":"egy","export_value_usd":39900,"import_value_usd":135744},{"year":1964,"reporter_iso":"chl","partner_iso":"ecu","export_value_usd":1661380,"import_value_usd":4350888},{"year":1964,"reporter_iso":"chl","partner_iso":"dza","export_value_usd":899,"import_value_usd":0},{"year":1964,"reporter_iso":"chl","partner_iso":"dom","export_value_usd":24096,"import_value_usd":2036296},{"year":1964,"reporter_iso":"chl","partner_iso":"dnk","export_value_usd":2275078,"import_value_usd":12415610},{"year":1964,"reporter_iso":"chl","partner_iso":"deu","export_value_usd":126407735,"import_value_usd":83372392},{"year":1964,"reporter_iso":"chl","partner_iso":"ddr","export_value_usd":1198,"import_value_usd":81479},{"year":1964,"reporter_iso":"chl","partner_iso":"cub","export_value_usd":685498,"import_value_usd":55834},{"year":1964,"reporter_iso":"chl","partner_iso":"csk","export_value_usd":689898,"import_value_usd":2980835},{"year":1964,"reporter_iso":"chl","partner_iso":"cri","export_value_usd":28499,"import_value_usd":6759},{"year":1964,"reporter_iso":"chl","partner_iso":"col","export_value_usd":2386575,"import_value_usd":501549},{"year":1964,"reporter_iso":"chl","partner_iso":"chn","export_value_usd":0,"import_value_usd":14072},{"year":1964,"reporter_iso":"chl","partner_iso":"che","export_value_usd":1958928,"import_value_usd":12334264},{"year":1964,"reporter_iso":"chl","partner_iso":"can","export_value_usd":1969345,"import_value_usd":16324039},{"year":1964,"reporter_iso":"chl","partner_iso":"bra","export_value_usd":41650004,"import_value_usd":12975416},{"year":1964,"reporter_iso":"chl","partner_iso":"bol","export_value_usd":1042483,"import_value_usd":458128},{"year":1964,"reporter_iso":"chl","partner_iso":"bmu","export_value_usd":0,"import_value_usd":2386757},{"year":1964,"reporter_iso":"chl","partner_iso":"blz","export_value_usd":0,"import_value_usd":17778},{"year":1964,"reporter_iso":"chl","partner_iso":"bgr","export_value_usd":0,"import_value_usd":16944},{"year":1964,"reporter_iso":"chl","partner_iso":"bfa","export_value_usd":0,"import_value_usd":61947},{"year":1964,"reporter_iso":"chl","partner_iso":"bel","export_value_usd":24086523,"import_value_usd":6677789},{"year":1964,"reporter_iso":"chl","partner_iso":"bdi","export_value_usd":799,"import_value_usd":0},{"year":1964,"reporter_iso":"chl","partner_iso":"aut","export_value_usd":1830228,"import_value_usd":1498974},{"year":1964,"reporter_iso":"chl","partner_iso":"aus","export_value_usd":458962,"import_value_usd":609480},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","export_value_usd":39481342,"import_value_usd":61517690},{"year":1964,"reporter_iso":"chl","partner_iso":"ant","export_value_usd":12145,"import_value_usd":2862459}]'
-  recorded_at: 2020-01-21 16:47:22 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+  recorded_at: 2020-03-21 21:30:10 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://api.tradestatistics.io/year_range
@@ -87,7 +90,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -98,42 +101,16 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 21 Jan 2020 16:46:36 GMT
+      date: Sat, 21 Mar 2020 21:30:10 GMT
       content-type: application/json
       content-length: '29'
       connection: keep-alive
     body:
       encoding: UTF-8
+      file: no
       string: '[{"year":1962},{"year":2018}]'
-  recorded_at: 2020-01-21 16:47:22 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
-- request:
-    method: get
-    uri: https://api.tradestatistics.io/year_range
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 21 Jan 2020 16:46:36 GMT
-      content-type: application/json
-      content-length: '29'
-      connection: keep-alive
-    body:
-      encoding: UTF-8
-      string: '[{"year":1962},{"year":2018}]'
-  recorded_at: 2020-01-21 16:47:22 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+  recorded_at: 2020-03-21 21:30:10 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
     uri: https://api.tradestatistics.io/yrp?y=1964&r=all&p=chl
@@ -141,7 +118,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.65.3 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -152,12 +129,13 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 21 Jan 2020 16:46:37 GMT
+      date: Sat, 21 Mar 2020 21:30:10 GMT
       content-type: application/json
       content-length: '8767'
       connection: keep-alive
     body:
       encoding: UTF-8
-      string: '[{"year":1964,"reporter_iso":"zaf","partner_iso":"chl","export_value_usd":1668624,"import_value_usd":18199},{"year":1964,"reporter_iso":"yug","partner_iso":"chl","export_value_usd":1595475,"import_value_usd":2426241},{"year":1964,"reporter_iso":"vnm","partner_iso":"chl","export_value_usd":0,"import_value_usd":139156},{"year":1964,"reporter_iso":"ven","partner_iso":"chl","export_value_usd":5370156,"import_value_usd":1910746},{"year":1964,"reporter_iso":"usa","partner_iso":"chl","export_value_usd":266855435,"import_value_usd":235907659},{"year":1964,"reporter_iso":"ury","partner_iso":"chl","export_value_usd":2302500,"import_value_usd":2174387},{"year":1964,"reporter_iso":"tto","partner_iso":"chl","export_value_usd":1393429,"import_value_usd":33199},{"year":1964,"reporter_iso":"tha","partner_iso":"chl","export_value_usd":709,"import_value_usd":0},{"year":1964,"reporter_iso":"swe","partner_iso":"chl","export_value_usd":8910233,"import_value_usd":33207449},{"year":1964,"reporter_iso":"sun","partner_iso":"chl","export_value_usd":20185,"import_value_usd":0},{"year":1964,"reporter_iso":"slv","partner_iso":"chl","export_value_usd":14839,"import_value_usd":46763},{"year":1964,"reporter_iso":"sgp","partner_iso":"chl","export_value_usd":575748,"import_value_usd":0},{"year":1964,"reporter_iso":"sdn","partner_iso":"chl","export_value_usd":3797,"import_value_usd":0},{"year":1964,"reporter_iso":"pyf","partner_iso":"chl","export_value_usd":1204,"import_value_usd":26500},{"year":1964,"reporter_iso":"pry","partner_iso":"chl","export_value_usd":670271,"import_value_usd":29971},{"year":1964,"reporter_iso":"prt","partner_iso":"chl","export_value_usd":267554,"import_value_usd":158548},{"year":1964,"reporter_iso":"pol","partner_iso":"chl","export_value_usd":377503,"import_value_usd":1401199},{"year":1964,"reporter_iso":"phl","partner_iso":"chl","export_value_usd":72130,"import_value_usd":1100},{"year":1964,"reporter_iso":"per","partner_iso":"chl","export_value_usd":29303751,"import_value_usd":6130308},{"year":1964,"reporter_iso":"pan","partner_iso":"chl","export_value_usd":3283610,"import_value_usd":477348},{"year":1964,"reporter_iso":"pak","partner_iso":"chl","export_value_usd":999169,"import_value_usd":12699},{"year":1964,"reporter_iso":"nzl","partner_iso":"chl","export_value_usd":103950,"import_value_usd":295871},{"year":1964,"reporter_iso":"nor","partner_iso":"chl","export_value_usd":7511179,"import_value_usd":359387},{"year":1964,"reporter_iso":"nld","partner_iso":"chl","export_value_usd":7227605,"import_value_usd":49151428},{"year":1964,"reporter_iso":"nic","partner_iso":"chl","export_value_usd":0,"import_value_usd":29099},{"year":1964,"reporter_iso":"nga","partner_iso":"chl","export_value_usd":0,"import_value_usd":7500},{"year":1964,"reporter_iso":"mys","partner_iso":"chl","export_value_usd":4207363,"import_value_usd":0},{"year":1964,"reporter_iso":"moz","partner_iso":"chl","export_value_usd":0,"import_value_usd":1398},{"year":1964,"reporter_iso":"mlt","partner_iso":"chl","export_value_usd":3701,"import_value_usd":0},{"year":1964,"reporter_iso":"mex","partner_iso":"chl","export_value_usd":18785786,"import_value_usd":2751631},{"year":1964,"reporter_iso":"mdg","partner_iso":"chl","export_value_usd":0,"import_value_usd":6699},{"year":1964,"reporter_iso":"mar","partner_iso":"chl","export_value_usd":142272,"import_value_usd":1296},{"year":1964,"reporter_iso":"lka","partner_iso":"chl","export_value_usd":1729736,"import_value_usd":4924},{"year":1964,"reporter_iso":"lbr","partner_iso":"chl","export_value_usd":0,"import_value_usd":776000},{"year":1964,"reporter_iso":"lbn","partner_iso":"chl","export_value_usd":3055,"import_value_usd":176700},{"year":1964,"reporter_iso":"jpn","partner_iso":"chl","export_value_usd":13334214,"import_value_usd":97958378},{"year":1964,"reporter_iso":"jor","partner_iso":"chl","export_value_usd":1111,"import_value_usd":25664},{"year":1964,"reporter_iso":"jam","partner_iso":"chl","export_value_usd":3611,"import_value_usd":129999},{"year":1964,"reporter_iso":"ita","partner_iso":"chl","export_value_usd":19498673,"import_value_usd":18662733},{"year":1964,"reporter_iso":"isr","partner_iso":"chl","export_value_usd":95953,"import_value_usd":24082},{"year":1964,"reporter_iso":"isl","partner_iso":"chl","export_value_usd":2038,"import_value_usd":8872},{"year":1964,"reporter_iso":"irq","partner_iso":"chl","export_value_usd":1296,"import_value_usd":0},{"year":1964,"reporter_iso":"irn","partner_iso":"chl","export_value_usd":0,"import_value_usd":20102},{"year":1964,"reporter_iso":"irl","partner_iso":"chl","export_value_usd":45074,"import_value_usd":522975},{"year":1964,"reporter_iso":"ind","partner_iso":"chl","export_value_usd":2490493,"import_value_usd":363598},{"year":1964,"reporter_iso":"idn","partner_iso":"chl","export_value_usd":610000,"import_value_usd":3199},{"year":1964,"reporter_iso":"hun","partner_iso":"chl","export_value_usd":70331,"import_value_usd":599},{"year":1964,"reporter_iso":"hti","partner_iso":"chl","export_value_usd":0,"import_value_usd":24399},{"year":1964,"reporter_iso":"hnd","partner_iso":"chl","export_value_usd":0,"import_value_usd":12399},{"year":1964,"reporter_iso":"hkg","partner_iso":"chl","export_value_usd":407075,"import_value_usd":5399},{"year":1964,"reporter_iso":"guf","partner_iso":"chl","export_value_usd":0,"import_value_usd":2000},{"year":1964,"reporter_iso":"gtm","partner_iso":"chl","export_value_usd":1110,"import_value_usd":20797},{"year":1964,"reporter_iso":"grc","partner_iso":"chl","export_value_usd":103312,"import_value_usd":144269},{"year":1964,"reporter_iso":"gbr","partner_iso":"chl","export_value_usd":52856865,"import_value_usd":86205882},{"year":1964,"reporter_iso":"fra","partner_iso":"chl","export_value_usd":38202250,"import_value_usd":34437233},{"year":1964,"reporter_iso":"fin","partner_iso":"chl","export_value_usd":2043517,"import_value_usd":2509881},{"year":1964,"reporter_iso":"esp","partner_iso":"chl","export_value_usd":7652041,"import_value_usd":12622922},{"year":1964,"reporter_iso":"egy","partner_iso":"chl","export_value_usd":135744,"import_value_usd":39900},{"year":1964,"reporter_iso":"ecu","partner_iso":"chl","export_value_usd":4350888,"import_value_usd":1661380},{"year":1964,"reporter_iso":"dza","partner_iso":"chl","export_value_usd":0,"import_value_usd":899},{"year":1964,"reporter_iso":"dom","partner_iso":"chl","export_value_usd":2036296,"import_value_usd":24096},{"year":1964,"reporter_iso":"dnk","partner_iso":"chl","export_value_usd":12415610,"import_value_usd":2275078},{"year":1964,"reporter_iso":"deu","partner_iso":"chl","export_value_usd":83372392,"import_value_usd":126407735},{"year":1964,"reporter_iso":"ddr","partner_iso":"chl","export_value_usd":81479,"import_value_usd":1198},{"year":1964,"reporter_iso":"cub","partner_iso":"chl","export_value_usd":55834,"import_value_usd":685498},{"year":1964,"reporter_iso":"csk","partner_iso":"chl","export_value_usd":2980835,"import_value_usd":689898},{"year":1964,"reporter_iso":"cri","partner_iso":"chl","export_value_usd":6759,"import_value_usd":28499},{"year":1964,"reporter_iso":"col","partner_iso":"chl","export_value_usd":501549,"import_value_usd":2386575},{"year":1964,"reporter_iso":"chn","partner_iso":"chl","export_value_usd":14072,"import_value_usd":0},{"year":1964,"reporter_iso":"che","partner_iso":"chl","export_value_usd":12334264,"import_value_usd":1958928},{"year":1964,"reporter_iso":"can","partner_iso":"chl","export_value_usd":16324039,"import_value_usd":1969345},{"year":1964,"reporter_iso":"bra","partner_iso":"chl","export_value_usd":12975416,"import_value_usd":41650004},{"year":1964,"reporter_iso":"bol","partner_iso":"chl","export_value_usd":458128,"import_value_usd":1042483},{"year":1964,"reporter_iso":"bmu","partner_iso":"chl","export_value_usd":2386757,"import_value_usd":0},{"year":1964,"reporter_iso":"blz","partner_iso":"chl","export_value_usd":17778,"import_value_usd":0},{"year":1964,"reporter_iso":"bgr","partner_iso":"chl","export_value_usd":16944,"import_value_usd":0},{"year":1964,"reporter_iso":"bfa","partner_iso":"chl","export_value_usd":61947,"import_value_usd":0},{"year":1964,"reporter_iso":"bel","partner_iso":"chl","export_value_usd":6677789,"import_value_usd":24086523},{"year":1964,"reporter_iso":"bdi","partner_iso":"chl","export_value_usd":0,"import_value_usd":799},{"year":1964,"reporter_iso":"aut","partner_iso":"chl","export_value_usd":1498974,"import_value_usd":1830228},{"year":1964,"reporter_iso":"aus","partner_iso":"chl","export_value_usd":609480,"import_value_usd":458962},{"year":1964,"reporter_iso":"arg","partner_iso":"chl","export_value_usd":61517690,"import_value_usd":39481342},{"year":1964,"reporter_iso":"ant","partner_iso":"chl","export_value_usd":2862459,"import_value_usd":12145}]'
-  recorded_at: 2020-01-21 16:47:22 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+      file: no
+      string: '[{"year":1964,"reporter_iso":"zaf","partner_iso":"chl","export_value_usd":1668624,"import_value_usd":18199},{"year":1964,"reporter_iso":"vnm","partner_iso":"chl","export_value_usd":0,"import_value_usd":139156},{"year":1964,"reporter_iso":"usa","partner_iso":"chl","export_value_usd":266855435,"import_value_usd":235907659},{"year":1964,"reporter_iso":"yug","partner_iso":"chl","export_value_usd":1595475,"import_value_usd":2426241},{"year":1964,"reporter_iso":"ven","partner_iso":"chl","export_value_usd":5370156,"import_value_usd":1910746},{"year":1964,"reporter_iso":"swe","partner_iso":"chl","export_value_usd":8910233,"import_value_usd":33207449},{"year":1964,"reporter_iso":"ury","partner_iso":"chl","export_value_usd":2302500,"import_value_usd":2174387},{"year":1964,"reporter_iso":"sun","partner_iso":"chl","export_value_usd":20185,"import_value_usd":0},{"year":1964,"reporter_iso":"slv","partner_iso":"chl","export_value_usd":14839,"import_value_usd":46763},{"year":1964,"reporter_iso":"tha","partner_iso":"chl","export_value_usd":709,"import_value_usd":0},{"year":1964,"reporter_iso":"sgp","partner_iso":"chl","export_value_usd":575748,"import_value_usd":0},{"year":1964,"reporter_iso":"tto","partner_iso":"chl","export_value_usd":1393429,"import_value_usd":33199},{"year":1964,"reporter_iso":"pyf","partner_iso":"chl","export_value_usd":1204,"import_value_usd":26500},{"year":1964,"reporter_iso":"pry","partner_iso":"chl","export_value_usd":670271,"import_value_usd":29971},{"year":1964,"reporter_iso":"prt","partner_iso":"chl","export_value_usd":267554,"import_value_usd":158548},{"year":1964,"reporter_iso":"pol","partner_iso":"chl","export_value_usd":377503,"import_value_usd":1401199},{"year":1964,"reporter_iso":"sdn","partner_iso":"chl","export_value_usd":3797,"import_value_usd":0},{"year":1964,"reporter_iso":"pan","partner_iso":"chl","export_value_usd":3283610,"import_value_usd":477348},{"year":1964,"reporter_iso":"pak","partner_iso":"chl","export_value_usd":999169,"import_value_usd":12699},{"year":1964,"reporter_iso":"nzl","partner_iso":"chl","export_value_usd":103950,"import_value_usd":295871},{"year":1964,"reporter_iso":"nor","partner_iso":"chl","export_value_usd":7511179,"import_value_usd":359387},{"year":1964,"reporter_iso":"phl","partner_iso":"chl","export_value_usd":72130,"import_value_usd":1100},{"year":1964,"reporter_iso":"per","partner_iso":"chl","export_value_usd":29303751,"import_value_usd":6130308},{"year":1964,"reporter_iso":"mys","partner_iso":"chl","export_value_usd":4207363,"import_value_usd":0},{"year":1964,"reporter_iso":"moz","partner_iso":"chl","export_value_usd":0,"import_value_usd":1398},{"year":1964,"reporter_iso":"mlt","partner_iso":"chl","export_value_usd":3701,"import_value_usd":0},{"year":1964,"reporter_iso":"nld","partner_iso":"chl","export_value_usd":7227605,"import_value_usd":49151428},{"year":1964,"reporter_iso":"nic","partner_iso":"chl","export_value_usd":0,"import_value_usd":29099},{"year":1964,"reporter_iso":"nga","partner_iso":"chl","export_value_usd":0,"import_value_usd":7500},{"year":1964,"reporter_iso":"mex","partner_iso":"chl","export_value_usd":18785786,"import_value_usd":2751631},{"year":1964,"reporter_iso":"mdg","partner_iso":"chl","export_value_usd":0,"import_value_usd":6699},{"year":1964,"reporter_iso":"mar","partner_iso":"chl","export_value_usd":142272,"import_value_usd":1296},{"year":1964,"reporter_iso":"lbr","partner_iso":"chl","export_value_usd":0,"import_value_usd":776000},{"year":1964,"reporter_iso":"lbn","partner_iso":"chl","export_value_usd":3055,"import_value_usd":176700},{"year":1964,"reporter_iso":"lka","partner_iso":"chl","export_value_usd":1729736,"import_value_usd":4924},{"year":1964,"reporter_iso":"jpn","partner_iso":"chl","export_value_usd":13334214,"import_value_usd":97958378},{"year":1964,"reporter_iso":"jor","partner_iso":"chl","export_value_usd":1111,"import_value_usd":25664},{"year":1964,"reporter_iso":"jam","partner_iso":"chl","export_value_usd":3611,"import_value_usd":129999},{"year":1964,"reporter_iso":"ita","partner_iso":"chl","export_value_usd":19498673,"import_value_usd":18662733},{"year":1964,"reporter_iso":"isr","partner_iso":"chl","export_value_usd":95953,"import_value_usd":24082},{"year":1964,"reporter_iso":"irn","partner_iso":"chl","export_value_usd":0,"import_value_usd":20102},{"year":1964,"reporter_iso":"irl","partner_iso":"chl","export_value_usd":45074,"import_value_usd":522975},{"year":1964,"reporter_iso":"hun","partner_iso":"chl","export_value_usd":70331,"import_value_usd":599},{"year":1964,"reporter_iso":"hti","partner_iso":"chl","export_value_usd":0,"import_value_usd":24399},{"year":1964,"reporter_iso":"hnd","partner_iso":"chl","export_value_usd":0,"import_value_usd":12399},{"year":1964,"reporter_iso":"isl","partner_iso":"chl","export_value_usd":2038,"import_value_usd":8872},{"year":1964,"reporter_iso":"irq","partner_iso":"chl","export_value_usd":1296,"import_value_usd":0},{"year":1964,"reporter_iso":"gtm","partner_iso":"chl","export_value_usd":1110,"import_value_usd":20797},{"year":1964,"reporter_iso":"grc","partner_iso":"chl","export_value_usd":103312,"import_value_usd":144269},{"year":1964,"reporter_iso":"ind","partner_iso":"chl","export_value_usd":2490493,"import_value_usd":363598},{"year":1964,"reporter_iso":"idn","partner_iso":"chl","export_value_usd":610000,"import_value_usd":3199},{"year":1964,"reporter_iso":"hkg","partner_iso":"chl","export_value_usd":407075,"import_value_usd":5399},{"year":1964,"reporter_iso":"guf","partner_iso":"chl","export_value_usd":0,"import_value_usd":2000},{"year":1964,"reporter_iso":"fin","partner_iso":"chl","export_value_usd":2043517,"import_value_usd":2509881},{"year":1964,"reporter_iso":"dom","partner_iso":"chl","export_value_usd":2036296,"import_value_usd":24096},{"year":1964,"reporter_iso":"dnk","partner_iso":"chl","export_value_usd":12415610,"import_value_usd":2275078},{"year":1964,"reporter_iso":"fra","partner_iso":"chl","export_value_usd":38202250,"import_value_usd":34437233},{"year":1964,"reporter_iso":"cub","partner_iso":"chl","export_value_usd":55834,"import_value_usd":685498},{"year":1964,"reporter_iso":"csk","partner_iso":"chl","export_value_usd":2980835,"import_value_usd":689898},{"year":1964,"reporter_iso":"gbr","partner_iso":"chl","export_value_usd":52856865,"import_value_usd":86205882},{"year":1964,"reporter_iso":"esp","partner_iso":"chl","export_value_usd":7652041,"import_value_usd":12622922},{"year":1964,"reporter_iso":"egy","partner_iso":"chl","export_value_usd":135744,"import_value_usd":39900},{"year":1964,"reporter_iso":"ecu","partner_iso":"chl","export_value_usd":4350888,"import_value_usd":1661380},{"year":1964,"reporter_iso":"dza","partner_iso":"chl","export_value_usd":0,"import_value_usd":899},{"year":1964,"reporter_iso":"deu","partner_iso":"chl","export_value_usd":83372392,"import_value_usd":126407735},{"year":1964,"reporter_iso":"ddr","partner_iso":"chl","export_value_usd":81479,"import_value_usd":1198},{"year":1964,"reporter_iso":"chn","partner_iso":"chl","export_value_usd":14072,"import_value_usd":0},{"year":1964,"reporter_iso":"cri","partner_iso":"chl","export_value_usd":6759,"import_value_usd":28499},{"year":1964,"reporter_iso":"col","partner_iso":"chl","export_value_usd":501549,"import_value_usd":2386575},{"year":1964,"reporter_iso":"bol","partner_iso":"chl","export_value_usd":458128,"import_value_usd":1042483},{"year":1964,"reporter_iso":"bmu","partner_iso":"chl","export_value_usd":2386757,"import_value_usd":0},{"year":1964,"reporter_iso":"blz","partner_iso":"chl","export_value_usd":17778,"import_value_usd":0},{"year":1964,"reporter_iso":"bgr","partner_iso":"chl","export_value_usd":16944,"import_value_usd":0},{"year":1964,"reporter_iso":"bel","partner_iso":"chl","export_value_usd":6677789,"import_value_usd":24086523},{"year":1964,"reporter_iso":"bra","partner_iso":"chl","export_value_usd":12975416,"import_value_usd":41650004},{"year":1964,"reporter_iso":"aus","partner_iso":"chl","export_value_usd":609480,"import_value_usd":458962},{"year":1964,"reporter_iso":"che","partner_iso":"chl","export_value_usd":12334264,"import_value_usd":1958928},{"year":1964,"reporter_iso":"can","partner_iso":"chl","export_value_usd":16324039,"import_value_usd":1969345},{"year":1964,"reporter_iso":"bfa","partner_iso":"chl","export_value_usd":61947,"import_value_usd":0},{"year":1964,"reporter_iso":"arg","partner_iso":"chl","export_value_usd":61517690,"import_value_usd":39481342},{"year":1964,"reporter_iso":"ant","partner_iso":"chl","export_value_usd":2862459,"import_value_usd":12145},{"year":1964,"reporter_iso":"bdi","partner_iso":"chl","export_value_usd":0,"import_value_usd":799},{"year":1964,"reporter_iso":"aut","partner_iso":"chl","export_value_usd":1498974,"import_value_usd":1830228}]'
+  recorded_at: 2020-03-21 21:30:10 GMT
+  recorded_with: vcr/0.5.0, webmockr/0.6.0
