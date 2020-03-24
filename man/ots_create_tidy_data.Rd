@@ -13,8 +13,6 @@ ots_create_tidy_data(
   groups = "all",
   table = "yr",
   max_attempts = 5,
-  include_shortnames = FALSE,
-  include_sections = FALSE,
   use_cache = FALSE,
   file = NULL,
   use_localhost = FALSE
@@ -49,13 +47,6 @@ Run \code{ots_tables} in case of doubt.}
 \item{max_attempts}{How many times to try to download data in case the
 API or the internet connection fails when obtaining data. Default set
 to \code{5}.}
-
-\item{include_shortnames}{Whether to include or not to include unofficial shortened product names.
-Default set to \code{FALSE}.}
-
-\item{include_sections}{Whether to include or not to include product 
-community names when the requested table contains the \code{product_code}
-field. Default set to \code{FALSE}.}
 
 \item{use_cache}{Logical to save and load from cache. If \code{TRUE}, the results will be cached in memory
 if \code{file} is \code{NULL} or on disk if `file` is not \code{NULL}. Default set to \code{FALSE}.}

@@ -19,7 +19,10 @@ ots_products
 
 ots_product_shortnames
 
+## ----products2, eval = T------------------------------------------------------
 ots_sections
+
+ots_sections_shortnames
 
 ## ----inflation, eval = T------------------------------------------------------
 ots_inflation

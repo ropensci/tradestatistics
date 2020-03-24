@@ -17,7 +17,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 404 Not Found
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 24 Mar 2020 16:27:49 GMT
+      date: Tue, 24 Mar 2020 20:54:19 GMT
       content-type: application/json
       content-length: '38'
       connection: keep-alive
@@ -25,7 +25,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"error":["404 - Resource Not Found"]}'
-  recorded_at: 2020-03-24 16:27:50 GMT
+  recorded_at: 2020-03-24 20:54:21 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -45,7 +45,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 24 Mar 2020 16:27:49 GMT
+      date: Tue, 24 Mar 2020 20:54:20 GMT
       content-type: application/json
       content-length: '29'
       connection: keep-alive
@@ -53,7 +53,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1962},{"year":2018}]'
-  recorded_at: 2020-03-24 16:27:50 GMT
+  recorded_at: 2020-03-24 20:54:21 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -73,7 +73,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 24 Mar 2020 16:27:49 GMT
+      date: Tue, 24 Mar 2020 20:54:20 GMT
       content-type: application/json
       content-length: '2294'
       connection: keep-alive
@@ -81,5 +81,5 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","export_value_usd":99515,"import_value_usd":34490996},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"02","export_value_usd":1395555,"import_value_usd":3289476},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"03","import_value_usd":1854497},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"04","export_value_usd":279207,"import_value_usd":1510221},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"05","export_value_usd":4192963,"import_value_usd":287098},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"06","export_value_usd":3505740,"import_value_usd":2108233},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"07","export_value_usd":1325199,"import_value_usd":234991},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"08","import_value_usd":2389537},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"09","export_value_usd":3046045,"import_value_usd":11076},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"10","export_value_usd":2348749,"import_value_usd":1437353},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"11","export_value_usd":114544,"import_value_usd":5877661},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"13","export_value_usd":50950,"import_value_usd":124962},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"14","import_value_usd":1667},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"15","export_value_usd":22958398,"import_value_usd":2748525},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"16","export_value_usd":109320,"import_value_usd":4333276},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"17","export_value_usd":35899,"import_value_usd":681628},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"18","export_value_usd":19258,"import_value_usd":100527},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"20","import_value_usd":20966},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"21","import_value_usd":15000}]'
-  recorded_at: 2020-03-24 16:27:50 GMT
+  recorded_at: 2020-03-24 20:54:21 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0

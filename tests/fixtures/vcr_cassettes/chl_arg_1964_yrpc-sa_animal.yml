@@ -17,7 +17,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 404 Not Found
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 24 Mar 2020 16:27:35 GMT
+      date: Tue, 24 Mar 2020 20:27:46 GMT
       content-type: application/json
       content-length: '38'
       connection: keep-alive
@@ -25,7 +25,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"error":["404 - Resource Not Found"]}'
-  recorded_at: 2020-03-24 16:27:37 GMT
+  recorded_at: 2020-03-24 20:27:49 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -45,7 +45,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 24 Mar 2020 16:27:35 GMT
+      date: Tue, 24 Mar 2020 20:27:47 GMT
       content-type: application/json
       content-length: '29'
       connection: keep-alive
@@ -53,7 +53,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1962},{"year":2018}]'
-  recorded_at: 2020-03-24 16:27:37 GMT
+  recorded_at: 2020-03-24 20:27:49 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -73,7 +73,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 24 Mar 2020 16:27:36 GMT
+      date: Tue, 24 Mar 2020 20:27:47 GMT
       content-type: application/json
       content-length: '129'
       connection: keep-alive
@@ -81,7 +81,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","export_value_usd":99515,"import_value_usd":34490996}]'
-  recorded_at: 2020-03-24 16:27:37 GMT
+  recorded_at: 2020-03-24 20:27:49 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -101,7 +101,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 24 Mar 2020 16:27:37 GMT
+      date: Tue, 24 Mar 2020 20:27:48 GMT
       content-type: application/json
       content-length: '103'
       connection: keep-alive
@@ -109,7 +109,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"03","import_value_usd":1854497}]'
-  recorded_at: 2020-03-24 16:27:37 GMT
+  recorded_at: 2020-03-24 20:27:49 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -129,7 +129,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 24 Mar 2020 16:27:37 GMT
+      date: Tue, 24 Mar 2020 20:27:49 GMT
       content-type: application/json
       content-length: '103'
       connection: keep-alive
@@ -137,5 +137,5 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","section_code":"08","import_value_usd":2389537}]'
-  recorded_at: 2020-03-24 16:27:37 GMT
+  recorded_at: 2020-03-24 20:27:49 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0

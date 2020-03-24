@@ -22,11 +22,6 @@
 #' @param max_attempts How many times to try to download data in case the
 #' API or the internet connection fails when obtaining data. Default set
 #' to \code{5}.
-#' @param include_shortnames Whether to include or not to include unofficial shortened product names.
-#' Default set to \code{FALSE}.
-#' @param include_sections Whether to include or not to include product 
-#' community names when the requested table contains the \code{product_code}
-#' field. Default set to \code{FALSE}.
 #' @param use_cache Logical to save and load from cache. If \code{TRUE}, the results will be cached in memory
 #' if \code{file} is \code{NULL} or on disk if `file` is not \code{NULL}. Default set to \code{FALSE}.
 #' @param file Optional character with the full file path to save the data. Default set to \code{NULL}.
@@ -71,8 +66,6 @@ ots_create_tidy_data <- function(years = 2018,
                                  groups = "all",
                                  table = "yr",
                                  max_attempts = 5,
-                                 include_shortnames = FALSE,
-                                 include_sections = FALSE,
                                  use_cache = FALSE,
                                  file = NULL,
                                  use_localhost = FALSE) {
@@ -95,8 +88,6 @@ ots_create_tidy_data <- function(years = 2018,
     groups = groups,
     table = table,
     max_attempts = max_attempts,
-    include_shortnames = include_shortnames,
-    include_sections = include_sections,
     use_localhost = use_localhost
   )
 }
@@ -112,8 +103,6 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
                                             groups = "all",
                                             table = "yr",
                                             max_attempts = 5,
-                                            include_shortnames = FALSE,
-                                            include_sections = FALSE,
                                             use_localhost = FALSE) {
   # Check tables ----
   if (!table %in% tradestatistics::ots_tables$table) {
@@ -331,14 +320,6 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     stop("max_attempts must be a positive integer.")
   }
 
-  if (!is.logical(include_shortnames)) {
-    stop("include_shortnames must be logical.")
-  }
-
-  if (!is.logical(include_sections)) {
-    stop("include_sections must be logical.")
-  }
-
   if (!is.logical(use_localhost)) {
     stop("use_localhost must be logical.")
   }
@@ -485,14 +466,15 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
       left_join(tradestatistics::ots_products, by = "product_code")
   }
 
-  if (table %in% product_depending_queries & include_shortnames == TRUE) {
+  if (table %in% product_depending_queries) {
     data %<>%
       left_join(tradestatistics::ots_product_shortnames)
   }
 
-  if (table %in% product_depending_queries & include_sections == TRUE) {
+  if (table %in% product_depending_queries) {
     data %<>%
-      left_join(tradestatistics::ots_sections)
+      left_join(tradestatistics::ots_sections) %>% 
+      left_join(tradestatistics::ots_sections_shortnames)
   }
 
   # include groups data
@@ -510,7 +492,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     data %<>%
       left_join(
         tradestatistics::ots_sections %>% 
-          select(!!!syms(c("section_code", "section_name",
+          select(!!!syms(c("section_code", "section_fullname_english",
                            "section_color"))) %>% 
           distinct(), by = "section_code"
       )
@@ -522,9 +504,9 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
       !!sym("year"),
       starts_with("reporter_"),
       starts_with("partner_"),
-      starts_with("product_"),
-      starts_with("group_"),
       starts_with("section_"),
+      starts_with("group_"),
+      starts_with("product_"),
       everything()
     )
   

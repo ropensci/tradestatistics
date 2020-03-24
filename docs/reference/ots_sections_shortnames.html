@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • tradestatistics</title>
+<title>A table of sections codes, and shortened names associated to products — ots_sections_shortnames • tradestatistics</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,7 +41,10 @@
 <!-- ropensci -->
 <link href="../ropensci.css?nocache=123" rel="stylesheet">
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="A table of sections codes, and shortened names associated to products — ots_sections_shortnames" />
+<meta property="og:description" content="Provides shortened section names from The Atlas of Economic Complexity (Harvard), which are
+simplified names after official HS sections but keeping the same codes." />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -61,7 +64,7 @@
   </head>
 
   <body>
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -121,141 +124,52 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
-      
+    <h1>A table of sections codes, and shortened names associated to products</h1>
+    
+    <div class="hidden name"><code>ots_sections_shortnames.Rd</code></div>
     </div>
 
-    <div id="version-0-4-0" class="section level1">
-<h1 class="page-header">
-<a href="#version-0-4-0" class="anchor"></a>Version 0.4.0<small> Unreleased </small>
-</h1>
-<p>Updates</p>
-<ul>
-<li>Includes <code>yrpc-ga</code>, <code>yrpc-sa</code>, <code>yrc-ga</code> and <code>yr-sa</code> tables reflecting API updates</li>
-<li>Simplifies end-user functions a bit (i.e. removes <code>include_groups</code> option)</li>
-<li>Optimizes the code a bit, specially at the joins with tables in the package</li>
-<li>Fixes codes duplication when both product and group/community match for a search</li>
-<li>Includes both official and shortened section names</li>
-</ul>
-</div>
-    <div id="version-0-3-1" class="section level1">
-<h1 class="page-header">
-<a href="#version-0-3-1" class="anchor"></a>Version 0.3.1<small> Unreleased </small>
-</h1>
-<p>Updates</p>
-<ul>
-<li>Removes <code>yrp_short</code> option reflecting last DB changes</li>
-</ul>
-</div>
-    <div id="version-0-3" class="section level1">
-<h1 class="page-header">
-<a href="#version-0-3" class="anchor"></a>Version 0.3<small> Unreleased </small>
-</h1>
-<p>Updates</p>
-<ul>
-<li>Much improved coverage to detect almost any possible error</li>
-<li>Fixes case in inflation adjustment when year = reference year</li>
-</ul>
-</div>
-    <div id="version-0-2-8" class="section level1">
-<h1 class="page-header">
-<a href="#version-0-2-8" class="anchor"></a>Version 0.2.8<small> Unreleased </small>
-</h1>
-<p>Updates</p>
-<ul>
-<li>Adds caching (in memory or on disk) option</li>
-<li>Lists Daniela de los Santos and Elio Campitelli as new contributors</li>
-<li>Includes forwards and backwards testing for inflation adjustment</li>
-<li>Testing for in memory caching</li>
-</ul>
-</div>
-    <div id="version-0-2-7" class="section level1">
-<h1 class="page-header">
-<a href="#version-0-2-7" class="anchor"></a>Version 0.2.7<small> 2019-12-04 </small>
-</h1>
-<p>Updates</p>
-<ul>
-<li>Adds feedback provided by Daniela de los Santos</li>
-<li>Now ots_create_tidy_data() has both reporter and partner set to “all” by default</li>
-</ul>
-</div>
-    <div id="version-0-2-5" class="section level1">
-<h1 class="page-header">
-<a href="#version-0-2-5" class="anchor"></a>Version 0.2.5<small> 2019-09-19 </small>
-</h1>
-<p>Updates</p>
-<ul>
-<li>Added dependency on R &gt;= 3.5.0 because serialized objects in serialize/load version 3 cannot be read in older versions of R</li>
-<li>Minimal changes in <code><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data()</a></code> to allow multiple countries as arguments, in line with API changes from September 2019</li>
-</ul>
-</div>
-    <div id="version-0-2-4" class="section level1">
-<h1 class="page-header">
-<a href="#version-0-2-4" class="anchor"></a>Version 0.2.4<small> 2019-09-17 </small>
-</h1>
-<p>Updates</p>
-<ul>
-<li>Removes <code>product_code_length</code>
-</li>
-<li>The API was updated with simplified parameters and 2018 data</li>
-</ul>
-</div>
-    <div id="version-0-2-3" class="section level1">
-<h1 class="page-header">
-<a href="#version-0-2-3" class="anchor"></a>Version 0.2.3<small> 2019-08-28 </small>
-</h1>
-<p>Updates</p>
-<ul>
-<li>Fixtures for testthat evaluation</li>
-</ul>
-<p>Fixes</p>
-<ul>
-<li>Specific Windows error during check</li>
-</ul>
-</div>
-    <div id="version-0-2-2" class="section level1">
-<h1 class="page-header">
-<a href="#version-0-2-2" class="anchor"></a>Version 0.2.2<small> Unreleased </small>
-</h1>
-<p>Adds</p>
-<ul>
-<li>Inflation data</li>
-<li>Inflation adjustment function</li>
-<li>Minor changes in vignettes</li>
-</ul>
-</div>
-    <div id="version-0-2-1" class="section level1">
-<h1 class="page-header">
-<a href="#version-0-2-1" class="anchor"></a>Version 0.2.1<small> Unreleased </small>
-</h1>
-<p>Fixes</p>
-<ul>
-<li>Consistent use of colour vs color, color is used from now</li>
-<li>Fixed available tables description</li>
-<li>Adds <code>yrp_short</code> to available tables</li>
-<li>Adds <code>use_localhost</code> option for our own server or users who want to clone the database locally, therefore avoid having a separate branh for server installation</li>
-</ul>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>Provides shortened section names from The Atlas of Economic Complexity (Harvard), which are
+simplified names after official HS sections but keeping the same codes.</p>
+    </div>
 
+    <pre class="usage"><span class='no'>ots_sections</span></pre>
+
+
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+
+    <p>A data frame with 22 observations on the following 2 variables.</p><dl class='dl-horizontal'>
+    <dt><code>section_code</code></dt><dd><p>Section code (e.g. 01)</p></dd>
+    <dt><code>section_shortname_english</code></dt><dd><p>Section name (e.g. Animal Products)</p></dd>
+  
+</dl>
+
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>ots_sections_shortnames</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 22 x 2</span><span>
+#&gt;    section_code section_shortname_english       
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                           
+#&gt; </span><span style='color: #555555;'> 1</span><span> 01           Animal Products                 
+#&gt; </span><span style='color: #555555;'> 2</span><span> 02           Vegetable Products              
+#&gt; </span><span style='color: #555555;'> 3</span><span> 03           Animal and Vegetable Bi-Products
+#&gt; </span><span style='color: #555555;'> 4</span><span> 04           Foodstuffs                      
+#&gt; </span><span style='color: #555555;'> 5</span><span> 05           Mineral Products                
+#&gt; </span><span style='color: #555555;'> 6</span><span> 06           Chemical Products               
+#&gt; </span><span style='color: #555555;'> 7</span><span> 07           Plastics and Rubbers            
+#&gt; </span><span style='color: #555555;'> 8</span><span> 08           Animal Hides                    
+#&gt; </span><span style='color: #555555;'> 9</span><span> 09           Wood Products                   
+#&gt; </span><span style='color: #555555;'>10</span><span> 10           Paper Goods                     
+#&gt; </span><span style='color: #555555;'># … with 12 more rows</span><span></div></span></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#version-0-4-0">0.4.0</a></li>
-        <li><a href="#version-0-3-1">0.3.1</a></li>
-        <li><a href="#version-0-3">0.3</a></li>
-        <li><a href="#version-0-2-8">0.2.8</a></li>
-        <li><a href="#version-0-2-7">0.2.7</a></li>
-        <li><a href="#version-0-2-5">0.2.5</a></li>
-        <li><a href="#version-0-2-4">0.2.4</a></li>
-        <li><a href="#version-0-2-3">0.2.3</a></li>
-        <li><a href="#version-0-2-2">0.2.2</a></li>
-        <li><a href="#version-0-2-1">0.2.1</a></li>
-      </ul>
-    </div>
-  </div>
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#format">Format</a></li>
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
+  </div>
 </div>
 
 

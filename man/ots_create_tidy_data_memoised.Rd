@@ -13,8 +13,6 @@ ots_create_tidy_data_memoised(
   groups = "all",
   table = "yr",
   max_attempts = 5,
-  include_shortnames = FALSE,
-  include_sections = FALSE,
   use_localhost = FALSE
 )
 }

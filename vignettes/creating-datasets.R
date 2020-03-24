@@ -79,6 +79,20 @@ knitr::opts_chunk$set(
 #    save(ots_product_shortnames, file = product_shortnames_tidy_file, compress = "xz")
 #  }
 
+## ----sections_shortnames, message = FALSE, eval = FALSE-----------------------
+#  sections_shortnames_url <- "https://api.tradestatistics.io/sections_shortnames"
+#  sections_shortnames_raw_file <- "../data-raw/ots_sections_shortnames.json"
+#  sections_shortnames_tidy_file <- "../data/ots_sections_shortnames.rda"
+#  
+#  if (!file.exists(sections_shortnames_raw_file)) { download.file(sections_shortnames_url, sections_shortnames_raw_file) }
+#  
+#  if (!file.exists(sections_shortnames_tidy_file)) {
+#    ots_sections_shortnames <- fromJSON(sections_shortnames_raw_file) %>%
+#      as_tibble() %>%
+#      mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
+#    save(ots_sections_shortnames, file = sections_shortnames_tidy_file, compress = "xz")
+#  }
+
 ## ----conversion_rates, message = FALSE, eval = FALSE--------------------------
 #  # Source
 #  # https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG

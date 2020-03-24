@@ -36,14 +36,14 @@ You might notice the tables have a pattern. The letters indicate the presence of
 * `r`: *r*eporter column
 * `p`: *p*artner column
 * `c`: product *c*ode column
+* `s`: product *s*ection column
 * `g`: product *g*roup column
-* `o`: product c*o*mmunity column
 
 The most aggregated table is `yr` which basically says how many dollars each country exports and imports for a given year.
 
 The less aggregated table is `yrpc` which says how many dollars of each of the 1,222 products from the Harmonized System each country exports to other countries and imports from other countries.
 
-`g` and `o` are aggregations over `c`, therefore `yrpc-ga` (`yrpc` with group aggregation) and `yrpc-ga` (`yrpc` with product community aggregation) are summaries of `yrpc`.
+`g` and `s` are aggregations over `c`, therefore `yrpc-sa` (`yrpc` with section aggregation) and `yrpc-ga` (`yrpc` with group aggregation) are summaries of `yrpc`.
 
 For the complete detail you can check [docs.tradestatistics.io](docs.tradestatistics.io).
 
@@ -65,8 +65,12 @@ The Package Functions section explains that you don't need to memorize all HS co
 ots_products
 
 ots_product_shortnames
+```
 
+```{r products2, eval = T}
 ots_sections
+
+ots_sections_shortnames
 ```
 
 ## Inflation data

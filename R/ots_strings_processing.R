@@ -225,7 +225,7 @@ ots_product_section <- function(productsection = NULL) {
       ) %>%
       filter(
         str_detect(
-          str_to_lower(!!sym("section_name")), str_to_lower(!!sym("productsection"))
+          str_to_lower(!!sym("section_fullname_english")), str_to_lower(!!sym("productsection"))
         )
       )
   }

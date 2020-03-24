@@ -183,24 +183,40 @@
 <a class="sourceLine" id="cb5-11" data-line-number="11">  <span class="kw"><a href="https://rdrr.io/r/base/save.html">save</a></span>(ots_product_shortnames, <span class="dt">file =</span> product_shortnames_tidy_file, <span class="dt">compress =</span> <span class="st">"xz"</span>)</a>
 <a class="sourceLine" id="cb5-12" data-line-number="12">}</a></code></pre></div>
 </div>
+<div id="section-short-names" class="section level1">
+<h1 class="hasAnchor">
+<a href="#section-short-names" class="anchor"></a>Section short names</h1>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">sections_shortnames_url &lt;-<span class="st"> "https://api.tradestatistics.io/sections_shortnames"</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">sections_shortnames_raw_file &lt;-<span class="st"> "../data-raw/ots_sections_shortnames.json"</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">sections_shortnames_tidy_file &lt;-<span class="st"> "../data/ots_sections_shortnames.rda"</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(sections_shortnames_raw_file)) { <span class="kw"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(sections_shortnames_url, sections_shortnames_raw_file) }</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(sections_shortnames_tidy_file)) {</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">  ots_sections_shortnames &lt;-<span class="st"> </span><span class="kw"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(sections_shortnames_raw_file) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span>(is.character, <span class="cf">function</span>(x) { <span class="kw"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span>(x, <span class="dt">to =</span> <span class="st">"ASCII//TRANSLIT"</span>)})</a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">  <span class="kw"><a href="https://rdrr.io/r/base/save.html">save</a></span>(ots_sections_shortnames, <span class="dt">file =</span> sections_shortnames_tidy_file, <span class="dt">compress =</span> <span class="st">"xz"</span>)</a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">}</a></code></pre></div>
+</div>
 <div id="conversion-rates" class="section level1">
 <h1 class="hasAnchor">
 <a href="#conversion-rates" class="anchor"></a>Conversion rates</h1>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># Source</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co"># https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co"># https://data.worldbank.org/indicator/NY.GDP.MKTP.KD</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">inflation_url &lt;-<span class="st"> "https://raw.githubusercontent.com/tradestatistics/inflation-data/master/inflation-data.json"</span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6">inflation_raw_file &lt;-<span class="st"> "../data-raw/ots_inflation.json"</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7">inflation_tidy_file &lt;-<span class="st"> "../data/ots_inflation.rda"</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(inflation_raw_file)) { <span class="kw"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(inflation_url, inflation_raw_file) }</a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(inflation_tidy_file)) {</a>
-<a class="sourceLine" id="cb6-12" data-line-number="12">  ots_inflation &lt;-<span class="st"> </span><span class="kw"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(inflation_url)</a>
-<a class="sourceLine" id="cb6-13" data-line-number="13">  ots_inflation &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>(ots_inflation)</a>
-<a class="sourceLine" id="cb6-14" data-line-number="14">  <span class="kw"><a href="https://rdrr.io/r/base/save.html">save</a></span>(ots_inflation, <span class="dt">file =</span> inflation_tidy_file, <span class="dt">compress =</span> <span class="st">"xz"</span>)</a>
-<a class="sourceLine" id="cb6-15" data-line-number="15">}</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># Source</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co"># https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co"># https://data.worldbank.org/indicator/NY.GDP.MKTP.KD</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">inflation_url &lt;-<span class="st"> "https://raw.githubusercontent.com/tradestatistics/inflation-data/master/inflation-data.json"</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">inflation_raw_file &lt;-<span class="st"> "../data-raw/ots_inflation.json"</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">inflation_tidy_file &lt;-<span class="st"> "../data/ots_inflation.rda"</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(inflation_raw_file)) { <span class="kw"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(inflation_url, inflation_raw_file) }</a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(inflation_tidy_file)) {</a>
+<a class="sourceLine" id="cb7-12" data-line-number="12">  ots_inflation &lt;-<span class="st"> </span><span class="kw"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(inflation_url)</a>
+<a class="sourceLine" id="cb7-13" data-line-number="13">  ots_inflation &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>(ots_inflation)</a>
+<a class="sourceLine" id="cb7-14" data-line-number="14">  <span class="kw"><a href="https://rdrr.io/r/base/save.html">save</a></span>(ots_inflation, <span class="dt">file =</span> inflation_tidy_file, <span class="dt">compress =</span> <span class="st">"xz"</span>)</a>
+<a class="sourceLine" id="cb7-15" data-line-number="15">}</a></code></pre></div>
 </div>
   </div>
 
@@ -215,6 +231,7 @@
       <li><a href="#product-codes">Product codes</a></li>
       <li><a href="#section-codes">Section codes</a></li>
       <li><a href="#product-short-names">Product short names</a></li>
+      <li><a href="#section-short-names">Section short names</a></li>
       <li><a href="#conversion-rates">Conversion rates</a></li>
       </ul>
 </div>

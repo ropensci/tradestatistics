@@ -17,7 +17,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 404 Not Found
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 24 Mar 2020 16:27:50 GMT
+      date: Tue, 24 Mar 2020 20:28:00 GMT
       content-type: application/json
       content-length: '38'
       connection: keep-alive
@@ -25,7 +25,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"error":["404 - Resource Not Found"]}'
-  recorded_at: 2020-03-24 16:27:51 GMT
+  recorded_at: 2020-03-24 20:28:01 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -45,7 +45,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 24 Mar 2020 16:27:50 GMT
+      date: Tue, 24 Mar 2020 20:28:01 GMT
       content-type: application/json
       content-length: '29'
       connection: keep-alive
@@ -53,7 +53,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1962},{"year":2018}]'
-  recorded_at: 2020-03-24 16:27:51 GMT
+  recorded_at: 2020-03-24 20:28:01 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -73,7 +73,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 24 Mar 2020 16:27:51 GMT
+      date: Tue, 24 Mar 2020 20:28:01 GMT
       content-type: application/json
       content-length: '7482'
       connection: keep-alive
@@ -81,5 +81,5 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"01","export_value_usd":19026,"import_value_usd":25173742},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"02","import_value_usd":8091852},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"03","export_value_usd":59292},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"04","export_value_usd":4399,"import_value_usd":743504},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"05","export_value_usd":16798,"import_value_usd":481898},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"06","import_value_usd":4408},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"07","export_value_usd":137708,"import_value_usd":22407},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"08","export_value_usd":1127551,"import_value_usd":16999},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"09","import_value_usd":2372699},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"10","import_value_usd":821481},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"11","import_value_usd":46945},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"12","export_value_usd":74397,"import_value_usd":3241},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"13","export_value_usd":55899,"import_value_usd":1296},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"15","import_value_usd":1854497},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"16","export_value_usd":107598,"import_value_usd":91298},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"17","export_value_usd":1600,"import_value_usd":1379851},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"18","import_value_usd":7684},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"20","export_value_usd":41733},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"21","export_value_usd":16280,"import_value_usd":2592},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"22","export_value_usd":3199,"import_value_usd":12870},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"23","export_value_usd":108797,"import_value_usd":15926},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"25","import_value_usd":208602},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"26","export_value_usd":2483426},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"27","export_value_usd":1709537,"import_value_usd":78496},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"28","export_value_usd":403518,"import_value_usd":192284},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"29","export_value_usd":2560377,"import_value_usd":128115},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"30","import_value_usd":115726},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"31","export_value_usd":494763},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"32","import_value_usd":1061439},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"33","export_value_usd":3100,"import_value_usd":34600},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"34","import_value_usd":231632},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"35","import_value_usd":40648},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"37","import_value_usd":113814},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"38","export_value_usd":43982,"import_value_usd":189975},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"39","export_value_usd":1325199,"import_value_usd":92803},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"40","import_value_usd":142188},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"41","import_value_usd":2389537},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"44","export_value_usd":3046045,"import_value_usd":3835},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"45","import_value_usd":7241},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"47","export_value_usd":1311574},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"48","export_value_usd":938056,"import_value_usd":67890},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"49","export_value_usd":99119,"import_value_usd":1369463},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"51","import_value_usd":5848330},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"53","export_value_usd":114544},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"56","import_value_usd":1100},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"57","import_value_usd":1019},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"59","import_value_usd":27212},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"68","export_value_usd":4840,"import_value_usd":28704},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"69","export_value_usd":46110,"import_value_usd":58879},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"70","import_value_usd":37379},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"71","import_value_usd":1667},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"72","export_value_usd":2668200,"import_value_usd":33418},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"73","export_value_usd":50399,"import_value_usd":2181786},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"74","export_value_usd":20239799,"import_value_usd":5222},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"75","import_value_usd":8976},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"76","import_value_usd":19030},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"80","import_value_usd":555},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"82","import_value_usd":496308},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"83","import_value_usd":3230},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"84","export_value_usd":1600,"import_value_usd":3884662},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"85","export_value_usd":107720,"import_value_usd":448614},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"86","export_value_usd":13199,"import_value_usd":599},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"87","export_value_usd":22700,"import_value_usd":100473},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"89","import_value_usd":580556},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"90","export_value_usd":19258,"import_value_usd":100527},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"94","import_value_usd":19486},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"96","import_value_usd":1480},{"year":1964,"reporter_iso":"chl","partner_iso":"arg","group_code":"97","import_value_usd":15000}]'
-  recorded_at: 2020-03-24 16:27:51 GMT
+  recorded_at: 2020-03-24 20:28:01 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0

@@ -143,8 +143,6 @@ performs different API calls to transform and return tidy data.</p>
   <span class='kw'>groups</span> <span class='kw'>=</span> <span class='st'>"all"</span>,
   <span class='kw'>table</span> <span class='kw'>=</span> <span class='st'>"yr"</span>,
   <span class='kw'>max_attempts</span> <span class='kw'>=</span> <span class='fl'>5</span>,
-  <span class='kw'>include_shortnames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>include_sections</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>use_cache</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>file</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>use_localhost</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
@@ -197,17 +195,6 @@ Run <code>ots_tables</code> in case of doubt.</p></td>
       <td><p>How many times to try to download data in case the
 API or the internet connection fails when obtaining data. Default set
 to <code>5</code>.</p></td>
-    </tr>
-    <tr>
-      <th>include_shortnames</th>
-      <td><p>Whether to include or not to include unofficial shortened product names.
-Default set to <code>FALSE</code>.</p></td>
-    </tr>
-    <tr>
-      <th>include_sections</th>
-      <td><p>Whether to include or not to include product 
-community names when the requested table contains the <code>product_code</code>
-field. Default set to <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>use_cache</th>
