@@ -495,7 +495,8 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
           select(!!!syms(c("section_code", "section_fullname_english",
                            "section_color"))) %>% 
           distinct(), by = "section_code"
-      )
+      ) %>% 
+      left_join(tradestatistics::ots_sections_shortnames)
   }
   
   # order columns for consistent order
