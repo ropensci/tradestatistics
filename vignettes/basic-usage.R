@@ -19,7 +19,7 @@ ots_products
 
 ots_product_shortnames
 
-ots_communities
+ots_sections
 
 ## ----inflation, eval = T------------------------------------------------------
 ots_inflation
@@ -35,20 +35,20 @@ ots_country_code("America")
 ots_country_code("Germany")
 
 ## ----product_code-------------------------------------------------------------
-ots_product_code("wine")
+ots_product_code(" WiNe ")
 
 ## ----product_code2------------------------------------------------------------
-ots_product_code(productname = "Milk", productgroup = "Dairy")
+ots_product_code(productname = " ShEEp ", productgroup = " mEaT ")
 
-## ----community_code-----------------------------------------------------------
-ots_product_community("fabric")
+## ----section_code-------------------------------------------------------------
+ots_product_section(" tExTiLeS ")
 
 ## ----yrpc-ga1, eval = T-------------------------------------------------------
 ots_create_tidy_data(
   years = 1962,
   reporters = "chl",
   partners = "arg",
-  table = "yrpc-ca"
+  table = "yrpc-sa"
 )
 
 ## ----yrpc-ga2, eval = T-------------------------------------------------------
@@ -58,8 +58,8 @@ ots_create_tidy_data(
   years = c(1962,1963),
   reporters = c("chl", "Peru", "bol"),
   partners = c("arg", "Brazil"),
-  communities = c("01", "food"),
-  table = "yrpc-ca"
+  sections = c("01", "food"),
+  table = "yrpc-sa"
 )
 
 ## ----yrp3, eval = T-----------------------------------------------------------

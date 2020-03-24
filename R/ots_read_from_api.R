@@ -40,7 +40,7 @@ ots_read_from_api <- function(year = NULL,
                               partner_iso = NULL,
                               product_code = "all",
                               group_code = "all",
-                              community_code = "all",
+                              section_code = "all",
                               table = "yrpc-ga",
                               max_attempts = 5,
                               use_localhost = FALSE) {
@@ -61,13 +61,13 @@ ots_read_from_api <- function(year = NULL,
       "yrpc-ga?y=%s&r=%s&p=%s&g=%s",
       year, reporter_iso, partner_iso, group_code
     ),
-    "yrpc-ca" = sprintf(
-      "yrpc-ca?y=%s&r=%s&p=%s&o=%s",
-      year, reporter_iso, partner_iso, community_code
+    "yrpc-sa" = sprintf(
+      "yrpc-sa?y=%s&r=%s&p=%s&s=%s",
+      year, reporter_iso, partner_iso, section_code
     ),
-    "yrpc-gca" = sprintf(
-      "yrpc-gca?y=%s&r=%s&p=%s&g=%s&o=%s",
-      year, reporter_iso, partner_iso, group_code, community_code
+    "yrpc-sga" = sprintf(
+      "yrpc-sga?y=%s&r=%s&p=%s&g=%s&s=%s",
+      year, reporter_iso, partner_iso, group_code, section_code
     ),
     "yrp" = sprintf("yrp?y=%s&r=%s&p=%s", year, reporter_iso, partner_iso),
     "yrc" = sprintf(
@@ -78,18 +78,18 @@ ots_read_from_api <- function(year = NULL,
       "yrc-ga?y=%s&r=%s&c=%s&g=%s",
       year, reporter_iso, product_code, group_code
     ),
-    "yrc-ca" = sprintf(
-      "yrc-ca?y=%s&r=%s&c=%s&o=%s",
-      year, reporter_iso, product_code, community_code
+    "yrc-sa" = sprintf(
+      "yrc-sa?y=%s&r=%s&c=%s&s=%s",
+      year, reporter_iso, product_code, section_code
     ),
-    "yrc-gca" = sprintf(
-      "yrc-gca?y=%s&r=%s&c=%s&g=%s&o=%s",
-      year, reporter_iso, product_code, group_code, community_code
+    "yrc-sga" = sprintf(
+      "yrc-sga?y=%s&r=%s&c=%s&g=%s&s=%s",
+      year, reporter_iso, product_code, group_code, section_code
     ),
     "yr" = sprintf("yr?y=%s&r=%s", year, reporter_iso),
     "yr-short" = sprintf("yr-short?y=%s&r=%s", year, reporter_iso),
     "yr-ga" = sprintf("yr-ga?y=%s&r=%s", year, reporter_iso),
-    "yr-ca" = sprintf("yr-ca?y=%s&r=%s", year, reporter_iso),
+    "yr-sa" = sprintf("yr-sa?y=%s&r=%s", year, reporter_iso),
     "yc" = sprintf("yc?y=%s&c=%s", year, product_code)
   )
 
@@ -114,8 +114,8 @@ ots_read_from_api <- function(year = NULL,
       combination <- paste(combination, group_code, sep = ", ")
     }
     
-    if (community_code != "all") {
-      combination <- paste(combination, community_code, sep = ", ")
+    if (section_code != "all") {
+      combination <- paste(combination, section_code, sep = ", ")
     }
     
     message(sprintf("Downloading data for the combination %s...", combination))
@@ -136,7 +136,7 @@ ots_read_from_api <- function(year = NULL,
     # otherwise, sleep a second and try again
     Sys.sleep(1)
     ots_read_from_api(year, reporter_iso, partner_iso, product_code, group_code,
-                      community_code, table, max_attempts = max_attempts - 1,
+                      section_code, table, max_attempts = max_attempts - 1,
                       use_localhost
     )
   }

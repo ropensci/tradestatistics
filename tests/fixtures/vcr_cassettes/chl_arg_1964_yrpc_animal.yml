@@ -17,7 +17,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 404 Not Found
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:28:54 GMT
+      date: Tue, 24 Mar 2020 16:26:15 GMT
       content-type: application/json
       content-length: '38'
       connection: keep-alive
@@ -25,7 +25,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"error":["404 - Resource Not Found"]}'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -45,7 +45,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:28:54 GMT
+      date: Tue, 24 Mar 2020 16:26:16 GMT
       content-type: application/json
       content-length: '29'
       connection: keep-alive
@@ -53,7 +53,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1962},{"year":2018}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -73,7 +73,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:28:55 GMT
+      date: Tue, 24 Mar 2020 16:26:16 GMT
       content-type: application/json
       content-length: '106'
       connection: keep-alive
@@ -81,7 +81,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0102","import_value_usd":24993241}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -101,7 +101,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:28:55 GMT
+      date: Tue, 24 Mar 2020 16:26:17 GMT
       content-type: application/json
       content-length: '102'
       connection: keep-alive
@@ -109,7 +109,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0106","import_value_usd":1296}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -129,7 +129,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:28:56 GMT
+      date: Tue, 24 Mar 2020 16:26:18 GMT
       content-type: application/json
       content-length: '105'
       connection: keep-alive
@@ -137,7 +137,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0201","import_value_usd":7288704}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -157,7 +157,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:28:57 GMT
+      date: Tue, 24 Mar 2020 16:26:18 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -166,7 +166,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0202","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -186,7 +186,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:28:57 GMT
+      date: Tue, 24 Mar 2020 16:26:19 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -195,7 +195,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0206","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -215,7 +215,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:28:58 GMT
+      date: Tue, 24 Mar 2020 16:26:20 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -224,7 +224,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0410","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -244,7 +244,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:28:59 GMT
+      date: Tue, 24 Mar 2020 16:26:20 GMT
       content-type: application/json
       content-length: '128'
       connection: keep-alive
@@ -252,7 +252,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0504","export_value_usd":8399,"import_value_usd":174699}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -272,7 +272,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:28:59 GMT
+      date: Tue, 24 Mar 2020 16:26:21 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -281,7 +281,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0510","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -301,7 +301,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:00 GMT
+      date: Tue, 24 Mar 2020 16:26:22 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -310,7 +310,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0511","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -330,7 +330,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:00 GMT
+      date: Tue, 24 Mar 2020 16:26:22 GMT
       content-type: application/json
       content-length: '104'
       connection: keep-alive
@@ -338,7 +338,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1502","import_value_usd":581388}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -358,7 +358,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:01 GMT
+      date: Tue, 24 Mar 2020 16:26:23 GMT
       content-type: application/json
       content-length: '102'
       connection: keep-alive
@@ -366,7 +366,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1506","import_value_usd":2222}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -386,7 +386,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:02 GMT
+      date: Tue, 24 Mar 2020 16:26:24 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -395,7 +395,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1516","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -415,7 +415,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:02 GMT
+      date: Tue, 24 Mar 2020 16:26:24 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -424,7 +424,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1517","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -444,7 +444,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:03 GMT
+      date: Tue, 24 Mar 2020 16:26:25 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -453,7 +453,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1518","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -473,7 +473,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:04 GMT
+      date: Tue, 24 Mar 2020 16:26:26 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -482,7 +482,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1522","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -502,7 +502,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:04 GMT
+      date: Tue, 24 Mar 2020 16:26:26 GMT
       content-type: application/json
       content-length: '102'
       connection: keep-alive
@@ -510,7 +510,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"2308","import_value_usd":1389}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -530,7 +530,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:05 GMT
+      date: Tue, 24 Mar 2020 16:26:27 GMT
       content-type: application/json
       content-length: '102'
       connection: keep-alive
@@ -538,7 +538,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"2309","import_value_usd":1759}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -558,7 +558,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:06 GMT
+      date: Tue, 24 Mar 2020 16:26:28 GMT
       content-type: application/json
       content-length: '103'
       connection: keep-alive
@@ -566,7 +566,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"3001","import_value_usd":10899}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -586,7 +586,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:06 GMT
+      date: Tue, 24 Mar 2020 16:26:29 GMT
       content-type: application/json
       content-length: '102'
       connection: keep-alive
@@ -594,7 +594,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"3002","import_value_usd":4500}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -614,7 +614,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:07 GMT
+      date: Tue, 24 Mar 2020 16:26:29 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -623,7 +623,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"3101","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -643,7 +643,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:08 GMT
+      date: Tue, 24 Mar 2020 16:26:30 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -652,7 +652,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"3203","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -672,7 +672,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:08 GMT
+      date: Tue, 24 Mar 2020 16:26:31 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -681,7 +681,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"3503","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -701,7 +701,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:09 GMT
+      date: Tue, 24 Mar 2020 16:26:31 GMT
       content-type: application/json
       content-length: '102'
       connection: keep-alive
@@ -709,7 +709,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"3802","import_value_usd":3699}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -729,7 +729,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:09 GMT
+      date: Tue, 24 Mar 2020 16:26:32 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -738,7 +738,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"3821","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -758,7 +758,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:10 GMT
+      date: Tue, 24 Mar 2020 16:26:33 GMT
       content-type: application/json
       content-length: '105'
       connection: keep-alive
@@ -766,7 +766,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"4101","import_value_usd":2360926}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -786,7 +786,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:11 GMT
+      date: Tue, 24 Mar 2020 16:26:34 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -795,7 +795,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"4104","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -815,7 +815,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:11 GMT
+      date: Tue, 24 Mar 2020 16:26:34 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -824,7 +824,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"4106","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -844,7 +844,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:12 GMT
+      date: Tue, 24 Mar 2020 16:26:35 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -853,7 +853,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"4107","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -873,7 +873,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:13 GMT
+      date: Tue, 24 Mar 2020 16:26:36 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -882,7 +882,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"4113","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -902,7 +902,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:13 GMT
+      date: Tue, 24 Mar 2020 16:26:37 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -911,7 +911,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"4201","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -931,7 +931,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:14 GMT
+      date: Tue, 24 Mar 2020 16:26:38 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -940,7 +940,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5102","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -960,7 +960,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:15 GMT
+      date: Tue, 24 Mar 2020 16:26:38 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -969,7 +969,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5103","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -989,7 +989,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:16 GMT
+      date: Tue, 24 Mar 2020 16:26:39 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -998,7 +998,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5104","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1018,7 +1018,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:16 GMT
+      date: Tue, 24 Mar 2020 16:26:40 GMT
       content-type: application/json
       content-length: '105'
       connection: keep-alive
@@ -1026,7 +1026,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5105","import_value_usd":4293422}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1046,7 +1046,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:17 GMT
+      date: Tue, 24 Mar 2020 16:26:41 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -1055,7 +1055,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5108","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1075,7 +1075,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:18 GMT
+      date: Tue, 24 Mar 2020 16:26:41 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -1084,7 +1084,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5109","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1104,7 +1104,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:18 GMT
+      date: Tue, 24 Mar 2020 16:26:42 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -1113,7 +1113,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5110","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1133,7 +1133,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:19 GMT
+      date: Tue, 24 Mar 2020 16:26:43 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -1142,7 +1142,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5111","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1162,7 +1162,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:20 GMT
+      date: Tue, 24 Mar 2020 16:26:44 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -1171,7 +1171,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5112","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1191,7 +1191,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:20 GMT
+      date: Tue, 24 Mar 2020 16:26:44 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -1200,7 +1200,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5113","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1220,7 +1220,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:21 GMT
+      date: Tue, 24 Mar 2020 16:26:45 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -1229,7 +1229,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"6703","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1249,7 +1249,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:22 GMT
+      date: Tue, 24 Mar 2020 16:26:46 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -1258,7 +1258,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"6704","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1278,7 +1278,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:22 GMT
+      date: Tue, 24 Mar 2020 16:26:47 GMT
       content-type: application/json
       content-length: '102'
       connection: keep-alive
@@ -1286,7 +1286,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"8438","import_value_usd":2500}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1306,7 +1306,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:23 GMT
+      date: Tue, 24 Mar 2020 16:26:48 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -1315,7 +1315,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"9601","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1335,7 +1335,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:24 GMT
+      date: Tue, 24 Mar 2020 16:26:48 GMT
       content-type: application/json
       content-length: '126'
       connection: keep-alive
@@ -1343,7 +1343,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0101","export_value_usd":926,"import_value_usd":44699}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1363,7 +1363,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:24 GMT
+      date: Tue, 24 Mar 2020 16:26:49 GMT
       content-type: application/json
       content-length: '102'
       connection: keep-alive
@@ -1371,7 +1371,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0103","import_value_usd":4000}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1391,7 +1391,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:25 GMT
+      date: Tue, 24 Mar 2020 16:26:50 GMT
       content-type: application/json
       content-length: '129'
       connection: keep-alive
@@ -1399,7 +1399,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0104","export_value_usd":18100,"import_value_usd":108099}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1419,7 +1419,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:26 GMT
+      date: Tue, 24 Mar 2020 16:26:51 GMT
       content-type: application/json
       content-length: '103'
       connection: keep-alive
@@ -1427,7 +1427,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0105","import_value_usd":22407}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1447,7 +1447,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:26 GMT
+      date: Tue, 24 Mar 2020 16:26:51 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -1456,7 +1456,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0401","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1476,7 +1476,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:27 GMT
+      date: Tue, 24 Mar 2020 16:26:52 GMT
       content-type: application/json
       content-length: '101'
       connection: keep-alive
@@ -1484,7 +1484,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0402","import_value_usd":555}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1504,7 +1504,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:28 GMT
+      date: Tue, 24 Mar 2020 16:26:53 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -1513,7 +1513,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0403","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1533,7 +1533,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:28 GMT
+      date: Tue, 24 Mar 2020 16:26:54 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -1542,7 +1542,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0404","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1562,7 +1562,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:29 GMT
+      date: Tue, 24 Mar 2020 16:26:55 GMT
       content-type: application/json
       content-length: '104'
       connection: keep-alive
@@ -1570,7 +1570,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0405","import_value_usd":720649}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1590,7 +1590,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:30 GMT
+      date: Tue, 24 Mar 2020 16:26:55 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -1599,7 +1599,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0406","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1619,7 +1619,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:30 GMT
+      date: Tue, 24 Mar 2020 16:26:56 GMT
       content-type: application/json
       content-length: '127'
       connection: keep-alive
@@ -1627,7 +1627,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0407","export_value_usd":4399,"import_value_usd":22300}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1647,7 +1647,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:31 GMT
+      date: Tue, 24 Mar 2020 16:26:57 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -1656,7 +1656,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0408","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1676,7 +1676,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:32 GMT
+      date: Tue, 24 Mar 2020 16:26:58 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -1685,7 +1685,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0409","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1705,7 +1705,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:33 GMT
+      date: Tue, 24 Mar 2020 16:26:59 GMT
       content-type: application/json
       content-length: '128'
       connection: keep-alive
@@ -1713,7 +1713,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0501","export_value_usd":8399,"import_value_usd":174699}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1733,16 +1733,16 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:33 GMT
+      date: Tue, 24 Mar 2020 16:26:59 GMT
       content-type: application/json
       content-length: '143'
-      connection: keep-alive
+      connection: close
     body:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0502","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1762,7 +1762,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:34 GMT
+      date: Tue, 24 Mar 2020 16:27:01 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -1771,7 +1771,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0505","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1791,7 +1791,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:35 GMT
+      date: Tue, 24 Mar 2020 16:27:02 GMT
       content-type: application/json
       content-length: '104'
       connection: keep-alive
@@ -1799,7 +1799,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0506","import_value_usd":132500}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1819,7 +1819,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:36 GMT
+      date: Tue, 24 Mar 2020 16:27:02 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -1828,7 +1828,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0507","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1848,7 +1848,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:36 GMT
+      date: Tue, 24 Mar 2020 16:27:03 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -1857,7 +1857,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"0508","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1877,7 +1877,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:37 GMT
+      date: Tue, 24 Mar 2020 16:27:04 GMT
       content-type: application/json
       content-length: '105'
       connection: keep-alive
@@ -1885,7 +1885,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1501","import_value_usd":1251667}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1905,7 +1905,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:38 GMT
+      date: Tue, 24 Mar 2020 16:27:05 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -1914,7 +1914,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1503","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1934,7 +1934,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:39 GMT
+      date: Tue, 24 Mar 2020 16:27:06 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -1943,7 +1943,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1504","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1963,7 +1963,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:39 GMT
+      date: Tue, 24 Mar 2020 16:27:07 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -1972,7 +1972,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1505","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -1992,7 +1992,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:40 GMT
+      date: Tue, 24 Mar 2020 16:27:08 GMT
       content-type: application/json
       content-length: '102'
       connection: keep-alive
@@ -2000,7 +2000,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1507","import_value_usd":3888}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2020,7 +2020,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:41 GMT
+      date: Tue, 24 Mar 2020 16:27:08 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -2029,7 +2029,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1508","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2049,7 +2049,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:42 GMT
+      date: Tue, 24 Mar 2020 16:27:09 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -2058,7 +2058,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1509","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2078,7 +2078,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:42 GMT
+      date: Tue, 24 Mar 2020 16:27:10 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -2087,7 +2087,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1510","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2107,7 +2107,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:43 GMT
+      date: Tue, 24 Mar 2020 16:27:11 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -2116,7 +2116,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1511","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2136,7 +2136,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:44 GMT
+      date: Tue, 24 Mar 2020 16:27:12 GMT
       content-type: application/json
       content-length: '101'
       connection: keep-alive
@@ -2144,7 +2144,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1512","import_value_usd":833}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2164,7 +2164,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:45 GMT
+      date: Tue, 24 Mar 2020 16:27:13 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -2173,7 +2173,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1513","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2193,7 +2193,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:45 GMT
+      date: Tue, 24 Mar 2020 16:27:14 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -2202,7 +2202,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1514","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2222,7 +2222,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:46 GMT
+      date: Tue, 24 Mar 2020 16:27:14 GMT
       content-type: application/json
       content-length: '102'
       connection: keep-alive
@@ -2230,7 +2230,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1515","import_value_usd":7800}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2250,7 +2250,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:47 GMT
+      date: Tue, 24 Mar 2020 16:27:15 GMT
       content-type: application/json
       content-length: '102'
       connection: keep-alive
@@ -2258,7 +2258,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1520","import_value_usd":6699}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2278,7 +2278,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:48 GMT
+      date: Tue, 24 Mar 2020 16:27:16 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -2287,7 +2287,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"1521","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2307,15 +2307,15 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:48 GMT
+      date: Tue, 24 Mar 2020 16:27:17 GMT
       content-type: application/json
       content-length: '104'
-      connection: close
+      connection: keep-alive
     body:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"2301","export_value_usd":108797}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2335,7 +2335,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:50 GMT
+      date: Tue, 24 Mar 2020 16:27:18 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -2344,7 +2344,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"2302","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2364,7 +2364,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:50 GMT
+      date: Tue, 24 Mar 2020 16:27:19 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -2373,7 +2373,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"2303","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2393,7 +2393,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:51 GMT
+      date: Tue, 24 Mar 2020 16:27:20 GMT
       content-type: application/json
       content-length: '103'
       connection: keep-alive
@@ -2401,7 +2401,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"2304","import_value_usd":12778}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2421,7 +2421,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:52 GMT
+      date: Tue, 24 Mar 2020 16:27:21 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -2430,7 +2430,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"2305","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2450,7 +2450,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:53 GMT
+      date: Tue, 24 Mar 2020 16:27:22 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -2459,7 +2459,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"2306","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2479,7 +2479,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:54 GMT
+      date: Tue, 24 Mar 2020 16:27:23 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -2488,7 +2488,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"2307","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2508,7 +2508,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:54 GMT
+      date: Tue, 24 Mar 2020 16:27:23 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -2517,7 +2517,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"4202","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2537,7 +2537,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:55 GMT
+      date: Tue, 24 Mar 2020 16:27:24 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -2546,7 +2546,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"4203","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2566,7 +2566,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:56 GMT
+      date: Tue, 24 Mar 2020 16:27:25 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -2575,7 +2575,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"4205","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2595,7 +2595,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:57 GMT
+      date: Tue, 24 Mar 2020 16:27:26 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -2604,7 +2604,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"4206","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2624,7 +2624,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:57 GMT
+      date: Tue, 24 Mar 2020 16:27:27 GMT
       content-type: application/json
       content-length: '105'
       connection: keep-alive
@@ -2632,7 +2632,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5101","import_value_usd":1554908}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2652,7 +2652,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:58 GMT
+      date: Tue, 24 Mar 2020 16:27:28 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -2661,7 +2661,7 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5106","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -2681,7 +2681,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:29:59 GMT
+      date: Tue, 24 Mar 2020 16:27:29 GMT
       content-type: application/json
       content-length: '143'
       connection: keep-alive
@@ -2690,5 +2690,5 @@ http_interactions:
       file: no
       string: '[{"year":1964,"reporter_iso":"chl","partner_iso":"arg","product_code":"5107","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2020-03-21 21:29:59 GMT
+  recorded_at: 2020-03-24 16:27:29 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0

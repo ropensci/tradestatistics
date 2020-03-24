@@ -17,7 +17,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 404 Not Found
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:30:14 GMT
+      date: Tue, 24 Mar 2020 16:27:45 GMT
       content-type: application/json
       content-length: '38'
       connection: keep-alive
@@ -25,7 +25,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"error":["404 - Resource Not Found"]}'
-  recorded_at: 2020-03-21 21:30:15 GMT
+  recorded_at: 2020-03-24 16:27:45 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0
 - request:
     method: get
@@ -45,7 +45,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 21 Mar 2020 21:30:15 GMT
+      date: Tue, 24 Mar 2020 16:27:45 GMT
       content-type: application/json
       content-length: '29'
       connection: keep-alive
@@ -53,5 +53,5 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":1962},{"year":2018}]'
-  recorded_at: 2020-03-21 21:30:15 GMT
+  recorded_at: 2020-03-24 16:27:45 GMT
   recorded_with: vcr/0.5.0, webmockr/0.6.0

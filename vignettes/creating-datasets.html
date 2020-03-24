@@ -12,7 +12,7 @@
 
 <meta name="author" content="Mauricio Vargas S." />
 
-<meta name="date" content="2020-03-21" />
+<meta name="date" content="2020-03-24" />
 
 <title>Creating the datasets available within the package</title>
 
@@ -301,7 +301,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Creating the datasets available within the package</h1>
 <h4 class="author">Mauricio Vargas S.</h4>
-<h4 class="date">2020-03-21</h4>
+<h4 class="date">2020-03-24</h4>
 
 
 
@@ -355,20 +355,20 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <a class="sourceLine" id="cb3-12" data-line-number="12">  <span class="kw">save</span>(ots_products, <span class="dt">file =</span> products_tidy_file, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)</a>
 <a class="sourceLine" id="cb3-13" data-line-number="13">}</a></code></pre></div>
 </div>
-<div id="community-codes" class="section level1">
-<h1>Community codes</h1>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">communities_url &lt;-<span class="st"> &quot;https://api.tradestatistics.io/communities&quot;</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">communities_raw_file &lt;-<span class="st"> &quot;../data-raw/ots_communities.json&quot;</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">communities_tidy_file &lt;-<span class="st"> &quot;../data/ots_communities.rda&quot;</span></a>
+<div id="section-codes" class="section level1">
+<h1>Section codes</h1>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">sections_url &lt;-<span class="st"> &quot;https://api.tradestatistics.io/sections&quot;</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">sections_raw_file &lt;-<span class="st"> &quot;../data-raw/ots_sections.json&quot;</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">sections_tidy_file &lt;-<span class="st"> &quot;../data/ots_sections.rda&quot;</span></a>
 <a class="sourceLine" id="cb4-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(communities_raw_file)) { <span class="kw">download.file</span>(communities_url, communities_raw_file) }</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(sections_raw_file)) { <span class="kw">download.file</span>(sections_url, sections_raw_file) }</a>
 <a class="sourceLine" id="cb4-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(communities_tidy_file)) {</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">  ots_communities &lt;-<span class="st"> </span><span class="kw">fromJSON</span>(communities_raw_file) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(sections_tidy_file)) {</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">  ots_sections &lt;-<span class="st"> </span><span class="kw">fromJSON</span>(sections_raw_file) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb4-9" data-line-number="9"><span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb4-10" data-line-number="10"><span class="st">    </span><span class="kw">mutate_if</span>(is.character, <span class="cf">function</span>(x) { <span class="kw">iconv</span>(x, <span class="dt">to =</span> <span class="st">&quot;ASCII//TRANSLIT&quot;</span>)}) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb4-11" data-line-number="11"><span class="st">    </span><span class="kw">filter</span>(<span class="kw">nchar</span>(product_code) <span class="op">==</span><span class="st"> </span><span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb4-12" data-line-number="12">  <span class="kw">save</span>(ots_communities, <span class="dt">file =</span> communities_tidy_file, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)</a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">  <span class="kw">save</span>(ots_sections, <span class="dt">file =</span> sections_tidy_file, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)</a>
 <a class="sourceLine" id="cb4-13" data-line-number="13">}</a></code></pre></div>
 </div>
 <div id="product-short-names" class="section level1">

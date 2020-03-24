@@ -18,7 +18,7 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
 
     test_data <- ots_create_tidy_data(
       years = 1964, reporters = "chl", partners = "arg", table = "yrpc",
-      include_shortnames = T, include_communities = T
+      include_shortnames = T, include_sections = T
     )
     expect_is(test_data, "data.frame")
     expect_output(str(test_data), "15 variables")
@@ -130,18 +130,18 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
 })
 
 
-# ots_create_tidy_data connects to the API and returns valid tables with a valid input and a community filter ----
+# ots_create_tidy_data connects to the API and returns valid tables with a valid input and a section filter ----
 
-test_that("ots_create_tidy_data connects to the API and returns valid tables with a valid input and a community filter", {
-  vcr::use_cassette(name = "chl_arg_1964_yrpc-ca_animal", {
+test_that("ots_create_tidy_data connects to the API and returns valid tables with a valid input and a section filter", {
+  vcr::use_cassette(name = "chl_arg_1964_yrpc-sa_animal", {
     # Mock countries test inside ots_create_tidy_data
     cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
     res <- cli$get("countries/")
     expect_is(res, "HttpResponse")
     
     test_data <- ots_create_tidy_data(
-      years = 1964, reporters = "chl", partners = "arg", table = "yrpc-ca",
-      communities = "animal"
+      years = 1964, reporters = "chl", partners = "arg", table = "yrpc-sa",
+      sections = "animal"
     )
     
     expect_is(test_data, "data.frame")
@@ -359,7 +359,7 @@ test_that("ots_create_tidy_data fails with wrong optional parameters", {
   expect_error(
     ots_create_tidy_data(
       years = 1964, reporters = "arg", partners = "chl",
-      include_communities = 0
+      include_sections = 0
     )
   )
   
@@ -382,13 +382,13 @@ test_that("ots_create_tidy_data fails with non-existing group", {
   )
 })
 
-# ots_create_tidy_data fails with non-existing community ----
+# ots_create_tidy_data fails with non-existing section ----
 
-test_that("ots_create_tidy_data fails with non-existing community", {
+test_that("ots_create_tidy_data fails with non-existing section", {
   expect_error(
     ots_create_tidy_data(
-      years = 1964, reporters = "chl", partners = "arg", table = "yrpc-ca",
-      communities = "gazorpazorp"
+      years = 1964, reporters = "chl", partners = "arg", table = "yrpc-sa",
+      sections = "gazorpazorp"
     )
   )
 })
@@ -415,7 +415,7 @@ test_that("ots_create_tidy_data fails with multiple country match", {
 # ots_create_tidy_data returns warning with unused group filter ----
 
 test_that("ots_create_tidy_data returns warning with unused group filter", {
-  vcr::use_cassette(name = "chl_arg_1964_yrpc-ca_animal_2", {
+  vcr::use_cassette(name = "chl_arg_1964_yrpc-sa_animal_2", {
     # Mock countries test inside ots_create_tidy_data
     cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
     res <- cli$get("countries/")
@@ -423,8 +423,9 @@ test_that("ots_create_tidy_data returns warning with unused group filter", {
     
     test_data <- expect_warning(
       ots_create_tidy_data(
-        years = 1964, reporters = "chl", partners = "arg", table = "yrpc-ca",
-        groups = "animal"
+        years = 1964, reporters = "chl", partners = "arg", table = "yrpc-sa",
+        groups = "animal",
+        include_sections = TRUE
       )
     )
     
@@ -433,9 +434,9 @@ test_that("ots_create_tidy_data returns warning with unused group filter", {
   })
 })
 
-# ots_create_tidy_data returns warning with unused community filter ----
+# ots_create_tidy_data returns warning with unused section filter ----
 
-test_that("ots_create_tidy_data returns warning with unused community filter", {
+test_that("ots_create_tidy_data returns warning with unused section filter", {
   vcr::use_cassette(name = "chl_arg_1964_yrpc-ga_animal_2", {
     # Mock countries test inside ots_create_tidy_data
     cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
@@ -445,7 +446,7 @@ test_that("ots_create_tidy_data returns warning with unused community filter", {
     test_data <- expect_warning(
       ots_create_tidy_data(
         years = 1964, reporters = "chl", partners = "arg", table = "yrpc-ga",
-        communities = "animal"
+        sections = "animal"
       )
     )
     

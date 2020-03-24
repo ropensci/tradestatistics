@@ -10,7 +10,7 @@ ots_read_from_api(
   partner_iso = NULL,
   product_code = "all",
   group_code = "all",
-  community_code = "all",
+  section_code = "all",
   table = "yrpc-ga",
   max_attempts = 5,
   use_localhost = FALSE

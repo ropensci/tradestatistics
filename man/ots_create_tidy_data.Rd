@@ -9,12 +9,12 @@ ots_create_tidy_data(
   reporters = "usa",
   partners = "all",
   products = "all",
+  sections = "all",
   groups = "all",
-  communities = "all",
   table = "yr",
   max_attempts = 5,
   include_shortnames = FALSE,
-  include_communities = FALSE,
+  include_sections = FALSE,
   use_cache = FALSE,
   file = NULL,
   use_localhost = FALSE
@@ -35,12 +35,12 @@ Default set to \code{1962}.}
 matches for \code{"apple"})
 to filter products. Default set to \code{"all"}.}
 
+\item{sections}{unofficial product sections (e.g. \code{"01"} or search
+matches for \code{"animals"}) to filter sections Default set to
+\code{"all"}.}
+
 \item{groups}{HS product groups (e.g. \code{"01"} or search matches for 
 \code{"animals"}) to filter groups. Default set to \code{"all"}.}
-
-\item{communities}{unofficial product communities (e.g. \code{"01"} or search
-matches for \code{"animals"}) to filter communities Default set to
-\code{"all"}.}
 
 \item{table}{Character string to select the table to obtain the data.
 Default set to \code{yr} (Year - Reporter).
@@ -53,7 +53,7 @@ to \code{5}.}
 \item{include_shortnames}{Whether to include or not to include unofficial shortened product names.
 Default set to \code{FALSE}.}
 
-\item{include_communities}{Whether to include or not to include product 
+\item{include_sections}{Whether to include or not to include product 
 community names when the requested table contains the \code{product_code}
 field. Default set to \code{FALSE}.}
 

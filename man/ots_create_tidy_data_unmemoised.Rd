@@ -9,12 +9,12 @@ ots_create_tidy_data_unmemoised(
   reporters = "usa",
   partners = "all",
   products = "all",
+  sections = "all",
   groups = "all",
-  communities = "all",
   table = "yr",
   max_attempts = 5,
   include_shortnames = FALSE,
-  include_communities = FALSE,
+  include_sections = FALSE,
   use_localhost = FALSE
 )
 }

@@ -66,7 +66,7 @@ ots_products
 
 ots_product_shortnames
 
-ots_communities
+ots_sections
 ```
 
 ## Inflation data
@@ -102,20 +102,20 @@ The function `ots_country_code()` is used by `ots_create_tidy_data()` in a way t
 The end user can use this function to find a product code by providing a product name. This works by implementing partial string matching:
 
 ```{r product_code}
-ots_product_code("wine")
+ots_product_code(" WiNe ")
 ```
 
 This function searches both products and groups:
 ```{r product_code2}
-ots_product_code(productname = "Milk", productgroup = "Dairy")
+ots_product_code(productname = " ShEEp ", productgroup = " mEaT ")
 ```
 
-## Community code
+## Section code
 
 The end user can use this function to find a community code by providing a community name. This works by implementing partial string matching:
 
-```{r community_code}
-ots_product_community("fabric")
+```{r section_code}
+ots_product_section(" tExTiLeS ")
 ```
 
 ## Trade data
@@ -124,7 +124,7 @@ This function downloads data for a single year and needs (at least) some filter 
 
 Here we cover aggregated tables to describe the usage.
 
-### Bilateral trade at community level (Year - Reporter - Partner - Community Code)
+### Bilateral trade at community level (Year - Reporter - Partner - Section Code)
 
 If we want Chile-Argentina bilateral trade at community level in 1962:
 ```{r yrpc-ga1, eval = T}
@@ -132,7 +132,7 @@ ots_create_tidy_data(
   years = 1962,
   reporters = "chl",
   partners = "arg",
-  table = "yrpc-ca"
+  table = "yrpc-sa"
 )
 ```
 
@@ -144,12 +144,12 @@ ots_create_tidy_data(
   years = c(1962,1963),
   reporters = c("chl", "Peru", "bol"),
   partners = c("arg", "Brazil"),
-  communities = c("01", "food"),
-  table = "yrpc-ca"
+  sections = c("01", "food"),
+  table = "yrpc-sa"
 )
 ```
 
-`yrpc-ca` table returns some fields that deserve an explanation which can be seen at [docs.tradestatistics.io](docs.tradestatistics.io).
+`yrpc-sa` table returns some fields that deserve an explanation which can be seen at [docs.tradestatistics.io](docs.tradestatistics.io).
 
 `yrpc-ga` and `yrpc` tables are less aggregated version of this, and the usage is almost the same.
 
@@ -166,7 +166,7 @@ ots_create_tidy_data(
 )
 ```
 
-This table accepts different years, reporters and partners just like `yrpc-ca`.
+This table accepts different years, reporters and partners just like `yrpc-sa`.
 
 ### Reporter trade at product level (Year - Reporter - Product Code) 
 
@@ -180,7 +180,7 @@ ots_create_tidy_data(
 )
 ```
 
-This table accepts different years, reporters and product codes just like `yrpc-ca`.
+This table accepts different years, reporters and product codes just like `yrpc-sa`.
 
 All the variables from this table are documented at [docs.tradestatistics.io](docs.tradestatistics.io).
 

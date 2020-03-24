@@ -11,11 +11,11 @@
 #' @param products HS product codes (e.g. \code{"0101"}, \code{"01"} or search
 #' matches for \code{"apple"})
 #' to filter products. Default set to \code{"all"}.
+#' @param sections unofficial product sections (e.g. \code{"01"} or search
+#' matches for \code{"animals"}) to filter sections Default set to
+#' \code{"all"}.
 #' @param groups HS product groups (e.g. \code{"01"} or search matches for 
 #' \code{"animals"}) to filter groups. Default set to \code{"all"}.
-#' @param communities unofficial product communities (e.g. \code{"01"} or search
-#' matches for \code{"animals"}) to filter communities Default set to
-#' \code{"all"}.
 #' @param table Character string to select the table to obtain the data.
 #' Default set to \code{yr} (Year - Reporter).
 #' Run \code{ots_tables} in case of doubt.
@@ -24,7 +24,7 @@
 #' to \code{5}.
 #' @param include_shortnames Whether to include or not to include unofficial shortened product names.
 #' Default set to \code{FALSE}.
-#' @param include_communities Whether to include or not to include product 
+#' @param include_sections Whether to include or not to include product 
 #' community names when the requested table contains the \code{product_code}
 #' field. Default set to \code{FALSE}.
 #' @param use_cache Logical to save and load from cache. If \code{TRUE}, the results will be cached in memory
@@ -67,12 +67,12 @@ ots_create_tidy_data <- function(years = 2018,
                                  reporters = "usa",
                                  partners = "all",
                                  products = "all",
+                                 sections = "all",
                                  groups = "all",
-                                 communities = "all",
                                  table = "yr",
                                  max_attempts = 5,
                                  include_shortnames = FALSE,
-                                 include_communities = FALSE,
+                                 include_sections = FALSE,
                                  use_cache = FALSE,
                                  file = NULL,
                                  use_localhost = FALSE) {
@@ -91,12 +91,12 @@ ots_create_tidy_data <- function(years = 2018,
     reporters = reporters,
     partners = partners,
     products = products,
+    sections = sections,
     groups = groups,
-    communities = communities,
     table = table,
     max_attempts = max_attempts,
     include_shortnames = include_shortnames,
-    include_communities = include_communities,
+    include_sections = include_sections,
     use_localhost = use_localhost
   )
 }
@@ -108,12 +108,12 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
                                             reporters = "usa",
                                             partners = "all",
                                             products = "all",
+                                            sections = "all",
                                             groups = "all",
-                                            communities = "all",
                                             table = "yr",
                                             max_attempts = 5,
                                             include_shortnames = FALSE,
-                                            include_communities = FALSE,
+                                            include_sections = FALSE,
                                             use_localhost = FALSE) {
   # Check tables ----
   if (!table %in% tradestatistics::ots_tables$table) {
@@ -289,41 +289,41 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     stop("The requested groups do not exist. Please check ots_products.")
   }
   
-  # Check communities ----
-  community_depending_queries <- grep("-ca$|-gca$",
+  # Check sections ----
+  section_depending_queries <- grep("-sa$|-sga$",
                                       tradestatistics::ots_tables$table,
                                       value = T
   )
   
-  unique_communities <- unique(tradestatistics::ots_communities$community_code)
-  unique_communities <- c(unique_communities, "all")
+  unique_sections <- unique(tradestatistics::ots_sections$section_code)
+  unique_sections <- c(unique_sections, "all")
   
-  if (!all(as.character(communities) %in% unique_communities) == TRUE &
-      table %in% community_depending_queries) {
+  if (!all(as.character(sections) %in% unique_sections) == TRUE &
+      table %in% section_depending_queries) {
     
-    # communities without match (wm)
-    communities_wm <- communities[!communities %in% unique_communities]
+    # sections without match (wm)
+    sections_wm <- sections[!sections %in% unique_sections]
     
     # community name match (cmm)
     cnm <- map_df(
-      .x = seq_along(communities_wm),
-      ~ tradestatistics::ots_product_community(productcommunity = communities_wm[.x])
+      .x = seq_along(sections_wm),
+      ~ tradestatistics::ots_product_section(productsection = sections_wm[.x])
     )
     
-    communities_wm <- cnm %>%
-      distinct(!!sym("community_code")) %>%
+    sections_wm <- cnm %>%
+      distinct(!!sym("section_code")) %>%
       as_vector()
     
-    communities <- c(communities[communities %in% unique_communities], communities_wm)
+    sections <- c(sections[sections %in% unique_sections], sections_wm)
     
-    if(length(communities) == 0) {
-      communities <- NA
+    if(length(sections) == 0) {
+      sections <- NA
     }
   }
   
-  if (!all(as.character(communities) %in% unique_communities == TRUE) &
-      table %in% community_depending_queries) {
-    stop("The requested communities do not exist. Please check ots_products.")
+  if (!all(as.character(sections) %in% unique_sections == TRUE) &
+      table %in% section_depending_queries) {
+    stop("The requested sections do not exist. Please check ots_products.")
   }
   
   # Check optional parameters ----
@@ -335,8 +335,8 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     stop("include_shortnames must be logical.")
   }
 
-  if (!is.logical(include_communities)) {
-    stop("include_communities must be logical.")
+  if (!is.logical(include_sections)) {
+    stop("include_sections must be logical.")
   }
 
   if (!is.logical(use_localhost)) {
@@ -354,9 +354,9 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     warning("The groups argument will be ignored provided that you requested a table without group_code field.")
   }
   
-  if (!table %in% community_depending_queries & any(communities != "all") == TRUE) {
-    communities <- "all"
-    warning("The communities argument will be ignored provided that you requested a table without community_code field.")
+  if (!table %in% section_depending_queries & any(sections != "all") == TRUE) {
+    sections <- "all"
+    warning("The sections argument will be ignored provided that you requested a table without section_code field.")
   }
 
   if (is.null(reporters)) {
@@ -375,7 +375,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     partner = partners,
     product = products,
     group = groups,
-    community = communities,
+    community = sections,
     stringsAsFactors = FALSE
   )
 
@@ -389,7 +389,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
       partner_iso = condensed_parameters$partner[.x],
       product_code = condensed_parameters$product[.x],
       group_code = condensed_parameters$group[.x],
-      community_code = condensed_parameters$community[.x],
+      section_code = condensed_parameters$community[.x],
       use_localhost = use_localhost
     )
   ) %>%
@@ -490,9 +490,9 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
       left_join(tradestatistics::ots_product_shortnames)
   }
 
-  if (table %in% product_depending_queries & include_communities == TRUE) {
+  if (table %in% product_depending_queries & include_sections == TRUE) {
     data %<>%
-      left_join(tradestatistics::ots_communities)
+      left_join(tradestatistics::ots_sections)
   }
 
   # include groups data
@@ -505,14 +505,14 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
       )
   }
   
-  # include communities data
-  if (table %in% community_depending_queries[community_depending_queries != "yr-ca"]) {
+  # include sections data
+  if (table %in% section_depending_queries[section_depending_queries != "yr-sa"]) {
     data %<>%
       left_join(
-        tradestatistics::ots_communities %>% 
-          select(!!!syms(c("community_code", "community_name",
-                           "community_color"))) %>% 
-          distinct(), by = "community_code"
+        tradestatistics::ots_sections %>% 
+          select(!!!syms(c("section_code", "section_name",
+                           "section_color"))) %>% 
+          distinct(), by = "section_code"
       )
   }
   
@@ -524,7 +524,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
       starts_with("partner_"),
       starts_with("product_"),
       starts_with("group_"),
-      starts_with("community_"),
+      starts_with("section_"),
       everything()
     )
   

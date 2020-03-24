@@ -95,8 +95,8 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     stopifnot(is.character(productname))
     # stopifnot(nchar(productname) > 0)
     
-    productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = " ")
-    productname <- str_replace_all(productname, "[^[:alpha:]]", " ")
+    productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = "")
+    productname <- str_replace_all(productname, "[^[:alpha:]]", "")
     productname <- str_squish(productname)
     productname <- str_trim(productname)
     
@@ -111,7 +111,7 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
         ) %>%
         filter(
           str_detect(
-            str_to_lower(!!sym("product_fullname_english")), productname
+            str_to_lower(!!sym("product_fullname_english")), str_to_lower(!!sym("productname"))
           )
         )
     }
@@ -121,8 +121,8 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     stopifnot(is.character(productgroup))
     # stopifnot(nchar(productgroup) > 0)
     
-    productgroup <- iconv(productgroup, to = "ASCII//TRANSLIT", sub = " ")
-    productgroup <- str_replace_all(productgroup, "[^[:alpha:]]", " ")
+    productgroup <- iconv(productgroup, to = "ASCII//TRANSLIT", sub = "")
+    productgroup <- str_replace_all(productgroup, "[^[:alpha:]]", "")
     productgroup <- str_squish(productgroup)
     productgroup <- str_trim(productgroup)
     
@@ -137,7 +137,7 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
         ) %>%
         filter(
           str_detect(
-            str_to_lower(!!sym("group_name")), productgroup
+            str_to_lower(!!sym("group_name")), str_to_lower(!!sym("productgroup"))
           )
         )
     }
@@ -150,13 +150,13 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     stopifnot(is.character(productgroup))
     # stopifnot(nchar(productgroup) > 0)
     
-    productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = " ")
-    productname <- str_replace_all(productname, "[^[:alpha:]]", " ")
+    productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = "")
+    productname <- str_replace_all(productname, "[^[:alpha:]]", "")
     productname <- str_squish(productname)
     productname <- str_trim(productname)
     
-    productgroup <- iconv(productgroup, to = "ASCII//TRANSLIT", sub = " ")
-    productgroup <- str_replace_all(productgroup, "[^[:alpha:]]", " ")
+    productgroup <- iconv(productgroup, to = "ASCII//TRANSLIT", sub = "")
+    productgroup <- str_replace_all(productgroup, "[^[:alpha:]]", "")
     productgroup <- str_squish(productgroup)
     productgroup <- str_trim(productgroup)
     
@@ -172,10 +172,10 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
         ) %>%
         filter(
           str_detect(
-            str_to_lower(!!sym("product_fullname_english")), productname
+            str_to_lower(!!sym("product_fullname_english")), str_to_lower(!!sym("productname"))
           ),
           str_detect(
-            str_to_lower(!!sym("group_name")), productgroup
+            str_to_lower(!!sym("group_name")), str_to_lower(!!sym("productgroup"))
           )
         )
     }
@@ -184,14 +184,14 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
   return(d)
 }
 
-#' String matching of unofficial product community names and product community
+#' String matching of unofficial product section names and product section
 #' codes
 #' @description Takes a text string and searches within the
 #' package data for all matching product communities in the context of valid API
 #' product communities
-#' @param productcommunity A text string such as "animals", or "FOODSTUFFS".
+#' @param productsection A text string such as "animals", or "FOODSTUFFS".
 #' @return A tibble with all possible matches (no uppercase distinction)
-#' showing the community name and community code
+#' showing the section name and section code
 #' @importFrom magrittr %>%
 #' @importFrom dplyr mutate filter
 #' @importFrom rlang sym
@@ -199,33 +199,33 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
 #' @importFrom utils data
 #' @export
 #' @examples
-#' ots_product_community(productcommunity = "  Animals")
-#' ots_product_community(productcommunity = "FABRIC ")
+#' ots_product_section(productsection = "  Animals")
+#' ots_product_section(productsection = "FABRIC ")
 #' @keywords functions
-ots_product_community <- function(productcommunity = NULL) {
-  if (is.null(productcommunity)) {
-    stop("'productcommunity' is NULL.")
+ots_product_section <- function(productsection = NULL) {
+  if (is.null(productsection)) {
+    stop("'productsection' is NULL.")
   }
   
-  stopifnot(is.character(productcommunity))
+  stopifnot(is.character(productsection))
   
-  productcommunity <- iconv(productcommunity, to = "ASCII//TRANSLIT", sub = " ")
-  productcommunity <- str_replace_all(productcommunity, "[^[:alpha:]]", " ")
-  productcommunity <- str_squish(productcommunity)
-  productcommunity <- str_trim(productcommunity)
+  productsection <- iconv(productsection, to = "ASCII//TRANSLIT", sub = "")
+  productsection <- str_replace_all(productsection, "[^[:alpha:]]", "")
+  productsection <- str_squish(productsection)
+  productsection <- str_trim(productsection)
   
   # get the products dataset, create the type_product column,
   # bind them all together and do the search
-  if (productcommunity == "") {
+  if (productsection == "") {
     stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the products table provided within this package.")
   } else {
-    d <- tradestatistics::ots_communities %>%
+    d <- tradestatistics::ots_sections %>%
       mutate(
-        type_community = productcommunity
+        type_section = productsection
       ) %>%
       filter(
         str_detect(
-          str_to_lower(!!sym("community_name")), productcommunity
+          str_to_lower(!!sym("section_name")), str_to_lower(!!sym("productsection"))
         )
       )
   }

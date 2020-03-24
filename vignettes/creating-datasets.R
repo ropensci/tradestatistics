@@ -50,19 +50,19 @@ knitr::opts_chunk$set(
 #    save(ots_products, file = products_tidy_file, compress = "xz")
 #  }
 
-## ----communities, message = FALSE, eval = FALSE-------------------------------
-#  communities_url <- "https://api.tradestatistics.io/communities"
-#  communities_raw_file <- "../data-raw/ots_communities.json"
-#  communities_tidy_file <- "../data/ots_communities.rda"
+## ----sections, message = FALSE, eval = FALSE----------------------------------
+#  sections_url <- "https://api.tradestatistics.io/sections"
+#  sections_raw_file <- "../data-raw/ots_sections.json"
+#  sections_tidy_file <- "../data/ots_sections.rda"
 #  
-#  if (!file.exists(communities_raw_file)) { download.file(communities_url, communities_raw_file) }
+#  if (!file.exists(sections_raw_file)) { download.file(sections_url, sections_raw_file) }
 #  
-#  if (!file.exists(communities_tidy_file)) {
-#    ots_communities <- fromJSON(communities_raw_file) %>%
+#  if (!file.exists(sections_tidy_file)) {
+#    ots_sections <- fromJSON(sections_raw_file) %>%
 #      as_tibble() %>%
 #      mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")}) %>%
 #      filter(nchar(product_code) == 4)
-#    save(ots_communities, file = communities_tidy_file, compress = "xz")
+#    save(ots_sections, file = sections_tidy_file, compress = "xz")
 #  }
 
 ## ----product_shortnames, message = FALSE, eval = FALSE------------------------
