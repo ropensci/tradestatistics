@@ -247,7 +247,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
                                     value = T
   )
   
-  unique_groups <- unique(tradestatistics::ots_products$group_code)
+  unique_groups <- unique(tradestatistics::ots_groups$group_code)
   unique_groups <- c(unique_groups[!is.na(unique_groups)], "all")
   
   if (!all(as.character(groups) %in% unique_groups) == TRUE &
@@ -284,7 +284,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
                                       value = T
   )
   
-  unique_sections <- unique(tradestatistics::ots_sections$section_code)
+  unique_sections <- tradestatistics::ots_sections_names$section_code
   unique_sections <- c(unique_sections, "all")
   
   if (!all(as.character(sections) %in% unique_sections) == TRUE &
@@ -463,40 +463,31 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   # include products data
   if (table %in% product_depending_queries) {
     data %<>%
-      left_join(tradestatistics::ots_products, by = "product_code")
-  }
-
-  if (table %in% product_depending_queries) {
-    data %<>%
-      left_join(tradestatistics::ots_product_shortnames)
-  }
-
-  if (table %in% product_depending_queries) {
-    data %<>%
-      left_join(tradestatistics::ots_sections) %>% 
-      left_join(tradestatistics::ots_sections_shortnames)
+      left_join(tradestatistics::ots_products, by = "product_code") %>% 
+      left_join(tradestatistics::ots_product_shortnames, by = "product_code") %>% 
+      
+      left_join(tradestatistics::ots_sections, by = "product_code") %>% 
+      left_join(tradestatistics::ots_sections_names, by = "section_code") %>% 
+      left_join(tradestatistics::ots_sections_shortnames, by = "section_code") %>% 
+      left_join(tradestatistics::ots_sections_colors, by = "section_code") %>% 
+      
+      mutate(group_code = substr(!!sym("product_code"), 1, 2)) %>% 
+      left_join(tradestatistics::ots_groups, by = "group_code")
   }
 
   # include groups data
   if (table %in% group_depending_queries) {
     data %<>%
-      left_join(
-        tradestatistics::ots_products %>% 
-          select(!!!syms(c("group_code", "group_name"))) %>% 
-          distinct(), by = "group_code"
-      )
+      left_join(tradestatistics::ots_groups, by = "group_code")
   }
   
   # include sections data
   if (table %in% section_depending_queries[section_depending_queries != "yr-sa"]) {
     data %<>%
-      left_join(
-        tradestatistics::ots_sections %>% 
-          select(!!!syms(c("section_code", "section_fullname_english",
-                           "section_color"))) %>% 
-          distinct(), by = "section_code"
-      ) %>% 
-      left_join(tradestatistics::ots_sections_shortnames)
+      left_join(tradestatistics::ots_sections, by = "section_code") %>% 
+      left_join(tradestatistics::ots_sections_names, by = "section_code") %>% 
+      left_join(tradestatistics::ots_sections_shortnames, by = "section_code") %>% 
+      left_join(tradestatistics::ots_sections_colors, by = "section_code")
   }
   
   # order columns for consistent order

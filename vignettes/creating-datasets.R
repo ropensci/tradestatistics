@@ -65,6 +65,20 @@ knitr::opts_chunk$set(
 #    save(ots_sections, file = sections_tidy_file, compress = "xz")
 #  }
 
+## ----groups, message = FALSE, eval = FALSE------------------------------------
+#  groups_url <- "https://api.tradestatistics.io/groups"
+#  groups_raw_file <- "../data-raw/ots_groups.json"
+#  groups_tidy_file <- "../data/ots_groups.rda"
+#  
+#  if (!file.exists(groups_raw_file)) { download.file(groups_url, groups_raw_file) }
+#  
+#  if (!file.exists(groups_tidy_file)) {
+#    ots_groups <- fromJSON(groups_raw_file) %>%
+#      as_tibble() %>%
+#      mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
+#    save(ots_groups, file = groups_tidy_file, compress = "xz")
+#  }
+
 ## ----product_shortnames, message = FALSE, eval = FALSE------------------------
 #  product_shortnames_url <- "https://api.tradestatistics.io/product_shortnames"
 #  product_shortnames_raw_file <- "../data-raw/ots_product_shortnames.json"
@@ -79,6 +93,20 @@ knitr::opts_chunk$set(
 #    save(ots_product_shortnames, file = product_shortnames_tidy_file, compress = "xz")
 #  }
 
+## ----sections_names, message = FALSE, eval = FALSE----------------------------
+#  sections_names_url <- "https://api.tradestatistics.io/sections_names"
+#  sections_names_raw_file <- "../data-raw/ots_sections_names.json"
+#  sections_names_tidy_file <- "../data/ots_sections_names.rda"
+#  
+#  if (!file.exists(sections_names_raw_file)) { download.file(sections_names_url, sections_names_raw_file) }
+#  
+#  if (!file.exists(sections_names_tidy_file)) {
+#    ots_sections_names <- fromJSON(sections_names_raw_file) %>%
+#      as_tibble() %>%
+#      mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
+#    save(ots_sections_names, file = sections_names_tidy_file, compress = "xz")
+#  }
+
 ## ----sections_shortnames, message = FALSE, eval = FALSE-----------------------
 #  sections_shortnames_url <- "https://api.tradestatistics.io/sections_shortnames"
 #  sections_shortnames_raw_file <- "../data-raw/ots_sections_shortnames.json"
@@ -91,6 +119,20 @@ knitr::opts_chunk$set(
 #      as_tibble() %>%
 #      mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
 #    save(ots_sections_shortnames, file = sections_shortnames_tidy_file, compress = "xz")
+#  }
+
+## ----sections_colors, message = FALSE, eval = FALSE---------------------------
+#  sections_colors_url <- "https://api.tradestatistics.io/sections_colors"
+#  sections_colors_raw_file <- "../data-raw/ots_sections_colors.json"
+#  sections_colors_tidy_file <- "../data/ots_sections_colors.rda"
+#  
+#  if (!file.exists(sections_colors_raw_file)) { download.file(sections_colors_url, sections_colors_raw_file) }
+#  
+#  if (!file.exists(sections_colors_tidy_file)) {
+#    ots_sections_colors <- fromJSON(sections_colors_raw_file) %>%
+#      as_tibble() %>%
+#      mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
+#    save(ots_sections_colors, file = sections_colors_tidy_file, compress = "xz")
 #  }
 
 ## ----conversion_rates, message = FALSE, eval = FALSE--------------------------

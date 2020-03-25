@@ -144,7 +144,7 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
     )
     
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "10 variables")
+    expect_output(str(test_data), "12 variables")
   })
 })
 
@@ -414,7 +414,7 @@ test_that("ots_create_tidy_data returns warning with unused group filter", {
     )
     
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "10 variables")
+    expect_output(str(test_data), "12 variables")
   })
 })
 

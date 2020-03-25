@@ -1,6 +1,6 @@
 \name{ots_sections_shortnames}
 \alias{ots_sections_shortnames}
-\title{A table of sections codes, and shortened names associated to products}
+\title{A table of sections codes and shortened names associated to products}
 \docType{data}
 \description{
 Provides shortened section names from The Atlas of Economic Complexity (Harvard), which are

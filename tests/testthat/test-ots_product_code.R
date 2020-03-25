@@ -5,7 +5,7 @@ test_that("ots_product_code works properly for a partial product string matching
 
   expect_is(test_product, "tbl")
   expect_output(str(test_product), "26 obs")
-  expect_output(str(test_product), "5 variables")
+  expect_output(str(test_product), "3 variables")
 })
 
 test_that("ots_product_code returns 0 rows for a non-existing product match", {
@@ -21,8 +21,8 @@ test_that("ots_product_code works properly for a partial group string matching",
   test_group <- ots_product_code(productgroup = "vegetable")
   
   expect_is(test_group, "tbl")
-  expect_output(str(test_group), "58 obs")
-  expect_output(str(test_group), "5 variables")
+  expect_output(str(test_group), "6 obs")
+  expect_output(str(test_group), "3 variables")
 })
 
 test_that("ots_product_code return 0 rows for a non-existing group match", {

@@ -131,13 +131,13 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     if (productgroup == "") {
       stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the products table provided within this package.")
     } else {
-      d <- tradestatistics::ots_products %>%
+      d <- tradestatistics::ots_groups %>%
         mutate(
           type_group = productgroup
         ) %>%
         filter(
           str_detect(
-            str_to_lower(!!sym("group_name")), str_to_lower(!!sym("productgroup"))
+            str_to_lower(!!sym("group_fullname_english")), str_to_lower(!!sym("productgroup"))
           )
         )
     }
@@ -166,6 +166,8 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
       stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the products table provided within this package.")
     } else {
       d <- tradestatistics::ots_products %>%
+        mutate(group_code = substr(!!sym("product_code"), 1, 2)) %>% 
+        left_join(tradestatistics::ots_groups) %>% 
         mutate(
           type_name = productname,
           type_group = productgroup
@@ -175,7 +177,7 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
             str_to_lower(!!sym("product_fullname_english")), str_to_lower(!!sym("productname"))
           ),
           str_detect(
-            str_to_lower(!!sym("group_name")), str_to_lower(!!sym("productgroup"))
+            str_to_lower(!!sym("group_fullname_english")), str_to_lower(!!sym("productgroup"))
           )
         )
     }
@@ -193,7 +195,7 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
 #' @return A tibble with all possible matches (no uppercase distinction)
 #' showing the section name and section code
 #' @importFrom magrittr %>%
-#' @importFrom dplyr mutate filter
+#' @importFrom dplyr mutate filter left_join
 #' @importFrom rlang sym
 #' @importFrom stringr str_detect str_to_lower str_trim str_squish
 #' @importFrom utils data
@@ -220,6 +222,7 @@ ots_product_section <- function(productsection = NULL) {
     stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the products table provided within this package.")
   } else {
     d <- tradestatistics::ots_sections %>%
+      left_join(tradestatistics::ots_sections_names) %>% 
       mutate(
         type_section = productsection
       ) %>%
