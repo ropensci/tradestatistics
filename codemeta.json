@@ -1,0 +1,311 @@
+{
+  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
+  "@type": "SoftwareSourceCode",
+  "identifier": "tradestatistics",
+  "description": "Access 'Open Trade Statistics' API from R to download international trade data.",
+  "name": "tradestatistics: Open Trade Statistics API Wrapper and Utility Program",
+  "codeRepository": "https://docs.ropensci.org/tradestatistics/",
+  "issueTracker": "https://github.com/ropensci/tradestatistics/issues",
+  "license": "https://spdx.org/licenses/GPL-3.0",
+  "version": "0.4.0",
+  "programmingLanguage": {
+    "@type": "ComputerLanguage",
+    "name": "R",
+    "version": "3.6.3",
+    "url": "https://r-project.org"
+  },
+  "runtimePlatform": "R version 3.6.3 (2020-02-29)",
+  "provider": {
+    "@id": "https://cran.r-project.org",
+    "@type": "Organization",
+    "name": "Comprehensive R Archive Network (CRAN)",
+    "url": "https://cran.r-project.org"
+  },
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Mauricio",
+      "familyName": "Vargas",
+      "email": "mvargas@dcc.uchile.cl",
+      "@id": "https://orcid.org/0000-0003-1017-7574"
+    }
+  ],
+  "contributor": [
+    {
+      "@type": "Person",
+      "givenName": "Joshua",
+      "familyName": "Kunst"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Natalia",
+      "familyName": "de los Santos"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Elio",
+      "familyName": "Campitelli"
+    },
+    {
+      "@type": "Organization",
+      "name": "UN Comtrade"
+    },
+    {
+      "@type": "Organization",
+      "name": "The World Bank"
+    },
+    {
+      "@type": "Organization",
+      "name": "Center for International Development at Harvard University"
+    },
+    {
+      "@type": "Organization",
+      "name": "The Observatory of Economic Complexity"
+    }
+  ],
+  "copyrightHolder": [
+    {
+      "@type": "Person",
+      "givenName": "Mauricio",
+      "familyName": "Vargas",
+      "email": "mvargas@dcc.uchile.cl",
+      "@id": "https://orcid.org/0000-0003-1017-7574"
+    }
+  ],
+  "funder": {},
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "Mauricio",
+      "familyName": "Vargas",
+      "email": "mvargas@dcc.uchile.cl",
+      "@id": "https://orcid.org/0000-0003-1017-7574"
+    }
+  ],
+  "softwareSuggestions": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "knitr",
+      "name": "knitr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=knitr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rmarkdown",
+      "name": "rmarkdown",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "testthat",
+      "name": "testthat",
+      "version": ">= 2.1.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "styler",
+      "name": "styler",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=styler"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "pkgdown",
+      "name": "pkgdown",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=pkgdown"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "vcr",
+      "name": "vcr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=vcr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "covr",
+      "name": "covr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=covr"
+    }
+  ],
+  "softwareRequirements": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "R",
+      "name": "R",
+      "version": ">= 3.5.0"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rlang",
+      "name": "rlang",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rlang"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "magrittr",
+      "name": "magrittr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=magrittr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "dplyr",
+      "name": "dplyr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=dplyr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "stringr",
+      "name": "stringr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=stringr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "crul",
+      "name": "crul",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=crul"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "purrr",
+      "name": "purrr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=purrr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "jsonlite",
+      "name": "jsonlite",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=jsonlite"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "memoise",
+      "name": "memoise",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=memoise"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "data.table",
+      "name": "data.table",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=data.table"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "digest",
+      "name": "digest",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=digest"
+    }
+  ],
+  "releaseNotes": "https://github.com/ropensci/tradestatistics/blob/master/NEWS.md",
+  "readme": "https://github.com/ropensci/tradestatistics/blob/master/README.md",
+  "fileSize": "175.834KB",
+  "contIntegration": "https://codecov.io/github/ropensci/tradestatistics?branch=master",
+  "developmentStatus": ["https://www.repostatus.org/#active", "https://www.tidyverse.org/lifecycle/#stable"],
+  "review": {
+    "@type": "Review",
+    "url": "https://github.com/ropensci/onboarding/issues/274",
+    "provider": "http://ropensci.org"
+  },
+  "relatedLink": "https://CRAN.R-project.org/package=tradestatistics"
+}
