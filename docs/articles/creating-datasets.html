@@ -9,13 +9,14 @@
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/apple-touch-icon.png">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><!-- ropensci --><link href="../ropensci.css?nocache=123" rel="stylesheet">
 <meta property="og:title" content="Creating the datasets available within the package">
-<meta property="og:description" content="">
+<meta property="og:description" content="tradestatistics">
 <meta name="twitter:card" content="summary">
 <!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-462421-8"></script><script>
   window.dataLayer = window.dataLayer || [];
@@ -25,7 +26,7 @@
   gtag('config', 'UA-462421-8');
 </script>
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -71,7 +72,12 @@
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
-        
+        <li>
+  <a href="https://github.com/ropensci/tradestatistics/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
 </div>
 <!--/.nav-collapse -->
@@ -85,12 +91,12 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Creating the datasets available within the package</h1>
+      <h1 data-toc-skip>Creating the datasets available within the package</h1>
                         <h4 class="author">Mauricio Vargas S.</h4>
             
-            <h4 class="date">2020-03-24</h4>
+            <h4 class="date">2020-04-01</h4>
       
-      
+      <small class="dont-index">Source: <a href="https://github.com/ropensci/tradestatistics/blob/master/vignettes/creating-datasets.Rmd"><code>vignettes/creating-datasets.Rmd</code></a></small>
       <div class="hidden name"><code>creating-datasets.Rmd</code></div>
 
     </div>
@@ -101,141 +107,178 @@
 <div id="tables" class="section level1">
 <h1 class="hasAnchor">
 <a href="#tables" class="anchor"></a>Tables</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(jsonlite)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">tables_url &lt;-<span class="st"> "https://api.tradestatistics.io/tables"</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">tables_raw_file &lt;-<span class="st"> "../data-raw/ots_tables.json"</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">tables_tidy_file &lt;-<span class="st"> "../data/ots_tables.rda"</span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(tables_raw_file)) { <span class="kw"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(tables_url, tables_raw_file) }</a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(tables_tidy_file)) {</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">  ots_tables &lt;-<span class="st"> </span><span class="kw"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(tables_raw_file) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span>(is.character, <span class="cf">function</span>(x) { <span class="kw"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span>(x, <span class="dt">to =</span> <span class="st">"ASCII//TRANSLIT"</span>)})</a>
-<a class="sourceLine" id="cb1-14" data-line-number="14">  <span class="kw"><a href="https://rdrr.io/r/base/save.html">save</a></span>(ots_tables, <span class="dt">file =</span> tables_tidy_file, <span class="dt">compress =</span> <span class="st">"xz"</span>)</a>
-<a class="sourceLine" id="cb1-15" data-line-number="15">}</a></code></pre></div>
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dplyr</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">jsonlite</span>)
+
+<span class="no">tables_url</span> <span class="kw">&lt;-</span> <span class="st">"https://api.tradestatistics.io/tables"</span>
+<span class="no">tables_raw_file</span> <span class="kw">&lt;-</span> <span class="st">"../data-raw/ots_tables.json"</span>
+<span class="no">tables_tidy_file</span> <span class="kw">&lt;-</span> <span class="st">"../data/ots_tables.rda"</span>
+
+<span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(<span class="no">tables_raw_file</span>)) { <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(<span class="no">tables_url</span>, <span class="no">tables_raw_file</span>) }
+
+<span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(<span class="no">tables_tidy_file</span>)) {
+  <span class="no">ots_tables</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(<span class="no">tables_raw_file</span>) <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>() <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span>(<span class="no">is.character</span>, <span class="kw">function</span>(<span class="no">x</span>) { <span class="fu"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span>(<span class="no">x</span>, <span class="kw">to</span> <span class="kw">=</span> <span class="st">"ASCII//TRANSLIT"</span>)})
+  <span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span>(<span class="no">ots_tables</span>, <span class="kw">file</span> <span class="kw">=</span> <span class="no">tables_tidy_file</span>, <span class="kw">compress</span> <span class="kw">=</span> <span class="st">"xz"</span>)
+}</pre></body></html></div>
 </div>
 <div id="country-codes" class="section level1">
 <h1 class="hasAnchor">
 <a href="#country-codes" class="anchor"></a>Country codes</h1>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">countries_url &lt;-<span class="st"> "https://api.tradestatistics.io/countries"</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">countries_raw_file &lt;-<span class="st"> "../data-raw/ots_countries.json"</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">countries_tidy_file &lt;-<span class="st"> "../data/ots_countries.rda"</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(countries_raw_file)) { <span class="kw"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(countries_url, countries_raw_file) }</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(countries_tidy_file)) {</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">  ots_countries &lt;-<span class="st"> </span><span class="kw"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(countries_raw_file) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span>(is.character, <span class="cf">function</span>(x) { <span class="kw"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span>(x, <span class="dt">to =</span> <span class="st">"ASCII//TRANSLIT"</span>)})</a>
-<a class="sourceLine" id="cb2-11" data-line-number="11">  <span class="kw"><a href="https://rdrr.io/r/base/save.html">save</a></span>(ots_countries, <span class="dt">file =</span> countries_tidy_file, <span class="dt">compress =</span> <span class="st">"xz"</span>)</a>
-<a class="sourceLine" id="cb2-12" data-line-number="12">}</a></code></pre></div>
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">countries_url</span> <span class="kw">&lt;-</span> <span class="st">"https://api.tradestatistics.io/countries"</span>
+<span class="no">countries_raw_file</span> <span class="kw">&lt;-</span> <span class="st">"../data-raw/ots_countries.json"</span>
+<span class="no">countries_tidy_file</span> <span class="kw">&lt;-</span> <span class="st">"../data/ots_countries.rda"</span>
+
+<span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(<span class="no">countries_raw_file</span>)) { <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(<span class="no">countries_url</span>, <span class="no">countries_raw_file</span>) }
+
+<span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(<span class="no">countries_tidy_file</span>)) {
+  <span class="no">ots_countries</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(<span class="no">countries_raw_file</span>) <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>() <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span>(<span class="no">is.character</span>, <span class="kw">function</span>(<span class="no">x</span>) { <span class="fu"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span>(<span class="no">x</span>, <span class="kw">to</span> <span class="kw">=</span> <span class="st">"ASCII//TRANSLIT"</span>)})
+  <span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span>(<span class="no">ots_countries</span>, <span class="kw">file</span> <span class="kw">=</span> <span class="no">countries_tidy_file</span>, <span class="kw">compress</span> <span class="kw">=</span> <span class="st">"xz"</span>)
+}</pre></body></html></div>
 </div>
 <div id="product-codes" class="section level1">
 <h1 class="hasAnchor">
 <a href="#product-codes" class="anchor"></a>Product codes</h1>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">products_url &lt;-<span class="st"> "https://api.tradestatistics.io/products"</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">products_raw_file &lt;-<span class="st"> "../data-raw/ots_products.json"</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">products_tidy_file &lt;-<span class="st"> "../data/ots_products.rda"</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(products_raw_file)) { <span class="kw"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(products_url, products_raw_file) }</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(products_tidy_file)) {</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">  ots_products &lt;-<span class="st"> </span><span class="kw"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(products_raw_file) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span>(is.character, <span class="cf">function</span>(x) { <span class="kw"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span>(x, <span class="dt">to =</span> <span class="st">"ASCII//TRANSLIT"</span>)}) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span>(product_code) <span class="op">%in%</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>))</a>
-<a class="sourceLine" id="cb3-12" data-line-number="12">  <span class="kw"><a href="https://rdrr.io/r/base/save.html">save</a></span>(ots_products, <span class="dt">file =</span> products_tidy_file, <span class="dt">compress =</span> <span class="st">"xz"</span>)</a>
-<a class="sourceLine" id="cb3-13" data-line-number="13">}</a></code></pre></div>
+<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">products_url</span> <span class="kw">&lt;-</span> <span class="st">"https://api.tradestatistics.io/products"</span>
+<span class="no">products_raw_file</span> <span class="kw">&lt;-</span> <span class="st">"../data-raw/ots_products.json"</span>
+<span class="no">products_tidy_file</span> <span class="kw">&lt;-</span> <span class="st">"../data/ots_products.rda"</span>
+
+<span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(<span class="no">products_raw_file</span>)) { <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(<span class="no">products_url</span>, <span class="no">products_raw_file</span>) }
+
+<span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(<span class="no">products_tidy_file</span>)) {
+  <span class="no">ots_products</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(<span class="no">products_raw_file</span>) <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>() <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span>(<span class="no">is.character</span>, <span class="kw">function</span>(<span class="no">x</span>) { <span class="fu"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span>(<span class="no">x</span>, <span class="kw">to</span> <span class="kw">=</span> <span class="st">"ASCII//TRANSLIT"</span>)}) <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span>(<span class="no">product_code</span>) <span class="kw">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>))
+  <span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span>(<span class="no">ots_products</span>, <span class="kw">file</span> <span class="kw">=</span> <span class="no">products_tidy_file</span>, <span class="kw">compress</span> <span class="kw">=</span> <span class="st">"xz"</span>)
+}</pre></body></html></div>
 </div>
 <div id="section-codes" class="section level1">
 <h1 class="hasAnchor">
 <a href="#section-codes" class="anchor"></a>Section codes</h1>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">sections_url &lt;-<span class="st"> "https://api.tradestatistics.io/sections"</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">sections_raw_file &lt;-<span class="st"> "../data-raw/ots_sections.json"</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">sections_tidy_file &lt;-<span class="st"> "../data/ots_sections.rda"</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(sections_raw_file)) { <span class="kw"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(sections_url, sections_raw_file) }</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(sections_tidy_file)) {</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">  ots_sections &lt;-<span class="st"> </span><span class="kw"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(sections_raw_file) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span>(is.character, <span class="cf">function</span>(x) { <span class="kw"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span>(x, <span class="dt">to =</span> <span class="st">"ASCII//TRANSLIT"</span>)}) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span>(product_code) <span class="op">==</span><span class="st"> </span><span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb4-12" data-line-number="12">  <span class="kw"><a href="https://rdrr.io/r/base/save.html">save</a></span>(ots_sections, <span class="dt">file =</span> sections_tidy_file, <span class="dt">compress =</span> <span class="st">"xz"</span>)</a>
-<a class="sourceLine" id="cb4-13" data-line-number="13">}</a></code></pre></div>
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">sections_url</span> <span class="kw">&lt;-</span> <span class="st">"https://api.tradestatistics.io/sections"</span>
+<span class="no">sections_raw_file</span> <span class="kw">&lt;-</span> <span class="st">"../data-raw/ots_sections.json"</span>
+<span class="no">sections_tidy_file</span> <span class="kw">&lt;-</span> <span class="st">"../data/ots_sections.rda"</span>
+
+<span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(<span class="no">sections_raw_file</span>)) { <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(<span class="no">sections_url</span>, <span class="no">sections_raw_file</span>) }
+
+<span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(<span class="no">sections_tidy_file</span>)) {
+  <span class="no">ots_sections</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(<span class="no">sections_raw_file</span>) <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>() <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span>(<span class="no">is.character</span>, <span class="kw">function</span>(<span class="no">x</span>) { <span class="fu"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span>(<span class="no">x</span>, <span class="kw">to</span> <span class="kw">=</span> <span class="st">"ASCII//TRANSLIT"</span>)}) <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span>(<span class="no">product_code</span>) <span class="kw">==</span> <span class="fl">4</span>)
+  <span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span>(<span class="no">ots_sections</span>, <span class="kw">file</span> <span class="kw">=</span> <span class="no">sections_tidy_file</span>, <span class="kw">compress</span> <span class="kw">=</span> <span class="st">"xz"</span>)
+}</pre></body></html></div>
+</div>
+<div id="groups-codes" class="section level1">
+<h1 class="hasAnchor">
+<a href="#groups-codes" class="anchor"></a>Groups codes</h1>
+<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">groups_url</span> <span class="kw">&lt;-</span> <span class="st">"https://api.tradestatistics.io/groups"</span>
+<span class="no">groups_raw_file</span> <span class="kw">&lt;-</span> <span class="st">"../data-raw/ots_groups.json"</span>
+<span class="no">groups_tidy_file</span> <span class="kw">&lt;-</span> <span class="st">"../data/ots_groups.rda"</span>
+
+<span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(<span class="no">groups_raw_file</span>)) { <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(<span class="no">groups_url</span>, <span class="no">groups_raw_file</span>) }
+
+<span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(<span class="no">groups_tidy_file</span>)) {
+  <span class="no">ots_groups</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(<span class="no">groups_raw_file</span>) <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>() <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span>(<span class="no">is.character</span>, <span class="kw">function</span>(<span class="no">x</span>) { <span class="fu"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span>(<span class="no">x</span>, <span class="kw">to</span> <span class="kw">=</span> <span class="st">"ASCII//TRANSLIT"</span>)})
+  <span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span>(<span class="no">ots_groups</span>, <span class="kw">file</span> <span class="kw">=</span> <span class="no">groups_tidy_file</span>, <span class="kw">compress</span> <span class="kw">=</span> <span class="st">"xz"</span>)
+}</pre></body></html></div>
 </div>
 <div id="product-short-names" class="section level1">
 <h1 class="hasAnchor">
 <a href="#product-short-names" class="anchor"></a>Product short names</h1>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">product_shortnames_url &lt;-<span class="st"> "https://api.tradestatistics.io/product_shortnames"</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">product_shortnames_raw_file &lt;-<span class="st"> "../data-raw/ots_product_shortnames.json"</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">product_shortnames_tidy_file &lt;-<span class="st"> "../data/ots_product_shortnames.rda"</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(product_shortnames_raw_file)) { <span class="kw"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(product_shortnames_url, product_shortnames_raw_file) }</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(product_shortnames_tidy_file)) {</a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">  ots_product_shortnames &lt;-<span class="st"> </span><span class="kw"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(product_shortnames_raw_file) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span>(is.character, <span class="cf">function</span>(x) { <span class="kw"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span>(x, <span class="dt">to =</span> <span class="st">"ASCII//TRANSLIT"</span>)})</a>
-<a class="sourceLine" id="cb5-11" data-line-number="11">  <span class="kw"><a href="https://rdrr.io/r/base/save.html">save</a></span>(ots_product_shortnames, <span class="dt">file =</span> product_shortnames_tidy_file, <span class="dt">compress =</span> <span class="st">"xz"</span>)</a>
-<a class="sourceLine" id="cb5-12" data-line-number="12">}</a></code></pre></div>
+<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="no">product_shortnames_url</span> <span class="kw">&lt;-</span> <span class="st">"https://api.tradestatistics.io/product_shortnames"</span>
+<span class="no">product_shortnames_raw_file</span> <span class="kw">&lt;-</span> <span class="st">"../data-raw/ots_product_shortnames.json"</span>
+<span class="no">product_shortnames_tidy_file</span> <span class="kw">&lt;-</span> <span class="st">"../data/ots_product_shortnames.rda"</span>
+
+<span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(<span class="no">product_shortnames_raw_file</span>)) { <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(<span class="no">product_shortnames_url</span>, <span class="no">product_shortnames_raw_file</span>) }
+
+<span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(<span class="no">product_shortnames_tidy_file</span>)) {
+  <span class="no">ots_product_shortnames</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(<span class="no">product_shortnames_raw_file</span>) <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>() <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span>(<span class="no">is.character</span>, <span class="kw">function</span>(<span class="no">x</span>) { <span class="fu"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span>(<span class="no">x</span>, <span class="kw">to</span> <span class="kw">=</span> <span class="st">"ASCII//TRANSLIT"</span>)})
+  <span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span>(<span class="no">ots_product_shortnames</span>, <span class="kw">file</span> <span class="kw">=</span> <span class="no">product_shortnames_tidy_file</span>, <span class="kw">compress</span> <span class="kw">=</span> <span class="st">"xz"</span>)
+}</pre></body></html></div>
+</div>
+<div id="section-names" class="section level1">
+<h1 class="hasAnchor">
+<a href="#section-names" class="anchor"></a>Section names</h1>
+<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="no">sections_names_url</span> <span class="kw">&lt;-</span> <span class="st">"https://api.tradestatistics.io/sections_names"</span>
+<span class="no">sections_names_raw_file</span> <span class="kw">&lt;-</span> <span class="st">"../data-raw/ots_sections_names.json"</span>
+<span class="no">sections_names_tidy_file</span> <span class="kw">&lt;-</span> <span class="st">"../data/ots_sections_names.rda"</span>
+
+<span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(<span class="no">sections_names_raw_file</span>)) { <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(<span class="no">sections_names_url</span>, <span class="no">sections_names_raw_file</span>) }
+
+<span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(<span class="no">sections_names_tidy_file</span>)) {
+  <span class="no">ots_sections_names</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(<span class="no">sections_names_raw_file</span>) <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>() <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span>(<span class="no">is.character</span>, <span class="kw">function</span>(<span class="no">x</span>) { <span class="fu"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span>(<span class="no">x</span>, <span class="kw">to</span> <span class="kw">=</span> <span class="st">"ASCII//TRANSLIT"</span>)})
+  <span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span>(<span class="no">ots_sections_names</span>, <span class="kw">file</span> <span class="kw">=</span> <span class="no">sections_names_tidy_file</span>, <span class="kw">compress</span> <span class="kw">=</span> <span class="st">"xz"</span>)
+}</pre></body></html></div>
 </div>
 <div id="section-short-names" class="section level1">
 <h1 class="hasAnchor">
 <a href="#section-short-names" class="anchor"></a>Section short names</h1>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">sections_shortnames_url &lt;-<span class="st"> "https://api.tradestatistics.io/sections_shortnames"</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">sections_shortnames_raw_file &lt;-<span class="st"> "../data-raw/ots_sections_shortnames.json"</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">sections_shortnames_tidy_file &lt;-<span class="st"> "../data/ots_sections_shortnames.rda"</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(sections_shortnames_raw_file)) { <span class="kw"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(sections_shortnames_url, sections_shortnames_raw_file) }</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(sections_shortnames_tidy_file)) {</a>
-<a class="sourceLine" id="cb6-8" data-line-number="8">  ots_sections_shortnames &lt;-<span class="st"> </span><span class="kw"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(sections_shortnames_raw_file) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span>(is.character, <span class="cf">function</span>(x) { <span class="kw"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span>(x, <span class="dt">to =</span> <span class="st">"ASCII//TRANSLIT"</span>)})</a>
-<a class="sourceLine" id="cb6-11" data-line-number="11">  <span class="kw"><a href="https://rdrr.io/r/base/save.html">save</a></span>(ots_sections_shortnames, <span class="dt">file =</span> sections_shortnames_tidy_file, <span class="dt">compress =</span> <span class="st">"xz"</span>)</a>
-<a class="sourceLine" id="cb6-12" data-line-number="12">}</a></code></pre></div>
+<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="no">sections_shortnames_url</span> <span class="kw">&lt;-</span> <span class="st">"https://api.tradestatistics.io/sections_shortnames"</span>
+<span class="no">sections_shortnames_raw_file</span> <span class="kw">&lt;-</span> <span class="st">"../data-raw/ots_sections_shortnames.json"</span>
+<span class="no">sections_shortnames_tidy_file</span> <span class="kw">&lt;-</span> <span class="st">"../data/ots_sections_shortnames.rda"</span>
+
+<span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(<span class="no">sections_shortnames_raw_file</span>)) { <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(<span class="no">sections_shortnames_url</span>, <span class="no">sections_shortnames_raw_file</span>) }
+
+<span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(<span class="no">sections_shortnames_tidy_file</span>)) {
+  <span class="no">ots_sections_shortnames</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(<span class="no">sections_shortnames_raw_file</span>) <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>() <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span>(<span class="no">is.character</span>, <span class="kw">function</span>(<span class="no">x</span>) { <span class="fu"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span>(<span class="no">x</span>, <span class="kw">to</span> <span class="kw">=</span> <span class="st">"ASCII//TRANSLIT"</span>)})
+  <span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span>(<span class="no">ots_sections_shortnames</span>, <span class="kw">file</span> <span class="kw">=</span> <span class="no">sections_shortnames_tidy_file</span>, <span class="kw">compress</span> <span class="kw">=</span> <span class="st">"xz"</span>)
+}</pre></body></html></div>
+</div>
+<div id="section-colors" class="section level1">
+<h1 class="hasAnchor">
+<a href="#section-colors" class="anchor"></a>Section colors</h1>
+<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="no">sections_colors_url</span> <span class="kw">&lt;-</span> <span class="st">"https://api.tradestatistics.io/sections_colors"</span>
+<span class="no">sections_colors_raw_file</span> <span class="kw">&lt;-</span> <span class="st">"../data-raw/ots_sections_colors.json"</span>
+<span class="no">sections_colors_tidy_file</span> <span class="kw">&lt;-</span> <span class="st">"../data/ots_sections_colors.rda"</span>
+
+<span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(<span class="no">sections_colors_raw_file</span>)) { <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(<span class="no">sections_colors_url</span>, <span class="no">sections_colors_raw_file</span>) }
+
+<span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(<span class="no">sections_colors_tidy_file</span>)) {
+  <span class="no">ots_sections_colors</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(<span class="no">sections_colors_raw_file</span>) <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>() <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span>(<span class="no">is.character</span>, <span class="kw">function</span>(<span class="no">x</span>) { <span class="fu"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span>(<span class="no">x</span>, <span class="kw">to</span> <span class="kw">=</span> <span class="st">"ASCII//TRANSLIT"</span>)})
+  <span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span>(<span class="no">ots_sections_colors</span>, <span class="kw">file</span> <span class="kw">=</span> <span class="no">sections_colors_tidy_file</span>, <span class="kw">compress</span> <span class="kw">=</span> <span class="st">"xz"</span>)
+}</pre></body></html></div>
 </div>
 <div id="conversion-rates" class="section level1">
 <h1 class="hasAnchor">
 <a href="#conversion-rates" class="anchor"></a>Conversion rates</h1>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># Source</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co"># https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co"># https://data.worldbank.org/indicator/NY.GDP.MKTP.KD</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">inflation_url &lt;-<span class="st"> "https://raw.githubusercontent.com/tradestatistics/inflation-data/master/inflation-data.json"</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6">inflation_raw_file &lt;-<span class="st"> "../data-raw/ots_inflation.json"</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7">inflation_tidy_file &lt;-<span class="st"> "../data/ots_inflation.rda"</span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(inflation_raw_file)) { <span class="kw"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(inflation_url, inflation_raw_file) }</a>
-<a class="sourceLine" id="cb7-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="cf">if</span> (<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(inflation_tidy_file)) {</a>
-<a class="sourceLine" id="cb7-12" data-line-number="12">  ots_inflation &lt;-<span class="st"> </span><span class="kw"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(inflation_url)</a>
-<a class="sourceLine" id="cb7-13" data-line-number="13">  ots_inflation &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>(ots_inflation)</a>
-<a class="sourceLine" id="cb7-14" data-line-number="14">  <span class="kw"><a href="https://rdrr.io/r/base/save.html">save</a></span>(ots_inflation, <span class="dt">file =</span> inflation_tidy_file, <span class="dt">compress =</span> <span class="st">"xz"</span>)</a>
-<a class="sourceLine" id="cb7-15" data-line-number="15">}</a></code></pre></div>
+<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="co"># Source</span>
+<span class="co"># https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG</span>
+<span class="co"># https://data.worldbank.org/indicator/NY.GDP.MKTP.KD</span>
+
+<span class="no">inflation_url</span> <span class="kw">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/tradestatistics/inflation-data/master/inflation-data.json"</span>
+<span class="no">inflation_raw_file</span> <span class="kw">&lt;-</span> <span class="st">"../data-raw/ots_inflation.json"</span>
+<span class="no">inflation_tidy_file</span> <span class="kw">&lt;-</span> <span class="st">"../data/ots_inflation.rda"</span>
+
+<span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(<span class="no">inflation_raw_file</span>)) { <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(<span class="no">inflation_url</span>, <span class="no">inflation_raw_file</span>) }
+
+<span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span>(<span class="no">inflation_tidy_file</span>)) {
+  <span class="no">ots_inflation</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://jeroen.cran.dev/jsonlite/reference/fromJSON.html">fromJSON</a></span>(<span class="no">inflation_url</span>)
+  <span class="no">ots_inflation</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>(<span class="no">ots_inflation</span>)
+  <span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span>(<span class="no">ots_inflation</span>, <span class="kw">file</span> <span class="kw">=</span> <span class="no">inflation_tidy_file</span>, <span class="kw">compress</span> <span class="kw">=</span> <span class="st">"xz"</span>)
+}</pre></body></html></div>
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <div id="tocnav">
-      <h2 class="hasAnchor">
-<a href="#tocnav" class="anchor"></a>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li><a href="#tables">Tables</a></li>
-      <li><a href="#country-codes">Country codes</a></li>
-      <li><a href="#product-codes">Product codes</a></li>
-      <li><a href="#section-codes">Section codes</a></li>
-      <li><a href="#product-short-names">Product short names</a></li>
-      <li><a href="#section-short-names">Section short names</a></li>
-      <li><a href="#conversion-rates">Conversion rates</a></li>
-      </ul>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
 </div>
-      </div>
 
 </div>
 

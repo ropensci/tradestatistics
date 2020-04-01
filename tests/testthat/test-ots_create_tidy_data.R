@@ -14,37 +14,37 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
       years = 1964, reporters = "chl", partners = "arg", table = "yrpc"
     )
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "16 variables")
+    expect_equal(ncol(test_data), 16)
 
     test_data <- ots_create_tidy_data(
       years = 1964, reporters = "chl", partners = "arg", table = "yrpc"
     )
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "16 variables")
+    expect_equal(ncol(test_data), 16)
 
     # Bilateral trade Chile-Argentina at aggregated level (1964)
     test_data <- ots_create_tidy_data(
       years = 1964, reporters = "chl", partners = "arg", table = "yrp"
     )
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "7 variables")
+    expect_equal(ncol(test_data), 7)
 
     # Chilean trade at commodity level (1964)
     test_data <- ots_create_tidy_data(
       years = 1964, reporters = "chl", table = "yrc"
     )
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "16 variables")
+    expect_equal(ncol(test_data), 16)
 
     # Chilean trade at aggregated level (1964)
     test_data <- ots_create_tidy_data(years = 1964, reporters = "chl", table = "yr")
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "15 variables")
+    expect_equal(ncol(test_data), 15)
 
     # Commodity trade at aggregated level (1964)
     test_data <- ots_create_tidy_data(years = 1964, table = "yc")
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "22 variables")
+    expect_equal(ncol(test_data), 22)
   })
 })
 
@@ -63,7 +63,7 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
       use_cache = TRUE, file = tempfile("data")
     )
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "16 variables")
+    expect_equal(ncol(test_data), 16)
   })
 })
 
@@ -82,7 +82,7 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
       )
     
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "16 variables")
+    expect_equal(ncol(test_data), 16)
   })
 })
 
@@ -103,7 +103,7 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
     )
     
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "16 variables")
+    expect_equal(ncol(test_data), 16)
   })
 })
 
@@ -124,7 +124,7 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
     )
     
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "9 variables")
+    expect_equal(ncol(test_data), 9)
   })
 })
 
@@ -144,7 +144,7 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
     )
     
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "12 variables")
+    expect_equal(ncol(test_data), 12)
   })
 })
 
@@ -162,7 +162,7 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
     )
     
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "15 variables")
+    expect_equal(ncol(test_data), 15)
   })
 })
 
@@ -414,7 +414,7 @@ test_that("ots_create_tidy_data returns warning with unused group filter", {
     )
     
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "12 variables")
+    expect_equal(ncol(test_data), 12)
   })
 })
 
@@ -435,6 +435,6 @@ test_that("ots_create_tidy_data returns warning with unused section filter", {
     )
     
     expect_is(test_data, "data.frame")
-    expect_output(str(test_data), "9 variables")
+    expect_equal(ncol(test_data), 9)
   })
 })

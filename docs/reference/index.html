@@ -14,14 +14,17 @@
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/apple-touch-icon.png">
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 
 
 <!-- Bootstrap -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
@@ -60,7 +63,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-index">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -107,7 +110,12 @@
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
-        
+        <li>
+  <a href="https://github.com/ropensci/tradestatistics/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -139,6 +147,11 @@
           <p class="section-desc"></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         
         <td>
@@ -158,6 +171,12 @@ the United Nations nomenclature</p></td>
           <p><code><a href="ots_create_tidy_data.html">ots_create_tidy_data()</a></code> </p>
         </td>
         <td><p>Downloads and processes the data from the API to return a human-readable tibble</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ots_groups.html">ots_groups</a></code> </p>
+        </td>
+        <td><p>A table of group codes and names associated to products</p></td>
       </tr><tr>
         
         <td>
@@ -195,8 +214,7 @@ codes</p></td>
         <td>
           <p><code><a href="ots_products.html">ots_products</a></code> </p>
         </td>
-        <td><p>A table of official product names, Harmonized System (HS) codes
-and corresponding groups</p></td>
+        <td><p>A table of official product names from the Harmonized System (HS)</p></td>
       </tr><tr>
         
         <td>
@@ -206,9 +224,21 @@ and corresponding groups</p></td>
       </tr><tr>
         
         <td>
+          <p><code><a href="ots_sections_colors.html">ots_sections_colors</a></code> </p>
+        </td>
+        <td><p>A table of sections codes and hex colours associated to products</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ots_sections_names.html">ots_sections_names</a></code> </p>
+        </td>
+        <td><p>A table of sections codes and official names associated to products</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="ots_sections_shortnames.html">ots_sections</a></code> </p>
         </td>
-        <td><p>A table of sections codes, and shortened names associated to products</p></td>
+        <td><p>A table of sections codes and shortened names associated to products</p></td>
       </tr><tr>
         
         <td>
@@ -220,11 +250,10 @@ and corresponding groups</p></td>
     </table>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
-    </ul>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 

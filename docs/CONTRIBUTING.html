@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A table of sections codes and shortened names associated to products — ots_sections_shortnames • tradestatistics</title>
+<title>Contributing to tradestatistics • tradestatistics</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -23,8 +23,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
 <!-- bootstrap-toc -->
-<link rel="stylesheet" href="../bootstrap-toc.css">
-<script src="../bootstrap-toc.js"></script>
+<link rel="stylesheet" href="bootstrap-toc.css">
+<script src="bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
@@ -38,16 +38,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
-<link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script>
+<link href="pkgdown.css" rel="stylesheet">
+<script src="pkgdown.js"></script>
 
 <!-- ropensci -->
-<link href="../ropensci.css?nocache=123" rel="stylesheet">
+<link href="ropensci.css?nocache=123" rel="stylesheet">
 
-<meta property="og:title" content="A table of sections codes and shortened names associated to products — ots_sections_shortnames" />
-<meta property="og:description" content="Provides shortened section names from The Atlas of Economic Complexity (Harvard), which are
-simplified names after official HS sections but keeping the same codes." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:title" content="Contributing to tradestatistics" />
 
 
 
@@ -67,7 +64,7 @@ simplified names after official HS sections but keeping the same codes." />
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-topic">
+    <div class="container template-title-body">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -81,19 +78,19 @@ simplified names after official HS sections but keeping the same codes." />
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="https://ropensci.org/img/icon_short_white.svg" id="hexlogo" alt="rOpenSci" /></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.4.0</small></i></a>
+        <a class="navbar-brand" href="index.html"><i>tradestatistics <small>v0.4.0</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="../index.html">
+  <a href="index.html">
     <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -103,15 +100,15 @@ simplified names after official HS sections but keeping the same codes." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/basic-usage.html">How to use this package</a>
+      <a href="articles/basic-usage.html">How to use this package</a>
     </li>
     <li>
-      <a href="../articles/creating-datasets.html">Creating the datasets available within the package</a>
+      <a href="articles/creating-datasets.html">Creating the datasets available within the package</a>
     </li>
   </ul>
 </li>
 <li>
-  <a href="../news/index.html">Changelog</a>
+  <a href="news/index.html">Changelog</a>
 </li>
         <li>
   <a href="https://github.com/ropensci/tradestatistics/">
@@ -130,52 +127,68 @@ simplified names after official HS sections but keeping the same codes." />
       </header>
 
 <div class="row">
-  <div class="col-md-9 contents">
+  <div class="contents col-md-9">
     <div class="page-header">
-    <h1>A table of sections codes and shortened names associated to products</h1>
-    
-    <div class="hidden name"><code>ots_sections_shortnames.Rd</code></div>
+      <h1>Contributing to tradestatistics</h1>
     </div>
 
-    <div class="ref-description">
-    <p>Provides shortened section names from The Atlas of Economic Complexity (Harvard), which are
-simplified names after official HS sections but keeping the same codes.</p>
-    </div>
+<div id="contributing-to-tradestatistics" class="section level1">
 
-    <pre class="usage"><span class='no'>ots_sections</span></pre>
+<p>This outlines how to propose a change to tradestatistics. For more detailed info about contributing to this, and other tidyverse packages, please see the <a href="https://rstd.io/tidy-contrib"><strong>development contributing guide</strong></a>.</p>
+<div id="fixing-typos" class="section level3">
+<h3 class="hasAnchor">
+<a href="#fixing-typos" class="anchor"></a>Fixing typos</h3>
+<p>Small typos or grammatical errors in documentation may be edited directly using the GitHub web interface, so long as the changes are made in the <em>source</em> file.</p>
+<ul>
+<li>YES: you edit a roxygen comment in a <code>.R</code> file below <code>R/</code>.</li>
+<li>NO: you edit an <code>.Rd</code> file below <code>man/</code>.</li>
+</ul>
+</div>
+<div id="prerequisites" class="section level3">
+<h3 class="hasAnchor">
+<a href="#prerequisites" class="anchor"></a>Prerequisites</h3>
+<p>Before you make a substantial pull request, you should always file an issue and make sure someone from the team agrees that it’s a problem. If you’ve found a bug, create an associated issue and illustrate the bug with a minimal <a href="https://www.tidyverse.org/help/#reprex">reprex</a>.</p>
+</div>
+<div id="pull-request-process" class="section level3">
+<h3 class="hasAnchor">
+<a href="#pull-request-process" class="anchor"></a>Pull request process</h3>
+<ul>
+<li>We recommend that you create a Git branch for each pull request (PR).<br>
+</li>
+<li>Look at the Travis and AppVeyor build status before and after making changes. The <code>README</code> should contain badges for any continuous integration services used by the package.<br>
+</li>
+<li>New code should follow the tidyverse <a href="https://style.tidyverse.org">style guide</a>. You can use the <a href="https://CRAN.R-project.org/package=styler">styler</a> package to apply these styles, but please don’t restyle code that has nothing to do with your PR.<br>
+</li>
+<li>We use <a href="https://cran.r-project.org/package=roxygen2">roxygen2</a>, with <a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/markdown.html">Markdown syntax</a>, for documentation.<br>
+</li>
+<li>We use <a href="https://cran.r-project.org/package=testthat">testthat</a>. Contributions with test cases included are easier to accept.<br>
+</li>
+<li>For user-facing changes, add a bullet to the top of <code>NEWS.md</code> below the current development version header describing the changes made followed by your GitHub username, and links to relevant issue(s)/PR(s).</li>
+</ul>
+</div>
+<div id="code-of-conduct" class="section level3">
+<h3 class="hasAnchor">
+<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h3>
+<p>Please note that the tradestatistics project is released with a <a href="CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project you agree to abide by its terms.</p>
+</div>
+<div id="see-tidyverse-development-contributing-guide" class="section level3">
+<h3 class="hasAnchor">
+<a href="#see-tidyverse-development-contributing-guide" class="anchor"></a>See tidyverse <a href="https://rstd.io/tidy-contrib">development contributing guide</a>
+</h3>
+<p>for further details.</p>
+</div>
+</div>
 
-
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
-
-    <p>A data frame with 22 observations on the following 2 variables.</p><dl'>
-    <dt><code>section_code</code></dt><dd><p>Section code (e.g. 01)</p></dd>
-    <dt><code>section_shortname_english</code></dt><dd><p>Section name (e.g. Animal Products)</p></dd>
-  
-</dl>
-
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>ots_sections_shortnames</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 22 x 2</span><span>
-#&gt;    section_code section_shortname_english       
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                           
-#&gt; </span><span style='color: #555555;'> 1</span><span> 01           Animal Products                 
-#&gt; </span><span style='color: #555555;'> 2</span><span> 02           Vegetable Products              
-#&gt; </span><span style='color: #555555;'> 3</span><span> 03           Animal and Vegetable Bi-Products
-#&gt; </span><span style='color: #555555;'> 4</span><span> 04           Foodstuffs                      
-#&gt; </span><span style='color: #555555;'> 5</span><span> 05           Mineral Products                
-#&gt; </span><span style='color: #555555;'> 6</span><span> 06           Chemical Products               
-#&gt; </span><span style='color: #555555;'> 7</span><span> 07           Plastics and Rubbers            
-#&gt; </span><span style='color: #555555;'> 8</span><span> 08           Animal Hides                    
-#&gt; </span><span style='color: #555555;'> 9</span><span> 09           Wood Products                   
-#&gt; </span><span style='color: #555555;'>10</span><span> 10           Paper Goods                     
-#&gt; </span><span style='color: #555555;'># … with 12 more rows</span><span></div></span></pre>
   </div>
+
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
+
 </div>
+
 
 
       <footer>

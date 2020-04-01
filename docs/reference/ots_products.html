@@ -6,8 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A table of official product names, Harmonized System (HS) codes
-and corresponding groups — ots_products • tradestatistics</title>
+<title>A table of official product names from the Harmonized System (HS) — ots_products • tradestatistics</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -15,14 +14,17 @@ and corresponding groups — ots_products • tradestatistics</title>
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/apple-touch-icon.png">
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 
 
 <!-- Bootstrap -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
@@ -42,8 +44,7 @@ and corresponding groups — ots_products • tradestatistics</title>
 <!-- ropensci -->
 <link href="../ropensci.css?nocache=123" rel="stylesheet">
 
-<meta property="og:title" content="A table of official product names, Harmonized System (HS) codes
-and corresponding groups — ots_products" />
+<meta property="og:title" content="A table of official product names from the Harmonized System (HS) — ots_products" />
 <meta property="og:description" content="Provides official codes taken from the United Nations official sources.
 This data is provided as a reference as it's not used by the functions
 provided within this package, but it can be useful to subset the data
@@ -67,7 +68,7 @@ obtained from the API." />
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -114,7 +115,12 @@ obtained from the API." />
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
-        
+        <li>
+  <a href="https://github.com/ropensci/tradestatistics/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -128,8 +134,7 @@ obtained from the API." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A table of official product names, Harmonized System (HS) codes
-and corresponding groups</h1>
+    <h1>A table of official product names from the Harmonized System (HS)</h1>
     
     <div class="hidden name"><code>ots_products.Rd</code></div>
     </div>
@@ -146,38 +151,33 @@ obtained from the API.</p>
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 1320 observations on the following 4 variables.</p><dl class='dl-horizontal'>
+    <p>A data frame with 1320 observations on the following 2 variables.</p><dl'>
     <dt><code>product_code</code></dt><dd><p>Code of every product (e.g. 0101)</p></dd>
     <dt><code>product_fullname_english</code></dt><dd><p>HS product names (e.g. 'Horses, asses, mules and hinnies; live')</p></dd>
-    <dt><code>group_code</code></dt><dd><p>HS group code (e.g. 01)</p></dd>
-    <dt><code>group_name</code></dt><dd><p>HS group name (e.g. 'Animals; live')</p></dd>
   
 </dl>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>ots_products</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1,320 x 4</span><span>
-#&gt;    product_code product_fullname_english              group_code group_name     
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                                 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          
-#&gt; </span><span style='color: #555555;'> 1</span><span> 0101         Horses, asses, mules and hinnies; li… 01         Animals; live  
-#&gt; </span><span style='color: #555555;'> 2</span><span> 0102         Bovine animals; live                  01         Animals; live  
-#&gt; </span><span style='color: #555555;'> 3</span><span> 0103         Swine; live                           01         Animals; live  
-#&gt; </span><span style='color: #555555;'> 4</span><span> 0104         Sheep and goats; live                 01         Animals; live  
-#&gt; </span><span style='color: #555555;'> 5</span><span> 0105         Poultry; live, fowls of the species … 01         Animals; live  
-#&gt; </span><span style='color: #555555;'> 6</span><span> 0106         Animals, n.e.c. in chapter 01; live   01         Animals; live  
-#&gt; </span><span style='color: #555555;'> 7</span><span> 0201         Meat of bovine animals; fresh or chi… 02         Meat and edibl…
-#&gt; </span><span style='color: #555555;'> 8</span><span> 0202         Meat of bovine animals; frozen        02         Meat and edibl…
-#&gt; </span><span style='color: #555555;'> 9</span><span> 0203         Meat of swine; fresh, chilled or fro… 02         Meat and edibl…
-#&gt; </span><span style='color: #555555;'>10</span><span> 0204         Meat of sheep or goats; fresh, chill… 02         Meat and edibl…
+    <pre class="examples"><div class='input'><span class='no'>ots_products</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1,320 x 2</span><span>
+#&gt;    product_code product_fullname_english                                        
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                                                           
+#&gt; </span><span style='color: #555555;'> 1</span><span> 0101         Horses, asses, mules and hinnies; live                          
+#&gt; </span><span style='color: #555555;'> 2</span><span> 0102         Bovine animals; live                                            
+#&gt; </span><span style='color: #555555;'> 3</span><span> 0103         Swine; live                                                     
+#&gt; </span><span style='color: #555555;'> 4</span><span> 0104         Sheep and goats; live                                           
+#&gt; </span><span style='color: #555555;'> 5</span><span> 0105         Poultry; live, fowls of the species Gallus domesticus, ducks, g…
+#&gt; </span><span style='color: #555555;'> 6</span><span> 0106         Animals, n.e.c. in chapter 01; live                             
+#&gt; </span><span style='color: #555555;'> 7</span><span> 0201         Meat of bovine animals; fresh or chilled                        
+#&gt; </span><span style='color: #555555;'> 8</span><span> 0202         Meat of bovine animals; frozen                                  
+#&gt; </span><span style='color: #555555;'> 9</span><span> 0203         Meat of swine; fresh, chilled or frozen                         
+#&gt; </span><span style='color: #555555;'>10</span><span> 0204         Meat of sheep or goats; fresh, chilled or frozen                
 #&gt; </span><span style='color: #555555;'># … with 1,310 more rows</span><span></div></span></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#format">Format</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 

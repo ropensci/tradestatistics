@@ -14,14 +14,17 @@
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/apple-touch-icon.png">
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 
 
 <!-- Bootstrap -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
@@ -62,7 +65,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -109,7 +112,12 @@
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
-        
+        <li>
+  <a href="https://github.com/ropensci/tradestatistics/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -137,38 +145,33 @@
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 1222 observations on the following 4 variables.</p><dl class='dl-horizontal'>
+    <p>A data frame with 1222 observations on the following 2 variables.</p><dl'>
     <dt><code>product_code</code></dt><dd><p>Product code (e.g. 0101)</p></dd>
     <dt><code>section_code</code></dt><dd><p>Section code (e.g. 01)</p></dd>
-    <dt><code>section_fullname_english</code></dt><dd><p>Section name (e.g. Live Animals; Animal Products)</p></dd>
-    <dt><code>section_color</code></dt><dd><p>Colour hex code (e.g. #74c0e2)</p></dd>
   
 </dl>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>ots_sections</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1,222 x 4</span><span>
-#&gt;    product_code section_code section_fullname_english      section_color
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        
-#&gt; </span><span style='color: #555555;'> 1</span><span> 0101         01           Live Animals; Animal Products #74c0e2      
-#&gt; </span><span style='color: #555555;'> 2</span><span> 0102         01           Live Animals; Animal Products #74c0e2      
-#&gt; </span><span style='color: #555555;'> 3</span><span> 0103         01           Live Animals; Animal Products #74c0e2      
-#&gt; </span><span style='color: #555555;'> 4</span><span> 0104         01           Live Animals; Animal Products #74c0e2      
-#&gt; </span><span style='color: #555555;'> 5</span><span> 0105         01           Live Animals; Animal Products #74c0e2      
-#&gt; </span><span style='color: #555555;'> 6</span><span> 0106         01           Live Animals; Animal Products #74c0e2      
-#&gt; </span><span style='color: #555555;'> 7</span><span> 0201         01           Live Animals; Animal Products #74c0e2      
-#&gt; </span><span style='color: #555555;'> 8</span><span> 0202         01           Live Animals; Animal Products #74c0e2      
-#&gt; </span><span style='color: #555555;'> 9</span><span> 0203         01           Live Animals; Animal Products #74c0e2      
-#&gt; </span><span style='color: #555555;'>10</span><span> 0204         01           Live Animals; Animal Products #74c0e2      
+    <pre class="examples"><div class='input'><span class='no'>ots_sections</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1,222 x 2</span><span>
+#&gt;    product_code section_code
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       
+#&gt; </span><span style='color: #555555;'> 1</span><span> 0101         01          
+#&gt; </span><span style='color: #555555;'> 2</span><span> 0102         01          
+#&gt; </span><span style='color: #555555;'> 3</span><span> 0103         01          
+#&gt; </span><span style='color: #555555;'> 4</span><span> 0104         01          
+#&gt; </span><span style='color: #555555;'> 5</span><span> 0105         01          
+#&gt; </span><span style='color: #555555;'> 6</span><span> 0106         01          
+#&gt; </span><span style='color: #555555;'> 7</span><span> 0201         01          
+#&gt; </span><span style='color: #555555;'> 8</span><span> 0202         01          
+#&gt; </span><span style='color: #555555;'> 9</span><span> 0203         01          
+#&gt; </span><span style='color: #555555;'>10</span><span> 0204         01          
 #&gt; </span><span style='color: #555555;'># … with 1,212 more rows</span><span></div></span></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#format">Format</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 

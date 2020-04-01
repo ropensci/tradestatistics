@@ -19,9 +19,9 @@ test_that("ots_country_code works properly for multiple matching", {
   expect_is(test_country_2, "tbl")
   expect_is(test_country_3, "tbl")
 
-  expect_output(str(test_country_1), "6 variables")
-  expect_output(str(test_country_2), "6 variables")
-  expect_output(str(test_country_3), "6 variables")
+  expect_equal(ncol(test_country_1), 6)
+  expect_equal(ncol(test_country_2), 6)
+  expect_equal(ncol(test_country_3), 6)
 })
 
 test_that("ots_country_code returns an error when no countryname is specified", {
@@ -32,5 +32,5 @@ test_that("ots_country_code returns an error when no countryname is specified", 
 
 test_that("ots_country_code returns 0 rows when no match exists", {
   d <- ots_country_code(countryname = "Abc")
-  expect_output(str(d), "0 obs")
+  expect_equal(nrow(d), 0)
 })

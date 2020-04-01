@@ -186,7 +186,7 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
   return(d)
 }
 
-#' String matching of unofficial product section names and product section
+#' String matching of official product section names and product section
 #' codes
 #' @description Takes a text string and searches within the
 #' package data for all matching product communities in the context of valid API
