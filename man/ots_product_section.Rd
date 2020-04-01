@@ -2,7 +2,7 @@
 % Please edit documentation in R/ots_strings_processing.R
 \name{ots_product_section}
 \alias{ots_product_section}
-\title{String matching of unofficial product section names and product section
+\title{String matching of official product section names and product section
 codes}
 \usage{
 ots_product_section(productsection = NULL)
