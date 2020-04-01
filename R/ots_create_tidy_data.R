@@ -378,7 +378,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
 
   # no data in API message
   if (any("observation" %in% names(data))) {
-    warning("Rows with NAs in both exports and imports will be dropped.")
+    warning("The parameters you specified resulted in API calls returning 0 rows.")
     
     data <- data %>% 
       filter(is.na(!!sym("observation"))) %>% 
@@ -502,6 +502,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
       everything()
     )
   
+  if (nrow(data) == 0) { warning("The resulting table contains 0 rows.") }
   return(data)
 }
 
