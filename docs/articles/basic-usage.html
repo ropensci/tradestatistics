@@ -113,7 +113,7 @@
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tradestatistics</span>)
 
 <span class="no">ots_tables</span>
-<span class="co">#&gt; # A tibble: 21 x 3</span>
+<span class="co">#&gt; # A tibble: 13 x 3</span>
 <span class="co">#&gt;    table      description                        source                         </span>
 <span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;                              &lt;chr&gt;                          </span>
 <span class="co">#&gt;  1 countries  Countries metadata                 UN Comtrade (with modification…</span>
@@ -124,9 +124,11 @@
 <span class="co">#&gt;  6 country_r… Ranking of countries               Open Trade Statistics          </span>
 <span class="co">#&gt;  7 product_r… Ranking of products                Open Trade Statistics          </span>
 <span class="co">#&gt;  8 yrpc       Reporter-Partner trade at product… Open Trade Statistics          </span>
-<span class="co">#&gt;  9 yrpc-ga    Reporter-Partner trade at group l… Open Trade Statistics          </span>
-<span class="co">#&gt; 10 yrpc-sa    Reporter-Partner trade at section… Open Trade Statistics          </span>
-<span class="co">#&gt; # … with 11 more rows</span></pre></body></html></div>
+<span class="co">#&gt;  9 yrp        Reporter-Partner trade at aggrega… Open Trade Statistics          </span>
+<span class="co">#&gt; 10 yrc        Reporter trade at product level (… Open Trade Statistics          </span>
+<span class="co">#&gt; 11 yr         Reporter trade at aggregated leve… Open Trade Statistics          </span>
+<span class="co">#&gt; 12 yr-short   Reporter trade at aggregated leve… Open Trade Statistics          </span>
+<span class="co">#&gt; 13 yc         Product trade at detailed level (… Open Trade Statistics</span></pre></body></html></div>
 <p>You might notice the tables have a pattern. The letters indicate the presence of columns that account for the level of detail in the data:</p>
 <ul>
 <li>
@@ -343,32 +345,34 @@
 <a href="#trade-data" class="anchor"></a>Trade data</h2>
 <p>This function downloads data for a single year and needs (at least) some filter parameters according to the query type.</p>
 <p>Here we cover aggregated tables to describe the usage.</p>
-<div id="bilateral-trade-at-community-level-year---reporter---partner---section-code" class="section level3">
+<div id="bilateral-trade-at-product-level-year---reporter---partner---product-code" class="section level3">
 <h3 class="hasAnchor">
-<a href="#bilateral-trade-at-community-level-year---reporter---partner---section-code" class="anchor"></a>Bilateral trade at community level (Year - Reporter - Partner - Section Code)</h3>
+<a href="#bilateral-trade-at-product-level-year---reporter---partner---product-code" class="anchor"></a>Bilateral trade at product level (Year - Reporter - Partner - Product Code)</h3>
 <p>If we want Chile-Argentina bilateral trade at community level in 1962:</p>
 <div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="fu"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(
   <span class="kw">years</span> <span class="kw">=</span> <span class="fl">1962</span>,
   <span class="kw">reporters</span> <span class="kw">=</span> <span class="st">"chl"</span>,
   <span class="kw">partners</span> <span class="kw">=</span> <span class="st">"arg"</span>,
-  <span class="kw">table</span> <span class="kw">=</span> <span class="st">"yrpc-sa"</span>
+  <span class="kw">table</span> <span class="kw">=</span> <span class="st">"yrpc"</span>
 )
-<span class="co">#&gt; # A tibble: 1,202 x 12</span>
+<span class="co">#&gt; # A tibble: 266 x 16</span>
 <span class="co">#&gt;     year reporter_iso reporter_fullna… partner_iso partner_fullnam… section_code</span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;       </span>
-<span class="co">#&gt;  1  1962 chl          Chile            arg         Argentina        01          </span>
-<span class="co">#&gt;  2  1962 chl          Chile            arg         Argentina        01          </span>
-<span class="co">#&gt;  3  1962 chl          Chile            arg         Argentina        01          </span>
-<span class="co">#&gt;  4  1962 chl          Chile            arg         Argentina        01          </span>
-<span class="co">#&gt;  5  1962 chl          Chile            arg         Argentina        01          </span>
-<span class="co">#&gt;  6  1962 chl          Chile            arg         Argentina        01          </span>
-<span class="co">#&gt;  7  1962 chl          Chile            arg         Argentina        01          </span>
-<span class="co">#&gt;  8  1962 chl          Chile            arg         Argentina        01          </span>
-<span class="co">#&gt;  9  1962 chl          Chile            arg         Argentina        01          </span>
-<span class="co">#&gt; 10  1962 chl          Chile            arg         Argentina        01          </span>
-<span class="co">#&gt; # … with 1,192 more rows, and 6 more variables: section_fullname_english &lt;chr&gt;,</span>
-<span class="co">#&gt; #   section_shortname_english &lt;chr&gt;, section_color &lt;chr&gt;, product_code &lt;chr&gt;,</span>
-<span class="co">#&gt; #   export_value_usd &lt;int&gt;, import_value_usd &lt;int&gt;</span></pre></body></html></div>
+<span class="co">#&gt;  1  1962 chl          Chile            arg         Argentina        21          </span>
+<span class="co">#&gt;  2  1962 chl          Chile            arg         Argentina        20          </span>
+<span class="co">#&gt;  3  1962 chl          Chile            arg         Argentina        20          </span>
+<span class="co">#&gt;  4  1962 chl          Chile            arg         Argentina        20          </span>
+<span class="co">#&gt;  5  1962 chl          Chile            arg         Argentina        20          </span>
+<span class="co">#&gt;  6  1962 chl          Chile            arg         Argentina        20          </span>
+<span class="co">#&gt;  7  1962 chl          Chile            arg         Argentina        20          </span>
+<span class="co">#&gt;  8  1962 chl          Chile            arg         Argentina        20          </span>
+<span class="co">#&gt;  9  1962 chl          Chile            arg         Argentina        20          </span>
+<span class="co">#&gt; 10  1962 chl          Chile            arg         Argentina        19          </span>
+<span class="co">#&gt; # … with 256 more rows, and 10 more variables: section_fullname_english &lt;chr&gt;,</span>
+<span class="co">#&gt; #   section_shortname_english &lt;chr&gt;, section_color &lt;chr&gt;, group_code &lt;chr&gt;,</span>
+<span class="co">#&gt; #   group_fullname_english &lt;chr&gt;, product_code &lt;chr&gt;,</span>
+<span class="co">#&gt; #   product_fullname_english &lt;chr&gt;, product_shortname_english &lt;chr&gt;,</span>
+<span class="co">#&gt; #   import_value_usd &lt;int&gt;, export_value_usd &lt;int&gt;</span></pre></body></html></div>
 <p>We can pass two years or more, several reporters/partners, and filter by community with exact codes or code matching based on keywords:</p>
 <div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="co"># Note that here I'm passing Peru and not per which is the ISO code for Peru</span>
 <span class="co"># The same applies to Brazil</span>
@@ -377,26 +381,30 @@
   <span class="kw">reporters</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"chl"</span>, <span class="st">"Peru"</span>, <span class="st">"bol"</span>),
   <span class="kw">partners</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"arg"</span>, <span class="st">"Brazil"</span>),
   <span class="kw">sections</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"01"</span>, <span class="st">"food"</span>),
-  <span class="kw">table</span> <span class="kw">=</span> <span class="st">"yrpc-sa"</span>
+  <span class="kw">table</span> <span class="kw">=</span> <span class="st">"yrpc"</span>
 )
-<span class="co">#&gt; # A tibble: 1,176 x 12</span>
+<span class="co">#&gt; Warning in ots_create_tidy_data_unmemoised(...): The sections argument will be</span>
+<span class="co">#&gt; ignored provided that you requested a table without section_code field.</span>
+<span class="co">#&gt; # A tibble: 2,275 x 16</span>
 <span class="co">#&gt;     year reporter_iso reporter_fullna… partner_iso partner_fullnam… section_code</span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;       </span>
-<span class="co">#&gt;  1  1962 chl          Chile            arg         Argentina        01          </span>
-<span class="co">#&gt;  2  1962 chl          Chile            arg         Argentina        01          </span>
-<span class="co">#&gt;  3  1962 chl          Chile            arg         Argentina        01          </span>
-<span class="co">#&gt;  4  1962 chl          Chile            arg         Argentina        01          </span>
-<span class="co">#&gt;  5  1962 chl          Chile            arg         Argentina        01          </span>
-<span class="co">#&gt;  6  1962 chl          Chile            arg         Argentina        01          </span>
-<span class="co">#&gt;  7  1962 chl          Chile            arg         Argentina        01          </span>
-<span class="co">#&gt;  8  1962 chl          Chile            arg         Argentina        01          </span>
-<span class="co">#&gt;  9  1962 chl          Chile            arg         Argentina        01          </span>
-<span class="co">#&gt; 10  1962 chl          Chile            arg         Argentina        01          </span>
-<span class="co">#&gt; # … with 1,166 more rows, and 6 more variables: section_fullname_english &lt;chr&gt;,</span>
-<span class="co">#&gt; #   section_shortname_english &lt;chr&gt;, section_color &lt;chr&gt;, product_code &lt;chr&gt;,</span>
-<span class="co">#&gt; #   export_value_usd &lt;int&gt;, import_value_usd &lt;int&gt;</span></pre></body></html></div>
-<p><code>yrpc-sa</code> table returns some fields that deserve an explanation which can be seen at <a href="docs.tradestatistics.io">docs.tradestatistics.io</a>.</p>
-<p><code>yrpc-ga</code> and <code>yrpc</code> tables are less aggregated version of this, and the usage is almost the same.</p>
+<span class="co">#&gt;  1  1962 chl          Chile            arg         Argentina        21          </span>
+<span class="co">#&gt;  2  1962 chl          Chile            arg         Argentina        20          </span>
+<span class="co">#&gt;  3  1962 chl          Chile            arg         Argentina        20          </span>
+<span class="co">#&gt;  4  1962 chl          Chile            arg         Argentina        20          </span>
+<span class="co">#&gt;  5  1962 chl          Chile            arg         Argentina        20          </span>
+<span class="co">#&gt;  6  1962 chl          Chile            arg         Argentina        20          </span>
+<span class="co">#&gt;  7  1962 chl          Chile            arg         Argentina        20          </span>
+<span class="co">#&gt;  8  1962 chl          Chile            arg         Argentina        20          </span>
+<span class="co">#&gt;  9  1962 chl          Chile            arg         Argentina        20          </span>
+<span class="co">#&gt; 10  1962 chl          Chile            arg         Argentina        19          </span>
+<span class="co">#&gt; # … with 2,265 more rows, and 10 more variables:</span>
+<span class="co">#&gt; #   section_fullname_english &lt;chr&gt;, section_shortname_english &lt;chr&gt;,</span>
+<span class="co">#&gt; #   section_color &lt;chr&gt;, group_code &lt;chr&gt;, group_fullname_english &lt;chr&gt;,</span>
+<span class="co">#&gt; #   product_code &lt;chr&gt;, product_fullname_english &lt;chr&gt;,</span>
+<span class="co">#&gt; #   product_shortname_english &lt;chr&gt;, import_value_usd &lt;int&gt;,</span>
+<span class="co">#&gt; #   export_value_usd &lt;int&gt;</span></pre></body></html></div>
+<p><code>yrpc</code> table returns some fields that deserve an explanation which can be seen at <a href="docs.tradestatistics.io">docs.tradestatistics.io</a>.</p>
 </div>
 <div id="bilateral-trade-at-aggregated-level-year---reporter---partner" class="section level3">
 <h3 class="hasAnchor">
@@ -416,7 +424,7 @@
 <span class="co">#&gt; 3  1962 per          Peru             arg         Argentina       </span>
 <span class="co">#&gt; 4  1963 per          Peru             arg         Argentina       </span>
 <span class="co">#&gt; # … with 2 more variables: export_value_usd &lt;int&gt;, import_value_usd &lt;int&gt;</span></pre></body></html></div>
-<p>This table accepts different years, reporters and partners just like <code>yrpc-sa</code>.</p>
+<p>This table accepts different years, reporters and partners just like <code>yrpc</code>.</p>
 </div>
 <div id="reporter-trade-at-product-level-year---reporter---product-code" class="section level3">
 <h3 class="hasAnchor">
@@ -437,7 +445,7 @@
 <span class="co">#&gt; #   product_code &lt;chr&gt;, product_fullname_english &lt;chr&gt;,</span>
 <span class="co">#&gt; #   product_shortname_english &lt;chr&gt;, export_value_usd &lt;int&gt;,</span>
 <span class="co">#&gt; #   import_value_usd &lt;int&gt;, export_rca &lt;dbl&gt;, import_rca &lt;dbl&gt;</span></pre></body></html></div>
-<p>This table accepts different years, reporters and product codes just like <code>yrpc-sa</code>.</p>
+<p>This table accepts different years, reporters and product codes just like <code>yrpc</code>.</p>
 <p>All the variables from this table are documented at <a href="docs.tradestatistics.io">docs.tradestatistics.io</a>.</p>
 </div>
 <div id="reporter-trade-at-aggregated-level-year---reporter" class="section level3">

@@ -107,47 +107,6 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
   })
 })
 
-# ots_create_tidy_data connects to the API and returns valid tables with a valid input and a group filter ----
-
-test_that("ots_create_tidy_data connects to the API and returns valid tables with a valid input and a group filter", {
-  vcr::use_cassette(name = "chl_arg_1964_yrpc-ga_animal", {
-    # Mock countries test inside ots_create_tidy_data
-    cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
-    res <- cli$get("countries/")
-    expect_is(res, "HttpResponse")
-    
-    test_data <- expect_warning(
-      ots_create_tidy_data(
-        years = 1964, reporters = "chl", partners = "arg", table = "yrpc-ga",
-        groups = "animal"
-      )
-    )
-    
-    expect_is(test_data, "data.frame")
-    expect_equal(ncol(test_data), 9)
-  })
-})
-
-
-# ots_create_tidy_data connects to the API and returns valid tables with a valid input and a section filter ----
-
-test_that("ots_create_tidy_data connects to the API and returns valid tables with a valid input and a section filter", {
-  vcr::use_cassette(name = "chl_arg_1964_yrpc-sa_animal", {
-    # Mock countries test inside ots_create_tidy_data
-    cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
-    res <- cli$get("countries/")
-    expect_is(res, "HttpResponse")
-    
-    test_data <- ots_create_tidy_data(
-      years = 1964, reporters = "chl", partners = "arg", table = "yrpc-sa",
-      sections = "animal"
-    )
-    
-    expect_is(test_data, "data.frame")
-    expect_equal(ncol(test_data), 12)
-  })
-})
-
 # ots_create_tidy_data connects to the API and returns valid tables with a valid input and a non-used product filter ----
 
 test_that("ots_create_tidy_data connects to the API and returns valid tables with a valid input and a non-used product filter", {
@@ -356,28 +315,6 @@ test_that("ots_create_tidy_data fails with wrong optional parameters", {
   )
 })
 
-# ots_create_tidy_data fails with non-existing group ----
-
-test_that("ots_create_tidy_data fails with non-existing group", {
-  expect_error(
-    ots_create_tidy_data(
-      years = 1964, reporters = "chl", partners = "arg", table = "yrpc-ga",
-      groups = "gazorpazorp"
-    )
-  )
-})
-
-# ots_create_tidy_data fails with non-existing section ----
-
-test_that("ots_create_tidy_data fails with non-existing section", {
-  expect_error(
-    ots_create_tidy_data(
-      years = 1964, reporters = "chl", partners = "arg", table = "yrpc-sa",
-      sections = "gazorpazorp"
-    )
-  )
-})
-
 # ots_create_tidy_data fails with multiple country match ----
 
 test_that("ots_create_tidy_data fails with multiple country match", {
@@ -395,46 +332,4 @@ test_that("ots_create_tidy_data fails with multiple country match", {
       years = 1964, reporters = "usa", partners = "Germany", table = "yrp"
     )
   )
-})
-
-# ots_create_tidy_data returns warning with unused group filter ----
-
-test_that("ots_create_tidy_data returns warning with unused group filter", {
-  vcr::use_cassette(name = "chl_arg_1964_yrpc-sa_animal_2", {
-    # Mock countries test inside ots_create_tidy_data
-    cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
-    res <- cli$get("countries/")
-    expect_is(res, "HttpResponse")
-    
-    test_data <- expect_warning(
-      ots_create_tidy_data(
-        years = 1964, reporters = "chl", partners = "arg", table = "yrpc-sa",
-        groups = "animal"
-      )
-    )
-    
-    expect_is(test_data, "data.frame")
-    expect_equal(ncol(test_data), 12)
-  })
-})
-
-# ots_create_tidy_data returns warning with unused section filter ----
-
-test_that("ots_create_tidy_data returns warning with unused section filter", {
-  vcr::use_cassette(name = "chl_arg_1964_yrpc-ga_animal_2", {
-    # Mock countries test inside ots_create_tidy_data
-    cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
-    res <- cli$get("countries/")
-    expect_is(res, "HttpResponse")
-    
-    test_data <- expect_warning(
-      ots_create_tidy_data(
-        years = 1964, reporters = "chl", partners = "arg", table = "yrpc-ga",
-        sections = "animal"
-      )
-    )
-    
-    expect_is(test_data, "data.frame")
-    expect_equal(ncol(test_data), 9)
-  })
 })

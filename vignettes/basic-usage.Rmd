@@ -128,7 +128,7 @@ This function downloads data for a single year and needs (at least) some filter 
 
 Here we cover aggregated tables to describe the usage.
 
-### Bilateral trade at community level (Year - Reporter - Partner - Section Code)
+### Bilateral trade at product level (Year - Reporter - Partner - Product Code)
 
 If we want Chile-Argentina bilateral trade at community level in 1962:
 ```{r yrpc-ga1, eval = T}
@@ -136,7 +136,7 @@ ots_create_tidy_data(
   years = 1962,
   reporters = "chl",
   partners = "arg",
-  table = "yrpc-sa"
+  table = "yrpc"
 )
 ```
 
@@ -149,13 +149,11 @@ ots_create_tidy_data(
   reporters = c("chl", "Peru", "bol"),
   partners = c("arg", "Brazil"),
   sections = c("01", "food"),
-  table = "yrpc-sa"
+  table = "yrpc"
 )
 ```
 
-`yrpc-sa` table returns some fields that deserve an explanation which can be seen at [docs.tradestatistics.io](docs.tradestatistics.io).
-
-`yrpc-ga` and `yrpc` tables are less aggregated version of this, and the usage is almost the same.
+`yrpc` table returns some fields that deserve an explanation which can be seen at [docs.tradestatistics.io](docs.tradestatistics.io).
 
 ### Bilateral trade at aggregated level (Year - Reporter - Partner)
 
@@ -170,7 +168,7 @@ ots_create_tidy_data(
 )
 ```
 
-This table accepts different years, reporters and partners just like `yrpc-sa`.
+This table accepts different years, reporters and partners just like `yrpc`.
 
 ### Reporter trade at product level (Year - Reporter - Product Code) 
 
@@ -184,7 +182,7 @@ ots_create_tidy_data(
 )
 ```
 
-This table accepts different years, reporters and product codes just like `yrpc-sa`.
+This table accepts different years, reporters and product codes just like `yrpc`.
 
 All the variables from this table are documented at [docs.tradestatistics.io](docs.tradestatistics.io).
 
