@@ -1,10 +1,10 @@
-## ----setup, include = FALSE----------------------------------------------
+## ----setup, include = FALSE---------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 
-## ----tables, message = FALSE, eval = FALSE-------------------------------
+## ----tables, message = FALSE, eval = FALSE------------------------------------
 #  library(dplyr)
 #  library(jsonlite)
 #  
@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 #    save(ots_tables, file = tables_tidy_file, compress = "xz")
 #  }
 
-## ----countries, message = FALSE, eval = FALSE----------------------------
+## ----countries, message = FALSE, eval = FALSE---------------------------------
 #  countries_url <- "https://api.tradestatistics.io/countries"
 #  countries_raw_file <- "../data-raw/ots_countries.json"
 #  countries_tidy_file <- "../data/ots_countries.rda"
@@ -35,7 +35,7 @@ knitr::opts_chunk$set(
 #    save(ots_countries, file = countries_tidy_file, compress = "xz")
 #  }
 
-## ----products, message = FALSE, eval = FALSE-----------------------------
+## ----products, message = FALSE, eval = FALSE----------------------------------
 #  products_url <- "https://api.tradestatistics.io/products"
 #  products_raw_file <- "../data-raw/ots_products.json"
 #  products_tidy_file <- "../data/ots_products.rda"
@@ -50,22 +50,36 @@ knitr::opts_chunk$set(
 #    save(ots_products, file = products_tidy_file, compress = "xz")
 #  }
 
-## ----communities, message = FALSE, eval = FALSE--------------------------
-#  communities_url <- "https://api.tradestatistics.io/communities"
-#  communities_raw_file <- "../data-raw/ots_communities.json"
-#  communities_tidy_file <- "../data/ots_communities.rda"
+## ----sections, message = FALSE, eval = FALSE----------------------------------
+#  sections_url <- "https://api.tradestatistics.io/sections"
+#  sections_raw_file <- "../data-raw/ots_sections.json"
+#  sections_tidy_file <- "../data/ots_sections.rda"
 #  
-#  if (!file.exists(communities_raw_file)) { download.file(communities_url, communities_raw_file) }
+#  if (!file.exists(sections_raw_file)) { download.file(sections_url, sections_raw_file) }
 #  
-#  if (!file.exists(communities_tidy_file)) {
-#    ots_communities <- fromJSON(communities_raw_file) %>%
+#  if (!file.exists(sections_tidy_file)) {
+#    ots_sections <- fromJSON(sections_raw_file) %>%
 #      as_tibble() %>%
 #      mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")}) %>%
 #      filter(nchar(product_code) == 4)
-#    save(ots_communities, file = communities_tidy_file, compress = "xz")
+#    save(ots_sections, file = sections_tidy_file, compress = "xz")
 #  }
 
-## ----product_shortnames, message = FALSE, eval = FALSE-------------------
+## ----groups, message = FALSE, eval = FALSE------------------------------------
+#  groups_url <- "https://api.tradestatistics.io/groups"
+#  groups_raw_file <- "../data-raw/ots_groups.json"
+#  groups_tidy_file <- "../data/ots_groups.rda"
+#  
+#  if (!file.exists(groups_raw_file)) { download.file(groups_url, groups_raw_file) }
+#  
+#  if (!file.exists(groups_tidy_file)) {
+#    ots_groups <- fromJSON(groups_raw_file) %>%
+#      as_tibble() %>%
+#      mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
+#    save(ots_groups, file = groups_tidy_file, compress = "xz")
+#  }
+
+## ----product_shortnames, message = FALSE, eval = FALSE------------------------
 #  product_shortnames_url <- "https://api.tradestatistics.io/product_shortnames"
 #  product_shortnames_raw_file <- "../data-raw/ots_product_shortnames.json"
 #  product_shortnames_tidy_file <- "../data/ots_product_shortnames.rda"
@@ -79,7 +93,49 @@ knitr::opts_chunk$set(
 #    save(ots_product_shortnames, file = product_shortnames_tidy_file, compress = "xz")
 #  }
 
-## ----conversion_rates, message = FALSE, eval = FALSE---------------------
+## ----sections_names, message = FALSE, eval = FALSE----------------------------
+#  sections_names_url <- "https://api.tradestatistics.io/sections_names"
+#  sections_names_raw_file <- "../data-raw/ots_sections_names.json"
+#  sections_names_tidy_file <- "../data/ots_sections_names.rda"
+#  
+#  if (!file.exists(sections_names_raw_file)) { download.file(sections_names_url, sections_names_raw_file) }
+#  
+#  if (!file.exists(sections_names_tidy_file)) {
+#    ots_sections_names <- fromJSON(sections_names_raw_file) %>%
+#      as_tibble() %>%
+#      mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
+#    save(ots_sections_names, file = sections_names_tidy_file, compress = "xz")
+#  }
+
+## ----sections_shortnames, message = FALSE, eval = FALSE-----------------------
+#  sections_shortnames_url <- "https://api.tradestatistics.io/sections_shortnames"
+#  sections_shortnames_raw_file <- "../data-raw/ots_sections_shortnames.json"
+#  sections_shortnames_tidy_file <- "../data/ots_sections_shortnames.rda"
+#  
+#  if (!file.exists(sections_shortnames_raw_file)) { download.file(sections_shortnames_url, sections_shortnames_raw_file) }
+#  
+#  if (!file.exists(sections_shortnames_tidy_file)) {
+#    ots_sections_shortnames <- fromJSON(sections_shortnames_raw_file) %>%
+#      as_tibble() %>%
+#      mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
+#    save(ots_sections_shortnames, file = sections_shortnames_tidy_file, compress = "xz")
+#  }
+
+## ----sections_colors, message = FALSE, eval = FALSE---------------------------
+#  sections_colors_url <- "https://api.tradestatistics.io/sections_colors"
+#  sections_colors_raw_file <- "../data-raw/ots_sections_colors.json"
+#  sections_colors_tidy_file <- "../data/ots_sections_colors.rda"
+#  
+#  if (!file.exists(sections_colors_raw_file)) { download.file(sections_colors_url, sections_colors_raw_file) }
+#  
+#  if (!file.exists(sections_colors_tidy_file)) {
+#    ots_sections_colors <- fromJSON(sections_colors_raw_file) %>%
+#      as_tibble() %>%
+#      mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
+#    save(ots_sections_colors, file = sections_colors_tidy_file, compress = "xz")
+#  }
+
+## ----conversion_rates, message = FALSE, eval = FALSE--------------------------
 #  # Source
 #  # https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG
 #  # https://data.worldbank.org/indicator/NY.GDP.MKTP.KD

@@ -8,30 +8,32 @@
 #' \code{c("chl", "Peru")}). Default set to \code{"all"}.
 #' @param partners ISO code for partner country (e.g. \code{"chl"}, \code{"Chile"} or
 #' \code{c("chl", "Peru")}). Default set to \code{"all"}.
-#' @param products HS codes (e.g. \code{"0101"}, \code{"01"} or search matches for \code{"apple"})
+#' @param products HS product codes (e.g. \code{"0101"}, \code{"01"} or search
+#' matches for \code{"apple"})
 #' to filter products. Default set to \code{"all"}.
+#' @param sections unofficial product sections (e.g. \code{"01"} or search
+#' matches for \code{"animals"}) to filter sections Default set to
+#' \code{"all"}.
+#' @param groups HS product groups (e.g. \code{"01"} or search matches for 
+#' \code{"animals"}) to filter groups. Default set to \code{"all"}.
 #' @param table Character string to select the table to obtain the data.
-#' Default set to \code{yrpc} (Year - Reporter - Partner - Product Code).
+#' Default set to \code{yr} (Year - Reporter).
 #' Run \code{ots_tables} in case of doubt.
 #' @param max_attempts How many times to try to download data in case the
 #' API or the internet connection fails when obtaining data. Default set
 #' to \code{5}.
-#' @param include_shortnames Whether to include or not to include unofficial shortened product names.
-#' Default set to \code{FALSE}.
-#' @param include_communities Whether to include or not to include product communities.
-#' Default set to \code{FALSE}.
-#' @param use_localhost Logical to determine if the base URL shall be localhost instead
-#' of api.tradestatistics.io. Default set to \code{FALSE}.
 #' @param use_cache Logical to save and load from cache. If \code{TRUE}, the results will be cached in memory
 #' if \code{file} is \code{NULL} or on disk if `file` is not \code{NULL}. Default set to \code{FALSE}.
 #' @param file Optional character with the full file path to save the data. Default set to \code{NULL}.
+#' @param use_localhost Logical to determine if the base URL shall be localhost instead
+#' of api.tradestatistics.io. Default set to \code{FALSE}.
 #' @return A tibble that describes bilateral trade metrics (imports,
 #' exports, trade balance and relevant metrics
 #' such as exports growth w/r to last year) between a \code{reporter}
 #' and \code{partner} country.
 #' @importFrom magrittr %>% %<>%
 #' @importFrom dplyr as_tibble select filter everything
-#' left_join bind_rows rename distinct starts_with
+#' left_join bind_rows rename distinct starts_with matches
 #' @importFrom rlang sym syms
 #' @importFrom purrr map_chr map_df as_vector
 #' @importFrom jsonlite fromJSON
@@ -56,17 +58,17 @@
 #' ots_create_tidy_data(years = 1980, reporters = "chl", products = "apple", table = "yrc")
 #' }
 #' @keywords functions
-ots_create_tidy_data <- function(years = 1962,
-                                 reporters = "all",
+ots_create_tidy_data <- function(years = 2018,
+                                 reporters = "usa",
                                  partners = "all",
                                  products = "all",
-                                 table = "yrpc",
+                                 sections = "all",
+                                 groups = "all",
+                                 table = "yr",
                                  max_attempts = 5,
-                                 include_shortnames = FALSE,
-                                 include_communities = FALSE,
-                                 use_localhost = FALSE,
                                  use_cache = FALSE,
-                                 file = NULL) {
+                                 file = NULL,
+                                 use_localhost = FALSE) {
   if (!is.logical(use_cache)) {
     stop("use_cache must be logical.")
   }
@@ -76,15 +78,16 @@ ots_create_tidy_data <- function(years = 1962,
   }
   
   ots_cache(
-    use_cache = use_cache, file = file,
+    use_cache = use_cache,
+    file = file,
     years = years,
     reporters = reporters,
     partners = partners,
     products = products,
+    sections = sections,
+    groups = groups,
     table = table,
     max_attempts = max_attempts,
-    include_shortnames = include_shortnames,
-    include_communities = include_communities,
     use_localhost = use_localhost
   )
 }
@@ -92,14 +95,14 @@ ots_create_tidy_data <- function(years = 1962,
 #' Downloads and processes the data from the API to return a human-readable tibble (unmemoised, internal)
 #' @description A separation of \code{ots_create_tidy_data()} for making caching optional.
 #' @keywords internal
-ots_create_tidy_data_unmemoised <- function(years = 1962,
-                                            reporters = "all",
+ots_create_tidy_data_unmemoised <- function(years = 2018,
+                                            reporters = "usa",
                                             partners = "all",
                                             products = "all",
-                                            table = "yrpc",
+                                            sections = "all",
+                                            groups = "all",
+                                            table = "yr",
                                             max_attempts = 5,
-                                            include_shortnames = FALSE,
-                                            include_communities = FALSE,
                                             use_localhost = FALSE) {
   # Check tables ----
   if (!table %in% tradestatistics::ots_tables$table) {
@@ -129,6 +132,7 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
     tradestatistics::ots_tables$table,
     value = T
   )
+  
   partner_depending_queries <- grep("^yrp",
     tradestatistics::ots_tables$table,
     value = T
@@ -141,10 +145,16 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
       
       reporters_no_iso <- map_chr(seq_along(reporters_no_iso),
               function(x) {
-                y <- tradestatistics::ots_country_code(reporters_no_iso[x]) %>% 
-                  select(!!sym("country_iso")) %>% 
-                  as_vector()
+                y <- tradestatistics::ots_country_code(reporters_no_iso[x])
                 
+                if (nrow(y) == 0) {
+                  stop("It was not possible to find ISO codes for any of the reporters you requested. Please check ots_countries.")
+                } else {
+                  y <- y %>% 
+                    select(!!sym("country_iso")) %>% 
+                    as_vector()
+                }
+  
                 if (length(y) > 1) {
                   stop("There are multiple matches for the reporters you requested. Please check ots_countries.")
                 } else {
@@ -154,10 +164,6 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
       )
       
       reporters <- unique(c(reporters_iso, reporters_no_iso))
-      
-      if (length(reporters) == 0) {
-        stop("It was not possible to find ISO codes for any of the reporters you requested. Please check ots_countries.")
-      }
     }
   }
 
@@ -168,12 +174,18 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
 
       partners_no_iso <- map_chr(seq_along(partners_no_iso),
                                   function(x) {
-                                    y <- tradestatistics::ots_country_code(partners_no_iso[x]) %>% 
-                                      select(!!sym("country_iso")) %>% 
-                                      as_vector()
+                                    y <- tradestatistics::ots_country_code(partners_no_iso[x])
+                                    
+                                    if (nrow(y) == 0) {
+                                      stop("There are multiple matches for the partners you requested. Please check ots_countries.")
+                                    } else {
+                                      y <- y %>% 
+                                        select(!!sym("country_iso")) %>% 
+                                        as_vector()
+                                    }
                                     
                                     if (length(y) > 1) {
-                                      stop("There are multiple matches for the reporters you requested. Please check ots_countries.")
+                                      stop("There are multiple matches for the partners you requested. Please check ots_countries.")
                                     } else {
                                       return(y)
                                     }
@@ -181,10 +193,6 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
       )
       
       partners <- unique(c(partners_iso, partners_no_iso))
-      
-      if (length(partners) == 0) {
-        stop("It was not possible to find ISO codes for any of the partners you requested. Please check ots_countries.")
-      }
     }
   }
 
@@ -215,6 +223,7 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
     )
 
     products_wm <- bind_rows(pnm, gnm) %>%
+      filter(nchar(!!sym("product_code")) == 4) %>% 
       distinct(!!sym("product_code")) %>%
       as_vector()
 
@@ -232,17 +241,83 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
     stop("The requested products do not exist. Please check ots_products.")
   }
 
+  # Check groups ----
+  group_depending_queries <- grep("-ga$|-gca$",
+                                    tradestatistics::ots_tables$table,
+                                    value = T
+  )
+  
+  unique_groups <- unique(tradestatistics::ots_groups$group_code)
+  unique_groups <- c(unique_groups[!is.na(unique_groups)], "all")
+  
+  if (!all(as.character(groups) %in% unique_groups) == TRUE &
+      table %in% group_depending_queries) {
+    
+    # groups without match (wm)
+    groups_wm <- groups[!groups %in% unique_groups]
+    
+    # group name match (gmm)
+    gnm <- map_df(
+      .x = seq_along(groups_wm),
+      ~ tradestatistics::ots_product_code(productgroup = groups_wm[.x])
+    )
+    
+    groups_wm <- gnm %>%
+      distinct(!!sym("group_code")) %>%
+      as_vector()
+    
+    groups <- c(groups[groups %in% unique_groups], groups_wm)
+    
+    if(length(groups) == 0) {
+      groups <- NA
+    }
+  }
+  
+  if (!all(as.character(groups) %in% unique_groups == TRUE) &
+      table %in% group_depending_queries) {
+    stop("The requested groups do not exist. Please check ots_products.")
+  }
+  
+  # Check sections ----
+  section_depending_queries <- grep("-sa$|-sga$",
+                                      tradestatistics::ots_tables$table,
+                                      value = T
+  )
+  
+  unique_sections <- tradestatistics::ots_sections_names$section_code
+  unique_sections <- c(unique_sections, "all")
+  
+  if (!all(as.character(sections) %in% unique_sections) == TRUE &
+      table %in% section_depending_queries) {
+    
+    # sections without match (wm)
+    sections_wm <- sections[!sections %in% unique_sections]
+    
+    # community name match (cmm)
+    cnm <- map_df(
+      .x = seq_along(sections_wm),
+      ~ tradestatistics::ots_product_section(productsection = sections_wm[.x])
+    )
+    
+    sections_wm <- cnm %>%
+      distinct(!!sym("section_code")) %>%
+      as_vector()
+    
+    sections <- c(sections[sections %in% unique_sections], sections_wm)
+    
+    if(length(sections) == 0) {
+      sections <- NA
+    }
+  }
+  
+  if (!all(as.character(sections) %in% unique_sections == TRUE) &
+      table %in% section_depending_queries) {
+    stop("The requested sections do not exist. Please check ots_products.")
+  }
+  
   # Check optional parameters ----
   if (!is.numeric(max_attempts) | max_attempts <= 0) {
     stop("max_attempts must be a positive integer.")
-  }
-
-  if (!is.logical(include_shortnames)) {
-    stop("include_shortnames must be logical.")
-  }
-
-  if (!is.logical(include_communities)) {
-    stop("include_communities must be logical.")
   }
 
   if (!is.logical(use_localhost)) {
@@ -253,6 +328,16 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
   if (!table %in% product_depending_queries & any(products != "all") == TRUE) {
     products <- "all"
     warning("The products argument will be ignored provided that you requested a table without product_code field.")
+  }
+  
+  if (!table %in% group_depending_queries & any(groups != "all") == TRUE) {
+    groups <- "all"
+    warning("The groups argument will be ignored provided that you requested a table without group_code field.")
+  }
+  
+  if (!table %in% section_depending_queries & any(sections != "all") == TRUE) {
+    sections <- "all"
+    warning("The sections argument will be ignored provided that you requested a table without section_code field.")
   }
 
   if (is.null(reporters)) {
@@ -270,6 +355,8 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
     reporter = reporters,
     partner = partners,
     product = products,
+    group = groups,
+    community = sections,
     stringsAsFactors = FALSE
   )
 
@@ -279,9 +366,11 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
       table = table,
       max_attempts = max_attempts,
       year = condensed_parameters$year[.x],
-      reporter = condensed_parameters$reporter[.x],
-      partner = condensed_parameters$partner[.x],
+      reporter_iso = condensed_parameters$reporter[.x],
+      partner_iso = condensed_parameters$partner[.x],
       product_code = condensed_parameters$product[.x],
+      group_code = condensed_parameters$group[.x],
+      section_code = condensed_parameters$community[.x],
       use_localhost = use_localhost
     )
   ) %>%
@@ -289,7 +378,7 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
 
   # no data in API message
   if (any("observation" %in% names(data))) {
-    warning("Rows with NAs in both exports and imports will be dropped.")
+    warning("The parameters you specified resulted in API calls returning 0 rows.")
     
     data <- data %>% 
       filter(is.na(!!sym("observation"))) %>% 
@@ -299,10 +388,8 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
   # Add attributes based on codes, etc (and join years, if applicable) ------
 
   # include countries data
-  tables_with_reporter <- c("yrpc", "yrp", "yrc", "yr")
-
-  if (table %in% tables_with_reporter) {
-    if (table %in% tables_with_reporter[1:2]) {
+  if (table %in% reporter_depending_queries) {
+    if (table %in% partner_depending_queries) {
       data %<>%
         left_join(select(
           tradestatistics::ots_countries,
@@ -348,9 +435,7 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
     }
   }
 
-  tables_with_partner <- c("yrpc", "yrp")
-
-  if (table %in% tables_with_partner) {
+  if (table %in% partner_depending_queries) {
     data %<>%
       left_join(select(
         tradestatistics::ots_countries,
@@ -376,84 +461,48 @@ ots_create_tidy_data_unmemoised <- function(years = 1962,
   }
 
   # include products data
-  tables_with_product_code <- c("yrpc", "yrc", "yc")
-
-  if (table %in% tables_with_product_code) {
+  if (table %in% product_depending_queries) {
     data %<>%
-      left_join(tradestatistics::ots_products, by = "product_code")
-
-    if (table == "yrpc") {
-      data %<>%
-        select(
-          !!!syms(c(
-            "year",
-            "reporter_iso",
-            "partner_iso",
-            "reporter_fullname_english",
-            "partner_fullname_english",
-            "product_code",
-            "product_fullname_english",
-            "group_code",
-            "group_name"
-          )),
-          everything()
-        )
-    }
-
-    if (table == "yrc") {
-      data %<>%
-        select(
-          !!!syms(c(
-            "year",
-            "reporter_iso",
-            "reporter_fullname_english",
-            "product_code",
-            "product_fullname_english",
-            "group_code",
-            "group_name"
-          )),
-          everything()
-        )
-    }
-
-    if (table == "yc") {
-      data %<>%
-        select(
-          !!!syms(c(
-            "year",
-            "product_code",
-            "product_fullname_english",
-            "group_code",
-            "group_name"
-          )),
-          everything()
-        )
-    }
+      left_join(tradestatistics::ots_products, by = "product_code") %>% 
+      left_join(tradestatistics::ots_product_shortnames, by = "product_code") %>% 
+      
+      left_join(tradestatistics::ots_sections, by = "product_code") %>% 
+      left_join(tradestatistics::ots_sections_names, by = "section_code") %>% 
+      left_join(tradestatistics::ots_sections_shortnames, by = "section_code") %>% 
+      left_join(tradestatistics::ots_sections_colors, by = "section_code") %>% 
+      
+      mutate(group_code = substr(!!sym("product_code"), 1, 2)) %>% 
+      left_join(tradestatistics::ots_groups, by = "group_code")
   }
 
-  if (table %in% product_depending_queries & include_shortnames == TRUE) {
+  # include groups data
+  if (table %in% group_depending_queries) {
     data %<>%
-      left_join(tradestatistics::ots_product_shortnames) %>%
-      select(
-        !!!sym(("year")),
-        starts_with("product_"),
-        starts_with("group_"),
-        everything()
-      )
+      left_join(tradestatistics::ots_groups, by = "group_code")
   }
-
-  if (table %in% product_depending_queries & include_communities == TRUE) {
+  
+  # include sections data
+  if (table %in% section_depending_queries[section_depending_queries != "yr-sa"]) {
     data %<>%
-      left_join(tradestatistics::ots_communities) %>%
-      select(
-        !!!sym(("year")),
-        starts_with("product_"),
-        starts_with("group_"),
-        starts_with("community_"),
-        everything()
-      )
+      left_join(tradestatistics::ots_sections, by = "section_code") %>% 
+      left_join(tradestatistics::ots_sections_names, by = "section_code") %>% 
+      left_join(tradestatistics::ots_sections_shortnames, by = "section_code") %>% 
+      left_join(tradestatistics::ots_sections_colors, by = "section_code")
   }
-
+  
+  # order columns for consistent order
+  data %<>%
+    select(
+      !!sym("year"),
+      starts_with("reporter_"),
+      starts_with("partner_"),
+      starts_with("section_"),
+      starts_with("group_"),
+      starts_with("product_"),
+      everything()
+    )
+  
+  if (nrow(data) == 0) { warning("The resulting table contains 0 rows.") }
   return(data)
 }
 

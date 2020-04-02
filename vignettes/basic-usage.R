@@ -19,7 +19,10 @@ ots_products
 
 ots_product_shortnames
 
-ots_communities
+## ----products2, eval = T------------------------------------------------------
+ots_sections
+
+ots_sections_shortnames
 
 ## ----inflation, eval = T------------------------------------------------------
 ots_inflation
@@ -35,50 +38,31 @@ ots_country_code("America")
 ots_country_code("Germany")
 
 ## ----product_code-------------------------------------------------------------
-ots_product_code("wine")
+ots_product_code(" WiNe ")
 
-## ----yrpc1, eval = T----------------------------------------------------------
+## ----product_code2------------------------------------------------------------
+ots_product_code(productname = " ShEEp ", productgroup = " mEaT ")
+
+## ----section_code-------------------------------------------------------------
+ots_product_section(" tExTiLeS ")
+
+## ----yrpc-ga1, eval = T-------------------------------------------------------
 ots_create_tidy_data(
   years = 1962,
   reporters = "chl",
-  partners = "arg"
+  partners = "arg",
+  table = "yrpc-sa"
 )
 
-# the same can be obtained specifying yrpc which is the default table
-# ots_create_tidy_data(years = 1962, reporters = "chl", partners = "arg", table = "yrpc")
-
-## ----yrpc2, eval = T----------------------------------------------------------
+## ----yrpc-ga2, eval = T-------------------------------------------------------
 # Note that here I'm passing Peru and not per which is the ISO code for Peru
 # The same applies to Brazil
 ots_create_tidy_data(
   years = c(1962,1963),
   reporters = c("chl", "Peru", "bol"),
-  partners = c("arg", "Brazil")
-)
-
-## ----yrpc3, eval = T----------------------------------------------------------
-# Pass a specific HS code
-ots_create_tidy_data(
-  years = c(1962,1963),
-  reporters = c("chl", "Peru", "bol"),
-  partners = c("arg", "bra"), 
-  products = "0101"
-)
-
-# Pass a string that will return all matching descriptions and multiple HS codes
-ots_create_tidy_data(
-  years = c(1962,1963),
-  reporters = c("chl", "Peru", "bol"),
-  partners = c("arg", "bra"),
-  products = c("0101", "apple")
-)
-
-## ----yrp1, eval = T-----------------------------------------------------------
-ots_create_tidy_data(
-  years = 1962,
-  reporters = "chl",
-  partners = "arg",
-  table = "yrp"
+  partners = c("arg", "Brazil"),
+  sections = c("01", "food"),
+  table = "yrpc-sa"
 )
 
 ## ----yrp3, eval = T-----------------------------------------------------------
@@ -89,13 +73,6 @@ ots_create_tidy_data(
   table = "yrp"
 )
 
-## ----yrc1, eval = T-----------------------------------------------------------
-ots_create_tidy_data(
-  years = 1962,
-  reporters = "chl",
-  table = "yrc"
-)
-
 ## ----yrc2, eval = T-----------------------------------------------------------
 ots_create_tidy_data(
   years = 1962,
@@ -104,19 +81,14 @@ ots_create_tidy_data(
   table = "yrc"
 )
 
-## ----yr, eval = T-------------------------------------------------------------
-ots_create_tidy_data(
-  years = 1962,
-  reporters = "chl",
-  table = "yr"
-)
-
 ## ----yr2, eval = T------------------------------------------------------------
-ots_create_tidy_data(
+yr <- ots_create_tidy_data(
   years = 1962:1963,
   reporters = c("chl", "arg", "per"),
   table = "yr"
 )
+
+yr
 
 ## ----yc1, eval = T------------------------------------------------------------
 ots_create_tidy_data(
@@ -132,11 +104,5 @@ ots_create_tidy_data(
 )
 
 ## -----------------------------------------------------------------------------
-d <- ots_create_tidy_data(
-  years = 1962,
-  reporters = "chl",
-  table = "yr"
-) 
-
-ots_inflation_adjustment(d, reference_year = 1970)
+ots_inflation_adjustment(yr, reference_year = 1970)
 

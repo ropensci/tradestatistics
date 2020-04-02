@@ -5,14 +5,14 @@
 \title{Downloads and processes the data from the API to return a human-readable tibble (unmemoised, internal)}
 \usage{
 ots_create_tidy_data_unmemoised(
-  years = 1962,
-  reporters = "all",
+  years = 2018,
+  reporters = "usa",
   partners = "all",
   products = "all",
-  table = "yrpc",
+  sections = "all",
+  groups = "all",
+  table = "yr",
   max_attempts = 5,
-  include_shortnames = FALSE,
-  include_communities = FALSE,
   use_localhost = FALSE
 )
 }

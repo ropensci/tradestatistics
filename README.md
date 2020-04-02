@@ -9,7 +9,7 @@
 
 </p>
 
-# Open Trade Statistics package <img src="https://docs.ropensci.org/tradestatistics/reference/figures/hexicon.svg" width=150 align="right" alt="sticker"/>
+# Open Trade Statistics package <img src="https://docs.tradestatistics.io/fig/hexicon.svg" width=150 align="right" alt="sticker"/>
 
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
@@ -30,8 +30,7 @@ obtain data from OTS by accessing its API.
 
 This is what the package does:
 
-![Data
-diagram](https://ropensci.github.io/tradestatistics/data-diagram.svg)
+![Data diagram](https://docs.tradestatistics.io/fig/data-diagram.svg)
 
 Using `tradestatistics` package is all about efficiency, without this
 package you could obtain the same data from the API at the expense of
@@ -53,6 +52,7 @@ devtools::install_github("ropensci/tradestatistics")
 
 Please note that this project is released with a [Contributor Code of
 Conduct](https://docs.ropensci.org/tradestatistics/CODE_OF_CONDUCT.html).
-By participating in this project you agree to abide by its terms.
+By participating in this project you agree to abide by its
+terms.
 
 [![ropensci\_footer](https://ropensci.org/public_images/ropensci_footer.png)](https://ropensci.org)

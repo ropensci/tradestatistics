@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
   </a>
 </p>
 
-# Open Trade Statistics package <img src="https://docs.ropensci.org/tradestatistics/reference/figures/hexicon.svg" width=150 align="right" alt="sticker"/>
+# Open Trade Statistics package <img src="https://docs.tradestatistics.io/fig/hexicon.svg" width=150 align="right" alt="sticker"/>
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
@@ -31,7 +31,7 @@ knitr::opts_chunk$set(
 
 This is what the package does:
 
-![Data diagram](https://ropensci.github.io/tradestatistics/data-diagram.svg)
+![Data diagram](https://docs.tradestatistics.io/fig/data-diagram.svg)
 
 Using `tradestatistics` package is all about efficiency, without this package you could obtain the same data from the API at the expense of using additional time and effort for the same results. As an API wrapper and utility program this package makes data obtaining faster and easier for you.
 

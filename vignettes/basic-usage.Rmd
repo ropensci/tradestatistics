@@ -30,6 +30,23 @@ library(tradestatistics)
 ots_tables
 ```
 
+You might notice the tables have a pattern. The letters indicate the presence of columns that account for the level of detail in the data:
+
+* `y`: *y*ear column.
+* `r`: *r*eporter column
+* `p`: *p*artner column
+* `c`: product *c*ode column
+* `s`: product *s*ection column
+* `g`: product *g*roup column
+
+The most aggregated table is `yr` which basically says how many dollars each country exports and imports for a given year.
+
+The less aggregated table is `yrpc` which says how many dollars of each of the 1,222 products from the Harmonized System each country exports to other countries and imports from other countries.
+
+`g` and `s` are aggregations over `c`, therefore `yrpc-sa` (`yrpc` with section aggregation) and `yrpc-ga` (`yrpc` with group aggregation) are summaries of `yrpc`.
+
+For the complete detail you can check [docs.tradestatistics.io](docs.tradestatistics.io).
+
 ## Country codes
 
 The Package Functions section explains that you don't need to memorize all ISO codes. The functions within this package are designed to match strings (i.e. "United States" or "America") to valid ISO codes (i.e. "USA").
@@ -48,8 +65,12 @@ The Package Functions section explains that you don't need to memorize all HS co
 ots_products
 
 ots_product_shortnames
+```
 
-ots_communities
+```{r products2, eval = T}
+ots_sections
+
+ots_sections_shortnames
 ```
 
 ## Inflation data
@@ -85,78 +106,59 @@ The function `ots_country_code()` is used by `ots_create_tidy_data()` in a way t
 The end user can use this function to find a product code by providing a product name. This works by implementing partial string matching:
 
 ```{r product_code}
-ots_product_code("wine")
+ots_product_code(" WiNe ")
+```
+
+This function searches both products and groups:
+```{r product_code2}
+ots_product_code(productname = " ShEEp ", productgroup = " mEaT ")
+```
+
+## Section code
+
+The end user can use this function to find a community code by providing a community name. This works by implementing partial string matching:
+
+```{r section_code}
+ots_product_section(" tExTiLeS ")
 ```
 
 ## Trade data
 
 This function downloads data for a single year and needs (at least) some filter parameters according to the query type.
- 
+
+Here we cover aggregated tables to describe the usage.
+
 ### Bilateral trade at product level (Year - Reporter - Partner - Product Code)
 
-If we want Chile-Argentina bilateral trade at product level in 1962:
-```{r yrpc1, eval = T}
+If we want Chile-Argentina bilateral trade at community level in 1962:
+```{r yrpc-ga1, eval = T}
 ots_create_tidy_data(
   years = 1962,
   reporters = "chl",
-  partners = "arg"
+  partners = "arg",
+  table = "yrpc"
 )
-
-# the same can be obtained specifying yrpc which is the default table
-# ots_create_tidy_data(years = 1962, reporters = "chl", partners = "arg", table = "yrpc")
 ```
 
-We can pass more than one year and or reporter/partner:
-```{r yrpc2, eval = T}
+We can pass two years or more, several reporters/partners, and filter by community with exact codes or code matching based on keywords:
+```{r yrpc-ga2, eval = T}
 # Note that here I'm passing Peru and not per which is the ISO code for Peru
 # The same applies to Brazil
 ots_create_tidy_data(
   years = c(1962,1963),
   reporters = c("chl", "Peru", "bol"),
-  partners = c("arg", "Brazil")
+  partners = c("arg", "Brazil"),
+  sections = c("01", "food"),
+  table = "yrpc"
 )
 ```
 
-If we want filtering by product, there are different options:
-```{r yrpc3, eval = T}
-# Pass a specific HS code
-ots_create_tidy_data(
-  years = c(1962,1963),
-  reporters = c("chl", "Peru", "bol"),
-  partners = c("arg", "bra"), 
-  products = "0101"
-)
-
-# Pass a string that will return all matching descriptions and multiple HS codes
-ots_create_tidy_data(
-  years = c(1962,1963),
-  reporters = c("chl", "Peru", "bol"),
-  partners = c("arg", "bra"),
-  products = c("0101", "apple")
-)
-```
-
-`yrpc` table returns some fields that deserve an explanation:
-
-* `product_code`: HS07 product codes (e.g. according to the \code{products} table within this package, 0101 stands for "Horses, etc.")
-* `group_code`: International categorization of group products defined after product ID
-* `group_name`: English name corresponding to `group_id`
-* `export_value_usd`: Exports measured in nominal United States Dollars (USD)
-* `import_value_usd`: Imports measured in nominal United States Dollars (USD)
+`yrpc` table returns some fields that deserve an explanation which can be seen at [docs.tradestatistics.io](docs.tradestatistics.io).
 
 ### Bilateral trade at aggregated level (Year - Reporter - Partner)
 
-If we want Chile-Argentina bilateral trade at aggregated level in 1962:
-```{r yrp1, eval = T}
-ots_create_tidy_data(
-  years = 1962,
-  reporters = "chl",
-  partners = "arg",
-  table = "yrp"
-)
-```
+If we want Chile-Argentina bilateral trade at aggregated level in 1962 and 1963:
 
-Another option is to pass more than one year, reporter and/or partner:
 ```{r yrp3, eval = T}
 ots_create_tidy_data(
   years = 1962:1963,
@@ -170,16 +172,7 @@ This table accepts different years, reporters and partners just like `yrpc`.
 
 ### Reporter trade at product level (Year - Reporter - Product Code) 
 
-If we want Chilean trade at product level in 1962:
-```{r yrc1, eval = T}
-ots_create_tidy_data(
-  years = 1962,
-  reporters = "chl",
-  table = "yrc"
-)
-```
-
-If we want Chilean trade at product level in 1962 with respect to product "0101" (Horses, asses, mules and hinnies; live):
+If we want Chilean trade at product level in 1962 with respect to product `0101` which means "Horses, asses, mules and hinnies; live":
 ```{r yrc2, eval = T}
 ots_create_tidy_data(
   years = 1962,
@@ -191,34 +184,24 @@ ots_create_tidy_data(
 
 This table accepts different years, reporters and product codes just like `yrpc`.
 
-Here the `export_rca` and `import_rca` fields contain the Revealed Comparative Advantage (RCA) of an exported product with respect to all the products with the same number of digits. The definition of RCA is detailed on [Open Trade Statistics Documentation](https://docs.tradestatistics.io/).
+All the variables from this table are documented at [docs.tradestatistics.io](docs.tradestatistics.io).
 
 ### Reporter trade at aggregated level (Year - Reporter)
 
-If we want Chilean trade at aggregated level in 1962:
-```{r yr, eval = T}
-ots_create_tidy_data(
-  years = 1962,
-  reporters = "chl",
-  table = "yr"
-)
-```
-
-Another option is to pass more than one year and/or reporter:
+If we want the aggregated trade of Chile, Argentina and Peru in 1962 and 1963:
 ```{r yr2, eval = T}
-ots_create_tidy_data(
+yr <- ots_create_tidy_data(
   years = 1962:1963,
   reporters = c("chl", "arg", "per"),
   table = "yr"
 )
+
+yr
 ```
 
 This table accepts different years and reporters just like `yrpc`.
 
-Here some fields deserve an explanation:
-
-* `eci_*_method`: Economic Complexity Index (ECI) which is detailed on [Open Trade Statistics Documentation](https://docs.tradestatistics.io/). This index is built by using just four digits product codes.
-* `eci_rank_*_method`: The rank of a country given its ECI (e.g. the highest ECI obtains the #1).
+All the variables from this table are documented at [docs.tradestatistics.io](docs.tradestatistics.io).
 
 ### Product trade at aggregated level (Year - Product Code)
 
@@ -230,7 +213,7 @@ ots_create_tidy_data(
 )
 ```
 
-If we want traded values of product "0101" (Horses, asses, mules and hinnies; live) in 1962:
+If we want the traded values of the product `0101` which means "Horses, asses, mules and hinnies; live: in 1962:
 ```{r yc2, eval = T}
 ots_create_tidy_data(
   years = 1962,
@@ -239,23 +222,12 @@ ots_create_tidy_data(
 )
 ```
 
-This table accepts different product codes just like `yrpc`.
-
-Here some fields deserve an explanation:
-
-* `pci_*_method`: Product Complexity Index (PCI) which is detailed on [Open Trade Statistics Documentation](https://docs.tradestatistics.io/).
-* `pci_rank_*_method`: The rank of a product given its PCI (e.g. the highest PCI obtains the #1).
+This table accepts different years just like `yrpc`.
 
 ## Inflation adjustment
 
-Taking Year - Reporter table as an example, we can use `ots_inflation_adjustment()` to convert dollars from 1962 to dollars of 1970:
+Taking the `yr` table from above, we can use `ots_inflation_adjustment()` to convert dollars from 1962 to dollars of 1970:
 
 ```{r}
-d <- ots_create_tidy_data(
-  years = 1962,
-  reporters = "chl",
-  table = "yr"
-) 
-
-ots_inflation_adjustment(d, reference_year = 1970)
+ots_inflation_adjustment(yr, reference_year = 1970)
 ```

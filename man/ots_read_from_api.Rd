@@ -6,10 +6,12 @@
 \usage{
 ots_read_from_api(
   year = NULL,
-  reporter = NULL,
-  partner = NULL,
+  reporter_iso = NULL,
+  partner_iso = NULL,
   product_code = "all",
-  table = "yrpc",
+  group_code = "all",
+  section_code = "all",
+  table = "yrpc-ga",
   max_attempts = 5,
   use_localhost = FALSE
 )
@@ -19,9 +21,9 @@ ots_read_from_api(
 api.tradestatistics.io/year_range (e.g. \code{1980}).
 Default set to \code{NULL}.}
 
-\item{reporter}{ISO code for reporter country (e.g. \code{"chl"}). Default set to \code{NULL}.}
+\item{reporter_iso}{ISO code for reporter country (e.g. \code{"chl"}). Default set to \code{"all"}.}
 
-\item{partner}{ISO code for partner country (e.g. \code{"chl"}). Default set to \code{NULL}.}
+\item{partner_iso}{ISO code for partner country (e.g. \code{"chl"}). Default set to \code{"all"}.}
 
 \item{product_code}{HS code (e.g. \code{0101} or \code{01}) to filter products.
 Default set to \code{"all"}.}
@@ -47,13 +49,13 @@ performs different API calls to return \code{data.frames} by reading \code{JSON}
 # Run `countries` to display the full table of countries
 
 # What does Chile export to China? (1980)
-ots_read_from_api(year = 1980, reporter = "chl", partner = "chn")
+ots_read_from_api(year = 1980, reporter_iso = "chl", partner_iso = "chn")
 
 # What can we say about chilean Horses export? (1980)
 ots_read_from_api(year = 1980, product_code = "0101", table = "yc")
-ots_read_from_api(year = 1980, reporter = "chl", product_code = "0101", table = "yrc")
+ots_read_from_api(year = 1980, reporter_iso = "chl", product_code = "0101", table = "yrc")
 ots_read_from_api(
-  year = 1980, reporter = "chl", partner = "arg", product_code = "0101",
+  year = 1980, reporter_iso = "chl", partner_iso = "arg", product_code = "0101",
   table = "yrpc"
 )
 }

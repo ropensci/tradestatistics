@@ -1,8 +1,5 @@
 {
-  "@context": [
-    "https://doi.org/10.5063/schema/codemeta-2.0",
-    "http://schema.org"
-  ],
+  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
   "@type": "SoftwareSourceCode",
   "identifier": "tradestatistics",
   "description": "Access 'Open Trade Statistics' API from R to download international trade data.",
@@ -10,14 +7,14 @@
   "codeRepository": "https://docs.ropensci.org/tradestatistics/",
   "issueTracker": "https://github.com/ropensci/tradestatistics/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.3",
+  "version": "0.4.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.6.1",
+    "version": "3.6.3",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.1 (2019-07-05)",
+  "runtimePlatform": "R version 3.6.3 (2020-02-29)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -114,6 +111,7 @@
       "@type": "SoftwareApplication",
       "identifier": "testthat",
       "name": "testthat",
+      "version": ">= 2.1.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -301,15 +299,9 @@
   ],
   "releaseNotes": "https://github.com/ropensci/tradestatistics/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/tradestatistics/blob/master/README.md",
-  "fileSize": "182.136KB",
-  "contIntegration": [
-    "https://travis-ci.org/ropensci/tradestatistics",
-    "https://codecov.io/github/ropensci/tradestatistics?branch=master"
-  ],
-  "developmentStatus": [
-    "https://www.repostatus.org/#active",
-    "https://www.tidyverse.org/lifecycle/#stable"
-  ],
+  "fileSize": "175.834KB",
+  "contIntegration": "https://codecov.io/github/ropensci/tradestatistics?branch=master",
+  "developmentStatus": ["https://www.repostatus.org/#active", "https://www.tidyverse.org/lifecycle/#stable"],
   "review": {
     "@type": "Review",
     "url": "https://github.com/ropensci/onboarding/issues/274",
