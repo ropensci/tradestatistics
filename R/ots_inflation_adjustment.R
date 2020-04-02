@@ -6,8 +6,7 @@
 #' @param reference_year Year contained within the years specified in
 #' api.tradestatistics.io/year_range (e.g. \code{2010}).
 #' Default set to \code{NULL}.
-#' @importFrom data.table `:=`
-#' @importFrom purrr map_df
+#' @importFrom data.table `:=` rbindlist last
 #' @export
 #' @examples
 #' \dontrun{
@@ -22,18 +21,11 @@
 ots_inflation_adjustment <- function(trade_data = NULL, reference_year = NULL) {
   # Check input -------------------------------------------------------------
   if (is.null(trade_data)) {
-    stop(
-      "
-      The input data cannot be null.
-      "
-    )
+    stop("The input data cannot be NULL.")
   }
 
   if (is.null(reference_year)) {
-    stop(
-      "
-      The reference year cannot be null.
-      "
+    stop("The reference year cannot be NULL."
     )
   }
 
@@ -43,12 +35,7 @@ ots_inflation_adjustment <- function(trade_data = NULL, reference_year = NULL) {
   if (!is.numeric(reference_year) |
     !(reference_year >= ots_inflation_min_year &
       reference_year <= ots_inflation_max_year)) {
-    stop(
-      sprintf(
-        "
-      The reference year must be numeric and contained within ots_inflation years range
-      that is %s-%s.
-      ",
+    stop(sprintf("The reference year must be numeric and contained within ots_inflation years range that is %s-%s.",
         ots_inflation_min_year,
         ots_inflation_max_year
       )
@@ -58,7 +45,7 @@ ots_inflation_adjustment <- function(trade_data = NULL, reference_year = NULL) {
   # Filter year conversion rates and join data ------------------------------
   years <- unique(trade_data$year)
   
-  d1 <- map_df(
+  d1 <- lapply(
     years,
     function(year) {
       if (year <= reference_year) {
@@ -74,7 +61,7 @@ ots_inflation_adjustment <- function(trade_data = NULL, reference_year = NULL) {
       }
     }
   )
-  
+  d1 <- rbindlist(d1)
   d1 <- d1[, `:=`(conversion_factor = ifelse(year == conversion_year, 1, conversion_factor))]
   
   d2 <- trade_data[d1, on = .(year), allow.cartesian = TRUE][,
@@ -89,8 +76,8 @@ ots_inflation_adjustment <- function(trade_data = NULL, reference_year = NULL) {
   
   if (any("top_exporter_trade_value_usd" %in% names(d2))) {
     d2 <- d2[,
-             `:=`(top_exporter_trade_value_usd = top_exporter_trade_value_usd * conversion_factor,
-                  top_importer_trade_value_usd = top_importer_trade_value_usd * conversion_factor)]
+      `:=`(top_exporter_trade_value_usd = top_exporter_trade_value_usd * conversion_factor,
+           top_importer_trade_value_usd = top_importer_trade_value_usd * conversion_factor)]
   }
 
   return(d2)

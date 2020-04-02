@@ -1,7 +1,7 @@
 Package: tradestatistics
 Type: Package
 Title: Open Trade Statistics API Wrapper and Utility Program
-Version: 0.4.0
+Version: 1.0
 Authors@R: c(
       person(given = "Mauricio",
              family = "Vargas",
@@ -50,14 +50,8 @@ BugReports: https://github.com/ropensci/tradestatistics/issues
 Description: Access 'Open Trade Statistics' API from R to download international trade data.
 License: GPL-3
 LazyData: TRUE
-Depends:
-  R (>= 3.5.0)
 Imports:
-    rlang,
-    magrittr,
-    dplyr,
     crul,
-    purrr,
     jsonlite,
     memoise,
     data.table,
@@ -67,8 +61,6 @@ Suggests:
     knitr,
     rmarkdown,
     testthat (>= 2.1.0),
-    styler,
-    pkgdown,
     vcr,
     covr
 VignetteBuilder: knitr

@@ -84,7 +84,7 @@ product communities" />
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="https://ropensci.org/img/icon_short_white.svg" id="hexlogo" alt="rOpenSci" /></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.4.0</small></i></a>
+        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v1.0</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -107,9 +107,6 @@ product communities" />
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="../articles/basic-usage.html">How to use this package</a>
-    </li>
-    <li>
-      <a href="../articles/creating-datasets.html">Creating the datasets available within the package</a>
     </li>
   </ul>
 </li>
@@ -164,22 +161,50 @@ product communities</p>
 showing the section name and section code</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ots_product_section</span>(<span class='kw'>productsection</span> <span class='kw'>=</span> <span class='st'>"  Animals"</span>)</div><div class='output co'>#&gt; <span class='message'>Joining, by = "section_code"</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 42 x 4</span><span>
-#&gt;    product_code section_code section_fullname_english      type_section
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       
-#&gt; </span><span style='color: #555555;'> 1</span><span> 0101         01           Live Animals; Animal Products Animals     
-#&gt; </span><span style='color: #555555;'> 2</span><span> 0102         01           Live Animals; Animal Products Animals     
-#&gt; </span><span style='color: #555555;'> 3</span><span> 0103         01           Live Animals; Animal Products Animals     
-#&gt; </span><span style='color: #555555;'> 4</span><span> 0104         01           Live Animals; Animal Products Animals     
-#&gt; </span><span style='color: #555555;'> 5</span><span> 0105         01           Live Animals; Animal Products Animals     
-#&gt; </span><span style='color: #555555;'> 6</span><span> 0106         01           Live Animals; Animal Products Animals     
-#&gt; </span><span style='color: #555555;'> 7</span><span> 0201         01           Live Animals; Animal Products Animals     
-#&gt; </span><span style='color: #555555;'> 8</span><span> 0202         01           Live Animals; Animal Products Animals     
-#&gt; </span><span style='color: #555555;'> 9</span><span> 0203         01           Live Animals; Animal Products Animals     
-#&gt; </span><span style='color: #555555;'>10</span><span> 0204         01           Live Animals; Animal Products Animals     
-#&gt; </span><span style='color: #555555;'># … with 32 more rows</span><span></div><div class='input'><span class='fu'>ots_product_section</span>(<span class='kw'>productsection</span> <span class='kw'>=</span> <span class='st'>"FABRIC "</span>)</div><div class='output co'>#&gt; <span class='message'>Joining, by = "section_code"</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 0 x 4</span><span>
-#&gt; </span><span style='color: #555555;'># … with 4 variables: product_code </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, section_code </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
-#&gt; </span><span style='color: #555555;'>#   section_fullname_english </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, type_section </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span></div></span></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ots_product_section</span>(<span class='kw'>productsection</span> <span class='kw'>=</span> <span class='st'>"  Animals"</span>)</div><div class='output co'>#&gt;     section_code      section_fullname_english product_code type_section
+#&gt;  1:           01 Live Animals; Animal Products         0101      Animals
+#&gt;  2:           01 Live Animals; Animal Products         0102      Animals
+#&gt;  3:           01 Live Animals; Animal Products         0103      Animals
+#&gt;  4:           01 Live Animals; Animal Products         0104      Animals
+#&gt;  5:           01 Live Animals; Animal Products         0105      Animals
+#&gt;  6:           01 Live Animals; Animal Products         0106      Animals
+#&gt;  7:           01 Live Animals; Animal Products         0201      Animals
+#&gt;  8:           01 Live Animals; Animal Products         0202      Animals
+#&gt;  9:           01 Live Animals; Animal Products         0203      Animals
+#&gt; 10:           01 Live Animals; Animal Products         0204      Animals
+#&gt; 11:           01 Live Animals; Animal Products         0205      Animals
+#&gt; 12:           01 Live Animals; Animal Products         0206      Animals
+#&gt; 13:           01 Live Animals; Animal Products         0207      Animals
+#&gt; 14:           01 Live Animals; Animal Products         0208      Animals
+#&gt; 15:           01 Live Animals; Animal Products         0209      Animals
+#&gt; 16:           01 Live Animals; Animal Products         0210      Animals
+#&gt; 17:           01 Live Animals; Animal Products         0301      Animals
+#&gt; 18:           01 Live Animals; Animal Products         0302      Animals
+#&gt; 19:           01 Live Animals; Animal Products         0303      Animals
+#&gt; 20:           01 Live Animals; Animal Products         0304      Animals
+#&gt; 21:           01 Live Animals; Animal Products         0305      Animals
+#&gt; 22:           01 Live Animals; Animal Products         0306      Animals
+#&gt; 23:           01 Live Animals; Animal Products         0307      Animals
+#&gt; 24:           01 Live Animals; Animal Products         0401      Animals
+#&gt; 25:           01 Live Animals; Animal Products         0402      Animals
+#&gt; 26:           01 Live Animals; Animal Products         0403      Animals
+#&gt; 27:           01 Live Animals; Animal Products         0404      Animals
+#&gt; 28:           01 Live Animals; Animal Products         0405      Animals
+#&gt; 29:           01 Live Animals; Animal Products         0406      Animals
+#&gt; 30:           01 Live Animals; Animal Products         0407      Animals
+#&gt; 31:           01 Live Animals; Animal Products         0408      Animals
+#&gt; 32:           01 Live Animals; Animal Products         0409      Animals
+#&gt; 33:           01 Live Animals; Animal Products         0410      Animals
+#&gt; 34:           01 Live Animals; Animal Products         0501      Animals
+#&gt; 35:           01 Live Animals; Animal Products         0502      Animals
+#&gt; 36:           01 Live Animals; Animal Products         0504      Animals
+#&gt; 37:           01 Live Animals; Animal Products         0505      Animals
+#&gt; 38:           01 Live Animals; Animal Products         0506      Animals
+#&gt; 39:           01 Live Animals; Animal Products         0507      Animals
+#&gt; 40:           01 Live Animals; Animal Products         0508      Animals
+#&gt; 41:           01 Live Animals; Animal Products         0510      Animals
+#&gt; 42:           01 Live Animals; Animal Products         0511      Animals
+#&gt;     section_code      section_fullname_english product_code type_section</div><div class='input'><span class='fu'>ots_product_section</span>(<span class='kw'>productsection</span> <span class='kw'>=</span> <span class='st'>"FABRIC "</span>)</div><div class='output co'>#&gt; Empty data.table (0 rows and 4 cols): section_code,section_fullname_english,product_code,type_section</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

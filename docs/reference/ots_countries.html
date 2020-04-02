@@ -84,7 +84,7 @@ requested data." />
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="https://ropensci.org/img/icon_short_white.svg" id="hexlogo" alt="rOpenSci" /></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.4.0</small></i></a>
+        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v1.0</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -107,9 +107,6 @@ requested data." />
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="../articles/basic-usage.html">How to use this package</a>
-    </li>
-    <li>
-      <a href="../articles/creating-datasets.html">Creating the datasets available within the package</a>
     </li>
   </ul>
 </li>
@@ -165,20 +162,30 @@ requested data.</p>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>ots_countries</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 249 x 6</span><span>
-#&gt;    country_iso country_name_en… country_fullnam… continent_id continent
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                   </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    
-#&gt; </span><span style='color: #555555;'> 1</span><span> afg         Afghanistan      Afghanistan                 1 Asia     
-#&gt; </span><span style='color: #555555;'> 2</span><span> alb         Albania          Albania                     2 Europe   
-#&gt; </span><span style='color: #555555;'> 3</span><span> dza         Algeria          Algeria                     3 Africa   
-#&gt; </span><span style='color: #555555;'> 4</span><span> asm         American Samoa   American Samoa              4 Oceania  
-#&gt; </span><span style='color: #555555;'> 5</span><span> and         Andorra          Andorra                     2 Europe   
-#&gt; </span><span style='color: #555555;'> 6</span><span> ago         Angola           Angola                      3 Africa   
-#&gt; </span><span style='color: #555555;'> 7</span><span> aia         Anguilla         Anguilla                    5 Americas 
-#&gt; </span><span style='color: #555555;'> 8</span><span> atg         Antigua and Bar… Antigua and Bar…            5 Americas 
-#&gt; </span><span style='color: #555555;'> 9</span><span> arg         Argentina        Argentina                   5 Americas 
-#&gt; </span><span style='color: #555555;'>10</span><span> arm         Armenia          Armenia                     1 Asia     
-#&gt; </span><span style='color: #555555;'># … with 239 more rows, and 1 more variable: eu28_member </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span></div></span></pre>
+    <pre class="examples"><div class='input'><span class='no'>ots_countries</span></div><div class='output co'>#&gt;      country_iso                          country_name_english
+#&gt;   1:         afg                                   Afghanistan
+#&gt;   2:         alb                                       Albania
+#&gt;   3:         dza                                       Algeria
+#&gt;   4:         asm                                American Samoa
+#&gt;   5:         and                                       Andorra
+#&gt;  ---                                                          
+#&gt; 245:        c-am Alias for all valid ISO codes in the Americas
+#&gt; 246:        c-as         Alias for all valid ISO codes in Asia
+#&gt; 247:        c-eu       Alias for all valid ISO codes in Europe
+#&gt; 248:        c-oc      Alias for all valid ISO codes in Oceania
+#&gt; 249:         all    Alias for all valid ISO codes in the World
+#&gt;      country_fullname_english continent_id continent eu28_member
+#&gt;   1:              Afghanistan            1      Asia           0
+#&gt;   2:                  Albania            2    Europe           0
+#&gt;   3:                  Algeria            3    Africa           0
+#&gt;   4:           American Samoa            4   Oceania           0
+#&gt;   5:                  Andorra            2    Europe           0
+#&gt;  ---                                                            
+#&gt; 245:                     &lt;NA&gt;           NA      &lt;NA&gt;          NA
+#&gt; 246:                     &lt;NA&gt;           NA      &lt;NA&gt;          NA
+#&gt; 247:                     &lt;NA&gt;           NA      &lt;NA&gt;          NA
+#&gt; 248:                     &lt;NA&gt;           NA      &lt;NA&gt;          NA
+#&gt; 249:                     &lt;NA&gt;           NA      &lt;NA&gt;          NA</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

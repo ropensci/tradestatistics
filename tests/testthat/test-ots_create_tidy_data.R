@@ -44,7 +44,7 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
     # Commodity trade at aggregated level (1964)
     test_data <- ots_create_tidy_data(years = 1964, table = "yc")
     expect_is(test_data, "data.frame")
-    expect_equal(ncol(test_data), 22)
+    expect_equal(ncol(test_data), 24)
   })
 })
 

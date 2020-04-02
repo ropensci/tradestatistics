@@ -31,11 +31,7 @@
 #' exports, trade balance and relevant metrics
 #' such as exports growth w/r to last year) between a \code{reporter}
 #' and \code{partner} country.
-#' @importFrom magrittr %>% %<>%
-#' @importFrom dplyr as_tibble select filter everything
-#' left_join bind_rows rename distinct starts_with matches
-#' @importFrom rlang sym syms
-#' @importFrom purrr map_chr map_df as_vector
+#' @importFrom data.table `:=` rbindlist setnames
 #' @importFrom jsonlite fromJSON
 #' @importFrom crul HttpClient
 #' @export
@@ -120,7 +116,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   resp <- HttpClient$new(url = "https://api.tradestatistics.io/")
   resp <- resp$get(url)
 
-  year_range <- as_vector(fromJSON(resp$parse(encoding = "UTF-8")))
+  year_range <- as.vector(unlist(fromJSON(resp$parse(encoding = "UTF-8"))))
 
   if (all(years %in% min(year_range):max(year_range)) != TRUE &
     table %in% year_depending_queries) {
@@ -143,24 +139,24 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
       reporters_iso <- reporters[reporters %in% tradestatistics::ots_countries$country_iso]
       reporters_no_iso <- reporters[!reporters %in% tradestatistics::ots_countries$country_iso]
       
-      reporters_no_iso <- map_chr(seq_along(reporters_no_iso),
-              function(x) {
-                y <- tradestatistics::ots_country_code(reporters_no_iso[x])
-                
-                if (nrow(y) == 0) {
-                  stop("It was not possible to find ISO codes for any of the reporters you requested. Please check ots_countries.")
-                } else {
-                  y <- y %>% 
-                    select(!!sym("country_iso")) %>% 
-                    as_vector()
-                }
-  
-                if (length(y) > 1) {
-                  stop("There are multiple matches for the reporters you requested. Please check ots_countries.")
-                } else {
-                  return(y)
-                }
-              }
+      reporters_no_iso <- sapply(
+        seq_along(reporters_no_iso),
+        function(x) {
+          y <- tradestatistics::ots_country_code(reporters_no_iso[x])
+          
+          if (nrow(y) == 0) {
+            stop("It was not possible to find ISO codes for any of the reporters you requested. Please check ots_countries.")
+          } else {
+            y <- y[, .(country_iso)]
+            y <- as.vector(unlist(y))
+          }
+          
+          if (length(y) > 1) {
+            stop("There are multiple matches for the reporters you requested. Please check ots_countries.")
+          } else {
+            return(y)
+          }
+        }
       )
       
       reporters <- unique(c(reporters_iso, reporters_no_iso))
@@ -172,24 +168,24 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
       partners_iso <- partners[partners %in% tradestatistics::ots_countries$country_iso]
       partners_no_iso <- partners[!partners %in% tradestatistics::ots_countries$country_iso]
 
-      partners_no_iso <- map_chr(seq_along(partners_no_iso),
-                                  function(x) {
-                                    y <- tradestatistics::ots_country_code(partners_no_iso[x])
-                                    
-                                    if (nrow(y) == 0) {
-                                      stop("There are multiple matches for the partners you requested. Please check ots_countries.")
-                                    } else {
-                                      y <- y %>% 
-                                        select(!!sym("country_iso")) %>% 
-                                        as_vector()
-                                    }
-                                    
-                                    if (length(y) > 1) {
-                                      stop("There are multiple matches for the partners you requested. Please check ots_countries.")
-                                    } else {
-                                      return(y)
-                                    }
-                                  }
+      partners_no_iso <- sapply(
+        seq_along(partners_no_iso),
+        function(x) {
+          y <- tradestatistics::ots_country_code(partners_no_iso[x])
+          
+          if (nrow(y) == 0) {
+            stop("There are multiple matches for the partners you requested. Please check ots_countries.")
+          } else {
+            y <- y[, .(country_iso)]
+            y <- as.vector(unlist(y))
+          }
+          
+          if (length(y) > 1) {
+            stop("There are multiple matches for the partners you requested. Please check ots_countries.")
+          } else {
+            return(y)
+          }
+        }
       )
       
       partners <- unique(c(partners_iso, partners_no_iso))
@@ -211,21 +207,22 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
       tradestatistics::ots_products$product_code]
 
     # product name match (pmm)
-    pnm <- map_df(
-      .x = seq_along(products_wm),
-      ~ tradestatistics::ots_product_code(productname = products_wm[.x])
+    pnm <- lapply(
+      seq_along(products_wm),
+      function(x) { tradestatistics::ots_product_code(productname = products_wm[x]) }
     )
+    pnm <- rbindlist(pnm)
 
     # group name match (gnm)
-    gnm <- map_df(
-      .x = seq_along(products_wm),
-      ~ tradestatistics::ots_product_code(productgroup = products_wm[.x])
+    gnm <- lapply(
+      seq_along(products_wm),
+      function(x) { tradestatistics::ots_product_code(productgroup = products_wm[x]) }
     )
+    gnm <- rbindlist(gnm)
 
-    products_wm <- bind_rows(pnm, gnm) %>%
-      filter(nchar(!!sym("product_code")) == 4) %>% 
-      distinct(!!sym("product_code")) %>%
-      as_vector()
+    products_wm <- rbind(pnm, gnm, fill = TRUE)
+    products_wm <- unique(products_wm[nchar(product_code) == 4, .(product_code)])
+    products_wm <- as.vector(unlist(products_wm))
 
     products <- c(products[products %in%
       tradestatistics::ots_products$product_code], products_wm)
@@ -242,7 +239,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   }
 
   # Check groups ----
-  group_depending_queries <- grep("-ga$|-gca$",
+  group_depending_queries <- grep("-ga$",
                                     tradestatistics::ots_tables$table,
                                     value = T
   )
@@ -257,14 +254,14 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     groups_wm <- groups[!groups %in% unique_groups]
     
     # group name match (gmm)
-    gnm <- map_df(
-      .x = seq_along(groups_wm),
-      ~ tradestatistics::ots_product_code(productgroup = groups_wm[.x])
+    gnm <- lapply(
+      seq_along(groups_wm),
+      function(x) { tradestatistics::ots_product_code(productgroup = groups_wm[x]) }
     )
+    gnm <- rbindlist(gnm)
     
-    groups_wm <- gnm %>%
-      distinct(!!sym("group_code")) %>%
-      as_vector()
+    groups_wm <- unique(gnm[, .(group_code)])
+    groups_wm <- as.vector(unlist(groups_wm))
     
     groups <- c(groups[groups %in% unique_groups], groups_wm)
     
@@ -279,7 +276,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   }
   
   # Check sections ----
-  section_depending_queries <- grep("-sa$|-sga$",
+  section_depending_queries <- grep("-sa$",
                                       tradestatistics::ots_tables$table,
                                       value = T
   )
@@ -293,15 +290,15 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     # sections without match (wm)
     sections_wm <- sections[!sections %in% unique_sections]
     
-    # community name match (cmm)
-    cnm <- map_df(
-      .x = seq_along(sections_wm),
-      ~ tradestatistics::ots_product_section(productsection = sections_wm[.x])
+    # sections name match (snm)
+    snm <- lapply(
+      seq_along(sections_wm),
+      function(x) { tradestatistics::ots_product_section(productsection = sections_wm[x]) }
     )
+    snm <- rbindlist(snm)
     
-    sections_wm <- cnm %>%
-      distinct(!!sym("section_code")) %>%
-      as_vector()
+    sections_wm <- unique(snm[, .(section_code)])
+    sections_wm <- as.vector(unlist(sections_wm))
     
     sections <- c(sections[sections %in% unique_sections], sections_wm)
     
@@ -356,33 +353,33 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     partner = partners,
     product = products,
     group = groups,
-    community = sections,
+    section = sections,
     stringsAsFactors = FALSE
   )
 
-  data <- map_df(
-    .x = seq_len(nrow(condensed_parameters)),
-    ~ ots_read_from_api(
-      table = table,
-      max_attempts = max_attempts,
-      year = condensed_parameters$year[.x],
-      reporter_iso = condensed_parameters$reporter[.x],
-      partner_iso = condensed_parameters$partner[.x],
-      product_code = condensed_parameters$product[.x],
-      group_code = condensed_parameters$group[.x],
-      section_code = condensed_parameters$community[.x],
-      use_localhost = use_localhost
-    )
-  ) %>%
-    as_tibble()
-
+  data <- lapply(
+    seq_len(nrow(condensed_parameters)),
+    function(x) {
+      ots_read_from_api(
+        table = table,
+        max_attempts = max_attempts,
+        year = condensed_parameters$year[x],
+        reporter_iso = condensed_parameters$reporter[x],
+        partner_iso = condensed_parameters$partner[x],
+        product_code = condensed_parameters$product[x],
+        group_code = condensed_parameters$group[x],
+        section_code = condensed_parameters$section[x],
+        use_localhost = use_localhost
+      )
+    }
+  )
+  data <- rbindlist(data, fill = TRUE)
+  
   # no data in API message
   if (any("observation" %in% names(data))) {
     warning("The parameters you specified resulted in API calls returning 0 rows.")
-    
-    data <- data %>% 
-      filter(is.na(!!sym("observation"))) %>% 
-      select(-!!sym("observation"))
+    data <- data[is.na(observation)]
+    data <- data[, observation := NULL]
   }
 
   # Add attributes based on codes, etc (and join years, if applicable) ------
@@ -390,117 +387,97 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   # include countries data
   if (table %in% reporter_depending_queries) {
     if (table %in% partner_depending_queries) {
-      data %<>%
-        left_join(select(
-          tradestatistics::ots_countries,
-          !!!syms(
-            c("country_iso", "country_fullname_english")
-          )
-        ),
-        by = c("reporter_iso" = "country_iso")
-        ) %>%
-        rename(
-          reporter_fullname_english = !!sym("country_fullname_english")
-        ) %>%
-        select(
-          !!!syms(c(
-            "year",
-            "reporter_iso",
-            "partner_iso",
-            "reporter_fullname_english"
-          )),
-          everything()
-        )
+      data <- merge(data, tradestatistics::ots_countries[, .(country_iso, country_fullname_english)],
+                    all.x = TRUE, all.y = FALSE,
+                    by.x = "reporter_iso", by.y = "country_iso",
+                    allow.cartesian = TRUE)
+      data <- setnames(data, "country_fullname_english", "reporter_fullname_english")
     } else {
-      data %<>%
-        left_join(select(
-          tradestatistics::ots_countries,
-          !!!syms(
-            c("country_iso", "country_fullname_english")
-          )
-        ),
-        by = c("reporter_iso" = "country_iso")
-        ) %>%
-        rename(
-          reporter_fullname_english = !!sym("country_fullname_english")
-        ) %>%
-        select(
-          !!!syms(c(
-            "year",
-            "reporter_iso",
-            "reporter_fullname_english"
-          )),
-          everything()
-        )
+      data <- merge(data, tradestatistics::ots_countries[, .(country_iso, country_fullname_english)],
+                    all.x = TRUE, all.y = FALSE,
+                    by.x = "reporter_iso", by.y = "country_iso",
+                    allow.cartesian = TRUE)
+      data <- setnames(data, "country_fullname_english", "reporter_fullname_english")
     }
   }
 
   if (table %in% partner_depending_queries) {
-    data %<>%
-      left_join(select(
-        tradestatistics::ots_countries,
-        !!!syms(
-          c("country_iso", "country_fullname_english")
-        )
-      ),
-      by = c("partner_iso" = "country_iso")
-      ) %>%
-      rename(
-        partner_fullname_english = !!sym("country_fullname_english")
-      ) %>%
-      select(
-        !!!syms(c(
-          "year",
-          "reporter_iso",
-          "partner_iso",
-          "reporter_fullname_english",
-          "partner_fullname_english"
-        )),
-        everything()
-      )
+    data <- merge(data, tradestatistics::ots_countries[, .(country_iso, country_fullname_english)],
+                  all.x = TRUE, all.y = FALSE,
+                  by.x = "partner_iso", by.y = "country_iso",
+                  allow.cartesian = TRUE)
+    data <- setnames(data, "country_fullname_english", "partner_fullname_english")
   }
 
   # include products data
   if (table %in% product_depending_queries) {
-    data %<>%
-      left_join(tradestatistics::ots_products, by = "product_code") %>% 
-      left_join(tradestatistics::ots_products_shortnames, by = "product_code") %>% 
-      
-      left_join(tradestatistics::ots_sections, by = "product_code") %>% 
-      left_join(tradestatistics::ots_sections_names, by = "section_code") %>% 
-      left_join(tradestatistics::ots_sections_shortnames, by = "section_code") %>% 
-      left_join(tradestatistics::ots_sections_colors, by = "section_code") %>% 
-      
-      mutate(group_code = substr(!!sym("product_code"), 1, 2)) %>% 
-      left_join(tradestatistics::ots_groups, by = "group_code")
+    data <- tradestatistics::ots_products[data, on = .(product_code), allow.cartesian = TRUE]
+    data <- tradestatistics::ots_products_shortnames[data, on = .(product_code), allow.cartesian = TRUE]
+    data <- tradestatistics::ots_sections[data, on = .(product_code), allow.cartesian = TRUE]
+    
+    data <- tradestatistics::ots_sections_names[data, on = .(section_code), allow.cartesian = TRUE]
+    data <- tradestatistics::ots_sections_shortnames[data, on = .(section_code), allow.cartesian = TRUE]
+    data <- tradestatistics::ots_sections_colors[data, on = .(section_code), allow.cartesian = TRUE]
+
+    data <- data[, `:=`(group_code = substr(product_code, 1, 2))]
+    data <- tradestatistics::ots_groups[data, on = .(group_code), allow.cartesian = TRUE]
   }
 
   # include groups data
   if (table %in% group_depending_queries) {
-    data %<>%
-      left_join(tradestatistics::ots_groups, by = "group_code")
+    data <- merge(data, tradestatistics::ots_groups,
+          all.x = TRUE, all.y = FALSE,
+          by.x = "top_export_group_code", by.y = "group_code",
+          allow.cartesian = TRUE)
+    data <- setnames(data, "group_fullname_english", "top_export_group_fullname_english")
+    
+    data <- merge(data, tradestatistics::ots_groups,
+                  all.x = TRUE, all.y = FALSE,
+                  by.x = "top_import_group_code", by.y = "group_code",
+                  allow.cartesian = TRUE)
+    data <- setnames(data, "group_fullname_english", "top_import_group_fullname_english")
   }
   
-  # include sections data
-  if (table %in% section_depending_queries[section_depending_queries != "yr-sa"]) {
-    data %<>%
-      left_join(tradestatistics::ots_sections, by = "section_code") %>% 
-      left_join(tradestatistics::ots_sections_names, by = "section_code") %>% 
-      left_join(tradestatistics::ots_sections_shortnames, by = "section_code") %>% 
-      left_join(tradestatistics::ots_sections_colors, by = "section_code")
+  if (table == "yc") {
+    data <- merge(data, tradestatistics::ots_countries[, .(country_iso, country_fullname_english)],
+                  all.x = TRUE, all.y = FALSE,
+                  by.x = "top_exporter_iso", by.y = "country_iso",
+                  allow.cartesian = TRUE)
+    data <- setnames(data, "country_fullname_english", "top_exporter_fullname_english")
+    
+    data <- merge(data, tradestatistics::ots_countries[, .(country_iso, country_fullname_english)],
+                  all.x = TRUE, all.y = FALSE,
+                  by.x = "top_importer_iso", by.y = "country_iso",
+                  allow.cartesian = TRUE)
+    data <- setnames(data, "country_fullname_english", "top_importer_fullname_english")
   }
   
-  # order columns for consistent order
-  data %<>%
-    select(
-      !!sym("year"),
-      starts_with("reporter_"),
-      starts_with("partner_"),
-      starts_with("section_"),
-      starts_with("group_"),
-      starts_with("product_"),
-      everything()
-    )
+  columns_order <- c("year",
+                     grep("^reporter_", colnames(data), value = TRUE),
+                     grep("^partner_", colnames(data), value = TRUE),
+                     grep("^section_", colnames(data), value = TRUE),
+                     grep("^group_", colnames(data), value = TRUE),
+                     grep("^product_", colnames(data), value = TRUE),
+                     grep("^export_", colnames(data), value = TRUE),
+                     grep("^import_", colnames(data), value = TRUE),
+                     grep("^top_export_product_", colnames(data), value = TRUE),
+                     grep("^top_import_product_", colnames(data), value = TRUE),
+                     grep("^top_export_section_", colnames(data), value = TRUE),
+                     grep("^top_export_group_", colnames(data), value = TRUE),
+                     grep("^top_export_trade_", colnames(data), value = TRUE),
+                     grep("^top_import_section_", colnames(data), value = TRUE),
+                     grep("^top_import_group_", colnames(data), value = TRUE),
+                     grep("^top_import_trade_", colnames(data), value = TRUE),
+                     grep("^top_exporter_iso", colnames(data), value = TRUE),
+                     grep("^top_exporter_fullname_", colnames(data), value = TRUE),
+                     grep("^top_exporter_trade_", colnames(data), value = TRUE),
+                     grep("^top_importer_iso", colnames(data), value = TRUE),
+                     grep("^top_importer_fullname_", colnames(data), value = TRUE),
+                     grep("^top_importer_trade_", colnames(data), value = TRUE),
+                     grep("^cci_", colnames(data), value = TRUE),
+                     grep("^pci_", colnames(data), value = TRUE)
+  )
+  data <- data[, ..columns_order]
   
   if (nrow(data) == 0) { warning("The resulting table contains 0 rows.") }
   return(data)

@@ -40,7 +40,7 @@
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="https://ropensci.org/img/icon_short_white.svg" id="hexlogo" alt="rOpenSci"></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.4.0</small></i></a>
+        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v1.0</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -63,9 +63,6 @@
   <ul class="dropdown-menu" role="menu">
 <li>
       <a href="../articles/basic-usage.html">How to use this package</a>
-    </li>
-    <li>
-      <a href="../articles/creating-datasets.html">Creating the datasets available within the package</a>
     </li>
   </ul>
 </li>
@@ -94,7 +91,7 @@
       <h1 data-toc-skip>How to use this package</h1>
                         <h4 class="author">Mauricio Vargas S.</h4>
             
-            <h4 class="date">2020-04-01</h4>
+            <h4 class="date">2020-04-02</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ropensci/tradestatistics/blob/master/vignettes/basic-usage.Rmd"><code>vignettes/basic-usage.Rmd</code></a></small>
       <div class="hidden name"><code>basic-usage.Rmd</code></div>
@@ -113,22 +110,54 @@
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tradestatistics</span>)
 
 <span class="no">ots_tables</span>
-<span class="co">#&gt; # A tibble: 13 x 3</span>
-<span class="co">#&gt;    table      description                        source                         </span>
-<span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;                              &lt;chr&gt;                          </span>
-<span class="co">#&gt;  1 countries  Countries metadata                 UN Comtrade (with modification…</span>
-<span class="co">#&gt;  2 products   Product metadata                   UN Comtrade (with modification…</span>
-<span class="co">#&gt;  3 reporters  Reporting countries                UN Comtrade (with modification…</span>
-<span class="co">#&gt;  4 sections   Product sections                   Center for International Devel…</span>
-<span class="co">#&gt;  5 product_s… Product short names                The Observatory of Economic Co…</span>
-<span class="co">#&gt;  6 country_r… Ranking of countries               Open Trade Statistics          </span>
-<span class="co">#&gt;  7 product_r… Ranking of products                Open Trade Statistics          </span>
-<span class="co">#&gt;  8 yrpc       Reporter-Partner trade at product… Open Trade Statistics          </span>
-<span class="co">#&gt;  9 yrp        Reporter-Partner trade at aggrega… Open Trade Statistics          </span>
-<span class="co">#&gt; 10 yrc        Reporter trade at product level (… Open Trade Statistics          </span>
-<span class="co">#&gt; 11 yr         Reporter trade at aggregated leve… Open Trade Statistics          </span>
-<span class="co">#&gt; 12 yr-short   Reporter trade at aggregated leve… Open Trade Statistics          </span>
-<span class="co">#&gt; 13 yc         Product trade at detailed level (… Open Trade Statistics</span></pre></body></html></div>
+<span class="co">#&gt;                  table</span>
+<span class="co">#&gt;  1:          countries</span>
+<span class="co">#&gt;  2:           products</span>
+<span class="co">#&gt;  3:          reporters</span>
+<span class="co">#&gt;  4:           sections</span>
+<span class="co">#&gt;  5: product_shortnames</span>
+<span class="co">#&gt;  6:   country_rankings</span>
+<span class="co">#&gt;  7:   product_rankings</span>
+<span class="co">#&gt;  8:               yrpc</span>
+<span class="co">#&gt;  9:                yrp</span>
+<span class="co">#&gt; 10:                yrc</span>
+<span class="co">#&gt; 11:                 yr</span>
+<span class="co">#&gt; 12:           yr-short</span>
+<span class="co">#&gt; 13:              yr-ga</span>
+<span class="co">#&gt; 14:              yr-sa</span>
+<span class="co">#&gt; 15:                 yc</span>
+<span class="co">#&gt;                                                                                    description</span>
+<span class="co">#&gt;  1:                                                                         Countries metadata</span>
+<span class="co">#&gt;  2:                                                                           Product metadata</span>
+<span class="co">#&gt;  3:                                                                        Reporting countries</span>
+<span class="co">#&gt;  4:                                                                           Product sections</span>
+<span class="co">#&gt;  5:                                                                        Product short names</span>
+<span class="co">#&gt;  6:                                                                       Ranking of countries</span>
+<span class="co">#&gt;  7:                                                                        Ranking of products</span>
+<span class="co">#&gt;  8:         Reporter-Partner trade at product level (Year, Reporter, Partner and Product Code)</span>
+<span class="co">#&gt;  9:                    Reporter-Partner trade at aggregated level (Year, Reporter and Partner)</span>
+<span class="co">#&gt; 10:                          Reporter trade at product level (Year, Reporter and Product Code)</span>
+<span class="co">#&gt; 11: Reporter trade at aggregated level (Year and Reporter, with top exported/imported Product)</span>
+<span class="co">#&gt; 12:                           Reporter trade at aggregated level (Year and Reporter, Abridged)</span>
+<span class="co">#&gt; 13:   Reporter trade at aggregated level (Year and Reporter, with top exported/imported Group)</span>
+<span class="co">#&gt; 14: Reporter trade at aggregated level (Year and Reporter, with top exported/imported Section)</span>
+<span class="co">#&gt; 15:                                    Product trade at detailed level (Year and Product Code)</span>
+<span class="co">#&gt;                                                                              source</span>
+<span class="co">#&gt;  1:                                                UN Comtrade (with modifications)</span>
+<span class="co">#&gt;  2:                                                UN Comtrade (with modifications)</span>
+<span class="co">#&gt;  3:                                                UN Comtrade (with modifications)</span>
+<span class="co">#&gt;  4: Center for International Development at Harvard University (with modifications)</span>
+<span class="co">#&gt;  5:                     The Observatory of Economic Complexity (with modifications)</span>
+<span class="co">#&gt;  6:                                                           Open Trade Statistics</span>
+<span class="co">#&gt;  7:                                                           Open Trade Statistics</span>
+<span class="co">#&gt;  8:                                                           Open Trade Statistics</span>
+<span class="co">#&gt;  9:                                                           Open Trade Statistics</span>
+<span class="co">#&gt; 10:                                                           Open Trade Statistics</span>
+<span class="co">#&gt; 11:                                                           Open Trade Statistics</span>
+<span class="co">#&gt; 12:                                                           Open Trade Statistics</span>
+<span class="co">#&gt; 13:                                                           Open Trade Statistics</span>
+<span class="co">#&gt; 14:                                                           Open Trade Statistics</span>
+<span class="co">#&gt; 15:                                                           Open Trade Statistics</span></pre></body></html></div>
 <p>You might notice the tables have a pattern. The letters indicate the presence of columns that account for the level of detail in the data:</p>
 <ul>
 <li>
@@ -139,14 +168,9 @@
 <code>p</code>: <em>p</em>artner column</li>
 <li>
 <code>c</code>: product <em>c</em>ode column</li>
-<li>
-<code>s</code>: product <em>s</em>ection column</li>
-<li>
-<code>g</code>: product <em>g</em>roup column</li>
 </ul>
 <p>The most aggregated table is <code>yr</code> which basically says how many dollars each country exports and imports for a given year.</p>
 <p>The less aggregated table is <code>yrpc</code> which says how many dollars of each of the 1,222 products from the Harmonized System each country exports to other countries and imports from other countries.</p>
-<p><code>g</code> and <code>s</code> are aggregations over <code>c</code>, therefore <code>yrpc-sa</code> (<code>yrpc</code> with section aggregation) and <code>yrpc-ga</code> (<code>yrpc</code> with group aggregation) are summaries of <code>yrpc</code>.</p>
 <p>For the complete detail you can check <a href="docs.tradestatistics.io">docs.tradestatistics.io</a>.</p>
 </div>
 <div id="country-codes" class="section level2">
@@ -155,107 +179,177 @@
 <p>The Package Functions section explains that you don’t need to memorize all ISO codes. The functions within this package are designed to match strings (i.e. “United States” or “America”) to valid ISO codes (i.e. “USA”).</p>
 <p>Just as a reference, the table with all valid ISO codes can be accessed by running this:</p>
 <div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">ots_countries</span>
-<span class="co">#&gt; # A tibble: 249 x 6</span>
-<span class="co">#&gt;    country_iso country_name_en… country_fullnam… continent_id continent</span>
-<span class="co">#&gt;    &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;                   &lt;int&gt; &lt;chr&gt;    </span>
-<span class="co">#&gt;  1 afg         Afghanistan      Afghanistan                 1 Asia     </span>
-<span class="co">#&gt;  2 alb         Albania          Albania                     2 Europe   </span>
-<span class="co">#&gt;  3 dza         Algeria          Algeria                     3 Africa   </span>
-<span class="co">#&gt;  4 asm         American Samoa   American Samoa              4 Oceania  </span>
-<span class="co">#&gt;  5 and         Andorra          Andorra                     2 Europe   </span>
-<span class="co">#&gt;  6 ago         Angola           Angola                      3 Africa   </span>
-<span class="co">#&gt;  7 aia         Anguilla         Anguilla                    5 Americas </span>
-<span class="co">#&gt;  8 atg         Antigua and Bar… Antigua and Bar…            5 Americas </span>
-<span class="co">#&gt;  9 arg         Argentina        Argentina                   5 Americas </span>
-<span class="co">#&gt; 10 arm         Armenia          Armenia                     1 Asia     </span>
-<span class="co">#&gt; # … with 239 more rows, and 1 more variable: eu28_member &lt;int&gt;</span></pre></body></html></div>
+<span class="co">#&gt;      country_iso                          country_name_english</span>
+<span class="co">#&gt;   1:         afg                                   Afghanistan</span>
+<span class="co">#&gt;   2:         alb                                       Albania</span>
+<span class="co">#&gt;   3:         dza                                       Algeria</span>
+<span class="co">#&gt;   4:         asm                                American Samoa</span>
+<span class="co">#&gt;   5:         and                                       Andorra</span>
+<span class="co">#&gt;  ---                                                          </span>
+<span class="co">#&gt; 245:        c-am Alias for all valid ISO codes in the Americas</span>
+<span class="co">#&gt; 246:        c-as         Alias for all valid ISO codes in Asia</span>
+<span class="co">#&gt; 247:        c-eu       Alias for all valid ISO codes in Europe</span>
+<span class="co">#&gt; 248:        c-oc      Alias for all valid ISO codes in Oceania</span>
+<span class="co">#&gt; 249:         all    Alias for all valid ISO codes in the World</span>
+<span class="co">#&gt;      country_fullname_english continent_id continent eu28_member</span>
+<span class="co">#&gt;   1:              Afghanistan            1      Asia           0</span>
+<span class="co">#&gt;   2:                  Albania            2    Europe           0</span>
+<span class="co">#&gt;   3:                  Algeria            3    Africa           0</span>
+<span class="co">#&gt;   4:           American Samoa            4   Oceania           0</span>
+<span class="co">#&gt;   5:                  Andorra            2    Europe           0</span>
+<span class="co">#&gt;  ---                                                            </span>
+<span class="co">#&gt; 245:                     &lt;NA&gt;           NA      &lt;NA&gt;          NA</span>
+<span class="co">#&gt; 246:                     &lt;NA&gt;           NA      &lt;NA&gt;          NA</span>
+<span class="co">#&gt; 247:                     &lt;NA&gt;           NA      &lt;NA&gt;          NA</span>
+<span class="co">#&gt; 248:                     &lt;NA&gt;           NA      &lt;NA&gt;          NA</span>
+<span class="co">#&gt; 249:                     &lt;NA&gt;           NA      &lt;NA&gt;          NA</span></pre></body></html></div>
 </div>
 <div id="product-codes-and-communities" class="section level2">
 <h2 class="hasAnchor">
 <a href="#product-codes-and-communities" class="anchor"></a>Product codes and communities</h2>
 <p>The Package Functions section explains that you don’t need to memorize all HS codes. The functions within this package are designed to match strings (i.e. “apple”) to valid HS codes (i.e. “0808”).</p>
 <div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">ots_products</span>
-<span class="co">#&gt; # A tibble: 1,320 x 2</span>
-<span class="co">#&gt;    product_code product_fullname_english                                        </span>
-<span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;                                                           </span>
-<span class="co">#&gt;  1 0101         Horses, asses, mules and hinnies; live                          </span>
-<span class="co">#&gt;  2 0102         Bovine animals; live                                            </span>
-<span class="co">#&gt;  3 0103         Swine; live                                                     </span>
-<span class="co">#&gt;  4 0104         Sheep and goats; live                                           </span>
-<span class="co">#&gt;  5 0105         Poultry; live, fowls of the species Gallus domesticus, ducks, g…</span>
-<span class="co">#&gt;  6 0106         Animals, n.e.c. in chapter 01; live                             </span>
-<span class="co">#&gt;  7 0201         Meat of bovine animals; fresh or chilled                        </span>
-<span class="co">#&gt;  8 0202         Meat of bovine animals; frozen                                  </span>
-<span class="co">#&gt;  9 0203         Meat of swine; fresh, chilled or frozen                         </span>
-<span class="co">#&gt; 10 0204         Meat of sheep or goats; fresh, chilled or frozen                </span>
-<span class="co">#&gt; # … with 1,310 more rows</span>
+<span class="co">#&gt;       product_code</span>
+<span class="co">#&gt;    1:         0101</span>
+<span class="co">#&gt;    2:         0102</span>
+<span class="co">#&gt;    3:         0103</span>
+<span class="co">#&gt;    4:         0104</span>
+<span class="co">#&gt;    5:         0105</span>
+<span class="co">#&gt;   ---             </span>
+<span class="co">#&gt; 1316:           95</span>
+<span class="co">#&gt; 1317:           96</span>
+<span class="co">#&gt; 1318:           97</span>
+<span class="co">#&gt; 1319:           99</span>
+<span class="co">#&gt; 1320:          all</span>
+<span class="co">#&gt;                                                                                product_fullname_english</span>
+<span class="co">#&gt;    1:                                                            Horses, asses, mules and hinnies; live</span>
+<span class="co">#&gt;    2:                                                                              Bovine animals; live</span>
+<span class="co">#&gt;    3:                                                                                       Swine; live</span>
+<span class="co">#&gt;    4:                                                                             Sheep and goats; live</span>
+<span class="co">#&gt;    5:     Poultry; live, fowls of the species Gallus domesticus, ducks, geese, turkeys and guinea fowls</span>
+<span class="co">#&gt;   ---                                                                                                  </span>
+<span class="co">#&gt; 1316: Alias for all codes in the group Toys, games and sports requisites; parts and accessories thereof</span>
+<span class="co">#&gt; 1317:                              Alias for all codes in the group Miscellaneous manufactured articles</span>
+<span class="co">#&gt; 1318:                    Alias for all codes in the group Works of art; collectors' pieces and antiques</span>
+<span class="co">#&gt; 1319:                      Alias for all codes in the group Commodities not specified according to kind</span>
+<span class="co">#&gt; 1320:                                                                               Alias for all codes</span>
 
-<span class="no">ots_product_shortnames</span>
-<span class="co">#&gt; # A tibble: 1,222 x 2</span>
-<span class="co">#&gt;    product_code product_shortname_english</span>
-<span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;                    </span>
-<span class="co">#&gt;  1 0101         Horses                   </span>
-<span class="co">#&gt;  2 0102         Bovine                   </span>
-<span class="co">#&gt;  3 0103         Pigs                     </span>
-<span class="co">#&gt;  4 0104         Sheep and Goats          </span>
-<span class="co">#&gt;  5 0105         Poultry                  </span>
-<span class="co">#&gt;  6 0106         Other Animals            </span>
-<span class="co">#&gt;  7 0201         Bovine Meat              </span>
-<span class="co">#&gt;  8 0202         Frozen Bovine Meat       </span>
-<span class="co">#&gt;  9 0203         Pig Meat                 </span>
-<span class="co">#&gt; 10 0204         Sheep and Goat Meat      </span>
-<span class="co">#&gt; # … with 1,212 more rows</span></pre></body></html></div>
+<span class="no">ots_products_shortnames</span>
+<span class="co">#&gt;       product_code product_shortname_english</span>
+<span class="co">#&gt;    1:         0101                    Horses</span>
+<span class="co">#&gt;    2:         0102                    Bovine</span>
+<span class="co">#&gt;    3:         0103                      Pigs</span>
+<span class="co">#&gt;    4:         0104           Sheep and Goats</span>
+<span class="co">#&gt;    5:         0105                   Poultry</span>
+<span class="co">#&gt;   ---                                       </span>
+<span class="co">#&gt; 1218:         9703                Sculptures</span>
+<span class="co">#&gt; 1219:         9704            Revenue Stamps</span>
+<span class="co">#&gt; 1220:         9705         Collector's Items</span>
+<span class="co">#&gt; 1221:         9706                  Antiques</span>
+<span class="co">#&gt; 1222:         9999               Unspecified</span></pre></body></html></div>
 <div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">ots_sections</span>
-<span class="co">#&gt; # A tibble: 1,222 x 2</span>
-<span class="co">#&gt;    product_code section_code</span>
-<span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;       </span>
-<span class="co">#&gt;  1 0101         01          </span>
-<span class="co">#&gt;  2 0102         01          </span>
-<span class="co">#&gt;  3 0103         01          </span>
-<span class="co">#&gt;  4 0104         01          </span>
-<span class="co">#&gt;  5 0105         01          </span>
-<span class="co">#&gt;  6 0106         01          </span>
-<span class="co">#&gt;  7 0201         01          </span>
-<span class="co">#&gt;  8 0202         01          </span>
-<span class="co">#&gt;  9 0203         01          </span>
-<span class="co">#&gt; 10 0204         01          </span>
-<span class="co">#&gt; # … with 1,212 more rows</span>
+<span class="co">#&gt;       product_code section_code</span>
+<span class="co">#&gt;    1:         0101           01</span>
+<span class="co">#&gt;    2:         0102           01</span>
+<span class="co">#&gt;    3:         0103           01</span>
+<span class="co">#&gt;    4:         0104           01</span>
+<span class="co">#&gt;    5:         0105           01</span>
+<span class="co">#&gt;   ---                          </span>
+<span class="co">#&gt; 1218:         9703           21</span>
+<span class="co">#&gt; 1219:         9704           21</span>
+<span class="co">#&gt; 1220:         9705           21</span>
+<span class="co">#&gt; 1221:         9706           21</span>
+<span class="co">#&gt; 1222:         9999           22</span>
 
 <span class="no">ots_sections_shortnames</span>
-<span class="co">#&gt; # A tibble: 22 x 2</span>
-<span class="co">#&gt;    section_code section_shortname_english       </span>
-<span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;                           </span>
-<span class="co">#&gt;  1 01           Animal Products                 </span>
-<span class="co">#&gt;  2 02           Vegetable Products              </span>
-<span class="co">#&gt;  3 03           Animal and Vegetable Bi-Products</span>
-<span class="co">#&gt;  4 04           Foodstuffs                      </span>
-<span class="co">#&gt;  5 05           Mineral Products                </span>
-<span class="co">#&gt;  6 06           Chemical Products               </span>
-<span class="co">#&gt;  7 07           Plastics and Rubbers            </span>
-<span class="co">#&gt;  8 08           Animal Hides                    </span>
-<span class="co">#&gt;  9 09           Wood Products                   </span>
-<span class="co">#&gt; 10 10           Paper Goods                     </span>
-<span class="co">#&gt; # … with 12 more rows</span></pre></body></html></div>
+<span class="co">#&gt;     section_code        section_shortname_english</span>
+<span class="co">#&gt;  1:           01                  Animal Products</span>
+<span class="co">#&gt;  2:           02               Vegetable Products</span>
+<span class="co">#&gt;  3:           03 Animal and Vegetable Bi-Products</span>
+<span class="co">#&gt;  4:           04                       Foodstuffs</span>
+<span class="co">#&gt;  5:           05                 Mineral Products</span>
+<span class="co">#&gt;  6:           06                Chemical Products</span>
+<span class="co">#&gt;  7:           07             Plastics and Rubbers</span>
+<span class="co">#&gt;  8:           08                     Animal Hides</span>
+<span class="co">#&gt;  9:           09                    Wood Products</span>
+<span class="co">#&gt; 10:           10                      Paper Goods</span>
+<span class="co">#&gt; 11:           11                         Textiles</span>
+<span class="co">#&gt; 12:           12            Footwear and Headwear</span>
+<span class="co">#&gt; 13:           13                  Stone And Glass</span>
+<span class="co">#&gt; 14:           14                  Precious Metals</span>
+<span class="co">#&gt; 15:           15                           Metals</span>
+<span class="co">#&gt; 16:           16                         Machines</span>
+<span class="co">#&gt; 17:           17                   Transportation</span>
+<span class="co">#&gt; 18:           18                      Instruments</span>
+<span class="co">#&gt; 19:           19                          Weapons</span>
+<span class="co">#&gt; 20:           20                    Miscellaneous</span>
+<span class="co">#&gt; 21:           21                Arts and Antiques</span>
+<span class="co">#&gt; 22:           22                      Unspecified</span>
+<span class="co">#&gt;     section_code        section_shortname_english</span></pre></body></html></div>
 </div>
 <div id="inflation-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#inflation-data" class="anchor"></a>Inflation data</h2>
 <p>This table is provided to be used with <code><a href="../reference/ots_inflation_adjustment.html">ots_inflation_adjustment()</a></code>.</p>
 <div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">ots_inflation</span>
-<span class="co">#&gt; # A tibble: 56 x 3</span>
-<span class="co">#&gt;     from    to conversion_factor</span>
-<span class="co">#&gt;    &lt;int&gt; &lt;int&gt;             &lt;dbl&gt;</span>
-<span class="co">#&gt;  1  1962  1963              1.03</span>
-<span class="co">#&gt;  2  1963  1964              1.03</span>
-<span class="co">#&gt;  3  1964  1965              1.04</span>
-<span class="co">#&gt;  4  1965  1966              1.05</span>
-<span class="co">#&gt;  5  1966  1967              1.04</span>
-<span class="co">#&gt;  6  1967  1968              1.04</span>
-<span class="co">#&gt;  7  1968  1969              1.04</span>
-<span class="co">#&gt;  8  1969  1970              1.05</span>
-<span class="co">#&gt;  9  1970  1971              1.05</span>
-<span class="co">#&gt; 10  1971  1972              1.06</span>
-<span class="co">#&gt; # … with 46 more rows</span></pre></body></html></div>
+<span class="co">#&gt;     from   to conversion_factor</span>
+<span class="co">#&gt;  1: 1962 1963            1.0308</span>
+<span class="co">#&gt;  2: 1963 1964            1.0338</span>
+<span class="co">#&gt;  3: 1964 1965            1.0412</span>
+<span class="co">#&gt;  4: 1965 1966            1.0532</span>
+<span class="co">#&gt;  5: 1966 1967            1.0354</span>
+<span class="co">#&gt;  6: 1967 1968            1.0398</span>
+<span class="co">#&gt;  7: 1968 1969            1.0364</span>
+<span class="co">#&gt;  8: 1969 1970            1.0502</span>
+<span class="co">#&gt;  9: 1970 1971            1.0546</span>
+<span class="co">#&gt; 10: 1971 1972            1.0588</span>
+<span class="co">#&gt; 11: 1972 1973            1.0917</span>
+<span class="co">#&gt; 12: 1973 1974            1.1540</span>
+<span class="co">#&gt; 13: 1974 1975            1.1247</span>
+<span class="co">#&gt; 14: 1975 1976            1.0969</span>
+<span class="co">#&gt; 15: 1976 1977            1.1035</span>
+<span class="co">#&gt; 16: 1977 1978            1.0862</span>
+<span class="co">#&gt; 17: 1978 1979            1.1010</span>
+<span class="co">#&gt; 18: 1979 1980            1.1374</span>
+<span class="co">#&gt; 19: 1980 1981            1.1284</span>
+<span class="co">#&gt; 20: 1981 1982            1.1038</span>
+<span class="co">#&gt; 21: 1982 1983            1.0937</span>
+<span class="co">#&gt; 22: 1983 1984            1.0904</span>
+<span class="co">#&gt; 23: 1984 1985            1.0868</span>
+<span class="co">#&gt; 24: 1985 1986            1.0650</span>
+<span class="co">#&gt; 25: 1986 1987            1.0698</span>
+<span class="co">#&gt; 26: 1987 1988            1.0997</span>
+<span class="co">#&gt; 27: 1988 1989            1.1464</span>
+<span class="co">#&gt; 28: 1989 1990            1.2329</span>
+<span class="co">#&gt; 29: 1990 1991            1.1104</span>
+<span class="co">#&gt; 30: 1991 1992            1.1096</span>
+<span class="co">#&gt; 31: 1992 1993            1.2079</span>
+<span class="co">#&gt; 32: 1993 1994            1.2389</span>
+<span class="co">#&gt; 33: 1994 1995            1.0915</span>
+<span class="co">#&gt; 34: 1995 1996            1.0651</span>
+<span class="co">#&gt; 35: 1996 1997            1.0472</span>
+<span class="co">#&gt; 36: 1997 1998            1.0439</span>
+<span class="co">#&gt; 37: 1998 1999            1.0342</span>
+<span class="co">#&gt; 38: 1999 2000            1.0368</span>
+<span class="co">#&gt; 39: 2000 2001            1.0379</span>
+<span class="co">#&gt; 40: 2001 2002            1.0295</span>
+<span class="co">#&gt; 41: 2002 2003            1.0310</span>
+<span class="co">#&gt; 42: 2003 2004            1.0317</span>
+<span class="co">#&gt; 43: 2004 2005            1.0363</span>
+<span class="co">#&gt; 44: 2005 2006            1.0378</span>
+<span class="co">#&gt; 45: 2006 2007            1.0407</span>
+<span class="co">#&gt; 46: 2007 2008            1.0695</span>
+<span class="co">#&gt; 47: 2008 2009            1.0233</span>
+<span class="co">#&gt; 48: 2009 2010            1.0299</span>
+<span class="co">#&gt; 49: 2010 2011            1.0450</span>
+<span class="co">#&gt; 50: 2011 2012            1.0348</span>
+<span class="co">#&gt; 51: 2012 2013            1.0274</span>
+<span class="co">#&gt; 52: 2013 2014            1.0228</span>
+<span class="co">#&gt; 53: 2014 2015            1.0151</span>
+<span class="co">#&gt; 54: 2015 2016            1.0157</span>
+<span class="co">#&gt; 55: 2016 2017            1.0241</span>
+<span class="co">#&gt; 56: 2017 2018            1.0258</span>
+<span class="co">#&gt;     from   to conversion_factor</span></pre></body></html></div>
 </div>
 </div>
 <div id="package-functions" class="section level1">
@@ -268,28 +362,31 @@
 <p>Basic examples:</p>
 <div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="co"># Single match with no replacement</span>
 <span class="fu"><a href="../reference/ots_country_code.html">ots_country_code</a></span>(<span class="st">"Chile"</span>)
-<span class="co">#&gt; # A tibble: 1 x 6</span>
-<span class="co">#&gt;   country_iso country_name_en… country_fullnam… continent_id continent</span>
-<span class="co">#&gt;   &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;                   &lt;int&gt; &lt;chr&gt;    </span>
-<span class="co">#&gt; 1 chl         Chile            Chile                       5 Americas </span>
-<span class="co">#&gt; # … with 1 more variable: eu28_member &lt;int&gt;</span>
+<span class="co">#&gt;    country_iso country_name_english country_fullname_english continent_id</span>
+<span class="co">#&gt; 1:         chl                Chile                    Chile            5</span>
+<span class="co">#&gt;    continent eu28_member</span>
+<span class="co">#&gt; 1:  Americas           0</span>
 
 <span class="co"># Single match with replacement</span>
 <span class="fu"><a href="../reference/ots_country_code.html">ots_country_code</a></span>(<span class="st">"America"</span>)
-<span class="co">#&gt; # A tibble: 1 x 6</span>
-<span class="co">#&gt;   country_iso country_name_en… country_fullnam… continent_id continent</span>
-<span class="co">#&gt;   &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;                   &lt;int&gt; &lt;chr&gt;    </span>
-<span class="co">#&gt; 1 usa         USA              USA, Puerto Ric…            5 Americas </span>
-<span class="co">#&gt; # … with 1 more variable: eu28_member &lt;int&gt;</span>
+<span class="co">#&gt;    country_iso country_name_english</span>
+<span class="co">#&gt; 1:         usa                  USA</span>
+<span class="co">#&gt;                                                       country_fullname_english</span>
+<span class="co">#&gt; 1: USA, Puerto Rico and US Virgin Islands (excludes Virgin Islands until 1981)</span>
+<span class="co">#&gt;    continent_id continent eu28_member</span>
+<span class="co">#&gt; 1:            5  Americas           0</span>
 
 <span class="co"># Double match with no replacement</span>
 <span class="fu"><a href="../reference/ots_country_code.html">ots_country_code</a></span>(<span class="st">"Germany"</span>)
-<span class="co">#&gt; # A tibble: 2 x 6</span>
-<span class="co">#&gt;   country_iso country_name_en… country_fullnam… continent_id continent</span>
-<span class="co">#&gt;   &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;                   &lt;int&gt; &lt;chr&gt;    </span>
-<span class="co">#&gt; 1 ddr         Fmr Dem. Rep. o… Fmr Dem. Rep. o…            2 Europe   </span>
-<span class="co">#&gt; 2 deu         Germany          Germany (former…            2 Europe   </span>
-<span class="co">#&gt; # … with 1 more variable: eu28_member &lt;int&gt;</span></pre></body></html></div>
+<span class="co">#&gt;    country_iso     country_name_english</span>
+<span class="co">#&gt; 1:         ddr Fmr Dem. Rep. of Germany</span>
+<span class="co">#&gt; 2:         deu                  Germany</span>
+<span class="co">#&gt;                                   country_fullname_english continent_id</span>
+<span class="co">#&gt; 1:                                Fmr Dem. Rep. of Germany            2</span>
+<span class="co">#&gt; 2: Germany (former Federal Republic of Germany until 1990)            2</span>
+<span class="co">#&gt;    continent eu28_member</span>
+<span class="co">#&gt; 1:    Europe           0</span>
+<span class="co">#&gt; 2:    Europe           1</span></pre></body></html></div>
 <p>The function <code><a href="../reference/ots_country_code.html">ots_country_code()</a></code> is used by <code><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data()</a></code> in a way that you can pass parameters like <code>ots_create_tidy_data(... reporters = "Chile" ...)</code> and it will automatically replace your input for a valid ISO in case there is a match. This will be covered in detail in the Trade Data section.</p>
 </div>
 <div id="product-code" class="section level2">
@@ -297,48 +394,74 @@
 <a href="#product-code" class="anchor"></a>Product code</h2>
 <p>The end user can use this function to find a product code by providing a product name. This works by implementing partial string matching:</p>
 <div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="fu"><a href="../reference/ots_product_code.html">ots_product_code</a></span>(<span class="st">" WiNe "</span>)
-<span class="co">#&gt; # A tibble: 12 x 3</span>
-<span class="co">#&gt;    product_code product_fullname_english                            type_product</span>
-<span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;                                               &lt;chr&gt;       </span>
-<span class="co">#&gt;  1 0103         Swine; live                                         WiNe        </span>
-<span class="co">#&gt;  2 0203         Meat of swine; fresh, chilled or frozen             WiNe        </span>
-<span class="co">#&gt;  3 0206         Edible offal of bovine animals, swine, sheep, goat… WiNe        </span>
-<span class="co">#&gt;  4 2204         Wine of fresh grapes, including fortified wines; g… WiNe        </span>
-<span class="co">#&gt;  5 2205         Vermouth and other wine of fresh grapes, flavoured… WiNe        </span>
-<span class="co">#&gt;  6 2307         Wine lees; argol                                    WiNe        </span>
-<span class="co">#&gt;  7 5607         Twine, cordage, ropes and cables, whether or not p… WiNe        </span>
-<span class="co">#&gt;  8 5608         Twine, cordage or rope; knotted netting, made up f… WiNe        </span>
-<span class="co">#&gt;  9 5609         Articles of yarn, strip or the like of heading no.… WiNe        </span>
-<span class="co">#&gt; 10 6310         Rags; used or new, scrap twine, cordage, rope and … WiNe        </span>
-<span class="co">#&gt; 11 8435         Presses, crushers and similar machinery; used in t… WiNe        </span>
-<span class="co">#&gt; 12 56           Alias for all codes in the group Wadding, felt and… WiNe</span></pre></body></html></div>
+<span class="co">#&gt;     product_code</span>
+<span class="co">#&gt;  1:         0103</span>
+<span class="co">#&gt;  2:         0203</span>
+<span class="co">#&gt;  3:         0206</span>
+<span class="co">#&gt;  4:         2204</span>
+<span class="co">#&gt;  5:         2205</span>
+<span class="co">#&gt;  6:         2307</span>
+<span class="co">#&gt;  7:         5607</span>
+<span class="co">#&gt;  8:         5608</span>
+<span class="co">#&gt;  9:         5609</span>
+<span class="co">#&gt; 10:         6310</span>
+<span class="co">#&gt; 11:         8435</span>
+<span class="co">#&gt; 12:           56</span>
+<span class="co">#&gt;                                                                                                                                 product_fullname_english</span>
+<span class="co">#&gt;  1:                                                                                                                                          Swine; live</span>
+<span class="co">#&gt;  2:                                                                                                              Meat of swine; fresh, chilled or frozen</span>
+<span class="co">#&gt;  3:                                       Edible offal of bovine animals, swine, sheep, goats, horses, asses, mules or hinnies; fresh, chilled or frozen</span>
+<span class="co">#&gt;  4:                                                      Wine of fresh grapes, including fortified wines; grape must other than that of heading no. 2009</span>
+<span class="co">#&gt;  5:                                                                Vermouth and other wine of fresh grapes, flavoured with plants or aromatic substances</span>
+<span class="co">#&gt;  6:                                                                                                                                     Wine lees; argol</span>
+<span class="co">#&gt;  7: Twine, cordage, ropes and cables, whether or not plaited or braided; whether or not impregnated, coated, covered or sheathed with rubber or plastics</span>
+<span class="co">#&gt;  8:                                           Twine, cordage or rope; knotted netting, made up fishing nets and other made up nets, of textile materials</span>
+<span class="co">#&gt;  9:                                   Articles of yarn, strip or the like of heading no. 5404 or 5405; twine, cordage, rope or cables n.e.c. or included</span>
+<span class="co">#&gt; 10:               Rags; used or new, scrap twine, cordage, rope and cables and worn out articles of twine, cordage, rope or cables, of textile materials</span>
+<span class="co">#&gt; 11:                                   Presses, crushers and similar machinery; used in the manufacture of wine, cider, fruit juices or similar beverages</span>
+<span class="co">#&gt; 12:                   Alias for all codes in the group Wadding, felt and nonwovens, special yarns; twine, cordage, ropes and cables and articles thereof</span>
+<span class="co">#&gt;     type_product</span>
+<span class="co">#&gt;  1:         WiNe</span>
+<span class="co">#&gt;  2:         WiNe</span>
+<span class="co">#&gt;  3:         WiNe</span>
+<span class="co">#&gt;  4:         WiNe</span>
+<span class="co">#&gt;  5:         WiNe</span>
+<span class="co">#&gt;  6:         WiNe</span>
+<span class="co">#&gt;  7:         WiNe</span>
+<span class="co">#&gt;  8:         WiNe</span>
+<span class="co">#&gt;  9:         WiNe</span>
+<span class="co">#&gt; 10:         WiNe</span>
+<span class="co">#&gt; 11:         WiNe</span>
+<span class="co">#&gt; 12:         WiNe</span></pre></body></html></div>
 <p>This function searches both products and groups:</p>
 <div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="fu"><a href="../reference/ots_product_code.html">ots_product_code</a></span>(<span class="kw">productname</span> <span class="kw">=</span> <span class="st">" ShEEp "</span>, <span class="kw">productgroup</span> <span class="kw">=</span> <span class="st">" mEaT "</span>)
-<span class="co">#&gt; # A tibble: 2 x 6</span>
-<span class="co">#&gt;   product_code product_fullnam… group_code group_fullname_… type_name type_group</span>
-<span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;     &lt;chr&gt;     </span>
-<span class="co">#&gt; 1 0204         Meat of sheep o… 02         Meat and edible… ShEEp     mEaT      </span>
-<span class="co">#&gt; 2 0206         Edible offal of… 02         Meat and edible… ShEEp     mEaT</span></pre></body></html></div>
+<span class="co">#&gt;    group_code     group_fullname_english product_code</span>
+<span class="co">#&gt; 1:         02 Meat and edible meat offal         0204</span>
+<span class="co">#&gt; 2:         02 Meat and edible meat offal         0206</span>
+<span class="co">#&gt;                                                                                          product_fullname_english</span>
+<span class="co">#&gt; 1:                                                               Meat of sheep or goats; fresh, chilled or frozen</span>
+<span class="co">#&gt; 2: Edible offal of bovine animals, swine, sheep, goats, horses, asses, mules or hinnies; fresh, chilled or frozen</span>
+<span class="co">#&gt;    type_name type_group</span>
+<span class="co">#&gt; 1:     ShEEp       mEaT</span>
+<span class="co">#&gt; 2:     ShEEp       mEaT</span></pre></body></html></div>
 </div>
 <div id="section-code" class="section level2">
 <h2 class="hasAnchor">
 <a href="#section-code" class="anchor"></a>Section code</h2>
 <p>The end user can use this function to find a community code by providing a community name. This works by implementing partial string matching:</p>
 <div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="fu"><a href="../reference/ots_product_section.html">ots_product_section</a></span>(<span class="st">" tExTiLeS "</span>)
-<span class="co">#&gt; # A tibble: 152 x 4</span>
-<span class="co">#&gt;    product_code section_code section_fullname_english      type_section</span>
-<span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;                         &lt;chr&gt;       </span>
-<span class="co">#&gt;  1 5111         11           Textiles And Textile Articles tExTiLeS    </span>
-<span class="co">#&gt;  2 5001         11           Textiles And Textile Articles tExTiLeS    </span>
-<span class="co">#&gt;  3 5002         11           Textiles And Textile Articles tExTiLeS    </span>
-<span class="co">#&gt;  4 5003         11           Textiles And Textile Articles tExTiLeS    </span>
-<span class="co">#&gt;  5 5004         11           Textiles And Textile Articles tExTiLeS    </span>
-<span class="co">#&gt;  6 5005         11           Textiles And Textile Articles tExTiLeS    </span>
-<span class="co">#&gt;  7 5006         11           Textiles And Textile Articles tExTiLeS    </span>
-<span class="co">#&gt;  8 5007         11           Textiles And Textile Articles tExTiLeS    </span>
-<span class="co">#&gt;  9 5101         11           Textiles And Textile Articles tExTiLeS    </span>
-<span class="co">#&gt; 10 5102         11           Textiles And Textile Articles tExTiLeS    </span>
-<span class="co">#&gt; # … with 142 more rows</span></pre></body></html></div>
+<span class="co">#&gt;      section_code      section_fullname_english product_code type_section</span>
+<span class="co">#&gt;   1:           11 Textiles And Textile Articles         5111     tExTiLeS</span>
+<span class="co">#&gt;   2:           11 Textiles And Textile Articles         5001     tExTiLeS</span>
+<span class="co">#&gt;   3:           11 Textiles And Textile Articles         5002     tExTiLeS</span>
+<span class="co">#&gt;   4:           11 Textiles And Textile Articles         5003     tExTiLeS</span>
+<span class="co">#&gt;   5:           11 Textiles And Textile Articles         5004     tExTiLeS</span>
+<span class="co">#&gt;  ---                                                                     </span>
+<span class="co">#&gt; 148:           11 Textiles And Textile Articles         6306     tExTiLeS</span>
+<span class="co">#&gt; 149:           11 Textiles And Textile Articles         6307     tExTiLeS</span>
+<span class="co">#&gt; 150:           11 Textiles And Textile Articles         6308     tExTiLeS</span>
+<span class="co">#&gt; 151:           11 Textiles And Textile Articles         6309     tExTiLeS</span>
+<span class="co">#&gt; 152:           11 Textiles And Textile Articles         6310     tExTiLeS</span></pre></body></html></div>
 </div>
 <div id="trade-data" class="section level2">
 <h2 class="hasAnchor">
@@ -355,24 +478,102 @@
   <span class="kw">partners</span> <span class="kw">=</span> <span class="st">"arg"</span>,
   <span class="kw">table</span> <span class="kw">=</span> <span class="st">"yrpc"</span>
 )
-<span class="co">#&gt; # A tibble: 266 x 16</span>
-<span class="co">#&gt;     year reporter_iso reporter_fullna… partner_iso partner_fullnam… section_code</span>
-<span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;       </span>
-<span class="co">#&gt;  1  1962 chl          Chile            arg         Argentina        21          </span>
-<span class="co">#&gt;  2  1962 chl          Chile            arg         Argentina        20          </span>
-<span class="co">#&gt;  3  1962 chl          Chile            arg         Argentina        20          </span>
-<span class="co">#&gt;  4  1962 chl          Chile            arg         Argentina        20          </span>
-<span class="co">#&gt;  5  1962 chl          Chile            arg         Argentina        20          </span>
-<span class="co">#&gt;  6  1962 chl          Chile            arg         Argentina        20          </span>
-<span class="co">#&gt;  7  1962 chl          Chile            arg         Argentina        20          </span>
-<span class="co">#&gt;  8  1962 chl          Chile            arg         Argentina        20          </span>
-<span class="co">#&gt;  9  1962 chl          Chile            arg         Argentina        20          </span>
-<span class="co">#&gt; 10  1962 chl          Chile            arg         Argentina        19          </span>
-<span class="co">#&gt; # … with 256 more rows, and 10 more variables: section_fullname_english &lt;chr&gt;,</span>
-<span class="co">#&gt; #   section_shortname_english &lt;chr&gt;, section_color &lt;chr&gt;, group_code &lt;chr&gt;,</span>
-<span class="co">#&gt; #   group_fullname_english &lt;chr&gt;, product_code &lt;chr&gt;,</span>
-<span class="co">#&gt; #   product_fullname_english &lt;chr&gt;, product_shortname_english &lt;chr&gt;,</span>
-<span class="co">#&gt; #   import_value_usd &lt;int&gt;, export_value_usd &lt;int&gt;</span></pre></body></html></div>
+<span class="co">#&gt;      year reporter_iso reporter_fullname_english partner_iso</span>
+<span class="co">#&gt;   1: 1962          chl                     Chile         arg</span>
+<span class="co">#&gt;   2: 1962          chl                     Chile         arg</span>
+<span class="co">#&gt;   3: 1962          chl                     Chile         arg</span>
+<span class="co">#&gt;   4: 1962          chl                     Chile         arg</span>
+<span class="co">#&gt;   5: 1962          chl                     Chile         arg</span>
+<span class="co">#&gt;  ---                                                        </span>
+<span class="co">#&gt; 262: 1962          chl                     Chile         arg</span>
+<span class="co">#&gt; 263: 1962          chl                     Chile         arg</span>
+<span class="co">#&gt; 264: 1962          chl                     Chile         arg</span>
+<span class="co">#&gt; 265: 1962          chl                     Chile         arg</span>
+<span class="co">#&gt; 266: 1962          chl                     Chile         arg</span>
+<span class="co">#&gt;      partner_fullname_english section_code section_color</span>
+<span class="co">#&gt;   1:                Argentina           21       #7485aa</span>
+<span class="co">#&gt;   2:                Argentina           20       #4d6fd0</span>
+<span class="co">#&gt;   3:                Argentina           20       #4d6fd0</span>
+<span class="co">#&gt;   4:                Argentina           20       #4d6fd0</span>
+<span class="co">#&gt;   5:                Argentina           20       #4d6fd0</span>
+<span class="co">#&gt;  ---                                                    </span>
+<span class="co">#&gt; 262:                Argentina           02       #406662</span>
+<span class="co">#&gt; 263:                Argentina           02       #406662</span>
+<span class="co">#&gt; 264:                Argentina           02       #406662</span>
+<span class="co">#&gt; 265:                Argentina           02       #406662</span>
+<span class="co">#&gt; 266:                Argentina           02       #406662</span>
+<span class="co">#&gt;      section_shortname_english                      section_fullname_english</span>
+<span class="co">#&gt;   1:         Arts and Antiques Works Of Art, Collectors' Pieces And Antiques</span>
+<span class="co">#&gt;   2:             Miscellaneous           Miscellaneous Manufactured Articles</span>
+<span class="co">#&gt;   3:             Miscellaneous           Miscellaneous Manufactured Articles</span>
+<span class="co">#&gt;   4:             Miscellaneous           Miscellaneous Manufactured Articles</span>
+<span class="co">#&gt;   5:             Miscellaneous           Miscellaneous Manufactured Articles</span>
+<span class="co">#&gt;  ---                                                                        </span>
+<span class="co">#&gt; 262:        Vegetable Products                            Vegetable Products</span>
+<span class="co">#&gt; 263:        Vegetable Products                            Vegetable Products</span>
+<span class="co">#&gt; 264:        Vegetable Products                            Vegetable Products</span>
+<span class="co">#&gt; 265:        Vegetable Products                            Vegetable Products</span>
+<span class="co">#&gt; 266:        Vegetable Products                            Vegetable Products</span>
+<span class="co">#&gt;      group_code</span>
+<span class="co">#&gt;   1:         97</span>
+<span class="co">#&gt;   2:         96</span>
+<span class="co">#&gt;   3:         96</span>
+<span class="co">#&gt;   4:         95</span>
+<span class="co">#&gt;   5:         95</span>
+<span class="co">#&gt;  ---           </span>
+<span class="co">#&gt; 262:         12</span>
+<span class="co">#&gt; 263:         09</span>
+<span class="co">#&gt; 264:         09</span>
+<span class="co">#&gt; 265:         08</span>
+<span class="co">#&gt; 266:         08</span>
+<span class="co">#&gt;                                                                                                        group_fullname_english</span>
+<span class="co">#&gt;   1:                                                                            Works of art; collectors' pieces and antiques</span>
+<span class="co">#&gt;   2:                                                                                      Miscellaneous manufactured articles</span>
+<span class="co">#&gt;   3:                                                                                      Miscellaneous manufactured articles</span>
+<span class="co">#&gt;   4:                                                         Toys, games and sports requisites; parts and accessories thereof</span>
+<span class="co">#&gt;   5:                                                         Toys, games and sports requisites; parts and accessories thereof</span>
+<span class="co">#&gt;  ---                                                                                                                         </span>
+<span class="co">#&gt; 262: Oil seeds and oleaginous fruits; miscellaneous grains, seeds and fruit, industrial or medicinal plants; straw and fodder</span>
+<span class="co">#&gt; 263:                                                                                             Coffee, tea, mate and spices</span>
+<span class="co">#&gt; 264:                                                                                             Coffee, tea, mate and spices</span>
+<span class="co">#&gt; 265:                                                                   Fruit and nuts, edible; peel of citrus fruit or melons</span>
+<span class="co">#&gt; 266:                                                                   Fruit and nuts, edible; peel of citrus fruit or melons</span>
+<span class="co">#&gt;      product_code     product_shortname_english</span>
+<span class="co">#&gt;   1:         9701                     Paintings</span>
+<span class="co">#&gt;   2:         9609           Pencils and Crayons</span>
+<span class="co">#&gt;   3:         9608                          Pens</span>
+<span class="co">#&gt;   4:         9508         Fairground Amusements</span>
+<span class="co">#&gt;   5:         9507 Fishing and Hunting Equipment</span>
+<span class="co">#&gt;  ---                                           </span>
+<span class="co">#&gt; 262:         1209                  Sowing Seeds</span>
+<span class="co">#&gt; 263:         0910                        Spices</span>
+<span class="co">#&gt; 264:         0905                       Vanilla</span>
+<span class="co">#&gt; 265:         0809                 Pitted Fruits</span>
+<span class="co">#&gt; 266:         0808              Apples and Pears</span>
+<span class="co">#&gt;                                                                                                                                                                                    product_fullname_english</span>
+<span class="co">#&gt;   1:          Paintings, drawings, pastels, executed entirely by hand; not drawings of heading no. 4906 and not hand-painted, hand-decorated manufactured articles; collages and similar decorative plaques</span>
+<span class="co">#&gt;   2:                                                                    Pencils (not of heading no. 9608), crayons, pencil leads, pastels, drawing charcoals, writing or drawing chalks and tailors' chalks</span>
+<span class="co">#&gt;   3: Pens; ball-point, felt tipped, other porous tipped pens; fountain pens, stylograph pens duplicating stylos, propelling or sliding pencils; parts of the foregoing, excluding those of heading no. 9609</span>
+<span class="co">#&gt;   4:                                                               Roundabouts, swings, shooting galleries, other fairground amusements, travelling circuses, travelling menageries and travelling theatres</span>
+<span class="co">#&gt;   5:                 Fishing rods, fish-hooks and other line fishing tackle; fish landing nets and the like; decoy birds (not those of heading no. 9208 or 9705) and similar hunting or shooting requisites</span>
+<span class="co">#&gt;  ---                                                                                                                                                                                                       </span>
+<span class="co">#&gt; 262:                                                                                                                                                     Seeds, fruit and spores; of a kind used for sowing</span>
+<span class="co">#&gt; 263:                                                                                                                          Ginger, saffron, tumeric (curcuma), thyme, bay leaves, curry and other spices</span>
+<span class="co">#&gt; 264:                                                                                                                                                                                                Vanilla</span>
+<span class="co">#&gt; 265:                                                                                                                             Apricots, cherries, peaches (including nectarines), plums and sloes, fresh</span>
+<span class="co">#&gt; 266:                                                                                                                                                                       Apples, pears and quinces; fresh</span>
+<span class="co">#&gt;      export_value_usd import_value_usd</span>
+<span class="co">#&gt;   1:               NA              560</span>
+<span class="co">#&gt;   2:               NA             1116</span>
+<span class="co">#&gt;   3:               NA             1116</span>
+<span class="co">#&gt;   4:               NA             1023</span>
+<span class="co">#&gt;   5:               NA             2412</span>
+<span class="co">#&gt;  ---                                  </span>
+<span class="co">#&gt; 262:            16297               NA</span>
+<span class="co">#&gt; 263:            18175               NA</span>
+<span class="co">#&gt; 264:            18175               NA</span>
+<span class="co">#&gt; 265:             1375               NA</span>
+<span class="co">#&gt; 266:             2950               NA</span></pre></body></html></div>
 <p>We can pass two years or more, several reporters/partners, and filter by community with exact codes or code matching based on keywords:</p>
 <div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="co"># Note that here I'm passing Peru and not per which is the ISO code for Peru</span>
 <span class="co"># The same applies to Brazil</span>
@@ -385,25 +586,114 @@
 )
 <span class="co">#&gt; Warning in ots_create_tidy_data_unmemoised(...): The sections argument will be</span>
 <span class="co">#&gt; ignored provided that you requested a table without section_code field.</span>
-<span class="co">#&gt; # A tibble: 2,275 x 16</span>
-<span class="co">#&gt;     year reporter_iso reporter_fullna… partner_iso partner_fullnam… section_code</span>
-<span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;       </span>
-<span class="co">#&gt;  1  1962 chl          Chile            arg         Argentina        21          </span>
-<span class="co">#&gt;  2  1962 chl          Chile            arg         Argentina        20          </span>
-<span class="co">#&gt;  3  1962 chl          Chile            arg         Argentina        20          </span>
-<span class="co">#&gt;  4  1962 chl          Chile            arg         Argentina        20          </span>
-<span class="co">#&gt;  5  1962 chl          Chile            arg         Argentina        20          </span>
-<span class="co">#&gt;  6  1962 chl          Chile            arg         Argentina        20          </span>
-<span class="co">#&gt;  7  1962 chl          Chile            arg         Argentina        20          </span>
-<span class="co">#&gt;  8  1962 chl          Chile            arg         Argentina        20          </span>
-<span class="co">#&gt;  9  1962 chl          Chile            arg         Argentina        20          </span>
-<span class="co">#&gt; 10  1962 chl          Chile            arg         Argentina        19          </span>
-<span class="co">#&gt; # … with 2,265 more rows, and 10 more variables:</span>
-<span class="co">#&gt; #   section_fullname_english &lt;chr&gt;, section_shortname_english &lt;chr&gt;,</span>
-<span class="co">#&gt; #   section_color &lt;chr&gt;, group_code &lt;chr&gt;, group_fullname_english &lt;chr&gt;,</span>
-<span class="co">#&gt; #   product_code &lt;chr&gt;, product_fullname_english &lt;chr&gt;,</span>
-<span class="co">#&gt; #   product_shortname_english &lt;chr&gt;, import_value_usd &lt;int&gt;,</span>
-<span class="co">#&gt; #   export_value_usd &lt;int&gt;</span></pre></body></html></div>
+<span class="co">#&gt;       year reporter_iso reporter_fullname_english partner_iso</span>
+<span class="co">#&gt;    1: 1962          bol                   Bolivia         arg</span>
+<span class="co">#&gt;    2: 1962          bol                   Bolivia         arg</span>
+<span class="co">#&gt;    3: 1962          bol                   Bolivia         arg</span>
+<span class="co">#&gt;    4: 1962          bol                   Bolivia         arg</span>
+<span class="co">#&gt;    5: 1962          bol                   Bolivia         arg</span>
+<span class="co">#&gt;   ---                                                        </span>
+<span class="co">#&gt; 2271: 1963          per                      Peru         bra</span>
+<span class="co">#&gt; 2272: 1963          per                      Peru         bra</span>
+<span class="co">#&gt; 2273: 1963          per                      Peru         bra</span>
+<span class="co">#&gt; 2274: 1963          per                      Peru         bra</span>
+<span class="co">#&gt; 2275: 1963          per                      Peru         bra</span>
+<span class="co">#&gt;       partner_fullname_english section_code section_color</span>
+<span class="co">#&gt;    1:                Argentina           20       #4d6fd0</span>
+<span class="co">#&gt;    2:                Argentina           20       #4d6fd0</span>
+<span class="co">#&gt;    3:                Argentina           20       #4d6fd0</span>
+<span class="co">#&gt;    4:                Argentina           20       #4d6fd0</span>
+<span class="co">#&gt;    5:                Argentina           20       #4d6fd0</span>
+<span class="co">#&gt;   ---                                                    </span>
+<span class="co">#&gt; 2271:                   Brazil           05       #bcd8af</span>
+<span class="co">#&gt; 2272:                   Brazil           05       #bcd8af</span>
+<span class="co">#&gt; 2273:                   Brazil           05       #bcd8af</span>
+<span class="co">#&gt; 2274:                   Brazil           04       #8abdb6</span>
+<span class="co">#&gt; 2275:                   Brazil           04       #8abdb6</span>
+<span class="co">#&gt;       section_shortname_english</span>
+<span class="co">#&gt;    1:             Miscellaneous</span>
+<span class="co">#&gt;    2:             Miscellaneous</span>
+<span class="co">#&gt;    3:             Miscellaneous</span>
+<span class="co">#&gt;    4:             Miscellaneous</span>
+<span class="co">#&gt;    5:             Miscellaneous</span>
+<span class="co">#&gt;   ---                          </span>
+<span class="co">#&gt; 2271:          Mineral Products</span>
+<span class="co">#&gt; 2272:          Mineral Products</span>
+<span class="co">#&gt; 2273:          Mineral Products</span>
+<span class="co">#&gt; 2274:                Foodstuffs</span>
+<span class="co">#&gt; 2275:                Foodstuffs</span>
+<span class="co">#&gt;                                                                                section_fullname_english</span>
+<span class="co">#&gt;    1:                                                               Miscellaneous Manufactured Articles</span>
+<span class="co">#&gt;    2:                                                               Miscellaneous Manufactured Articles</span>
+<span class="co">#&gt;    3:                                                               Miscellaneous Manufactured Articles</span>
+<span class="co">#&gt;    4:                                                               Miscellaneous Manufactured Articles</span>
+<span class="co">#&gt;    5:                                                               Miscellaneous Manufactured Articles</span>
+<span class="co">#&gt;   ---                                                                                                  </span>
+<span class="co">#&gt; 2271:                                                                                  Mineral Products</span>
+<span class="co">#&gt; 2272:                                                                                  Mineral Products</span>
+<span class="co">#&gt; 2273:                                                                                  Mineral Products</span>
+<span class="co">#&gt; 2274: Prepared Foodstuffs; Beverages, Spirits And Vinegar; Tobacco And Manufactured Tobacco Substitutes</span>
+<span class="co">#&gt; 2275: Prepared Foodstuffs; Beverages, Spirits And Vinegar; Tobacco And Manufactured Tobacco Substitutes</span>
+<span class="co">#&gt;       group_code</span>
+<span class="co">#&gt;    1:         95</span>
+<span class="co">#&gt;    2:         95</span>
+<span class="co">#&gt;    3:         95</span>
+<span class="co">#&gt;    4:         95</span>
+<span class="co">#&gt;    5:         94</span>
+<span class="co">#&gt;   ---           </span>
+<span class="co">#&gt; 2271:         26</span>
+<span class="co">#&gt; 2272:         26</span>
+<span class="co">#&gt; 2273:         26</span>
+<span class="co">#&gt; 2274:         23</span>
+<span class="co">#&gt; 2275:         16</span>
+<span class="co">#&gt;                                                                                                                                                                                                   group_fullname_english</span>
+<span class="co">#&gt;    1:                                                                                                                                                   Toys, games and sports requisites; parts and accessories thereof</span>
+<span class="co">#&gt;    2:                                                                                                                                                   Toys, games and sports requisites; parts and accessories thereof</span>
+<span class="co">#&gt;    3:                                                                                                                                                   Toys, games and sports requisites; parts and accessories thereof</span>
+<span class="co">#&gt;    4:                                                                                                                                                   Toys, games and sports requisites; parts and accessories thereof</span>
+<span class="co">#&gt;    5: Furniture; bedding, mattresses, mattress supports, cushions and similar stuffed furnishings; lamps and lighting fittings, n.e.c.; illuminated signs, illuminated name-plates and the like; prefabricated buildings</span>
+<span class="co">#&gt;   ---                                                                                                                                                                                                                   </span>
+<span class="co">#&gt; 2271:                                                                                                                                                                                                 Ores, slag and ash</span>
+<span class="co">#&gt; 2272:                                                                                                                                                                                                 Ores, slag and ash</span>
+<span class="co">#&gt; 2273:                                                                                                                                                                                                 Ores, slag and ash</span>
+<span class="co">#&gt; 2274:                                                                                                                                               Food industries, residues and wastes thereof; prepared animal fodder</span>
+<span class="co">#&gt; 2275:                                                                                                                           Meat, fish or crustaceans, molluscs or other aquatic invertebrates; preparations thereof</span>
+<span class="co">#&gt;       product_code     product_shortname_english</span>
+<span class="co">#&gt;    1:         9507 Fishing and Hunting Equipment</span>
+<span class="co">#&gt;    2:         9506              Sports Equipment</span>
+<span class="co">#&gt;    3:         9504          Video and Card Games</span>
+<span class="co">#&gt;    4:         9503    Models and Stuffed Animals</span>
+<span class="co">#&gt;    5:         9403               Other Furniture</span>
+<span class="co">#&gt;   ---                                           </span>
+<span class="co">#&gt; 2271:         2611                  Tungsten Ore</span>
+<span class="co">#&gt; 2272:         2610                  Chromium Ore</span>
+<span class="co">#&gt; 2273:         2605                    Cobalt Ore</span>
+<span class="co">#&gt; 2274:         2301       Animal Meal and Pellets</span>
+<span class="co">#&gt; 2275:         1604                Processed Fish</span>
+<span class="co">#&gt;                                                                                                                                                                               product_fullname_english</span>
+<span class="co">#&gt;    1:           Fishing rods, fish-hooks and other line fishing tackle; fish landing nets and the like; decoy birds (not those of heading no. 9208 or 9705) and similar hunting or shooting requisites</span>
+<span class="co">#&gt;    2:                                               Gymnastics, athletics, other sports (including table tennis) or outdoor games equipment, n.e.c. in this chapter, swimming pools and paddling pools</span>
+<span class="co">#&gt;    3:                                          Games; funfair, table or parlour, articles thereof including pintables billiards, special tables for casino games and automatic bowling alley equipment</span>
+<span class="co">#&gt;    4: Tricycles, scooters, pedal cars and similar wheeled toys; dolls' carriages; dolls; other toys; reduced-size (scale) models and similar recreational models, working or not; puzzles of all kinds</span>
+<span class="co">#&gt;    5:                                                                                                                                                Furniture and parts thereof, n.e.c. in chapter 94</span>
+<span class="co">#&gt;   ---                                                                                                                                                                                                 </span>
+<span class="co">#&gt; 2271:                                                                                                                                                                   Tungsten ores and concentrates</span>
+<span class="co">#&gt; 2272:                                                                                                                                                                   Chromium ores and concentrates</span>
+<span class="co">#&gt; 2273:                                                                                                                                                                     Cobalt ores and concentrates</span>
+<span class="co">#&gt; 2274:                                        Flours, meal and pellets, of meat or meat offal, of fish or of crustaceans, molluscs or other aquatic invertebrates, unfit for human consumption; greaves</span>
+<span class="co">#&gt; 2275:                                                                                                                Prepared or preserved fish; caviar and caviar substitutes prepared from fish eggs</span>
+<span class="co">#&gt;       export_value_usd import_value_usd</span>
+<span class="co">#&gt;    1:               NA             2037</span>
+<span class="co">#&gt;    2:               NA             2037</span>
+<span class="co">#&gt;    3:               NA             2000</span>
+<span class="co">#&gt;    4:               NA             2000</span>
+<span class="co">#&gt;    5:               NA            41300</span>
+<span class="co">#&gt;   ---                                  </span>
+<span class="co">#&gt; 2271:            10000               NA</span>
+<span class="co">#&gt; 2272:            31481               NA</span>
+<span class="co">#&gt; 2273:            21481               NA</span>
+<span class="co">#&gt; 2274:           263519               NA</span>
+<span class="co">#&gt; 2275:             7314             2500</span></pre></body></html></div>
 <p><code>yrpc</code> table returns some fields that deserve an explanation which can be seen at <a href="docs.tradestatistics.io">docs.tradestatistics.io</a>.</p>
 </div>
 <div id="bilateral-trade-at-aggregated-level-year---reporter---partner" class="section level3">
@@ -416,14 +706,16 @@
   <span class="kw">partners</span> <span class="kw">=</span> <span class="st">"arg"</span>,
   <span class="kw">table</span> <span class="kw">=</span> <span class="st">"yrp"</span>
 )
-<span class="co">#&gt; # A tibble: 4 x 7</span>
-<span class="co">#&gt;    year reporter_iso reporter_fullna… partner_iso partner_fullnam…</span>
-<span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;       &lt;chr&gt;           </span>
-<span class="co">#&gt; 1  1962 chl          Chile            arg         Argentina       </span>
-<span class="co">#&gt; 2  1963 chl          Chile            arg         Argentina       </span>
-<span class="co">#&gt; 3  1962 per          Peru             arg         Argentina       </span>
-<span class="co">#&gt; 4  1963 per          Peru             arg         Argentina       </span>
-<span class="co">#&gt; # … with 2 more variables: export_value_usd &lt;int&gt;, import_value_usd &lt;int&gt;</span></pre></body></html></div>
+<span class="co">#&gt;    year reporter_iso reporter_fullname_english partner_iso</span>
+<span class="co">#&gt; 1: 1962          chl                     Chile         arg</span>
+<span class="co">#&gt; 2: 1963          chl                     Chile         arg</span>
+<span class="co">#&gt; 3: 1962          per                      Peru         arg</span>
+<span class="co">#&gt; 4: 1963          per                      Peru         arg</span>
+<span class="co">#&gt;    partner_fullname_english export_value_usd import_value_usd</span>
+<span class="co">#&gt; 1:                Argentina         23123604         45084101</span>
+<span class="co">#&gt; 2:                Argentina         25652535         60132423</span>
+<span class="co">#&gt; 3:                Argentina         10643505         29279446</span>
+<span class="co">#&gt; 4:                Argentina          8926998         46246476</span></pre></body></html></div>
 <p>This table accepts different years, reporters and partners just like <code>yrpc</code>.</p>
 </div>
 <div id="reporter-trade-at-product-level-year---reporter---product-code" class="section level3">
@@ -436,15 +728,16 @@
   <span class="kw">products</span> <span class="kw">=</span> <span class="st">"0101"</span>,
   <span class="kw">table</span> <span class="kw">=</span> <span class="st">"yrc"</span>
 )
-<span class="co">#&gt; # A tibble: 1 x 16</span>
-<span class="co">#&gt;    year reporter_iso reporter_fullna… section_code section_fullnam…</span>
-<span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;        &lt;chr&gt;           </span>
-<span class="co">#&gt; 1  1962 chl          Chile            01           Live Animals; A…</span>
-<span class="co">#&gt; # … with 11 more variables: section_shortname_english &lt;chr&gt;,</span>
-<span class="co">#&gt; #   section_color &lt;chr&gt;, group_code &lt;chr&gt;, group_fullname_english &lt;chr&gt;,</span>
-<span class="co">#&gt; #   product_code &lt;chr&gt;, product_fullname_english &lt;chr&gt;,</span>
-<span class="co">#&gt; #   product_shortname_english &lt;chr&gt;, export_value_usd &lt;int&gt;,</span>
-<span class="co">#&gt; #   import_value_usd &lt;int&gt;, export_rca &lt;dbl&gt;, import_rca &lt;dbl&gt;</span></pre></body></html></div>
+<span class="co">#&gt;    year reporter_iso reporter_fullname_english section_code section_color</span>
+<span class="co">#&gt; 1: 1962          chl                     Chile           01       #74c0e2</span>
+<span class="co">#&gt;    section_shortname_english      section_fullname_english group_code</span>
+<span class="co">#&gt; 1:           Animal Products Live Animals; Animal Products         01</span>
+<span class="co">#&gt;    group_fullname_english product_code product_shortname_english</span>
+<span class="co">#&gt; 1:          Animals; live         0101                    Horses</span>
+<span class="co">#&gt;                  product_fullname_english export_value_usd export_rca</span>
+<span class="co">#&gt; 1: Horses, asses, mules and hinnies; live           289076     0.5339</span>
+<span class="co">#&gt;    import_value_usd import_rca</span>
+<span class="co">#&gt; 1:            50833     0.0927</span></pre></body></html></div>
 <p>This table accepts different years, reporters and product codes just like <code>yrpc</code>.</p>
 <p>All the variables from this table are documented at <a href="docs.tradestatistics.io">docs.tradestatistics.io</a>.</p>
 </div>
@@ -459,21 +752,41 @@
 )
 
 <span class="no">yr</span>
-<span class="co">#&gt; # A tibble: 6 x 15</span>
-<span class="co">#&gt;    year reporter_iso reporter_fullna… export_value_usd import_value_usd</span>
-<span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;                       &lt;int&gt;            &lt;int&gt;</span>
-<span class="co">#&gt; 1  1962 chl          Chile                   686689403        695823377</span>
-<span class="co">#&gt; 2  1963 chl          Chile                   684739946        771099193</span>
-<span class="co">#&gt; 3  1962 arg          Argentina              1497724584       1789906161</span>
-<span class="co">#&gt; 4  1963 arg          Argentina              1689338136       1283218008</span>
-<span class="co">#&gt; 5  1962 per          Peru                    676343986        601437849</span>
-<span class="co">#&gt; 6  1963 per          Peru                    785459639        651334910</span>
-<span class="co">#&gt; # … with 10 more variables: cci_fitness_method &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   cci_rank_fitness_method &lt;int&gt;, cci_reflections_method &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   cci_rank_reflections_method &lt;int&gt;, cci_eigenvalues_method &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   cci_rank_eigenvalues_method &lt;int&gt;, top_export_product_code &lt;chr&gt;,</span>
-<span class="co">#&gt; #   top_export_trade_value_usd &lt;int&gt;, top_import_product_code &lt;chr&gt;,</span>
-<span class="co">#&gt; #   top_import_trade_value_usd &lt;int&gt;</span></pre></body></html></div>
+<span class="co">#&gt;    year reporter_iso reporter_fullname_english export_value_usd</span>
+<span class="co">#&gt; 1: 1962          arg                 Argentina       1497724584</span>
+<span class="co">#&gt; 2: 1963          arg                 Argentina       1689338136</span>
+<span class="co">#&gt; 3: 1962          chl                     Chile        686689403</span>
+<span class="co">#&gt; 4: 1963          chl                     Chile        684739946</span>
+<span class="co">#&gt; 5: 1962          per                      Peru        676343986</span>
+<span class="co">#&gt; 6: 1963          per                      Peru        785459639</span>
+<span class="co">#&gt;    import_value_usd top_export_product_code top_import_product_code</span>
+<span class="co">#&gt; 1:       1789906161                    1001                    8456</span>
+<span class="co">#&gt; 2:       1283218008                    0201                    8456</span>
+<span class="co">#&gt; 3:        695823377                    7403                    8456</span>
+<span class="co">#&gt; 4:        771099193                    7402                    8456</span>
+<span class="co">#&gt; 5:        601437849                    2301                    8703</span>
+<span class="co">#&gt; 6:        651334910                    2301                    8703</span>
+<span class="co">#&gt;    top_export_trade_value_usd top_import_trade_value_usd cci_fitness_method</span>
+<span class="co">#&gt; 1:                  204629677                  148401938             0.0047</span>
+<span class="co">#&gt; 2:                  227590947                  105553319             0.0201</span>
+<span class="co">#&gt; 3:                  222651273                   33230152             0.0035</span>
+<span class="co">#&gt; 4:                  203677382                   34806764             0.0048</span>
+<span class="co">#&gt; 5:                  113973705                   31800862             0.0012</span>
+<span class="co">#&gt; 6:                  128446188                   39223635             0.0012</span>
+<span class="co">#&gt;    cci_rank_fitness_method cci_reflections_method cci_rank_reflections_method</span>
+<span class="co">#&gt; 1:                      33                -0.0341                          44</span>
+<span class="co">#&gt; 2:                      37                -0.0018                          42</span>
+<span class="co">#&gt; 3:                      35                 0.1748                          36</span>
+<span class="co">#&gt; 4:                      47                -0.0966                          48</span>
+<span class="co">#&gt; 5:                      42                -0.2779                          55</span>
+<span class="co">#&gt; 6:                      56                -0.4211                          61</span>
+<span class="co">#&gt;    cci_eigenvalues_method cci_rank_eigenvalues_method</span>
+<span class="co">#&gt; 1:                -0.0337                          44</span>
+<span class="co">#&gt; 2:                -0.0012                          42</span>
+<span class="co">#&gt; 3:                 0.1752                          36</span>
+<span class="co">#&gt; 4:                -0.0961                          48</span>
+<span class="co">#&gt; 5:                -0.2777                          55</span>
+<span class="co">#&gt; 6:                -0.4207                          61</span></pre></body></html></div>
 <p>This table accepts different years and reporters just like <code>yrpc</code>.</p>
 <p>All the variables from this table are documented at <a href="docs.tradestatistics.io">docs.tradestatistics.io</a>.</p>
 </div>
@@ -485,46 +798,186 @@
   <span class="kw">years</span> <span class="kw">=</span> <span class="fl">1962</span>,
   <span class="kw">table</span> <span class="kw">=</span> <span class="st">"yc"</span>
 )
-<span class="co">#&gt; # A tibble: 991 x 22</span>
-<span class="co">#&gt;     year section_code section_fullnam… section_shortna… section_color group_code</span>
-<span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;         &lt;chr&gt;     </span>
-<span class="co">#&gt;  1  1962 19           Arms And Ammuni… Weapons          #1c26b3       93        </span>
-<span class="co">#&gt;  2  1962 19           Arms And Ammuni… Weapons          #1c26b3       93        </span>
-<span class="co">#&gt;  3  1962 18           Optical, Photog… Instruments      #5c57d9       92        </span>
-<span class="co">#&gt;  4  1962 18           Optical, Photog… Instruments      #5c57d9       92        </span>
-<span class="co">#&gt;  5  1962 18           Optical, Photog… Instruments      #5c57d9       92        </span>
-<span class="co">#&gt;  6  1962 18           Optical, Photog… Instruments      #5c57d9       92        </span>
-<span class="co">#&gt;  7  1962 18           Optical, Photog… Instruments      #5c57d9       92        </span>
-<span class="co">#&gt;  8  1962 18           Optical, Photog… Instruments      #5c57d9       92        </span>
-<span class="co">#&gt;  9  1962 18           Optical, Photog… Instruments      #5c57d9       92        </span>
-<span class="co">#&gt; 10  1962 18           Optical, Photog… Instruments      #5c57d9       91        </span>
-<span class="co">#&gt; # … with 981 more rows, and 16 more variables: group_fullname_english &lt;chr&gt;,</span>
-<span class="co">#&gt; #   product_code &lt;chr&gt;, product_fullname_english &lt;chr&gt;,</span>
-<span class="co">#&gt; #   product_shortname_english &lt;chr&gt;, export_value_usd &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   import_value_usd &lt;dbl&gt;, pci_fitness_method &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   pci_rank_fitness_method &lt;int&gt;, pci_reflections_method &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   pci_rank_reflections_method &lt;int&gt;, pci_eigenvalues_method &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   pci_rank_eigenvalues_method &lt;int&gt;, top_exporter_iso &lt;chr&gt;,</span>
-<span class="co">#&gt; #   top_exporter_trade_value_usd &lt;int&gt;, top_importer_iso &lt;chr&gt;,</span>
-<span class="co">#&gt; #   top_importer_trade_value_usd &lt;int&gt;</span></pre></body></html></div>
+<span class="co">#&gt;      year section_code section_color section_shortname_english</span>
+<span class="co">#&gt;   1: 1962           22       #635b56               Unspecified</span>
+<span class="co">#&gt;   2: 1962           15       #a17cb0                    Metals</span>
+<span class="co">#&gt;   3: 1962           09       #dc8e7a             Wood Products</span>
+<span class="co">#&gt;   4: 1962           02       #406662        Vegetable Products</span>
+<span class="co">#&gt;   5: 1962           17       #a1aafb            Transportation</span>
+<span class="co">#&gt;  ---                                                          </span>
+<span class="co">#&gt; 987: 1962           07       #ede788      Plastics and Rubbers</span>
+<span class="co">#&gt; 988: 1962           04       #8abdb6                Foodstuffs</span>
+<span class="co">#&gt; 989: 1962           02       #406662        Vegetable Products</span>
+<span class="co">#&gt; 990: 1962           01       #74c0e2           Animal Products</span>
+<span class="co">#&gt; 991: 1962           11       #bf3251                  Textiles</span>
+<span class="co">#&gt;                                                                                                                                              section_fullname_english</span>
+<span class="co">#&gt;   1:                                                                                                                      Commodities Not Specified According To Kind</span>
+<span class="co">#&gt;   2:                                                                                                                           Base Metals And Articles Of Base Metal</span>
+<span class="co">#&gt;   3: Wood And Articles Of Wood; Wood Charcoal; Cork And Articles Of Cork; Manufactures Of Straw, Of Esparto Or Of Other Plaiting Materials; Basketware And Wickerwork</span>
+<span class="co">#&gt;   4:                                                                                                                                               Vegetable Products</span>
+<span class="co">#&gt;   5:                                                                                                   Vehicles, Aircraft, Vessels And Associated Transport Equipment</span>
+<span class="co">#&gt;  ---                                                                                                                                                                 </span>
+<span class="co">#&gt; 987:                                                                                                       Plastics And Articles Thereof; Rubber And Articles Thereof</span>
+<span class="co">#&gt; 988:                                                                Prepared Foodstuffs; Beverages, Spirits And Vinegar; Tobacco And Manufactured Tobacco Substitutes</span>
+<span class="co">#&gt; 989:                                                                                                                                               Vegetable Products</span>
+<span class="co">#&gt; 990:                                                                                                                                    Live Animals; Animal Products</span>
+<span class="co">#&gt; 991:                                                                                                                                    Textiles And Textile Articles</span>
+<span class="co">#&gt;      group_code</span>
+<span class="co">#&gt;   1:         99</span>
+<span class="co">#&gt;   2:         79</span>
+<span class="co">#&gt;   3:         44</span>
+<span class="co">#&gt;   4:         09</span>
+<span class="co">#&gt;   5:         87</span>
+<span class="co">#&gt;  ---           </span>
+<span class="co">#&gt; 987:         40</span>
+<span class="co">#&gt; 988:         19</span>
+<span class="co">#&gt; 989:         11</span>
+<span class="co">#&gt; 990:         04</span>
+<span class="co">#&gt; 991:         54</span>
+<span class="co">#&gt;                                                                                                group_fullname_english</span>
+<span class="co">#&gt;   1:                                                                      Commodities not specified according to kind</span>
+<span class="co">#&gt;   2:                                                                                        Zinc and articles thereof</span>
+<span class="co">#&gt;   3:                                                                         Wood and articles of wood; wood charcoal</span>
+<span class="co">#&gt;   4:                                                                                     Coffee, tea, mate and spices</span>
+<span class="co">#&gt;   5:                         Vehicles; other than railway or tramway rolling stock, and parts and accessories thereof</span>
+<span class="co">#&gt;  ---                                                                                                                 </span>
+<span class="co">#&gt; 987:                                                                                      Rubber and articles thereof</span>
+<span class="co">#&gt; 988:                                            Preparations of cereals, flour, starch or milk; pastrycooks' products</span>
+<span class="co">#&gt; 989:                                           Products of the milling industry; malt, starches, inulin, wheat gluten</span>
+<span class="co">#&gt; 990: Dairy produce; birds' eggs; natural honey; edible products of animal origin, not elsewhere specified or included</span>
+<span class="co">#&gt; 991:                                             Man-made filaments; strip and the like of man-made textile materials</span>
+<span class="co">#&gt;      product_code             product_shortname_english</span>
+<span class="co">#&gt;   1:         9999                           Unspecified</span>
+<span class="co">#&gt;   2:         7907                   Other Zinc Products</span>
+<span class="co">#&gt;   3:         4409                           Shaped Wood</span>
+<span class="co">#&gt;   4:         0903                                  Mate</span>
+<span class="co">#&gt;   5:         8702                                 Buses</span>
+<span class="co">#&gt;  ---                                                   </span>
+<span class="co">#&gt; 987:         4017                           Hard Rubber</span>
+<span class="co">#&gt; 988:         1901                          Malt Extract</span>
+<span class="co">#&gt; 989:         1104                     Processed Cereals</span>
+<span class="co">#&gt; 990:         0402                     Concentrated Milk</span>
+<span class="co">#&gt; 991:         5408 Artificial Filament Yarn Woven Fabric</span>
+<span class="co">#&gt;                                                                                                                                                                                                                                         product_fullname_english</span>
+<span class="co">#&gt;   1:                                                                                                                                                                                                                 Commodities not specified according to kind</span>
+<span class="co">#&gt;   2:                                                                                                                                                                                                                         Zinc; articles n.e.c. in chapter 79</span>
+<span class="co">#&gt;   3:                                    Wood (including strips, friezes for parquet flooring, not assembled), continuously shaped (tongued, grooved, v-jointed, beaded or the like) along any edges, ends or faces, whether or not planed, sanded or end-jointed</span>
+<span class="co">#&gt;   4:                                                                                                                                                                                                                                                        Mate</span>
+<span class="co">#&gt;   5:                                                                                                                                                                                                                   Vehicles; public transport passenger type</span>
+<span class="co">#&gt;  ---                                                                                                                                                                                                                                                            </span>
+<span class="co">#&gt; 987:                                                                                                                                                                 Hard rubber (e.g. ebonite) in all forms, including waste and scrap; articles of hard rubber</span>
+<span class="co">#&gt; 988: Malt extract; flour/groats/meal/starch/malt extract products, no cocoa (or less than 40% by weight) and food preparations of goods of headings 04.01 to 04.04, no cocoa (or less than 5% by weight), weights calculated on a totally defatted basis, n.e.c.</span>
+<span class="co">#&gt; 989:                                                                                    Cereal grains otherwise worked (egg hulled, rolled, flaked, pearled, sliced or kibbled) except rice of heading no. 1006; germ of cereals whole, rolled, flaked or ground</span>
+<span class="co">#&gt; 990:                                                                                                                                                                           Milk and cream; concentrated or containing added sugar or other sweetening matter</span>
+<span class="co">#&gt; 991:                                                                                                                                               Woven fabrics of artificial filament yarn including woven fabrics obtained from materials of heading no. 5404</span>
+<span class="co">#&gt;      export_value_usd import_value_usd top_exporter_iso</span>
+<span class="co">#&gt;   1:        132460373        132460373             &lt;NA&gt;</span>
+<span class="co">#&gt;   2:         13615869         13615869              usa</span>
+<span class="co">#&gt;   3:         61337343         61337343              bra</span>
+<span class="co">#&gt;   4:          9643623          9643623              bra</span>
+<span class="co">#&gt;   5:        130606809        130606809              deu</span>
+<span class="co">#&gt;  ---                                                   </span>
+<span class="co">#&gt; 987:          1983975          1983975              usa</span>
+<span class="co">#&gt; 988:         42991130         42991130              usa</span>
+<span class="co">#&gt; 989:         23582751         23582751              usa</span>
+<span class="co">#&gt; 990:        387985175        387985175              usa</span>
+<span class="co">#&gt; 991:        339275374        339275374              jpn</span>
+<span class="co">#&gt;                                                    top_exporter_fullname_english</span>
+<span class="co">#&gt;   1:                                                                        &lt;NA&gt;</span>
+<span class="co">#&gt;   2: USA, Puerto Rico and US Virgin Islands (excludes Virgin Islands until 1981)</span>
+<span class="co">#&gt;   3:                                                                      Brazil</span>
+<span class="co">#&gt;   4:                                                                      Brazil</span>
+<span class="co">#&gt;   5:                     Germany (former Federal Republic of Germany until 1990)</span>
+<span class="co">#&gt;  ---                                                                            </span>
+<span class="co">#&gt; 987: USA, Puerto Rico and US Virgin Islands (excludes Virgin Islands until 1981)</span>
+<span class="co">#&gt; 988: USA, Puerto Rico and US Virgin Islands (excludes Virgin Islands until 1981)</span>
+<span class="co">#&gt; 989: USA, Puerto Rico and US Virgin Islands (excludes Virgin Islands until 1981)</span>
+<span class="co">#&gt; 990: USA, Puerto Rico and US Virgin Islands (excludes Virgin Islands until 1981)</span>
+<span class="co">#&gt; 991:                                                                       Japan</span>
+<span class="co">#&gt;      top_exporter_trade_value_usd top_importer_iso</span>
+<span class="co">#&gt;   1:                           NA             &lt;NA&gt;</span>
+<span class="co">#&gt;   2:                      6435408              ant</span>
+<span class="co">#&gt;   3:                     38378578              arg</span>
+<span class="co">#&gt;   4:                      8312710              arg</span>
+<span class="co">#&gt;   5:                     33921959              arg</span>
+<span class="co">#&gt;  ---                                              </span>
+<span class="co">#&gt; 987:                       647202              ven</span>
+<span class="co">#&gt; 988:                     12153893              ven</span>
+<span class="co">#&gt; 989:                      7187584              ven</span>
+<span class="co">#&gt; 990:                    119965600              ven</span>
+<span class="co">#&gt; 991:                    148572723              zaf</span>
+<span class="co">#&gt;                                 top_importer_fullname_english</span>
+<span class="co">#&gt;   1:                                                     &lt;NA&gt;</span>
+<span class="co">#&gt;   2:                                           Neth. Antilles</span>
+<span class="co">#&gt;   3:                                                Argentina</span>
+<span class="co">#&gt;   4:                                                Argentina</span>
+<span class="co">#&gt;   5:                                                Argentina</span>
+<span class="co">#&gt;  ---                                                         </span>
+<span class="co">#&gt; 987:                                                Venezuela</span>
+<span class="co">#&gt; 988:                                                Venezuela</span>
+<span class="co">#&gt; 989:                                                Venezuela</span>
+<span class="co">#&gt; 990:                                                Venezuela</span>
+<span class="co">#&gt; 991: South Africa (Southern African Customs Union until 2000)</span>
+<span class="co">#&gt;      top_importer_trade_value_usd pci_fitness_method pci_rank_fitness_method</span>
+<span class="co">#&gt;   1:                           NA         1.8366e-10                     989</span>
+<span class="co">#&gt;   2:                      9827069         2.1000e-03                     579</span>
+<span class="co">#&gt;   3:                     16459498         5.9487e-06                     927</span>
+<span class="co">#&gt;   4:                      3973239         2.0000e-04                     765</span>
+<span class="co">#&gt;   5:                     16957121         1.8000e-03                     595</span>
+<span class="co">#&gt;  ---                                                                        </span>
+<span class="co">#&gt; 987:                       549816         4.8000e-03                     527</span>
+<span class="co">#&gt; 988:                      7164150         1.5200e-02                     461</span>
+<span class="co">#&gt; 989:                      2827686         4.6000e-03                     532</span>
+<span class="co">#&gt; 990:                     35052790         1.3000e-03                     623</span>
+<span class="co">#&gt; 991:                     22843520         2.3900e-02                     451</span>
+<span class="co">#&gt;      pci_reflections_method pci_rank_reflections_method pci_eigenvalues_method</span>
+<span class="co">#&gt;   1:                -2.3928                         967                -2.3929</span>
+<span class="co">#&gt;   2:                 0.0676                         571                 0.0675</span>
+<span class="co">#&gt;   3:                -1.1363                         835                -1.1362</span>
+<span class="co">#&gt;   4:                -2.8181                         986                -2.8181</span>
+<span class="co">#&gt;   5:                 0.1723                         530                 0.1722</span>
+<span class="co">#&gt;  ---                                                                          </span>
+<span class="co">#&gt; 987:                 0.1840                         523                 0.1839</span>
+<span class="co">#&gt; 988:                 0.4155                         430                 0.4155</span>
+<span class="co">#&gt; 989:                -0.4328                         706                -0.4326</span>
+<span class="co">#&gt; 990:                -0.0874                         630                -0.0873</span>
+<span class="co">#&gt; 991:                -0.0782                         625                -0.0783</span>
+<span class="co">#&gt;      pci_rank_eigenvalues_method</span>
+<span class="co">#&gt;   1:                         967</span>
+<span class="co">#&gt;   2:                         571</span>
+<span class="co">#&gt;   3:                         835</span>
+<span class="co">#&gt;   4:                         986</span>
+<span class="co">#&gt;   5:                         530</span>
+<span class="co">#&gt;  ---                            </span>
+<span class="co">#&gt; 987:                         523</span>
+<span class="co">#&gt; 988:                         431</span>
+<span class="co">#&gt; 989:                         706</span>
+<span class="co">#&gt; 990:                         630</span>
+<span class="co">#&gt; 991:                         625</span></pre></body></html></div>
 <p>If we want the traded values of the product <code>0101</code> which means "Horses, asses, mules and hinnies; live: in 1962:</p>
 <div class="sourceCode" id="cb16"><html><body><pre class="r"><span class="fu"><a href="../reference/ots_create_tidy_data.html">ots_create_tidy_data</a></span>(
   <span class="kw">years</span> <span class="kw">=</span> <span class="fl">1962</span>,
   <span class="kw">products</span> <span class="kw">=</span> <span class="st">"0101"</span>,
   <span class="kw">table</span> <span class="kw">=</span> <span class="st">"yc"</span>
 )
-<span class="co">#&gt; # A tibble: 1 x 22</span>
-<span class="co">#&gt;    year section_code section_fullnam… section_shortna… section_color group_code</span>
-<span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;         &lt;chr&gt;     </span>
-<span class="co">#&gt; 1  1962 01           Live Animals; A… Animal Products  #74c0e2       01        </span>
-<span class="co">#&gt; # … with 16 more variables: group_fullname_english &lt;chr&gt;, product_code &lt;chr&gt;,</span>
-<span class="co">#&gt; #   product_fullname_english &lt;chr&gt;, product_shortname_english &lt;chr&gt;,</span>
-<span class="co">#&gt; #   export_value_usd &lt;int&gt;, import_value_usd &lt;int&gt;, pci_fitness_method &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   pci_rank_fitness_method &lt;int&gt;, pci_reflections_method &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   pci_rank_reflections_method &lt;int&gt;, pci_eigenvalues_method &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   pci_rank_eigenvalues_method &lt;int&gt;, top_exporter_iso &lt;chr&gt;,</span>
-<span class="co">#&gt; #   top_exporter_trade_value_usd &lt;int&gt;, top_importer_iso &lt;chr&gt;,</span>
-<span class="co">#&gt; #   top_importer_trade_value_usd &lt;int&gt;</span></pre></body></html></div>
+<span class="co">#&gt;    year section_code section_color section_shortname_english</span>
+<span class="co">#&gt; 1: 1962           01       #74c0e2           Animal Products</span>
+<span class="co">#&gt;         section_fullname_english group_code group_fullname_english product_code</span>
+<span class="co">#&gt; 1: Live Animals; Animal Products         01          Animals; live         0101</span>
+<span class="co">#&gt;    product_shortname_english               product_fullname_english</span>
+<span class="co">#&gt; 1:                    Horses Horses, asses, mules and hinnies; live</span>
+<span class="co">#&gt;    export_value_usd import_value_usd top_exporter_iso</span>
+<span class="co">#&gt; 1:        100026327        100026327              gbr</span>
+<span class="co">#&gt;    top_exporter_fullname_english top_exporter_trade_value_usd top_importer_iso</span>
+<span class="co">#&gt; 1:                United Kingdom                     21472229              fra</span>
+<span class="co">#&gt;    top_importer_fullname_english top_importer_trade_value_usd</span>
+<span class="co">#&gt; 1:      France (includes Monaco)                     25004734</span>
+<span class="co">#&gt;    pci_fitness_method pci_rank_fitness_method pci_reflections_method</span>
+<span class="co">#&gt; 1:              0.003                     560                -0.6957</span>
+<span class="co">#&gt;    pci_rank_reflections_method pci_eigenvalues_method</span>
+<span class="co">#&gt; 1:                         759                -0.6955</span>
+<span class="co">#&gt;    pci_rank_eigenvalues_method</span>
+<span class="co">#&gt; 1:                         759</span></pre></body></html></div>
 <p>This table accepts different years just like <code>yrpc</code>.</p>
 </div>
 </div>
@@ -532,23 +985,7 @@
 <h2 class="hasAnchor">
 <a href="#inflation-adjustment" class="anchor"></a>Inflation adjustment</h2>
 <p>Taking the <code>yr</code> table from above, we can use <code><a href="../reference/ots_inflation_adjustment.html">ots_inflation_adjustment()</a></code> to convert dollars from 1962 to dollars of 1970:</p>
-<div class="sourceCode" id="cb17"><html><body><pre class="r"><span class="fu"><a href="../reference/ots_inflation_adjustment.html">ots_inflation_adjustment</a></span>(<span class="no">yr</span>, <span class="kw">reference_year</span> <span class="kw">=</span> <span class="fl">1970</span>)
-<span class="co">#&gt; # A tibble: 6 x 17</span>
-<span class="co">#&gt;    year reporter_iso reporter_fullna… export_value_usd import_value_usd</span>
-<span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;                       &lt;dbl&gt;            &lt;dbl&gt;</span>
-<span class="co">#&gt; 1  1962 chl          Chile                  940315695.       952823270.</span>
-<span class="co">#&gt; 2  1963 chl          Chile                  909629621.      1024351902.</span>
-<span class="co">#&gt; 3  1962 arg          Argentina             2050903839.      2451001644.</span>
-<span class="co">#&gt; 4  1963 arg          Argentina             2244168778.      1704666299.</span>
-<span class="co">#&gt; 5  1962 per          Peru                   926149235.       823576782.</span>
-<span class="co">#&gt; 6  1963 per          Peru                  1043428761.       865253342.</span>
-<span class="co">#&gt; # … with 12 more variables: cci_fitness_method &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   cci_rank_fitness_method &lt;int&gt;, cci_reflections_method &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   cci_rank_reflections_method &lt;int&gt;, cci_eigenvalues_method &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   cci_rank_eigenvalues_method &lt;int&gt;, top_export_product_code &lt;chr&gt;,</span>
-<span class="co">#&gt; #   top_export_trade_value_usd &lt;int&gt;, top_import_product_code &lt;chr&gt;,</span>
-<span class="co">#&gt; #   top_import_trade_value_usd &lt;int&gt;, conversion_year &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   conversion_factor &lt;dbl&gt;</span></pre></body></html></div>
+<div class="sourceCode" id="cb17"><html><body><pre class="r"><span class="fu"><a href="../reference/ots_inflation_adjustment.html">ots_inflation_adjustment</a></span>(<span class="no">yr</span>, <span class="kw">reference_year</span> <span class="kw">=</span> <span class="fl">1970</span>)</pre></body></html></div>
 </div>
 </div>
   </div>
