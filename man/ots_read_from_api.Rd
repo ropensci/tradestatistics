@@ -11,7 +11,7 @@ ots_read_from_api(
   product_code = "all",
   group_code = "all",
   section_code = "all",
-  table = "yrpc-ga",
+  table = "yr",
   max_attempts = 5,
   use_localhost = FALSE
 )

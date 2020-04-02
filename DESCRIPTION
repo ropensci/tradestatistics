@@ -56,7 +56,6 @@ Imports:
     rlang,
     magrittr,
     dplyr,
-    stringr,
     crul,
     purrr,
     jsonlite,

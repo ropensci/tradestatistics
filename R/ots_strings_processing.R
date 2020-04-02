@@ -9,7 +9,6 @@
 #' @importFrom magrittr %>%
 #' @importFrom dplyr filter mutate
 #' @importFrom rlang sym
-#' @importFrom stringr str_detect str_to_lower str_trim str_squish str_replace_all
 #' @export
 #' @examples
 #' ots_country_code("Chile ")
@@ -24,10 +23,8 @@ ots_country_code <- function(countryname = NULL) {
     stopifnot(is.character(countryname))
     
     countryname <- iconv(countryname, to = "ASCII//TRANSLIT", sub = " ")
-    countryname <- str_replace_all(countryname, "[^[:alpha:]]", " ")
-    countryname <- str_squish(countryname)
-    countryname <- str_trim(countryname)
-    countryname <- str_to_lower(countryname)
+    countryname <- gsub("[^[:alpha:]]", "", countryname)
+    countryname <- tolower(countryname)
   }
 
   countryname <- switch(
@@ -57,8 +54,8 @@ ots_country_code <- function(countryname = NULL) {
   } else {
     countrycode <- tradestatistics::ots_countries %>%
       filter(
-        str_detect(
-          str_to_lower(!!sym("country_fullname_english")), countryname
+        grepl(
+          countryname, tolower(!!sym("country_fullname_english"))
         )
       )
   }
@@ -78,8 +75,6 @@ ots_country_code <- function(countryname = NULL) {
 #' @importFrom magrittr %>%
 #' @importFrom dplyr mutate filter
 #' @importFrom rlang sym
-#' @importFrom stringr str_detect str_to_lower str_trim str_squish
-#' @importFrom utils data
 #' @export
 #' @examples
 #' ots_product_code(productname = "ANIMALS ")
@@ -96,9 +91,7 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     # stopifnot(nchar(productname) > 0)
     
     productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = "")
-    productname <- str_replace_all(productname, "[^[:alpha:]]", "")
-    productname <- str_squish(productname)
-    productname <- str_trim(productname)
+    productname <- gsub("[^[:alpha:]]", "", productname)
     
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
@@ -110,8 +103,8 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
           type_product = productname
         ) %>%
         filter(
-          str_detect(
-            str_to_lower(!!sym("product_fullname_english")), str_to_lower(!!sym("productname"))
+          grepl(
+            tolower(!!sym("productname")), tolower(!!sym("product_fullname_english"))
           )
         )
     }
@@ -122,9 +115,7 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     # stopifnot(nchar(productgroup) > 0)
     
     productgroup <- iconv(productgroup, to = "ASCII//TRANSLIT", sub = "")
-    productgroup <- str_replace_all(productgroup, "[^[:alpha:]]", "")
-    productgroup <- str_squish(productgroup)
-    productgroup <- str_trim(productgroup)
+    productgroup <- gsub("[^[:alpha:]]", "", productgroup)
     
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
@@ -136,8 +127,8 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
           type_group = productgroup
         ) %>%
         filter(
-          str_detect(
-            str_to_lower(!!sym("group_fullname_english")), str_to_lower(!!sym("productgroup"))
+          grepl(
+            tolower(!!sym("productgroup")), tolower(!!sym("group_fullname_english"))
           )
         )
     }
@@ -151,15 +142,11 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     # stopifnot(nchar(productgroup) > 0)
     
     productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = "")
-    productname <- str_replace_all(productname, "[^[:alpha:]]", "")
-    productname <- str_squish(productname)
-    productname <- str_trim(productname)
+    productname <- gsub("[^[:alpha:]]", "", productname)
     
     productgroup <- iconv(productgroup, to = "ASCII//TRANSLIT", sub = "")
-    productgroup <- str_replace_all(productgroup, "[^[:alpha:]]", "")
-    productgroup <- str_squish(productgroup)
-    productgroup <- str_trim(productgroup)
-    
+    productgroup <- gsub("[^[:alpha:]]", "", productgroup)
+
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
     if (productname == "" | productgroup == "") {
@@ -173,11 +160,11 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
           type_group = productgroup
         ) %>%
         filter(
-          str_detect(
-            str_to_lower(!!sym("product_fullname_english")), str_to_lower(!!sym("productname"))
+          grepl(
+            tolower(!!sym("productname")), tolower(!!sym("product_fullname_english"))
           ),
-          str_detect(
-            str_to_lower(!!sym("group_fullname_english")), str_to_lower(!!sym("productgroup"))
+          grepl(
+            tolower(!!sym("productgroup")), tolower(!!sym("group_fullname_english"))
           )
         )
     }
@@ -197,8 +184,6 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
 #' @importFrom magrittr %>%
 #' @importFrom dplyr mutate filter left_join
 #' @importFrom rlang sym
-#' @importFrom stringr str_detect str_to_lower str_trim str_squish
-#' @importFrom utils data
 #' @export
 #' @examples
 #' ots_product_section(productsection = "  Animals")
@@ -212,10 +197,8 @@ ots_product_section <- function(productsection = NULL) {
   stopifnot(is.character(productsection))
   
   productsection <- iconv(productsection, to = "ASCII//TRANSLIT", sub = "")
-  productsection <- str_replace_all(productsection, "[^[:alpha:]]", "")
-  productsection <- str_squish(productsection)
-  productsection <- str_trim(productsection)
-  
+  productsection <- gsub("[^[:alpha:]]", "", productsection)
+
   # get the products dataset, create the type_product column,
   # bind them all together and do the search
   if (productsection == "") {
@@ -227,8 +210,8 @@ ots_product_section <- function(productsection = NULL) {
         type_section = productsection
       ) %>%
       filter(
-        str_detect(
-          str_to_lower(!!sym("section_fullname_english")), str_to_lower(!!sym("productsection"))
+        grepl(
+          tolower(!!sym("productsection")), tolower(!!sym("section_fullname_english"))
         )
       )
   }
