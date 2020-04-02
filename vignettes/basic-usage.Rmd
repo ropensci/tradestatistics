@@ -36,14 +36,10 @@ You might notice the tables have a pattern. The letters indicate the presence of
 * `r`: *r*eporter column
 * `p`: *p*artner column
 * `c`: product *c*ode column
-* `s`: product *s*ection column
-* `g`: product *g*roup column
 
 The most aggregated table is `yr` which basically says how many dollars each country exports and imports for a given year.
 
 The less aggregated table is `yrpc` which says how many dollars of each of the 1,222 products from the Harmonized System each country exports to other countries and imports from other countries.
-
-`g` and `s` are aggregations over `c`, therefore `yrpc-sa` (`yrpc` with section aggregation) and `yrpc-ga` (`yrpc` with group aggregation) are summaries of `yrpc`.
 
 For the complete detail you can check [docs.tradestatistics.io](docs.tradestatistics.io).
 
@@ -131,7 +127,7 @@ Here we cover aggregated tables to describe the usage.
 ### Bilateral trade at product level (Year - Reporter - Partner - Product Code)
 
 If we want Chile-Argentina bilateral trade at community level in 1962:
-```{r yrpc-ga1, eval = T}
+```{r yrpc1, eval = T}
 ots_create_tidy_data(
   years = 1962,
   reporters = "chl",
@@ -141,7 +137,7 @@ ots_create_tidy_data(
 ```
 
 We can pass two years or more, several reporters/partners, and filter by community with exact codes or code matching based on keywords:
-```{r yrpc-ga2, eval = T}
+```{r yrpc2, eval = T}
 # Note that here I'm passing Peru and not per which is the ISO code for Peru
 # The same applies to Brazil
 ots_create_tidy_data(
