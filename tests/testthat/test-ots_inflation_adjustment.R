@@ -12,11 +12,9 @@ test_that("ots_inflation_adjustment adjusts the data", {
       years = 1964, reporters = "chl", partners = "arg", table = "yrpc"
     )
 
-    test_data_adjusted_backwards <- test_data %>%
-      ots_inflation_adjustment(reference_year = 1962)
+    test_data_adjusted_backwards <- ots_inflation_adjustment(test_data, reference_year = 1962)
 
-    test_data_adjusted_forwards <- test_data %>%
-      ots_inflation_adjustment(reference_year = 1966)
+    test_data_adjusted_forwards <- ots_inflation_adjustment(test_data, reference_year = 1966)
 
     expect_is(test_data_adjusted_backwards, "data.frame")
     expect_equal(ncol(test_data_adjusted_backwards), 18)
@@ -39,8 +37,7 @@ test_that("ots_inflation_adjustment fails if the parameters are null or out of r
     )
 
     expect_error(
-      test_data_adjusted <- test_data %>%
-        ots_inflation_adjustment(reference_year = 1776),
+      test_data_adjusted <- ots_inflation_adjustment(test_data, reference_year = 1776),
       "reference year must be numeric and contained within ots_inflation years range"
     )
 

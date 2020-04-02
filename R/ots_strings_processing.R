@@ -64,7 +64,7 @@ ots_country_code <- function(countryname = NULL) {
 #' @param productgroup A text string such as "meat", "FISH" or "Dairy".
 #' @return A tibble with all possible matches (no uppercase distinction)
 #' showing the product name and product code
-#' @importFrom data.table copy `:=`
+#' @importFrom data.table `:=`
 #' @export
 #' @examples
 #' ots_product_code(productname = "ANIMALS ")
@@ -130,7 +130,7 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     if (productname == "" | productgroup == "") {
       stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the products table provided within this package.")
     } else {
-      d <- tradestatistics::ots_groups[copy(tradestatistics::ots_products)[,
+      d <- tradestatistics::ots_groups[tradestatistics::ots_products[,
         `:=`(group_code = substr(product_code, 1, 2))],
         on = .(group_code), allow.cartesian = TRUE][,
         `:=`(type_name = ..productname,
@@ -151,7 +151,7 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
 #' @param productsection A text string such as "animals", or "FOODSTUFFS".
 #' @return A tibble with all possible matches (no uppercase distinction)
 #' showing the section name and section code
-#' @importFrom data.table copy `:=`
+#' @importFrom data.table `:=`
 #' @export
 #' @examples
 #' ots_product_section(productsection = "  Animals")
