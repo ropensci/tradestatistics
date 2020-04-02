@@ -6,10 +6,6 @@
 #' @return A single character if there is a exact match (e.g.
 #' \code{ots_country_code("Chile")}) or a tibble in case of multiple matches
 #' (e.g. \code{ots_country_code("Germany")})
-#' @importFrom magrittr %>%
-#' @importFrom dplyr filter mutate
-#' @importFrom rlang sym
-#' @importFrom stringr str_detect str_to_lower str_trim str_squish str_replace_all
 #' @export
 #' @examples
 #' ots_country_code("Chile ")
@@ -24,10 +20,8 @@ ots_country_code <- function(countryname = NULL) {
     stopifnot(is.character(countryname))
     
     countryname <- iconv(countryname, to = "ASCII//TRANSLIT", sub = " ")
-    countryname <- str_replace_all(countryname, "[^[:alpha:]]", " ")
-    countryname <- str_squish(countryname)
-    countryname <- str_trim(countryname)
-    countryname <- str_to_lower(countryname)
+    countryname <- gsub("[^[:alpha:]]", "", countryname)
+    countryname <- tolower(countryname)
   }
 
   countryname <- switch(
@@ -55,12 +49,7 @@ ots_country_code <- function(countryname = NULL) {
   if (countryname == "") {
     stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the countries table provided within this package.")
   } else {
-    countrycode <- tradestatistics::ots_countries %>%
-      filter(
-        str_detect(
-          str_to_lower(!!sym("country_fullname_english")), countryname
-        )
-      )
+    countrycode <- tradestatistics::ots_countries[grepl(countryname, tolower(country_fullname_english))]
   }
   
   return(countrycode)
@@ -75,11 +64,7 @@ ots_country_code <- function(countryname = NULL) {
 #' @param productgroup A text string such as "meat", "FISH" or "Dairy".
 #' @return A tibble with all possible matches (no uppercase distinction)
 #' showing the product name and product code
-#' @importFrom magrittr %>%
-#' @importFrom dplyr mutate filter
-#' @importFrom rlang sym
-#' @importFrom stringr str_detect str_to_lower str_trim str_squish
-#' @importFrom utils data
+#' @importFrom data.table `:=`
 #' @export
 #' @examples
 #' ots_product_code(productname = "ANIMALS ")
@@ -96,24 +81,16 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     # stopifnot(nchar(productname) > 0)
     
     productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = "")
-    productname <- str_replace_all(productname, "[^[:alpha:]]", "")
-    productname <- str_squish(productname)
-    productname <- str_trim(productname)
+    productname <- gsub("[^[:alpha:]]", "", productname)
     
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
     if (productname == "") {
       stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the products table provided within this package.")
     } else {
-      d <- tradestatistics::ots_products %>%
-        mutate(
-          type_product = productname
-        ) %>%
-        filter(
-          str_detect(
-            str_to_lower(!!sym("product_fullname_english")), str_to_lower(!!sym("productname"))
-          )
-        )
+      d <- tradestatistics::ots_products[,
+        `:=`(type_product = ..productname)][grepl(tolower(productname),
+        tolower(product_fullname_english))]
     }
   }
   
@@ -122,24 +99,16 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     # stopifnot(nchar(productgroup) > 0)
     
     productgroup <- iconv(productgroup, to = "ASCII//TRANSLIT", sub = "")
-    productgroup <- str_replace_all(productgroup, "[^[:alpha:]]", "")
-    productgroup <- str_squish(productgroup)
-    productgroup <- str_trim(productgroup)
+    productgroup <- gsub("[^[:alpha:]]", "", productgroup)
     
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
     if (productgroup == "") {
       stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the products table provided within this package.")
     } else {
-      d <- tradestatistics::ots_groups %>%
-        mutate(
-          type_group = productgroup
-        ) %>%
-        filter(
-          str_detect(
-            str_to_lower(!!sym("group_fullname_english")), str_to_lower(!!sym("productgroup"))
-          )
-        )
+      d <- tradestatistics::ots_groups[,
+        `:=`(type_group = ..productgroup)][grepl(tolower(productgroup),
+        tolower(group_fullname_english))]
     }
   }
   
@@ -151,35 +120,23 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     # stopifnot(nchar(productgroup) > 0)
     
     productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = "")
-    productname <- str_replace_all(productname, "[^[:alpha:]]", "")
-    productname <- str_squish(productname)
-    productname <- str_trim(productname)
+    productname <- gsub("[^[:alpha:]]", "", productname)
     
     productgroup <- iconv(productgroup, to = "ASCII//TRANSLIT", sub = "")
-    productgroup <- str_replace_all(productgroup, "[^[:alpha:]]", "")
-    productgroup <- str_squish(productgroup)
-    productgroup <- str_trim(productgroup)
-    
+    productgroup <- gsub("[^[:alpha:]]", "", productgroup)
+
     # get the products dataset, create the type_product column,
     # bind them all together and do the search
     if (productname == "" | productgroup == "") {
       stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the products table provided within this package.")
     } else {
-      d <- tradestatistics::ots_products %>%
-        mutate(group_code = substr(!!sym("product_code"), 1, 2)) %>% 
-        left_join(tradestatistics::ots_groups) %>% 
-        mutate(
-          type_name = productname,
-          type_group = productgroup
-        ) %>%
-        filter(
-          str_detect(
-            str_to_lower(!!sym("product_fullname_english")), str_to_lower(!!sym("productname"))
-          ),
-          str_detect(
-            str_to_lower(!!sym("group_fullname_english")), str_to_lower(!!sym("productgroup"))
-          )
-        )
+      d <- tradestatistics::ots_groups[tradestatistics::ots_products[,
+        `:=`(group_code = substr(product_code, 1, 2))],
+        on = .(group_code), allow.cartesian = TRUE][,
+        `:=`(type_name = ..productname,
+        type_group = ..productgroup)][grepl(tolower(productname),
+        tolower(product_fullname_english)) & grepl(tolower(productgroup),
+        tolower(group_fullname_english))]
     }
   }
   
@@ -194,11 +151,7 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
 #' @param productsection A text string such as "animals", or "FOODSTUFFS".
 #' @return A tibble with all possible matches (no uppercase distinction)
 #' showing the section name and section code
-#' @importFrom magrittr %>%
-#' @importFrom dplyr mutate filter left_join
-#' @importFrom rlang sym
-#' @importFrom stringr str_detect str_to_lower str_trim str_squish
-#' @importFrom utils data
+#' @importFrom data.table `:=`
 #' @export
 #' @examples
 #' ots_product_section(productsection = "  Animals")
@@ -212,25 +165,17 @@ ots_product_section <- function(productsection = NULL) {
   stopifnot(is.character(productsection))
   
   productsection <- iconv(productsection, to = "ASCII//TRANSLIT", sub = "")
-  productsection <- str_replace_all(productsection, "[^[:alpha:]]", "")
-  productsection <- str_squish(productsection)
-  productsection <- str_trim(productsection)
-  
+  productsection <- gsub("[^[:alpha:]]", "", productsection)
+
   # get the products dataset, create the type_product column,
   # bind them all together and do the search
   if (productsection == "") {
     stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the products table provided within this package.")
   } else {
-    d <- tradestatistics::ots_sections %>%
-      left_join(tradestatistics::ots_sections_names) %>% 
-      mutate(
-        type_section = productsection
-      ) %>%
-      filter(
-        str_detect(
-          str_to_lower(!!sym("section_fullname_english")), str_to_lower(!!sym("productsection"))
-        )
-      )
+    d <- tradestatistics::ots_sections_names[tradestatistics::ots_sections,
+      on = .(section_code), allow.cartesian = TRUE][,
+      `:=`(type_section = ..productsection)][grepl(tolower(productsection), 
+      tolower(section_fullname_english))]
   }
   
   return(d)

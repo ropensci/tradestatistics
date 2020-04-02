@@ -14,3 +14,4 @@ LICENSE
 svg
 vignettes/basic-usage_cache/
 ^\.github$
+dev

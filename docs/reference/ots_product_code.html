@@ -84,7 +84,7 @@ product codes." />
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="https://ropensci.org/img/icon_short_white.svg" id="hexlogo" alt="rOpenSci" /></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.4.0</small></i></a>
+        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v1.0</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -107,9 +107,6 @@ product codes." />
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="../articles/basic-usage.html">How to use this package</a>
-    </li>
-    <li>
-      <a href="../articles/creating-datasets.html">Creating the datasets available within the package</a>
     </li>
   </ul>
 </li>
@@ -168,34 +165,88 @@ product codes.</p>
 showing the product name and product code</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productname</span> <span class='kw'>=</span> <span class='st'>"ANIMALS "</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 14 x 3</span><span>
-#&gt;    product_code product_fullname_english                            type_product
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                                               </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       
-#&gt; </span><span style='color: #555555;'> 1</span><span> 0102         Bovine animals; live                                ANIMALS     
-#&gt; </span><span style='color: #555555;'> 2</span><span> 0106         Animals, n.e.c. in chapter 01; live                 ANIMALS     
-#&gt; </span><span style='color: #555555;'> 3</span><span> 0201         Meat of bovine animals; fresh or chilled            ANIMALS     
-#&gt; </span><span style='color: #555555;'> 4</span><span> 0202         Meat of bovine animals; frozen                      ANIMALS     
-#&gt; </span><span style='color: #555555;'> 5</span><span> 0206         Edible offal of bovine animals, swine, sheep, goat… ANIMALS     
-#&gt; </span><span style='color: #555555;'> 6</span><span> 0504         Guts, bladders and stomachs of animals (other than… ANIMALS     
-#&gt; </span><span style='color: #555555;'> 7</span><span> 0511         Animal products not elsewhere specified or include… ANIMALS     
-#&gt; </span><span style='color: #555555;'> 8</span><span> 1502         Fats of bovine animals, sheep or goats; other than… ANIMALS     
-#&gt; </span><span style='color: #555555;'> 9</span><span> 4101         Raw hides and skins of bovine (including buffalo) … ANIMALS     
-#&gt; </span><span style='color: #555555;'>10</span><span> 4104         Tanned or crust hides and skins of bovine (includi… ANIMALS     
-#&gt; </span><span style='color: #555555;'>11</span><span> 4106         Tanned or crust hides and skins of other animals, … ANIMALS     
-#&gt; </span><span style='color: #555555;'>12</span><span> 4107         Leather further prepared after tanning or crusting… ANIMALS     
-#&gt; </span><span style='color: #555555;'>13</span><span> 4113         Leather further prepared after tanning or crusting… ANIMALS     
-#&gt; </span><span style='color: #555555;'>14</span><span> 01           Alias for all codes in the group Animals; live      ANIMALS     </div><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productgroup</span> <span class='kw'>=</span> <span class='st'>"  fish"</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 2 x 3</span><span>
-#&gt;   group_code group_fullname_english                                   type_group
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                                                    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     
-#&gt; </span><span style='color: #555555;'>1</span><span> 03         Fish and crustaceans, molluscs and other aquatic invert… fish      
-#&gt; </span><span style='color: #555555;'>2</span><span> 16         Meat, fish or crustaceans, molluscs or other aquatic in… fish      </div><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productname</span> <span class='kw'>=</span> <span class='st'>"Milk"</span>, <span class='kw'>productgroup</span> <span class='kw'>=</span> <span class='st'>"Dairy"</span>)</div><div class='output co'>#&gt; <span class='message'>Joining, by = "group_code"</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 5 x 6</span><span>
-#&gt;   product_code product_fullnam… group_code group_fullname_… type_name type_group
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     
-#&gt; </span><span style='color: #555555;'>1</span><span> 0401         Milk and cream;… 04         Dairy produce; … Milk      Dairy     
-#&gt; </span><span style='color: #555555;'>2</span><span> 0402         Milk and cream;… 04         Dairy produce; … Milk      Dairy     
-#&gt; </span><span style='color: #555555;'>3</span><span> 0403         Buttermilk, cur… 04         Dairy produce; … Milk      Dairy     
-#&gt; </span><span style='color: #555555;'>4</span><span> 0404         Whey and produc… 04         Dairy produce; … Milk      Dairy     
-#&gt; </span><span style='color: #555555;'>5</span><span> 0405         Butter and othe… 04         Dairy produce; … Milk      Dairy     </div></span></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productname</span> <span class='kw'>=</span> <span class='st'>"ANIMALS "</span>)</div><div class='output co'>#&gt;     product_code
+#&gt;  1:         0102
+#&gt;  2:         0106
+#&gt;  3:         0201
+#&gt;  4:         0202
+#&gt;  5:         0206
+#&gt;  6:         0504
+#&gt;  7:         0511
+#&gt;  8:         1502
+#&gt;  9:         4101
+#&gt; 10:         4104
+#&gt; 11:         4106
+#&gt; 12:         4107
+#&gt; 13:         4113
+#&gt; 14:           01
+#&gt;                                                                                                                                                                                                    product_fullname_english
+#&gt;  1:                                                                                                                                                                                                    Bovine animals; live
+#&gt;  2:                                                                                                                                                                                     Animals, n.e.c. in chapter 01; live
+#&gt;  3:                                                                                                                                                                                Meat of bovine animals; fresh or chilled
+#&gt;  4:                                                                                                                                                                                          Meat of bovine animals; frozen
+#&gt;  5:                                                                                                          Edible offal of bovine animals, swine, sheep, goats, horses, asses, mules or hinnies; fresh, chilled or frozen
+#&gt;  6:                                                                           Guts, bladders and stomachs of animals (other than fish); whole and pieces thereof, fresh, chilled, frozen, salted, in brine, dried or smoked
+#&gt;  7:                                                                                                        Animal products not elsewhere specified or included; dead animals of chapter 1 or 3, unfit for human consumption
+#&gt;  8:                                                                                                                                            Fats of bovine animals, sheep or goats; other than those of heading no. 1503
+#&gt;  9: Raw hides and skins of bovine (including buffalo) or equine animals (fresh, salted, dried, limed, pickled, otherwise preserved but not tanned, parchment dressed or further prepared), whether or not dehaired or split
+#&gt; 10:                                                                        Tanned or crust hides and skins of bovine (including buffalo) or equine animals, without hair on, whether or not split, but not further prepared
+#&gt; 11:                                                                                               Tanned or crust hides and skins of other animals, without wool or hair on, whether or not split, but not further prepared
+#&gt; 12:    Leather further prepared after tanning or crusting, including parchment-dressed leather, of bovine (including buffalo) or equine animals, without hair on, whether or not split, other than leather of heading 41.14
+#&gt; 13:              Leather further prepared after tanning or crusting, including parchment-dressed leather, of animals (other than ovine), without wool or hair on, whether or not split, other than leather of heading 41.14
+#&gt; 14:                                                                                                                                                                          Alias for all codes in the group Animals; live
+#&gt;     type_product
+#&gt;  1:      ANIMALS
+#&gt;  2:      ANIMALS
+#&gt;  3:      ANIMALS
+#&gt;  4:      ANIMALS
+#&gt;  5:      ANIMALS
+#&gt;  6:      ANIMALS
+#&gt;  7:      ANIMALS
+#&gt;  8:      ANIMALS
+#&gt;  9:      ANIMALS
+#&gt; 10:      ANIMALS
+#&gt; 11:      ANIMALS
+#&gt; 12:      ANIMALS
+#&gt; 13:      ANIMALS
+#&gt; 14:      ANIMALS</div><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productgroup</span> <span class='kw'>=</span> <span class='st'>"  fish"</span>)</div><div class='output co'>#&gt;    group_code
+#&gt; 1:         03
+#&gt; 2:         16
+#&gt;                                                                      group_fullname_english
+#&gt; 1:                           Fish and crustaceans, molluscs and other aquatic invertebrates
+#&gt; 2: Meat, fish or crustaceans, molluscs or other aquatic invertebrates; preparations thereof
+#&gt;    type_group
+#&gt; 1:       fish
+#&gt; 2:       fish</div><div class='input'><span class='fu'>ots_product_code</span>(<span class='kw'>productname</span> <span class='kw'>=</span> <span class='st'>"Milk"</span>, <span class='kw'>productgroup</span> <span class='kw'>=</span> <span class='st'>"Dairy"</span>)</div><div class='output co'>#&gt;    group_code
+#&gt; 1:         04
+#&gt; 2:         04
+#&gt; 3:         04
+#&gt; 4:         04
+#&gt; 5:         04
+#&gt;                                                                                              group_fullname_english
+#&gt; 1: Dairy produce; birds' eggs; natural honey; edible products of animal origin, not elsewhere specified or included
+#&gt; 2: Dairy produce; birds' eggs; natural honey; edible products of animal origin, not elsewhere specified or included
+#&gt; 3: Dairy produce; birds' eggs; natural honey; edible products of animal origin, not elsewhere specified or included
+#&gt; 4: Dairy produce; birds' eggs; natural honey; edible products of animal origin, not elsewhere specified or included
+#&gt; 5: Dairy produce; birds' eggs; natural honey; edible products of animal origin, not elsewhere specified or included
+#&gt;    product_code
+#&gt; 1:         0401
+#&gt; 2:         0402
+#&gt; 3:         0403
+#&gt; 4:         0404
+#&gt; 5:         0405
+#&gt;                                                                                                                                                                                product_fullname_english
+#&gt; 1:                                                                                                               Milk and cream; not concentrated nor containing added sugar or other sweetening matter
+#&gt; 2:                                                                                                                    Milk and cream; concentrated or containing added sugar or other sweetening matter
+#&gt; 3: Buttermilk, curdled milk and cream, yoghurt, kephir, fermented or acidified milk or cream, whether or not concentrated, containing added sugar, sweetening matter, flavoured or added fruit or cocoa
+#&gt; 4:                                     Whey and products consisting of natural milk constituents; whether or not containing added sugar or other sweetening matter, not elsewhere specified or included
+#&gt; 5:                                                                                                                                      Butter and other fats and oils derived from milk; dairy spreads
+#&gt;    type_name type_group
+#&gt; 1:      Milk      Dairy
+#&gt; 2:      Milk      Dairy
+#&gt; 3:      Milk      Dairy
+#&gt; 4:      Milk      Dairy
+#&gt; 5:      Milk      Dairy</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -17,7 +17,7 @@ ots_countries
 ## ----products, eval = T-------------------------------------------------------
 ots_products
 
-ots_product_shortnames
+ots_products_shortnames
 
 ## ----products2, eval = T------------------------------------------------------
 ots_sections
@@ -46,15 +46,15 @@ ots_product_code(productname = " ShEEp ", productgroup = " mEaT ")
 ## ----section_code-------------------------------------------------------------
 ots_product_section(" tExTiLeS ")
 
-## ----yrpc-ga1, eval = T-------------------------------------------------------
+## ----yrpc1, eval = T----------------------------------------------------------
 ots_create_tidy_data(
   years = 1962,
   reporters = "chl",
   partners = "arg",
-  table = "yrpc-sa"
+  table = "yrpc"
 )
 
-## ----yrpc-ga2, eval = T-------------------------------------------------------
+## ----yrpc2, eval = T----------------------------------------------------------
 # Note that here I'm passing Peru and not per which is the ISO code for Peru
 # The same applies to Brazil
 ots_create_tidy_data(
@@ -62,7 +62,7 @@ ots_create_tidy_data(
   reporters = c("chl", "Peru", "bol"),
   partners = c("arg", "Brazil"),
   sections = c("01", "food"),
-  table = "yrpc-sa"
+  table = "yrpc"
 )
 
 ## ----yrp3, eval = T-----------------------------------------------------------

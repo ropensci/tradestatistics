@@ -83,7 +83,7 @@ package data for a country code in the context of valid API country codes." />
 
       <div class="navbar-brand-container">
         <a href="https://ropensci.org"><img src="https://ropensci.org/img/icon_short_white.svg" id="hexlogo" alt="rOpenSci" /></a>
-        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v0.4.0</small></i></a>
+        <a class="navbar-brand" href="../index.html"><i>tradestatistics <small>v1.0</small></i></a>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -106,9 +106,6 @@ package data for a country code in the context of valid API country codes." />
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="../articles/basic-usage.html">How to use this package</a>
-    </li>
-    <li>
-      <a href="../articles/creating-datasets.html">Creating the datasets available within the package</a>
     </li>
   </ul>
 </li>
@@ -163,26 +160,24 @@ package data for a country code in the context of valid API country codes.</p>
 (e.g. <code>ots_country_code("Germany")</code>)</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ots_country_code</span>(<span class='st'>"Chile "</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1 x 6</span><span>
-#&gt;   country_iso country_name_en… country_fullnam… continent_id continent
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                   </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    
-#&gt; </span><span style='color: #555555;'>1</span><span> chl         Chile            Chile                       5 Americas 
-#&gt; </span><span style='color: #555555;'># … with 1 more variable: eu28_member </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span></div><div class='input'><span class='fu'>ots_country_code</span>(<span class='st'>"america"</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 1 x 6</span><span>
-#&gt;   country_iso country_name_en… country_fullnam… continent_id continent
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                   </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    
-#&gt; </span><span style='color: #555555;'>1</span><span> usa         USA              USA, Puerto Ric…            5 Americas 
-#&gt; </span><span style='color: #555555;'># … with 1 more variable: eu28_member </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span></div><div class='input'><span class='fu'>ots_country_code</span>(<span class='st'>"UNITED  STATES"</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 1 x 6</span><span>
-#&gt;   country_iso country_name_en… country_fullnam… continent_id continent
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                   </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    
-#&gt; </span><span style='color: #555555;'>1</span><span> usa         USA              USA, Puerto Ric…            5 Americas 
-#&gt; </span><span style='color: #555555;'># … with 1 more variable: eu28_member </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span></div><div class='input'><span class='fu'>ots_country_code</span>(<span class='st'>" united_"</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 4 x 6</span><span>
-#&gt;   country_iso country_name_en… country_fullnam… continent_id continent
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                   </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    
-#&gt; </span><span style='color: #555555;'>1</span><span> are         United Arab Emi… United Arab Emi…            1 Asia     
-#&gt; </span><span style='color: #555555;'>2</span><span> gbr         United Kingdom   United Kingdom              2 Europe   
-#&gt; </span><span style='color: #555555;'>3</span><span> tza         United Rep. of … United Rep. of …            3 Africa   
-#&gt; </span><span style='color: #555555;'>4</span><span> umi         United States M… United States M…            5 Americas 
-#&gt; </span><span style='color: #555555;'># … with 1 more variable: eu28_member </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span></div></span></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ots_country_code</span>(<span class='st'>"Chile "</span>)</div><div class='output co'>#&gt;    country_iso country_name_english country_fullname_english continent_id
+#&gt; 1:         chl                Chile                    Chile            5
+#&gt;    continent eu28_member
+#&gt; 1:  Americas           0</div><div class='input'><span class='fu'>ots_country_code</span>(<span class='st'>"america"</span>)</div><div class='output co'>#&gt;    country_iso country_name_english
+#&gt; 1:         usa                  USA
+#&gt;                                                       country_fullname_english
+#&gt; 1: USA, Puerto Rico and US Virgin Islands (excludes Virgin Islands until 1981)
+#&gt;    continent_id continent eu28_member
+#&gt; 1:            5  Americas           0</div><div class='input'><span class='fu'>ots_country_code</span>(<span class='st'>"UNITED  STATES"</span>)</div><div class='output co'>#&gt; Empty data.table (0 rows and 6 cols): country_iso,country_name_english,country_fullname_english,continent_id,continent,eu28_member</div><div class='input'><span class='fu'>ots_country_code</span>(<span class='st'>" united_"</span>)</div><div class='output co'>#&gt;    country_iso                 country_name_english
+#&gt; 1:         are                 United Arab Emirates
+#&gt; 2:         gbr                       United Kingdom
+#&gt; 3:         tza              United Rep. of Tanzania
+#&gt; 4:         umi United States Minor Outlying Islands
+#&gt;                country_fullname_english continent_id continent eu28_member
+#&gt; 1:                 United Arab Emirates            1      Asia           0
+#&gt; 2:                       United Kingdom            2    Europe           1
+#&gt; 3:              United Rep. of Tanzania            3    Africa           0
+#&gt; 4: United States Minor Outlying Islands            5  Americas           0</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -6,10 +6,7 @@
 #' @param reference_year Year contained within the years specified in
 #' api.tradestatistics.io/year_range (e.g. \code{2010}).
 #' Default set to \code{NULL}.
-#' @importFrom magrittr %>%
-#' @importFrom dplyr filter summarise mutate distinct matches last
-#' @importFrom rlang sym syms
-#' @importFrom purrr map_df
+#' @importFrom data.table `:=` rbindlist last
 #' @export
 #' @examples
 #' \dontrun{
@@ -24,18 +21,11 @@
 ots_inflation_adjustment <- function(trade_data = NULL, reference_year = NULL) {
   # Check input -------------------------------------------------------------
   if (is.null(trade_data)) {
-    stop(
-      "
-      The input data cannot be null.
-      "
-    )
+    stop("The input data cannot be NULL.")
   }
 
   if (is.null(reference_year)) {
-    stop(
-      "
-      The reference year cannot be null.
-      "
+    stop("The reference year cannot be NULL."
     )
   }
 
@@ -45,12 +35,7 @@ ots_inflation_adjustment <- function(trade_data = NULL, reference_year = NULL) {
   if (!is.numeric(reference_year) |
     !(reference_year >= ots_inflation_min_year &
       reference_year <= ots_inflation_max_year)) {
-    stop(
-      sprintf(
-        "
-      The reference year must be numeric and contained within ots_inflation years range
-      that is %s-%s.
-      ",
+    stop(sprintf("The reference year must be numeric and contained within ots_inflation years range that is %s-%s.",
         ots_inflation_min_year,
         ots_inflation_max_year
       )
@@ -60,53 +45,40 @@ ots_inflation_adjustment <- function(trade_data = NULL, reference_year = NULL) {
   # Filter year conversion rates and join data ------------------------------
   years <- unique(trade_data$year)
   
-  d1 <- map_df(
+  d1 <- lapply(
     years,
     function(year) {
       if (year <= reference_year) {
-        tradestatistics::ots_inflation %>%
-          filter(
-            !!sym("to") <= reference_year,
-            !!sym("to") > year
-          ) %>%
-          summarise(
-            conversion_factor = last(cumprod(!!sym("conversion_factor")))
-          ) %>%
-          mutate(
-            year = year,
-            conversion_year = reference_year
-          ) %>%
-          select(!!!syms(c("year", "conversion_year", "conversion_factor")))
+        tradestatistics::ots_inflation[to <= reference_year & to > year,
+          .(conversion_factor = last(cumprod(conversion_factor)))][,
+          `:=`(year = ..year, conversion_year = ..reference_year)][,
+          .(year, conversion_year, conversion_factor)]
       } else {
-        tradestatistics::ots_inflation %>%
-          filter(
-            !!sym("from") >= reference_year,
-            !!sym("from") < year
-          ) %>%
-          summarise(
-            conversion_factor = 1 / last(cumprod(!!sym("conversion_factor")))
-          ) %>%
-          mutate(
-            year = year,
-            conversion_year = reference_year
-          ) %>%
-          select(!!!syms(c("year", "conversion_year", "conversion_factor")))
+        tradestatistics::ots_inflation[from >= reference_year & from < year,
+          .(conversion_factor = 1/last(cumprod(conversion_factor)))][,
+          `:=`(year = ..year, conversion_year = ..reference_year)][,
+          .(year, conversion_year, conversion_factor)]
       }
     }
   )
+  d1 <- rbindlist(d1)
+  d1 <- d1[, `:=`(conversion_factor = ifelse(year == conversion_year, 1, conversion_factor))]
   
-  d1 <- d1 %>% 
-    mutate(
-      conversion_factor = ifelse(!!sym("year") == !!sym("conversion_year"), 1, !!sym("conversion_factor"))
-    )
-
-  d2 <- trade_data %>%
-    left_join(d1, by = "year") %>%
-    mutate(
-      export_value_usd = !!sym("export_value_usd") * !!sym("conversion_factor"),
-      import_value_usd = !!sym("import_value_usd") * !!sym("conversion_factor")
-    ) %>%
-    select(-matches("change"))
+  d2 <- trade_data[d1, on = .(year), allow.cartesian = TRUE][,
+    `:=`(export_value_usd = export_value_usd * conversion_factor,
+         import_value_usd = import_value_usd * conversion_factor)]
+  
+  if (any("top_export_trade_value_usd" %in% names(d2))) {
+    d2 <- d2[,
+      `:=`(top_export_trade_value_usd = top_export_trade_value_usd * conversion_factor,
+           top_import_trade_value_usd = top_import_trade_value_usd * conversion_factor)]
+  }
+  
+  if (any("top_exporter_trade_value_usd" %in% names(d2))) {
+    d2 <- d2[,
+      `:=`(top_exporter_trade_value_usd = top_exporter_trade_value_usd * conversion_factor,
+           top_importer_trade_value_usd = top_importer_trade_value_usd * conversion_factor)]
+  }
 
   return(d2)
 }
