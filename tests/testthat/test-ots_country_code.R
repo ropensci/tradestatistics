@@ -15,9 +15,9 @@ test_that("ots_country_code works properly for multiple matching", {
   test_country_2 <- ots_country_code("GERMANY")
   test_country_3 <- ots_country_code("all")
 
-  expect_is(test_country_1, "tbl")
-  expect_is(test_country_2, "tbl")
-  expect_is(test_country_3, "tbl")
+  expect_is(test_country_1, "data.frame")
+  expect_is(test_country_2, "data.frame")
+  expect_is(test_country_3, "data.frame")
 
   expect_equal(ncol(test_country_1), 6)
   expect_equal(ncol(test_country_2), 6)

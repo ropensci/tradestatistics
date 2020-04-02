@@ -60,7 +60,7 @@ The Package Functions section explains that you don't need to memorize all HS co
 ```{r products, eval = T}
 ots_products
 
-ots_product_shortnames
+ots_products_shortnames
 ```
 
 ```{r products2, eval = T}

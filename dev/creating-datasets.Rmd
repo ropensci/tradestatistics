@@ -22,6 +22,7 @@ This vignette contains something end users should ever need to do, it shows the 
 
 ```{r tables, message = FALSE, eval = FALSE}
 library(dplyr)
+library(data.table)
 library(jsonlite)
 
 tables_url <- "https://api.tradestatistics.io/tables"
@@ -32,9 +33,9 @@ if (!file.exists(tables_raw_file)) { download.file(tables_url, tables_raw_file) 
 
 if (!file.exists(tables_tidy_file)) {
   ots_tables <- fromJSON(tables_raw_file) %>% 
-    as_tibble() %>% 
-    mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
-  save(ots_tables, file = tables_tidy_file, compress = "xz")
+    mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")}) %>% 
+    as.data.table()
+  save(ots_tables, file = tables_tidy_file)
 }
 ```
 
@@ -49,9 +50,9 @@ if (!file.exists(countries_raw_file)) { download.file(countries_url, countries_r
 
 if (!file.exists(countries_tidy_file)) {
   ots_countries <- fromJSON(countries_raw_file) %>% 
-    as_tibble() %>% 
-    mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
-  save(ots_countries, file = countries_tidy_file, compress = "xz")
+    mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")}) %>% 
+    as.data.table()
+  save(ots_countries, file = countries_tidy_file)
 }
 ```
 
@@ -66,10 +67,10 @@ if (!file.exists(products_raw_file)) { download.file(products_url, products_raw_
 
 if (!file.exists(products_tidy_file)) {
   ots_products <- fromJSON(products_raw_file) %>% 
-    as_tibble() %>% 
     mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")}) %>% 
-    filter(nchar(product_code) %in% c(2,3,4))
-  save(ots_products, file = products_tidy_file, compress = "xz")
+    filter(nchar(product_code) %in% c(2,3,4)) %>% 
+    as.data.table()
+  save(ots_products, file = products_tidy_file)
 }
 ```
 
@@ -84,10 +85,10 @@ if (!file.exists(sections_raw_file)) { download.file(sections_url, sections_raw_
 
 if (!file.exists(sections_tidy_file)) {
   ots_sections <- fromJSON(sections_raw_file) %>% 
-    as_tibble() %>% 
     mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")}) %>% 
-    filter(nchar(product_code) == 4)
-  save(ots_sections, file = sections_tidy_file, compress = "xz")
+    filter(nchar(product_code) == 4) %>% 
+    as.data.table()
+  save(ots_sections, file = sections_tidy_file)
 }
 ```
 
@@ -102,26 +103,26 @@ if (!file.exists(groups_raw_file)) { download.file(groups_url, groups_raw_file) 
 
 if (!file.exists(groups_tidy_file)) {
   ots_groups <- fromJSON(groups_raw_file) %>% 
-    as_tibble() %>% 
-    mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
-  save(ots_groups, file = groups_tidy_file, compress = "xz")
+    mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")}) %>% 
+    as.data.table()
+  save(ots_groups, file = groups_tidy_file)
 }
 ```
 
 # Product short names
 
 ```{r product_shortnames, message = FALSE, eval = FALSE}
-product_shortnames_url <- "https://api.tradestatistics.io/product_shortnames"
-product_shortnames_raw_file <- "../data-raw/ots_product_shortnames.json"
-product_shortnames_tidy_file <- "../data/ots_product_shortnames.rda"
+products_shortnames_url <- "https://api.tradestatistics.io/products_shortnames"
+products_shortnames_raw_file <- "../data-raw/ots_products_shortnames.json"
+products_shortnames_tidy_file <- "../data/ots_products_shortnames.rda"
 
-if (!file.exists(product_shortnames_raw_file)) { download.file(product_shortnames_url, product_shortnames_raw_file) }
+if (!file.exists(products_shortnames_raw_file)) { download.file(products_shortnames_url, products_shortnames_raw_file) }
 
-if (!file.exists(product_shortnames_tidy_file)) {
-  ots_product_shortnames <- fromJSON(product_shortnames_raw_file) %>% 
-    as_tibble() %>% 
-    mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
-  save(ots_product_shortnames, file = product_shortnames_tidy_file, compress = "xz")
+if (!file.exists(products_shortnames_tidy_file)) {
+  ots_products_shortnames <- fromJSON(products_shortnames_raw_file) %>% 
+    mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")}) %>% 
+    as.data.table()
+  save(ots_products_shortnames, file = products_shortnames_tidy_file)
 }
 ```
 
@@ -136,9 +137,9 @@ if (!file.exists(sections_names_raw_file)) { download.file(sections_names_url, s
 
 if (!file.exists(sections_names_tidy_file)) {
   ots_sections_names <- fromJSON(sections_names_raw_file) %>% 
-    as_tibble() %>% 
-    mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
-  save(ots_sections_names, file = sections_names_tidy_file, compress = "xz")
+    mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")}) %>% 
+    as.data.table()
+  save(ots_sections_names, file = sections_names_tidy_file)
 }
 ```
 
@@ -153,9 +154,9 @@ if (!file.exists(sections_shortnames_raw_file)) { download.file(sections_shortna
 
 if (!file.exists(sections_shortnames_tidy_file)) {
   ots_sections_shortnames <- fromJSON(sections_shortnames_raw_file) %>% 
-    as_tibble() %>% 
-    mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
-  save(ots_sections_shortnames, file = sections_shortnames_tidy_file, compress = "xz")
+    mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")}) %>% 
+    as.data.table()
+  save(ots_sections_shortnames, file = sections_shortnames_tidy_file)
 }
 ```
 
@@ -170,9 +171,9 @@ if (!file.exists(sections_colors_raw_file)) { download.file(sections_colors_url,
 
 if (!file.exists(sections_colors_tidy_file)) {
   ots_sections_colors <- fromJSON(sections_colors_raw_file) %>% 
-    as_tibble() %>% 
-    mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
-  save(ots_sections_colors, file = sections_colors_tidy_file, compress = "xz")
+    mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")}) %>% 
+    as.data.table()
+  save(ots_sections_colors, file = sections_colors_tidy_file)
 }
 ```
 
@@ -191,7 +192,7 @@ if (!file.exists(inflation_raw_file)) { download.file(inflation_url, inflation_r
 
 if (!file.exists(inflation_tidy_file)) {
   ots_inflation <- fromJSON(inflation_url)
-  ots_inflation <- as_tibble(ots_inflation)
-  save(ots_inflation, file = inflation_tidy_file, compress = "xz")
+  ots_inflation <- as.data.table(ots_inflation)
+  save(ots_inflation, file = inflation_tidy_file)
 }
 ```

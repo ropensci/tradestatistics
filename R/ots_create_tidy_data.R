@@ -464,7 +464,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   if (table %in% product_depending_queries) {
     data %<>%
       left_join(tradestatistics::ots_products, by = "product_code") %>% 
-      left_join(tradestatistics::ots_product_shortnames, by = "product_code") %>% 
+      left_join(tradestatistics::ots_products_shortnames, by = "product_code") %>% 
       
       left_join(tradestatistics::ots_sections, by = "product_code") %>% 
       left_join(tradestatistics::ots_sections_names, by = "section_code") %>% 

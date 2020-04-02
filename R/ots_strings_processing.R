@@ -6,9 +6,6 @@
 #' @return A single character if there is a exact match (e.g.
 #' \code{ots_country_code("Chile")}) or a tibble in case of multiple matches
 #' (e.g. \code{ots_country_code("Germany")})
-#' @importFrom magrittr %>%
-#' @importFrom dplyr filter mutate
-#' @importFrom rlang sym
 #' @export
 #' @examples
 #' ots_country_code("Chile ")
@@ -52,12 +49,7 @@ ots_country_code <- function(countryname = NULL) {
   if (countryname == "") {
     stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the countries table provided within this package.")
   } else {
-    countrycode <- tradestatistics::ots_countries %>%
-      filter(
-        grepl(
-          countryname, tolower(!!sym("country_fullname_english"))
-        )
-      )
+    countrycode <- tradestatistics::ots_countries[grepl(countryname, tolower(country_fullname_english))]
   }
   
   return(countrycode)
@@ -72,9 +64,7 @@ ots_country_code <- function(countryname = NULL) {
 #' @param productgroup A text string such as "meat", "FISH" or "Dairy".
 #' @return A tibble with all possible matches (no uppercase distinction)
 #' showing the product name and product code
-#' @importFrom magrittr %>%
-#' @importFrom dplyr mutate filter
-#' @importFrom rlang sym
+#' @importFrom data.table copy `:=`
 #' @export
 #' @examples
 #' ots_product_code(productname = "ANIMALS ")
@@ -98,15 +88,9 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     if (productname == "") {
       stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the products table provided within this package.")
     } else {
-      d <- tradestatistics::ots_products %>%
-        mutate(
-          type_product = productname
-        ) %>%
-        filter(
-          grepl(
-            tolower(!!sym("productname")), tolower(!!sym("product_fullname_english"))
-          )
-        )
+      d <- tradestatistics::ots_products[,
+        `:=`(type_product = ..productname)][grepl(tolower(productname),
+        tolower(product_fullname_english))]
     }
   }
   
@@ -122,15 +106,9 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     if (productgroup == "") {
       stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the products table provided within this package.")
     } else {
-      d <- tradestatistics::ots_groups %>%
-        mutate(
-          type_group = productgroup
-        ) %>%
-        filter(
-          grepl(
-            tolower(!!sym("productgroup")), tolower(!!sym("group_fullname_english"))
-          )
-        )
+      d <- tradestatistics::ots_groups[,
+        `:=`(type_group = ..productgroup)][grepl(tolower(productgroup),
+        tolower(group_fullname_english))]
     }
   }
   
@@ -152,21 +130,13 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
     if (productname == "" | productgroup == "") {
       stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the products table provided within this package.")
     } else {
-      d <- tradestatistics::ots_products %>%
-        mutate(group_code = substr(!!sym("product_code"), 1, 2)) %>% 
-        left_join(tradestatistics::ots_groups) %>% 
-        mutate(
-          type_name = productname,
-          type_group = productgroup
-        ) %>%
-        filter(
-          grepl(
-            tolower(!!sym("productname")), tolower(!!sym("product_fullname_english"))
-          ),
-          grepl(
-            tolower(!!sym("productgroup")), tolower(!!sym("group_fullname_english"))
-          )
-        )
+      d <- tradestatistics::ots_groups[copy(tradestatistics::ots_products)[,
+        `:=`(group_code = substr(product_code, 1, 2))],
+        on = .(group_code), allow.cartesian = TRUE][,
+        `:=`(type_name = ..productname,
+        type_group = ..productgroup)][grepl(tolower(productname),
+        tolower(product_fullname_english)) & grepl(tolower(productgroup),
+        tolower(group_fullname_english))]
     }
   }
   
@@ -181,9 +151,7 @@ ots_product_code <- function(productname = NULL, productgroup = NULL) {
 #' @param productsection A text string such as "animals", or "FOODSTUFFS".
 #' @return A tibble with all possible matches (no uppercase distinction)
 #' showing the section name and section code
-#' @importFrom magrittr %>%
-#' @importFrom dplyr mutate filter left_join
-#' @importFrom rlang sym
+#' @importFrom data.table copy `:=`
 #' @export
 #' @examples
 #' ots_product_section(productsection = "  Animals")
@@ -204,16 +172,10 @@ ots_product_section <- function(productsection = NULL) {
   if (productsection == "") {
     stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the products table provided within this package.")
   } else {
-    d <- tradestatistics::ots_sections %>%
-      left_join(tradestatistics::ots_sections_names) %>% 
-      mutate(
-        type_section = productsection
-      ) %>%
-      filter(
-        grepl(
-          tolower(!!sym("productsection")), tolower(!!sym("section_fullname_english"))
-        )
-      )
+    d <- tradestatistics::ots_sections_names[tradestatistics::ots_sections,
+      on = .(section_code), allow.cartesian = TRUE][,
+      `:=`(type_section = ..productsection)][grepl(tolower(productsection), 
+      tolower(section_fullname_english))]
   }
   
   return(d)
