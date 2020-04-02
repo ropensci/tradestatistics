@@ -128,7 +128,7 @@ if (!file.exists(sections_shortnames_tidy_file)) {
   ots_sections_shortnames <- fromJSON(sections_shortnames_raw_file) %>% 
     mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")}) %>% 
     as.data.table()
-  save(ots_sections_shortnames, file = sections_shortnames_tidy_file,, version = 2)
+  save(ots_sections_shortnames, file = sections_shortnames_tidy_file, version = 2)
 }
 
 
