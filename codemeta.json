@@ -112,6 +112,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "DT",
+      "name": "DT",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=DT"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "testthat",
       "name": "testthat",
       "version": ">= 2.1.0",
@@ -212,7 +224,7 @@
   ],
   "releaseNotes": "https://github.com/ropensci/tradestatistics/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/tradestatistics/blob/master/README.md",
-  "fileSize": "185.736KB",
+  "fileSize": "185.993KB",
   "contIntegration": "https://codecov.io/github/ropensci/tradestatistics?branch=master",
   "developmentStatus": [
     "https://www.repostatus.org/#active",

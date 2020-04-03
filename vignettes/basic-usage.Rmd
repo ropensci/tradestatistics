@@ -1,5 +1,5 @@
 ---
-title: "How to use this package"
+title: "Basic usage"
 author: "Mauricio Vargas S."
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -16,6 +16,27 @@ knitr::opts_chunk$set(
   message = FALSE,
   comment = "#>"
 )
+
+datatable <- function(x) {
+  DT::datatable(x,
+    extensions = "FixedColumns",
+    options = list(
+      pageLength = 5,
+      dom = 'Bfrtip',
+      scrollX = TRUE,
+      fixedColumns = list(leftColumns = 2, rightColumns = 1)
+    )
+)}
+```
+
+# Introduction
+
+This vignette explains the functions within this package. The idea is to show how this package simplifies obtaining data from (api.tradestatistics.io)[https://api.tradestatistics.io].
+
+To improve the presentation of the tables I shall use `DT` and the `datatable()` function besides `tradestatistics`.
+```{r pkgs}
+library(tradestatistics)
+library(DT)
 ```
 
 # Package data
@@ -25,9 +46,7 @@ knitr::opts_chunk$set(
 Provided that this package obtains data from an API, it is useful to know which tables can be accessed:
 
 ```{r tables, eval = T}
-library(tradestatistics)
-
-ots_tables
+datatable(ots_tables)
 ```
 
 You might notice the tables have a pattern. The letters indicate the presence of columns that account for the level of detail in the data:
@@ -41,7 +60,7 @@ The most aggregated table is `yr` which basically says how many dollars each cou
 
 The less aggregated table is `yrpc` which says how many dollars of each of the 1,222 products from the Harmonized System each country exports to other countries and imports from other countries.
 
-For the complete detail you can check [docs.tradestatistics.io](docs.tradestatistics.io).
+For the complete detail you can check [docs.tradestatistics.io](https://docs.tradestatistics.io).
 
 ## Country codes
 
@@ -50,23 +69,31 @@ The Package Functions section explains that you don't need to memorize all ISO c
 Just as a reference, the table with all valid ISO codes can be accessed by running this:
 
 ```{r countries, eval = T}
-ots_countries
+datatable(ots_countries)
 ```
 
-## Product codes and communities
+## Product codes
 
 The Package Functions section explains that you don't need to memorize all HS codes. The functions within this package are designed to match strings (i.e. "apple") to valid HS codes (i.e. "0808").
 
 ```{r products, eval = T}
-ots_products
-
-ots_products_shortnames
+datatable(ots_products)
 ```
 
-```{r products2, eval = T}
-ots_sections
+## Product shortnames
 
-ots_sections_shortnames
+```{r products2, eval = T}
+datatable(ots_products_shortnames)
+```
+
+## Product sections
+```{r products3, eval = T}
+datatable(ots_sections)
+```
+
+## Product section shortnames
+```{r products4, eval = T}
+datatable(ots_sections_shortnames)
 ```
 
 ## Inflation data
@@ -74,7 +101,7 @@ ots_sections_shortnames
 This table is provided to be used with `ots_inflation_adjustment()`.
 
 ```{r inflation, eval = T}
-ots_inflation
+datatable(ots_inflation)
 ```
 
 # Package functions
@@ -86,13 +113,13 @@ The end user can use this function to find an ISO code by providing a country na
 Basic examples:
 ```{r country_code}
 # Single match with no replacement
-ots_country_code("Chile")
+datatable(ots_country_code("Chile"))
 
 # Single match with replacement
-ots_country_code("America")
+datatable(ots_country_code("America"))
 
 # Double match with no replacement
-ots_country_code("Germany")
+datatable(ots_country_code("Germany"))
 ```
 
 The function `ots_country_code()` is used by `ots_create_tidy_data()` in a way that you can pass parameters like `ots_create_tidy_data(... reporters = "Chile" ...)` and it will automatically replace your input for a valid ISO in case there is a match. This will be covered in detail in the Trade Data section.
@@ -102,12 +129,12 @@ The function `ots_country_code()` is used by `ots_create_tidy_data()` in a way t
 The end user can use this function to find a product code by providing a product name. This works by implementing partial string matching:
 
 ```{r product_code}
-ots_product_code(" WiNe ")
+datatable(ots_product_code(" WiNe "))
 ```
 
 This function searches both products and groups:
 ```{r product_code2}
-ots_product_code(productname = " ShEEp ", productgroup = " mEaT ")
+datatable(ots_product_code(productname = " ShEEp ", productgroup = " mEaT "))
 ```
 
 ## Section code
@@ -115,7 +142,7 @@ ots_product_code(productname = " ShEEp ", productgroup = " mEaT ")
 The end user can use this function to find a community code by providing a community name. This works by implementing partial string matching:
 
 ```{r section_code}
-ots_product_section(" tExTiLeS ")
+datatable(ots_product_section(" tExTiLeS "))
 ```
 
 ## Trade data
@@ -128,40 +155,45 @@ Here we cover aggregated tables to describe the usage.
 
 If we want Chile-Argentina bilateral trade at community level in 1962:
 ```{r yrpc1, eval = T}
-ots_create_tidy_data(
+yrpc <- ots_create_tidy_data(
   years = 1962,
   reporters = "chl",
   partners = "arg",
   table = "yrpc"
 )
+
+datatable(yrpc)
 ```
 
 We can pass two years or more, several reporters/partners, and filter by community with exact codes or code matching based on keywords:
 ```{r yrpc2, eval = T}
 # Note that here I'm passing Peru and not per which is the ISO code for Peru
 # The same applies to Brazil
-ots_create_tidy_data(
+yrpc2 <- ots_create_tidy_data(
   years = c(1962,1963),
   reporters = c("chl", "Peru", "bol"),
   partners = c("arg", "Brazil"),
   sections = c("01", "food"),
   table = "yrpc"
 )
+datatable(yrpc2)
 ```
 
-`yrpc` table returns some fields that deserve an explanation which can be seen at [docs.tradestatistics.io](docs.tradestatistics.io).
+`yrpc` table returns some fields that deserve an explanation which can be seen at [docs.tradestatistics.io](https://docs.tradestatistics.io).
 
 ### Bilateral trade at aggregated level (Year - Reporter - Partner)
 
 If we want Chile-Argentina bilateral trade at aggregated level in 1962 and 1963:
 
 ```{r yrp3, eval = T}
-ots_create_tidy_data(
+yrp <- ots_create_tidy_data(
   years = 1962:1963,
   reporters = c("chl", "per"),
   partners = "arg",
   table = "yrp"
 )
+
+datatable(yrp)
 ```
 
 This table accepts different years, reporters and partners just like `yrpc`.
@@ -170,17 +202,19 @@ This table accepts different years, reporters and partners just like `yrpc`.
 
 If we want Chilean trade at product level in 1962 with respect to product `0101` which means "Horses, asses, mules and hinnies; live":
 ```{r yrc2, eval = T}
-ots_create_tidy_data(
+yrc <- ots_create_tidy_data(
   years = 1962,
   reporters = "chl",
   products = "0101",
   table = "yrc"
 )
+
+datatable(yrc)
 ```
 
 This table accepts different years, reporters and product codes just like `yrpc`.
 
-All the variables from this table are documented at [docs.tradestatistics.io](docs.tradestatistics.io).
+All the variables from this table are documented at [docs.tradestatistics.io](https://docs.tradestatistics.io).
 
 ### Reporter trade at aggregated level (Year - Reporter)
 
@@ -192,30 +226,34 @@ yr <- ots_create_tidy_data(
   table = "yr"
 )
 
-yr
+datatable(yr)
 ```
 
 This table accepts different years and reporters just like `yrpc`.
 
-All the variables from this table are documented at [docs.tradestatistics.io](docs.tradestatistics.io).
+All the variables from this table are documented at [docs.tradestatistics.io](https://docs.tradestatistics.io).
 
 ### Product trade at aggregated level (Year - Product Code)
 
 If we want all products traded in 1962:
 ```{r yc1, eval = T}
-ots_create_tidy_data(
+yc <- ots_create_tidy_data(
   years = 1962,
   table = "yc"
 )
+
+datatable(yc)
 ```
 
 If we want the traded values of the product `0101` which means "Horses, asses, mules and hinnies; live: in 1962:
 ```{r yc2, eval = T}
-ots_create_tidy_data(
+yc2 <- ots_create_tidy_data(
   years = 1962,
   products = "0101",
   table = "yc"
 )
+
+datatable(yc2)
 ```
 
 This table accepts different years just like `yrpc`.
@@ -225,5 +263,6 @@ This table accepts different years just like `yrpc`.
 Taking the `yr` table from above, we can use `ots_inflation_adjustment()` to convert dollars from 1962 to dollars of 1970:
 
 ```{r}
-ots_inflation_adjustment(yr, reference_year = 1970)
+inflation <- ots_inflation_adjustment(yr, reference_year = 1970)
+datatable(inflation)
 ```

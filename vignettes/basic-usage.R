@@ -6,80 +6,102 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 
-## ----tables, eval = T---------------------------------------------------------
-library(tradestatistics)
+datatable <- function(x) {
+  DT::datatable(x,
+    extensions = "FixedColumns",
+    options = list(
+      pageLength = 5,
+      dom = 'Bfrtip',
+      scrollX = TRUE,
+      fixedColumns = list(leftColumns = 2, rightColumns = 1)
+    )
+)}
 
-ots_tables
+## ----pkgs---------------------------------------------------------------------
+library(tradestatistics)
+library(DT)
+
+## ----tables, eval = T---------------------------------------------------------
+datatable(ots_tables)
 
 ## ----countries, eval = T------------------------------------------------------
-ots_countries
+datatable(ots_countries)
 
 ## ----products, eval = T-------------------------------------------------------
-ots_products
-
-ots_products_shortnames
+datatable(ots_products)
 
 ## ----products2, eval = T------------------------------------------------------
-ots_sections
+datatable(ots_products_shortnames)
 
-ots_sections_shortnames
+## ----products3, eval = T------------------------------------------------------
+datatable(ots_sections)
+
+## ----products4, eval = T------------------------------------------------------
+datatable(ots_sections_shortnames)
 
 ## ----inflation, eval = T------------------------------------------------------
-ots_inflation
+datatable(ots_inflation)
 
 ## ----country_code-------------------------------------------------------------
 # Single match with no replacement
-ots_country_code("Chile")
+datatable(ots_country_code("Chile"))
 
 # Single match with replacement
-ots_country_code("America")
+datatable(ots_country_code("America"))
 
 # Double match with no replacement
-ots_country_code("Germany")
+datatable(ots_country_code("Germany"))
 
 ## ----product_code-------------------------------------------------------------
-ots_product_code(" WiNe ")
+datatable(ots_product_code(" WiNe "))
 
 ## ----product_code2------------------------------------------------------------
-ots_product_code(productname = " ShEEp ", productgroup = " mEaT ")
+datatable(ots_product_code(productname = " ShEEp ", productgroup = " mEaT "))
 
 ## ----section_code-------------------------------------------------------------
-ots_product_section(" tExTiLeS ")
+datatable(ots_product_section(" tExTiLeS "))
 
 ## ----yrpc1, eval = T----------------------------------------------------------
-ots_create_tidy_data(
+yrpc <- ots_create_tidy_data(
   years = 1962,
   reporters = "chl",
   partners = "arg",
   table = "yrpc"
 )
 
+datatable(yrpc)
+
 ## ----yrpc2, eval = T----------------------------------------------------------
 # Note that here I'm passing Peru and not per which is the ISO code for Peru
 # The same applies to Brazil
-ots_create_tidy_data(
+yrpc2 <- ots_create_tidy_data(
   years = c(1962,1963),
   reporters = c("chl", "Peru", "bol"),
   partners = c("arg", "Brazil"),
   sections = c("01", "food"),
   table = "yrpc"
 )
+datatable(yrpc2)
 
 ## ----yrp3, eval = T-----------------------------------------------------------
-ots_create_tidy_data(
+yrp <- ots_create_tidy_data(
   years = 1962:1963,
   reporters = c("chl", "per"),
   partners = "arg",
   table = "yrp"
 )
 
+datatable(yrp)
+
 ## ----yrc2, eval = T-----------------------------------------------------------
-ots_create_tidy_data(
+yrc <- ots_create_tidy_data(
   years = 1962,
   reporters = "chl",
   products = "0101",
   table = "yrc"
 )
+
+datatable(yrc)
 
 ## ----yr2, eval = T------------------------------------------------------------
 yr <- ots_create_tidy_data(
@@ -88,21 +110,26 @@ yr <- ots_create_tidy_data(
   table = "yr"
 )
 
-yr
+datatable(yr)
 
 ## ----yc1, eval = T------------------------------------------------------------
-ots_create_tidy_data(
+yc <- ots_create_tidy_data(
   years = 1962,
   table = "yc"
 )
 
+datatable(yc)
+
 ## ----yc2, eval = T------------------------------------------------------------
-ots_create_tidy_data(
+yc2 <- ots_create_tidy_data(
   years = 1962,
   products = "0101",
   table = "yc"
 )
 
+datatable(yc2)
+
 ## -----------------------------------------------------------------------------
-ots_inflation_adjustment(yr, reference_year = 1970)
+inflation <- ots_inflation_adjustment(yr, reference_year = 1970)
+datatable(inflation)
 

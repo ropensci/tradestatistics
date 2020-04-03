@@ -60,6 +60,7 @@ RoxygenNote: 7.1.0
 Suggests: 
     knitr,
     rmarkdown,
+    DT,
     testthat (>= 2.1.0),
     vcr,
     covr
