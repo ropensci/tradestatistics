@@ -113,11 +113,14 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
 
   url <- "year_range"
 
-  resp <- HttpClient$new(url = "https://api.tradestatistics.io/")
-  resp <- resp$get(url)
+  # commented to avoid CRAN problems ----
+  # resp <- HttpClient$new(url = "https://api.tradestatistics.io/")
+  # resp <- resp$get(url)
+  # year_range <- as.vector(unlist(fromJSON(resp$parse(encoding = "UTF-8"))))
 
-  year_range <- as.vector(unlist(fromJSON(resp$parse(encoding = "UTF-8"))))
-
+  # update this when new data is added ----
+  year_range <- c(1962,2018)
+  
   if (all(years %in% min(year_range):max(year_range)) != TRUE &
     table %in% year_depending_queries) {
     stop("Provided that the table you requested contains a 'year' field, please verify that you are requesting data contained within the years from api.tradestatistics.io/year_range.")

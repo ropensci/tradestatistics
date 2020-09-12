@@ -168,13 +168,15 @@ test_that("ots_create_tidy_data connects to the API and returns an observation w
 # ots_create_tidy_data works with mixed country ISO/string ----
 
 test_that("ots_create_tidy_data works with mixed country ISO/string", {
-  ots_create_tidy_data(
-    years = 1964, reporters = c("Canada","usa"), table = "yr"
-  )
-  
-  ots_create_tidy_data(
-    years = 1964, reporters = "mex", partners = c("Canada","usa"), table = "yrp"
-  )
+  vcr::use_cassette(name = "chl_arg_1964_yr", {
+    ots_create_tidy_data(
+      years = 1964, reporters = c("Argentina","chl"), table = "yr"
+    )
+    
+    ots_create_tidy_data(
+      years = 1964, reporters = "mex", partners = c("Canada","usa"), table = "yrp"
+    )
+  })
 })
 
 # ots_create_tidy_data connects to the API and returns an error after invalid y-r-p input ----

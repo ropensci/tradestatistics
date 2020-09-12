@@ -1,0 +1,113 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yr?y=1964&r=chl
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.58.0 r-curl/4.3 crul/1.0.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 12 Sep 2020 23:14:42 GMT
+      content-type: application/json
+      content-length: '426'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"chl","export_value_usd":838060302,"import_value_usd":724513056,"cci_fitness_method":0.0092,"cci_rank_fitness_method":41,"cci_reflections_method":-0.0602,"cci_rank_reflections_method":44,"cci_eigenvalues_method":-0.0598,"cci_rank_eigenvalues_method":44,"top_export_product_code":"7402","top_export_trade_value_usd":246708381,"top_import_product_code":"8456","top_import_trade_value_usd":41351529}]'
+  recorded_at: 2020-09-12 23:14:43 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yr?y=1964&r=arg
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.58.0 r-curl/4.3 crul/1.0.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 12 Sep 2020 23:14:42 GMT
+      content-type: application/json
+      content-length: '428'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"arg","export_value_usd":1759248714,"import_value_usd":1483644369,"cci_fitness_method":0.0188,"cci_rank_fitness_method":37,"cci_reflections_method":-0.0109,"cci_rank_reflections_method":40,"cci_eigenvalues_method":-0.0104,"cci_rank_eigenvalues_method":40,"top_export_product_code":"1001","top_export_trade_value_usd":263593863,"top_import_product_code":"8708","top_import_trade_value_usd":75044871}]'
+  recorded_at: 2020-09-12 23:14:43 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrp?y=1964&r=mex&p=usa
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.58.0 r-curl/4.3 crul/1.0.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 12 Sep 2020 23:14:43 GMT
+      content-type: application/json
+      content-length: '115'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"mex","partner_iso":"usa","export_value_usd":778916566,"import_value_usd":1216767026}]'
+  recorded_at: 2020-09-12 23:14:43 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yrp?y=1964&r=mex&p=can
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.58.0 r-curl/4.3 crul/1.0.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Sat, 12 Sep 2020 23:14:43 GMT
+      content-type: application/json
+      content-length: '112'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":1964,"reporter_iso":"mex","partner_iso":"can","export_value_usd":24270804,"import_value_usd":76807307}]'
+  recorded_at: 2020-09-12 23:14:43 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
