@@ -119,7 +119,8 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   # year_range <- as.vector(unlist(fromJSON(resp$parse(encoding = "UTF-8"))))
 
   # update this when new data is added ----
-  year_range <- c(1962,2018)
+  max_year <- fromJSON("https://api.tradestatistics.io/year_range")[2,]
+  year_range <- c(1962, max_year)
   
   if (all(years %in% min(year_range):max(year_range)) != TRUE &
     table %in% year_depending_queries) {
