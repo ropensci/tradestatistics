@@ -55,7 +55,7 @@
 #' }
 #' @keywords functions
 ots_create_tidy_data <- function(years = 2018,
-                                 reporters = "usa",
+                                 reporters = "all",
                                  partners = "all",
                                  products = "all",
                                  sections = "all",
