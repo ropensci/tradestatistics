@@ -6,7 +6,7 @@
 \usage{
 ots_create_tidy_data(
   years = 2018,
-  reporters = "usa",
+  reporters = "all",
   partners = "all",
   products = "all",
   sections = "all",
