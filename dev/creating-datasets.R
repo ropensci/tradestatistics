@@ -1,5 +1,6 @@
 # Tables
 
+library(data.table)
 library(dplyr)
 library(jsonlite)
 
@@ -14,7 +15,7 @@ if (!file.exists(tables_raw_file)) { download.file(tables_url, tables_raw_file) 
 
 if (!file.exists(tables_tidy_file)) {
   ots_tables <- fromJSON(tables_raw_file) %>% 
-    as_tibble() %>% 
+    as.data.table() %>% 
     mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
   save(ots_tables, file = tables_tidy_file, version = 2)
 }
@@ -30,7 +31,7 @@ if (!file.exists(countries_raw_file)) { download.file(countries_url, countries_r
 
 if (!file.exists(countries_tidy_file)) {
   ots_countries <- fromJSON(countries_raw_file) %>% 
-    as_tibble() %>% 
+    as.data.table() %>% 
     mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
   save(ots_countries, file = countries_tidy_file, version = 2)
 }
@@ -46,7 +47,7 @@ if (!file.exists(commodities_raw_file)) { download.file(commodities_url, commodi
 
 if (!file.exists(commodities_tidy_file)) {
   ots_commodities <- fromJSON(commodities_raw_file) %>% 
-    as_tibble() %>% 
+    as.data.table() %>% 
     mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
   save(ots_commodities, file = commodities_tidy_file, version = 2)
 }
@@ -62,7 +63,7 @@ if (!file.exists(communities_raw_file)) { download.file(communities_url, communi
 
 if (!file.exists(communities_tidy_file)) {
   ots_communities <- fromJSON(communities_raw_file) %>% 
-    as_tibble() %>% 
+    as.data.table() %>% 
     mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
   save(ots_communities, file = communities_tidy_file, version = 2)
 }
@@ -77,7 +78,7 @@ if (!file.exists(commodities_shortnames_raw_file)) { download.file(commodities_s
 
 if (!file.exists(commodities_shortnames_tidy_file)) {
   ots_commodities_shortnames <- fromJSON(commodities_shortnames_raw_file) %>% 
-    as_tibble() %>% 
+    as.data.table() %>% 
     mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
   save(ots_commodities_shortnames, file = commodities_shortnames_tidy_file, version = 2)
 }
@@ -96,7 +97,7 @@ if (!file.exists(inflation_raw_file)) { download.file(inflation_url, inflation_r
 
 if (!file.exists(inflation_tidy_file)) {
   ots_inflation <- fromJSON(inflation_url)
-  ots_inflation <- as_tibble(ots_inflation)
+  ots_inflation <- as.data.table(ots_inflation)
   save(ots_inflation, file = inflation_tidy_file, version = 2)
 }
 

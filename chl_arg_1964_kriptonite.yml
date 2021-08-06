@@ -17,7 +17,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 404 Not Found
       server: nginx/1.18.0 (Ubuntu)
-      date: Fri, 06 Aug 2021 02:45:16 GMT
+      date: Fri, 06 Aug 2021 16:12:30 GMT
       content-type: application/json
       content-length: '36'
       connection: keep-alive
@@ -25,5 +25,5 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"error":"404 - Resource Not Found"}'
-  recorded_at: 2021-08-06 02:45:17 GMT
+  recorded_at: 2021-08-06 16:12:31 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0

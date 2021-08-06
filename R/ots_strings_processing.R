@@ -49,9 +49,7 @@ ots_country_code <- function(countryname = NULL) {
   if (countryname == "") {
     stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the countries table provided within this package.")
   } else {
-    countrycode <- tradestatistics::ots_countries[
-      grepl(countryname, tolower(tradestatistics::ots_countries$country_fullname_english)) & 
-      !is.na(tradestatistics::ots_countries$country_fullname_english), ]
+    countrycode <- tradestatistics::ots_countries[grepl(countryname, tolower(country_fullname_english))]
   }
   
   return(countrycode)
@@ -66,7 +64,6 @@ ots_country_code <- function(countryname = NULL) {
 #' @param group A text string such as "meat", "FISH" or "Dairy".
 #' @return A tibble with all possible matches (no uppercase distinction)
 #' showing the commodity name and commodity code
-#' @importFrom data.table `:=`
 #' @export
 #' @examples
 #' ots_commodity_code(commodity = "ANIMALS ")
@@ -84,21 +81,16 @@ ots_commodity_code <- function(commodity = NULL, group = NULL) {
     
     commodity <- tolower(iconv(commodity, to = "ASCII//TRANSLIT", sub = ""))
     commodity <- gsub("[^[:alpha:]]", "", commodity)
-    
-    # get the commodities dataset, create the type_commodity column,
-    # bind them all together and do the search
+
     if (commodity == "") {
       stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the commodities table provided within this package.")
     } else {
-      d <- tradestatistics::ots_commodities[
-        grepl(commodity, tolower(tradestatistics::ots_commodities$commodity_fullname_english)) & 
-        !is.na(tradestatistics::ots_commodities$commodity_fullname_english), ]
+      d <- tradestatistics::ots_commodities[grepl(commodity, tolower(commodity_fullname_english))]
     }
   }
   
   if (is.null(commodity) & !is.null(group)) {
     stopifnot(is.character(group))
-    # stopifnot(nchar(group) > 0)
     
     group <- tolower(iconv(group, to = "ASCII//TRANSLIT", sub = ""))
     group <- gsub("[^[:alpha:]]", "", group)
@@ -108,9 +100,7 @@ ots_commodity_code <- function(commodity = NULL, group = NULL) {
     } else {
       dg <- unique(tradestatistics::ots_commodities[, c("group_code", "group_fullname_english")])
       
-      d <- dg[
-        grepl(group, tolower(dg$group_fullname_english)) & 
-        !is.na(dg$group_fullname_english), ]
+      d <- dg[grepl(group, tolower(group_fullname_english))]
     }
   }
   
@@ -131,10 +121,8 @@ ots_commodity_code <- function(commodity = NULL, group = NULL) {
       stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the commodities table provided within this package.")
     } else {
       d <- tradestatistics::ots_commodities[
-        grepl(commodity, tolower(tradestatistics::ots_commodities$commodity_fullname_english)) & 
-        !is.na(tradestatistics::ots_commodities$commodity_fullname_english) &
-        grepl(group, tolower(tradestatistics::ots_commodities$group_fullname_english)) &
-        !is.na(tradestatistics::ots_commodities$commodity_fullname_english), ]
+              grepl(commodity, tolower(commodity_fullname_english)) &
+              grepl(group, tolower(group_fullname_english))]
     }
   }
   
@@ -149,7 +137,6 @@ ots_commodity_code <- function(commodity = NULL, group = NULL) {
 #' @param community A text string such as "animals", or "FOODSTUFFS".
 #' @return A tibble with all possible matches (no uppercase distinction)
 #' showing the section name and section code
-#' @importFrom data.table `:=`
 #' @export
 #' @examples
 #' ots_commodity_community(community = "Animal")
@@ -170,7 +157,7 @@ ots_commodity_community <- function(community = NULL) {
     stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the commodities table provided within this package.")
   } else {
     dc <- unique(tradestatistics::ots_communities[, c("community_code", "community_name")])
-    d <- dc[grepl(tolower(community), tolower(dc$community_name)), ]
+    d <- dc[grepl(community, tolower(community_name))]
   }
   
   return(d)

@@ -30,7 +30,7 @@
 #' exports, trade balance and relevant metrics
 #' such as exports growth w/r to last year) between a \code{reporter}
 #' and \code{partner} country.
-#' @importFrom data.table `:=` rbindlist setnames as.data.table
+#' @importFrom data.table `:=` rbindlist setnames
 #' @importFrom jsonlite fromJSON
 #' @importFrom crul HttpClient
 #' @export
@@ -383,13 +383,13 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   # include countries data
   if (table %in% reporter_depending_queries) {
     if (table %in% partner_depending_queries) {
-      data <- merge(data, as.data.table(tradestatistics::ots_countries)[, .(country_iso, country_fullname_english)],
+      data <- merge(data, tradestatistics::ots_countries[, .(country_iso, country_fullname_english)],
                     all.x = TRUE, all.y = FALSE,
                     by.x = "reporter_iso", by.y = "country_iso",
                     allow.cartesian = TRUE)
       data <- setnames(data, "country_fullname_english", "reporter_fullname_english")
     } else {
-      data <- merge(data, as.data.table(tradestatistics::ots_countries)[, .(country_iso, country_fullname_english)],
+      data <- merge(data, tradestatistics::ots_countries[, .(country_iso, country_fullname_english)],
                     all.x = TRUE, all.y = FALSE,
                     by.x = "reporter_iso", by.y = "country_iso",
                     allow.cartesian = TRUE)
@@ -398,7 +398,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   }
 
   if (table %in% partner_depending_queries) {
-    data <- merge(data, as.data.table(tradestatistics::ots_countries)[, .(country_iso, country_fullname_english)],
+    data <- merge(data, tradestatistics::ots_countries[, .(country_iso, country_fullname_english)],
                   all.x = TRUE, all.y = FALSE,
                   by.x = "partner_iso", by.y = "country_iso",
                   allow.cartesian = TRUE)
@@ -407,14 +407,14 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
 
   # include commodities data
   if (table %in% commodities_depending_queries) {
-    data <- as.data.table(tradestatistics::ots_commodities)[data, on = .(commodity_code), allow.cartesian = TRUE]
-    data <- as.data.table(tradestatistics::ots_commodities_shortnames)[data, on = .(commodity_code), allow.cartesian = TRUE]
-    data <- as.data.table(tradestatistics::ots_communities)[data, on = .(commodity_code), allow.cartesian = TRUE]
+    data <- tradestatistics::ots_commodities[data, on = .(commodity_code), allow.cartesian = TRUE]
+    data <- tradestatistics::ots_commodities_shortnames[data, on = .(commodity_code), allow.cartesian = TRUE]
+    data <- tradestatistics::ots_communities[data, on = .(commodity_code), allow.cartesian = TRUE]
   }
 
   # include groups data
   if (table %in% groups_depending_queries) {
-    ots_groups <- as.data.table(unique(ots_commodities[, c("group_code", "group_fullname_english")]))
+    ots_groups <- unique(ots_commodities[, c("group_code", "group_fullname_english")])
     ots_groups <- ots_groups[!is.na(ots_groups$group_code), ]
     
     data <- merge(data, ots_groups,
@@ -430,18 +430,34 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     data <- setnames(data, "group_fullname_english", "top_import_group_fullname_english")
   }
   
-  if (table == "yc") {
-    data <- merge(data, as.data.table(tradestatistics::ots_countries)[, .(country_iso, country_fullname_english)],
+  if (table == "yr") {
+    data <- merge(data, tradestatistics::ots_commodities,
                   all.x = TRUE, all.y = FALSE,
-                  by.x = "top_exporter_iso", by.y = "country_iso",
+                  by.x = "commodity_code_top_exp", by.y = "commodity_code",
                   allow.cartesian = TRUE)
-    data <- setnames(data, "country_fullname_english", "top_exporter_fullname_english")
+    data <- setnames(data, c("commodity_fullname_english", "group_code", "group_fullname_english"),
+                     c("commodity_fullname_english_top_exp", "group_code_top_exp", "group_fullname_english_top_exp"))
     
-    data <- merge(data, as.data.table(tradestatistics::ots_countries)[, .(country_iso, country_fullname_english)],
+    data <- merge(data, tradestatistics::ots_commodities,
                   all.x = TRUE, all.y = FALSE,
-                  by.x = "top_importer_iso", by.y = "country_iso",
+                  by.x = "commodity_code_top_imp", by.y = "commodity_code",
                   allow.cartesian = TRUE)
-    data <- setnames(data, "country_fullname_english", "top_importer_fullname_english")
+    data <- setnames(data, c("commodity_fullname_english", "group_code", "group_fullname_english"),
+                     c("commodity_fullname_english_top_imp", "group_code_top_imp", "group_fullname_english_top_imp"))
+    
+    data <- merge(data, tradestatistics::ots_communities,
+                  all.x = TRUE, all.y = FALSE,
+                  by.x = "commodity_code_top_exp", by.y = "commodity_code",
+                  allow.cartesian = TRUE)
+    data <- setnames(data, c("community_code", "community_name", "community_color"),
+                     c("community_code_top_exp", "community_name_top_exp", "community_color_top_exp"))
+    
+    data <- merge(data, tradestatistics::ots_communities,
+                  all.x = TRUE, all.y = FALSE,
+                  by.x = "commodity_code_top_imp", by.y = "commodity_code",
+                  allow.cartesian = TRUE)
+    data <- setnames(data, c("community_code", "community_name", "community_color"),
+                     c("community_code_top_imp", "community_name_top_imp", "community_color_top_imp"))
   }
   
   columns_order <- c("year",
@@ -453,11 +469,9 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
                      grep("^trade_", colnames(data), value = TRUE)
   )
   data <- data[, ..columns_order]
-  data <- as.data.frame(data)
-  
+
   if (nrow(data) == 0) { warning("The resulting table contains 0 rows.") }
-  # print as tibble
-  class(data) <- c("tbl_df", "tbl", "data.frame")
+  
   return(data)
 }
 
