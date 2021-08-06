@@ -8,9 +8,9 @@ ots_create_tidy_data(
   years = 2018,
   reporters = "all",
   partners = "all",
-  products = "all",
-  sections = "all",
+  commodities = "all",
   groups = "all",
+  communities = "all",
   table = "yr",
   max_attempts = 5,
   use_cache = FALSE,
@@ -29,16 +29,15 @@ Default set to \code{1962}.}
 \item{partners}{ISO code for partner country (e.g. \code{"chl"}, \code{"Chile"} or
 \code{c("chl", "Peru")}). Default set to \code{"all"}.}
 
-\item{products}{HS product codes (e.g. \code{"0101"}, \code{"01"} or search
+\item{commodities}{HS commodity codes (e.g. \code{"0101"}, \code{"01"} or search
 matches for \code{"apple"})
-to filter products. Default set to \code{"all"}.}
+to filter commodities. Default set to \code{"all"}.}
 
-\item{sections}{unofficial product sections (e.g. \code{"01"} or search
-matches for \code{"animals"}) to filter sections Default set to
-\code{"all"}.}
+\item{groups}{HS commodity groups (e.g. \code{"01"} or search matches for 
+\code{"animals"} with \code{ots_commodity_code}) to filter groups. Default set to \code{"all"}.}
 
-\item{groups}{HS product groups (e.g. \code{"01"} or search matches for 
-\code{"animals"}) to filter groups. Default set to \code{"all"}.}
+\item{communities}{unofficial commodity communities (e.g. \code{"01"} or see 
+the table \code{ots_communities}). Default set to \code{"all"}.}
 
 \item{table}{Character string to select the table to obtain the data.
 Default set to \code{yr} (Year - Reporter).
@@ -72,17 +71,17 @@ performs different API calls to transform and return tidy data.
 # so these are just shown without evaluation according to CRAN rules
 
 # Run `ots_countries` to display the full table of countries
-# Run `ots_products` to display the full table of products
+# Run `ots_commodities` to display the full table of commodities
 
 # What does Chile export to China? (1980)
 ots_create_tidy_data(years = 1980, reporters = "chl", partners = "chn")
 
 # What can we say about Horses export in Chile and the World? (1980)
-ots_create_tidy_data(years = 1980, products = "0101", table = "yc")
-ots_create_tidy_data(years = 1980, reporters = "chl", products = "0101", table = "yrc")
+ots_create_tidy_data(years = 1980, commodities = "0101", table = "yc")
+ots_create_tidy_data(years = 1980, reporters = "chl", commodities = "0101", table = "yrc")
 
 # What can we say about the different types of apples exported by Chile? (1980)
-ots_create_tidy_data(years = 1980, reporters = "chl", products = "apple", table = "yrc")
+ots_create_tidy_data(years = 1980, reporters = "chl", commodities = "apple", table = "yrc")
 }
 }
 \keyword{functions}

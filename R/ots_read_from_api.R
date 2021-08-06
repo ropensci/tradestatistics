@@ -6,10 +6,10 @@
 #' Default set to \code{NULL}.
 #' @param reporter_iso ISO code for reporter country (e.g. \code{"chl"}). Default set to \code{"all"}.
 #' @param partner_iso ISO code for partner country (e.g. \code{"chl"}). Default set to \code{"all"}.
-#' @param product_code HS code (e.g. \code{0101} or \code{01}) to filter products.
+#' @param commodity_code HS code (e.g. \code{0101} or \code{01}) to filter commodities.
 #' Default set to \code{"all"}.
-#' @param table Character string to select the table to obtain the data. Default set to \code{yrpc}
-#' (Year - Reporter - Partner - product).
+#' @param table Character string to select the table to obtain the data. Default set to \code{yr}
+#' (Year - Reporter).
 #' @param max_attempts Number of attempts to retry in case of data retrieving failure.
 #' Default set to \code{5}.
 #' @param use_localhost Logical to determine if the base URL shall be localhost instead
@@ -27,10 +27,10 @@
 #' ots_read_from_api(year = 1980, reporter_iso = "chl", partner_iso = "chn")
 #'
 #' # What can we say about chilean Horses export? (1980)
-#' ots_read_from_api(year = 1980, product_code = "0101", table = "yc")
-#' ots_read_from_api(year = 1980, reporter_iso = "chl", product_code = "0101", table = "yrc")
+#' ots_read_from_api(year = 1980, commodity_code = "0101", table = "yc")
+#' ots_read_from_api(year = 1980, reporter_iso = "chl", commodity_code = "0101", table = "yrc")
 #' ots_read_from_api(
-#'   year = 1980, reporter_iso = "chl", partner_iso = "arg", product_code = "0101",
+#'   year = 1980, reporter_iso = "chl", partner_iso = "arg", commodity_code = "0101",
 #'   table = "yrpc"
 #' )
 #' }
@@ -38,9 +38,9 @@
 ots_read_from_api <- function(year = NULL,
                               reporter_iso = NULL,
                               partner_iso = NULL,
-                              product_code = "all",
+                              commodity_code = "all",
                               group_code = "all",
-                              section_code = "all",
+                              community_code = "all",
                               table = "yr",
                               max_attempts = 5,
                               use_localhost = FALSE) {
@@ -49,48 +49,25 @@ ots_read_from_api <- function(year = NULL,
   url <- switch(
     table,
     "countries" = "countries",
-    "products" = "products",
     "reporters" = sprintf("reporters?y=%s", year),
-    "country_rankings" = sprintf("country_rankings?y=%s", year),
-    "product_rankings" = sprintf("product_rankings?y=%s", year),
+    "partners" = sprintf("partners?y=%s", year),
+    "commodities" = "commodities",
+    "commodities_shortnames" = "commodities_shortnames",
+    "commodities_communities" = "commodities_communities",
     "yrpc" = sprintf(
       "yrpc?y=%s&r=%s&p=%s&c=%s",
-      year, reporter_iso, partner_iso, product_code
-    ),
-    "yrpc-ga" = sprintf(
-      "yrpc-ga?y=%s&r=%s&p=%s&g=%s",
-      year, reporter_iso, partner_iso, group_code
-    ),
-    "yrpc-sa" = sprintf(
-      "yrpc-sa?y=%s&r=%s&p=%s&s=%s",
-      year, reporter_iso, partner_iso, section_code
-    ),
-    "yrpc-sga" = sprintf(
-      "yrpc-sga?y=%s&r=%s&p=%s&g=%s&s=%s",
-      year, reporter_iso, partner_iso, group_code, section_code
+      year, reporter_iso, partner_iso, commodity_code
     ),
     "yrp" = sprintf("yrp?y=%s&r=%s&p=%s", year, reporter_iso, partner_iso),
     "yrc" = sprintf(
       "yrc?y=%s&r=%s&c=%s",
-      year, reporter_iso, product_code
-    ),
-    "yrc-ga" = sprintf(
-      "yrc-ga?y=%s&r=%s&c=%s&g=%s",
-      year, reporter_iso, product_code, group_code
-    ),
-    "yrc-sa" = sprintf(
-      "yrc-sa?y=%s&r=%s&c=%s&s=%s",
-      year, reporter_iso, product_code, section_code
-    ),
-    "yrc-sga" = sprintf(
-      "yrc-sga?y=%s&r=%s&c=%s&g=%s&s=%s",
-      year, reporter_iso, product_code, group_code, section_code
+      year, reporter_iso, commodity_code
     ),
     "yr" = sprintf("yr?y=%s&r=%s", year, reporter_iso),
-    "yr-short" = sprintf("yr-short?y=%s&r=%s", year, reporter_iso),
-    "yr-ga" = sprintf("yr-ga?y=%s&r=%s", year, reporter_iso),
-    "yr-sa" = sprintf("yr-sa?y=%s&r=%s", year, reporter_iso),
-    "yc" = sprintf("yc?y=%s&c=%s", year, product_code)
+    "yr-communities" = sprintf("yr-ga?y=%s&r=%s", year, reporter_iso),
+    "yr-groups" = sprintf("yr-sa?y=%s&r=%s", year, reporter_iso),
+    "yc" = sprintf("yc?y=%s&c=%s", year, commodity_code),
+    "years" = "years"
   )
 
   if (use_localhost == TRUE) {
@@ -106,16 +83,16 @@ ots_read_from_api <- function(year = NULL,
   if (resp$status_code == 200) {
     combination <- paste(year, reporter_iso, partner_iso, sep = ", ")
     
-    if (product_code != "all") {
-      combination <- paste(combination, product_code, sep = ", ")
+    if (commodity_code != "all") {
+      combination <- paste(combination, commodity_code, sep = ", ")
     }
     
     if (group_code != "all") {
       combination <- paste(combination, group_code, sep = ", ")
     }
     
-    if (section_code != "all") {
-      combination <- paste(combination, section_code, sep = ", ")
+    if (community_code != "all") {
+      combination <- paste(combination, community_code, sep = ", ")
     }
     
     message(sprintf("Downloading data for the combination %s...", combination))
@@ -135,8 +112,8 @@ ots_read_from_api <- function(year = NULL,
   } else {
     # otherwise, sleep a second and try again
     Sys.sleep(1)
-    ots_read_from_api(year, reporter_iso, partner_iso, product_code, group_code,
-                      section_code, table, max_attempts = max_attempts - 1,
+    ots_read_from_api(year, reporter_iso, partner_iso, commodity_code, group_code,
+                      community_code, table, max_attempts = max_attempts - 1,
                       use_localhost
     )
   }

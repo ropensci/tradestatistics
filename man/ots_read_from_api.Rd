@@ -8,9 +8,9 @@ ots_read_from_api(
   year = NULL,
   reporter_iso = NULL,
   partner_iso = NULL,
-  product_code = "all",
+  commodity_code = "all",
   group_code = "all",
-  section_code = "all",
+  community_code = "all",
   table = "yr",
   max_attempts = 5,
   use_localhost = FALSE
@@ -25,11 +25,11 @@ Default set to \code{NULL}.}
 
 \item{partner_iso}{ISO code for partner country (e.g. \code{"chl"}). Default set to \code{"all"}.}
 
-\item{product_code}{HS code (e.g. \code{0101} or \code{01}) to filter products.
+\item{commodity_code}{HS code (e.g. \code{0101} or \code{01}) to filter commodities.
 Default set to \code{"all"}.}
 
-\item{table}{Character string to select the table to obtain the data. Default set to \code{yrpc}
-(Year - Reporter - Partner - product).}
+\item{table}{Character string to select the table to obtain the data. Default set to \code{yr}
+(Year - Reporter).}
 
 \item{max_attempts}{Number of attempts to retry in case of data retrieving failure.
 Default set to \code{5}.}
@@ -52,10 +52,10 @@ performs different API calls to return \code{data.frames} by reading \code{JSON}
 ots_read_from_api(year = 1980, reporter_iso = "chl", partner_iso = "chn")
 
 # What can we say about chilean Horses export? (1980)
-ots_read_from_api(year = 1980, product_code = "0101", table = "yc")
-ots_read_from_api(year = 1980, reporter_iso = "chl", product_code = "0101", table = "yrc")
+ots_read_from_api(year = 1980, commodity_code = "0101", table = "yc")
+ots_read_from_api(year = 1980, reporter_iso = "chl", commodity_code = "0101", table = "yrc")
 ots_read_from_api(
-  year = 1980, reporter_iso = "chl", partner_iso = "arg", product_code = "0101",
+  year = 1980, reporter_iso = "chl", partner_iso = "arg", commodity_code = "0101",
   table = "yrpc"
 )
 }

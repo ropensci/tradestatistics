@@ -3,8 +3,8 @@
 library(dplyr)
 library(jsonlite)
 
-# base_url <- "https://api.tradestatistics.io/"
-base_url <- "http://127.0.0.1:8080/"
+base_url <- "https://api.tradestatistics.io/"
+# base_url <- "http://127.0.0.1:8080/"
   
 tables_url <- paste0(base_url, "tables")
 tables_raw_file <- "data-raw/ots_tables.json"
@@ -36,25 +36,25 @@ if (!file.exists(countries_tidy_file)) {
 }
 
 
-# Product codes
+# Commodity codes
 
-products_url <- paste0(base_url, "products")
-products_raw_file <- "data-raw/ots_products.json"
-products_tidy_file <- "data/ots_products.rda"
+commodities_url <- paste0(base_url, "commodities")
+commodities_raw_file <- "data-raw/ots_commodities.json"
+commodities_tidy_file <- "data/ots_commodities.rda"
 
-if (!file.exists(products_raw_file)) { download.file(products_url, products_raw_file) }
+if (!file.exists(commodities_raw_file)) { download.file(commodities_url, commodities_raw_file) }
 
-if (!file.exists(products_tidy_file)) {
-  ots_products <- fromJSON(products_raw_file) %>% 
+if (!file.exists(commodities_tidy_file)) {
+  ots_commodities <- fromJSON(commodities_raw_file) %>% 
     as_tibble() %>% 
     mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
-  save(ots_products, file = products_tidy_file, version = 2)
+  save(ots_commodities, file = commodities_tidy_file, version = 2)
 }
 
 
 # Community codes
 
-communities_url <- paste0(base_url, "products_communities")
+communities_url <- paste0(base_url, "commodities_communities")
 communities_raw_file <- "data-raw/ots_communities.json"
 communities_tidy_file <- "data/ots_communities.rda"
 
@@ -67,19 +67,19 @@ if (!file.exists(communities_tidy_file)) {
   save(ots_communities, file = communities_tidy_file, version = 2)
 }
 
-# Product short names
+# Commodities short names
 
-products_shortnames_url <- paste0(base_url, "products_shortnames")
-products_shortnames_raw_file <- "data-raw/ots_products_shortnames.json"
-products_shortnames_tidy_file <- "data/ots_products_shortnames.rda"
+commodities_shortnames_url <- paste0(base_url, "commodities_shortnames")
+commodities_shortnames_raw_file <- "data-raw/ots_commodities_shortnames.json"
+commodities_shortnames_tidy_file <- "data/ots_commodities_shortnames.rda"
 
-if (!file.exists(products_shortnames_raw_file)) { download.file(products_shortnames_url, products_shortnames_raw_file) }
+if (!file.exists(commodities_shortnames_raw_file)) { download.file(commodities_shortnames_url, commodities_shortnames_raw_file) }
 
-if (!file.exists(products_shortnames_tidy_file)) {
-  ots_products_shortnames <- fromJSON(products_shortnames_raw_file) %>% 
+if (!file.exists(commodities_shortnames_tidy_file)) {
+  ots_commodities_shortnames <- fromJSON(commodities_shortnames_raw_file) %>% 
     as_tibble() %>% 
     mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
-  save(ots_products_shortnames, file = products_shortnames_tidy_file, version = 2)
+  save(ots_commodities_shortnames, file = commodities_shortnames_tidy_file, version = 2)
 }
 
 # Conversion rates

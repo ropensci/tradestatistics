@@ -8,9 +8,9 @@ ots_create_tidy_data_unmemoised(
   years = 2018,
   reporters = "usa",
   partners = "all",
-  products = "all",
-  sections = "all",
+  commodities = "all",
   groups = "all",
+  communities = "all",
   table = "yr",
   max_attempts = 5,
   use_localhost = FALSE

@@ -57,127 +57,120 @@ ots_country_code <- function(countryname = NULL) {
   return(countrycode)
 }
 
-#' String matching of official product names and Harmonized System (HS) codes
+#' String matching of official commodity/group names and Harmonized System (HS) codes
 #' according to the United Nations nomenclature
 #' @description Takes a text string and searches within the
-#' package data for all matching product codes in the context of valid API
-#' product codes.
-#' @param productname A text string such as "Animals", "COPPER" or "fruits".
-#' @param productgroup A text string such as "meat", "FISH" or "Dairy".
+#' package data for all matching commodity codes in the context of valid API
+#' commodity codes.
+#' @param commodity A text string such as "Animals", "COPPER" or "fruits".
+#' @param group A text string such as "meat", "FISH" or "Dairy".
 #' @return A tibble with all possible matches (no uppercase distinction)
-#' showing the product name and product code
+#' showing the commodity name and commodity code
 #' @importFrom data.table `:=`
 #' @export
 #' @examples
-#' ots_product_code(productname = "ANIMALS ")
-#' ots_product_code(productgroup = "  fish")
-#' ots_product_code(productname = "Milk", productgroup = "Dairy")
+#' ots_commodity_code(commodity = "ANIMALS ")
+#' ots_commodity_code(group = "  fish")
+#' ots_commodity_code(commodity = "Milk", group = "Dairy")
 #' @keywords functions
-ots_product_code <- function(productname = NULL, productgroup = NULL) {
-  if (is.null(productname) & is.null(productgroup)) {
-    stop("'productname' and 'productgroup' are NULL.")
+ots_commodity_code <- function(commodity = NULL, group = NULL) {
+  if (is.null(commodity) & is.null(group)) {
+    stop("'commodity' and 'group' are NULL.")
   }
   
-  if (!is.null(productname) & is.null(productgroup)) {
-    stopifnot(is.character(productname))
-    # stopifnot(nchar(productname) > 0)
+  if (!is.null(commodity) & is.null(group)) {
+    stopifnot(is.character(commodity))
+    # stopifnot(nchar(commodity) > 0)
     
-    productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = "")
-    productname <- gsub("[^[:alpha:]]", "", productname)
+    commodity <- tolower(iconv(commodity, to = "ASCII//TRANSLIT", sub = ""))
+    commodity <- gsub("[^[:alpha:]]", "", commodity)
     
-    # get the products dataset, create the type_product column,
+    # get the commodities dataset, create the type_commodity column,
     # bind them all together and do the search
-    if (productname == "") {
-      stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the products table provided within this package.")
+    if (commodity == "") {
+      stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the commodities table provided within this package.")
     } else {
-      d <- tradestatistics::ots_products[,
-        `:=`(type_product = ..productname)][grepl(tolower(productname),
-        tolower(product_fullname_english))]
+      d <- tradestatistics::ots_commodities[
+        grepl(commodity, tolower(tradestatistics::ots_commodities$commodity_fullname_english)) & 
+        !is.na(tradestatistics::ots_commodities$commodity_fullname_english), ]
     }
   }
   
-  if (is.null(productname) & !is.null(productgroup)) {
-    stopifnot(is.character(productgroup))
-    # stopifnot(nchar(productgroup) > 0)
+  if (is.null(commodity) & !is.null(group)) {
+    stopifnot(is.character(group))
+    # stopifnot(nchar(group) > 0)
     
-    productgroup <- iconv(productgroup, to = "ASCII//TRANSLIT", sub = "")
-    productgroup <- gsub("[^[:alpha:]]", "", productgroup)
+    group <- tolower(iconv(group, to = "ASCII//TRANSLIT", sub = ""))
+    group <- gsub("[^[:alpha:]]", "", group)
     
-    # get the products dataset, create the type_product column,
-    # bind them all together and do the search
-    if (productgroup == "") {
-      stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the products table provided within this package.")
+    if (group == "") {
+      stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the commodities table provided within this package.")
     } else {
-      d <- tradestatistics::ots_groups[,
-        `:=`(type_group = ..productgroup)][grepl(tolower(productgroup),
-        tolower(group_fullname_english))]
+      dg <- unique(tradestatistics::ots_commodities[, c("group_code", "group_fullname_english")])
+      
+      d <- dg[
+        grepl(group, tolower(dg$group_fullname_english)) & 
+        !is.na(dg$group_fullname_english), ]
     }
   }
   
-  if (!is.null(productname) & !is.null(productgroup)) {
-    stopifnot(is.character(productname))
-    # stopifnot(nchar(productname) > 0)
+  if (!is.null(commodity) & !is.null(group)) {
+    stopifnot(is.character(commodity))
+    # stopifnot(nchar(commodity) > 0)
     
-    stopifnot(is.character(productgroup))
-    # stopifnot(nchar(productgroup) > 0)
+    stopifnot(is.character(group))
+    # stopifnot(nchar(group) > 0)
     
-    productname <- iconv(productname, to = "ASCII//TRANSLIT", sub = "")
-    productname <- gsub("[^[:alpha:]]", "", productname)
+    commodity <- tolower(iconv(commodity, to = "ASCII//TRANSLIT", sub = ""))
+    commodity <- gsub("[^[:alpha:]]", "", commodity)
     
-    productgroup <- iconv(productgroup, to = "ASCII//TRANSLIT", sub = "")
-    productgroup <- gsub("[^[:alpha:]]", "", productgroup)
+    group <- tolower(iconv(group, to = "ASCII//TRANSLIT", sub = ""))
+    group <- gsub("[^[:alpha:]]", "", group)
 
-    # get the products dataset, create the type_product column,
-    # bind them all together and do the search
-    if (productname == "" | productgroup == "") {
-      stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the products table provided within this package.")
+    if (commodity == "" | group == "") {
+      stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the commodities table provided within this package.")
     } else {
-      d <- tradestatistics::ots_groups[tradestatistics::ots_products[,
-        `:=`(group_code = substr(product_code, 1, 2))],
-        on = .(group_code), allow.cartesian = TRUE][,
-        `:=`(type_name = ..productname,
-        type_group = ..productgroup)][grepl(tolower(productname),
-        tolower(product_fullname_english)) & grepl(tolower(productgroup),
-        tolower(group_fullname_english))]
+      d <- tradestatistics::ots_commodities[
+        grepl(commodity, tolower(tradestatistics::ots_commodities$commodity_fullname_english)) & 
+        !is.na(tradestatistics::ots_commodities$commodity_fullname_english) &
+        grepl(group, tolower(tradestatistics::ots_commodities$group_fullname_english)) &
+        !is.na(tradestatistics::ots_commodities$commodity_fullname_english), ]
     }
   }
   
   return(d)
 }
 
-#' String matching of official product section names and product section
+#' String matching of official commodity section names and commodity community
 #' codes
 #' @description Takes a text string and searches within the
-#' package data for all matching product communities in the context of valid API
-#' product communities
-#' @param productsection A text string such as "animals", or "FOODSTUFFS".
+#' package data for all matching communities in the context of valid API
+#' communities
+#' @param community A text string such as "animals", or "FOODSTUFFS".
 #' @return A tibble with all possible matches (no uppercase distinction)
 #' showing the section name and section code
 #' @importFrom data.table `:=`
 #' @export
 #' @examples
-#' ots_product_section(productsection = "  Animals")
-#' ots_product_section(productsection = "FABRIC ")
+#' ots_commodity_community(community = "Animal")
+#' ots_commodity_community(community = "  Animals")
+#' ots_commodity_community(community = "FABRIC ")
 #' @keywords functions
-ots_product_section <- function(productsection = NULL) {
-  if (is.null(productsection)) {
-    stop("'productsection' is NULL.")
+ots_commodity_community <- function(community = NULL) {
+  if (is.null(community)) {
+    stop("'community' is NULL.")
   }
   
-  stopifnot(is.character(productsection))
+  stopifnot(is.character(community))
   
-  productsection <- iconv(productsection, to = "ASCII//TRANSLIT", sub = "")
-  productsection <- gsub("[^[:alpha:]]", "", productsection)
+  community <- tolower(iconv(community, to = "ASCII//TRANSLIT", sub = ""))
+  community <- gsub("[^[:alpha:]]", "", community)
 
-  # get the products dataset, create the type_product column,
-  # bind them all together and do the search
-  if (productsection == "") {
-    stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the products table provided within this package.")
+  if (community == "") {
+    stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the commodities table provided within this package.")
   } else {
-    d <- tradestatistics::ots_sections_names[tradestatistics::ots_sections,
-      on = .(section_code), allow.cartesian = TRUE][,
-      `:=`(type_section = ..productsection)][grepl(tolower(productsection), 
-      tolower(section_fullname_english))]
+    dc <- unique(tradestatistics::ots_communities[, c("community_code", "community_name")])
+    d <- dc[grepl(tolower(community), tolower(dc$community_name)), ]
   }
   
   return(d)

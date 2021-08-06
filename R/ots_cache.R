@@ -8,7 +8,6 @@
 #' @importFrom data.table fread fwrite
 #' @importFrom digest digest
 #' @importFrom memoise forget
-#' @export
 #' @keywords internal
 ots_cache <- function(use_cache, file, ...) {
   # cache in memory ----
