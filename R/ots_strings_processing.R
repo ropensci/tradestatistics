@@ -49,7 +49,9 @@ ots_country_code <- function(countryname = NULL) {
   if (countryname == "") {
     stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the countries table provided within this package.")
   } else {
-    countrycode <- tradestatistics::ots_countries[grepl(countryname, tolower(country_fullname_english))]
+    countrycode <- tradestatistics::ots_countries[
+      grepl(countryname, tolower(tradestatistics::ots_countries$country_fullname_english)) & 
+      !is.na(tradestatistics::ots_countries$country_fullname_english), ]
   }
   
   return(countrycode)

@@ -14,6 +14,8 @@ obtained from the API.
   \describe{
     \item{\code{product_code}}{Code of every product (e.g. 0101)}
     \item{\code{product_fullname_english}}{HS product names (e.g. 'Horses, asses, mules and hinnies; live')}
+    \item{\code{group_code}}{Group code (e.g. 01)}
+    \item{\code{group_fullname_english }}{Group name (e.g. Animals; live)}
   }
 }
 \examples{

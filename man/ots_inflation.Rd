@@ -12,10 +12,10 @@ backwards in time.
 }
 \usage{data("ots_inflation")}
 \format{
-  A data frame with 56 observations on the following 3 variables.
+  A data frame with 58 observations on the following 3 variables.
   \describe{
-    \item{\code{from}}{Integer values in the range 1962-2017}
-    \item{\code{to}}{Integer values in the range 1963-2018}
+    \item{\code{from}}{Integer values in the range 1962-2019}
+    \item{\code{to}}{Integer values in the range 1963-2020}
     \item{\code{conversion_factor}}{Numeric value expressed as one plus 1-year inflation}
   }
 }
