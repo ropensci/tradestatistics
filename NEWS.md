@@ -1,3 +1,14 @@
+# Version 1.0
+
+Updates
+
+* Reflects API changes with less aggregated data
+* Follows UN COMTRADE notation (i.e. commodity instead of product)
+* Does not impute data before hand, which is better for most of gravity models use cases
+* Provides the data exactly as in the API, returning commodity level data to allow users to do their own aggregation
+* Does not drop reference year with inflation adjustment (https://github.com/ropensci/tradestatistics/issues/38)
+* Takes max and min available years from the API instead of hardcoded values (https://github.com/ropensci/tradestatistics/pull/39)
+
 # Version 0.4.0
 
 Updates

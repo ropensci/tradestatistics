@@ -64,8 +64,8 @@ ots_read_from_api <- function(year = NULL,
       year, reporter_iso, commodity_code
     ),
     "yr" = sprintf("yr?y=%s&r=%s", year, reporter_iso),
-    "yr-communities" = sprintf("yr-ga?y=%s&r=%s", year, reporter_iso),
-    "yr-groups" = sprintf("yr-sa?y=%s&r=%s", year, reporter_iso),
+    "yr-communities" = sprintf("yr-communities?y=%s&r=%s", year, reporter_iso),
+    "yr-groups" = sprintf("yr-groups?y=%s&r=%s", year, reporter_iso),
     "yc" = sprintf("yc?y=%s&c=%s", year, commodity_code),
     "years" = "years"
   )

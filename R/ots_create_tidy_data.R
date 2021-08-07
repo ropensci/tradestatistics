@@ -417,17 +417,26 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     ots_groups <- unique(ots_commodities[, c("group_code", "group_fullname_english")])
     ots_groups <- ots_groups[!is.na(ots_groups$group_code), ]
     
-    data <- merge(data, ots_groups,
-          all.x = TRUE, all.y = FALSE,
-          by.x = "top_export_group_code", by.y = "group_code",
-          allow.cartesian = TRUE)
-    data <- setnames(data, "group_fullname_english", "top_export_group_fullname_english")
+    if (any(colnames(data) %in% "top_export_group_code")) {
+      data <- merge(data, ots_groups,
+                    all.x = TRUE, all.y = FALSE,
+                    by.x = "group_code", by.y = "group_code",
+                    allow.cartesian = TRUE)
+    }
     
-    data <- merge(data, ots_groups,
-                  all.x = TRUE, all.y = FALSE,
-                  by.x = "top_import_group_code", by.y = "group_code",
-                  allow.cartesian = TRUE)
-    data <- setnames(data, "group_fullname_english", "top_import_group_fullname_english")
+    if (any(colnames(data) %in% "top_export_group_code")) {
+      data <- merge(data, ots_groups,
+                    all.x = TRUE, all.y = FALSE,
+                    by.x = "top_export_group_code", by.y = "group_code",
+                    allow.cartesian = TRUE)
+      data <- setnames(data, "group_fullname_english", "top_export_group_fullname_english")
+      
+      data <- merge(data, ots_groups,
+                    all.x = TRUE, all.y = FALSE,
+                    by.x = "top_import_group_code", by.y = "group_code",
+                    allow.cartesian = TRUE)
+      data <- setnames(data, "group_fullname_english", "top_import_group_fullname_english")
+    }
   }
   
   if (table == "yr") {

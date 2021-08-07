@@ -3,7 +3,7 @@ context("testthat.R")
 # ots_create_tidy_data connects to the API and returns valid tables with a valid input ----
 
 test_that("ots_create_tidy_data connects to the API and returns valid tables with a valid input", {
-  vcr::use_cassette(name = "chl_arg_1964", {
+  vcr::use_cassette(name = "chl_arg_1964_yrpc", {
     # Mock countries test inside ots_create_tidy_data
     cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
     res <- cli$get("countries/")
@@ -44,8 +44,8 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
 
 # ots_create_tidy_data connects to the API and returns valid tables with a valid input and cache ----
 
-test_that("ots_create_tidy_data connects to the API and returns valid tables with a valid input  and cache", {
-  vcr::use_cassette(name = "chl_arg_1964", {
+test_that("ots_create_tidy_data connects to the API and returns valid tables with a valid input and cache", {
+  vcr::use_cassette(name = "chl_arg_1964_yrpc_cache", {
     # test in memory cache
     test_data <- ots_create_tidy_data(
       years = 1964, reporters = "chl", partners = "arg", table = "yrpc",
@@ -61,45 +61,45 @@ test_that("ots_create_tidy_data connects to the API and returns valid tables wit
   })
 })
 
-# ots_create_tidy_data connects to the API and returns valid tables with a valid input and a product filter ----
+# ots_create_tidy_data connects to the API and returns valid tables with a valid input and a commodity filter ----
 
-# test_that("ots_create_tidy_data connects to the API and returns valid tables with a valid input and a product filter", {
-#   vcr::use_cassette(name = "chl_arg_1964_yrpc_apple", {
-#     # Mock countries test inside ots_create_tidy_data
-#     cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
-#     res <- cli$get("countries/")
-#     expect_is(res, "HttpResponse")
-#     
-#     test_data <- ots_create_tidy_data(
-#         years = 1964, reporters = "chl", partners = "arg", table = "yrpc",
-#         commodities = "apple"
-#       )
-#     
-#     expect_is(test_data, "data.frame")
-#     expect_equal(ncol(test_data), 16)
-#   })
-# })
+test_that("ots_create_tidy_data connects to the API and returns valid tables with a valid input and a product filter", {
+  vcr::use_cassette(name = "chl_arg_1964_yrpc_apple", {
+    # Mock countries test inside ots_create_tidy_data
+    cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
+    res <- cli$get("countries/")
+    expect_is(res, "HttpResponse")
 
-# ots_create_tidy_data connects to the API and returns valid tables with a valid input and a product filter with group match ----
+    test_data <- expect_warning(ots_create_tidy_data(
+        years = 1964, reporters = "chl", partners = "arg", table = "yrpc",
+        commodities = "apple"
+      ))
 
-# test_that("ots_create_tidy_data connects to the API and returns valid tables with a valid input and a product filter with group match", {
-#   vcr::use_cassette(name = "chl_arg_1964_yrpc_animal", {
-#     # Mock countries test inside ots_create_tidy_data
-#     cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
-#     res <- cli$get("countries/")
-#     expect_is(res, "HttpResponse")
-#     
-#     test_data <- expect_warning(
-#       ots_create_tidy_data(
-#         years = 1964, reporters = "chl", partners = "arg", table = "yrpc",
-#         commodities = "animal"
-#       )
-#     )
-#     
-#     expect_is(test_data, "data.frame")
-#     expect_equal(ncol(test_data), 16)
-#   })
-# })
+    expect_is(test_data, "data.frame")
+    expect_equal(ncol(test_data), 15)
+  })
+})
+
+# ots_create_tidy_data connects to the API and returns valid tables with a valid input and a group filter ----
+
+test_that("ots_create_tidy_data connects to the API and returns valid tables with a valid input and a group filter", {
+  vcr::use_cassette(name = "chl_arg_1964_yrpc_animal", {
+    # Mock countries test inside ots_create_tidy_data
+    cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
+    res <- cli$get("countries/")
+    expect_is(res, "HttpResponse")
+
+    test_data <- expect_warning(
+      ots_create_tidy_data(
+        years = 1964, reporters = "chl", partners = "arg", table = "yrpc",
+        group = "animal"
+      )
+    )
+
+    expect_is(test_data, "data.frame")
+    expect_equal(ncol(test_data), 15)
+  })
+})
 
 # ots_create_tidy_data connects to the API and returns valid tables with a valid input and a non-used product filter ----
 
@@ -144,20 +144,20 @@ test_that("ots_create_tidy_data connects to the API and returns all reporters/pa
 
 # ots_create_tidy_data connects to the API and returns an observation when no data is found ----
 
-# test_that("ots_create_tidy_data connects to the API and returns an observation when no data is found", {
-#   vcr::use_cassette(name = "chl_prk_1964", {
-#     # Mock countries test inside ots_create_tidy_data
-#     cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
-#     res <- cli$get("countries/")
-#     expect_is(res, "HttpResponse")
-#     
-#     expect_warning(
-#       ots_create_tidy_data(
-#         years = 1964, reporters = 'chl', partners = 'prk', table = "yrp"
-#       )
-#     )
-#   })
-# })
+test_that("ots_create_tidy_data connects to the API and returns an observation when no data is found", {
+  vcr::use_cassette(name = "chl_prk_1964", {
+    # Mock countries test inside ots_create_tidy_data
+    cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
+    res <- cli$get("countries/")
+    expect_is(res, "HttpResponse")
+
+    expect_warning(
+      ots_create_tidy_data(
+        years = 1964, reporters = 'chl', partners = 'prk', table = "yrp"
+      )
+    )
+  })
+})
 
 # ots_create_tidy_data works with mixed country ISO/string ----
 
@@ -246,7 +246,7 @@ test_that("ots_create_tidy_data fails with a non-existing product code", {
 # ots_create_tidy_data fails with a non-existing product string ----
 
 test_that("ots_create_tidy_data fails with a non-existing product string", {
-  vcr::use_cassette(name = "chl_arg_1964_kriptonite", {
+  vcr::use_cassette(name = "chl_arg_1964_yrpc_kriptonite", {
     # Mock countries test inside ots_create_tidy_data
     cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
     res <- cli$get("countries/")
