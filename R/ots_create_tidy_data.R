@@ -11,10 +11,6 @@
 #' @param commodities HS commodity codes (e.g. \code{"0101"}, \code{"01"} or search
 #' matches for \code{"apple"})
 #' to filter commodities. Default set to \code{"all"}.
-#' @param groups HS commodity groups (e.g. \code{"01"} or search matches for 
-#' \code{"animals"} with \code{ots_commodity_code}) to filter groups. Default set to \code{"all"}.
-#' @param communities unofficial commodity communities (e.g. \code{"01"} or see 
-#' the table \code{ots_communities}). Default set to \code{"all"}.
 #' @param table Character string to select the table to obtain the data.
 #' Default set to \code{yr} (Year - Reporter).
 #' Run \code{ots_tables} in case of doubt.
@@ -57,8 +53,6 @@ ots_create_tidy_data <- function(years = 2018,
                                  reporters = "all",
                                  partners = "all",
                                  commodities = "all",
-                                 groups = "all",
-                                 communities = "all",
                                  table = "yr",
                                  max_attempts = 5,
                                  use_cache = FALSE,
@@ -79,8 +73,6 @@ ots_create_tidy_data <- function(years = 2018,
     reporters = reporters,
     partners = partners,
     commodities = commodities,
-    groups = groups,
-    communities = communities,
     table = table,
     max_attempts = max_attempts,
     use_localhost = use_localhost
@@ -94,8 +86,6 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
                                             reporters = "usa",
                                             partners = "all",
                                             commodities = "all",
-                                            groups = "all",
-                                            communities = "all",
                                             table = "yr",
                                             max_attempts = 5,
                                             use_localhost = FALSE) {
@@ -232,80 +222,6 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     table %in% commodities_depending_queries) {
     stop("The requested commodities do not exist. Please check ots_commodities.")
   }
-
-  # Check groups ----
-  groups_depending_queries <- grep("-groups$",
-                                    ots_tables$table,
-                                    value = T
-  )
-  
-  unique_groups <- unique(ots_commodities$group_code)
-  unique_groups <- c(unique_groups[!is.na(unique_groups)], "all")
-  
-  if (!all(as.character(groups) %in% unique_groups) == TRUE &
-      table %in% groups_depending_queries) {
-    
-    # groups without match (wm)
-    groups_wm <- groups[!groups %in% unique_groups]
-    
-    # group name match (gmm)
-    gnm <- lapply(
-      seq_along(groups_wm),
-      function(x) { tradestatistics::ots_commodity_code(group = groups_wm[x]) }
-    )
-    gnm <- rbindlist(gnm)
-    
-    groups_wm <- unique(gnm[, .(group_code)])
-    groups_wm <- as.vector(unlist(groups_wm))
-    
-    groups <- c(groups[groups %in% unique_groups], groups_wm)
-    
-    if(length(groups) == 0) {
-      groups <- NA
-    }
-  }
-  
-  if (!all(as.character(groups) %in% unique_groups == TRUE) &
-      table %in% groups_depending_queries) {
-    stop("The requested groups do not exist. Please check ots_commodities.")
-  }
-  
-  # Check communities ----
-  communities_depending_queries <- grep("-communities$",
-                                      ots_tables$table,
-                                      value = T
-  )
-  
-  unique_communities <- unique(tradestatistics::ots_communities$community_code)
-  unique_communities <- c(unique_communities, "all")
-  
-  if (!all(as.character(communities) %in% unique_communities) == TRUE &
-      table %in% communities_depending_queries) {
-    
-    # communities without match (wm)
-    communities_wm <- communities[!communities %in% unique_communities]
-    
-    # communities name match (snm)
-    cnm <- lapply(
-      seq_along(communities_wm),
-      function(x) { tradestatistics::ots_commodity_community(community = communities_wm[x]) }
-    )
-    cnm <- rbindlist(cnm)
-    
-    communities_wm <- unique(snm[, .(community_code)])
-    communities_wm <- as.vector(unlist(communities_wm))
-    
-    communities <- c(communities[communities %in% unique_communities], communities_wm)
-    
-    if(length(communities) == 0) {
-      communities <- NA
-    }
-  }
-  
-  if (!all(as.character(communities) %in% unique_communities == TRUE) &
-      table %in% communities_depending_queries) {
-    stop("The requested communities do not exist. Please check ots_commodities.")
-  }
   
   # Check optional parameters ----
   if (!is.numeric(max_attempts) | max_attempts <= 0) {
@@ -322,16 +238,6 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     warning("The commodities argument will be ignored provided that you requested a table without commodity_code field.")
   }
   
-  if (!table %in% groups_depending_queries & any(groups != "all") == TRUE) {
-    groups <- "all"
-    warning("The groups argument will be ignored provided that you requested a table without group_code field.")
-  }
-  
-  if (!table %in% communities_depending_queries & any(communities != "all") == TRUE) {
-    communities <- "all"
-    warning("The communities argument will be ignored provided that you requested a table without community_code field.")
-  }
-
   if (is.null(reporters)) {
     reporters <- "all"
     warning("No reporter was specified, therefore all available reporters will be returned.")
@@ -347,8 +253,6 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     reporter = reporters,
     partner = partners,
     commodity = commodities,
-    group = groups,
-    community = communities,
     stringsAsFactors = FALSE
   )
 
@@ -362,8 +266,6 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
         reporter_iso = condensed_parameters$reporter[x],
         partner_iso = condensed_parameters$partner[x],
         commodity_code = condensed_parameters$commodity[x],
-        group_code = condensed_parameters$group[x],
-        community_code = condensed_parameters$community[x],
         use_localhost = use_localhost
       )
     }
@@ -422,32 +324,50 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   }
 
   # include groups data
-  if (table %in% groups_depending_queries) {
+  if (table == "yr-groups") {
     ots_groups <- unique(ots_commodities[, c("group_code", "group_fullname_english")])
     ots_groups <- ots_groups[!is.na(ots_groups$group_code), ]
     
-    if (any(colnames(data) %in% "top_export_group_code")) {
+    if (any(colnames(data) %in% "group_code_top_exp")) {
       data <- merge(data, ots_groups,
                     all.x = TRUE, all.y = FALSE,
-                    by.x = "group_code", by.y = "group_code",
+                    by.x = "group_code_top_exp", by.y = "group_code",
                     allow.cartesian = TRUE)
-    }
-    
-    if (any(colnames(data) %in% "top_export_group_code")) {
-      data <- merge(data, ots_groups,
-                    all.x = TRUE, all.y = FALSE,
-                    by.x = "top_export_group_code", by.y = "group_code",
-                    allow.cartesian = TRUE)
-      data <- setnames(data, "group_fullname_english", "top_export_group_fullname_english")
+      data <- setnames(data, "group_fullname_english", "group_fullname_english_top_exo")
       
       data <- merge(data, ots_groups,
                     all.x = TRUE, all.y = FALSE,
-                    by.x = "top_import_group_code", by.y = "group_code",
+                    by.x = "group_code_top_imp", by.y = "group_code",
                     allow.cartesian = TRUE)
-      data <- setnames(data, "group_fullname_english", "top_import_group_fullname_english")
+      data <- setnames(data, "group_fullname_english", "group_fullname_english_top_imp")
     }
   }
   
+  # include communities data
+  if (table == "yr-communities") {
+    if (any(colnames(data) %in% "community_code")) {
+      data <- merge(data, ots_communities,
+                    all.x = TRUE, all.y = FALSE,
+                    by.x = "community_code", by.y = "community_code",
+                    allow.cartesian = TRUE)
+    }
+    
+    if (any(colnames(data) %in% "community_code_top_exp")) {
+      data <- merge(data, ots_communities,
+                    all.x = TRUE, all.y = FALSE,
+                    by.x = "community_code_top_exp", by.y = "community_code",
+                    allow.cartesian = TRUE)
+      data <- setnames(data, "group_fullname_english", "group_fullname_english_top_exo")
+      
+      data <- merge(data, ots_communities,
+                    all.x = TRUE, all.y = FALSE,
+                    by.x = "community_code_top_imp", by.y = "community_code",
+                    allow.cartesian = TRUE)
+      data <- setnames(data, "group_fullname_english", "group_fullname_english_top_imp")
+    }
+  }
+  
+  # special YR case
   if (table == "yr") {
     data <- merge(data, tradestatistics::ots_commodities,
                   all.x = TRUE, all.y = FALSE,

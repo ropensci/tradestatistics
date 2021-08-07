@@ -9,8 +9,6 @@ ots_create_tidy_data_memoised(
   reporters = "usa",
   partners = "all",
   commodities = "all",
-  groups = "all",
-  communities = "all",
   table = "yr",
   max_attempts = 5,
   use_localhost = FALSE

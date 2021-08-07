@@ -9,8 +9,6 @@ ots_create_tidy_data(
   reporters = "all",
   partners = "all",
   commodities = "all",
-  groups = "all",
-  communities = "all",
   table = "yr",
   max_attempts = 5,
   use_cache = FALSE,
@@ -32,12 +30,6 @@ Default set to \code{1962}.}
 \item{commodities}{HS commodity codes (e.g. \code{"0101"}, \code{"01"} or search
 matches for \code{"apple"})
 to filter commodities. Default set to \code{"all"}.}
-
-\item{groups}{HS commodity groups (e.g. \code{"01"} or search matches for 
-\code{"animals"} with \code{ots_commodity_code}) to filter groups. Default set to \code{"all"}.}
-
-\item{communities}{unofficial commodity communities (e.g. \code{"01"} or see 
-the table \code{ots_communities}). Default set to \code{"all"}.}
 
 \item{table}{Character string to select the table to obtain the data.
 Default set to \code{yr} (Year - Reporter).
