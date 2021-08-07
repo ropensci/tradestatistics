@@ -110,7 +110,6 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     value = T
   )
 
-  # update this when new data is added ----
   max_year <- fromJSON("https://api.tradestatistics.io/years")[1,2]
   year_range <- c(1962, max_year)
   
