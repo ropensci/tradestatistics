@@ -54,11 +54,11 @@ You might notice the tables have a pattern. The letters indicate the presence of
 * `y`: *y*ear column.
 * `r`: *r*eporter column
 * `p`: *p*artner column
-* `c`: product *c*ode column
+* `c`: *c*ommodity column
 
 The most aggregated table is `yr` which basically says how many dollars each country exports and imports for a given year.
 
-The less aggregated table is `yrpc` which says how many dollars of each of the 1,222 products from the Harmonized System each country exports to other countries and imports from other countries.
+The less aggregated table is `yrpc` which says how many dollars of each of the 1,242 commodities from the Harmonized System each country exports to other countries and imports from other countries.
 
 For the complete detail you can check [docs.tradestatistics.io](https://docs.tradestatistics.io).
 
@@ -72,30 +72,24 @@ Just as a reference, the table with all valid ISO codes can be accessed by runni
 datatable(ots_countries)
 ```
 
-## Product codes
+## Commodity codes
 
 The Package Functions section explains that you don't need to memorize all HS codes. The functions within this package are designed to match strings (i.e. "apple") to valid HS codes (i.e. "0808").
 
-```{r products, eval = T}
-datatable(ots_products)
+```{r commodities, eval = T}
+datatable(ots_commodities)
 ```
 
-## Product shortnames
+## Commodity shortnames
 
-```{r products2, eval = T}
-datatable(ots_products_shortnames)
+```{r commodities2, eval = T}
+datatable(ots_commodities_shortnames)
 ```
 
-## Product sections
-```{r products3, eval = T}
-datatable(ots_sections)
+## Commodity communities
+```{r commodities3, eval = T}
+datatable(ots_communities)
 ```
-
-## Product section shortnames
-```{r products4, eval = T}
-datatable(ots_sections_shortnames)
-```
-
 ## Inflation data
 
 This table is provided to be used with `ots_inflation_adjustment()`.
@@ -124,26 +118,21 @@ datatable(ots_country_code("Germany"))
 
 The function `ots_country_code()` is used by `ots_create_tidy_data()` in a way that you can pass parameters like `ots_create_tidy_data(... reporters = "Chile" ...)` and it will automatically replace your input for a valid ISO in case there is a match. This will be covered in detail in the Trade Data section.
 
-## Product code
+## Commodity code
 
-The end user can use this function to find a product code by providing a product name. This works by implementing partial string matching:
-
-```{r product_code}
-datatable(ots_product_code(" WiNe "))
+The end user can find a code or a set of codes by looking for keywords for commodities or groups. The function `ots_commodity_code` allows to search from the official commodities and groups in the Harmonized system:
+```{r commodity_code2}
+datatable(ots_commodity_code(commodity = " ShEEp ", group = " mEaT "))
 ```
 
-This function searches both products and groups:
-```{r product_code2}
-datatable(ots_product_code(productname = " ShEEp ", productgroup = " mEaT "))
+## Community code
+
+It's also possible to match commodities to communities (i.e. larger aggregation than community groups) created by the Center for International Development at Harvard:
+```{r commodity_code}
+datatable(ots_commodity_code(" WiNe "))
 ```
 
-## Section code
-
-The end user can use this function to find a community code by providing a community name. This works by implementing partial string matching:
-
-```{r section_code}
-datatable(ots_product_section(" tExTiLeS "))
-```
+While there are 99 official community groups, the total number of commodity communities is 22. This is specially useful to visualize data but it not an official United Nations aggregation.
 
 ## Trade data
 
@@ -151,12 +140,12 @@ This function downloads data for a single year and needs (at least) some filter 
 
 Here we cover aggregated tables to describe the usage.
 
-### Bilateral trade at product level (Year - Reporter - Partner - Product Code)
+### Bilateral trade at commodity level (Year - Reporter - Partner - Commodity Code)
 
 If we want Chile-Argentina bilateral trade at community level in 1962:
 ```{r yrpc1, eval = T}
 yrpc <- ots_create_tidy_data(
-  years = 1962,
+  years = 1990,
   reporters = "chl",
   partners = "arg",
   table = "yrpc"
@@ -169,14 +158,14 @@ We can pass two years or more, several reporters/partners, and filter by communi
 ```{r yrpc2, eval = T}
 # Note that here I'm passing Peru and not per which is the ISO code for Peru
 # The same applies to Brazil
-yrpc2 <- ots_create_tidy_data(
-  years = c(1962,1963),
-  reporters = c("chl", "Peru", "bol"),
-  partners = c("arg", "Brazil"),
-  sections = c("01", "food"),
-  table = "yrpc"
-)
-datatable(yrpc2)
+# yrpc2 <- ots_create_tidy_data(
+#   years = c(1962,1963),
+#   reporters = c("chl", "Peru", "bol"),
+#   partners = c("arg", "Brazil"),
+#   groups = c("01", "food"),
+#   table = "yrpc"
+# )
+# datatable(yrpc2)
 ```
 
 `yrpc` table returns some fields that deserve an explanation which can be seen at [docs.tradestatistics.io](https://docs.tradestatistics.io).
@@ -198,21 +187,21 @@ datatable(yrp)
 
 This table accepts different years, reporters and partners just like `yrpc`.
 
-### Reporter trade at product level (Year - Reporter - Product Code) 
+### Reporter trade at commodity level (Year - Reporter - Commodity Code) 
 
-If we want Chilean trade at product level in 1962 with respect to product `0101` which means "Horses, asses, mules and hinnies; live":
+If we want Chilean trade at commodity level in 1962 with respect to commodity `0101` which means "Horses, asses, mules and hinnies; live":
 ```{r yrc2, eval = T}
 yrc <- ots_create_tidy_data(
   years = 1962,
   reporters = "chl",
-  products = "0101",
+  commodities = "0101",
   table = "yrc"
 )
 
 datatable(yrc)
 ```
 
-This table accepts different years, reporters and product codes just like `yrpc`.
+This table accepts different years, reporters and commodity codes just like `yrpc`.
 
 All the variables from this table are documented at [docs.tradestatistics.io](https://docs.tradestatistics.io).
 
@@ -233,23 +222,23 @@ This table accepts different years and reporters just like `yrpc`.
 
 All the variables from this table are documented at [docs.tradestatistics.io](https://docs.tradestatistics.io).
 
-### Product trade at aggregated level (Year - Product Code)
+### Commodity trade at aggregated level (Year - Commodity Code)
 
-If we want all products traded in 1962:
+If we want all commodities traded in 1962:
 ```{r yc1, eval = T}
-yc <- ots_create_tidy_data(
-  years = 1962,
-  table = "yc"
-)
-
-datatable(yc)
+# yc <- ots_create_tidy_data(
+#   years = 1962,
+#   table = "yc"
+# )
+# 
+# datatable(yc)
 ```
 
-If we want the traded values of the product `0101` which means "Horses, asses, mules and hinnies; live: in 1962:
+If we want the traded values of the commodity `0101` which means "Horses, asses, mules and hinnies; live: in 1962:
 ```{r yc2, eval = T}
 yc2 <- ots_create_tidy_data(
   years = 1962,
-  products = "0101",
+  commodities = "0101",
   table = "yc"
 )
 

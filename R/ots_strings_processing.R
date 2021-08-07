@@ -129,8 +129,8 @@ ots_commodity_code <- function(commodity = NULL, group = NULL) {
   return(d)
 }
 
-#' String matching of official commodity section names and commodity community
-#' codes
+#' String matching of unofficial commodity community codes according to
+#' the Center for International Development at Harvard University nomenclature
 #' @description Takes a text string and searches within the
 #' package data for all matching communities in the context of valid API
 #' communities

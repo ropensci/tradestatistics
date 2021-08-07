@@ -2,8 +2,8 @@
 % Please edit documentation in R/ots_strings_processing.R
 \name{ots_commodity_community}
 \alias{ots_commodity_community}
-\title{String matching of official commodity section names and commodity community
-codes}
+\title{String matching of unofficial commodity community codes according to
+the Center for International Development at Harvard University nomenclature}
 \usage{
 ots_commodity_community(community = NULL)
 }

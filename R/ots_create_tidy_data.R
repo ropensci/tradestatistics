@@ -374,8 +374,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   # no data in API message
   if (any("observation" %in% names(data))) {
     warning("The parameters you specified resulted in API calls returning 0 rows.")
-    data <- data[is.na(observation)]
-    data <- data[, observation := NULL]
+    return(data)
   }
 
   # Add attributes based on codes, etc (and join years, if applicable) ------
@@ -404,12 +403,23 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
                   allow.cartesian = TRUE)
     data <- setnames(data, "country_fullname_english", "partner_fullname_english")
   }
-
+  
   # include commodities data
   if (table %in% commodities_depending_queries) {
-    data <- tradestatistics::ots_commodities[data, on = .(commodity_code), allow.cartesian = TRUE]
-    data <- tradestatistics::ots_commodities_shortnames[data, on = .(commodity_code), allow.cartesian = TRUE]
-    data <- tradestatistics::ots_communities[data, on = .(commodity_code), allow.cartesian = TRUE]
+    data <- merge(data, tradestatistics::ots_commodities,
+                  all.x = TRUE, all.y = FALSE,
+                  by.x = "commodity_code", by.y = "commodity_code",
+                  allow.cartesian = TRUE)
+    
+    data <- merge(data, tradestatistics::ots_commodities_shortnames,
+                  all.x = TRUE, all.y = FALSE,
+                  by.x = "commodity_code", by.y = "commodity_code",
+                  allow.cartesian = TRUE)
+    
+    data <- merge(data, tradestatistics::ots_communities,
+                  all.x = TRUE, all.y = FALSE,
+                  by.x = "commodity_code", by.y = "commodity_code",
+                  allow.cartesian = TRUE)
   }
 
   # include groups data
@@ -477,10 +487,9 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
                      grep("^community_", colnames(data), value = TRUE),
                      grep("^trade_", colnames(data), value = TRUE)
   )
+
   data <- data[, ..columns_order]
 
-  if (nrow(data) == 0) { warning("The resulting table contains 0 rows.") }
-  
   return(data)
 }
 
