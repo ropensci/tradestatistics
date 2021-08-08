@@ -172,6 +172,26 @@ test_that("ots_create_tidy_data works with mixed country ISO/string", {
   })
 })
 
+test_that("ots_create_tidy_data provides groups for yr table", {
+  vcr::use_cassette(name = "chl_arg_1964_yr_groups", {
+ test_data <- ots_create_tidy_data(
+      years = 1964, reporters = "chl", table = "yr-groups"
+    )
+ 
+ expect_equal(nrow(test_data), 7)
+  })
+})
+
+test_that("ots_create_tidy_data provides communities for yr table", {
+  vcr::use_cassette(name = "chl_arg_1964_yr_communities", {
+    test_data <- ots_create_tidy_data(
+      years = 1964, reporters = "chl", table = "yr-communities"
+    )
+    
+    expect_equal(nrow(test_data), 8)
+  })
+})
+
 # ots_create_tidy_data connects to the API and returns an error after invalid y-r-p input ----
 
 test_that("ots_create_tidy_data connects to the API and returns an error after invalid y-r-p input", {

@@ -328,6 +328,13 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     ots_groups <- unique(ots_commodities[, c("group_code", "group_fullname_english")])
     ots_groups <- ots_groups[!is.na(ots_groups$group_code), ]
     
+    if (any(colnames(data) %in% "group_code")) {
+      data <- merge(data, ots_groups,
+                    all.x = TRUE, all.y = FALSE,
+                    by.x = "group_code", by.y = "group_code",
+                    allow.cartesian = TRUE)
+    }
+    
     if (any(colnames(data) %in% "group_code_top_exp")) {
       data <- merge(data, ots_groups,
                     all.x = TRUE, all.y = FALSE,
@@ -345,26 +352,29 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   
   # include communities data
   if (table == "yr-communities") {
+    ots_unique_communities <- unique(ots_communities[, c("community_code", "community_name", "community_color")])
+    ots_unique_communities <- ots_unique_communities[!is.na(ots_unique_communities$community_code), ]
+    
     if (any(colnames(data) %in% "community_code")) {
-      data <- merge(data, ots_communities,
+      data <- merge(data, ots_unique_communities,
                     all.x = TRUE, all.y = FALSE,
                     by.x = "community_code", by.y = "community_code",
                     allow.cartesian = TRUE)
     }
     
-    if (any(colnames(data) %in% "community_code_top_exp")) {
-      data <- merge(data, ots_communities,
-                    all.x = TRUE, all.y = FALSE,
-                    by.x = "community_code_top_exp", by.y = "community_code",
-                    allow.cartesian = TRUE)
-      data <- setnames(data, "group_fullname_english", "group_fullname_english_top_exo")
-      
-      data <- merge(data, ots_communities,
-                    all.x = TRUE, all.y = FALSE,
-                    by.x = "community_code_top_imp", by.y = "community_code",
-                    allow.cartesian = TRUE)
-      data <- setnames(data, "group_fullname_english", "group_fullname_english_top_imp")
-    }
+    # if (any(colnames(data) %in% "community_code_top_exp")) {
+    #   data <- merge(data, ots_unique_communities,
+    #                 all.x = TRUE, all.y = FALSE,
+    #                 by.x = "community_code_top_exp", by.y = "community_code",
+    #                 allow.cartesian = TRUE)
+    #   data <- setnames(data, "group_fullname_english", "group_fullname_english_top_exo")
+    #   
+    #   data <- merge(data, ots_unique_communities,
+    #                 all.x = TRUE, all.y = FALSE,
+    #                 by.x = "community_code_top_imp", by.y = "community_code",
+    #                 allow.cartesian = TRUE)
+    #   data <- setnames(data, "group_fullname_english", "group_fullname_english_top_imp")
+    # }
   }
   
   # special YR case
