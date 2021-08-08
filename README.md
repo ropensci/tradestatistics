@@ -1,15 +1,12 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
 <p>
-
 <a href="https://www.digitalocean.com/">
 <img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" width="201px">
 </a>
-
 </p>
 
-# Open Trade Statistics package <img src="https://docs.tradestatistics.io/fig/hexicon.svg" width=150 align="right" alt="sticker"/>
+# Open Trade Statistics package <img src="svg/hexicon.svg" width=150 align="right" alt="sticker"/>
 
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
@@ -17,7 +14,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![R build
-status](https://github.com/tradestatistics/tradestatistics/workflows/R-CMD-check/badge.svg)](https://github.com/tradestatistics/tradestatistics/actions?workflow=R-CMD-check)
+status](https://github.com/ropensci/tradestatistics/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/tradestatistics/actions?workflow=R-CMD-check)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/tradestatistics)](https://cran.r-project.org/package=tradestatistics)
 [![Coverage
@@ -30,7 +27,7 @@ obtain data from OTS by accessing its API.
 
 This is what the package does:
 
-![Data diagram](https://docs.tradestatistics.io/fig/data-diagram.svg)
+![Data diagram](svg/data-diagram.svg)
 
 Using `tradestatistics` package is all about efficiency, without this
 package you could obtain the same data from the API at the expense of
@@ -52,7 +49,6 @@ devtools::install_github("ropensci/tradestatistics")
 
 Please note that this project is released with a [Contributor Code of
 Conduct](https://docs.ropensci.org/tradestatistics/CODE_OF_CONDUCT.html).
-By participating in this project you agree to abide by its
-terms.
+By participating in this project you agree to abide by its terms.
 
 [![ropensci\_footer](https://ropensci.org/public_images/ropensci_footer.png)](https://ropensci.org)

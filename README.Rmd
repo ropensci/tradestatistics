@@ -18,11 +18,11 @@ knitr::opts_chunk$set(
   </a>
 </p>
 
-# Open Trade Statistics package <img src="https://docs.tradestatistics.io/fig/hexicon.svg" width=150 align="right" alt="sticker"/>
+# Open Trade Statistics package <img src="svg/hexicon.svg" width=150 align="right" alt="sticker"/>
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
-[![R build status](https://github.com/tradestatistics/tradestatistics/workflows/R-CMD-check/badge.svg)](https://github.com/tradestatistics/tradestatistics/actions?workflow=R-CMD-check)
+[![R build status](https://github.com/ropensci/tradestatistics/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/tradestatistics/actions?workflow=R-CMD-check)
 [![CRAN status](https://www.r-pkg.org/badges/version/tradestatistics)](https://cran.r-project.org/package=tradestatistics)
 [![Coverage status](https://codecov.io/gh/ropensci/tradestatistics/branch/master/graph/badge.svg)](https://codecov.io/github/ropensci/tradestatistics?branch=master)
 [![](https://badges.ropensci.org/274_status.svg)](https://github.com/ropensci/onboarding/issues/274)
@@ -31,7 +31,7 @@ knitr::opts_chunk$set(
 
 This is what the package does:
 
-![Data diagram](https://docs.tradestatistics.io/fig/data-diagram.svg)
+![Data diagram](svg/data-diagram.svg)
 
 Using `tradestatistics` package is all about efficiency, without this package you could obtain the same data from the API at the expense of using additional time and effort for the same results. As an API wrapper and utility program this package makes data obtaining faster and easier for you.
 
