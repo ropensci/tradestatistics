@@ -1,12 +1,7 @@
-context("testthat.R")
+context("inflation adjustment")
 
-test_that("ots_inflation_adjustment adjusts the data", {
-  vcr::use_cassette(name = "chl_arg_1964", {
-    # Mock countries test inside ots_create_tidy_data
-    cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
-    res <- cli$get("countries/")
-    expect_is(res, "HttpResponse")
-
+test_that("ots_inflation_adjustment adjusts the data for yrpc", {
+  vcr::use_cassette(name = "chl_arg_1964_yrpc", {
     # Bilateral trade Chile-Argentina at commodity level (1964)
     test_data <- ots_create_tidy_data(
       years = 1964, reporters = "chl", partners = "arg", table = "yrpc"
@@ -16,21 +11,35 @@ test_that("ots_inflation_adjustment adjusts the data", {
 
     test_data_adjusted_forwards <- ots_inflation_adjustment(test_data, reference_year = 1966)
 
+    test_data_adjusted_same <- ots_inflation_adjustment(test_data, reference_year = 1964)
+    
     expect_is(test_data_adjusted_backwards, "data.frame")
     expect_equal(ncol(test_data_adjusted_backwards), 17)
 
     expect_is(test_data_adjusted_forwards, "data.frame")
     expect_equal(ncol(test_data_adjusted_forwards), 17)
+    
+    expect_is(test_data_adjusted_same, "data.frame")
+    expect_equal(ncol(test_data_adjusted_same), 17)
+  })
+})
+
+test_that("ots_inflation_adjustment adjusts the data for yr", {
+  vcr::use_cassette(name = "chl_arg_1964_yr", {
+    # Bilateral trade Chile-Argentina at commodity level (1964)
+    test_data <- ots_create_tidy_data(
+      years = 1964, reporters = "chl", partners = "arg", table = "yr"
+    )
+    
+    test_data_adjusted_backwards <- ots_inflation_adjustment(test_data, reference_year = 1962)
+    
+    expect_is(test_data_adjusted_backwards, "data.frame")
+    expect_equal(ncol(test_data_adjusted_backwards), 23)
   })
 })
 
 test_that("ots_inflation_adjustment fails if the parameters are null or out of range", {
-  vcr::use_cassette(name = "chl_arg_1964", {
-    # Mock countries test inside ots_create_tidy_data
-    cli <- crul::HttpClient$new(url = "https://api.tradestatistics.io")
-    res <- cli$get("countries/")
-    expect_is(res, "HttpResponse")
-
+  vcr::use_cassette(name = "chl_arg_1964_yrpc", {
     # Bilateral trade Chile-Argentina at commodity level (1964)
     test_data <- ots_create_tidy_data(
       years = 1964, reporters = "chl", partners = "arg", table = "yrpc"

@@ -1,0 +1,29 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.tradestatistics.io/yr-communities?y=1964&r=chl
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.18.0 (Ubuntu)
+      date: Sun, 08 Aug 2021 03:45:48 GMT
+      content-type: application/json
+      content-length: '2582'
+      connection: keep-alive
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":"1964","reporter_iso":"chl","community_code":"01","trade_value_usd_exp":749884,"trade_value_usd_imp":661681},{"year":"1964","reporter_iso":"chl","community_code":"02","trade_value_usd_exp":4894067,"trade_value_usd_imp":3642051},{"year":"1964","reporter_iso":"chl","community_code":"03","trade_value_usd_exp":381496,"trade_value_usd_imp":1829472},{"year":"1964","reporter_iso":"chl","community_code":"04","trade_value_usd_exp":931492,"trade_value_usd_imp":800030},{"year":"1964","reporter_iso":"chl","community_code":"05","trade_value_usd_exp":41416490,"trade_value_usd_imp":23201252},{"year":"1964","reporter_iso":"chl","community_code":"06","trade_value_usd_exp":6788573,"trade_value_usd_imp":48334862},{"year":"1964","reporter_iso":"chl","community_code":"07","trade_value_usd_exp":37879,"trade_value_usd_imp":10114232},{"year":"1964","reporter_iso":"chl","community_code":"08","trade_value_usd_exp":21494,"trade_value_usd_imp":1780328},{"year":"1964","reporter_iso":"chl","community_code":"09","trade_value_usd_exp":2580790,"trade_value_usd_imp":1140265},{"year":"1964","reporter_iso":"chl","community_code":"10","trade_value_usd_exp":1500,"trade_value_usd_imp":6593392},{"year":"1964","reporter_iso":"chl","community_code":"11","trade_value_usd_exp":119296,"trade_value_usd_imp":10674406},{"year":"1964","reporter_iso":"chl","community_code":"12","trade_value_usd_exp":40197,"trade_value_usd_imp":1099276},{"year":"1964","reporter_iso":"chl","community_code":"13","trade_value_usd_exp":28296,"trade_value_usd_imp":7448824},{"year":"1964","reporter_iso":"chl","community_code":"14","trade_value_usd_exp":2000,"trade_value_usd_imp":67178},{"year":"1964","reporter_iso":"chl","community_code":"15","trade_value_usd_exp":409425056,"trade_value_usd_imp":20529015},{"year":"1964","reporter_iso":"chl","community_code":"16","trade_value_usd_exp":465879,"trade_value_usd_imp":73210782},{"year":"1964","reporter_iso":"chl","community_code":"17","trade_value_usd_exp":699,"trade_value_usd_imp":1696164},{"year":"1964","reporter_iso":"chl","community_code":"18","trade_value_usd_exp":17487,"trade_value_usd_imp":4842845},{"year":"1964","reporter_iso":"chl","community_code":"19","trade_value_usd_exp":11800,"trade_value_usd_imp":342984},{"year":"1964","reporter_iso":"chl","community_code":"20","trade_value_usd_exp":15796,"trade_value_usd_imp":3515895},{"year":"1964","reporter_iso":"chl","community_code":"21","trade_value_usd_exp":9996,"trade_value_usd_imp":19779},{"year":"1964","reporter_iso":"chl","community_code":"22","trade_value_usd_exp":0,"trade_value_usd_imp":203793}]'
+  recorded_at: 2021-08-08 03:45:48 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

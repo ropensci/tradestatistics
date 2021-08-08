@@ -1,34 +1,6 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.tradestatistics.io/countries/
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '404'
-      message: Not Found
-      explanation: Nothing matches the given URI
-    headers:
-      status: HTTP/1.1 404 Not Found
-      server: nginx/1.18.0 (Ubuntu)
-      date: Sat, 07 Aug 2021 23:19:07 GMT
-      content-type: application/json
-      content-length: '36'
-      connection: keep-alive
-    body:
-      encoding: UTF-8
-      file: no
-      string: '{"error":"404 - Resource Not Found"}'
-  recorded_at: 2021-08-07 23:19:08 GMT
-  recorded_with: vcr/1.0.2, webmockr/0.8.0
-- request:
-    method: get
     uri: https://api.tradestatistics.io/yrpc?y=1964&r=chl&p=arg&c=1101
     body:
       encoding: ''
@@ -45,7 +17,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.18.0 (Ubuntu)
-      date: Sat, 07 Aug 2021 23:19:08 GMT
+      date: Sun, 08 Aug 2021 03:45:36 GMT
       content-type: application/json
       content-length: '133'
       connection: keep-alive
@@ -53,5 +25,5 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":"1964","reporter_iso":"chl","partner_iso":"arg","commodity_code":"1101","trade_value_usd_exp":0,"trade_value_usd_imp":6800}]'
-  recorded_at: 2021-08-07 23:19:08 GMT
+  recorded_at: 2021-08-08 03:45:36 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0

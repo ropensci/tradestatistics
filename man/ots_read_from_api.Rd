@@ -9,8 +9,6 @@ ots_read_from_api(
   reporter_iso = NULL,
   partner_iso = NULL,
   commodity_code = "all",
-  group_code = "all",
-  community_code = "all",
   table = "yr",
   max_attempts = 5,
   use_localhost = FALSE

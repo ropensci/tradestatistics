@@ -1,7 +1,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.tradestatistics.io/countries/
+    uri: https://api.tradestatistics.io/yrp?y=1964&r=chl&p=prk
     body:
       encoding: ''
       string: ''
@@ -11,19 +11,20 @@ http_interactions:
       Accept: application/json, text/xml, application/xml, */*
   response:
     status:
-      status_code: '404'
-      message: Not Found
-      explanation: Nothing matches the given URI
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 404 Not Found
+      status: HTTP/1.1 200 OK
       server: nginx/1.18.0 (Ubuntu)
-      date: Sat, 07 Aug 2021 23:19:23 GMT
+      date: Sun, 08 Aug 2021 03:45:42 GMT
       content-type: application/json
-      content-length: '36'
+      content-length: '123'
       connection: keep-alive
     body:
       encoding: UTF-8
       file: no
-      string: '{"error":"404 - Resource Not Found"}'
-  recorded_at: 2021-08-07 23:19:24 GMT
+      string: '[{"year":"1964","reporter_iso":"chl","partner_iso":"prk","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2021-08-08 03:45:42 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0

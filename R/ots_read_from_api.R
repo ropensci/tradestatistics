@@ -39,8 +39,6 @@ ots_read_from_api <- function(year = NULL,
                               reporter_iso = NULL,
                               partner_iso = NULL,
                               commodity_code = "all",
-                              group_code = "all",
-                              community_code = "all",
                               table = "yr",
                               max_attempts = 5,
                               use_localhost = FALSE) {
@@ -87,14 +85,6 @@ ots_read_from_api <- function(year = NULL,
       combination <- paste(combination, commodity_code, sep = ", ")
     }
     
-    if (group_code != "all") {
-      combination <- paste(combination, group_code, sep = ", ")
-    }
-    
-    if (community_code != "all") {
-      combination <- paste(combination, community_code, sep = ", ")
-    }
-    
     message(sprintf("Downloading data for the combination %s...", combination))
 
     data <- try(
@@ -112,8 +102,8 @@ ots_read_from_api <- function(year = NULL,
   } else {
     # otherwise, sleep a second and try again
     Sys.sleep(1)
-    ots_read_from_api(year, reporter_iso, partner_iso, commodity_code, group_code,
-                      community_code, table, max_attempts = max_attempts - 1,
+    ots_read_from_api(year, reporter_iso, partner_iso, commodity_code, table, 
+                      max_attempts = max_attempts - 1,
                       use_localhost
     )
   }

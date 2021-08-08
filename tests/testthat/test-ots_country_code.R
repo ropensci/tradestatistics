@@ -1,4 +1,4 @@
-context("testthat.R")
+context("country code")
 
 test_that("ots_country_code works properly for single matching", {
   test_country_1 <- ots_country_code("Chile")
