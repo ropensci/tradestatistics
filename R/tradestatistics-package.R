@@ -4,11 +4,10 @@
 utils::globalVariables(c(
   "year", "country_iso",
   "country_fullname_english",
-  "commodiy_fullname_english", "group_fullname_english", "section_fullname_english",
-  "export_value_usd", "import_value_usd",
-  "top_export_trade_value_usd", "top_import_trade_value_usd",
-  "top_exporter_trade_value_usd", "top_importer_trade_value_usd",
-  "commodity_code", "group_code", "section_code",
+  "commodity_fullname_english", "group_fullname_english", "community_name",
+  "commodity_code", "group_code", "community_code",
+  "trade_value_usd_exp", "trade_value_usd_imp",
+  "trade_value_usd_top_exp", "trade_value_usd_top_imp",
   "conversion_factor", "conversion_year", "from", "to", "observation",
   "..group", "..productname", "..section",
   "..reference_year", "..year", "..columns_order", "."
