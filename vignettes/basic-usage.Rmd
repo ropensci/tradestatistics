@@ -60,7 +60,7 @@ The most aggregated table is `yr` which basically says how many dollars each cou
 
 The less aggregated table is `yrpc` which says how many dollars of each of the 1,242 commodities from the Harmonized System each country exports to other countries and imports from other countries.
 
-For the complete detail you can check [docs.tradestatistics.io](https://docs.tradestatistics.io).
+For the complete detail you can check [tradestatistics.io](https://tradestatistics.io).
 
 ## Country codes
 
@@ -168,7 +168,7 @@ yrpc2 <- ots_create_tidy_data(
 datatable(yrpc2)
 ```
 
-The `yrpc` table returns some fields that deserve an explanation which can be seen at [docs.tradestatistics.io](https://docs.tradestatistics.io). This example is interesting because "01" return a set of commodities (all commodities starting with 01, which is the commodity group "Animals; live"), but "food" return all commodities with a matching description ("1601", "1806", "1904", etc.). In addition, not all the requested commodities are exported from each reporter to each partner, therefore a warning is returned.
+The `yrpc` table returns some fields that deserve an explanation which can be seen at [tradestatistics.io](https://tradestatistics.io). This example is interesting because "01" return a set of commodities (all commodities starting with 01, which is the commodity group "Animals; live"), but "food" return all commodities with a matching description ("1601", "1806", "1904", etc.). In addition, not all the requested commodities are exported from each reporter to each partner, therefore a warning is returned.
 
 ### Bilateral trade at aggregated level (Year - Reporter - Partner)
 
@@ -203,7 +203,7 @@ datatable(yrc)
 
 This table accepts different years, reporters and commodity codes just like `yrpc`.
 
-All the variables from this table are documented at [docs.tradestatistics.io](https://docs.tradestatistics.io).
+All the variables from this table are documented at [tradestatistics.io](https://tradestatistics.io).
 
 ### Reporter trade at aggregated level (Year - Reporter)
 
@@ -220,7 +220,7 @@ datatable(yr)
 
 This table accepts different years and reporters just like `yrpc`.
 
-All the variables from this table are documented at [docs.tradestatistics.io](https://docs.tradestatistics.io).
+All the variables from this table are documented at [tradestatistics.io](https://tradestatistics.io).
 
 ### Commodity trade at aggregated level (Year - Commodity Code)
 

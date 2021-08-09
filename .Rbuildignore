@@ -15,4 +15,4 @@ svg
 vignettes/basic-usage_cache/
 ^\.github$
 dev
-^LICENSE\.md$
+^LICENSE$
