@@ -34,7 +34,7 @@ test_that("ots_inflation_adjustment adjusts the data for yr", {
     test_data_adjusted_backwards <- ots_inflation_adjustment(test_data, reference_year = 1962)
     
     expect_is(test_data_adjusted_backwards, "data.frame")
-    expect_equal(ncol(test_data_adjusted_backwards), 23)
+    expect_equal(ncol(test_data_adjusted_backwards), 11)
   })
 })
 

@@ -4,7 +4,7 @@ context("create tidy data")
 
 # Mock countries test inside ots_create_tidy_data
 
-test_that("valid input + no cache = yrpc table", {
+test_that("valid input + no cache = yr(p)(c) table", {
   vcr::use_cassette(name = "chl_arg_1964_yrpc", {
     # Bilateral trade Chile-Argentina at commodity level (1964)
     test_data <- ots_create_tidy_data(
@@ -30,7 +30,7 @@ test_that("valid input + no cache = yrpc table", {
     # Chilean trade at aggregated level (1964)
     test_data <- ots_create_tidy_data(years = 1964, reporters = "chl", table = "yr")
     expect_is(test_data, "data.frame")
-    expect_equal(ncol(test_data), 21)
+    expect_equal(ncol(test_data), 5)
 
     # Commodity trade at aggregated level (1964)
     test_data <- ots_create_tidy_data(years = 1964, table = "yc")
@@ -88,7 +88,7 @@ test_that("unused commodities argument = yr table + warning", {
     )
 
     expect_is(test_data, "data.frame")
-    expect_equal(ncol(test_data), 21)
+    expect_equal(ncol(test_data), 5)
   })
 })
 

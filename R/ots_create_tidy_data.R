@@ -323,37 +323,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
                   allow.cartesian = TRUE)
   }
   
-  # special YR case
-  if (table == "yr") {
-    data <- merge(data, tradestatistics::ots_commodities,
-                  all.x = TRUE, all.y = FALSE,
-                  by.x = "commodity_code_top_exp", by.y = "commodity_code",
-                  allow.cartesian = TRUE)
-    data <- setnames(data, c("commodity_fullname_english", "group_code", "group_fullname_english"),
-                     c("commodity_fullname_english_top_exp", "group_code_top_exp", "group_fullname_english_top_exp"))
-    
-    data <- merge(data, tradestatistics::ots_commodities,
-                  all.x = TRUE, all.y = FALSE,
-                  by.x = "commodity_code_top_imp", by.y = "commodity_code",
-                  allow.cartesian = TRUE)
-    data <- setnames(data, c("commodity_fullname_english", "group_code", "group_fullname_english"),
-                     c("commodity_fullname_english_top_imp", "group_code_top_imp", "group_fullname_english_top_imp"))
-    
-    data <- merge(data, tradestatistics::ots_communities,
-                  all.x = TRUE, all.y = FALSE,
-                  by.x = "commodity_code_top_exp", by.y = "commodity_code",
-                  allow.cartesian = TRUE)
-    data <- setnames(data, c("community_code", "community_name", "community_color"),
-                     c("community_code_top_exp", "community_name_top_exp", "community_color_top_exp"))
-    
-    data <- merge(data, tradestatistics::ots_communities,
-                  all.x = TRUE, all.y = FALSE,
-                  by.x = "commodity_code_top_imp", by.y = "commodity_code",
-                  allow.cartesian = TRUE)
-    data <- setnames(data, c("community_code", "community_name", "community_color"),
-                     c("community_code_top_imp", "community_name_top_imp", "community_color_top_imp"))
-  }
-  
+  # special YR cases
   if (table == "yr-groups") {
     ots_groups <- unique(tradestatistics::ots_commodities[, c("group_code", "group_fullname_english")])
     ots_groups <- ots_groups[!is.na(ots_groups$group_code), ]

@@ -70,12 +70,6 @@ ots_inflation_adjustment <- function(trade_data = NULL, reference_year = NULL) {
   d2 <- trade_data[d1, on = .(year), allow.cartesian = TRUE][,
     `:=`(trade_value_usd_exp = trade_value_usd_exp * conversion_factor,
          trade_value_usd_imp = trade_value_usd_imp * conversion_factor)]
-  
-  if (any("trade_value_usd_top_exp" %in% names(d2))) {
-    d2 <- d2[,
-      `:=`(trade_value_usd_top_exp = trade_value_usd_top_exp * conversion_factor,
-           trade_value_usd_top_imp = trade_value_usd_top_imp * conversion_factor)]
-  }
 
   return(d2)
 }
