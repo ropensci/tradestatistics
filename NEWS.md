@@ -1,3 +1,10 @@
+# Version 2.0
+
+Updates 
+
+* Uses ISO codes as is (affects Aruba, Roumania, Timor-Leste, Antarctica, 
+ Saint Barthelemy, Curacao, Sint Maarten and South Sudan)
+  
 # Version 1.0
 
 Updates

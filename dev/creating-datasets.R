@@ -33,6 +33,34 @@ if (!file.exists(countries_tidy_file)) {
   ots_countries <- fromJSON(countries_raw_file) %>% 
     as.data.table() %>% 
     mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
+  
+  # fix Aruba, Roumania and Timor-Leste ISO codes
+  # and add countries present in UN COMTRADE kast data
+  # Antarctica, Saint Barthelemy, Curacao, Sint Maarten and South Sudan
+  ots_countries <- ots_countries %>% 
+    mutate(
+      country_iso = case_when(
+        country_iso == "arb" ~ "abw",
+        country_iso == "rom" ~ "rou",
+        country_iso == "tmp" ~ "tls",
+        TRUE ~ country_iso
+      )
+    ) %>% 
+    bind_rows(
+      data.table(
+        country_iso = c("ata", "blm", "cuw", "sxm", "ssd"),
+        country_name_english = c("Antarctica", "Saint Barthelemy", "Curacao", "Sint Maarten", "South Sudan"),
+        country_fullname_english = c("Antarctica", "Saint Barthelemy", "Curacao", "Sint Maarten", "South Sudan"),
+        continent_id = c(6, 5, 5, 5, 3),
+        continent = c("Antarctica", "Americas", "Americas", "Americas", "Africa"),
+        eu28_member = c(0, 0, 0, 0, 0)
+      )) %>% 
+    arrange(country_iso)
+  
+  ots_countries <- ots_countries %>% 
+    arrange(continent_id) %>% 
+    mutate_if(is.numeric, as.integer)
+  
   save(ots_countries, file = countries_tidy_file, version = 2)
 }
 
