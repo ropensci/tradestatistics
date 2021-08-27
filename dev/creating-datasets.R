@@ -3,6 +3,7 @@
 library(data.table)
 library(dplyr)
 library(jsonlite)
+library(arrow)
 
 base_url <- "https://api.tradestatistics.io/"
 # base_url <- "http://127.0.0.1:8080/"
@@ -48,18 +49,39 @@ if (!file.exists(countries_tidy_file)) {
     ) %>% 
     bind_rows(
       data.table(
-        country_iso = c("ata", "blm", "cuw", "sxm", "ssd"),
-        country_name_english = c("Antarctica", "Saint Barthelemy", "Curacao", "Sint Maarten", "South Sudan"),
-        country_fullname_english = c("Antarctica", "Saint Barthelemy", "Curacao", "Sint Maarten", "South Sudan"),
-        continent_id = c(6, 5, 5, 5, 3),
-        continent = c("Antarctica", "Americas", "Americas", "Americas", "Africa"),
-        eu28_member = c(0, 0, 0, 0, 0)
+        country_iso = c("ata", "bes", "blm", "cuw", "sxm", "ssd"),
+        country_name_english = c("Antarctica", "Bonaire, Sint Eustatius and Saba", 
+                                 "Saint Barthelemy", "Curacao", "Sint Maarten", "South Sudan"),
+        country_fullname_english = c("Antarctica", "Bonaire, Sint Eustatius and Saba", 
+                                     "Saint Barthelemy", "Curacao", "Sint Maarten", "South Sudan"),
+        continent_id = c(6, 5, 5, 5, 5, 3),
+        continent = c("Antarctica", "Americas", "Americas", "Americas", "Americas", "Africa"),
+        eu28_member = c(0, 0, 0, 0, 0, 0)
       )) %>% 
     arrange(country_iso)
   
   ots_countries <- ots_countries %>% 
     arrange(continent_id) %>% 
     mutate_if(is.numeric, as.integer)
+  
+  countries_in_data <- open_dataset("../hs92-historic-series/hs92-visualization/yrp",
+                                    partitioning = c("year", "reporter_iso"))
+  
+  countries_in_data <- countries_in_data %>% 
+    select(country_iso = reporter_iso) %>% 
+    collect() %>% 
+    distinct() %>% 
+    bind_rows(
+      countries_in_data %>% 
+        select(country_iso = partner_iso) %>% 
+        collect() %>% 
+        distinct()
+    ) %>% 
+    mutate_if(is.character, function(x) gsub(".*=", "", x)) %>% 
+    distinct()
+  
+  ots_countries %>% anti_join(countries_in_data)
+  countries_in_data %>% anti_join(ots_countries)
   
   save(ots_countries, file = countries_tidy_file, version = 2)
 }
