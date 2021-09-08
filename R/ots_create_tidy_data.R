@@ -100,7 +100,12 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     value = T
   )
 
-  max_year <- unlist(fromJSON("https://api.tradestatistics.io/year_range"))
+  if (use_localhost) {
+    max_year <- unlist(fromJSON("http://localhost:8080/year_range"))
+  } else {
+    max_year <- unlist(fromJSON("https://api.tradestatistics.io/year_range"))
+  }
+  
   year_range <- c(1962, max_year)
   
   if (all(years %in% min(year_range):max(year_range)) != TRUE &

@@ -11,7 +11,7 @@ requested data.
 }
 \usage{ots_countries}
 \format{
-  A data frame with 249 observations on the following 6 variables.
+  A data frame with 254 observations on the following 6 variables.
   \describe{
     \item{\code{country_iso}}{ISO code of the country (e.g. "chl" means Chile)}
     \item{\code{country_name_english}}{Country name (e.g. Germany)}
