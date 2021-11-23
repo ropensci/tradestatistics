@@ -42,8 +42,8 @@
 #' ots_create_tidy_data(years = 1980, reporters = "chl", partners = "chn")
 #'
 #' # What can we say about Horses export in Chile and the World? (1980)
-#' ots_create_tidy_data(years = 1980, commodities = "0101", table = "yc")
-#' ots_create_tidy_data(years = 1980, reporters = "chl", commodities = "0101", table = "yrc")
+#' ots_create_tidy_data(years = 1980, commodities = "010101", table = "yc")
+#' ots_create_tidy_data(years = 1980, reporters = "chl", commodities = "010101", table = "yrc")
 #'
 #' # What can we say about the different types of apples exported by Chile? (1980)
 #' ots_create_tidy_data(years = 1980, reporters = "chl", commodities = "apple", table = "yrc")
@@ -57,7 +57,7 @@ ots_create_tidy_data <- function(years = 2018,
                                  max_attempts = 5,
                                  use_cache = FALSE,
                                  file = NULL,
-                                 use_localhost = FALSE) {
+                                 use_localhost = TRUE) {
   if (!is.logical(use_cache)) {
     stop("use_cache must be logical.")
   }
@@ -316,16 +316,6 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
                   all.x = TRUE, all.y = FALSE,
                   by.x = "commodity_code", by.y = "commodity_code",
                   allow.cartesian = TRUE)
-    
-    data <- merge(data, tradestatistics::ots_commodities_shortnames,
-                  all.x = TRUE, all.y = FALSE,
-                  by.x = "commodity_code", by.y = "commodity_code",
-                  allow.cartesian = TRUE)
-    
-    data <- merge(data, tradestatistics::ots_communities,
-                  all.x = TRUE, all.y = FALSE,
-                  by.x = "commodity_code", by.y = "commodity_code",
-                  allow.cartesian = TRUE)
   }
   
   # special YR cases
@@ -341,24 +331,11 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     }
   }
   
-  if (table == "yr-communities") {
-    ots_unique_communities <- unique(tradestatistics::ots_communities[, c("community_code", "community_name", "community_color")])
-    ots_unique_communities <- ots_unique_communities[!is.na(ots_unique_communities$community_code), ]
-    
-    if (any(colnames(data) %in% "community_code")) {
-      data <- merge(data, ots_unique_communities,
-                    all.x = TRUE, all.y = FALSE,
-                    by.x = "community_code", by.y = "community_code",
-                    allow.cartesian = TRUE)
-    }
-  }
-  
   columns_order <- c("year",
                      grep("^reporter_", colnames(data), value = TRUE),
                      grep("^partner_", colnames(data), value = TRUE),
                      grep("^commodity_", colnames(data), value = TRUE),
                      grep("^group_", colnames(data), value = TRUE),
-                     grep("^community_", colnames(data), value = TRUE),
                      grep("^trade_", colnames(data), value = TRUE)
   )
 

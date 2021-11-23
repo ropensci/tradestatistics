@@ -5,8 +5,8 @@ library(dplyr)
 library(jsonlite)
 library(arrow)
 
-base_url <- "https://api.tradestatistics.io/"
-# base_url <- "http://127.0.0.1:8080/"
+# base_url <- "https://api.tradestatistics.io/"
+base_url <- "http://127.0.0.1:8080/"
   
 tables_url <- paste0(base_url, "tables")
 tables_raw_file <- "data-raw/ots_tables.json"
@@ -20,7 +20,6 @@ if (!file.exists(tables_tidy_file)) {
     mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
   save(ots_tables, file = tables_tidy_file, version = 2)
 }
-
 
 # Country codes
 
@@ -86,7 +85,6 @@ if (!file.exists(countries_tidy_file)) {
   save(ots_countries, file = countries_tidy_file, version = 2)
 }
 
-
 # Commodity codes
 
 commodities_url <- paste0(base_url, "commodities")
@@ -100,37 +98,6 @@ if (!file.exists(commodities_tidy_file)) {
     as.data.table() %>% 
     mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
   save(ots_commodities, file = commodities_tidy_file, version = 2)
-}
-
-
-# Community codes
-
-communities_url <- paste0(base_url, "commodities_communities")
-communities_raw_file <- "data-raw/ots_communities.json"
-communities_tidy_file <- "data/ots_communities.rda"
-
-if (!file.exists(communities_raw_file)) { download.file(communities_url, communities_raw_file) }
-
-if (!file.exists(communities_tidy_file)) {
-  ots_communities <- fromJSON(communities_raw_file) %>% 
-    as.data.table() %>% 
-    mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
-  save(ots_communities, file = communities_tidy_file, version = 2)
-}
-
-# Commodities short names
-
-commodities_shortnames_url <- paste0(base_url, "commodities_shortnames")
-commodities_shortnames_raw_file <- "data-raw/ots_commodities_shortnames.json"
-commodities_shortnames_tidy_file <- "data/ots_commodities_shortnames.rda"
-
-if (!file.exists(commodities_shortnames_raw_file)) { download.file(commodities_shortnames_url, commodities_shortnames_raw_file) }
-
-if (!file.exists(commodities_shortnames_tidy_file)) {
-  ots_commodities_shortnames <- fromJSON(commodities_shortnames_raw_file) %>% 
-    as.data.table() %>% 
-    mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
-  save(ots_commodities_shortnames, file = commodities_shortnames_tidy_file, version = 2)
 }
 
 # Conversion rates
@@ -147,7 +114,7 @@ if (!file.exists(inflation_raw_file)) { download.file(inflation_url, inflation_r
 
 if (!file.exists(inflation_tidy_file)) {
   ots_inflation <- fromJSON(inflation_url)
-  ots_inflation <- as.data.table(ots_inflation)
+  ots_inflation <- as.data.table(ots_inflation) %>% 
+    filter(from >= 2000)
   save(ots_inflation, file = inflation_tidy_file, version = 2)
 }
-

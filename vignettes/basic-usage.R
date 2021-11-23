@@ -30,12 +30,6 @@ datatable(ots_countries)
 ## ----commodities, eval = T----------------------------------------------------
 datatable(ots_commodities)
 
-## ----commodities2, eval = T---------------------------------------------------
-datatable(ots_commodities_shortnames)
-
-## ----commodities3, eval = T---------------------------------------------------
-datatable(ots_communities)
-
 ## ----inflation, eval = T------------------------------------------------------
 datatable(ots_inflation)
 
@@ -52,12 +46,9 @@ datatable(ots_country_code("Germany"))
 ## ----commodity_code2----------------------------------------------------------
 datatable(ots_commodity_code(commodity = " ShEEp ", group = " mEaT "))
 
-## ----commodity_code-----------------------------------------------------------
-datatable(ots_commodity_community(" ANIMAL "))
-
 ## ----yrpc1, eval = T----------------------------------------------------------
 yrpc <- ots_create_tidy_data(
-  years = 1990,
+  years = 2019,
   reporters = "chl",
   partners = "arg",
   table = "yrpc"
@@ -69,7 +60,7 @@ datatable(yrpc)
 # Note that here I'm passing Peru and not per which is the ISO code for Peru
 # The same applies to Brazil
 yrpc2 <- ots_create_tidy_data(
-  years = c(1962,1963),
+  years = 2018:2019,
   reporters = c("chl", "Peru", "bol"),
   partners = c("arg", "Brazil"),
   commodities = c("01", "food"),
@@ -79,7 +70,7 @@ datatable(yrpc2)
 
 ## ----yrp3, eval = T-----------------------------------------------------------
 yrp <- ots_create_tidy_data(
-  years = 1962:1963,
+  years = 2018:2019,
   reporters = c("chl", "per"),
   partners = "arg",
   table = "yrp"
@@ -89,9 +80,9 @@ datatable(yrp)
 
 ## ----yrc2, eval = T-----------------------------------------------------------
 yrc <- ots_create_tidy_data(
-  years = 1962,
+  years = 2019,
   reporters = "chl",
-  commodities = "0101",
+  commodities = "010121",
   table = "yrc"
 )
 
@@ -99,7 +90,7 @@ datatable(yrc)
 
 ## ----yr2, eval = T------------------------------------------------------------
 yr <- ots_create_tidy_data(
-  years = 1962:1963,
+  years = 2018:2019,
   reporters = c("chl", "arg", "per"),
   table = "yr"
 )
@@ -108,7 +99,7 @@ datatable(yr)
 
 ## ----yc1, eval = T------------------------------------------------------------
 yc <- ots_create_tidy_data(
-  years = 1962,
+  years = 2019,
   table = "yc"
 )
 
@@ -116,14 +107,14 @@ datatable(yc)
 
 ## ----yc2, eval = T------------------------------------------------------------
 yc2 <- ots_create_tidy_data(
-  years = 1962,
-  commodities = "0808",
+  years = 2019,
+  commodities = "010121",
   table = "yc"
 )
 
 datatable(yc2)
 
 ## -----------------------------------------------------------------------------
-inflation <- ots_inflation_adjustment(yr, reference_year = 1970)
+inflation <- ots_inflation_adjustment(yr, reference_year = 2000)
 datatable(inflation)
 

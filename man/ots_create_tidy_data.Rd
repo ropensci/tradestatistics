@@ -13,7 +13,7 @@ ots_create_tidy_data(
   max_attempts = 5,
   use_cache = FALSE,
   file = NULL,
-  use_localhost = FALSE
+  use_localhost = TRUE
 )
 }
 \arguments{
@@ -69,8 +69,8 @@ performs different API calls to transform and return tidy data.
 ots_create_tidy_data(years = 1980, reporters = "chl", partners = "chn")
 
 # What can we say about Horses export in Chile and the World? (1980)
-ots_create_tidy_data(years = 1980, commodities = "0101", table = "yc")
-ots_create_tidy_data(years = 1980, reporters = "chl", commodities = "0101", table = "yrc")
+ots_create_tidy_data(years = 1980, commodities = "010101", table = "yc")
+ots_create_tidy_data(years = 1980, reporters = "chl", commodities = "010101", table = "yrc")
 
 # What can we say about the different types of apples exported by Chile? (1980)
 ots_create_tidy_data(years = 1980, reporters = "chl", commodities = "apple", table = "yrc")

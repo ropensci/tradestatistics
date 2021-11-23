@@ -12,6 +12,10 @@ Authors@R: c(
              family = "Kunst",
              role = "ctb",
              comment = "contributed to different parts of the pre-release code"),
+      person(given = "Alexey",
+             family = "Kravchenko",
+             role = "ctb",
+             comment = "reviewed 2021 version of the API"),
       person(given = "Emma",
              family = "Mendelsohn",
              role = "ctb",
@@ -35,18 +39,14 @@ Authors@R: c(
       person(given = "Amanda",
              family = "Dobbyn",
              role = "rev",
-             comment = "reviewed an archived package that evolved into the current package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217"),
+             comment = "reviewed a previous package that evolved into the current package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217"),
       person(given = "Jorge",
              family = "Cimentada",
              role = "rev",
-             comment = "reviewed an archived package that evolved into the current package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217"),
+             comment = "reviewed a previous package that evolved into the current package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217"),
       person(family = "UN Comtrade",
              role = "dtc"),
       person(family = "The World Bank",
-             role = "dtc"),
-      person(family = "Center for International Development at Harvard University",
-             role = "dtc"),
-      person(family = "The Observatory of Economic Complexity",
              role = "dtc")
     )
 URL: https://docs.ropensci.org/tradestatistics/
@@ -60,7 +60,7 @@ Imports:
     memoise,
     data.table,
     digest
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Suggests: 
     knitr,
     rmarkdown,

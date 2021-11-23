@@ -22,17 +22,16 @@ Useful links:
 Other contributors:
 \itemize{
   \item Joshua Kunst (contributed to different parts of the pre-release code) [contributor]
+  \item Alexey Kravchenko (reviewed 2021 version of the API) [contributor]
   \item Emma Mendelsohn (updated the functions to take available years from the API instead of hardcoded values) [contributor]
   \item Natalia de los Santos (proposed improvements to default parameters) [contributor]
   \item Elio Campitelli (wrote parts of the client-side caching function) [contributor]
   \item Emily Riederer (reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/274) [reviewer]
   \item Mark Padgham (reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/274) [reviewer]
-  \item Amanda Dobbyn (reviewed an archived package that evolved into the current package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217) [reviewer]
-  \item Jorge Cimentada (reviewed an archived package that evolved into the current package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217) [reviewer]
+  \item Amanda Dobbyn (reviewed a previous package that evolved into the current package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217) [reviewer]
+  \item Jorge Cimentada (reviewed a previous package that evolved into the current package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217) [reviewer]
   \item  UN Comtrade [data contributor]
   \item  The World Bank [data contributor]
-  \item  Center for International Development at Harvard University [data contributor]
-  \item  The Observatory of Economic Complexity [data contributor]
 }
 
 }
