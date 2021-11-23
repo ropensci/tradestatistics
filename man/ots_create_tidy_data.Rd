@@ -13,7 +13,7 @@ ots_create_tidy_data(
   max_attempts = 5,
   use_cache = FALSE,
   file = NULL,
-  use_localhost = TRUE
+  use_localhost = FALSE
 )
 }
 \arguments{

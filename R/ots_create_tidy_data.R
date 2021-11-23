@@ -57,7 +57,7 @@ ots_create_tidy_data <- function(years = 2019,
                                  max_attempts = 5,
                                  use_cache = FALSE,
                                  file = NULL,
-                                 use_localhost = TRUE) {
+                                 use_localhost = FALSE) {
   if (!is.logical(use_cache)) {
     stop("use_cache must be logical.")
   }
