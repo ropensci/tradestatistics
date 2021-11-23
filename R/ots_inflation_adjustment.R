@@ -13,9 +13,9 @@
 #' # The next example can take more than 5 seconds to compute,
 #' # so this is shown without evaluation according to CRAN rules
 #'
-#' # Convert dollars of 1980 to dollars of 2010
-#' d <- ots_create_tidy_data(years = 1980, reporters = "chl", partners = "chn")
-#' ots_inflation_adjustment(trade_data = d, reference_year = 2010)
+#' # Convert dollars of 2010 to dollars of 2000
+#' d <- ots_create_tidy_data(years = 2010, reporters = "chl", partners = "chn")
+#' ots_inflation_adjustment(trade_data = d, reference_year = 2000)
 #' }
 #' @keywords functions
 ots_inflation_adjustment <- function(trade_data = NULL, reference_year = NULL) {

@@ -50,8 +50,6 @@ ots_read_from_api <- function(year = NULL,
     "reporters" = sprintf("reporters?y=%s", year),
     "partners" = sprintf("partners?y=%s", year),
     "commodities" = "commodities",
-    "commodities_shortnames" = "commodities_shortnames",
-    "commodities_communities" = "commodities_communities",
     "yrpc" = sprintf(
       "yrpc?y=%s&r=%s&p=%s&c=%s",
       year, reporter_iso, partner_iso, commodity_code
@@ -62,7 +60,6 @@ ots_read_from_api <- function(year = NULL,
       year, reporter_iso, commodity_code
     ),
     "yr" = sprintf("yr?y=%s&r=%s", year, reporter_iso),
-    "yr-communities" = sprintf("yr-communities?y=%s&r=%s", year, reporter_iso),
     "yr-groups" = sprintf("yr-groups?y=%s&r=%s", year, reporter_iso),
     "yc" = sprintf("yc?y=%s&c=%s", year, commodity_code),
     "years" = "years"

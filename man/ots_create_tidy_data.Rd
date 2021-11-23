@@ -5,7 +5,7 @@
 \title{Downloads and processes the data from the API to return a human-readable tibble}
 \usage{
 ots_create_tidy_data(
-  years = 2018,
+  years = 2019,
   reporters = "all",
   partners = "all",
   commodities = "all",
@@ -19,7 +19,7 @@ ots_create_tidy_data(
 \arguments{
 \item{years}{Year contained within the years specified in
 api.tradestatistics.io/year_range (e.g. \code{c(1980,1985)}, \code{c(1980:1981)} or \code{1980}).
-Default set to \code{1962}.}
+Default set to \code{2019}.}
 
 \item{reporters}{ISO code for reporter country (e.g. \code{"chl"}, \code{"Chile"} or
 \code{c("chl", "Peru")}). Default set to \code{"all"}.}

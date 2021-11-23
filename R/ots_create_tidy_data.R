@@ -3,7 +3,7 @@
 #' performs different API calls to transform and return tidy data.
 #' @param years Year contained within the years specified in
 #' api.tradestatistics.io/year_range (e.g. \code{c(1980,1985)}, \code{c(1980:1981)} or \code{1980}).
-#' Default set to \code{1962}.
+#' Default set to \code{2019}.
 #' @param reporters ISO code for reporter country (e.g. \code{"chl"}, \code{"Chile"} or
 #' \code{c("chl", "Peru")}). Default set to \code{"all"}.
 #' @param partners ISO code for partner country (e.g. \code{"chl"}, \code{"Chile"} or
@@ -49,7 +49,7 @@
 #' ots_create_tidy_data(years = 1980, reporters = "chl", commodities = "apple", table = "yrc")
 #' }
 #' @keywords functions
-ots_create_tidy_data <- function(years = 2018,
+ots_create_tidy_data <- function(years = 2019,
                                  reporters = "all",
                                  partners = "all",
                                  commodities = "all",
@@ -101,12 +101,10 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   )
 
   if (use_localhost) {
-    max_year <- unlist(fromJSON("http://localhost:8080/year_range"))
+    year_range <- unlist(fromJSON("http://localhost:8080/year_range"))
   } else {
-    max_year <- unlist(fromJSON("https://api.tradestatistics.io/year_range"))
+    year_range <- unlist(fromJSON("https://api.tradestatistics.io/year_range"))
   }
-  
-  year_range <- c(1962, max_year)
   
   if (all(years %in% min(year_range):max(year_range)) != TRUE &
     table %in% year_depending_queries) {
