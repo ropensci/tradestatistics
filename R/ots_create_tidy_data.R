@@ -95,7 +95,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   }
 
   # Check years ----
-  year_depending_queries <- grep("^reporters|^y",
+  year_depending_queries <- grep("^reporters|^y|^rtas",
     tradestatistics::ots_tables$table,
     value = T
   )
@@ -334,7 +334,8 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
                      grep("^partner_", colnames(data), value = TRUE),
                      grep("^commodity_", colnames(data), value = TRUE),
                      grep("^group_", colnames(data), value = TRUE),
-                     grep("^trade_", colnames(data), value = TRUE)
+                     grep("^trade_", colnames(data), value = TRUE),
+                     grep("^country|^rta", colnames(data), value = TRUE)
   )
 
   data <- data[, ..columns_order]
