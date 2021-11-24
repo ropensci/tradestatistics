@@ -7,16 +7,16 @@
   "identifier": "tradestatistics",
   "description": "Access 'Open Trade Statistics' API from R to download international trade data.",
   "name": "tradestatistics: Open Trade Statistics API Wrapper and Utility Program",
-  "codeRepository": "https://github.com/ropensci/tradestatistics",
+  "codeRepository": "https://github.com/pachadotdev/tradestatistics",
   "issueTracker": "https://github.com/ropensci/tradestatistics/issues",
   "license": "Apache License 2",
-  "version": "2.0",
+  "version": "3.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.1.0 (2021-05-18)",
+  "runtimePlatform": "R version 4.1.2 (2021-11-01)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -40,6 +40,11 @@
     },
     {
       "@type": "Person",
+      "givenName": "Alexey",
+      "familyName": "Kravchenko"
+    },
+    {
+      "@type": "Person",
       "givenName": "Emma",
       "familyName": "Mendelsohn"
     },
@@ -60,14 +65,6 @@
     {
       "@type": "Organization",
       "name": "The World Bank"
-    },
-    {
-      "@type": "Organization",
-      "name": "Center for International Development at Harvard University"
-    },
-    {
-      "@type": "Organization",
-      "name": "The Observatory of Economic Complexity"
     }
   ],
   "copyrightHolder": [
@@ -226,12 +223,12 @@
       "sameAs": "https://CRAN.R-project.org/package=digest"
     }
   ],
-  "releaseNotes": "https://github.com/ropensci/tradestatistics/blob/master/NEWS.md",
-  "fileSize": "1676.313KB",
-  "contIntegration": ["https://github.com/tradestatistics/tradestatistics/actions?workflow=R-CMD-check", "https://codecov.io/github/ropensci/tradestatistics?branch=master"],
+  "releaseNotes": "https://github.com/pachadotdev/tradestatistics/blob/master/NEWS.md",
+  "fileSize": "3532.128KB",
+  "contIntegration": ["https://github.com/ropensci/tradestatistics/actions?workflow=R-CMD-check", "https://codecov.io/github/ropensci/tradestatistics?branch=master"],
   "developmentStatus": ["https://www.repostatus.org/#active", "https://www.tidyverse.org/lifecycle/#stable"],
   "relatedLink": "https://docs.ropensci.org/tradestatistics/",
-  "readme": "https://github.com/ropensci/tradestatistics/blob/master/README.md",
+  "readme": "https://github.com/pachadotdev/tradestatistics/blob/master/README.md",
   "review": {
     "@type": "Review",
     "url": "https://github.com/ropensci/software-review/issues/274",
