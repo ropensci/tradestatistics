@@ -170,12 +170,12 @@ This table accepts different years, reporters and partners just like `yrpc`.
 
 ### Reporter trade at commodity level (Year - Reporter - Commodity Code) 
 
-If we want Chilean trade at commodity level in 2019 with respect to commodity "010121" which means "Horses; live, pure-bred breeding animals":
+If we want Chilean trade at commodity level in 2019 with respect to commodity "010110" which means "Horses, asses, mules and hinnies; live, pure-bred breeding animals":
 ```{r yrc2, eval = T}
 yrc <- ots_create_tidy_data(
   years = 2019,
   reporters = "chl",
-  commodities = "010121",
+  commodities = "010110",
   table = "yrc"
 )
 
@@ -215,11 +215,11 @@ yc <- ots_create_tidy_data(
 datatable(yc)
 ```
 
-If we want the traded values of the commodity "010121" which means "Horses; live, pure-bred breeding animals" in 2019:
+If we want the traded values of the commodity "010110" which means "Horses, asses, mules and hinnies; live, pure-bred breeding animals" in 2019:
 ```{r yc2, eval = T}
 yc2 <- ots_create_tidy_data(
   years = 2019,
-  commodities = "010121",
+  commodities = "010110",
   table = "yc"
 )
 

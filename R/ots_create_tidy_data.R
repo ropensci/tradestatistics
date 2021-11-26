@@ -2,7 +2,7 @@
 #' @description Accesses \code{api.tradestatistics.io} and
 #' performs different API calls to transform and return tidy data.
 #' @param years Year contained within the years specified in
-#' api.tradestatistics.io/year_range (e.g. \code{c(1980,1985)}, \code{c(1980:1981)} or \code{1980}).
+#' api.tradestatistics.io/year_range (e.g. \code{c(2002,2004)}, \code{c(2002:2004)} or \code{2002}).
 #' Default set to \code{2019}.
 #' @param reporters ISO code for reporter country (e.g. \code{"chl"}, \code{"Chile"} or
 #' \code{c("chl", "Peru")}). Default set to \code{"all"}.
@@ -38,15 +38,15 @@
 #' # Run `ots_countries` to display the full table of countries
 #' # Run `ots_commodities` to display the full table of commodities
 #'
-#' # What does Chile export to China? (1980)
-#' ots_create_tidy_data(years = 1980, reporters = "chl", partners = "chn")
+#' # What does Chile export to China? (2002)
+#' ots_create_tidy_data(years = 2002, reporters = "chl", partners = "chn")
 #'
-#' # What can we say about Horses export in Chile and the World? (1980)
-#' ots_create_tidy_data(years = 1980, commodities = "010101", table = "yc")
-#' ots_create_tidy_data(years = 1980, reporters = "chl", commodities = "010101", table = "yrc")
+#' # What can we say about Horses export in Chile and the World? (2002)
+#' ots_create_tidy_data(years = 2002, commodities = "010110", table = "yc")
+#' ots_create_tidy_data(years = 2002, reporters = "chl", commodities = "010110", table = "yrc")
 #'
-#' # What can we say about the different types of apples exported by Chile? (1980)
-#' ots_create_tidy_data(years = 1980, reporters = "chl", commodities = "apple", table = "yrc")
+#' # What can we say about the different types of apples exported by Chile? (2002)
+#' ots_create_tidy_data(years = 2002, reporters = "chl", commodities = "apple", table = "yrc")
 #' }
 #' @keywords functions
 ots_create_tidy_data <- function(years = 2019,

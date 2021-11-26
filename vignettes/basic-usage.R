@@ -82,7 +82,7 @@ datatable(yrp)
 yrc <- ots_create_tidy_data(
   years = 2019,
   reporters = "chl",
-  commodities = "010121",
+  commodities = "010110",
   table = "yrc"
 )
 
@@ -108,7 +108,7 @@ datatable(yc)
 ## ----yc2, eval = T------------------------------------------------------------
 yc2 <- ots_create_tidy_data(
   years = 2019,
-  commodities = "010121",
+  commodities = "010110",
   table = "yc"
 )
 
