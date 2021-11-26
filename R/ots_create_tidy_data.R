@@ -95,7 +95,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   }
 
   # Check years ----
-  year_depending_queries <- grep("^reporters|^y|^rtas",
+  year_depending_queries <- grep("^reporters|^y|^rtas|^tariffs",
     tradestatistics::ots_tables$table,
     value = T
   )
@@ -112,7 +112,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   }
 
   # Check reporters and partners ----
-  reporter_depending_queries <- grep("^yr",
+  reporter_depending_queries <- grep("^yr|^tariffs",
     tradestatistics::ots_tables$table,
     value = T
   )
@@ -181,7 +181,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   }
 
   # Check commodity codes ----
-  commodities_depending_queries <- grep("c$",
+  commodities_depending_queries <- grep("c$|^tariffs",
     tradestatistics::ots_tables$table,
     value = T
   )
@@ -335,7 +335,8 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
                      grep("^commodity_", colnames(data), value = TRUE),
                      grep("^group_", colnames(data), value = TRUE),
                      grep("^trade_", colnames(data), value = TRUE),
-                     grep("^country|^rta", colnames(data), value = TRUE)
+                     grep("^country|^rta", colnames(data), value = TRUE),
+                     grep("rate|average|line", colnames(data), value = TRUE)
   )
 
   data <- data[, ..columns_order]

@@ -15,7 +15,7 @@ Data
 * The inflation data was trimmed to a window since the year 2000
 * The commodities data now contains information for +5000 products instead of
  +1200 as the aggregation level changed in the API
-* Adds RTAs for gravity modelling
+* Adds RTAs and MFN tariffs for gravity modelling
 
 # Version 2.0
 

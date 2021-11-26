@@ -64,6 +64,10 @@ ots_read_from_api <- function(year = NULL,
     "yc" = sprintf("yc?y=%s&c=%s", year, commodity_code),
     "years" = "years",
     "rtas" = sprintf("rtas?y=%s", year),
+    "tariffs" = sprintf(
+      "tariffs?y=%s&r=%s&c=%s",
+      year, reporter_iso, commodity_code
+    )
   )
 
   if (use_localhost == TRUE) {
