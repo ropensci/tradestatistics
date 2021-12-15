@@ -1,12 +1,12 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.tradestatistics.io/yr?y=1964&r=chl
+    uri: http://localhost/yr?y=2004&r=chl
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.2.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -16,98 +16,13 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.18.0 (Ubuntu)
-      date: Mon, 09 Aug 2021 02:07:21 GMT
+      date: Wed, 15 Dec 2021 18:21:14 GMT
       content-type: application/json
-      content-length: '237'
-      connection: keep-alive
+      content-encoding: gzip
+      transfer-encoding: chunked
     body:
       encoding: UTF-8
       file: no
-      string: '[{"year":"1964","reporter_iso":"chl","trade_value_usd_exp":467940167,"trade_value_usd_imp":221748506,"commodity_code_top_exp":"7401","trade_value_usd_top_exp":220058901,"commodity_code_top_imp":"8484","trade_value_usd_top_imp":23573175}]'
-  recorded_at: 2021-08-09 02:07:26 GMT
-  recorded_with: vcr/1.0.2, webmockr/0.8.0
-- request:
-    method: get
-    uri: https://api.tradestatistics.io/yr?y=1964&r=arg
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.18.0 (Ubuntu)
-      date: Mon, 09 Aug 2021 02:07:23 GMT
-      content-type: application/json
-      content-length: '235'
-      connection: keep-alive
-    body:
-      encoding: UTF-8
-      file: no
-      string: '[{"year":"1964","reporter_iso":"arg","trade_value_usd_exp":96382343,"trade_value_usd_imp":503002719,"commodity_code_top_exp":"3501","trade_value_usd_top_exp":11476987,"commodity_code_top_imp":"4016","trade_value_usd_top_imp":82107972}]'
-  recorded_at: 2021-08-09 02:07:26 GMT
-  recorded_with: vcr/1.0.2, webmockr/0.8.0
-- request:
-    method: get
-    uri: https://api.tradestatistics.io/yrp?y=1964&r=mex&p=usa
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.18.0 (Ubuntu)
-      date: Mon, 09 Aug 2021 02:07:26 GMT
-      content-type: application/json
-      content-length: '122'
-      connection: keep-alive
-    body:
-      encoding: UTF-8
-      file: no
-      string: '[{"year":"1964","reporter_iso":"mex","partner_iso":"usa","trade_value_usd_exp":158414424,"trade_value_usd_imp":448798212}]'
-  recorded_at: 2021-08-09 02:07:26 GMT
-  recorded_with: vcr/1.0.2, webmockr/0.8.0
-- request:
-    method: get
-    uri: https://api.tradestatistics.io/yrp?y=1964&r=mex&p=can
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.18.0 (Ubuntu)
-      date: Mon, 09 Aug 2021 02:07:26 GMT
-      content-type: application/json
-      content-length: '119'
-      connection: keep-alive
-    body:
-      encoding: UTF-8
-      file: no
-      string: '[{"year":"1964","reporter_iso":"mex","partner_iso":"can","trade_value_usd_exp":4300203,"trade_value_usd_imp":16515755}]'
-  recorded_at: 2021-08-09 02:07:26 GMT
+      string: '[{"year":2004,"reporter_iso":"chl","trade_value_usd_exp":33025407556,"trade_value_usd_imp":24714538547}]'
+  recorded_at: 2021-12-15 18:21:14 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0

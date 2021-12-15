@@ -80,16 +80,6 @@ The Package Functions section explains that you don't need to memorize all HS co
 datatable(ots_commodities)
 ```
 
-## Commodity shortnames
-
-```{r commodities2, eval = T}
-datatable(ots_commodities_shortnames)
-```
-
-## Commodity communities
-```{r commodities3, eval = T}
-datatable(ots_communities)
-```
 ## Inflation data
 
 This table is provided to be used with `ots_inflation_adjustment()`.
@@ -125,30 +115,22 @@ The end user can find a code or a set of codes by looking for keywords for commo
 datatable(ots_commodity_code(commodity = " ShEEp ", group = " mEaT "))
 ```
 
-## Community code
-
-It's also possible to match commodities to communities (i.e. larger aggregation than community groups) created by the Center for International Development at Harvard:
-```{r commodity_code}
-datatable(ots_commodity_community(" ANIMAL "))
-```
-
-While there are 99 official community groups, the total number of commodity communities is 22. This is specially useful to visualize data but it not an official United Nations aggregation.
-
 ## Trade data
 
 This function downloads data for a single year and needs (at least) some filter parameters according to the query type.
 
-Here we cover aggregated tables to describe the usage.
+Here we cover aggregated tables to describe the usage. Note: here you may skip the `use_localhost = TRUE` argument.
 
 ### Bilateral trade at commodity level (Year - Reporter - Partner - Commodity Code)
 
-If we want Chile-Argentina bilateral trade at community level in 1962:
+If we want Chile-Argentina bilateral trade at community level in 2019:
 ```{r yrpc1, eval = T}
 yrpc <- ots_create_tidy_data(
-  years = 1990,
+  years = 2019,
   reporters = "chl",
   partners = "arg",
-  table = "yrpc"
+  table = "yrpc",
+  use_localhost = TRUE
 )
 
 datatable(yrpc)
@@ -159,11 +141,12 @@ We can pass two years or more, several reporters/partners, and filter by commodi
 # Note that here I'm passing Peru and not per which is the ISO code for Peru
 # The same applies to Brazil
 yrpc2 <- ots_create_tidy_data(
-  years = c(1962,1963),
+  years = 2018:2019,
   reporters = c("chl", "Peru", "bol"),
   partners = c("arg", "Brazil"),
   commodities = c("01", "food"),
-  table = "yrpc"
+  table = "yrpc",
+  use_localhost = TRUE
 )
 datatable(yrpc2)
 ```
@@ -172,14 +155,15 @@ The `yrpc` table returns some fields that deserve an explanation which can be se
 
 ### Bilateral trade at aggregated level (Year - Reporter - Partner)
 
-If we want Chile-Argentina bilateral trade at aggregated level in 1962 and 1963:
+If we want Chile-Argentina bilateral trade at aggregated level in 2018 and 2019:
 
 ```{r yrp3, eval = T}
 yrp <- ots_create_tidy_data(
-  years = 1962:1963,
+  years = 2018:2019,
   reporters = c("chl", "per"),
   partners = "arg",
-  table = "yrp"
+  table = "yrp",
+  use_localhost = TRUE
 )
 
 datatable(yrp)
@@ -189,13 +173,14 @@ This table accepts different years, reporters and partners just like `yrpc`.
 
 ### Reporter trade at commodity level (Year - Reporter - Commodity Code) 
 
-If we want Chilean trade at commodity level in 1962 with respect to commodity "0101" which means "Horses, asses, mules and hinnies; live":
+If we want Chilean trade at commodity level in 2019 with respect to commodity "010121" which means "Horses; live, pure-bred breeding animals":
 ```{r yrc2, eval = T}
 yrc <- ots_create_tidy_data(
-  years = 1962,
+  years = 2019,
   reporters = "chl",
-  commodities = "0101",
-  table = "yrc"
+  commodities = "010121",
+  table = "yrc",
+  use_localhost = TRUE
 )
 
 datatable(yrc)
@@ -207,12 +192,13 @@ All the variables from this table are documented at [tradestatistics.io](https:/
 
 ### Reporter trade at aggregated level (Year - Reporter)
 
-If we want the aggregated trade of Chile, Argentina and Peru in 1962 and 1963:
+If we want the aggregated trade of Chile, Argentina and Peru in 2018 and 2019:
 ```{r yr2, eval = T}
 yr <- ots_create_tidy_data(
-  years = 1962:1963,
+  years = 2018:2019,
   reporters = c("chl", "arg", "per"),
-  table = "yr"
+  table = "yr",
+  use_localhost = TRUE
 )
 
 datatable(yr)
@@ -224,22 +210,24 @@ All the variables from this table are documented at [tradestatistics.io](https:/
 
 ### Commodity trade at aggregated level (Year - Commodity Code)
 
-If we want all commodities traded in 1962:
+If we want all commodities traded in 2019:
 ```{r yc1, eval = T}
 yc <- ots_create_tidy_data(
-  years = 1962,
-  table = "yc"
+  years = 2019,
+  table = "yc",
+  use_localhost = TRUE
 )
 
 datatable(yc)
 ```
 
-If we want the traded values of the commodity "0808" which means "Horses, asses, mules and hinnies; live: in 1962:" in 1962:
+If we want the traded values of the commodity "010121" which means "Horses; live, pure-bred breeding animals" in 2019:
 ```{r yc2, eval = T}
 yc2 <- ots_create_tidy_data(
-  years = 1962,
-  commodities = "0808",
-  table = "yc"
+  years = 2019,
+  commodities = "010121",
+  table = "yc",
+  use_localhost = TRUE
 )
 
 datatable(yc2)
@@ -249,9 +237,9 @@ This table accepts different years just like `yrpc`.
 
 ## Inflation adjustment
 
-Taking the `yr` table from above, we can use `ots_inflation_adjustment()` to convert dollars from 1962 to dollars of 1970:
+Taking the `yr` table from above, we can use `ots_inflation_adjustment()` to convert dollars from 2019 to dollars of 2000:
 
 ```{r}
-inflation <- ots_inflation_adjustment(yr, reference_year = 1970)
+inflation <- ots_inflation_adjustment(yr, reference_year = 2000)
 datatable(inflation)
 ```

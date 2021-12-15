@@ -1,3 +1,22 @@
+# Version 3.0
+
+Updates
+* Removes all references to tables using communities or short names 
+ (both unofficial), reflecting changes in the API
+* The functionality remains the same, but now the end user functions don't
+ add a 21-colors palette to the data (i.e. see the data section)
+
+Data
+
+* Switches from HS92  to HS12 to reflect product changes with less aggregation
+* Drops any data from Harvard (communities and short product names) as these
+ depend on using HS92 4 digits, therefore the color palettes were removed as
+ these depended on the communities table
+* The inflation data was trimmed to a window since the year 2000
+* The commodities data now contains information for +5000 products instead of
+ +1200 as the aggregation level changed in the API
+* Adds RTAs and MFN tariffs for gravity modelling
+
 # Version 2.0
 
 Updates 

@@ -50,22 +50,36 @@ ots_read_from_api <- function(year = NULL,
     "reporters" = sprintf("reporters?y=%s", year),
     "partners" = sprintf("partners?y=%s", year),
     "commodities" = "commodities",
-    "commodities_shortnames" = "commodities_shortnames",
-    "commodities_communities" = "commodities_communities",
     "yrpc" = sprintf(
       "yrpc?y=%s&r=%s&p=%s&c=%s",
       year, reporter_iso, partner_iso, commodity_code
     ),
+    "yrpc-imputed" = sprintf(
+      "yrpc-imputed?y=%s&r=%s&p=%s&c=%s",
+      year, reporter_iso, partner_iso, commodity_code
+    ),
     "yrp" = sprintf("yrp?y=%s&r=%s&p=%s", year, reporter_iso, partner_iso),
+    "yrp-imputed" = sprintf("yrp-imputed?y=%s&r=%s&p=%s", year, reporter_iso, partner_iso),
     "yrc" = sprintf(
       "yrc?y=%s&r=%s&c=%s",
       year, reporter_iso, commodity_code
     ),
+    "yrc-imputed" = sprintf(
+      "yrc-imputed?y=%s&r=%s&c=%s",
+      year, reporter_iso, commodity_code
+    ),
     "yr" = sprintf("yr?y=%s&r=%s", year, reporter_iso),
-    "yr-communities" = sprintf("yr-communities?y=%s&r=%s", year, reporter_iso),
+    "yr-imputed" = sprintf("yr-imputed?y=%s&r=%s", year, reporter_iso),
     "yr-groups" = sprintf("yr-groups?y=%s&r=%s", year, reporter_iso),
+    "yr-groups-imputed" = sprintf("yr-groups-imputed?y=%s&r=%s", year, reporter_iso),
     "yc" = sprintf("yc?y=%s&c=%s", year, commodity_code),
-    "years" = "years"
+    "yc-imputed" = sprintf("yc-imputed?y=%s&c=%s", year, commodity_code),
+    "years" = "years",
+    "rtas" = sprintf("rtas?y=%s", year),
+    "tariffs" = sprintf(
+      "tariffs?y=%s&r=%s&c=%s",
+      year, reporter_iso, commodity_code
+    )
   )
 
   if (use_localhost == TRUE) {

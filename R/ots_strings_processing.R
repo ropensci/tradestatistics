@@ -128,37 +128,3 @@ ots_commodity_code <- function(commodity = NULL, group = NULL) {
   
   return(d)
 }
-
-#' String matching of unofficial commodity community codes according to
-#' the Center for International Development at Harvard University nomenclature
-#' @description Takes a text string and searches within the
-#' package data for all matching communities in the context of valid API
-#' communities
-#' @param community A text string such as "animals", or "FOODSTUFFS".
-#' @return A tibble with all possible matches (no uppercase distinction)
-#' showing the section name and section code
-#' @export
-#' @examples
-#' ots_commodity_community(community = "Animal")
-#' ots_commodity_community(community = "  Animals")
-#' ots_commodity_community(community = "FABRIC ")
-#' @keywords functions
-ots_commodity_community <- function(community = NULL) {
-  if (is.null(community)) {
-    stop("'community' is NULL.")
-  }
-  
-  stopifnot(is.character(community))
-  
-  community <- tolower(iconv(community, to = "ASCII//TRANSLIT", sub = ""))
-  community <- gsub("[^[:alpha:]]", "", community)
-
-  if (community == "") {
-    stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the commodities table provided within this package.")
-  } else {
-    dc <- unique(tradestatistics::ots_communities[, c("community_code", "community_name")])
-    d <- dc[grepl(community, tolower(community_name))]
-  }
-  
-  return(d)
-}

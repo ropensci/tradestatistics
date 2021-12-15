@@ -2,8 +2,8 @@
 #' @description Accesses \code{api.tradestatistics.io} and
 #' performs different API calls to transform and return tidy data.
 #' @param years Year contained within the years specified in
-#' api.tradestatistics.io/year_range (e.g. \code{c(1980,1985)}, \code{c(1980:1981)} or \code{1980}).
-#' Default set to \code{1962}.
+#' api.tradestatistics.io/year_range (e.g. \code{c(2002,2004)}, \code{c(2002:2004)} or \code{2002}).
+#' Default set to \code{2019}.
 #' @param reporters ISO code for reporter country (e.g. \code{"chl"}, \code{"Chile"} or
 #' \code{c("chl", "Peru")}). Default set to \code{"all"}.
 #' @param partners ISO code for partner country (e.g. \code{"chl"}, \code{"Chile"} or
@@ -38,18 +38,18 @@
 #' # Run `ots_countries` to display the full table of countries
 #' # Run `ots_commodities` to display the full table of commodities
 #'
-#' # What does Chile export to China? (1980)
-#' ots_create_tidy_data(years = 1980, reporters = "chl", partners = "chn")
+#' # What does Chile export to China? (2002)
+#' ots_create_tidy_data(years = 2002, reporters = "chl", partners = "chn")
 #'
-#' # What can we say about Horses export in Chile and the World? (1980)
-#' ots_create_tidy_data(years = 1980, commodities = "0101", table = "yc")
-#' ots_create_tidy_data(years = 1980, reporters = "chl", commodities = "0101", table = "yrc")
+#' # What can we say about Horses export in Chile and the World? (2002)
+#' ots_create_tidy_data(years = 2002, commodities = "010110", table = "yc")
+#' ots_create_tidy_data(years = 2002, reporters = "chl", commodities = "010110", table = "yrc")
 #'
-#' # What can we say about the different types of apples exported by Chile? (1980)
-#' ots_create_tidy_data(years = 1980, reporters = "chl", commodities = "apple", table = "yrc")
+#' # What can we say about the different types of apples exported by Chile? (2002)
+#' ots_create_tidy_data(years = 2002, reporters = "chl", commodities = "apple", table = "yrc")
 #' }
 #' @keywords functions
-ots_create_tidy_data <- function(years = 2018,
+ots_create_tidy_data <- function(years = 2019,
                                  reporters = "all",
                                  partners = "all",
                                  commodities = "all",
@@ -95,18 +95,16 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   }
 
   # Check years ----
-  year_depending_queries <- grep("^reporters|^y",
+  year_depending_queries <- grep("^reporters|^y|^rtas|^tariffs",
     tradestatistics::ots_tables$table,
     value = T
   )
 
   if (use_localhost) {
-    max_year <- unlist(fromJSON("http://localhost:8080/year_range"))
+    year_range <- unlist(fromJSON("http://localhost:8080/year_range"))
   } else {
-    max_year <- unlist(fromJSON("https://api.tradestatistics.io/year_range"))
+    year_range <- unlist(fromJSON("https://api.tradestatistics.io/year_range"))
   }
-  
-  year_range <- c(1962, max_year)
   
   if (all(years %in% min(year_range):max(year_range)) != TRUE &
     table %in% year_depending_queries) {
@@ -114,7 +112,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   }
 
   # Check reporters and partners ----
-  reporter_depending_queries <- grep("^yr",
+  reporter_depending_queries <- grep("^yr|^tariffs",
     tradestatistics::ots_tables$table,
     value = T
   )
@@ -183,7 +181,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   }
 
   # Check commodity codes ----
-  commodities_depending_queries <- grep("c$",
+  commodities_depending_queries <- grep("c$|c-imputed$|^tariffs",
     tradestatistics::ots_tables$table,
     value = T
   )
@@ -316,20 +314,10 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
                   all.x = TRUE, all.y = FALSE,
                   by.x = "commodity_code", by.y = "commodity_code",
                   allow.cartesian = TRUE)
-    
-    data <- merge(data, tradestatistics::ots_commodities_shortnames,
-                  all.x = TRUE, all.y = FALSE,
-                  by.x = "commodity_code", by.y = "commodity_code",
-                  allow.cartesian = TRUE)
-    
-    data <- merge(data, tradestatistics::ots_communities,
-                  all.x = TRUE, all.y = FALSE,
-                  by.x = "commodity_code", by.y = "commodity_code",
-                  allow.cartesian = TRUE)
   }
   
   # special YR cases
-  if (table == "yr-groups") {
+  if (grepl("yr-groups", table)) {
     ots_groups <- unique(tradestatistics::ots_commodities[, c("group_code", "group_fullname_english")])
     ots_groups <- ots_groups[!is.na(ots_groups$group_code), ]
     
@@ -341,25 +329,14 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     }
   }
   
-  if (table == "yr-communities") {
-    ots_unique_communities <- unique(tradestatistics::ots_communities[, c("community_code", "community_name", "community_color")])
-    ots_unique_communities <- ots_unique_communities[!is.na(ots_unique_communities$community_code), ]
-    
-    if (any(colnames(data) %in% "community_code")) {
-      data <- merge(data, ots_unique_communities,
-                    all.x = TRUE, all.y = FALSE,
-                    by.x = "community_code", by.y = "community_code",
-                    allow.cartesian = TRUE)
-    }
-  }
-  
   columns_order <- c("year",
                      grep("^reporter_", colnames(data), value = TRUE),
                      grep("^partner_", colnames(data), value = TRUE),
                      grep("^commodity_", colnames(data), value = TRUE),
                      grep("^group_", colnames(data), value = TRUE),
-                     grep("^community_", colnames(data), value = TRUE),
-                     grep("^trade_", colnames(data), value = TRUE)
+                     grep("^trade_", colnames(data), value = TRUE),
+                     grep("^country|^rta", colnames(data), value = TRUE),
+                     grep("rate|average|line", colnames(data), value = TRUE)
   )
 
   data <- data[, ..columns_order]

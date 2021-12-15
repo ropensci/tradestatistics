@@ -4,7 +4,7 @@ test_that("ots_commodity_code works properly for a partial product string matchi
   test_product <- ots_commodity_code(commodity = "fruit")
 
   expect_is(test_product, "data.frame")
-  expect_equal(nrow(test_product),26)
+  expect_equal(nrow(test_product),89)
   expect_equal(ncol(test_product),4)
 })
 
@@ -39,7 +39,7 @@ test_that("ots_commodity_code works ok for both specified product and group", {
   
   expect_is(test_both, "data.frame")
   expect_equal(ncol(test_both),4)
-  expect_equal(nrow(test_both),2)
+  expect_equal(nrow(test_both),8)
 })
 
 test_that("ots_commodity_code fails with NULL product/group", {
@@ -58,14 +58,4 @@ test_that("ots_commodity_code returns error or no results for strange inputs", {
   d <- ots_commodity_code(commodity = "kriptonite", group = "adamantium")
   expect_is(d, "data.frame")
   expect_equal(nrow(d),0)
-})
-
-test_that("ots_product_community works as expected with common cases", {
-  expect_is(tradestatistics::ots_commodity_community("animal"), "data.frame")
-  expect_is(tradestatistics::ots_commodity_community("vegetable"), "data.frame")
-})
-
-test_that("ots_product_community works as expected with special cases", {
-  expect_error(tradestatistics::ots_commodity_community())
-  expect_error(tradestatistics::ots_commodity_community("123"))
 })
