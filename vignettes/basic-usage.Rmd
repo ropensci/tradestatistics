@@ -119,7 +119,7 @@ datatable(ots_commodity_code(commodity = " ShEEp ", group = " mEaT "))
 
 This function downloads data for a single year and needs (at least) some filter parameters according to the query type.
 
-Here we cover aggregated tables to describe the usage.
+Here we cover aggregated tables to describe the usage. Note: here you may skip the `use_localhost = TRUE` argument.
 
 ### Bilateral trade at commodity level (Year - Reporter - Partner - Commodity Code)
 
@@ -129,7 +129,8 @@ yrpc <- ots_create_tidy_data(
   years = 2019,
   reporters = "chl",
   partners = "arg",
-  table = "yrpc"
+  table = "yrpc",
+  use_localhost = TRUE
 )
 
 datatable(yrpc)
@@ -144,7 +145,8 @@ yrpc2 <- ots_create_tidy_data(
   reporters = c("chl", "Peru", "bol"),
   partners = c("arg", "Brazil"),
   commodities = c("01", "food"),
-  table = "yrpc"
+  table = "yrpc",
+  use_localhost = TRUE
 )
 datatable(yrpc2)
 ```
@@ -160,7 +162,8 @@ yrp <- ots_create_tidy_data(
   years = 2018:2019,
   reporters = c("chl", "per"),
   partners = "arg",
-  table = "yrp"
+  table = "yrp",
+  use_localhost = TRUE
 )
 
 datatable(yrp)
@@ -170,13 +173,14 @@ This table accepts different years, reporters and partners just like `yrpc`.
 
 ### Reporter trade at commodity level (Year - Reporter - Commodity Code) 
 
-If we want Chilean trade at commodity level in 2019 with respect to commodity "010110" which means "Horses, asses, mules and hinnies; live, pure-bred breeding animals":
+If we want Chilean trade at commodity level in 2019 with respect to commodity "010121" which means "Horses; live, pure-bred breeding animals":
 ```{r yrc2, eval = T}
 yrc <- ots_create_tidy_data(
   years = 2019,
   reporters = "chl",
-  commodities = "010110",
-  table = "yrc"
+  commodities = "010121",
+  table = "yrc",
+  use_localhost = TRUE
 )
 
 datatable(yrc)
@@ -193,7 +197,8 @@ If we want the aggregated trade of Chile, Argentina and Peru in 2018 and 2019:
 yr <- ots_create_tidy_data(
   years = 2018:2019,
   reporters = c("chl", "arg", "per"),
-  table = "yr"
+  table = "yr",
+  use_localhost = TRUE
 )
 
 datatable(yr)
@@ -209,18 +214,20 @@ If we want all commodities traded in 2019:
 ```{r yc1, eval = T}
 yc <- ots_create_tidy_data(
   years = 2019,
-  table = "yc"
+  table = "yc",
+  use_localhost = TRUE
 )
 
 datatable(yc)
 ```
 
-If we want the traded values of the commodity "010110" which means "Horses, asses, mules and hinnies; live, pure-bred breeding animals" in 2019:
+If we want the traded values of the commodity "010121" which means "Horses; live, pure-bred breeding animals" in 2019:
 ```{r yc2, eval = T}
 yc2 <- ots_create_tidy_data(
   years = 2019,
-  commodities = "010110",
-  table = "yc"
+  commodities = "010121",
+  table = "yc",
+  use_localhost = TRUE
 )
 
 datatable(yc2)

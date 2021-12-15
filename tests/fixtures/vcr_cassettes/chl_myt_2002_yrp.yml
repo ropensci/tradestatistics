@@ -1,0 +1,29 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost/yrp?y=2002&r=chl&p=myt
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.2.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 15 Dec 2021 18:21:13 GMT
+      content-type: application/json
+      content-encoding: gzip
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"year":"2002","reporter_iso":"chl","partner_iso":"myt","observation":"No
+        data available for these filtering parameters"}]'
+  recorded_at: 2021-12-15 18:21:13 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

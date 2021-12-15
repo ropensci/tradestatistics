@@ -181,7 +181,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   }
 
   # Check commodity codes ----
-  commodities_depending_queries <- grep("c$|^tariffs",
+  commodities_depending_queries <- grep("c$|c-imputed$|^tariffs",
     tradestatistics::ots_tables$table,
     value = T
   )
@@ -317,7 +317,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   }
   
   # special YR cases
-  if (table == "yr-groups") {
+  if (grepl("yr-groups", table)) {
     ots_groups <- unique(tradestatistics::ots_commodities[, c("group_code", "group_fullname_english")])
     ots_groups <- ots_groups[!is.na(ots_groups$group_code), ]
     
