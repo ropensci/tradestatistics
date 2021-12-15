@@ -1,11 +1,11 @@
 context("inflation adjustment")
 
 test_that("ots_inflation_adjustment adjusts the data for yrpc", {
-  vcr::use_cassette(name = "chl_arg_1964_yrpc", {
+  vcr::use_cassette(name = "chl_arg_2004_yrpc", {
     # Bilateral trade Chile-Argentina at commodity level (1964)
     test_data <- ots_create_tidy_data(
       years = 2004, reporters = "chl", partners = "arg", table = "yrpc",
-      use_localhost = TRUE
+      use_localhost = FALSE
     )
 
     test_data_adjusted_backwards <- ots_inflation_adjustment(test_data, reference_year = 2000)
@@ -26,11 +26,11 @@ test_that("ots_inflation_adjustment adjusts the data for yrpc", {
 })
 
 test_that("ots_inflation_adjustment adjusts the data for yr", {
-  vcr::use_cassette(name = "chl_arg_1964_yr", {
+  vcr::use_cassette(name = "chl_arg_2004_yr", {
     # Bilateral trade Chile-Argentina at commodity level (1964)
     test_data <- ots_create_tidy_data(
       years = 2004, reporters = "chl", partners = "arg", table = "yr",
-      use_localhost = TRUE
+      use_localhost = FALSE
     )
     
     test_data_adjusted_backwards <- ots_inflation_adjustment(test_data, reference_year = 2000)
@@ -45,7 +45,7 @@ test_that("ots_inflation_adjustment fails if the parameters are null or out of r
     # Bilateral trade Chile-Argentina at commodity level (1964)
     test_data <- ots_create_tidy_data(
       years = 2002, reporters = "chl", partners = "arg", table = "yrp",
-      use_localhost = TRUE
+      use_localhost = FALSE
     )
 
     # truncated message as it changes when the API has more years

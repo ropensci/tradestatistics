@@ -1,7 +1,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost/yr?y=2004&r=chl
+    uri: https://api.tradestatistics.io/yr?y=2004&r=chl
     body:
       encoding: ''
       string: ''
@@ -16,13 +16,15 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 15 Dec 2021 18:21:14 GMT
+      server: nginx/1.18.0 (Ubuntu)
+      date: Wed, 15 Dec 2021 21:40:38 GMT
       content-type: application/json
-      content-encoding: gzip
       transfer-encoding: chunked
+      connection: keep-alive
+      content-encoding: gzip
     body:
       encoding: UTF-8
       file: no
       string: '[{"year":2004,"reporter_iso":"chl","trade_value_usd_exp":33025407556,"trade_value_usd_imp":24714538547}]'
-  recorded_at: 2021-12-15 18:21:14 GMT
+  recorded_at: 2021-12-15 21:40:38 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
