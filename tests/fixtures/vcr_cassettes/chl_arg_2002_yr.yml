@@ -1,7 +1,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost/yr?y=2002&r=chl
+    uri: https://api.tradestatistics.io/yr?y=2002&r=chl
     body:
       encoding: ''
       string: ''
@@ -16,19 +16,21 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 15 Dec 2021 18:21:13 GMT
+      server: nginx/1.18.0 (Ubuntu)
+      date: Wed, 15 Dec 2021 21:40:31 GMT
       content-type: application/json
-      content-encoding: gzip
       transfer-encoding: chunked
+      connection: keep-alive
+      content-encoding: gzip
     body:
       encoding: UTF-8
       file: no
       string: '[{"year":2002,"reporter_iso":"chl","trade_value_usd_exp":17423088183,"trade_value_usd_imp":15383398153}]'
-  recorded_at: 2021-12-15 18:21:13 GMT
+  recorded_at: 2021-12-15 21:40:32 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
-    uri: http://localhost/yr?y=2002&r=arg
+    uri: https://api.tradestatistics.io/yr?y=2002&r=arg
     body:
       encoding: ''
       string: ''
@@ -43,19 +45,21 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 15 Dec 2021 18:21:13 GMT
+      server: nginx/1.18.0 (Ubuntu)
+      date: Wed, 15 Dec 2021 21:40:31 GMT
       content-type: application/json
-      content-encoding: gzip
       transfer-encoding: chunked
+      connection: keep-alive
+      content-encoding: gzip
     body:
       encoding: UTF-8
       file: no
       string: '[{"year":2002,"reporter_iso":"arg","trade_value_usd_exp":25709371110,"trade_value_usd_imp":8989546000}]'
-  recorded_at: 2021-12-15 18:21:13 GMT
+  recorded_at: 2021-12-15 21:40:32 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
-    uri: http://localhost/yrp?y=2002&r=mex&p=usa
+    uri: https://api.tradestatistics.io/yrp?y=2002&r=mex&p=usa
     body:
       encoding: ''
       string: ''
@@ -70,19 +74,21 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 15 Dec 2021 18:21:13 GMT
+      server: nginx/1.18.0 (Ubuntu)
+      date: Wed, 15 Dec 2021 21:40:32 GMT
       content-type: application/json
-      content-encoding: gzip
       transfer-encoding: chunked
+      connection: keep-alive
+      content-encoding: gzip
     body:
       encoding: UTF-8
       file: no
       string: '[{"year":2002,"reporter_iso":"mex","partner_iso":"usa","trade_value_usd_exp":137963057176,"trade_value_usd_imp":106899862231}]'
-  recorded_at: 2021-12-15 18:21:13 GMT
+  recorded_at: 2021-12-15 21:40:32 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
-    uri: http://localhost/yrp?y=2002&r=mex&p=can
+    uri: https://api.tradestatistics.io/yrp?y=2002&r=mex&p=can
     body:
       encoding: ''
       string: ''
@@ -97,13 +103,15 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 15 Dec 2021 18:21:13 GMT
+      server: nginx/1.18.0 (Ubuntu)
+      date: Wed, 15 Dec 2021 21:40:32 GMT
       content-type: application/json
-      content-encoding: gzip
       transfer-encoding: chunked
+      connection: keep-alive
+      content-encoding: gzip
     body:
       encoding: UTF-8
       file: no
       string: '[{"year":2002,"reporter_iso":"mex","partner_iso":"can","trade_value_usd_exp":3010074713,"trade_value_usd_imp":4479574474}]'
-  recorded_at: 2021-12-15 18:21:13 GMT
+  recorded_at: 2021-12-15 21:40:32 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
