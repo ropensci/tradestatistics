@@ -15,13 +15,13 @@ test_that("ots_inflation_adjustment adjusts the data for yrpc", {
     test_data_adjusted_same <- ots_inflation_adjustment(test_data, reference_year = 2008)
     
     expect_is(test_data_adjusted_backwards, "data.frame")
-    expect_equal(ncol(test_data_adjusted_backwards), 13)
+    expect_equal(ncol(test_data_adjusted_backwards), 15)
 
     expect_is(test_data_adjusted_forwards, "data.frame")
-    expect_equal(ncol(test_data_adjusted_forwards), 13)
+    expect_equal(ncol(test_data_adjusted_forwards), 15)
     
     expect_is(test_data_adjusted_same, "data.frame")
-    expect_equal(ncol(test_data_adjusted_same), 13)
+    expect_equal(ncol(test_data_adjusted_same), 15)
   })
 })
 

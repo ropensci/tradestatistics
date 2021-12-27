@@ -334,6 +334,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
                      grep("^partner_", colnames(data), value = TRUE),
                      grep("^commodity_", colnames(data), value = TRUE),
                      grep("^group_", colnames(data), value = TRUE),
+                     grep("^section_", colnames(data), value = TRUE),
                      grep("^trade_", colnames(data), value = TRUE),
                      grep("^country|^rta", colnames(data), value = TRUE),
                      grep("rate|average|line", colnames(data), value = TRUE)
