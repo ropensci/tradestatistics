@@ -5,7 +5,7 @@ test_that("ots_commodity_code works properly for a partial product string matchi
 
   expect_is(test_product, "data.frame")
   expect_equal(nrow(test_product),89)
-  expect_equal(ncol(test_product),4)
+  expect_equal(ncol(test_product),6)
 })
 
 test_that("ots_commodity_code returns 0 rows for a non-existing product match", {
@@ -38,7 +38,7 @@ test_that("ots_commodity_code works ok for both specified product and group", {
   test_both <- ots_commodity_code(commodity = "potato", group = "vegetable")
   
   expect_is(test_both, "data.frame")
-  expect_equal(ncol(test_both),4)
+  expect_equal(ncol(test_both),6)
   expect_equal(nrow(test_both),8)
 })
 
