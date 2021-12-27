@@ -97,6 +97,40 @@ if (!file.exists(commodities_tidy_file)) {
   ots_commodities <- fromJSON(commodities_raw_file) %>% 
     as.data.table() %>% 
     mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")})
+  
+  # update dec 21: add sections
+  # this was added to API so we don't need to run this twice
+  library(readxl)
+  library(stringr)
+  library(tidyr)
+  
+  hs_sections <- readxl::read_excel("data-raw/hs_sections.xlsx")
+  
+  hs_sections <- hs_sections %>% 
+    mutate(section_name = str_to_sentence(str_trim(section_name)))
+  
+  hs_sections <- hs_sections %>% 
+    separate("groups", c("gmin", "gmax")) %>% 
+    mutate(gmax = ifelse(is.na(gmax), gmin, gmax))
+  
+  hs_sections <- hs_sections %>% 
+    rowwise() %>% 
+    mutate(g = paste(seq(gmin, gmax), collapse = ",")) %>% 
+    ungroup() %>% 
+    select(-c(gmin,gmax)) %>% 
+    separate(g, paste0("g",1:20)) %>% 
+    pivot_longer(g1:g20) %>% 
+    drop_na() %>% 
+    mutate(value = str_pad(value, 2, "left", "0")) %>% 
+    select(-name) %>% 
+    rename(
+      group_code = value,
+      section_fullname_english = section_name
+    )
+  
+  ots_commodities <- ots_commodities %>% 
+    left_join(hs_sections)
+  
   save(ots_commodities, file = commodities_tidy_file, version = 2)
 }
 
