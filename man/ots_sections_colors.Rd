@@ -1,14 +1,15 @@
-\name{ots_commodities}
-\alias{ots_commodities}
-\title{A table of official commodity names from the Harmonized System rev 2007
- (HS07, also known as H3)}
+\name{ots_sections_colors}
+\alias{ots_sections_colors}
+\title{A table of official section names from the Harmonized System rev 2007
+ (HS07, also known as H3) and unofficial colors to ease visualization}
 \docType{data}
 \description{
-Provides official commodity, group and section codes and names taken from the 
-United Nations official sources. This data is used by the functions provided
-within this package to complement the data obtained from the API.
+Provides official section names taken from the United Nations official sources
+but the colors are absolutely unofficial and based of what I consider a good
+palette for 22 sections (21 + 1 for unspecified products). This data is not used
+by the functions provided within this package and is provided as reference.
 }
-\usage{ots_commodities}
+\usage{ots_sections_colors}
 \format{
   A data frame with 5151 observations on the following 6 variables.
   \describe{
@@ -21,6 +22,6 @@ within this package to complement the data obtained from the API.
   }
 }
 \examples{
-ots_commodities
+ots_sections_colors
 }
 \keyword{datasets}

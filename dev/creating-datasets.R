@@ -152,3 +152,7 @@ if (!file.exists(inflation_tidy_file)) {
     filter(from >= 2000)
   save(ots_inflation, file = inflation_tidy_file, version = 2)
 }
+
+# jan 15: add colours
+ots_sections_colors <- readr::read_csv("https://raw.githubusercontent.com/tradestatistics/visualization-with-shiny/master/sections_colors.csv")
+save(ots_sections_colors, file = "data/ots_sections_colors.rda", version = 2)
