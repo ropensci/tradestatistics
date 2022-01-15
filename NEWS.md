@@ -1,3 +1,9 @@
+# version 3.0.1
+
+Updates
+* Adds section colors data for visualization, this is taken from the palette
+  used in shiny.tradestatistics.io
+
 # Version 3.0
 
 Updates

@@ -1,8 +1,5 @@
 {
-  "@context": [
-    "https://doi.org/10.5063/schema/codemeta-2.0",
-    "http://schema.org"
-  ],
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "tradestatistics",
   "description": "Access 'Open Trade Statistics' API from R to download international trade data.",
@@ -10,19 +7,13 @@
   "codeRepository": "https://github.com/pachadotdev/tradestatistics",
   "issueTracker": "https://github.com/ropensci/tradestatistics/issues",
   "license": "Apache License 2",
-  "version": "3.0",
+  "version": "3.0.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
   "runtimePlatform": "R version 4.1.2 (2021-11-01)",
-  "provider": {
-    "@id": "https://cran.r-project.org",
-    "@type": "Organization",
-    "name": "Comprehensive R Archive Network (CRAN)",
-    "url": "https://cran.r-project.org"
-  },
   "author": [
     {
       "@type": "Person",
@@ -76,7 +67,6 @@
       "@id": "https://orcid.org/0000-0003-1017-7574"
     }
   ],
-  "funder": {},
   "maintainer": [
     {
       "@type": "Person",
@@ -161,8 +151,8 @@
       "sameAs": "https://CRAN.R-project.org/package=covr"
     }
   ],
-  "softwareRequirements": [
-    {
+  "softwareRequirements": {
+    "1": {
       "@type": "SoftwareApplication",
       "identifier": "crul",
       "name": "crul",
@@ -174,7 +164,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=crul"
     },
-    {
+    "2": {
       "@type": "SoftwareApplication",
       "identifier": "jsonlite",
       "name": "jsonlite",
@@ -186,7 +176,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=jsonlite"
     },
-    {
+    "3": {
       "@type": "SoftwareApplication",
       "identifier": "memoise",
       "name": "memoise",
@@ -198,7 +188,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=memoise"
     },
-    {
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "data.table",
       "name": "data.table",
@@ -210,7 +200,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=data.table"
     },
-    {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "digest",
       "name": "digest",
@@ -221,27 +211,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=digest"
-    }
-  ],
+    },
+    "SystemRequirements": null
+  },
+  "fileSize": "4473.431KB",
+  "relatedLink": "https://docs.ropensci.org/tradestatistics/",
   "releaseNotes": "https://github.com/pachadotdev/tradestatistics/blob/master/NEWS.md",
-  "fileSize": "3532.128KB",
+  "readme": "https://github.com/pachadotdev/tradestatistics/blob/master/README.md",
   "contIntegration": ["https://github.com/ropensci/tradestatistics/actions?workflow=R-CMD-check", "https://codecov.io/github/ropensci/tradestatistics?branch=master"],
   "developmentStatus": ["https://www.repostatus.org/#active", "https://www.tidyverse.org/lifecycle/#stable"],
-  "relatedLink": "https://docs.ropensci.org/tradestatistics/",
-  "readme": "https://github.com/pachadotdev/tradestatistics/blob/master/README.md",
   "review": {
     "@type": "Review",
     "url": "https://github.com/ropensci/software-review/issues/274",
     "provider": "https://ropensci.org"
-  },
-  "keywords": [
-    "r",
-    "r-package",
-    "rstats",
-    "open-trade-statistics",
-    "api-wrapper",
-    "international-trade",
-    "data-table",
-    "jsonlite"
-  ]
+  }
 }

@@ -4,10 +4,9 @@
  (HS07, also known as H3)}
 \docType{data}
 \description{
-Provides official codes taken from the United Nations official sources.
-This data is provided as a reference as it's not used by the functions
-provided within this package, but it can be useful to subset the data
-obtained from the API.
+Provides official commodity, group and section codes and names taken from the 
+United Nations official sources. This data is used by the functions provided
+within this package to complement the data obtained from the API.
 }
 \usage{ots_commodities}
 \format{
