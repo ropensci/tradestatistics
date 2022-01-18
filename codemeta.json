@@ -1,5 +1,5 @@
 {
-  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
   "@type": "SoftwareSourceCode",
   "identifier": "tradestatistics",
   "description": "Access 'Open Trade Statistics' API from R to download international trade data.",
@@ -7,7 +7,7 @@
   "codeRepository": "https://github.com/pachadotdev/tradestatistics",
   "issueTracker": "https://github.com/ropensci/tradestatistics/issues",
   "license": "Apache License 2",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -149,10 +149,22 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=covr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "arrow",
+      "name": "arrow",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=arrow"
     }
   ],
-  "softwareRequirements": {
-    "1": {
+  "softwareRequirements": [
+    {
       "@type": "SoftwareApplication",
       "identifier": "crul",
       "name": "crul",
@@ -164,7 +176,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=crul"
     },
-    "2": {
+    {
       "@type": "SoftwareApplication",
       "identifier": "jsonlite",
       "name": "jsonlite",
@@ -176,7 +188,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=jsonlite"
     },
-    "3": {
+    {
       "@type": "SoftwareApplication",
       "identifier": "memoise",
       "name": "memoise",
@@ -188,7 +200,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=memoise"
     },
-    "4": {
+    {
       "@type": "SoftwareApplication",
       "identifier": "data.table",
       "name": "data.table",
@@ -200,7 +212,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=data.table"
     },
-    "5": {
+    {
       "@type": "SoftwareApplication",
       "identifier": "digest",
       "name": "digest",
@@ -211,10 +223,9 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=digest"
-    },
-    "SystemRequirements": null
-  },
-  "fileSize": "4473.431KB",
+    }
+  ],
+  "fileSize": "4470.875KB",
   "relatedLink": "https://docs.ropensci.org/tradestatistics/",
   "releaseNotes": "https://github.com/pachadotdev/tradestatistics/blob/master/NEWS.md",
   "readme": "https://github.com/pachadotdev/tradestatistics/blob/master/README.md",
@@ -224,5 +235,6 @@
     "@type": "Review",
     "url": "https://github.com/ropensci/software-review/issues/274",
     "provider": "https://ropensci.org"
-  }
+  },
+  "funder": {}
 }

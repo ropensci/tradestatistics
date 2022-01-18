@@ -54,8 +54,16 @@ ots_read_from_api <- function(year = NULL,
       "yrpc?y=%s&r=%s&p=%s&c=%s",
       year, reporter_iso, partner_iso, commodity_code
     ),
+    "yrpc-parquet" = sprintf(
+      "yrpc-parquet?y=%s&r=%s&p=%s&c=%s",
+      year, reporter_iso, partner_iso, commodity_code
+    ),
     "yrpc-imputed" = sprintf(
       "yrpc-imputed?y=%s&r=%s&p=%s&c=%s",
+      year, reporter_iso, partner_iso, commodity_code
+    ),
+    "yrpc-imputed-parquet" = sprintf(
+      "yrpc-imputed-parquet?y=%s&r=%s&p=%s&c=%s",
       year, reporter_iso, partner_iso, commodity_code
     ),
     "yrp" = sprintf("yrp?y=%s&r=%s&p=%s", year, reporter_iso, partner_iso),
@@ -101,10 +109,20 @@ ots_read_from_api <- function(year = NULL,
     
     message(sprintf("Downloading data for the combination %s...", combination))
 
-    data <- try(
-      fromJSON(resp$parse(encoding = "UTF-8"))
-    )
-
+    if (!grepl("parquet", url)) {
+      data <- try(
+        fromJSON(resp$parse(encoding = "UTF-8"))
+      )
+    } else {
+      if (!requireNamespace("arrow", quietly = TRUE)) {
+        stop("`arrow` must be installed for reading parquet data to work")
+      }
+      
+      data <- try(
+        arrow::read_parquet(resp$content)
+      )
+    }
+    
     if (!is.data.frame(data)) {
       stop("It wasn't possible to obtain data. Provided this function tests your internet connection\nyou misspelled a reporter, partner or table, or there was a server problem. Please check and try again.")
     }

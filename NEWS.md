@@ -1,3 +1,9 @@
+# version 3.0.2
+
+Updates
+* Allows to obtain tables in Parquet format from the API, giving a speed-up
+ of ~50% for the final user.
+  
 # version 3.0.1
 
 Updates

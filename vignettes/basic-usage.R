@@ -51,7 +51,8 @@ yrpc <- ots_create_tidy_data(
   years = 2019,
   reporters = "chl",
   partners = "arg",
-  table = "yrpc"
+  table = "yrpc",
+  use_localhost = FALSE
 )
 
 datatable(yrpc)
@@ -64,7 +65,8 @@ yrpc2 <- ots_create_tidy_data(
   reporters = c("chl", "Peru", "bol"),
   partners = c("arg", "Brazil"),
   commodities = c("01", "food"),
-  table = "yrpc"
+  table = "yrpc",
+  use_localhost = FALSE
 )
 datatable(yrpc2)
 
@@ -73,7 +75,8 @@ yrp <- ots_create_tidy_data(
   years = 2018:2019,
   reporters = c("chl", "per"),
   partners = "arg",
-  table = "yrp"
+  table = "yrp",
+  use_localhost = FALSE
 )
 
 datatable(yrp)
@@ -82,8 +85,9 @@ datatable(yrp)
 yrc <- ots_create_tidy_data(
   years = 2019,
   reporters = "chl",
-  commodities = "010110",
-  table = "yrc"
+  commodities = "010121",
+  table = "yrc",
+  use_localhost = FALSE
 )
 
 datatable(yrc)
@@ -92,7 +96,8 @@ datatable(yrc)
 yr <- ots_create_tidy_data(
   years = 2018:2019,
   reporters = c("chl", "arg", "per"),
-  table = "yr"
+  table = "yr",
+  use_localhost = FALSE
 )
 
 datatable(yr)
@@ -100,7 +105,8 @@ datatable(yr)
 ## ----yc1, eval = T------------------------------------------------------------
 yc <- ots_create_tidy_data(
   years = 2019,
-  table = "yc"
+  table = "yc",
+  use_localhost = FALSE
 )
 
 datatable(yc)
@@ -108,8 +114,9 @@ datatable(yc)
 ## ----yc2, eval = T------------------------------------------------------------
 yc2 <- ots_create_tidy_data(
   years = 2019,
-  commodities = "010110",
-  table = "yc"
+  commodities = "010121",
+  table = "yc",
+  use_localhost = FALSE
 )
 
 datatable(yc2)

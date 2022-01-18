@@ -1,7 +1,7 @@
 Package: tradestatistics
 Type: Package
 Title: Open Trade Statistics API Wrapper and Utility Program
-Version: 3.0.1
+Version: 3.0.2
 Authors@R: c(
       person(given = "Mauricio",
              family = "Vargas",
@@ -67,6 +67,7 @@ Suggests:
     DT,
     testthat (>= 2.1.0),
     vcr,
-    covr
+    covr,
+    arrow
 VignetteBuilder: knitr
 Encoding: UTF-8
