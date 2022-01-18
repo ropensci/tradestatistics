@@ -15,7 +15,6 @@
 #' @param use_localhost Logical to determine if the base URL shall be localhost instead
 #' of api.tradestatistics.io. Default set to \code{FALSE}.
 #' @importFrom jsonlite fromJSON
-#' @importFrom arrow read_parquet
 #' @importFrom crul HttpClient
 #' @examples
 #' \dontrun{
@@ -120,7 +119,7 @@ ots_read_from_api <- function(year = NULL,
       }
       
       data <- try(
-        read_parquet(resp$content)
+        arrow::read_parquet(resp$content)
       )
     }
     
