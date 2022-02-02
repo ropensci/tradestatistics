@@ -329,6 +329,20 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     }
   }
   
+  if (grepl("yr-sections", table)) {
+    ots_sections <- unique(tradestatistics::ots_commodities[, c("section_code", "section_fullname_english")])
+    ots_sections <- ots_sections[!is.na(ots_sections$section_code), ]
+    
+    if (any(colnames(data) %in% "section_code")) {
+      data <- merge(data, ots_sections,
+                    all.x = TRUE, all.y = FALSE,
+                    by.x = "section_code", by.y = "section_code",
+                    allow.cartesian = TRUE)
+      
+      data$section_fullname_english[is.na(data$section_fullname_english)] <- "Unspecified"
+    }
+  }
+  
   columns_order <- c("year",
                      grep("^reporter_", colnames(data), value = TRUE),
                      grep("^partner_", colnames(data), value = TRUE),
