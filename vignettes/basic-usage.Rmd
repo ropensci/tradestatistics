@@ -16,27 +16,16 @@ knitr::opts_chunk$set(
   message = FALSE,
   comment = "#>"
 )
-
-datatable <- function(x) {
-  DT::datatable(x,
-    extensions = "FixedColumns",
-    options = list(
-      pageLength = 5,
-      dom = 'Bfrtip',
-      scrollX = TRUE,
-      fixedColumns = list(leftColumns = 2, rightColumns = 1)
-    )
-)}
 ```
 
 # Introduction
 
 This vignette explains the functions within this package. The idea is to show how this package simplifies obtaining data from (api.tradestatistics.io)[https://api.tradestatistics.io].
 
-To improve the presentation of the tables I shall use `DT` and the `datatable()` function besides `tradestatistics`.
+To improve the presentation of the tables I shall use `tibble` besides `tradestatistics`.
 ```{r pkgs}
 library(tradestatistics)
-library(DT)
+library(tibble)
 ```
 
 # Package data
@@ -46,7 +35,7 @@ library(DT)
 Provided that this package obtains data from an API, it is useful to know which tables can be accessed:
 
 ```{r tables, eval = T}
-datatable(ots_tables)
+as_tibble(ots_tables)
 ```
 
 You might notice the tables have a pattern. The letters indicate the presence of columns that account for the level of detail in the data:
@@ -69,7 +58,7 @@ The Package Functions section explains that you don't need to memorize all ISO c
 Just as a reference, the table with all valid ISO codes can be accessed by running this:
 
 ```{r countries, eval = T}
-datatable(ots_countries)
+as_tibble(ots_countries)
 ```
 
 ## Commodity codes
@@ -77,7 +66,7 @@ datatable(ots_countries)
 The Package Functions section explains that you don't need to memorize all HS codes. The functions within this package are designed to match strings (i.e. "apple") to valid HS codes (i.e. "0808").
 
 ```{r commodities, eval = T}
-datatable(ots_commodities)
+as_tibble(ots_commodities)
 ```
 
 ## Inflation data
@@ -85,7 +74,7 @@ datatable(ots_commodities)
 This table is provided to be used with `ots_inflation_adjustment()`.
 
 ```{r inflation, eval = T}
-datatable(ots_inflation)
+as_tibble(ots_inflation)
 ```
 
 # Package functions
@@ -97,13 +86,13 @@ The end user can use this function to find an ISO code by providing a country na
 Basic examples:
 ```{r country_code}
 # Single match with no replacement
-datatable(ots_country_code("Chile"))
+as_tibble(ots_country_code("Chile"))
 
 # Single match with replacement
-datatable(ots_country_code("America"))
+as_tibble(ots_country_code("America"))
 
 # Double match with no replacement
-datatable(ots_country_code("Germany"))
+as_tibble(ots_country_code("Germany"))
 ```
 
 The function `ots_country_code()` is used by `ots_create_tidy_data()` in a way that you can pass parameters like `ots_create_tidy_data(... reporters = "Chile" ...)` and it will automatically replace your input for a valid ISO in case there is a match. This will be covered in detail in the Trade Data section.
@@ -112,7 +101,7 @@ The function `ots_country_code()` is used by `ots_create_tidy_data()` in a way t
 
 The end user can find a code or a set of codes by looking for keywords for commodities or groups. The function `ots_commodity_code()` allows to search from the official commodities and groups in the Harmonized system:
 ```{r commodity_code2}
-datatable(ots_commodity_code(commodity = " ShEEp ", group = " mEaT "))
+as_tibble(ots_commodity_code(commodity = " ShEEp ", group = " mEaT "))
 ```
 
 ## Trade data
@@ -124,7 +113,7 @@ Here we cover aggregated tables to describe the usage. Note: here you may skip t
 ### Bilateral trade at commodity level (Year - Reporter - Partner - Commodity Code)
 
 If we want Chile-Argentina bilateral trade at community level in 2019:
-```{r yrpc1, eval = T}
+```{r yrpc1, eval = F}
 yrpc <- ots_create_tidy_data(
   years = 2019,
   reporters = "chl",
@@ -133,11 +122,15 @@ yrpc <- ots_create_tidy_data(
   use_localhost = FALSE
 )
 
-datatable(yrpc)
+as_tibble(yrpc)
+```
+
+```{r yrpc2, echo=FALSE}
+as_tibble(tradestatistics:::ots_demo_data$yrpc)
 ```
 
 We can pass two years or more, several reporters/partners, and filter by commodities with exact codes or code matching based on keywords:
-```{r yrpc2, eval = T}
+```{r yrpc3, eval = F}
 # Note that here I'm passing Peru and not per which is the ISO code for Peru
 # The same applies to Brazil
 yrpc2 <- ots_create_tidy_data(
@@ -148,7 +141,6 @@ yrpc2 <- ots_create_tidy_data(
   table = "yrpc",
   use_localhost = FALSE
 )
-datatable(yrpc2)
 ```
 
 The `yrpc` table returns some fields that deserve an explanation which can be seen at [tradestatistics.io](https://tradestatistics.io). This example is interesting because "01" return a set of commodities (all commodities starting with 01, which is the commodity group "Animals; live"), but "food" return all commodities with a matching description ("1601", "1806", "1904", etc.). In addition, not all the requested commodities are exported from each reporter to each partner, therefore a warning is returned.
@@ -156,8 +148,7 @@ The `yrpc` table returns some fields that deserve an explanation which can be se
 ### Bilateral trade at aggregated level (Year - Reporter - Partner)
 
 If we want Chile-Argentina bilateral trade at aggregated level in 2018 and 2019:
-
-```{r yrp3, eval = T}
+```{r yrp3, eval = F}
 yrp <- ots_create_tidy_data(
   years = 2018:2019,
   reporters = c("chl", "per"),
@@ -165,8 +156,6 @@ yrp <- ots_create_tidy_data(
   table = "yrp",
   use_localhost = FALSE
 )
-
-datatable(yrp)
 ```
 
 This table accepts different years, reporters and partners just like `yrpc`.
@@ -174,7 +163,7 @@ This table accepts different years, reporters and partners just like `yrpc`.
 ### Reporter trade at commodity level (Year - Reporter - Commodity Code) 
 
 If we want Chilean trade at commodity level in 2019 with respect to commodity "010121" which means "Horses; live, pure-bred breeding animals":
-```{r yrc2, eval = T}
+```{r yrc2, eval = F}
 yrc <- ots_create_tidy_data(
   years = 2019,
   reporters = "chl",
@@ -182,8 +171,6 @@ yrc <- ots_create_tidy_data(
   table = "yrc",
   use_localhost = FALSE
 )
-
-datatable(yrc)
 ```
 
 This table accepts different years, reporters and commodity codes just like `yrpc`.
@@ -193,15 +180,13 @@ All the variables from this table are documented at [tradestatistics.io](https:/
 ### Reporter trade at aggregated level (Year - Reporter)
 
 If we want the aggregated trade of Chile, Argentina and Peru in 2018 and 2019:
-```{r yr2, eval = T}
+```{r yr2, eval = F}
 yr <- ots_create_tidy_data(
   years = 2018:2019,
   reporters = c("chl", "arg", "per"),
   table = "yr",
   use_localhost = FALSE
 )
-
-datatable(yr)
 ```
 
 This table accepts different years and reporters just like `yrpc`.
@@ -211,35 +196,35 @@ All the variables from this table are documented at [tradestatistics.io](https:/
 ### Commodity trade at aggregated level (Year - Commodity Code)
 
 If we want all commodities traded in 2019:
-```{r yc1, eval = T}
+```{r yc1, eval = F}
 yc <- ots_create_tidy_data(
   years = 2019,
   table = "yc",
   use_localhost = FALSE
 )
-
-datatable(yc)
 ```
 
 If we want the traded values of the commodity "010121" which means "Horses; live, pure-bred breeding animals" in 2019:
-```{r yc2, eval = T}
+```{r yc2, eval = F}
 yc2 <- ots_create_tidy_data(
   years = 2019,
   commodities = "010121",
   table = "yc",
   use_localhost = FALSE
 )
-
-datatable(yc2)
 ```
 
 This table accepts different years just like `yrpc`.
 
 ## Inflation adjustment
 
-Taking the `yr` table from above, we can use `ots_inflation_adjustment()` to convert dollars from 2019 to dollars of 2000:
+Taking the `yr` table from above, we can use `ots_inflation_adjustment()` to convert dollars from 2018 and 2019 to dollars of 2000:
 
-```{r}
+```{r inflation2, eval=FALSE}
 inflation <- ots_inflation_adjustment(yr, reference_year = 2000)
-datatable(inflation)
+as_tibble(inflation)
+```
+
+```{r inflation3, echo=FALSE}
+as_tibble(ots_inflation_adjustment(tradestatistics:::ots_demo_data$yr, reference_year = 2000))
 ```

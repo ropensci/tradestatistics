@@ -17,7 +17,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.18.0 (Ubuntu)
-      date: Wed, 15 Dec 2021 21:40:31 GMT
+      date: Thu, 24 Feb 2022 16:35:40 GMT
       content-type: application/json
       transfer-encoding: chunked
       connection: keep-alive
@@ -26,7 +26,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":2002,"reporter_iso":"chl","trade_value_usd_exp":17423088183,"trade_value_usd_imp":15383398153}]'
-  recorded_at: 2021-12-15 21:40:32 GMT
+  recorded_at: 2022-02-24 16:35:41 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
@@ -46,7 +46,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.18.0 (Ubuntu)
-      date: Wed, 15 Dec 2021 21:40:31 GMT
+      date: Thu, 24 Feb 2022 16:35:40 GMT
       content-type: application/json
       transfer-encoding: chunked
       connection: keep-alive
@@ -55,7 +55,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":2002,"reporter_iso":"arg","trade_value_usd_exp":25709371110,"trade_value_usd_imp":8989546000}]'
-  recorded_at: 2021-12-15 21:40:32 GMT
+  recorded_at: 2022-02-24 16:35:41 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
@@ -75,7 +75,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.18.0 (Ubuntu)
-      date: Wed, 15 Dec 2021 21:40:32 GMT
+      date: Thu, 24 Feb 2022 16:35:40 GMT
       content-type: application/json
       transfer-encoding: chunked
       connection: keep-alive
@@ -84,7 +84,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":2002,"reporter_iso":"mex","partner_iso":"usa","trade_value_usd_exp":137963057176,"trade_value_usd_imp":106899862231}]'
-  recorded_at: 2021-12-15 21:40:32 GMT
+  recorded_at: 2022-02-24 16:35:41 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
@@ -104,7 +104,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.18.0 (Ubuntu)
-      date: Wed, 15 Dec 2021 21:40:32 GMT
+      date: Thu, 24 Feb 2022 16:35:41 GMT
       content-type: application/json
       transfer-encoding: chunked
       connection: keep-alive
@@ -113,5 +113,5 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":2002,"reporter_iso":"mex","partner_iso":"can","trade_value_usd_exp":3010074713,"trade_value_usd_imp":4479574474}]'
-  recorded_at: 2021-12-15 21:40:32 GMT
+  recorded_at: 2022-02-24 16:35:41 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0

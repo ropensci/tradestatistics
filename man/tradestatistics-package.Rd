@@ -12,12 +12,12 @@ Access 'Open Trade Statistics' API from R to download international trade data.
 Useful links:
 \itemize{
   \item \url{https://docs.ropensci.org/tradestatistics/}
-  \item Report bugs at \url{https://github.com/ropensci/tradestatistics/issues}
+  \item Report bugs at \url{https://github.com/ropensci/tradestatistics/issues/}
 }
 
 }
 \author{
-\strong{Maintainer}: Mauricio Vargas \email{mvargas@dcc.uchile.cl} (\href{https://orcid.org/0000-0003-1017-7574}{ORCID}) [copyright holder]
+\strong{Maintainer}: Mauricio Vargas \email{mavargas11@uc.cl} (\href{https://orcid.org/0000-0003-1017-7574}{ORCID}) [copyright holder]
 
 Other contributors:
 \itemize{
@@ -25,7 +25,6 @@ Other contributors:
   \item Alexey Kravchenko (reviewed 2021 version of the API) [contributor]
   \item Emma Mendelsohn (updated the functions to take available years from the API instead of hardcoded values) [contributor]
   \item Natalia de los Santos (proposed improvements to default parameters) [contributor]
-  \item Elio Campitelli (wrote parts of the client-side caching function) [contributor]
   \item Emily Riederer (reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/274) [reviewer]
   \item Mark Padgham (reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/274) [reviewer]
   \item Amanda Dobbyn (reviewed a previous package that evolved into the current package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217) [reviewer]

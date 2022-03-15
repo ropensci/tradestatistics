@@ -39,6 +39,7 @@ ots_read_from_api <- function(year = NULL,
                               reporter_iso = NULL,
                               partner_iso = NULL,
                               commodity_code = "all",
+                              section_code = "all",
                               table = "yr",
                               max_attempts = 5,
                               use_localhost = FALSE) {
@@ -58,32 +59,14 @@ ots_read_from_api <- function(year = NULL,
       "yrpc-parquet?y=%s&r=%s&p=%s&c=%s",
       year, reporter_iso, partner_iso, commodity_code
     ),
-    "yrpc-imputed" = sprintf(
-      "yrpc-imputed?y=%s&r=%s&p=%s&c=%s",
-      year, reporter_iso, partner_iso, commodity_code
-    ),
-    "yrpc-imputed-parquet" = sprintf(
-      "yrpc-imputed-parquet?y=%s&r=%s&p=%s&c=%s",
-      year, reporter_iso, partner_iso, commodity_code
-    ),
+    "ysrpc" = sprintf("ysrpc?y=%s&s=%s", year, section_code),
+    "ysrpc-parquet" = sprintf("ysrpc-parquet?y=%s&s=%s", year, section_code),
     "yrp" = sprintf("yrp?y=%s&r=%s&p=%s", year, reporter_iso, partner_iso),
-    "yrp-imputed" = sprintf("yrp-imputed?y=%s&r=%s&p=%s", year, reporter_iso, partner_iso),
     "yrc" = sprintf(
       "yrc?y=%s&r=%s&c=%s",
       year, reporter_iso, commodity_code
     ),
-    "yrc-imputed" = sprintf(
-      "yrc-imputed?y=%s&r=%s&c=%s",
-      year, reporter_iso, commodity_code
-    ),
     "yr" = sprintf("yr?y=%s&r=%s", year, reporter_iso),
-    "yr-imputed" = sprintf("yr-imputed?y=%s&r=%s", year, reporter_iso),
-    "yr-groups" = sprintf("yr-groups?y=%s&r=%s", year, reporter_iso),
-    "yr-groups-imputed" = sprintf("yr-groups-imputed?y=%s&r=%s", year, reporter_iso),
-    "yr-sections" = sprintf("yr-sections?y=%s&r=%s", year, reporter_iso),
-    "yr-sections-imputed" = sprintf("yr-sections-imputed?y=%s&r=%s", year, reporter_iso),
-    "yc" = sprintf("yc?y=%s&c=%s", year, commodity_code),
-    "yc-imputed" = sprintf("yc-imputed?y=%s&c=%s", year, commodity_code),
     "years" = "years",
     "rtas" = sprintf("rtas?y=%s", year),
     "tariffs" = sprintf(

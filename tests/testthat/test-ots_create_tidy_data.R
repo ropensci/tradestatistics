@@ -5,6 +5,7 @@ context("create tidy data")
 # Mock countries test inside ots_create_tidy_data
 
 test_that("valid input + no cache = yr(p)(c) table", {
+  skip_on_cran()
   vcr::use_cassette(name = "chl_arg_2002_yrpc", {
     # Bilateral trade Chile-Argentina at commodity level (2002)
     test_data <- ots_create_tidy_data(
@@ -44,6 +45,7 @@ test_that("valid input + no cache = yr(p)(c) table", {
 })
 
 test_that("valid input + cache = yrpc table", {
+  skip_on_cran()
   vcr::use_cassette(name = "chl_arg_2002_yrpc_cache", {
     # test in memory cache
     test_data <- ots_create_tidy_data(
@@ -61,6 +63,7 @@ test_that("valid input + cache = yrpc table", {
 })
 
 test_that("valid input + no cache + commodity filter = yrpc table", {
+  skip_on_cran()
   vcr::use_cassette(name = "chl_arg_2002_yrpc_wheat", {
     test_data <- ots_create_tidy_data(
       years = 2002, reporters = "chl", partners = "arg", table = "yrpc",
@@ -73,6 +76,7 @@ test_that("valid input + no cache + commodity filter = yrpc table", {
 })
 
 test_that("valid input + no cache + group filter = yrpc table", {
+  skip_on_cran()
   vcr::use_cassette(name = "chl_arg_2002_yrpc_fish", {
     # filter group 03 = fish and crustaceans...
     test_data <- ots_create_tidy_data(
@@ -86,6 +90,7 @@ test_that("valid input + no cache + group filter = yrpc table", {
 })
 
 test_that("unused commodities argument = yr table + warning", {
+  skip_on_cran()
   vcr::use_cassette(name = "chl_arg_2002_yr_apple", {
     test_data <- expect_warning(
       ots_create_tidy_data(years = 2002, table = "yr", commodities = "apple",
@@ -98,6 +103,7 @@ test_that("unused commodities argument = yr table + warning", {
 })
 
 test_that("valid countries/NULL = yrp table /+ warning", {
+  skip_on_cran()
   vcr::use_cassette(name = "chl_all_2002_yrp", {
     expect_warning(
       ots_create_tidy_data(
@@ -116,6 +122,7 @@ test_that("valid countries/NULL = yrp table /+ warning", {
 })
 
 test_that("no API data = warning", {
+  skip_on_cran()
   vcr::use_cassette(name = "chl_myt_2002_yrp", {
     expect_warning(
       ots_create_tidy_data(
@@ -127,6 +134,7 @@ test_that("no API data = warning", {
 })
 
 test_that("valid mixed country ISO/string = yrp table", {
+  skip_on_cran()
   vcr::use_cassette(name = "chl_arg_2002_yr", {
     expect_s3_class(
       ots_create_tidy_data(
@@ -147,6 +155,7 @@ test_that("valid mixed country ISO/string = yrp table", {
 })
 
 test_that("valid input = yr groups table", {
+  skip_on_cran()
   vcr::use_cassette(name = "chl_arg_2002_yr_groups", {
     test_data <- ots_create_tidy_data(
       years = 2002, reporters = "chl", table = "yr-groups",
@@ -154,10 +163,12 @@ test_that("valid input = yr groups table", {
     )
     
     expect_equal(ncol(test_data), 7)
-  })
+    })
 })
 
 test_that("wrong YR input = error + warning", {
+  skip_on_cran()
+  
   # Bilateral trade ABC-ARG fake ISO codes (2002) - Error message
   expect_error(
     expect_warning(
@@ -192,6 +203,8 @@ test_that("wrong YR input = error + warning", {
 })
 
 test_that("invalid cache/file input = error + warning", {
+  skip_on_cran()
+  
   # Incorrect parameters
   expect_error(
     expect_warning(
@@ -219,6 +232,8 @@ test_that("invalid cache/file input = error + warning", {
 })
 
 test_that("non-existing product code = error", {
+  skip_on_cran()
+  
   expect_error(
     ots_create_tidy_data(
       years = 2002, reporters = "chl", partners = "arg", table = "yrpc",
@@ -229,6 +244,8 @@ test_that("non-existing product code = error", {
 })
 
 test_that("non-existing product string = error + warning", {
+  skip_on_cran()
+  
   vcr::use_cassette(name = "chl_arg_2002_yrpc", {
     expect_error(
       expect_warning(
@@ -243,6 +260,8 @@ test_that("non-existing product string = error + warning", {
 })
 
 test_that("no country match = error", {
+  skip_on_cran()
+  
   expect_error(
     ots_create_tidy_data(
       years = 2002, reporters = "Wakanda", table = "yr", use_localhost = FALSE
@@ -264,6 +283,8 @@ test_that("no country match = error", {
 })
 
 test_that("wrong optional parameters = error", {
+  skip_on_cran()
+  
   # Incorrect parameters
   expect_error(
     ots_create_tidy_data(
@@ -281,6 +302,8 @@ test_that("wrong optional parameters = error", {
 })
 
 test_that("multiple country match = error", {
+  skip_on_cran()
+  
   expect_error(
     ots_create_tidy_data(
       years = 2002, reporters = "Germany", table = "yr", use_localhost = FALSE
