@@ -284,6 +284,13 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     warning("The commodities argument will be ignored provided that you requested a table without commodity_code field.")
   }
   
+  if (any(table %in% c("ysrpc", "ysrpc-parquet")) == TRUE &
+      !all(c(reporters, partners) == "all") == TRUE) {
+    reporters <- "all"
+    partners <- "all"
+    warning("The reporter and partner arguments will be ignored provided that you requested a table without these filtering options.")
+  }
+  
   if (is.null(reporters)) {
     reporters <- "all"
     warning("No reporter was specified, therefore all available reporters will be returned.")
