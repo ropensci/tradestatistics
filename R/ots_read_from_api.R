@@ -1,39 +1,10 @@
 #' Reads data from the API (internal function)
 #' @description Accesses \code{api.tradestatistics.io} and
-#' performs different API calls to return \code{data.frames} by reading \code{JSON} data
-#' @param year Year contained within the years specified in
-#' api.tradestatistics.io/year_range (e.g. \code{1980}).
-#' Default set to \code{NULL}.
-#' @param reporter_iso ISO code for reporter country (e.g. \code{"chl"}). Default set to \code{"all"}.
-#' @param partner_iso ISO code for partner country (e.g. \code{"chl"}). Default set to \code{"all"}.
-#' @param commodity_code HS code (e.g. \code{0101} or \code{01}) to filter commodities.
-#' Default set to \code{"all"}.
-#' @param table Character string to select the table to obtain the data. Default set to \code{yr}
-#' (Year - Reporter).
-#' @param max_attempts Number of attempts to retry in case of data retrieving failure.
-#' Default set to \code{5}.
-#' @param use_localhost Logical to determine if the base URL shall be localhost instead
-#' of api.tradestatistics.io. Default set to \code{FALSE}.
+#' performs different API calls to return \code{data.frames} by reading 
+#' \code{JSON} data. The parameters here are passed from 
+#' \code{ots_create_tidy_data}.
 #' @importFrom jsonlite fromJSON
 #' @importFrom crul HttpClient
-#' @examples
-#' \dontrun{
-#' # The next examples can take more than 5 seconds to compute,
-#' # so these are shown without evaluation according to CRAN rules
-#'
-#' # Run `countries` to display the full table of countries
-#'
-#' # What does Chile export to China? (1980)
-#' ots_read_from_api(year = 1980, reporter_iso = "chl", partner_iso = "chn")
-#'
-#' # What can we say about chilean Horses export? (1980)
-#' ots_read_from_api(year = 1980, commodity_code = "0101", table = "yc")
-#' ots_read_from_api(year = 1980, reporter_iso = "chl", commodity_code = "0101", table = "yrc")
-#' ots_read_from_api(
-#'   year = 1980, reporter_iso = "chl", partner_iso = "arg", commodity_code = "0101",
-#'   table = "yrpc"
-#' )
-#' }
 #' @keywords internal
 ots_read_from_api <- function(year = NULL,
                               reporter_iso = NULL,
@@ -51,28 +22,19 @@ ots_read_from_api <- function(year = NULL,
     "reporters" = sprintf("reporters?y=%s", year),
     "partners" = sprintf("partners?y=%s", year),
     "commodities" = "commodities",
-    "yrpc" = sprintf(
-      "yrpc?y=%s&r=%s&p=%s&c=%s",
-      year, reporter_iso, partner_iso, commodity_code
-    ),
-    "yrpc-parquet" = sprintf(
-      "yrpc-parquet?y=%s&r=%s&p=%s&c=%s",
-      year, reporter_iso, partner_iso, commodity_code
-    ),
-    "ysrpc" = sprintf("ysrpc?y=%s&s=%s", year, section_code),
-    "ysrpc-parquet" = sprintf("ysrpc-parquet?y=%s&s=%s", year, section_code),
-    "yrp" = sprintf("yrp?y=%s&r=%s&p=%s", year, reporter_iso, partner_iso),
-    "yrc" = sprintf(
-      "yrc?y=%s&r=%s&c=%s",
-      year, reporter_iso, commodity_code
-    ),
-    "yr" = sprintf("yr?y=%s&r=%s", year, reporter_iso),
+    "yrpc_tc" = sprintf("yrpc_tc?y=%s&r=%s&p=%s&c=%s", year, reporter_iso, partner_iso, commodity_code),
+    "yrpc_ntc" = sprintf("yrpc_ntc?y=%s&r=%s&p=%s&c=%s", year, reporter_iso, partner_iso, commodity_code),
+    "ysrpc_tc" = sprintf("ysrpc_tc?y=%s&s=%s", year, section_code),
+    "ysrpc_ntc" = sprintf("ysrpc_ntc?y=%s&s=%s", year, section_code),
+    "yrp_tc" = sprintf("yrp_tc?y=%s&r=%s&p=%s", year, reporter_iso, partner_iso),
+    "yrp_ntc" = sprintf("yrp_ntc?y=%s&r=%s&p=%s", year, reporter_iso, partner_iso),
+    "yrc_tc" = sprintf("yrc_tc?y=%s&r=%s&c=%s", year, reporter_iso, commodity_code),
+    "yrc_ntc" = sprintf("yrc_ntc?y=%s&r=%s&c=%s", year, reporter_iso, commodity_code),
+    "yr_tc" = sprintf("yr_tc?y=%s&r=%s", year, reporter_iso),
+    "yr_ntc" = sprintf("yr_ntc?y=%s&r=%s", year, reporter_iso),
     "years" = "years",
     "rtas" = sprintf("rtas?y=%s", year),
-    "tariffs" = sprintf(
-      "tariffs?y=%s&r=%s&c=%s",
-      year, reporter_iso, commodity_code
-    )
+    "tariffs" = sprintf("tariffs?y=%s&r=%s&c=%s", year, reporter_iso, commodity_code)
   )
 
   if (use_localhost == TRUE) {
@@ -94,18 +56,14 @@ ots_read_from_api <- function(year = NULL,
     
     message(sprintf("Downloading data for the combination %s...", combination))
 
-    if (!grepl("parquet", url)) {
-      data <- try(
-        fromJSON(resp$parse(encoding = "UTF-8"))
-      )
+    if (!grepl("^yrpc|^ysrpc", url)) {
+      data <- try(fromJSON(resp$parse(encoding = "UTF-8")))
     } else {
       if (!requireNamespace("arrow", quietly = TRUE)) {
         stop("`arrow` must be installed for reading parquet data to work")
       }
       
-      data <- try(
-        arrow::read_parquet(resp$content)
-      )
+      data <- try(arrow::read_parquet(resp$content))
     }
     
     if (!is.data.frame(data)) {

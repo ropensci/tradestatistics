@@ -55,7 +55,7 @@ ots_create_tidy_data <- function(years = 2019,
                                  partners = "all",
                                  commodities = "all",
                                  sections = "all",
-                                 table = "yr",
+                                 table = "yr_tc",
                                  max_attempts = 5,
                                  use_cache = FALSE,
                                  file = NULL,
@@ -185,7 +185,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   }
 
   # Check commodity codes ----
-  commodities_depending_queries <- grep("c$|c-imputed$|-parquet$|^tariffs",
+  commodities_depending_queries <- grep("c_tc$|c_ntc$|^tariffs",
     tradestatistics::ots_tables$table,
     value = T
   )
@@ -231,21 +231,16 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   }
   
   # Check section codes -----------------------------------------------------
-  if (sections == "all") {
-    sections <- tradestatistics::ots_sections$section_code
-  }
+  sections <- sort(as.character(sections))
   
-  if (!all(as.character(as.integer(sections)) %in%
-           tradestatistics::ots_sections$section_code == TRUE) &
+  if (!all(sections %in% c(tradestatistics::ots_sections$section_code, "all") == TRUE) &
       table %in% commodities_depending_queries) {
-    sections <- sort(as.character(as.integer(sections)))
-    sections <- substr(sections, 1, 3)
-    
     for (i in seq_along(sections)) {
-      sections[i] <- if (nchar(sections[i]) != 2 & sections[i] != "999") {
-        paste0("0", sections[i])
-      } else {
-        sections[i]
+      if (sections[i] != "all") {
+        sections[i] <- as.integer(substr(sections, 1, 3))
+      }
+      if (nchar(sections[i]) != 2 & sections[i] != "999") {
+        sections[i] <- paste0("0", sections[i])
       }
     }
     
@@ -263,10 +258,9 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     }
   }
   
-  if (!all(as.character(sections) %in%
-    tradestatistics::ots_sections$section_code == TRUE) &
+  if (!all(sections %in% c(tradestatistics::ots_sections$section_code, "all") == TRUE) &
     table %in% commodities_depending_queries) {
-    stop("The requested sections do not exist. Please check ots_commodities.")
+    stop("The requested sections do not exist. Please check ots_sections.")
   }
   
   # Check optional parameters ----
@@ -284,7 +278,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     warning("The commodities argument will be ignored provided that you requested a table without commodity_code field.")
   }
   
-  if (any(table %in% c("ysrpc", "ysrpc-parquet")) == TRUE &
+  if (grepl("^ysrpc", table) == TRUE &
       !all(c(reporters, partners) == "all") == TRUE) {
     reporters <- "all"
     partners <- "all"
@@ -306,7 +300,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     reporter = reporters,
     partner = partners,
     commodity = commodities,
-    section = ifelse(grepl("ysrpc", table), sections, "all"),
+    section = if (grepl("^ysrpc", table)) { sections } else { "all" },
     stringsAsFactors = FALSE
   )
 

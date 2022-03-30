@@ -10,7 +10,7 @@ ots_create_tidy_data(
   partners = "all",
   commodities = "all",
   sections = "all",
-  table = "yr",
+  table = "yr_tc",
   max_attempts = 5,
   use_cache = FALSE,
   file = NULL,

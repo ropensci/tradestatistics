@@ -15,48 +15,10 @@ ots_read_from_api(
   use_localhost = FALSE
 )
 }
-\arguments{
-\item{year}{Year contained within the years specified in
-api.tradestatistics.io/year_range (e.g. \code{1980}).
-Default set to \code{NULL}.}
-
-\item{reporter_iso}{ISO code for reporter country (e.g. \code{"chl"}). Default set to \code{"all"}.}
-
-\item{partner_iso}{ISO code for partner country (e.g. \code{"chl"}). Default set to \code{"all"}.}
-
-\item{commodity_code}{HS code (e.g. \code{0101} or \code{01}) to filter commodities.
-Default set to \code{"all"}.}
-
-\item{table}{Character string to select the table to obtain the data. Default set to \code{yr}
-(Year - Reporter).}
-
-\item{max_attempts}{Number of attempts to retry in case of data retrieving failure.
-Default set to \code{5}.}
-
-\item{use_localhost}{Logical to determine if the base URL shall be localhost instead
-of api.tradestatistics.io. Default set to \code{FALSE}.}
-}
 \description{
 Accesses \code{api.tradestatistics.io} and
-performs different API calls to return \code{data.frames} by reading \code{JSON} data
-}
-\examples{
-\dontrun{
-# The next examples can take more than 5 seconds to compute,
-# so these are shown without evaluation according to CRAN rules
-
-# Run `countries` to display the full table of countries
-
-# What does Chile export to China? (1980)
-ots_read_from_api(year = 1980, reporter_iso = "chl", partner_iso = "chn")
-
-# What can we say about chilean Horses export? (1980)
-ots_read_from_api(year = 1980, commodity_code = "0101", table = "yc")
-ots_read_from_api(year = 1980, reporter_iso = "chl", commodity_code = "0101", table = "yrc")
-ots_read_from_api(
-  year = 1980, reporter_iso = "chl", partner_iso = "arg", commodity_code = "0101",
-  table = "yrpc"
-)
-}
+performs different API calls to return \code{data.frames} by reading 
+\code{JSON} data. The parameters here are passed from 
+\code{ots_create_tidy_data}.
 }
 \keyword{internal}

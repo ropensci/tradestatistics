@@ -9,6 +9,15 @@ Updates
 * Drops yr-sections and yr-groups tables
 * Drops 'group' columns in the final data (and replaces it for 'section' 
   columns)
+* Allows to access both raw and imputed data from the API
+* Allows to search for special codes in the API (i.e., e-490 and other codes)
+* All these changes have resulted in large speedups with both data downloading 
+  and the Open Trade Statistics dashboard
+
+Breaking changes
+* Most of the tables in the API were renamed, as now I made available an
+  imputation method to remove transportation costs (and correct mismatching
+  flows)
 
 # version 3.0.3
 
