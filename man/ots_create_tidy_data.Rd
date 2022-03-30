@@ -9,7 +9,8 @@ ots_create_tidy_data(
   reporters = "all",
   partners = "all",
   commodities = "all",
-  table = "yr",
+  sections = "all",
+  table = "yr_tc",
   max_attempts = 5,
   use_cache = FALSE,
   file = NULL,
@@ -30,6 +31,8 @@ Default set to \code{2019}.}
 \item{commodities}{HS commodity codes (e.g. \code{"0101"}, \code{"01"} or search
 matches for \code{"apple"})
 to filter commodities. Default set to \code{"all"}.}
+
+\item{sections}{HS section codes (e.g. \code{"01"}). Default set to \code{"all"}.}
 
 \item{table}{Character string to select the table to obtain the data.
 Default set to \code{yr} (Year - Reporter).

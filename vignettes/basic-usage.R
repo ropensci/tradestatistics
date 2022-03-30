@@ -6,122 +6,106 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 
-datatable <- function(x) {
-  DT::datatable(x,
-    extensions = "FixedColumns",
-    options = list(
-      pageLength = 5,
-      dom = 'Bfrtip',
-      scrollX = TRUE,
-      fixedColumns = list(leftColumns = 2, rightColumns = 1)
-    )
-)}
-
 ## ----pkgs---------------------------------------------------------------------
 library(tradestatistics)
-library(DT)
+library(tibble)
 
 ## ----tables, eval = T---------------------------------------------------------
-datatable(ots_tables)
+as_tibble(ots_tables)
 
 ## ----countries, eval = T------------------------------------------------------
-datatable(ots_countries)
+as_tibble(ots_countries)
 
 ## ----commodities, eval = T----------------------------------------------------
-datatable(ots_commodities)
+as_tibble(ots_commodities)
 
 ## ----inflation, eval = T------------------------------------------------------
-datatable(ots_inflation)
+as_tibble(ots_inflation)
 
 ## ----country_code-------------------------------------------------------------
 # Single match with no replacement
-datatable(ots_country_code("Chile"))
+as_tibble(ots_country_code("Chile"))
 
 # Single match with replacement
-datatable(ots_country_code("America"))
+as_tibble(ots_country_code("America"))
 
 # Double match with no replacement
-datatable(ots_country_code("Germany"))
+as_tibble(ots_country_code("Germany"))
 
 ## ----commodity_code2----------------------------------------------------------
-datatable(ots_commodity_code(commodity = " ShEEp ", group = " mEaT "))
+as_tibble(ots_commodity_code(commodity = " ShEEp ", group = " mEaT "))
 
-## ----yrpc1, eval = T----------------------------------------------------------
-yrpc <- ots_create_tidy_data(
-  years = 2019,
-  reporters = "chl",
-  partners = "arg",
-  table = "yrpc",
-  use_localhost = FALSE
-)
+## ----yrpc1, eval = F----------------------------------------------------------
+#  yrpc <- ots_create_tidy_data(
+#    years = 2019,
+#    reporters = "chl",
+#    partners = "arg",
+#    table = "yrpc",
+#    use_localhost = FALSE
+#  )
+#  
+#  as_tibble(yrpc)
 
-datatable(yrpc)
+## ----yrpc2, echo=FALSE--------------------------------------------------------
+as_tibble(tradestatistics:::ots_demo_data$yrpc)
 
-## ----yrpc2, eval = T----------------------------------------------------------
-# Note that here I'm passing Peru and not per which is the ISO code for Peru
-# The same applies to Brazil
-yrpc2 <- ots_create_tidy_data(
-  years = 2018:2019,
-  reporters = c("chl", "Peru", "bol"),
-  partners = c("arg", "Brazil"),
-  commodities = c("01", "food"),
-  table = "yrpc",
-  use_localhost = FALSE
-)
-datatable(yrpc2)
+## ----yrpc3, eval = F----------------------------------------------------------
+#  # Note that here I'm passing Peru and not per which is the ISO code for Peru
+#  # The same applies to Brazil
+#  yrpc2 <- ots_create_tidy_data(
+#    years = 2018:2019,
+#    reporters = c("chl", "Peru", "bol"),
+#    partners = c("arg", "Brazil"),
+#    commodities = c("01", "food"),
+#    table = "yrpc",
+#    use_localhost = FALSE
+#  )
 
-## ----yrp3, eval = T-----------------------------------------------------------
-yrp <- ots_create_tidy_data(
-  years = 2018:2019,
-  reporters = c("chl", "per"),
-  partners = "arg",
-  table = "yrp",
-  use_localhost = FALSE
-)
+## ----yrp3, eval = F-----------------------------------------------------------
+#  yrp <- ots_create_tidy_data(
+#    years = 2018:2019,
+#    reporters = c("chl", "per"),
+#    partners = "arg",
+#    table = "yrp",
+#    use_localhost = FALSE
+#  )
 
-datatable(yrp)
+## ----yrc2, eval = F-----------------------------------------------------------
+#  yrc <- ots_create_tidy_data(
+#    years = 2019,
+#    reporters = "chl",
+#    commodities = "010121",
+#    table = "yrc",
+#    use_localhost = FALSE
+#  )
 
-## ----yrc2, eval = T-----------------------------------------------------------
-yrc <- ots_create_tidy_data(
-  years = 2019,
-  reporters = "chl",
-  commodities = "010121",
-  table = "yrc",
-  use_localhost = FALSE
-)
+## ----yr2, eval = F------------------------------------------------------------
+#  yr <- ots_create_tidy_data(
+#    years = 2018:2019,
+#    reporters = c("chl", "arg", "per"),
+#    table = "yr",
+#    use_localhost = FALSE
+#  )
 
-datatable(yrc)
+## ----yc1, eval = F------------------------------------------------------------
+#  yc <- ots_create_tidy_data(
+#    years = 2019,
+#    table = "yc",
+#    use_localhost = FALSE
+#  )
 
-## ----yr2, eval = T------------------------------------------------------------
-yr <- ots_create_tidy_data(
-  years = 2018:2019,
-  reporters = c("chl", "arg", "per"),
-  table = "yr",
-  use_localhost = FALSE
-)
+## ----yc2, eval = F------------------------------------------------------------
+#  yc2 <- ots_create_tidy_data(
+#    years = 2019,
+#    commodities = "010121",
+#    table = "yc",
+#    use_localhost = FALSE
+#  )
 
-datatable(yr)
+## ----inflation2, eval=FALSE---------------------------------------------------
+#  inflation <- ots_inflation_adjustment(yr, reference_year = 2000)
+#  as_tibble(inflation)
 
-## ----yc1, eval = T------------------------------------------------------------
-yc <- ots_create_tidy_data(
-  years = 2019,
-  table = "yc",
-  use_localhost = FALSE
-)
-
-datatable(yc)
-
-## ----yc2, eval = T------------------------------------------------------------
-yc2 <- ots_create_tidy_data(
-  years = 2019,
-  commodities = "010121",
-  table = "yc",
-  use_localhost = FALSE
-)
-
-datatable(yc2)
-
-## -----------------------------------------------------------------------------
-inflation <- ots_inflation_adjustment(yr, reference_year = 2000)
-datatable(inflation)
+## ----inflation3, echo=FALSE---------------------------------------------------
+as_tibble(ots_inflation_adjustment(tradestatistics:::ots_demo_data$yr, reference_year = 2000))
 

@@ -17,7 +17,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.18.0 (Ubuntu)
-      date: Wed, 15 Dec 2021 21:40:31 GMT
+      date: Thu, 24 Feb 2022 16:35:39 GMT
       content-type: application/json
       transfer-encoding: chunked
       connection: keep-alive
@@ -27,5 +27,5 @@ http_interactions:
       file: no
       string: '[{"year":"2002","reporter_iso":"chl","partner_iso":"myt","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2021-12-15 21:40:31 GMT
+  recorded_at: 2022-02-24 16:35:40 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0

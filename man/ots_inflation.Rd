@@ -14,8 +14,8 @@ backwards in time.
 \format{
   A data frame with 20 observations on the following 3 variables.
   \describe{
-    \item{\code{from}}{Integer values in the range 2000-2019}
-    \item{\code{to}}{Integer values in the range 2001-2020}
+    \item{\code{from}}{Integer values in the range 1976-2019}
+    \item{\code{to}}{Integer values in the range 1977-2020}
     \item{\code{conversion_factor}}{Numeric value expressed as one plus 1-year 
      inflation}
   }

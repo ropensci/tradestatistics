@@ -1,6 +1,7 @@
 context("inflation adjustment")
 
 test_that("ots_inflation_adjustment adjusts the data for yrpc", {
+  skip_on_cran()
   vcr::use_cassette(name = "chl_arg_2004_yrpc", {
     # Bilateral trade Chile-Argentina at commodity level (1964)
     test_data <- ots_create_tidy_data(
@@ -26,6 +27,7 @@ test_that("ots_inflation_adjustment adjusts the data for yrpc", {
 })
 
 test_that("ots_inflation_adjustment adjusts the data for yr", {
+  skip_on_cran()
   vcr::use_cassette(name = "chl_arg_2004_yr", {
     # Bilateral trade Chile-Argentina at commodity level (1964)
     test_data <- ots_create_tidy_data(
@@ -41,6 +43,7 @@ test_that("ots_inflation_adjustment adjusts the data for yr", {
 })
 
 test_that("ots_inflation_adjustment fails if the parameters are null or out of range", {
+  skip_on_cran()
   vcr::use_cassette(name = "chl_arg_2002_yrp", {
     # Bilateral trade Chile-Argentina at commodity level (1964)
     test_data <- ots_create_tidy_data(

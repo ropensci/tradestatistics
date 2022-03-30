@@ -68,8 +68,8 @@ ots_inflation_adjustment <- function(trade_data = NULL, reference_year = NULL) {
   d1 <- rbindlist(d1)
 
   d2 <- trade_data[d1, on = .(year), allow.cartesian = TRUE][,
-    `:=`(trade_value_usd_exp = trade_value_usd_exp * conversion_factor,
-         trade_value_usd_imp = trade_value_usd_imp * conversion_factor)]
+    `:=`(trade_value_usd_exp = round(trade_value_usd_exp * conversion_factor, 0),
+         trade_value_usd_imp = round(trade_value_usd_imp * conversion_factor, 0))]
 
   return(d2)
 }

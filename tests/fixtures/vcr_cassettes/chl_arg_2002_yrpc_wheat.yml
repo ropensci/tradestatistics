@@ -17,7 +17,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.18.0 (Ubuntu)
-      date: Wed, 15 Dec 2021 21:40:28 GMT
+      date: Thu, 24 Feb 2022 16:35:37 GMT
       content-type: application/json
       transfer-encoding: chunked
       connection: keep-alive
@@ -26,5 +26,5 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '[{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"110100","trade_value_usd_exp":76,"trade_value_usd_imp":341}]'
-  recorded_at: 2021-12-15 21:40:29 GMT
+  recorded_at: 2022-02-24 16:35:37 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
