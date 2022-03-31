@@ -1,3 +1,8 @@
+# version 4.1
+
+Breaking changes
+* New port for local instance (8080 -> 4949)
+
 # version 4.0
 
 Updates

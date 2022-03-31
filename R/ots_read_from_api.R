@@ -38,7 +38,7 @@ ots_read_from_api <- function(year = NULL,
   )
 
   if (use_localhost == TRUE) {
-    base_url <- "http://localhost:8080/"
+    base_url <- "http://localhost:4949/"
   } else {
     base_url <- "https://api.tradestatistics.io/"
   }
