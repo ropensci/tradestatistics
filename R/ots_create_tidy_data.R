@@ -105,7 +105,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   )
 
   if (use_localhost) {
-    year_range <- unlist(fromJSON("http://localhost:8080/year_range"))
+    year_range <- unlist(fromJSON("http://localhost:4949/year_range"))
   } else {
     year_range <- unlist(fromJSON("https://api.tradestatistics.io/year_range"))
   }
