@@ -17,14 +17,63 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.18.0 (Ubuntu)
-      date: Thu, 24 Feb 2022 16:35:38 GMT
-      content-type: application/json
+      date: Fri, 29 Apr 2022 05:23:05 GMT
+      content-type: application/vnd.apache.parquet
       transfer-encoding: chunked
       connection: keep-alive
       content-encoding: gzip
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       file: no
-      string: '[{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030213","trade_value_usd_exp":1350251,"trade_value_usd_imp":0},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030311","trade_value_usd_exp":1619,"trade_value_usd_imp":0},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030312","trade_value_usd_exp":12888,"trade_value_usd_imp":0},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030313","trade_value_usd_exp":189735,"trade_value_usd_imp":0},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030314","trade_value_usd_exp":14944,"trade_value_usd_imp":0},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030431","trade_value_usd_exp":110636,"trade_value_usd_imp":0},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030461","trade_value_usd_exp":247904,"trade_value_usd_imp":54522},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030491","trade_value_usd_exp":89539,"trade_value_usd_imp":31716},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030541","trade_value_usd_exp":150549,"trade_value_usd_imp":55},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030543","trade_value_usd_exp":150,"trade_value_usd_imp":0},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030614","trade_value_usd_exp":437,"trade_value_usd_imp":0},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030711","trade_value_usd_exp":4580,"trade_value_usd_imp":0},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030719","trade_value_usd_exp":351917,"trade_value_usd_imp":230920},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030731","trade_value_usd_exp":6840,"trade_value_usd_imp":0},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030739","trade_value_usd_exp":31660,"trade_value_usd_imp":0},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030749","trade_value_usd_exp":10563,"trade_value_usd_imp":95904},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030759","trade_value_usd_exp":207404,"trade_value_usd_imp":0},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030111","trade_value_usd_exp":0,"trade_value_usd_imp":2185},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030323","trade_value_usd_exp":0,"trade_value_usd_imp":84056},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030384","trade_value_usd_exp":0,"trade_value_usd_imp":9792},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030510","trade_value_usd_exp":0,"trade_value_usd_imp":12039},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030564","trade_value_usd_exp":0,"trade_value_usd_imp":58},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030616","trade_value_usd_exp":0,"trade_value_usd_imp":87963},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030741","trade_value_usd_exp":0,"trade_value_usd_imp":3200},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","commodity_code":"030779","trade_value_usd_exp":0,"trade_value_usd_imp":212728}]'
-  recorded_at: 2022-02-24 16:35:38 GMT
+      string: |-
+        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
+        FQwZNQQABhkYDHJlcG9ydGVyX2lzbxUCFiIWehaCASbqAia8Ahw2ACgDY2hsGANjaGwAGSwVBBUEFQIA
+        FQAVBBUCAAAAJtIFHBUMGTUEAAYZGAtwYXJ0bmVyX2lzbxUCFiIWehaCASb+BCbQBBw2ACgDYXJnGANh
+        cmcAGSwVBBUEFQIAFQAVBBUCAAAAJt4HHBUMGTUEAAYZGAxzZWN0aW9uX2NvZGUVAhYiFnQWfCaOBybi
+        Bhw2ACgCMDEYAjAxABksFQQVBBUCABUAFQQVAgAAACbCCxwVDBk1BAAGGRgOY29tbW9kaXR5X2NvZGUV
+        AhYiFuwDFtgCJsYKJuoIHDYAKAYwMzA3NzkYBjAzMDExMQAZLBUEFQQVAgAVABUEFQIAAAAm0g8cFQoZ
+        NQQABhkYE3RyYWRlX3ZhbHVlX3VzZF9pbXAVAhYiFqIDFuwCJqwOJuYMHBgIAAAAAEAwDEEYCAAAAAAA
+        AACAFgAoCAAAAABAMAxBGAgAAAAAAAAAgAAZLBUEFQQVAgAVABUEFQIAAAAmqBQcFQoZNQQABhkYE3Ry
+        YWRlX3ZhbHVlX3VzZF9leHAVAhYiFrIDFvgCJoITJrARHBgIAAAAAPH7MEEYCAAAAAAAAACAFgAoCAAA
+        AADx+zBBGAgAAAAAAAAAgAAZLBUEFQQVAgAVABUEFQIAAAAWuA4WIiYIFtQMFAAAGRwYDEFSUk9XOnNj
+        aGVtYRj4BC8vLy8vOUFCQUFBUUFBQUFBQUFLQUF3QUJnQUZBQWdBQ2dBQUFBQUJCQUFNQUFBQUNBQUlB
+        QUFBQkFBSUFBQUFCQUFBQUFjQUFBQmtBUUFBSEFFQUFPd0FBQUM0QUFBQWhBQUFBRUFBQUFBRUFBQUF5
+        UDcvL3dBQUFRTVFBQUFBSkFBQUFBUUFBQUFBQUFBQUV3QUFBSFJ5WVdSbFgzWmhiSFZsWDNWelpGOWxl
+        SEFBeHYvLy93QUFBZ0FBLy8vL0FBQUJBeEFBQUFBc0FBQUFCQUFBQUFBQUFBQVRBQUFBZEhKaFpHVmZk
+        bUZzZFdWZmRYTmtYMmx0Y0FBQUFBWUFDQUFHQUFZQUFBQUFBQUlBUVAvLy93QUFBUVVRQUFBQUlBQUFB
+        QVFBQUFBQUFBQUFEZ0FBQUdOdmJXMXZaR2wwZVY5amIyUmxBQUIwLy8vL2NQLy8vd0FBQVFVUUFBQUFJ
+        QUFBQUFRQUFBQUFBQUFBREFBQUFITmxZM1JwYjI1ZlkyOWtaUUFBQUFDay8vLy9vUC8vL3dBQUFRVVFB
+        QUFBSEFBQUFBUUFBQUFBQUFBQUN3QUFBSEJoY25SdVpYSmZhWE52QU5ELy8vL00vLy8vQUFBQkJSQUFB
+        QUFrQUFBQUJBQUFBQUFBQUFBTUFBQUFjbVZ3YjNKMFpYSmZhWE52QUFBQUFBUUFCQUFFQUFBQUVBQVVB
+        QWdBQmdBSEFBd0FBQUFRQUJBQUFBQUFBQUVDRUFBQUFDQUFBQUFFQUFBQUFBQUFBQVFBQUFCNVpXRnlB
+        QUFBQUFnQURBQUlBQWNBQ0FBQUFBQUFBQUVnQUFBQUFBQUFBQT09ABgfcGFycXVldC1jcHAtYXJyb3cg
+        dmVyc2lvbiA2LjAuMRl8HAAAHAAAHAAAHAAAHAAAHAAAHAAAAOIFAABQQVIx
+  recorded_at: 2022-04-29 05:23:05 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0

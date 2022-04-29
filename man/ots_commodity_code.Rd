@@ -2,15 +2,15 @@
 % Please edit documentation in R/ots_strings_processing.R
 \name{ots_commodity_code}
 \alias{ots_commodity_code}
-\title{String matching of official commodity/group names and Harmonized System (HS) codes
+\title{String matching of official commodity/section names and Harmonized System (HS) codes
 according to the United Nations nomenclature}
 \usage{
-ots_commodity_code(commodity = NULL, group = NULL)
+ots_commodity_code(commodity = NULL, section = NULL)
 }
 \arguments{
 \item{commodity}{A text string such as "Animals", "COPPER" or "fruits".}
 
-\item{group}{A text string such as "meat", "FISH" or "Dairy".}
+\item{section}{A text string such as "meat", "FISH" or "Dairy".}
 }
 \value{
 A tibble with all possible matches (no uppercase distinction)
@@ -23,7 +23,7 @@ commodity codes.
 }
 \examples{
 ots_commodity_code(commodity = "ANIMALS ")
-ots_commodity_code(group = "  fish")
-ots_commodity_code(commodity = "Milk", group = "Dairy")
+ots_commodity_code(section = "  fish")
+ots_commodity_code(commodity = "Milk", section = "Dairy")
 }
 \keyword{functions}

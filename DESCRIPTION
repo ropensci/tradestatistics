@@ -1,7 +1,7 @@
 Package: tradestatistics
 Type: Package
 Title: Open Trade Statistics API Wrapper and Utility Program
-Version: 4.0.1
+Version: 4.2
 Authors@R: c(
       person(given = "Mauricio",
              family = "Vargas",
@@ -52,7 +52,7 @@ License: Apache License (>= 2)
 LazyData: TRUE
 Imports:
     crul,
-    jsonlite,
+    arrow,
     memoise,
     data.table,
     digest
@@ -63,8 +63,7 @@ Suggests:
     tibble,
     testthat (>= 2.1.0),
     vcr,
-    covr,
-    arrow
+    covr
 VignetteBuilder: knitr
 Encoding: UTF-8
 Depends: 

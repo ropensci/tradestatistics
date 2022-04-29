@@ -10,11 +10,10 @@ ots_create_tidy_data(
   partners = "all",
   commodities = "all",
   sections = "all",
-  table = "yr_tc",
+  table = "yr",
   max_attempts = 5,
   use_cache = FALSE,
-  file = NULL,
-  use_localhost = FALSE
+  file = NULL
 )
 }
 \arguments{
@@ -46,9 +45,6 @@ to \code{5}.}
 if \code{file} is \code{NULL} or on disk if `file` is not \code{NULL}. Default set to \code{FALSE}.}
 
 \item{file}{Optional character with the full file path to save the data. Default set to \code{NULL}.}
-
-\item{use_localhost}{Logical to determine if the base URL shall be localhost instead
-of api.tradestatistics.io. Default set to \code{FALSE}.}
 }
 \value{
 A tibble that describes bilateral trade metrics (imports,

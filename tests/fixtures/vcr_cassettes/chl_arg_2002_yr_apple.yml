@@ -17,14 +17,115 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.18.0 (Ubuntu)
-      date: Thu, 24 Feb 2022 16:35:38 GMT
-      content-type: application/json
+      date: Fri, 29 Apr 2022 05:23:06 GMT
+      content-type: application/vnd.apache.parquet
       transfer-encoding: chunked
       connection: keep-alive
       content-encoding: gzip
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       file: no
-      string: '[{"year":2002,"reporter_iso":"abw","trade_value_usd_exp":128258864,"trade_value_usd_imp":842875655},{"year":2002,"reporter_iso":"and","trade_value_usd_exp":63752349,"trade_value_usd_imp":1199570933},{"year":2002,"reporter_iso":"arg","trade_value_usd_exp":25709371110,"trade_value_usd_imp":8989546000},{"year":2002,"reporter_iso":"aus","trade_value_usd_exp":64984167272,"trade_value_usd_imp":72729715006},{"year":2002,"reporter_iso":"aut","trade_value_usd_exp":73112665055,"trade_value_usd_imp":72796195864},{"year":2002,"reporter_iso":"bel","trade_value_usd_exp":215803005539,"trade_value_usd_imp":198094630599},{"year":2002,"reporter_iso":"bgd","trade_value_usd_exp":5417272551,"trade_value_usd_imp":9215132341},{"year":2002,"reporter_iso":"bgr","trade_value_usd_exp":5748869321,"trade_value_usd_imp":7987046063},{"year":2002,"reporter_iso":"bhr","trade_value_usd_exp":5703873967,"trade_value_usd_imp":5010859641},{"year":2002,"reporter_iso":"blr","trade_value_usd_exp":8020912000,"trade_value_usd_imp":9092341100},{"year":2002,"reporter_iso":"bol","trade_value_usd_exp":1371651407,"trade_value_usd_imp":1769357300},{"year":2002,"reporter_iso":"bra","trade_value_usd_exp":60144460644,"trade_value_usd_imp":50761136223},{"year":2002,"reporter_iso":"can","trade_value_usd_exp":252584259635,"trade_value_usd_imp":219000899166},{"year":2002,"reporter_iso":"che","trade_value_usd_exp":91992367113,"trade_value_usd_imp":87326868062},{"year":2002,"reporter_iso":"chl","trade_value_usd_exp":17423088183,"trade_value_usd_imp":15383398153},{"year":2002,"reporter_iso":"chn","trade_value_usd_exp":325595969765,"trade_value_usd_imp":280189912382},{"year":2002,"reporter_iso":"cok","trade_value_usd_exp":5086708,"trade_value_usd_imp":47418199},{"year":2002,"reporter_iso":"col","trade_value_usd_exp":11897488381,"trade_value_usd_imp":12689965006},{"year":2002,"reporter_iso":"cyp","trade_value_usd_exp":379048828,"trade_value_usd_imp":4082301521},{"year":2002,"reporter_iso":"cze","trade_value_usd_exp":44263575824,"trade_value_usd_imp":48230794211},{"year":2002,"reporter_iso":"deu","trade_value_usd_exp":615997391000,"trade_value_usd_imp":490450056000},{"year":2002,"reporter_iso":"dnk","trade_value_usd_exp":55673560335,"trade_value_usd_imp":49284928831},{"year":2002,"reporter_iso":"dza","trade_value_usd_exp":18832409258,"trade_value_usd_imp":12009547468},{"year":2002,"reporter_iso":"ecu","trade_value_usd_exp":5029750862,"trade_value_usd_imp":6431064882},{"year":2002,"reporter_iso":"esp","trade_value_usd_exp":123202779671,"trade_value_usd_imp":165335482968},{"year":2002,"reporter_iso":"est","trade_value_usd_exp":4341041380,"trade_value_usd_imp":5862041572},{"year":2002,"reporter_iso":"fin","trade_value_usd_exp":44517737866,"trade_value_usd_imp":33440047261},{"year":2002,"reporter_iso":"fra","trade_value_usd_exp":304891875349,"trade_value_usd_imp":300348940927},{"year":2002,"reporter_iso":"fro","trade_value_usd_exp":542029280,"trade_value_usd_imp":495688951},{"year":2002,"reporter_iso":"fsm","trade_value_usd_exp":14441108,"trade_value_usd_imp":104290000},{"year":2002,"reporter_iso":"gbr","trade_value_usd_exp":285996254402,"trade_value_usd_imp":366701642638},{"year":2002,"reporter_iso":"grc","trade_value_usd_exp":10327361421,"trade_value_usd_imp":31299035902},{"year":2002,"reporter_iso":"grl","trade_value_usd_exp":305370466,"trade_value_usd_imp":417436929},{"year":2002,"reporter_iso":"gtm","trade_value_usd_exp":2461566066,"trade_value_usd_imp":6300633464},{"year":2002,"reporter_iso":"hkg","trade_value_usd_exp":18327507622,"trade_value_usd_imp":207969014493},{"year":2002,"reporter_iso":"hrv","trade_value_usd_exp":4903584487,"trade_value_usd_imp":10722045127},{"year":2002,"reporter_iso":"hun","trade_value_usd_exp":34336583000,"trade_value_usd_imp":37611572000},{"year":2002,"reporter_iso":"irl","trade_value_usd_exp":88478828539,"trade_value_usd_imp":52214415070},{"year":2002,"reporter_iso":"isl","trade_value_usd_exp":2229304945,"trade_value_usd_imp":2273536956},{"year":2002,"reporter_iso":"isr","trade_value_usd_exp":29511398000,"trade_value_usd_imp":33105904000},{"year":2002,"reporter_iso":"ita","trade_value_usd_exp":254215603934,"trade_value_usd_imp":246609477012},{"year":2002,"reporter_iso":"jor","trade_value_usd_exp":2195700166,"trade_value_usd_imp":5019698789},{"year":2002,"reporter_iso":"jpn","trade_value_usd_exp":416729386470,"trade_value_usd_imp":337613133344},{"year":2002,"reporter_iso":"ken","trade_value_usd_exp":1400699909,"trade_value_usd_imp":3327264952},{"year":2002,"reporter_iso":"kor","trade_value_usd_exp":162466097148,"trade_value_usd_imp":152124371610},{"year":2002,"reporter_iso":"lbn","trade_value_usd_exp":1045493207,"trade_value_usd_imp":6443840727},{"year":2002,"reporter_iso":"lka","trade_value_usd_exp":4683415179,"trade_value_usd_imp":6038677036},{"year":2002,"reporter_iso":"ltu","trade_value_usd_exp":5475632489,"trade_value_usd_imp":7709309670},{"year":2002,"reporter_iso":"lux","trade_value_usd_exp":8592956335,"trade_value_usd_imp":11528844571},{"year":2002,"reporter_iso":"lva","trade_value_usd_exp":2284417388,"trade_value_usd_imp":4053715628},{"year":2002,"reporter_iso":"mac","trade_value_usd_exp":1839837505,"trade_value_usd_imp":2530821358},{"year":2002,"reporter_iso":"mar","trade_value_usd_exp":7849910791,"trade_value_usd_imp":11878147901},{"year":2002,"reporter_iso":"mdg","trade_value_usd_exp":592232383,"trade_value_usd_imp":601944677},{"year":2002,"reporter_iso":"mex","trade_value_usd_exp":160750540171,"trade_value_usd_imp":168650540779},{"year":2002,"reporter_iso":"mkd","trade_value_usd_exp":1115526799,"trade_value_usd_imp":1995155655},{"year":2002,"reporter_iso":"mlt","trade_value_usd_exp":1844074104,"trade_value_usd_imp":2839178850},{"year":2002,"reporter_iso":"mng","trade_value_usd_exp":480453534,"trade_value_usd_imp":0},{"year":2002,"reporter_iso":"moz","trade_value_usd_exp":809812041,"trade_value_usd_imp":1542963441},{"year":2002,"reporter_iso":"mus","trade_value_usd_exp":1755597277,"trade_value_usd_imp":2168970340},{"year":2002,"reporter_iso":"mys","trade_value_usd_exp":93282452899,"trade_value_usd_imp":86136022472},{"year":2002,"reporter_iso":"myt","trade_value_usd_exp":5635304,"trade_value_usd_imp":172109571},{"year":2002,"reporter_iso":"ner","trade_value_usd_exp":198995882,"trade_value_usd_imp":432040415},{"year":2002,"reporter_iso":"nic","trade_value_usd_exp":558704717,"trade_value_usd_imp":1788094157},{"year":2002,"reporter_iso":"nld","trade_value_usd_exp":219820527868,"trade_value_usd_imp":194114787323},{"year":2002,"reporter_iso":"nor","trade_value_usd_exp":59534883731,"trade_value_usd_imp":34872582566},{"year":2002,"reporter_iso":"nzl","trade_value_usd_exp":13820190129,"trade_value_usd_imp":15044156727},{"year":2002,"reporter_iso":"omn","trade_value_usd_exp":11237018559,"trade_value_usd_imp":6005160668},{"year":2002,"reporter_iso":"per","trade_value_usd_exp":7665214023,"trade_value_usd_imp":7493004117},{"year":2002,"reporter_iso":"png","trade_value_usd_exp":1625122738,"trade_value_usd_imp":1183687198},{"year":2002,"reporter_iso":"pol","trade_value_usd_exp":40253902000,"trade_value_usd_imp":54266342000},{"year":2002,"reporter_iso":"prt","trade_value_usd_exp":25825579756,"trade_value_usd_imp":40032082340},{"year":2002,"reporter_iso":"rou","trade_value_usd_exp":13874884008,"trade_value_usd_imp":17829275000},{"year":2002,"reporter_iso":"rus","trade_value_usd_exp":106691997872,"trade_value_usd_imp":46176985035},{"year":2002,"reporter_iso":"sau","trade_value_usd_exp":71190687003,"trade_value_usd_imp":30466325610},{"year":2002,"reporter_iso":"sgp","trade_value_usd_exp":125177090755,"trade_value_usd_imp":116440933231},{"year":2002,"reporter_iso":"slb","trade_value_usd_exp":41491963,"trade_value_usd_imp":57853812},{"year":2002,"reporter_iso":"slv","trade_value_usd_exp":2995069279,"trade_value_usd_imp":5184498307},{"year":2002,"reporter_iso":"svk","trade_value_usd_exp":14477417305,"trade_value_usd_imp":16502240455},{"year":2002,"reporter_iso":"svn","trade_value_usd_exp":10356930742,"trade_value_usd_imp":10932233579},{"year":2002,"reporter_iso":"swe","trade_value_usd_exp":82983414446,"trade_value_usd_imp":67120674134},{"year":2002,"reporter_iso":"syc","trade_value_usd_exp":178500606,"trade_value_usd_imp":419796445},{"year":2002,"reporter_iso":"tha","trade_value_usd_exp":68107865132,"trade_value_usd_imp":63694655726},{"year":2002,"reporter_iso":"tun","trade_value_usd_exp":6871227941,"trade_value_usd_imp":9522562979},{"year":2002,"reporter_iso":"tur","trade_value_usd_exp":35761981307,"trade_value_usd_imp":51270195622},{"year":2002,"reporter_iso":"uga","trade_value_usd_exp":431614122,"trade_value_usd_imp":1073753112},{"year":2002,"reporter_iso":"ury","trade_value_usd_exp":1861037660,"trade_value_usd_imp":1966843724},{"year":2002,"reporter_iso":"usa","trade_value_usd_exp":629278576254,"trade_value_usd_imp":1200095833882},{"year":2002,"reporter_iso":"zaf","trade_value_usd_exp":23064420320,"trade_value_usd_imp":26093952542},{"year":2002,"reporter_iso":"zmb","trade_value_usd_exp":998645314,"trade_value_usd_imp":1346875858}]'
-  recorded_at: 2022-02-24 16:35:38 GMT
+      string: |-
+        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
+        DID9872hEAyAfM1uIXAMQdA4RYHQEAAADucnATAMoD+pfgEICLBMqyHoDACnreOBYBCgY+Jt6gEYDMw/
+        PZoBCAw6wGmiAQgMiJmJgQEICPhyb2VYCLP+sqWACFDEIgGQMJDR+AMDQgAAFpOLri0BmAyYy4aOATAI
+        SHdOYZAQ4GYFnfEBEAiE+8EB2AgAx7mpwCyR6xrEQQAATEYZyCQBOAzAei+kASgM4B+SigEICH2yD6VY
+        DDDFhpIBEAzoyY6MAQgM1Sbh3SEYKD6NEP9BAACmuJnMZXgMuL0jvSGYCC7m4yXYCNFTzEFQEKAmz74J
+        AWAMoH2UcEFYSBOMYt1BACAmml/ea0IAAIBL/qchKBAA4HO5cQFgCDo03UGALKDU+HYGQgAAIF4hQmEY
+        DOhmM08FSAjExdEFyAygULFyATAISErcITAMoGGyyUHIEJQ7SHoTAXAwjnGmx0EAAIAqjmHQQRUAFYIE
+        FYwELBXkAxUEFQYVBhwYCAAgJppf3mtCGAgAAAAAgL3BQBYAKAgAICaaX95rQhgIAAAAAIC9wUAAAACB
+        AvQAAQMAAADkAwEIPwABAgMEBQYHCAkKCwwNDg8QERITFBUWFxgZGhscHR4fICEiIyQlJicoKSorLC0u
+        LzAxMjM0NTY3ODk6Ozw9Pj9AQUJDREVGR0hJSktMTU5PUFFSU1RVVldYWVpbXF1eX2BhYmNkZWZnaGlq
+        a2xtbm9wcXJzdHV2d3h5ent8fX5/gIGCg4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydnp+goaKjpKWm
+        p6ipqqusra6vsLGys7S1tre4ubq7vL2+v8DBwsPExcbHyMnKy8zNzs/Q0dLT1NXW19jZ2tvc3d7f4OHi
+        4+Tl5ufo6err7O3u7/DxAAAAAAAAJqJMHBUKGTUEAAYZGBN0cmFkZV92YWx1ZV91c2RfZXhwFQIW5AMW
+        xCMWziAmlkcm1CscGAgAICaaX95rQhgIAAAAAIC9wUAWACgIACAmml/ea0IYCAAAAACAvcFAABksFQQV
+        BBUCABUAFQQVAgAAABUCGVw1ABgGc2NoZW1hFQgAFQIlAhgEeWVhcgAVDCUCGAxyZXBvcnRlcl9pc28l
+        AEwcAAAAFQolAhgTdHJhZGVfdmFsdWVfdXNkX2ltcAAVCiUCGBN0cmFkZV92YWx1ZV91c2RfZXhwABbk
+        AxkcGUwmpgEcFQIZNQQABhkYBHllYXIVAhbkAxaWARaeASYwJggcGATSBwAAGATSBwAAFgAoBNIHAAAY
+        BNIHAAAAGSwVBBUEFQIAFQAVBBUCAAAAJooZHBUMGTUEAAYZGAxyZXBvcnRlcl9pc28VAhbkAxbWHxbG
+        Fia6FCbEAhw2ACgDendlGANhYncAGSwVBBUEFQIAFQAVBBUCAAAAJvQpHBUKGTUEAAYZGBN0cmFkZV92
+        YWx1ZV91c2RfaW1wFQIW5AMW4A8W1A8mxCUmoBocGAgAoPGStHZxQhgIAAAAAAAAAIAWACgIAKDxkrR2
+        cUIYCAAAAAAAAACAABksFQQVBBUCABUAFQQVAgAAACaiTBwVChk1BAAGGRgTdHJhZGVfdmFsdWVfdXNk
+        X2V4cBUCFuQDFsQjFs4gJpZHJtQrHBgIACAmml/ea0IYCAAAAACAvcFAFgAoCAAgJppf3mtCGAgAAAAA
+        gL3BQAAZLBUEFQQVAgAVABUEFQIAAAAWkFQW5AMmCBaGSBQAABkcGAxBUlJPVzpzY2hlbWEYrAMvLy8v
+        L3pnQkFBQVFBQUFBQUFBS0FBd0FCZ0FGQUFnQUNnQUFBQUFCQkFBTUFBQUFDQUFJQUFBQUJBQUlBQUFB
+        QkFBQUFBUUFBQURNQUFBQWhBQUFBRUFBQUFBRUFBQUFWUC8vL3dBQUFRTVFBQUFBSkFBQUFBUUFBQUFB
+        QUFBQUV3QUFBSFJ5WVdSbFgzWmhiSFZsWDNWelpGOWxlSEFBeHYvLy93QUFBZ0NNLy8vL0FBQUJBeEFB
+        QUFBc0FBQUFCQUFBQUFBQUFBQVRBQUFBZEhKaFpHVmZkbUZzZFdWZmRYTmtYMmx0Y0FBQUFBWUFDQUFH
+        QUFZQUFBQUFBQUlBelAvLy93QUFBUVVRQUFBQUpBQUFBQVFBQUFBQUFBQUFEQUFBQUhKbGNHOXlkR1Z5
+        WDJsemJ3QUFBQUFFQUFRQUJBQUFBQkFBRkFBSUFBWUFCd0FNQUFBQUVBQVFBQUFBQUFBQkFoQUFBQUFn
+        QUFBQUJBQUFBQUFBQUFBRUFBQUFlV1ZoY2dBQUFBQUlBQXdBQ0FBSEFBZ0FBQUFBQUFBQklBQUFBQUFB
+        QUFBPQAYH3BhcnF1ZXQtY3BwLWFycm93IHZlcnNpb24gNi4wLjEZTBwAABwAABwAABwAAADoAwAAUEFS
+        MQ==
+  recorded_at: 2022-04-29 05:23:06 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
