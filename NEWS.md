@@ -1,5 +1,20 @@
+# version 4.2
+
+Breaking changes
+* The API now returns Parquet files instead of JSON for all the cases (except 
+  for available years and tables)
+* All the tests were adapted to reflect changes in the DB (i.e., the test 
+  "multiple country match = error"
+  no longer returns an error because there are no two codes for Germany in
+  2002-2020)
+* The command use_localhost was removed because the Shiny app now connects 
+  directly to PostgreSQL (i.e., this saves resources)
+
 # version 4.1
 
+Updates
+* Uses GDP deflator to convert dollars from one year to another (previously
+  it used reported inflation)
 Breaking changes
 * New port for local instance (8080 -> 4949)
 

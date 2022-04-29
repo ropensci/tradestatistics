@@ -55,27 +55,27 @@ ots_country_code <- function(countryname = NULL) {
   return(countrycode)
 }
 
-#' String matching of official commodity/group names and Harmonized System (HS) codes
+#' String matching of official commodity/section names and Harmonized System (HS) codes
 #' according to the United Nations nomenclature
 #' @description Takes a text string and searches within the
 #' package data for all matching commodity codes in the context of valid API
 #' commodity codes.
 #' @param commodity A text string such as "Animals", "COPPER" or "fruits".
-#' @param group A text string such as "meat", "FISH" or "Dairy".
+#' @param section A text string such as "meat", "FISH" or "Dairy".
 #' @return A tibble with all possible matches (no uppercase distinction)
 #' showing the commodity name and commodity code
 #' @export
 #' @examples
 #' ots_commodity_code(commodity = "ANIMALS ")
-#' ots_commodity_code(group = "  fish")
-#' ots_commodity_code(commodity = "Milk", group = "Dairy")
+#' ots_commodity_code(section = "  fish")
+#' ots_commodity_code(commodity = "Milk", section = "Dairy")
 #' @keywords functions
-ots_commodity_code <- function(commodity = NULL, group = NULL) {
-  if (is.null(commodity) & is.null(group)) {
-    stop("'commodity' and 'group' are NULL.")
+ots_commodity_code <- function(commodity = NULL, section = NULL) {
+  if (is.null(commodity) & is.null(section)) {
+    stop("'commodity' and 'section' are NULL.")
   }
   
-  if (!is.null(commodity) & is.null(group)) {
+  if (!is.null(commodity) & is.null(section)) {
     stopifnot(is.character(commodity))
     # stopifnot(nchar(commodity) > 0)
     
@@ -89,40 +89,40 @@ ots_commodity_code <- function(commodity = NULL, group = NULL) {
     }
   }
   
-  if (is.null(commodity) & !is.null(group)) {
-    stopifnot(is.character(group))
+  if (is.null(commodity) & !is.null(section)) {
+    stopifnot(is.character(section))
     
-    group <- tolower(iconv(group, to = "ASCII//TRANSLIT", sub = ""))
-    group <- gsub("[^[:alpha:]]", "", group)
+    section <- tolower(iconv(section, to = "ASCII//TRANSLIT", sub = ""))
+    section <- gsub("[^[:alpha:]]", "", section)
     
-    if (group == "") {
+    if (section == "") {
       stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the commodities table provided within this package.")
     } else {
-      dg <- unique(tradestatistics::ots_commodities[, c("group_code", "group_fullname_english")])
+      dg <- unique(tradestatistics::ots_commodities[, c("section_code", "section_fullname_english")])
       
-      d <- dg[grepl(group, tolower(group_fullname_english))]
+      d <- dg[grepl(section, tolower(section_fullname_english))]
     }
   }
   
-  if (!is.null(commodity) & !is.null(group)) {
+  if (!is.null(commodity) & !is.null(section)) {
     stopifnot(is.character(commodity))
     # stopifnot(nchar(commodity) > 0)
     
-    stopifnot(is.character(group))
-    # stopifnot(nchar(group) > 0)
+    stopifnot(is.character(section))
+    # stopifnot(nchar(section) > 0)
     
     commodity <- tolower(iconv(commodity, to = "ASCII//TRANSLIT", sub = ""))
     commodity <- gsub("[^[:alpha:]]", "", commodity)
     
-    group <- tolower(iconv(group, to = "ASCII//TRANSLIT", sub = ""))
-    group <- gsub("[^[:alpha:]]", "", group)
+    section <- tolower(iconv(section, to = "ASCII//TRANSLIT", sub = ""))
+    section <- gsub("[^[:alpha:]]", "", section)
 
-    if (commodity == "" | group == "") {
+    if (commodity == "" | section == "") {
       stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the commodities table provided within this package.")
     } else {
       d <- tradestatistics::ots_commodities[
               grepl(commodity, tolower(commodity_fullname_english)) &
-              grepl(group, tolower(group_fullname_english))]
+              grepl(section, tolower(section_fullname_english))]
     }
   }
   

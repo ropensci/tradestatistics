@@ -20,7 +20,7 @@ as_tibble(ots_countries)
 as_tibble(ots_commodities)
 
 ## ----inflation, eval = T------------------------------------------------------
-as_tibble(ots_inflation)
+as_tibble(ots_gdp_deflator)
 
 ## ----country_code-------------------------------------------------------------
 # Single match with no replacement
@@ -33,15 +33,14 @@ as_tibble(ots_country_code("America"))
 as_tibble(ots_country_code("Germany"))
 
 ## ----commodity_code2----------------------------------------------------------
-as_tibble(ots_commodity_code(commodity = " ShEEp ", group = " mEaT "))
+as_tibble(ots_commodity_code(commodity = " ShEEp ", section = " mEaT "))
 
 ## ----yrpc1, eval = F----------------------------------------------------------
 #  yrpc <- ots_create_tidy_data(
 #    years = 2019,
 #    reporters = "chl",
 #    partners = "arg",
-#    table = "yrpc",
-#    use_localhost = FALSE
+#    table = "yrpc"
 #  )
 #  
 #  as_tibble(yrpc)
@@ -57,8 +56,7 @@ as_tibble(tradestatistics:::ots_demo_data$yrpc)
 #    reporters = c("chl", "Peru", "bol"),
 #    partners = c("arg", "Brazil"),
 #    commodities = c("01", "food"),
-#    table = "yrpc",
-#    use_localhost = FALSE
+#    table = "yrpc"
 #  )
 
 ## ----yrp3, eval = F-----------------------------------------------------------
@@ -66,8 +64,7 @@ as_tibble(tradestatistics:::ots_demo_data$yrpc)
 #    years = 2018:2019,
 #    reporters = c("chl", "per"),
 #    partners = "arg",
-#    table = "yrp",
-#    use_localhost = FALSE
+#    table = "yrp"
 #  )
 
 ## ----yrc2, eval = F-----------------------------------------------------------
@@ -75,37 +72,33 @@ as_tibble(tradestatistics:::ots_demo_data$yrpc)
 #    years = 2019,
 #    reporters = "chl",
 #    commodities = "010121",
-#    table = "yrc",
-#    use_localhost = FALSE
+#    table = "yrc"
 #  )
 
 ## ----yr2, eval = F------------------------------------------------------------
 #  yr <- ots_create_tidy_data(
 #    years = 2018:2019,
 #    reporters = c("chl", "arg", "per"),
-#    table = "yr",
-#    use_localhost = FALSE
+#    table = "yr"
 #  )
 
 ## ----yc1, eval = F------------------------------------------------------------
 #  yc <- ots_create_tidy_data(
 #    years = 2019,
-#    table = "yc",
-#    use_localhost = FALSE
+#    table = "yc"
 #  )
 
 ## ----yc2, eval = F------------------------------------------------------------
 #  yc2 <- ots_create_tidy_data(
 #    years = 2019,
 #    commodities = "010121",
-#    table = "yc",
-#    use_localhost = FALSE
+#    table = "yc"
 #  )
 
 ## ----inflation2, eval=FALSE---------------------------------------------------
-#  inflation <- ots_inflation_adjustment(yr, reference_year = 2000)
+#  inflation <- ots_gdp_deflator_adjustment(yr, reference_year = 2000)
 #  as_tibble(inflation)
 
 ## ----inflation3, echo=FALSE---------------------------------------------------
-as_tibble(ots_inflation_adjustment(tradestatistics:::ots_demo_data$yr, reference_year = 2000))
+as_tibble(ots_gdp_deflator_adjustment(tradestatistics:::ots_demo_data$yr, reference_year = 2000))
 

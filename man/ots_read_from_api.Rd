@@ -11,8 +11,7 @@ ots_read_from_api(
   commodity_code = "all",
   section_code = "all",
   table = "yr",
-  max_attempts = 5,
-  use_localhost = FALSE
+  max_attempts = 5
 )
 }
 \description{

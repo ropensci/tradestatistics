@@ -71,10 +71,10 @@ as_tibble(ots_commodities)
 
 ## Inflation data
 
-This table is provided to be used with `ots_inflation_adjustment()`.
+This table is provided to be used with `ots_gdp_deflator_adjustment()`.
 
 ```{r inflation, eval = T}
-as_tibble(ots_inflation)
+as_tibble(ots_gdp_deflator)
 ```
 
 # Package functions
@@ -101,14 +101,14 @@ The function `ots_country_code()` is used by `ots_create_tidy_data()` in a way t
 
 The end user can find a code or a set of codes by looking for keywords for commodities or groups. The function `ots_commodity_code()` allows to search from the official commodities and groups in the Harmonized system:
 ```{r commodity_code2}
-as_tibble(ots_commodity_code(commodity = " ShEEp ", group = " mEaT "))
+as_tibble(ots_commodity_code(commodity = " ShEEp ", section = " mEaT "))
 ```
 
 ## Trade data
 
 This function downloads data for a single year and needs (at least) some filter parameters according to the query type.
 
-Here we cover aggregated tables to describe the usage. Note: here you may skip the `use_localhost = FALSE` argument.
+Here we cover aggregated tables to describe the usage.
 
 ### Bilateral trade at commodity level (Year - Reporter - Partner - Commodity Code)
 
@@ -118,8 +118,7 @@ yrpc <- ots_create_tidy_data(
   years = 2019,
   reporters = "chl",
   partners = "arg",
-  table = "yrpc",
-  use_localhost = FALSE
+  table = "yrpc"
 )
 
 as_tibble(yrpc)
@@ -138,8 +137,7 @@ yrpc2 <- ots_create_tidy_data(
   reporters = c("chl", "Peru", "bol"),
   partners = c("arg", "Brazil"),
   commodities = c("01", "food"),
-  table = "yrpc",
-  use_localhost = FALSE
+  table = "yrpc"
 )
 ```
 
@@ -153,8 +151,7 @@ yrp <- ots_create_tidy_data(
   years = 2018:2019,
   reporters = c("chl", "per"),
   partners = "arg",
-  table = "yrp",
-  use_localhost = FALSE
+  table = "yrp"
 )
 ```
 
@@ -168,8 +165,7 @@ yrc <- ots_create_tidy_data(
   years = 2019,
   reporters = "chl",
   commodities = "010121",
-  table = "yrc",
-  use_localhost = FALSE
+  table = "yrc"
 )
 ```
 
@@ -184,8 +180,7 @@ If we want the aggregated trade of Chile, Argentina and Peru in 2018 and 2019:
 yr <- ots_create_tidy_data(
   years = 2018:2019,
   reporters = c("chl", "arg", "per"),
-  table = "yr",
-  use_localhost = FALSE
+  table = "yr"
 )
 ```
 
@@ -199,8 +194,7 @@ If we want all commodities traded in 2019:
 ```{r yc1, eval = F}
 yc <- ots_create_tidy_data(
   years = 2019,
-  table = "yc",
-  use_localhost = FALSE
+  table = "yc"
 )
 ```
 
@@ -209,8 +203,7 @@ If we want the traded values of the commodity "010121" which means "Horses; live
 yc2 <- ots_create_tidy_data(
   years = 2019,
   commodities = "010121",
-  table = "yc",
-  use_localhost = FALSE
+  table = "yc"
 )
 ```
 
@@ -218,13 +211,13 @@ This table accepts different years just like `yrpc`.
 
 ## Inflation adjustment
 
-Taking the `yr` table from above, we can use `ots_inflation_adjustment()` to convert dollars from 2018 and 2019 to dollars of 2000:
+Taking the `yr` table from above, we can use `ots_gdp_deflator_adjustment()` to convert dollars from 2018 and 2019 to dollars of 2000:
 
 ```{r inflation2, eval=FALSE}
-inflation <- ots_inflation_adjustment(yr, reference_year = 2000)
+inflation <- ots_gdp_deflator_adjustment(yr, reference_year = 2000)
 as_tibble(inflation)
 ```
 
 ```{r inflation3, echo=FALSE}
-as_tibble(ots_inflation_adjustment(tradestatistics:::ots_demo_data$yr, reference_year = 2000))
+as_tibble(ots_gdp_deflator_adjustment(tradestatistics:::ots_demo_data$yr, reference_year = 2000))
 ```

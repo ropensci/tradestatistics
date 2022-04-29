@@ -7,7 +7,7 @@
   "codeRepository": "https://github.com/pachadotdev/tradestatistics",
   "issueTracker": "https://github.com/ropensci/tradestatistics/issues/",
   "license": "Apache License 2",
-  "version": "4.0.1",
+  "version": "4.2",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -150,18 +150,6 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=covr"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "arrow",
-      "name": "arrow",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=arrow"
     }
   ],
   "softwareRequirements": {
@@ -179,15 +167,15 @@
     },
     "2": {
       "@type": "SoftwareApplication",
-      "identifier": "jsonlite",
-      "name": "jsonlite",
+      "identifier": "arrow",
+      "name": "arrow",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
         "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
       },
-      "sameAs": "https://CRAN.R-project.org/package=jsonlite"
+      "sameAs": "https://CRAN.R-project.org/package=arrow"
     },
     "3": {
       "@type": "SoftwareApplication",
@@ -233,7 +221,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "3020.724KB",
+  "fileSize": "1104.69KB",
   "relatedLink": ["https://docs.ropensci.org/tradestatistics/", "https://CRAN.R-project.org/package=tradestatistics"],
   "releaseNotes": "https://github.com/pachadotdev/tradestatistics/blob/master/NEWS.md",
   "readme": "https://github.com/pachadotdev/tradestatistics/blob/master/README.md",

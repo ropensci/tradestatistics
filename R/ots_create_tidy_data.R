@@ -21,14 +21,12 @@
 #' @param use_cache Logical to save and load from cache. If \code{TRUE}, the results will be cached in memory
 #' if \code{file} is \code{NULL} or on disk if `file` is not \code{NULL}. Default set to \code{FALSE}.
 #' @param file Optional character with the full file path to save the data. Default set to \code{NULL}.
-#' @param use_localhost Logical to determine if the base URL shall be localhost instead
-#' of api.tradestatistics.io. Default set to \code{FALSE}.
 #' @return A tibble that describes bilateral trade metrics (imports,
 #' exports, trade balance and relevant metrics
 #' such as exports growth w/r to last year) between a \code{reporter}
 #' and \code{partner} country.
 #' @importFrom data.table `:=` rbindlist setnames
-#' @importFrom jsonlite fromJSON
+#' @importFrom arrow read_parquet
 #' @importFrom crul HttpClient
 #' @export
 #' @examples
@@ -55,11 +53,10 @@ ots_create_tidy_data <- function(years = 2019,
                                  partners = "all",
                                  commodities = "all",
                                  sections = "all",
-                                 table = "yr_tc",
+                                 table = "yr",
                                  max_attempts = 5,
                                  use_cache = FALSE,
-                                 file = NULL,
-                                 use_localhost = FALSE) {
+                                 file = NULL) {
   if (!is.logical(use_cache)) {
     stop("use_cache must be logical.")
   }
@@ -77,13 +74,13 @@ ots_create_tidy_data <- function(years = 2019,
     commodities = commodities,
     sections = sections,
     table = table,
-    max_attempts = max_attempts,
-    use_localhost = use_localhost
+    max_attempts = max_attempts
   )
 }
 
 #' Downloads and processes the data from the API to return a human-readable tibble (unmemoised, internal)
 #' @description A separation of \code{ots_create_tidy_data()} for making caching optional.
+#' @importFrom utils read.csv
 #' @keywords internal
 ots_create_tidy_data_unmemoised <- function(years = 2018,
                                             reporters = "usa",
@@ -91,8 +88,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
                                             commodities = "all",
                                             sections = "all",
                                             table = "yr",
-                                            max_attempts = 5,
-                                            use_localhost = FALSE) {
+                                            max_attempts = 5) {
   # Check tables ----
   if (!table %in% tradestatistics::ots_tables$table) {
     stop("The requested table does not exist. Please check the spelling or explore the 'ots_table' table provided within this package.")
@@ -104,24 +100,21 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     value = T
   )
 
-  if (use_localhost) {
-    year_range <- unlist(fromJSON("http://localhost:4949/year_range"))
-  } else {
-    year_range <- unlist(fromJSON("https://api.tradestatistics.io/year_range"))
-  }
-  
+  year_range <- try(read.csv("https://api.tradestatistics.io/year_range"))
+  year_range <- try(as.numeric(year_range$year))
+
   if (all(years %in% min(year_range):max(year_range)) != TRUE &
     table %in% year_depending_queries) {
     stop("Provided that the table you requested contains a 'year' field, please verify that you are requesting data contained within the years from api.tradestatistics.io/year_range.")
   }
 
   # Check reporters and partners ----
-  reporter_depending_queries <- grep("^yr|^ysr|^tariffs",
+  reporter_depending_queries <- grep("^yr|^tariffs",
     tradestatistics::ots_tables$table,
     value = T
   )
   
-  partner_depending_queries <- grep("^yrp|^ysrp",
+  partner_depending_queries <- grep("^yrp",
     tradestatistics::ots_tables$table,
     value = T
   )
@@ -185,7 +178,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   }
 
   # Check commodity codes ----
-  commodities_depending_queries <- grep("c_tc$|c_ntc$|^tariffs",
+  commodities_depending_queries <- grep("c$|^tariffs",
     tradestatistics::ots_tables$table,
     value = T
   )
@@ -268,21 +261,10 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     stop("max_attempts must be a positive integer.")
   }
 
-  if (!is.logical(use_localhost)) {
-    stop("use_localhost must be logical.")
-  }
-
   # Read from API ----
   if (!table %in% commodities_depending_queries & any(commodities != "all") == TRUE) {
     commodities <- "all"
     warning("The commodities argument will be ignored provided that you requested a table without commodity_code field.")
-  }
-  
-  if (grepl("^ysrpc", table) == TRUE &
-      !all(c(reporters, partners) == "all") == TRUE) {
-    reporters <- "all"
-    partners <- "all"
-    warning("The reporter and partner arguments will be ignored provided that you requested a table without these filtering options.")
   }
   
   if (is.null(reporters)) {
@@ -300,7 +282,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     reporter = reporters,
     partner = partners,
     commodity = commodities,
-    section = if (grepl("^ysrpc", table)) { sections } else { "all" },
+    section = "all",
     stringsAsFactors = FALSE
   )
 
@@ -314,8 +296,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
         reporter_iso = condensed_parameters$reporter[x],
         partner_iso = condensed_parameters$partner[x],
         commodity_code = condensed_parameters$commodity[x],
-        section_code = condensed_parameters$section[x],
-        use_localhost = use_localhost
+        section_code = condensed_parameters$section[x]
       )
     }
   )
@@ -348,17 +329,10 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
   
   # include commodities data
   if (table %in% commodities_depending_queries) {
-    if (!grepl("ysrpc", table)) {
-      data <- merge(data, tradestatistics::ots_commodities,
-                    all.x = TRUE, all.y = FALSE,
-                    by.x = "commodity_code", by.y = "commodity_code",
-                    allow.cartesian = TRUE)
-    } else {
-      data <- merge(data, tradestatistics::ots_commodities,
-                    all.x = TRUE, all.y = FALSE,
-                    by.x = c("commodity_code", "section_code"), by.y = c("commodity_code", "section_code"),
-                    allow.cartesian = TRUE)
-    }
+    data <- merge(data, tradestatistics::ots_commodities,
+                  all.x = TRUE, all.y = FALSE,
+                  by.x = c("commodity_code", "section_code"), by.y = c("commodity_code", "section_code"),
+                  allow.cartesian = TRUE)
     
     data <- setnames(data, c("commodity_fullname_english", "section_fullname_english"), 
                      c("commodity_name", "section_name"))
