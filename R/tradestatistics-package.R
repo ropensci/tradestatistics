@@ -14,9 +14,7 @@ utils::globalVariables(c(
 
 #' OTS Tables
 #'
-#' A table describing existing API tables with both description and source.
-#' This data is used by the functions provided within this package to validate
-#' user parameters.
+#' Existing API tables with both description and source.
 #'
 #' @docType data
 #' @keywords datasets
@@ -33,16 +31,11 @@ NULL
 
 #' GDP Deflator
 #'
-#' A table with the World's weigthed GDP deflator inflation since 2000.
-#' Provides year to year GDP deflator values for every country listed in the 
-#' World Bank database. This data is ready to be applied as a conversion rate 
-#' to express dollars of year Y1 as dollars of year Y2.
-#' For countries not listed in the World Bank database, rows labelled as "wld" 
-#' are available, which were computed as the weighted median for each year using 
+#' Year to year GDP deflator some of the countries in the OTS database. For 
+#' countries not available in the World Bank database, rows labelled as "wld" 
+#' are provided, which were computed as the weighted median for each year using 
 #' the GDP of listed countries for each year expressed as constant dollars of 
 #' the year 2010.
-#' This dataset is provided to be used with \code{ots_gdp_deflator_adjustment} 
-#' that converts units forwards and backwards in time.
 #'
 #' @docType data
 #' @keywords datasets
@@ -60,10 +53,7 @@ NULL
 
 #' OTS Countries
 #'
-#' A table of official country names, ISO-3 codes and other metadata. The
-#' availability is limited to countries with records in the OTS database.
-#' This data is used by the functions provided within this package to complement
-#' the data obtained from the API.
+#' Official country names, ISO-3 codes, continent and EU membership.
 #'
 #' @docType data
 #' @keywords datasets
@@ -83,12 +73,8 @@ NULL
 
 #' OTS Commodities
 #'
-#' A table of official commodity names from the Harmonized System rev 2012
-#' (HS12, also known as H4). Provides official commodity and section codes and 
-#' names at six (6) digits detail taken from the United Nations official 
-#' sources.
-#' This data is used by the functions provided within this package to complement
-#' the data obtained from the API.
+#' Official commodity names from the Harmonized System rev 2012
+#' (HS12, six digits detail).
 #'
 #' @docType data
 #' @keywords datasets
@@ -106,12 +92,8 @@ NULL
 
 #' OTS Commodities Short
 #'
-#' A table of official commodity names from the Harmonized System rev 2012
-#' (HS12, also known as H4). Provides official commodity and section codes and 
-#' names at four (4) digits of detail taken from the United Nations official 
-#' sources.
-#' This data is used by the functions provided within this package to complement
-#' the data obtained from the API.
+#' Official commodity names from the Harmonized System rev 2012
+#' (HS12, four digits detail).
 #'
 #' @docType data
 #' @keywords datasets
@@ -129,8 +111,7 @@ NULL
 
 #' OTS Sections
 #'
-#' A table of official section names from the Harmonized System rev 2012 
-#' (HS12, also known as H4).
+#' Official section names from the Harmonized System rev 2012 (HS12).
 #'
 #' @docType data
 #' @keywords datasets
@@ -146,8 +127,8 @@ NULL
 
 #' OTS Sections Colors
 #'
-#' A table of official unofficial colors to ease visualization for the sections
-#' the Harmonized System rev 2012 (HS12, also known as H4).
+#' Unofficial colors to ease visualization for the sections
+#' the Harmonized System rev 2012 (HS12).
 #'
 #' @docType data
 #' @keywords datasets
@@ -158,5 +139,28 @@ NULL
 #' \itemize{
 #'   \item{\code{section_code}}{Section code (e.g. '01')}
 #'   \item{\code{section_color}}{Section hex color (e.g. '#74c0e2')}
+#' }
+NULL
+
+#' OTS Distances
+#'
+#' Distance between countries, alongside colonial relation, common language,
+#' and continuity.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name ots_distances
+#' @usage ots_distances
+#' @source Adapted from CEPII
+#' @format A data frame with 22,791 rows and 8 variables
+#' \itemize{
+#'   \item{\code{country1}}{First ISO-3 code in the dyad (alphabetical order)}
+#'   \item{\code{country2}}{Second ISO-3 code in the dyad (alphabetical order)}
+#'   \item{\code{dist}}{Distance between most populated cities (in kilometers)}
+#'   \item{\code{distcap}}{Distance between capitals (in kilometers)}
+#'   \item{\code{colony}}{Variable coded as 1 when the two countries are or were in a colonial relation}
+#'   \item{\code{comlang_ethno}}{Variable coded as 1 when the two countries have at least 9\% of their population speaking the same language}
+#'   \item{\code{comlang_off}}{Variable coded as 1 when the two countries share the same official language}
+#'   \item{\code{contig}}{Variable coded as 1 when the two countries are next to each other and 0 otherwise}
 #' }
 NULL

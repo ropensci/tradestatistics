@@ -20,15 +20,10 @@ Open Trade Statistics
 ots_gdp_deflator
 }
 \description{
-A table with the World's weigthed GDP deflator inflation since 2000.
-Provides year to year GDP deflator values for every country listed in the 
-World Bank database. This data is ready to be applied as a conversion rate 
-to express dollars of year Y1 as dollars of year Y2.
-For countries not listed in the World Bank database, rows labelled as "wld" 
-are available, which were computed as the weighted median for each year using 
+Year to year GDP deflator some of the countries in the OTS database. For 
+countries not available in the World Bank database, rows labelled as "wld" 
+are provided, which were computed as the weighted median for each year using 
 the GDP of listed countries for each year expressed as constant dollars of 
 the year 2010.
-This dataset is provided to be used with \code{ots_gdp_deflator_adjustment} 
-that converts units forwards and backwards in time.
 }
 \keyword{datasets}

@@ -18,7 +18,7 @@ Open Trade Statistics
 ots_sections_colors
 }
 \description{
-A table of official unofficial colors to ease visualization for the sections
-the Harmonized System rev 2012 (HS12, also known as H4).
+Unofficial colors to ease visualization for the sections
+the Harmonized System rev 2012 (HS12).
 }
 \keyword{datasets}
