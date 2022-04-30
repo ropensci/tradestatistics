@@ -5,8 +5,7 @@ library(dplyr)
 library(arrow)
 
 base_url <- "https://api.tradestatistics.io/"
-# base_url <- "http://127.0.0.1:8080/"
-  
+
 tables_url <- paste0(base_url, "tables")
 tables_raw_file <- "data-raw/ots_tables.csv"
 tables_tidy_file <- "data/ots_tables.rda"
@@ -49,7 +48,7 @@ if (!file.exists(commodities_tidy_file)) {
     mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")}) %>% 
     as.data.table()
   
-  save(ots_commodities, file = commodities_tidy_file, version = 2)
+  save(ots_commodities, file = commodities_tidy_file, version = 2, compress = "xz")
 }
 
 # Sections codes ----
@@ -81,7 +80,7 @@ if (!file.exists(commodities_short_tidy_file)) {
     mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")}) %>% 
     as.data.table()
   
-  save(ots_commodities_short, file = commodities_short_tidy_file, version = 2)
+  save(ots_commodities_short, file = commodities_short_tidy_file, version = 2, compress = "xz")
 }
 
 # GDP deflator ----
@@ -99,7 +98,7 @@ if (!file.exists(gdp_deflator_tidy_file)) {
     filter(to <= 2020) %>% 
     mutate(from = as.integer(from), to = as.integer(to))
 
-  save(ots_gdp_deflator, file = gdp_deflator_tidy_file, version = 2)
+  save(ots_gdp_deflator, file = gdp_deflator_tidy_file, version = 2, compress = "xz")
 }
 
 # Colors ----
@@ -116,4 +115,20 @@ if (!file.exists(sections_colors_tidy_file)) {
     as.data.table()
   
   save(ots_sections_colors, file = sections_colors_tidy_file, version = 2)
+}
+
+# Distances ----
+
+distances_url <- paste0(base_url, "distances")
+distances_raw_file <- "data-raw/ots_distances.parquet"
+distances_tidy_file <- "data/ots_distances.rda"
+
+if (!file.exists(distances_raw_file)) { download.file(distances_url, distances_raw_file) }
+
+if (!file.exists(distances_tidy_file)) {
+  ots_distances <- read_parquet(distances_raw_file) %>% 
+    mutate_if(is.character, function(x) { iconv(x, to = "ASCII//TRANSLIT")}) %>% 
+    as.data.table()
+  
+  save(ots_distances, file = distances_tidy_file, version = 2, compress = "xz")
 }

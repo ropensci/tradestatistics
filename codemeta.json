@@ -221,7 +221,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "1104.69KB",
+  "fileSize": "1146.068KB",
   "relatedLink": ["https://docs.ropensci.org/tradestatistics/", "https://CRAN.R-project.org/package=tradestatistics"],
   "releaseNotes": "https://github.com/pachadotdev/tradestatistics/blob/master/NEWS.md",
   "readme": "https://github.com/pachadotdev/tradestatistics/blob/master/README.md",

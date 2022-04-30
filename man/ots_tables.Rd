@@ -19,8 +19,6 @@ Open Trade Statistics
 ots_tables
 }
 \description{
-A table describing existing API tables with both description and source.
-This data is used by the functions provided within this package to validate
-user parameters.
+Existing API tables with both description and source.
 }
 \keyword{datasets}

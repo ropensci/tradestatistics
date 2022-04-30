@@ -18,7 +18,6 @@ Adapted from UN COMTRADE
 ots_sections
 }
 \description{
-A table of official section names from the Harmonized System rev 2012 
-(HS12, also known as H4).
+Official section names from the Harmonized System rev 2012 (HS12).
 }
 \keyword{datasets}

@@ -22,9 +22,6 @@ Open Trade Statistics
 ots_countries
 }
 \description{
-A table of official country names, ISO-3 codes and other metadata. The
-availability is limited to countries with records in the OTS database.
-This data is used by the functions provided within this package to complement
-the data obtained from the API.
+Official country names, ISO-3 codes, continent and EU membership.
 }
 \keyword{datasets}

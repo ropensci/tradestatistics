@@ -20,11 +20,7 @@ Open Trade Statistics
 ots_commodities_short
 }
 \description{
-A table of official commodity names from the Harmonized System rev 2012
-(HS12, also known as H4). Provides official commodity and section codes and 
-names at four (4) digits of detail taken from the United Nations official 
-sources.
-This data is used by the functions provided within this package to complement
-the data obtained from the API.
+Official commodity names from the Harmonized System rev 2012
+(HS12, four digits detail).
 }
 \keyword{datasets}

@@ -14,7 +14,7 @@ ots_read_from_api <- function(year = NULL,
                               max_attempts = 5) {
   stopifnot(max_attempts > 0)
 
-  if (any(table %in% c("countries", "commodities", "commodities_short", "sections", "sections_colors", "tables"))) {
+  if (any(table %in% c("countries", "commodities", "commodities_short", "sections", "sections_colors", "tables", "distances"))) {
     message("The requested table is included within the package.")
     return(TRUE)
   }

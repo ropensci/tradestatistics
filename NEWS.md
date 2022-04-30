@@ -1,5 +1,8 @@
 # version 4.2
 
+Updates
+* Adds dyadic distances table (`ots_distances`) for gravity modelling
+
 Breaking changes
 * The API now returns Parquet files instead of JSON for all the cases (except 
   for available years and tables)
