@@ -18,7 +18,7 @@ Open Trade Statistics
 ots_sections_colors
 }
 \description{
-Unofficial colors to ease visualization for the sections
+Unofficial colors to ease visualization for the sections in
 the Harmonized System rev 2012 (HS12).
 }
 \keyword{datasets}
