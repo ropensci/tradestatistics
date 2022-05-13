@@ -12,6 +12,8 @@ Breaking changes
   2002-2020)
 * The command use_localhost was removed because the Shiny app now connects 
   directly to PostgreSQL (i.e., this saves resources)
+* The column EU-28 member was removed from the countries table (i.e., avoid UK 
+  confusion after Brexit)
 
 # version 4.1
 
