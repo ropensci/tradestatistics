@@ -70,6 +70,23 @@ NULL
 #' }
 NULL
 
+#' OTS Countries Colors
+#'
+#' Unofficial colors to ease visualization for countries.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name ots_countries_colors
+#' @usage ots_countries_colors
+#' @source Open Trade Statistics
+#' @format A data frame with 276 rows and 3 variables
+#' \itemize{
+#'   \item{\code{continent_id}}{Numeric id of the continent where the country belongs to}
+#'   \item{\code{country_iso}}{ISO code of the country (e.g. "chl" means Chile)}
+#'   \item{\code{country_color}}{Section hex color (e.g. '#D05555')}
+#' }
+NULL
+
 #' OTS Commodities
 #'
 #' Official commodity names from the Harmonized System rev 2012
@@ -126,7 +143,7 @@ NULL
 
 #' OTS Sections Colors
 #'
-#' Unofficial colors to ease visualization for the sections
+#' Unofficial colors to ease visualization for the sections in
 #' the Harmonized System rev 2012 (HS12).
 #'
 #' @docType data
