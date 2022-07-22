@@ -17,7 +17,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.18.0 (Ubuntu)
-      date: Fri, 29 Apr 2022 05:23:08 GMT
+      date: Fri, 22 Jul 2022 17:41:46 GMT
       content-type: application/vnd.apache.parquet
       transfer-encoding: chunked
       connection: keep-alive
@@ -56,5 +56,5 @@ http_interactions:
         QUFCQUFFQUFBQUFBQUFRSVFBQUFBSUFBQUFBUUFBQUFBQUFBQUJBQUFBSGxsWVhJQUFBQUFDQUFNQUFn
         QUJ3QUlBQUFBQUFBQUFTQUFBQUFBQUFBQQAYH3BhcnF1ZXQtY3BwLWFycm93IHZlcnNpb24gNi4wLjEZ
         TBwAABwAABwAABwAAAC+AwAAUEFSMQ==
-  recorded_at: 2022-04-29 05:23:08 GMT
+  recorded_at: 2022-07-22 17:41:46 GMT
   recorded_with: vcr/1.0.2, webmockr/0.8.0
