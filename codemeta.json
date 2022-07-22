@@ -7,13 +7,13 @@
   "codeRepository": "https://github.com/pachadotdev/tradestatistics",
   "issueTracker": "https://github.com/ropensci/tradestatistics/issues/",
   "license": "Apache License 2",
-  "version": "4.2",
+  "version": "4.3",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.1.3 (2022-03-10)",
+  "runtimePlatform": "R version 4.2.1 (2022-06-23)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -47,7 +47,7 @@
     },
     {
       "@type": "Person",
-      "givenName": "Natalia",
+      "givenName": "Daniela",
       "familyName": "de los Santos"
     },
     {
@@ -221,7 +221,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "1146.068KB",
+  "fileSize": "1086.737KB",
   "relatedLink": ["https://docs.ropensci.org/tradestatistics/", "https://CRAN.R-project.org/package=tradestatistics"],
   "releaseNotes": "https://github.com/pachadotdev/tradestatistics/blob/master/NEWS.md",
   "readme": "https://github.com/pachadotdev/tradestatistics/blob/master/README.md",

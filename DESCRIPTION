@@ -1,7 +1,7 @@
 Package: tradestatistics
 Type: Package
 Title: Open Trade Statistics API Wrapper and Utility Program
-Version: 4.2
+Version: 4.3
 Authors@R: c(
       person(given = "Mauricio",
              family = "Vargas",
@@ -20,7 +20,7 @@ Authors@R: c(
              family = "Mendelsohn",
              role = "ctb",
              comment = "updated the functions to take available years from the API instead of hardcoded values"),
-      person(given = "Natalia",
+      person(given = "Daniela",
              family = "de los Santos",
              role = "ctb",
              comment = "proposed improvements to default parameters"),
@@ -56,7 +56,7 @@ Imports:
     memoise,
     data.table,
     digest
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.0
 Suggests: 
     knitr,
     rmarkdown,

@@ -19,9 +19,9 @@ test_that("ots_country_code works properly for multiple matching", {
   expect_is(test_country_2, "data.frame")
   expect_is(test_country_3, "data.frame")
 
-  expect_equal(ncol(test_country_1), 6)
-  expect_equal(ncol(test_country_2), 6)
-  expect_equal(ncol(test_country_3), 6)
+  expect_equal(ncol(test_country_1), 5)
+  expect_equal(ncol(test_country_2), 5)
+  expect_equal(ncol(test_country_3), 5)
 })
 
 test_that("ots_country_code returns an error when no countryname is specified", {
