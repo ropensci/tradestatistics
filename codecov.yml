@@ -10,7 +10,5 @@ coverage:
       default:
         target: auto
         threshold: 1%
-
-coverage:
   ignore: 
     - "R/ots_read_from_api.R"  # this internal function is called from end-user functions
