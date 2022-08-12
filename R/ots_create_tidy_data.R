@@ -114,7 +114,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
     value = T
   )
   
-  partner_depending_queries <- grep("^yrp",
+  partner_depending_queries <- grep("^yrp|^tariffs",
     tradestatistics::ots_tables$table,
     value = T
   )
@@ -345,7 +345,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
                      grep("^section_", colnames(data), value = TRUE),
                      grep("^trade_", colnames(data), value = TRUE),
                      grep("^country|^rta", colnames(data), value = TRUE),
-                     grep("rate|average|line", colnames(data), value = TRUE)
+                     grep("tariff|source", colnames(data), value = TRUE)
   )
 
   data <- data[, ..columns_order]
