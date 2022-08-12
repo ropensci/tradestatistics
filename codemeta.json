@@ -4,10 +4,10 @@
   "identifier": "tradestatistics",
   "description": "Access 'Open Trade Statistics' API from R to download international trade data.",
   "name": "tradestatistics: Open Trade Statistics API Wrapper and Utility Program",
-  "codeRepository": "https://github.com/pachadotdev/tradestatistics",
+  "codeRepository": "https://docs.ropensci.org/tradestatistics/",
   "issueTracker": "https://github.com/ropensci/tradestatistics/issues/",
   "license": "Apache License 2",
-  "version": "4.3",
+  "version": "4.4.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -221,15 +221,5 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "1086.737KB",
-  "relatedLink": ["https://docs.ropensci.org/tradestatistics/", "https://CRAN.R-project.org/package=tradestatistics"],
-  "releaseNotes": "https://github.com/pachadotdev/tradestatistics/blob/master/NEWS.md",
-  "readme": "https://github.com/pachadotdev/tradestatistics/blob/master/README.md",
-  "contIntegration": ["https://github.com/ropensci/tradestatistics/actions?workflow=R-CMD-check", "https://codecov.io/github/ropensci/tradestatistics?branch=master"],
-  "developmentStatus": ["https://www.repostatus.org/#active", "https://www.tidyverse.org/lifecycle/#stable"],
-  "review": {
-    "@type": "Review",
-    "url": "https://github.com/ropensci/software-review/issues/274",
-    "provider": "https://ropensci.org"
-  }
+  "fileSize": "1086.744KB"
 }
