@@ -91,7 +91,7 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
                                             max_attempts = 5) {
   # Check tables ----
   if (!table %in% tradestatistics::ots_tables$table) {
-    stop("The requested table does not exist. Please check the spelling or explore the 'ots_table' table provided within this package.")
+    stop("The requested table does not exist. Please check the spelling or explore the 'ots_tables' table provided within this package.")
   }
 
   # Check years ----
