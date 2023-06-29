@@ -45,9 +45,6 @@ as_tibble(ots_commodity_code(commodity = " ShEEp ", section = " mEaT "))
 #  
 #  as_tibble(yrpc)
 
-## ----yrpc2, echo=FALSE--------------------------------------------------------
-as_tibble(tradestatistics:::ots_demo_data$yrpc)
-
 ## ----yrpc3, eval = F----------------------------------------------------------
 #  # Note that here I'm passing Peru and not per which is the ISO code for Peru
 #  # The same applies to Brazil
@@ -98,7 +95,4 @@ as_tibble(tradestatistics:::ots_demo_data$yrpc)
 ## ----inflation2, eval=FALSE---------------------------------------------------
 #  inflation <- ots_gdp_deflator_adjustment(yr, reference_year = 2000)
 #  as_tibble(inflation)
-
-## ----inflation3, echo=FALSE---------------------------------------------------
-as_tibble(ots_gdp_deflator_adjustment(tradestatistics:::ots_demo_data$yr, reference_year = 2000))
 

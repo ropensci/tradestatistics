@@ -4,7 +4,7 @@ author: "Mauricio Vargas S."
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{How to use this package}
+  %\VignetteIndexEntry{Basic usage}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -124,10 +124,6 @@ yrpc <- ots_create_tidy_data(
 as_tibble(yrpc)
 ```
 
-```{r yrpc2, echo=FALSE}
-as_tibble(tradestatistics:::ots_demo_data$yrpc)
-```
-
 We can pass two years or more, several reporters/partners, and filter by commodities with exact codes or code matching based on keywords:
 ```{r yrpc3, eval = F}
 # Note that here I'm passing Peru and not per which is the ISO code for Peru
@@ -216,8 +212,4 @@ Taking the `yr` table from above, we can use `ots_gdp_deflator_adjustment()` to 
 ```{r inflation2, eval=FALSE}
 inflation <- ots_gdp_deflator_adjustment(yr, reference_year = 2000)
 as_tibble(inflation)
-```
-
-```{r inflation3, echo=FALSE}
-as_tibble(ots_gdp_deflator_adjustment(tradestatistics:::ots_demo_data$yr, reference_year = 2000))
 ```

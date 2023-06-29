@@ -26,7 +26,6 @@
 #' such as exports growth w/r to last year) between a \code{reporter}
 #' and \code{partner} country.
 #' @importFrom data.table `:=` rbindlist setnames
-#' @importFrom arrow read_parquet
 #' @importFrom crul HttpClient
 #' @export
 #' @examples

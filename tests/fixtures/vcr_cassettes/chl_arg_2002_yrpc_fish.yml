@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.2.0
+      User-Agent: libcurl/7.81.0 r-curl/5.0.0 crul/1.4.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -17,64 +17,14 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.18.0 (Ubuntu)
-      date: Fri, 22 Jul 2022 17:41:43 GMT
-      content-type: application/vnd.apache.parquet
+      date: Thu, 29 Jun 2023 22:51:39 GMT
+      content-type: application/json
       transfer-encoding: chunked
       connection: keep-alive
       content-encoding: gzip
     body:
-      encoding: ASCII-8BIT
+      encoding: ''
       file: no
-      string: |-
-        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
-        YXIVAhYyFpABFpgBJjAmCBwYBNIHAAAYBNIHAAAWACgE0gcAABgE0gcAAAAZLBUEFQQVAgAVABUEFQIA
-        AAAmvgMcFQwZNQQABhkYDHJlcG9ydGVyX2lzbxUCFjIWehaCASbqAia8Ahw2ACgDY2hsGANjaGwAGSwV
-        BBUEFQIAFQAVBBUCAAAAJtIFHBUMGTUEAAYZGAtwYXJ0bmVyX2lzbxUCFjIWehaCASb+BCbQBBw2ACgD
-        YXJnGANhcmcAGSwVBBUEFQIAFQAVBBUCAAAAJt4HHBUMGTUEAAYZGAxzZWN0aW9uX2NvZGUVAhYyFnQW
-        fCaOBybiBhw2ACgCMDEYAjAxABksFQQVBBUCABUAFQQVAgAAACaMDBwVDBk1BAAGGRgOY29tbW9kaXR5
-        X2NvZGUVAhYyFpYFFqIDJoYLJuoIHDYAKAYwMzA3NzkYBjAzMDExMQAZLBUEFQQVAgAVABUEFQIAAAAm
-        pBAcFQoZNQQABhkYE3RyYWRlX3ZhbHVlX3VzZF9pbXAVAhYyFqoDFvQCJvYOJrANHBgIAAAAAEAwDEEY
-        CAAAAAAAAACAFgAoCAAAAABAMAxBGAgAAAAAAAAAgAAZLBUEFQQVAgAVABUEFQIAAAAmrBUcFQoZNQQA
-        BhkYE3RyYWRlX3ZhbHVlX3VzZF9leHAVAhYyFvIDFqoDJvYTJoISHBgIAAAAAGuaNEEYCAAAAAAAAACA
-        FgAoCAAAAABrmjRBGAgAAAAAAAAAgAAZLBUEFQQVAgAVABUEFQIAAAAWqhAWMiYIFtgNFAAAGRwYDEFS
-        Uk9XOnNjaGVtYRj4BC8vLy8vOUFCQUFBUUFBQUFBQUFLQUF3QUJnQUZBQWdBQ2dBQUFBQUJCQUFNQUFB
-        QUNBQUlBQUFBQkFBSUFBQUFCQUFBQUFjQUFBQmtBUUFBSEFFQUFPd0FBQUM0QUFBQWhBQUFBRUFBQUFB
-        RUFBQUF5UDcvL3dBQUFRTVFBQUFBSkFBQUFBUUFBQUFBQUFBQUV3QUFBSFJ5WVdSbFgzWmhiSFZsWDNW
-        elpGOWxlSEFBeHYvLy93QUFBZ0FBLy8vL0FBQUJBeEFBQUFBc0FBQUFCQUFBQUFBQUFBQVRBQUFBZEhK
-        aFpHVmZkbUZzZFdWZmRYTmtYMmx0Y0FBQUFBWUFDQUFHQUFZQUFBQUFBQUlBUVAvLy93QUFBUVVRQUFB
-        QUlBQUFBQVFBQUFBQUFBQUFEZ0FBQUdOdmJXMXZaR2wwZVY5amIyUmxBQUIwLy8vL2NQLy8vd0FBQVFV
-        UUFBQUFJQUFBQUFRQUFBQUFBQUFBREFBQUFITmxZM1JwYjI1ZlkyOWtaUUFBQUFDay8vLy9vUC8vL3dB
-        QUFRVVFBQUFBSEFBQUFBUUFBQUFBQUFBQUN3QUFBSEJoY25SdVpYSmZhWE52QU5ELy8vL00vLy8vQUFB
-        QkJSQUFBQUFrQUFBQUJBQUFBQUFBQUFBTUFBQUFjbVZ3YjNKMFpYSmZhWE52QUFBQUFBUUFCQUFFQUFB
-        QUVBQVVBQWdBQmdBSEFBd0FBQUFRQUJBQUFBQUFBQUVDRUFBQUFDQUFBQUFFQUFBQUFBQUFBQVFBQUFC
-        NVpXRnlBQUFBQUFnQURBQUlBQWNBQ0FBQUFBQUFBQUVnQUFBQUFBQUFBQT09ABgfcGFycXVldC1jcHAt
-        YXJyb3cgdmVyc2lvbiA2LjAuMRl8HAAAHAAAHAAAHAAAHAAAHAAAHAAAAOIFAABQQVIx
-  recorded_at: 2022-07-22 17:41:43 GMT
-  recorded_with: vcr/1.0.2, webmockr/0.8.0
+      string: '[{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030111","trade_value_usd_imp":2185,"trade_value_usd_exp":0},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030213","trade_value_usd_imp":0,"trade_value_usd_exp":1350251},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030311","trade_value_usd_imp":0,"trade_value_usd_exp":1619},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030312","trade_value_usd_imp":0,"trade_value_usd_exp":12888},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030313","trade_value_usd_imp":0,"trade_value_usd_exp":189735},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030314","trade_value_usd_imp":0,"trade_value_usd_exp":14944},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030323","trade_value_usd_imp":84056,"trade_value_usd_exp":0},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030384","trade_value_usd_imp":9792,"trade_value_usd_exp":0},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030431","trade_value_usd_imp":0,"trade_value_usd_exp":110636},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030461","trade_value_usd_imp":54522,"trade_value_usd_exp":247904},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030491","trade_value_usd_imp":31716,"trade_value_usd_exp":89539},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030510","trade_value_usd_imp":12039,"trade_value_usd_exp":0},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030541","trade_value_usd_imp":55,"trade_value_usd_exp":150549},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030543","trade_value_usd_imp":0,"trade_value_usd_exp":150},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030564","trade_value_usd_imp":58,"trade_value_usd_exp":0},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030614","trade_value_usd_imp":0,"trade_value_usd_exp":437},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030616","trade_value_usd_imp":87963,"trade_value_usd_exp":0},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030711","trade_value_usd_imp":0,"trade_value_usd_exp":4580},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030719","trade_value_usd_imp":230920,"trade_value_usd_exp":351917},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030731","trade_value_usd_imp":0,"trade_value_usd_exp":6840},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030739","trade_value_usd_imp":0,"trade_value_usd_exp":31660},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030741","trade_value_usd_imp":3200,"trade_value_usd_exp":0},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030749","trade_value_usd_imp":95904,"trade_value_usd_exp":10563},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030759","trade_value_usd_imp":0,"trade_value_usd_exp":207404},{"year":2002,"reporter_iso":"chl","partner_iso":"arg","section_code":"01","commodity_code":"030779","trade_value_usd_imp":212728,"trade_value_usd_exp":0}]'
+  recorded_at: 2023-06-29 22:51:39 GMT
+  recorded_with: vcr/1.2.0, webmockr/0.9.0

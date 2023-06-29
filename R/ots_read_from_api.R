@@ -4,6 +4,7 @@
 #' \code{JSON} data. The parameters here are passed from 
 #' \code{ots_create_tidy_data}.
 #' @importFrom crul HttpClient
+#' @importFrom jsonlite fromJSON
 #' @keywords internal
 ots_read_from_api <- function(year = NULL,
                               reporter_iso = NULL,
@@ -46,17 +47,13 @@ ots_read_from_api <- function(year = NULL,
     }
     
     message(sprintf("Downloading data for the combination %s...", combination))
-
-    if (!requireNamespace("arrow", quietly = TRUE)) {
-      stop("`arrow` must be installed for reading parquet data to work")
-    }
       
-    data <- try(read_parquet(resp$content))
+    data <- try(fromJSON(resp$parse(encoding = "UTF-8")))
 
     if (!is.data.frame(data)) {
       stop("It wasn't possible to obtain data. Provided this function tests your internet connection\nyou misspelled a reporter, partner or table, or there was a server problem. Please check and try again.")
     }
-
+    
     return(data)
   } else if (max_attempts == 0) {
     # when attempts run out, stop with an error
