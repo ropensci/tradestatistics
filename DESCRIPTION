@@ -1,70 +1,52 @@
-Package: tradestatistics
 Type: Package
+Package: tradestatistics
 Title: Open Trade Statistics API Wrapper and Utility Program
-Version: 4.4.0
+Version: 4.5.0
 Authors@R: c(
-      person(given = "Mauricio",
-             family = "Vargas",
-             role = c("aut", "cre", "cph"),
-             email = "mavargas11@uc.cl",
-             comment = c(ORCID = "0000-0003-1017-7574")),
-      person(given = "Joshua",
-             family = "Kunst",
-             role = "ctb",
-             comment = "contributed to different parts of the pre-release code"),
-      person(given = "Alexey",
-             family = "Kravchenko",
-             role = "ctb",
-             comment = "reviewed 2021 version of the API"),
-      person(given = "Emma",
-             family = "Mendelsohn",
-             role = "ctb",
-             comment = "updated the functions to take available years from the API instead of hardcoded values"),
-      person(given = "Daniela",
-             family = "de los Santos",
-             role = "ctb",
-             comment = "proposed improvements to default parameters"),
-      person(given = "Emily",
-             family = "Riederer",
-             role = "rev",
-             comment = "reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/274"),
-      person(given = "Mark",
-             family = "Padgham",
-             role = "rev",
-             comment = "reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/274"),
-      person(given = "Amanda",
-             family = "Dobbyn",
-             role = "rev",
-             comment = "reviewed a previous package that evolved into the current package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217"),
-      person(given = "Jorge",
-             family = "Cimentada",
-             role = "rev",
-             comment = "reviewed a previous package that evolved into the current package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217"),
-      person(family = "UN Comtrade",
-             role = "dtc"),
-      person(family = "The World Bank",
-             role = "dtc")
-    )
+    person("Mauricio", "Vargas", , "mavargas11@uc.cl", role = c("aut", "cre", "cph"),
+           comment = c(ORCID = "0000-0003-1017-7574")),
+    person("Joshua", "Kunst", role = "ctb",
+           comment = "contributed to different parts of the pre-release code"),
+    person("Alexey", "Kravchenko", role = "ctb",
+           comment = "reviewed 2021 version of the API"),
+    person("Emma", "Mendelsohn", role = "ctb",
+           comment = "updated the functions to take available years from the API instead of hardcoded values"),
+    person("Daniela", "de los Santos", role = "ctb",
+           comment = "proposed improvements to default parameters"),
+    person("Emily", "Riederer", role = "rev",
+           comment = "reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/274"),
+    person("Mark", "Padgham", role = "rev",
+           comment = "reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/274"),
+    person("Amanda", "Dobbyn", role = "rev",
+           comment = "reviewed a previous package that evolved into the current package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217"),
+    person("Jorge", "Cimentada", role = "rev",
+           comment = "reviewed a previous package that evolved into the current package for rOpenSci, see https://github.com/ropensci/onboarding/issues/217"),
+    person(, "UN Comtrade", role = "dtc"),
+    person(, "The World Bank", role = "dtc")
+  )
+Description: Access 'Open Trade Statistics' API from R to download
+    international trade data.
+License: Apache License (>= 2)
 URL: https://docs.ropensci.org/tradestatistics/
 BugReports: https://github.com/ropensci/tradestatistics/issues/
-Description: Access 'Open Trade Statistics' API from R to download international trade data.
-License: Apache License (>= 2)
-LazyData: TRUE
-Imports:
-    crul,
-    arrow,
-    memoise,
-    data.table,
-    digest
-RoxygenNote: 7.2.0
-Suggests: 
-    knitr,
-    rmarkdown,
-    tibble,
-    testthat (>= 2.1.0),
-    vcr,
-    covr
-VignetteBuilder: knitr
-Encoding: UTF-8
 Depends: 
     R (>= 2.10)
+Imports:
+    crul,
+    data.table,
+    digest,
+    jsonlite,
+    memoise,
+    utils
+Suggests: 
+    covr,
+    knitr,
+    rmarkdown,
+    testthat (>= 2.1.0),
+    tibble,
+    vcr
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
+LazyData: TRUE
+RoxygenNote: 7.2.3

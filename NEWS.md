@@ -1,3 +1,9 @@
+# version 4.5
+
+* Reflects changes in the API and therefore reads JSON data.
+* Continues to use data.table for the internals and tibble to display the results nicely.
+* Future versions will only use tibble but that would require effort.
+
 # version 4.2
 
 Updates
