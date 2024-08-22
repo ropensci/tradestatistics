@@ -16,3 +16,4 @@ vignettes/basic-usage_cache/
 ^\.github$
 dev
 ^CRAN-SUBMISSION$
+paper

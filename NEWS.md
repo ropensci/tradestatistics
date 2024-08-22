@@ -1,7 +1,14 @@
+# version 5.0
+
+* Expands data to 1980-2021 (previously it covered 2002-2020).
+* All the data was converted to HS12 from the original SITC2, HS92, HS02, HS07
+  and HS12 sources.
+
 # version 4.5
 
 * Reflects changes in the API and therefore reads JSON data.
-* Continues to use data.table for the internals and tibble to display the results nicely.
+* Continues to use data.table for the internals and tibble to display the
+  results nicely.
 * Future versions will only use tibble but that would require effort.
 
 # version 4.2

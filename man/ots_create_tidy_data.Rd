@@ -5,7 +5,7 @@
 \title{Downloads and processes the data from the API to return a human-readable tibble}
 \usage{
 ots_create_tidy_data(
-  years = 2019,
+  years = 2020,
   reporters = "all",
   partners = "all",
   commodities = "all",

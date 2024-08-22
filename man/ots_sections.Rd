@@ -6,9 +6,9 @@
 \title{OTS Sections}
 \format{
 A data frame with 22 rows and 2 variables
-\itemize{
-  \item{\code{section_code}}{Section code (e.g. '01')}
-  \item{\code{section_fullname_english}}{Section hex color (e.g. 'Live animals and animal products')}
+\describe{
+  \item{\code{section_code}}{HS section code (e.g. '01')}
+  \item{\code{section_fullname_english}}{HS section name (e.g. 'Live animals and animal products')}
 }
 }
 \source{

@@ -5,11 +5,11 @@
 \alias{ots_countries_colors}
 \title{OTS Countries Colors}
 \format{
-A data frame with 276 rows and 3 variables
-\itemize{
-  \item{\code{continent_id}}{Numeric id of the continent where the country belongs to}
+A data frame with 275 rows and 3 variables
+\describe{
   \item{\code{country_iso}}{ISO code of the country (e.g. "chl" means Chile)}
-  \item{\code{country_color}}{Section hex color (e.g. '#D05555')}
+  \item{\code{continent_id}}{Numeric id of the continent}
+  \item{\code{country_color}}{Country hex color (e.g. '#D05555')}
 }
 }
 \source{

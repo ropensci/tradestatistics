@@ -5,12 +5,12 @@
 \alias{ots_commodities}
 \title{OTS Commodities}
 \format{
-A data frame with 5,304 observations on the following 4 variables
-\itemize{
-  \item{\code{commodity_code}}{Code of every commodity (e.g. 010110)}
-  \item{\code{commodity_fullname_english}}{HS commodity names (e.g. 'Horses, asses, mules and hinnies; live, pure-bred breeding animals')}
-  \item{\code{section_code}}{Section code (e.g. 01)}
-  \item{\code{section_fullname_english }}{Section name (e.g. 'Live animals and animal products')}
+A data frame with 5,302 observations on the following 4 variables
+\describe{
+  \item{\code{commodity_code}}{HS six digits commodity code (e.g. 010110)}
+  \item{\code{commodity_code_short}}{HS four digits commodity code (e.g. 0101)}
+  \item{\code{commodity_fullname_english}}{HS six digits commodity name (e.g. 'Horses, asses, mules and hinnies; live, pure-bred breeding animals')}
+  \item{\code{section_code}}{HS section code (e.g. '01')}
 }
 }
 \source{

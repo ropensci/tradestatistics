@@ -7,8 +7,8 @@ utils::globalVariables(c(
   "commodity_fullname_english", "section_fullname_english", "commodity_code", 
   "group_code", "trade_value_usd_exp", "trade_value_usd_imp",
   "trade_value_usd_top_exp", "trade_value_usd_top_imp",
-  "gdp_deflator", "conversion_factor", "conversion_year", "from", "to", "observation",
-  "..group", "..productname", "..section",
+  "gdp_deflator", "conversion_factor", "conversion_year", "year_from",
+  "year_to", "observation", "..group", "..productname", "..section",
   "..reference_year", "..year", "..columns_order", "."
   ))
 
@@ -21,8 +21,8 @@ utils::globalVariables(c(
 #' @name ots_tables
 #' @usage ots_tables
 #' @source Open Trade Statistics
-#' @format A data frame with 16 rows and 3 variables
-#' \itemize{
+#' @format A data frame with 12 rows and 3 variables
+#' \describe{
 #'   \item{\code{table}}{Table name}
 #'   \item{\code{description}}{Description of table contents}
 #'   \item{\code{source}}{Source for the data (OTS tables are processed after UN Comtrade raw data)}
@@ -42,11 +42,11 @@ NULL
 #' @name ots_gdp_deflator
 #' @usage ots_gdp_deflator
 #' @source Open Trade Statistics
-#' @format A data frame with 7,238 observations on the following 4 variables
-#' \itemize{
+#' @format A data frame with 8,010 observations on the following 4 variables
+#' \describe{
+#'   \item{\code{year_from}}{Integer values in the range 1980-2020}
+#'   \item{\code{year_to}}{Integer values in the range 1981-2021}
 #'   \item{\code{country_iso}}{ISO code of the country (e.g. "chl" means Chile)}
-#'   \item{\code{from}}{Integer values in the range 1980-2018}
-#'   \item{\code{to}}{Integer values in the range 1981-2019}
 #'   \item{\code{gdp_deflator}}{Numeric value expressed as one plus 1-year deflator}
 #' }
 NULL
@@ -60,13 +60,13 @@ NULL
 #' @name ots_countries
 #' @usage ots_countries
 #' @source Open Trade Statistics
-#' @format A data frame with 264 observations on the following 5 variables
-#' \itemize{
-#'   \item{\code{country_iso}}{ISO code of the country (e.g. "chl" means Chile)}
+#' @format A data frame with 275 observations on the following 5 variables
+#' \describe{
+#'   \item{\code{country_iso}}{ISO-3 code of the country (e.g. "deu" means Germany)}
 #'   \item{\code{country_name_english}}{Country name (e.g. Germany)}
-#'   \item{\code{country_fullname_english}}{Country name with indications (e.g. Germany (former Federal Republic of Germany until 1990))}
-#'   \item{\code{continent_id}}{Numeric id of the continent where the country belongs to}
-#'   \item{\code{continent_name_english}}{Continent where the country belongs to}
+#'   \item{\code{country_fullname_english}}{Country name with indications (e.g. Germany as "Germany (former Federal Republic of Germany until 1990)")}
+#'   \item{\code{continent_name_english}}{Continent where the country belongs to (e.g., Europe)}
+#'   \item{\code{continent_id}}{Numeric id of the continent where the country belongs to (e.g., 5)}
 #' }
 NULL
 
@@ -79,11 +79,11 @@ NULL
 #' @name ots_countries_colors
 #' @usage ots_countries_colors
 #' @source Open Trade Statistics
-#' @format A data frame with 276 rows and 3 variables
-#' \itemize{
-#'   \item{\code{continent_id}}{Numeric id of the continent where the country belongs to}
+#' @format A data frame with 275 rows and 3 variables
+#' \describe{
 #'   \item{\code{country_iso}}{ISO code of the country (e.g. "chl" means Chile)}
-#'   \item{\code{country_color}}{Section hex color (e.g. '#D05555')}
+#'   \item{\code{continent_id}}{Numeric id of the continent}
+#'   \item{\code{country_color}}{Country hex color (e.g. '#D05555')}
 #' }
 NULL
 
@@ -97,12 +97,12 @@ NULL
 #' @name ots_commodities
 #' @usage ots_commodities
 #' @source Open Trade Statistics
-#' @format A data frame with 5,304 observations on the following 4 variables
-#' \itemize{
-#'   \item{\code{commodity_code}}{Code of every commodity (e.g. 010110)}
-#'   \item{\code{commodity_fullname_english}}{HS commodity names (e.g. 'Horses, asses, mules and hinnies; live, pure-bred breeding animals')}
-#'   \item{\code{section_code}}{Section code (e.g. 01)}
-#'   \item{\code{section_fullname_english }}{Section name (e.g. 'Live animals and animal products')}
+#' @format A data frame with 5,302 observations on the following 4 variables
+#' \describe{
+#'   \item{\code{commodity_code}}{HS six digits commodity code (e.g. 010110)}
+#'   \item{\code{commodity_code_short}}{HS four digits commodity code (e.g. 0101)}
+#'   \item{\code{commodity_fullname_english}}{HS six digits commodity name (e.g. 'Horses, asses, mules and hinnies; live, pure-bred breeding animals')}
+#'   \item{\code{section_code}}{HS section code (e.g. '01')}
 #' }
 NULL
 
@@ -117,11 +117,9 @@ NULL
 #' @usage ots_commodities_short
 #' @source Open Trade Statistics
 #' @format A data frame with 1,225 observations on the following 2 variables
-#' \itemize{
-#'   \item{\code{commodity_code}}{Code of every commodity (e.g. 010110)}
-#'   \item{\code{commodity_fullname_english}}{HS commodity names (e.g. 'Horses, asses, mules and hinnies; live, pure-bred breeding animals')}
-#'   \item{\code{section_code}}{Section code (e.g. 01)}
-#'   \item{\code{section_fullname_english }}{Section name (e.g. 'Live animals and animal products')}
+#' \describe{
+#'   \item{\code{commodity_code}}{HS four digits commodity code (e.g. 0101)}
+#'   \item{\code{commodity_fullname_english}}{HS four digits commodity names (e.g. 'Horses, asses, mules and hinnies; live')}
 #' }
 NULL
 
@@ -135,9 +133,9 @@ NULL
 #' @usage ots_sections
 #' @source Adapted from UN COMTRADE
 #' @format A data frame with 22 rows and 2 variables
-#' \itemize{
-#'   \item{\code{section_code}}{Section code (e.g. '01')}
-#'   \item{\code{section_fullname_english}}{Section hex color (e.g. 'Live animals and animal products')}
+#' \describe{
+#'   \item{\code{section_code}}{HS section code (e.g. '01')}
+#'   \item{\code{section_fullname_english}}{HS section name (e.g. 'Live animals and animal products')}
 #' }
 NULL
 
@@ -152,31 +150,8 @@ NULL
 #' @usage ots_sections_colors
 #' @source Open Trade Statistics
 #' @format A data frame with 22 rows and 2 variables
-#' \itemize{
-#'   \item{\code{section_code}}{Section code (e.g. '01')}
-#'   \item{\code{section_color}}{Section hex color (e.g. '#74c0e2')}
-#' }
-NULL
-
-#' OTS Distances
-#'
-#' Distance between countries, alongside colonial relation, common language,
-#' and continuity.
-#'
-#' @docType data
-#' @keywords datasets
-#' @name ots_distances
-#' @usage ots_distances
-#' @source Adapted from CEPII
-#' @format A data frame with 22,791 rows and 8 variables
-#' \itemize{
-#'   \item{\code{country1}}{First ISO-3 code in the dyad (alphabetical order)}
-#'   \item{\code{country2}}{Second ISO-3 code in the dyad (alphabetical order)}
-#'   \item{\code{dist}}{Distance between most populated cities (in kilometers)}
-#'   \item{\code{distcap}}{Distance between capitals (in kilometers)}
-#'   \item{\code{colony}}{Variable coded as 1 when the two countries are or were in a colonial relation}
-#'   \item{\code{comlang_ethno}}{Variable coded as 1 when the two countries have at least 9\% of their population speaking the same language}
-#'   \item{\code{comlang_off}}{Variable coded as 1 when the two countries share the same official language}
-#'   \item{\code{contig}}{Variable coded as 1 when the two countries are next to each other and 0 otherwise}
+#' \describe{
+#'   \item{\code{section_code}}{HS section code (e.g. '01')}
+#'   \item{\code{section_color}}{HS section color (e.g. '#74c0e2')}
 #' }
 NULL

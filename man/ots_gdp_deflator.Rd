@@ -5,11 +5,11 @@
 \alias{ots_gdp_deflator}
 \title{GDP Deflator}
 \format{
-A data frame with 7,238 observations on the following 4 variables
-\itemize{
+A data frame with 8,010 observations on the following 4 variables
+\describe{
+  \item{\code{year_from}}{Integer values in the range 1980-2020}
+  \item{\code{year_to}}{Integer values in the range 1981-2021}
   \item{\code{country_iso}}{ISO code of the country (e.g. "chl" means Chile)}
-  \item{\code{from}}{Integer values in the range 1980-2018}
-  \item{\code{to}}{Integer values in the range 1981-2019}
   \item{\code{gdp_deflator}}{Numeric value expressed as one plus 1-year deflator}
 }
 }

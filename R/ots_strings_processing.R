@@ -85,7 +85,7 @@ ots_commodity_code <- function(commodity = NULL, section = NULL) {
     if (commodity == "") {
       stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the commodities table provided within this package.")
     } else {
-      d <- tradestatistics::ots_commodities[grepl(commodity, tolower(commodity_fullname_english))]
+      d <- tradestatistics::ots_commodities[grepl(commodity, tolower(commodity_fullname_english)), c("commodity_code", "commodity_fullname_english")]
     }
   }
   
@@ -98,9 +98,7 @@ ots_commodity_code <- function(commodity = NULL, section = NULL) {
     if (section == "") {
       stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the commodities table provided within this package.")
     } else {
-      dg <- unique(tradestatistics::ots_commodities[, c("section_code", "section_fullname_english")])
-      
-      d <- dg[grepl(section, tolower(section_fullname_english))]
+      d <- tradestatistics::ots_sections[grepl(section, tolower(section_fullname_english))]
     }
   }
   
@@ -120,9 +118,17 @@ ots_commodity_code <- function(commodity = NULL, section = NULL) {
     if (commodity == "" | section == "") {
       stop("The input results in an empty string after removing multiple spaces and special symbols. Please check the spelling or explore the commodities table provided within this package.")
     } else {
-      d <- tradestatistics::ots_commodities[
-              grepl(commodity, tolower(commodity_fullname_english)) &
-              grepl(section, tolower(section_fullname_english))]
+      # d <- tradestatistics::ots_commodities[
+      #         grepl(commodity, tolower(commodity_fullname_english)) &
+      #         grepl(section, tolower(section_fullname_english))]
+
+      d <- merge(
+        tradestatistics::ots_commodities[
+          grepl(commodity, tolower(commodity_fullname_english))],
+        tradestatistics::ots_sections[
+          grepl(section, tolower(section_fullname_english))],
+        by = "section_code"
+      )
     }
   }
   

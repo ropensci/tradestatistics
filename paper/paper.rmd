@@ -1,0 +1,81 @@
+---
+title:"The Open Trade Statistics Database: Advancing Access to International Trade Data through Open Source Solutions"
+date: 2024-08-21
+author1: "Mauricio Vargas Sepúlveda (ORCID 0000-0003-1017-7574)"
+email1: m.sepulveda@mail.utoronto.ca
+affiliation11: Department of Political Science, University of Toronto
+affiliation12: Munk School of Global Affairs and Public Policy, University of Toronto
+output:
+  pdf_document:
+    latex_engine: pdflatex
+    template: "template.tex"
+    keep_tex: true
+bibliography: ../inst/references.bib
+csl: chicago.csl
+fontsize: 12pt
+linespacing: 1.5
+margin: 1
+paper: letterpaper
+customfonts: false
+sansserif: false
+amsthm: false
+outline: true
+---
+
+# Abstract
+
+The Open Trade Statistics (OTS) initiative was developed to democratize access
+to international trade data by providing downloadable SQL database dumps, a
+public API, a dashboard, and an R package for data retrieval. This project was
+born out of the recognition that many academic institutions in Latin America
+lack access to academic subscriptions and comprehensive datasets like the
+United Nations Commodity Trade Statistics Database (UN COMTRADE). The OTS
+project not only offers a solution to this problem regarding international trade
+data but also emphasizes the importance of reproducibility in data processing.
+Through the use of open-source tools, the project ensures that its datasets are
+accessible, flexible, and easy to use for research and analysis.
+
+# Introduction
+
+Access to reliable and comprehensive international trade data is critical for
+researchers, policymakers, and businesses. However, many institutions,
+particularly in Latin America, face challenges in accessing such data due to
+financial or institutional limitations. The Open Trade Statistics (OTS) project
+was created to address this gap by providing an alternative to the UN COMTRADE
+database. OTS offers curated datasets that are accessible to anyone, excluding
+commercial use, thereby lowering the barrier to working with international
+economic trade data.
+
+# Methodology
+
+The development of OTS involved several key steps. The project began with an
+in-depth analysis of existing trade data APIs to identify opportunities for
+creating a more flexible and user-friendly tool. The project then proceeded
+with cleaning @uncomtrade raw data with R and the Tidyverse [@base; @tidyverse],
+and then organizing it into a PostgreSQL database [@postgresql]. In order to
+ensure that the project was manageable and that all processes were reproducible
+and sustainable, the code was divided organizing into small GitHub repositories
+with clear documentation.
+
+# The Role of Open Source
+
+Central to the success of OTS is its reliance on open-source software. The project is built on a foundation of Ubuntu, PostgreSQL, and R, with a range of R packages used for data cleaning, database management, and visualization. These include `data.table`, `jsonlite`, `dplyr`, `tidyr`, `stringr`, and `janitor`, among others. The API was developed using the Plumber package in R, and the entire web service is hosted on a secure, open-source stack including nginx and Let’s Encrypt.
+
+#### Reproducibility and Community Contribution
+A critical aspect of the OTS project is its focus on reproducibility. By organizing the code and documenting every step, the project ensures that future users can easily understand and replicate the processes involved. The project also benefited significantly from the contributions of the rOpenSci community, whose thorough reviews and feedback led to substantial improvements in the API and the overall functionality of the project.
+
+#### Results and Discussion
+The OTS API and R package provide an efficient and user-friendly solution for retrieving international trade data. By comparing OTS with other existing tools, it is evident that OTS offers a more streamlined and accessible approach to data retrieval. For example, using the OTS API, users can easily obtain and manipulate trade data with just a few lines of R code. This simplicity, combined with the comprehensive documentation and examples provided, makes OTS a valuable resource for researchers and analysts.
+
+#### Conclusion
+The Open Trade Statistics project represents a significant advancement in the accessibility of international trade data. By leveraging open-source tools and focusing on reproducibility, OTS provides a sustainable and flexible solution for accessing and analyzing trade data. This project not only addresses the immediate needs of institutions lacking access to comprehensive datasets but also sets a precedent for future open-source initiatives in the field of economic data analysis.
+
+#### References
+1. Vargas Sepúlveda, M. (2019). Open Trade Statistics. Retrieved from [rOpenSci](https://ropensci.org/blog/2019/05/09/tradestatistics/). 
+
+2. UN COMTRADE. (n.d.). United Nations Commodity Trade Statistics Database. Retrieved from [UN COMTRADE](https://comtrade.un.org/).
+
+---
+
+This article format provides a clear, structured approach suitable for a scientific journal, emphasizing the methodology, open-source tools, and the impact of the OTS project on the accessibility of trade data.
+# References
