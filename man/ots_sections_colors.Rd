@@ -6,9 +6,9 @@
 \title{OTS Sections Colors}
 \format{
 A data frame with 22 rows and 2 variables
-\itemize{
-  \item{\code{section_code}}{Section code (e.g. '01')}
-  \item{\code{section_color}}{Section hex color (e.g. '#74c0e2')}
+\describe{
+  \item{\code{section_code}}{HS section code (e.g. '01')}
+  \item{\code{section_color}}{HS section color (e.g. '#74c0e2')}
 }
 }
 \source{

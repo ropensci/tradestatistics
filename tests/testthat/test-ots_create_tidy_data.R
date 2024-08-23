@@ -12,7 +12,7 @@ test_that("valid input + no cache = yr(p)(c) table", {
       years = 2002, reporters = "chl", partners = "arg", table = "yrpc"
     )
     expect_is(test_data, "data.frame")
-    expect_equal(ncol(test_data), 11)
+    expect_equal(ncol(test_data), 12)
     
     # Bilateral trade Chile-Argentina at aggregated level (2002)
     test_data <- ots_create_tidy_data(
@@ -26,7 +26,7 @@ test_that("valid input + no cache = yr(p)(c) table", {
       years = 2002, reporters = "chl", table = "yrc"
     )
     expect_is(test_data, "data.frame")
-    expect_equal(ncol(test_data), 9)
+    expect_equal(ncol(test_data), 10)
     
     # Chilean trade at aggregated level (2002)
     test_data <- ots_create_tidy_data(years = 2002, reporters = "chl", 
@@ -37,7 +37,7 @@ test_that("valid input + no cache = yr(p)(c) table", {
     # Commodity trade at aggregated level (2002)
     test_data <- ots_create_tidy_data(years = 2002, table = "yc")
     expect_is(test_data, "data.frame")
-    expect_equal(ncol(test_data), 7)
+    expect_equal(ncol(test_data), 8)
   })
 })
 
@@ -55,7 +55,7 @@ test_that("valid input + cache = yrpc table", {
       use_cache = TRUE, file = tempfile("data")
     )
     expect_is(test_data, "data.frame")
-    expect_equal(ncol(test_data), 11)
+    expect_equal(ncol(test_data), 12)
   })
 })
 
@@ -68,7 +68,7 @@ test_that("valid input + no cache + commodity filter = yrpc table", {
     )
     
     expect_is(test_data, "data.frame")
-    expect_equal(ncol(test_data), 11)
+    expect_equal(ncol(test_data), 12)
   })
 })
 
@@ -82,7 +82,7 @@ test_that("valid input + no cache + group filter = yrpc table", {
     )
     
     expect_is(test_data, "data.frame")
-    expect_equal(ncol(test_data), 11)
+    expect_equal(ncol(test_data), 12)
   })
 })
 

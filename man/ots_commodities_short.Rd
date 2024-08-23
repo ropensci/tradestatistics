@@ -6,11 +6,9 @@
 \title{OTS Commodities Short}
 \format{
 A data frame with 1,225 observations on the following 2 variables
-\itemize{
-  \item{\code{commodity_code}}{Code of every commodity (e.g. 010110)}
-  \item{\code{commodity_fullname_english}}{HS commodity names (e.g. 'Horses, asses, mules and hinnies; live, pure-bred breeding animals')}
-  \item{\code{section_code}}{Section code (e.g. 01)}
-  \item{\code{section_fullname_english }}{Section name (e.g. 'Live animals and animal products')}
+\describe{
+  \item{\code{commodity_code}}{HS four digits commodity code (e.g. 0101)}
+  \item{\code{commodity_fullname_english}}{HS four digits commodity names (e.g. 'Horses, asses, mules and hinnies; live')}
 }
 }
 \source{

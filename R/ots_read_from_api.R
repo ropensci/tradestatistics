@@ -28,9 +28,7 @@ ots_read_from_api <- function(year = NULL,
     "yrp" = sprintf("yrp?y=%s&r=%s&p=%s", year, reporter_iso, partner_iso),
     "yrc" = sprintf("yrc?y=%s&r=%s&c=%s", year, reporter_iso, commodity_code),
     "yr" = sprintf("yr?y=%s&r=%s", year, reporter_iso),
-    "yc" = sprintf("yc?y=%s&c=%s", year, commodity_code),
-    "rtas" = sprintf("rtas?y=%s", year),
-    "tariffs" = sprintf("tariffs?y=%s&r=%s&p=%s&c=%s", year, reporter_iso, partner_iso, commodity_code)
+    "yc" = sprintf("yc?y=%s&c=%s", year, commodity_code)
   )
 
   base_url <- "https://api.tradestatistics.io/"

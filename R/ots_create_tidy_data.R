@@ -47,7 +47,7 @@
 #' ots_create_tidy_data(years = 2002, reporters = "chl", commodities = "apple", table = "yrc")
 #' }
 #' @keywords functions
-ots_create_tidy_data <- function(years = 2019,
+ots_create_tidy_data <- function(years = 2020,
                                  reporters = "all",
                                  partners = "all",
                                  commodities = "all",
@@ -332,6 +332,12 @@ ots_create_tidy_data_unmemoised <- function(years = 2018,
                   all.x = TRUE, all.y = FALSE,
                   by.x = c("commodity_code", "section_code"), by.y = c("commodity_code", "section_code"),
                   allow.cartesian = TRUE)
+
+    data <- merge(data, tradestatistics::ots_sections,
+      all.x = TRUE, all.y = FALSE,
+      by.x = "section_code", by.y = "section_code",
+      allow.cartesian = TRUE
+    )
     
     data <- setnames(data, c("commodity_fullname_english", "section_fullname_english"), 
                      c("commodity_name", "section_name"))

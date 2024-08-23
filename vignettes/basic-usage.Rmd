@@ -101,7 +101,7 @@ The function `ots_country_code()` is used by `ots_create_tidy_data()` in a way t
 
 The end user can find a code or a set of codes by looking for keywords for commodities or groups. The function `ots_commodity_code()` allows to search from the official commodities and groups in the Harmonized system:
 ```{r commodity_code2}
-as_tibble(ots_commodity_code(commodity = " ShEEp ", section = " mEaT "))
+as_tibble(ots_commodity_code(commodity = " Horse ", section = " ANIMAL "))
 ```
 
 ## Trade data

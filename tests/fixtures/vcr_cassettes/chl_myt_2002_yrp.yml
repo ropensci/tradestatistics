@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.81.0 r-curl/5.0.0 crul/1.4.0
+      User-Agent: libcurl/7.81.0 r-curl/5.0.2 crul/1.4.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -17,7 +17,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.18.0 (Ubuntu)
-      date: Thu, 29 Jun 2023 22:51:41 GMT
+      date: Thu, 22 Aug 2024 20:41:12 GMT
       content-type: application/json
       transfer-encoding: chunked
       connection: keep-alive
@@ -27,5 +27,5 @@ http_interactions:
       file: no
       string: '[{"year":2002,"reporter_iso":"chl","partner_iso":"myt","observation":"No
         data available for these filtering parameters"}]'
-  recorded_at: 2023-06-29 22:51:41 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.9.0
+  recorded_at: 2024-08-22 20:41:12 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0

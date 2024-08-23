@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.81.0 r-curl/5.0.0 crul/1.4.0
+      User-Agent: libcurl/7.81.0 r-curl/5.0.2 crul/1.4.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -17,7 +17,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.18.0 (Ubuntu)
-      date: Thu, 29 Jun 2023 22:51:41 GMT
+      date: Thu, 22 Aug 2024 20:41:12 GMT
       content-type: application/json
       transfer-encoding: chunked
       connection: keep-alive
@@ -25,9 +25,9 @@ http_interactions:
     body:
       encoding: ''
       file: no
-      string: '[{"year":2002,"reporter_iso":"chl","trade_value_usd_imp":15383398153,"trade_value_usd_exp":17423088183}]'
-  recorded_at: 2023-06-29 22:51:42 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.9.0
+      string: '[{"year":2002,"reporter_iso":"chl","trade_value_usd_imp":4852991863,"trade_value_usd_exp":6209403846}]'
+  recorded_at: 2024-08-22 20:41:13 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
     uri: https://api.tradestatistics.io/yr?y=2002&r=arg
@@ -35,7 +35,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.81.0 r-curl/5.0.0 crul/1.4.0
+      User-Agent: libcurl/7.81.0 r-curl/5.0.2 crul/1.4.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -46,7 +46,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.18.0 (Ubuntu)
-      date: Thu, 29 Jun 2023 22:51:41 GMT
+      date: Thu, 22 Aug 2024 20:41:12 GMT
       content-type: application/json
       transfer-encoding: chunked
       connection: keep-alive
@@ -54,9 +54,9 @@ http_interactions:
     body:
       encoding: ''
       file: no
-      string: '[{"year":2002,"reporter_iso":"arg","trade_value_usd_imp":8989546000,"trade_value_usd_exp":25709371110}]'
-  recorded_at: 2023-06-29 22:51:42 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.9.0
+      string: '[{"year":2002,"reporter_iso":"arg","trade_value_usd_imp":4961344697,"trade_value_usd_exp":8520263167}]'
+  recorded_at: 2024-08-22 20:41:13 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
     uri: https://api.tradestatistics.io/yrp?y=2002&r=mex&p=usa
@@ -64,7 +64,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.81.0 r-curl/5.0.0 crul/1.4.0
+      User-Agent: libcurl/7.81.0 r-curl/5.0.2 crul/1.4.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -75,7 +75,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.18.0 (Ubuntu)
-      date: Thu, 29 Jun 2023 22:51:42 GMT
+      date: Thu, 22 Aug 2024 20:41:13 GMT
       content-type: application/json
       transfer-encoding: chunked
       connection: keep-alive
@@ -83,9 +83,9 @@ http_interactions:
     body:
       encoding: ''
       file: no
-      string: '[{"year":2002,"reporter_iso":"mex","partner_iso":"usa","trade_value_usd_imp":106899862231,"trade_value_usd_exp":137963057176}]'
-  recorded_at: 2023-06-29 22:51:42 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.9.0
+      string: '[{"year":2002,"reporter_iso":"mex","partner_iso":"usa","trade_value_usd_imp":103352303539,"trade_value_usd_exp":137489947084}]'
+  recorded_at: 2024-08-22 20:41:13 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
     uri: https://api.tradestatistics.io/yrp?y=2002&r=mex&p=can
@@ -93,7 +93,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.81.0 r-curl/5.0.0 crul/1.4.0
+      User-Agent: libcurl/7.81.0 r-curl/5.0.2 crul/1.4.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -104,7 +104,7 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.18.0 (Ubuntu)
-      date: Thu, 29 Jun 2023 22:51:42 GMT
+      date: Thu, 22 Aug 2024 20:41:13 GMT
       content-type: application/json
       transfer-encoding: chunked
       connection: keep-alive
@@ -112,6 +112,6 @@ http_interactions:
     body:
       encoding: ''
       file: no
-      string: '[{"year":2002,"reporter_iso":"mex","partner_iso":"can","trade_value_usd_imp":4479574474,"trade_value_usd_exp":3010074713}]'
-  recorded_at: 2023-06-29 22:51:42 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.9.0
+      string: '[{"year":2002,"reporter_iso":"mex","partner_iso":"can","trade_value_usd_imp":3127702740,"trade_value_usd_exp":2580061542}]'
+  recorded_at: 2024-08-22 20:41:13 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
