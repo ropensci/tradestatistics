@@ -17,3 +17,4 @@ vignettes/basic-usage_cache/
 dev
 ^CRAN-SUBMISSION$
 paper
+^cran-comments\.md$
