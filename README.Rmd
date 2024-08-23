@@ -12,12 +12,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-<p>
-  <a href="https://www.digitalocean.com/">
-    <img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" width="201px">
-  </a>
-</p>
-
 # Open Trade Statistics package <img src="svg/hexicon.svg" width=150 align="right" alt="sticker"/>
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
